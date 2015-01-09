@@ -1,0 +1,1 @@
+netstat -tupln -> show tcp/udp listening with program

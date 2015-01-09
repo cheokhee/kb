@@ -1,0 +1,29 @@
+#get info about filesystem (show cluster size)
+fsutil fsinfo ntfsinfo c:
+
+tree # show a tree of current directory
+
+driverquery #show drivers
+
+OPENFILES /query
+openfiles /local
+
+systeminfo
+
+#kill a program
+taskkill /im programname.exe /f
+
+netsh winhttp set proxy <YOUR PROXY SERVER>:<PORT> "<EXCLUSION LIST>"
+
+tasklist /svc
+
+#print CPU usage every second
+typeperf "\Processor(_Total)\% Processor Time"
+
+#print available memory every 5 second
+typeperf "\memory\Available Bytes" -si 5
+
+#computer management
+compmgmt.msc
+#disk management
+diskmgmt.msc

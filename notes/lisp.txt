@@ -1,0 +1,7 @@
+CL-USER> (do ((i 0 (+ 1 i))) ((> i 9)) (prin1 i))
+0123456789
+
+CL-USER> (apply #'abs '(-4))
+4 “remark: same as (abs -4)
+CL-USER> (mapcar #'abs '(3 -4))
+(3 4)

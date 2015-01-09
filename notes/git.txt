@@ -1,0 +1,1181 @@
+blob: store the contents of a file
+tree: represent the contents of a directory
+commit obj: link the physical state of a tree with a description of how we got there and why
+
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+git log -1: show last commit
+git log --stat
+git log -p : show the difference introduced in the commit
+
+git show --stat --> has the same output as git log --stat
+
+HEAD: current branch
+since "HEAD" refers to the most recent commit in the current branch, "HEAD~", refers
+ to the previous commit, and "HEAD~2" refers to two commits back in the history.
++++
+The Index is your next proposed commit.
+
+#cloning a tagged version
+git clone /path/to/project/ /destination/path v1.0a
+
+git --bare init --shared
+
+git commit -a same as git commit --amend
+
+$ git show HEAD^  # to see the parent of HEAD
+$ git show HEAD^^ # to see the grandparent of HEAD
+$ git show HEAD~4 # to see the great-great grandparent of HEAD
+
+--destructive: git reset --hard and git checkout filename
+
+unstage:
+"git reset file.txt" is equivalent to "git reset --mixed HEAD file.txt"
+
+git reset:
+--soft : move the HEAD
+--mixed: (default) make the index look like the HEAD
+--hard: make the working directory look like the index
+
+if your working directory or staging area has uncommitted changes that conflict with
+ the branch you're checking out, Git won't let you switch branches.
+
+reset: move the branch HEAD points to,
+checkout : moves HEAD itself to point to another branch.
+
+git rebase --continue
+
+git show 73d2ed:2010/MyPicks.txt #show the file of a particular commit
+
+#show file stats that don't show up under --name-status (this happens to merge commit)
+git show --stat 16eade6a501291630d2bde0e1edc9bdba50978fe
+
+git stash save
+git stash pop
+
+git rm 2010/HerPicks.txt #remove a file and remove it from source control
+git rm --cached MyPicks.txt # remove from source control only
+
++++++++++history +++++++++++
+git log #show commit log
+git log --oneline #show commit log in oneline and abbreviated SHA
+git log -- 2010/HisPicks.txt #show history of a file
+git log --pretty=oneline 2010/MyPicks.txt #show history of a file, one per line
+git log --grep=South #show logs where the commit message contains the string "South"
+
+git show -s 882c66e841d19d273ae0876f4f9bd33d4193d381  #do not show diff of commit obj
+git show -s --pretty=raw 882c66e841d19d273ae0876f4f9bd33d4193d381 #commit object
+	commit 882c66e841d19d273ae0876f4f9bd33d4193d381
+	tree 9c0f3681c52cd6b8eff44b13684bd43cbb512ed3
+	parent ff7d43dc005ca8e394ecd93cd96553c327e0fbcf
+	author Cheok Hee <cheok.hee@oocl.com> 1291314311 -0800
+	committer Cheok Hee <cheok.hee@oocl.com> 1291314311 -0800
+		<comment>
+
+a commit is defined by a tree (representing the contents of a directory at a certain time)
+parent commit, author, commiter, comment
+
+git show --name-only 882c66e841d19d273ae0876f4f9bd33d4193d381 #show names of changed files only in commit obj
+git show --name-status 882c66e841d19d273ae0876f4f9bd33d4193d381 #show name and status of file in commit
+	status: A: added, C: copied, D: deleted, M: modified, R: renamed
+
++++++++++++++++
+
+git ls-tree 09df6d65664b9193914576c7da35aeff55cc7e56  #show contents of tree object
+git show SHA-of-blob # show contents of the file
+
+pull == fetch and merge
+
+# cloning gets all branches as well
+git branch -r # show remote branches
+output:
+ origin/HEAD -> origin/master
+ origin/branch1
+ origin/master
+
+1.6.5 only ->
+	"git checkout -b Domain_Partitioning origin/Domain_Partitioning"
+	Switched to a new branch 'Domain_Partitioning'
+	Branch Domain_Partitioning set up to track remote branch Domain_Partitioning from origin.
+1.7.0.2 -> do "git checkout Domain_Partitioning"
+	Branch Domain_Partitioning set up to track remote branch Domain_Partitioning from origin.
+
+conclusion: if origin is not on master branch, all cloned rep start on non-master branch.
+
+submodule: A link to another repository as a folder
+Submodules allow foreign repositories to be embedded within a dedicated subdirectory of the source tree, always pointed at a particular commit.
+submodule support allows a repository to contain, as a subdirectory, a checkout of an external project.
+allows you to attach an external repository inside another repository at a specific path.
+in super
+git submodule add /c/GitWorkspace/a.git a
+git submodule init
+git submodule update
+git submodule update --init #combine previous two steps
+
+# git daemon in cygwin
+cygrunsrv --install gitd --path /usr/bin/bash.exe --args "c:/cygwin/usr/bin/gitd" --desc "Git Daemon" --neverexits --shutdown
+
+cygrunsrv --start gitd
+
+cygrunsrv --remove gitd
+
+#check your access
+ssh git@sntgit
+
+cannot do push or pull in bare repository
+
+git push origin master:master
+git fetch origin +refs/heads/IR4_Phase1:refs/remotes/origin/IR4_Phase1
+
+#when a tag and a branch has the same name:
+git push origin refs/heads/IRIS4_R17.1.1_POST:refs/heads/IRIS4_R17.1.1_POST
+git push central refs/heads/IRIS4_R17.1.1_POST:refs/heads/IRIS4_R17.1.1_POST
+
+#delete a branch (feature1) on remote repo
+git push origin :feature1
+To c:/GitWorkspace/NFLPicks_bare
+ - [deleted]         feature1
+
+#delete a remote tag
+git push origin :refs/tags/v1.1
+#or
+git push origin :v1.0
+#if the tag name is
+
++++++++++++++++++++++++++++++++++++
+
+stash: save all your uncommitted changes and go back to the most recent commit (a clean working directory)
+git stash #stash your changes
+git stash list #list stashes
+git stash apply #apply last stash , keep stash on list
+git stash pop #like apply , but remove stash from list
+git stash clear
+
+++++++++++
+
+search for a string
+git grep <string>
+
+configuration:
+for each user: $HOME/.gitconfig
+for each repository: .git/config in each repository
+system-wide: C:\Program Files\Git\etc\gitconfig
+
+in system wide file
+	autoCRLF = input #checkout as-is, commit unix style
+	autoCRLF = true #checkout windows style, commit unix style
+	autoCRLF = false #checkout and commit as-is
+
+history in GitExtension (registry):
+HKEY_CURRENT_USER\Software\GitExtensions\GitExtensions\1.0.0.0\history
+
+HKEY_USERS\S-1-5-21-2065039802-622210664-899889007-107368\Software\GitExtensions\GitExtensions\1.0.0.0\history
+
+git remote add GSP_Central git@sntgit:iris4_gsp.git
+
+To ignore uncommitted changes in a file that is already tracked, use git update-index --assume-unchanged.
+
+To stop tracking a file that is currently tracked, or
+keep the file in your working tree but remove it from your staging area.
+ 	==> use git rm --cached.
+
+++++++++++++++
+"in a bare repo: rollback to a particular commit"
+git reset --soft 91346fe
+
+different approach:
+
+Rename your current master branch: git branch -m crazyexperiment
+
+Check out your good commit: git checkout 0ab9749
+output:
+   Note: moving to '0ab9749' which isn't a local branch
+   If you want to create a new branch from this checkout, you may do so
+   (now or later) by using -b with the checkout command again. Example:
+     git checkout -b <new_branch_name>
+   HEAD is now at 0ab9749... initial
+
+   at this point: $ git branch
+		   * (no branch)
+
+Make your new master branch here: git checkout -b master
+
+then delete: git branch -D crazyexperiment
+
+git branch -v : show branch with head
+git branch -vv: show branch with head, also show upstream branch
+
+git checkout 78cab90 2010/MyPicks.txt
+	check out a file as it was in another commit
+
+git diff: show unstaged differences
+git diff --staged: show staged differences
+
++++++++++++
+$ git log --pretty=format:"%h - %an, %ar : %s"
+ca82a6d - Scott Chacon, 11 months ago : changed the version number
+085bb3b - Scott Chacon, 11 months ago : removed unnecessary test code
+a11bef0 - Scott Chacon, 11 months ago : first commit
+
+format:
+Option	Description of Output
+%H	Commit hash
+%h	Abbreviated commit hash
+%T	Tree hash
+%t	Abbreviated tree hash
+%P	Parent hashes
+%p	Abbreviated parent hashes
+%an	Author name
+%ae	Author e-mail
+%ad	Author date (format respects the date= option)
+%ar	Author date, relative
+%cn	Committer name
+%ce	Committer email
+%cd	Committer date
+%cr	Committer date, relative
+%s	Subject
+
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+
+git mergetool
+git branch --merged -> show branches that have been merged into the current branch
+git branch --no-merged
+
+Branches, remote-tracking branches, and tags are all references to commits.
+All references are named with a slash-separated path name starting with "refs";
+
+Checking out a local branch from a remote branch automatically creates what is called a tracking branch.
+Tracking branches are local branches that have a direct relationship to a remote branch.
+++++
+If you're on a tracking branch and type git push, Git automatically knows which server and branch
+ to push to. Also, running git pull while on one of these branches fetches all the remote references
+ and then automatically merges in the corresponding remote branch.
+
+$ git rebase origin/master
+
+git ls-remote origin
+
+#show the branches that contain a commit
+git br --contains 744955f
+#show the branches that contain a commit, include remote-tracking branches
+git br -a --contains b2ac956
+#show the remote-tracking branches that contain a commit
+git br -r --contains b2ac956
+
+#show diff between two commits
+git diff ac88b36 68ebc6e IRIS4_SHP_DMN/war_file/src/com/oocl/ir4/shp/model/Shipment.java
+
+#Lists commit objects in reverse chronological order
+git rev-list df59479
+
+#show the commit pointed to by a brance
+git rev-parse branchName
+
+HEAD^ : parent of head
+HEAD^2: second parent of HEAD (useful for merge commit)
+
+HEAD~ and HEAD^ are equivalent
+HEAD~2 : the parent of the parent, equivalent to HEAD^^
+HEAD~3 and HEAD^^^ are equivalent
+
+git log -g : walk the reflog
+
+#reflog: That shows you where the branch tip was yesterday.
+git show master@{yesterday}
+
+reflog : a log of where your HEAD and branch references have been for the last few months.
+Every time your branch tip is updated for any reason, Git stores that information for you in this temporary history.
+It's important to note that the reflog information is strictly local: it is a log of what you've done in your repository.
+
+#show commits in branch1 that are not in branch2
+git log branch1 ^branch2
+
+#show all commits that are reachable from refA or refB but not from refC
+git log refA refB ^refC
+
+git config --global core.excludesfile
+
+#do a merge without replaying the commits from the remote branch
+#end result: git diff HEAD^ HEAD --> no difference
+git merge -s ours branchName
+
+git merge --abort
+
+#do a merge, if there is a conflict pick their version (does not work)
+git merge -s theirs mergeTest
+
+#git attributes
+git check-attr merge MyPicks.txt
+MyPicks.txt: merge: ours
+
+refspec : used by fetch and push
+    A "refspec" is used by fetch and push to describe the mapping between remote ref and local ref.
+They are combined with a colon in the format <src>:<dst>, preceded by an optional plus sign, +.
+For example: git fetch $URL refs/heads/master:refs/heads/origin means "grab the master branch head
+from the $URL and store it as my origin branch head". And git push
+$URL refs/heads/master:refs/heads/to-upstream means "publish my master
+branch head as to-upstream branch at $URL".
+++++
+The format of the refspec is an optional +, followed by <src>:<dst>, where <src> is the pattern
+ for references on the remote side and <dst> is where those references will be written locally.
+ The + tells Git to update the reference even if it isn't a fast-forward.
+=======
+fetch = +refs/heads/*:refs/remotes/origin/*
+fetches all the references under refs/heads/ on the server and writes them to refs/remotes/origin/ locally.
+
+git co -t origin/IR4_Phase2_DMN --> same as git co IR4_Phase2_DMN origin/IR4_Phase2_DMN
+
+$ git name-rev --tags ec3ddb6
+ec3ddb6 tags/IRIS_R17.0.2^2^2~4  # means the commit is 4 commits before the tag
+
+#show which commit and author last modified each line of a file
+git blame 2010/MyPicks.txt
+#blame output:
+^abe34f : this line was in the file's original commit, meaning the line is unchanged since creation
+
+git add -p -> stage parts of a file
+
+#binary search
+git bisect start
+git bisect bad
+git bisect good <tag>
+git bisect reset
+
+#shows you all objects that aren't pointed to by another object:
+git fsck --full
+dangling blob d670460b4b4aece5915caf5c68d12f560a9fe3e4
+dangling commit ab1afef80fac8e34258ff41fc1b867c702daa24b
+dangling tree aea790b9a58f6cf6f2804eeac9f0abbe9631e4c9
+dangling blob 7108f7ecb345ee9d0084193f147cdad4d2998293
+
+#to temporarily ignore changes in a certain file
+git update-index --assume-unchanged  <file>
+#undo previous command
+git update-index --no-assume-unchanged <file>
+
+#show commits that have not been pushed to origin
+git log ^HEAD origin
+
+#show where the head was 7 days ago
+git show "HEAD@{7 days ago}" same as git show "@{7 days ago}"
+
+#show where the head was yesterday
+git show @{yesterday}
+
+#triple dot
+$ git lg --left-right origin/CACHE_ENABLED...central/IRIS4_R17.1_POST
+<a3ae18d updated domain mappings (TimeZone change)
+#this means : a3ae18d is in origin/CACHE_ENABLED, but not in central/IRIS4_R17.1_POST
+
+#set up existing branch to track a remote branch
+git branch --set-upstream IRIS4_R17.1.1_POST central/IRIS4_R17.1.1_POST
+
+#show the diff between current snapshot and the index
+git diff --staged readme.txt
+#show the diff btw index and working directory
+git diff readme.txt
+#show the diff between working directory and current snapshot
+git diff HEAD
+
+Conclusion: checkout makes the working directory look like the index
+
+$ git reset --hard readme.txt
+fatal: Cannot do hard reset with paths.
+
+#need to unstage and then checkout the file to get back what is in the snapshot
+
+a reference: a file that contains a SHA-1 value
+
+The HEAD file is a symbolic reference to the branch you're currently on. By symbolic reference, I mean that unlike a normal reference, it doesn't generally contain a SHA-1 value but rather a pointer to another reference.
+
+A symbolic ref is a regular file that stores a string that begins with ref: refs/. For example, your .git/HEAD is a regular file whose contents is ref: refs/heads/master.
+
+To change the .git/HEAD, use the symbolic-ref command
+
+#change branch in a bare repo
+git symbolic-ref HEAD refs/heads/test
+
+#low-level way to create a branch: equivalent to "git branch mytest 1bb144f"
+git update-ref refs/heads/mytest 1bb144f
+#if the branch already exists, then it will update its head
+
+#low-level way to remove a branch
+git update-ref -d refs/heads/blah
+
+git config --system receive.denyNonFastForwards true
+git config --system receive.denyDeletes true
+
+git repo-config receive.denyNonFastForwards true
+
+C:\Program Files\Git\etc\git-completion.bash
+	display prompt like this: HEECH@HEECH-W7 /d/gitvob/iris4_gsp ( IR4_Phase2_PRS )
+	line 175:
+		old: printf " (%s)" "$c${b##refs/heads/}$w$i$s$u$r"
+		new: printf " ( %s )" "$c${b##refs/heads/}$w$i$s$u$r"
+C:\Program Files\Git\etc\profile
+
+The prompt: PS1 calls the __git_ps1 function, which is defined in git-completion.bash
+
+#find common ancestor
+git merge-base master IRIS4_2011RC3
+
+echo hi |git hash-object --stdin
+
+git cat-file -p 008215b51cdb18d083d05c39b7054faf584f528a
+
+git ls-tree master or git ls-tree master .
+git ls-files
+
+#if the history looks like this:
+eb5ceff change to chief
+d259773 Merge branch 'mergeTest'
+26f22bf change to ravens
+
+git format-patch d259773 # produces: for use with git apply
+0001-change-to-chief.patch
+
+git format-patch bc64784 is equivalent to git format-patch bc64784..HEAD
+
+#put all patches into one file, master is the same as master..HEAD
+git format-patch master --stdout > my.patch
+
+#get patch for just one commit
+# commit 6cb1443: Change fetch type from LAZY to EAGER
+$ git format-patch 6cb1443^..6cb1443
+--> 0001-Change-fetch-type-from-LAZY-to-EAGER.patch
+
+# apply patch
+# does not commit. only working tree is updated.
+git apply 0001-R19.2-SHP-Model-change.patch
+# or do this to update working tree and index
+git apply --index 0001-add-patriots.patch
+
+#diff btw apply and am: apply does not commit, am commits?
+#am is more strict (am can fail where apply succeeds
+#OR do this: git am --whitespace=fix 0001-add-patriots.patch
+$ git am 0001-add-patriots.patch
+Applying: add patriots
+error: patch failed: HisPicks.txt:1
+error: HisPicks.txt: patch does not apply
+Patch failed at 0001 add patriots
+When you have resolved this problem run "git am --resolved".
+If you would prefer to skip this patch, instead run "git am --skip".
+To restore the original branch and stop patching run "git am --abort".
+----
+a new dir is created: .git/rebase-apply/
+----> do this
+git apply .git/rebase-apply/patch --reject
+OR
+git apply .git/rebase-apply/0001 --reject
+#this will apply whatever is applicable, rejected hunks will be placed in *.rej files
+#edit files manually and add them to index
+#then do this: this will create commits
+git am --resolved
+
+git whatchanged
+git diff-tree
+
+git config --system gc.reflogexpire never
+git config --unset gc.reflogexpire
+
+gc.pruneExpire -> default to 2 weeks
+gc.reflogExpireUnreachable -> default is 30 days
+gc.reflogExpire -> default is 90 days
+
+core.logallrefupdates=true
+receive.denynonfastforwards=true
+receive.denydeletes=true
+
+git show $(git merge-base master IR4_Phase2_DMN)
+same as git show `git merge-base master IR4_Phase2_DMN`
+
+git reflog --date=local
+git reflog --date=local --all
+git reflog --date=relative
+
+git reflog show master
+git reflog show foo
+git reflog show master --date=local
+
+branch rename:
+fe3b9ae bnother@{Thu Sep 15 21:25:05 2011}: Branch: renamed refs/heads/another to refs/heads/bnother
+fe3b9ae bnother@{Sat Jun 18 22:41:10 2011}: commit: delete herpicks from index
+
+branch delete: reflog is deleted as well.
+
+git commit --allow-empty -m "initial"
+
+#find out about new and deleted files between two commits
+#the first commit should be the older one, the second one should be the newer commit
+git diff-tree --summary 2190315 07a3433
+ create mode 100644 Data/DBSchema/DataMigration/SHP/delete_rbq_data.sql
+ delete mode 100644 Data/DBSchema/IRIS4/Triggers/EVGTriggers/SHP/LOGTRIG_SHP_SHIPMENT.SQL
+
+git cat-file -p master^{tree}
+--> master^{tree} -> returns the sha of the tree pointed to by master
+
+$ git cat-file -t master^{tree}
+tree
+
+#compare 2 branches:
+[ `git rev-parse blah` == `git rev-parse origin/blah` ]
+echo $?
+	if 0, same
+	if 1, not same
+
+compare two branches:
+$ git diff --name-only blah origin/another
+2010/HerPicks.txt
+2010/HisPicks.txt
+2010/MyPicks.txt
+
+git diff --name-only blah origin/blah
+
+# --shortstat and --summary : most useful
+
+#useful
+git diff --shortstat blah origin/another
+ 2580 files changed, 215016 insertions(+), 169397 deletions(-)
+
+git diff --summary blah origin/another
+ delete mode 100644 2010/HerPicks.txt
+
+git diff --stat blah origin/another
+
+$ git shortlog
+Cheok Hee (13):
+      Initial commit
+      Add NFC east
+      Add NFC South
+      Add HisPicks
+      Add Vikings
+      Added HerPicks.txt
+      Removed HerPicks.txt
+
+#create archive
+git archive --format=tar --output=/d/temp/blah.tar HEAD
+
+#Show the most recent tag that is reachable from a commit (past tag)
+#tell you where a commit is relative to a past tag
+$ git describe --all
+heads/IRIS4_2011RC3
+
+$ git describe --all 9275dedad7fcf2003bae20690dc10352d30151a9
+tags/IRIS4_R17.1
+
+$ git describe --tags
+v1.1-5-gfe3b9ae # I am at the 5th commit after the v1.1 tag, ignore the g
+
+$ git describe --contains 5e02b33  #look at future tag
+# same as git name-rev --tags 5e02b33 #tell you where a commit is relative to a future tag
+v1.0~2
+
+#examples:
+$ git describe --all 1dbfb32 #2 commits after v1.0 tag (at the 2nd commit after tag)
+tags/v1.0-2-g1dbfb32
+
+$ git describe --all --contains 1dbfb32 #1 commit after v1.1 tag (at the 1st commit before tag)
+tags/v1.1~1
+
+#show commits in HEAD that are not in master
+git cherry -v master same as "git cherry -v master HEAD" -> show oldest commit first
+--> same as git log ^master HEAD
+--> useful when you want to see what is in second branch, but not in the first branch
+
+$ git cherry master
+- 31e27cc5bf02c7b145340a13c9874f729e5bec01
++ 9cf4af52e76adec45a5d63317bce344609406e89
+
+A line that is prefixed with a + is a change that is in the current branch and does
+ not have an equivalant changeset in the upstream branch (master in this case). A
+line that is prefixed with a - is a change that does have an equivalant changeset
+ in the upstream, regardless of whether or not their commit hashes are different.
+++
+--> all shows commits are in second branch, but not in first branch.
+--> pay attention to + sign, it means NO equivalent changeset.
+--> - sign: has equivalent changeset.
+git cherry will let you easily see which patches have been applied and which haven't.
+++++
+git cherry -v SHP_2012RC1 SHP_R18.1.1
+- d64b428282f8df71b97818a3283a6b31c07225af Config change for 17.3.1.  Re-enable CBA ws call.
++ b19fe8f7ef989966c6c29dbed13b985392d981f4 For PCM IB, Added AppLockID and changed ActAlertRequestID format
+===
+means:
+- d64b428282f8df71b97818a3283a6b31c07225af : in SHP_R18.1.1, not in SHP_2012RC1, but have equivalent changeset.
++ b19fe8f7ef989966c6c29dbed13b985392d981f4:  in SHP_R18.1.1, not in SHP_2012RC1, no equivalent changeset
+--> all the shown commits are in the SECOND branch (SHP_R18.1.1)
+
+#show word difference
+git show --color-words
+
+#Disable how to stage/unstage/add hints given by git status:
+git config --global advice.statusHints false
+
+#Allow git diff to do basic rename and copy detection:
+git config --global diff.renames copies
+
+#this line returns nothing because SHP_R17.2.0.1 is based on R17.2_POST
+git diff SHP_R17.2.0.1...R17.2_POST
+
+#show how SHP_R17.2.0.1 has changed since created from R17.2_POST
+git diff R17.2_POST...SHP_R17.2.0.1
+
+#to compare  what dev has changed since your branches diverged.
+git diff master...dev
+
+#in general:
+git diff baseline_branch...new_branch
+
+git log --oneline --before={3.weeks.ago} --after={2010-04-18} --no-merges
+
+#if we wanted to find which commits modified anything that looked like the function name userformat_find_requirements',
+git log -Suserformat_find_requirements
+
+# how to get different author date and commit date
+known scenarios: rebase, amend commit, cherry-pick
+
+reflog show rebase and amend commit
+reflog does not indicate cherry-pick, just shows a regular commit
+
+git show-branch:
+example #1:
+* [another] delete herpicks from index
+ ! [blah] add KC
+  ! [master] add indy to hers
+---
+ +  [blah] add KC
+  + [master] add indy to hers
+  + [master^] change to Packers
+  + [master~2] change my picks
+*   [another] delete herpicks from index
+*   [another^] change his picks
+*   [another~2] change my picks
+* + [master~3] add AFC south to HisPicks
+*++ [blah^] Add NFC west
+--> * mean current branch
+--> column 1 refers to another, column 2 refers to blah, column 3 refers to master
+--> the "Add NFC west" commit is in all 3 branches
+$ git show-branch
+! [another] delete herpicks from index
+ ! [blah] add KC
+  * [master] add indy to hers
+---
+ +  [blah] add KC
+  * [master] add indy to hers
+  * [master^] change to Packers
+  * [master~2] change my picks
++   [another] delete herpicks from index
++   [another^] change his picks
++   [another~2] change my picks
++ * [master~3] add AFC south to HisPicks
+++* [blah^] Add NFC west
+--> Merge commits are denoted by a - sign
++++
+$ git show-branch  --sha
+! [another] delete herpicks from index
+ ! [blah] add KC
+  * [master] add indy to hers
+---
+ +  [0a55af2] add KC
+  * [5a364ed] add indy to hers
+  * [4155a45] change to Packers
+  * [8a42f37] change my picks
++   [fe3b9ae] delete herpicks from index
++   [36c0d33] change his picks
++   [813ab21] change my picks
++ * [0dc7dea] add AFC south to HisPicks
+++* [78cab90] Add NFC west
+
+tree-ish :    A ref pointing to either a commit object, a tree object, or a tag
+
+unreachable object:     An object which is not reachable from a branch, tag, or any other reference.
+
+dangling object:     An unreachable object which is not reachable even from other unreachable objects; a
+    dangling object has no references to it from any reference or object in the repository.
+
+ref: A 40-byte hex representation of a SHA1 or a name that denotes a particular object.
+
+merge commit:
+	first parent: point to current branch during merge
+	second parent: point to the other branch
+
+#
+$ git ls-files -u #show unmerged files, stage 1: common ancestor, stage 2; current branch, stage 3: remote branch
+100644 c01674c8226c8a84998b4628ac7aee88fe6973b0 1       file.txt
+100644 56e249dfab725d36da65a082bf5bd93f569554a9 2       file.txt
+100644 22023ba2f7a285e4ba1750e09adca8d807daf9a7 3       file.txt
+$ git ls-files -s #show staged contents , stage 0 is normal
+100644 495181cc2521585811d0963c45548eca9957c026 0       file1.txt
+100644 a1413a4ae95afa247b8caf8fe01f3a153622fe1f 0       file2.txt
+$ git ls-files -m #show modified files
+file2.txt
+$ git ls-files -o #show untracked files
+file3.txt
+
+fast-forward push: every commit on the remote server is also on the local machine.
+forced push: some commit on the remote server is not on the local machine.
+
+git show ad30661 2010/HisPicks.txt
+
+git tag --contains c084746
+
+#compute SHA1 code for a patch (diff)
+#the first value is the SHA1 code of a patch
+#the second value is the SHA1 code of a commit
+#if the first values are the same, then same change set
+$ git show 5561607 99bd63e |git patch-id
+e3f6db082cb30c54e388b890105d27e0031ba217 5561607579ca0262e615bab10f38e2e8c91ca01a
+ac38c72434d06c229c8bec8d7190b07961236d33 99bd63e7729af92bee7cba00f813cb4c0f1f4d17
+
+OR:
+
+$ git show 99bd63e bb018e3 | git patch-id
+ac38c72434d06c229c8bec8d7190b07961236d33 99bd63e7729af92bee7cba00f813cb4c0f1f4d17
+ac38c72434d06c229c8bec8d7190b07961236d33 bb018e321aae0cfe053c3037055cba3c9dd7fca8
+
+#prune unpacked objects
+git prune
+git for-each-ref
+git fsck --full
+git fsck --unreachable
+git repack -a -d -l
+git gc --prune=now
+git count-objects -v
+git filter-branch  #let you rewrite branches
+git verify-pack -v .git/objects/pack/pack-4ad3c333dc82e271c7feea47693ab3368a564842.idx
+git pack-refs --all # pack everything
+git pack-objects
+git reflog expire [--expire=<time>] [--expire-unreachable=<time>] [--all] <refs>..
+#example:
+git reflog expire --expire=now <branch-name>
+git reflog expire --expire=now --all
+
+#housekeeping
+do:
+git count-objects -v
+git reflog expire --all
+git gc #only prune objects older than 2 weeks
+git prune -v #this will prune all unreachable objects
+git count-objects -v
+--end of do
+#in general, no need to use git repack yet?
+git fsck --full --unreachable
+
+git-prune-packed - Remove extra objects that are already in pack files
+##!! git gc will unpack objects that have become unreachable and were currently in packs.
+equivalent commands: reachable from refB, but not from refA
+git log refA..refB  <==> git log ^refA refB
+
+triple dot: show all the commits reachable by either ref, but not by both of them
+git log master...experiment
+
+how git calculates sha1 of a file:
+sha1("blob " + filesize + "\0" + data)
+This is why git hash-object returns a a different hash from "openssl sha1 <filename>"
+#proof:
+$ echo -en "blob 5\0hello" | openssl sha1
+b6fc4c620b67d95f953a5c1c1230aaab5db5a1b0
+$ echo -n "hello" | git hash-object --stdin
+b6fc4c620b67d95f953a5c1c1230aaab5db5a1b0
+$ echo -en "blob 5\0hello" | sha1sum
+b6fc4c620b67d95f953a5c1c1230aaab5db5a1b0 *-
+
+what is inside the .git directory:
+COMMIT_EDITMSG : the last commit message
+FETCH_HEAD : The SHAs of branch/remote heads that were updated during the last fetch
+ORIG_HEAD : When doing a merge, this is the SHA of the current branch
+MERGE_HEAD : When doing a merge, this is the SHA of the remote branch
+
+--during merge
+git checkout --ours index.html #checkout stage #2 (ours)
+git checkout --theirs index.html #checkout stage #3 (theirs)
+git checkout -m index.html # recreate the original conflicted merge result:
+example:
+<<<<<<< ours
+NFC East: eagles
+=======
+NFC East: skins
+>>>>>>> theirs
+end example
+
+$ git checkout HisPicks.txt
+error: path 'HisPicks.txt' is unmerged
+
+if unmerged, get this error:
+$ git commit
+HisPicks.txt: needs merge
+HisPicks.txt: unmerged (6e3c5c5d3e6f8298a4ad8988c852458150c7032c)
+HisPicks.txt: unmerged (abc8888b654004b33b774b50e23f6c4fe735a176)
+HisPicks.txt: unmerged (58bae9d2b5e5aef0ce40a837e6ba98d354d8f387)
+error: Error building trees
+
+# need to do : git add HisPicks.txt
+
+$ git show-ref
+f65cc9d5eab8e477224f7b20b4b83b1286083819 refs/heads/master
+f65cc9d5eab8e477224f7b20b4b83b1286083819 refs/remotes/origin/master
+
+#if merge conflict:
+$ git ls-files -u
+100644 c51314b62e60901d0ce81956610f452c32e8be29 1       MyPicks.txt
+100644 84d60b56d317919698494dc45cb60804bde5fec7 2       MyPicks.txt
+100644 3cc1a67c19f9924ce77cf09fc9ff5544b25875d7 3       MyPicks.txt
+
+stage #1: common ancestor
+stage #2: my version
+stage #3: remote version
+
+#git status:
+# Unmerged paths:
+#       both modified:      HisPicks.txt
+
+#add files to a commit
+git commit --amend -C HEAD  # -C HEAD means reuse the commit message of HEAD
+
+#create a commit the hard way
+1. update the index (new blob objects are created)
+2. git write-tree #Create a tree object from the current index, the SHA-1 of the tree is returned
+3. echo "commit msg" | git commit-tree sha-of-tree -p <parent commit sha>
+
+#Creates a new commit object based on the provided tree object and emits the new commit object id on stdout.
+#MUST provide parent commit, otherwise no parent!!
+git commit-tree <tree> [-p <parent commit>]
+echo "dnd test" | git commit-tree HEAD^{tree} -p 57ff489e
+
+#find all files touched by a user:
+git log --author=cheok --name-status |sed -n '/^[ADM]\t/p' #the sed in git bash does not work correctly
+so write to a file, then cat file |sed -n '/^[ADM]\t/p'
+
+detached HEAD: it means the .git/HEAD file contains a SHA-1, not a symbolic reference
+
+#how to include another repository into an existing repository?
+#1: submodule
+#2: subtree merge : merge another repo into an existing repo as a subdirectory
+
+example: parent: NBAPicks, subtree: NFLPicks
+1. git remote add -f nfl ../NFLPicks
+2. git merge -s ours --no-commit nfl/master
+3. git read-tree --prefix=nfl -u nfl/master
+4. git commit
+
+result:
+0ee28b0 merge NFL (from NBA)
+94180cb add lakers (from NBA)
+fcc95b5 initial (from NBA)
+90556ca add blah (from NFL)
+3c916a7 add eagles (from NFL)
+a59b947 add cowboys (from NFL)
+
+#update:
+if the original NFLPicks repo changes, you can pull in changes:
+#in NBLPicks:
+git pull -s subtree nfl master
+
+result:
+
+43762cc Merge branch 'master' of ../NFLPicks
+71e36cc add new in NFL (from NFL)
+0ee28b0 merge NFL (from NBA)
+94180cb add lakers (from NBA)
+fcc95b5 initial (from NBA)
+90556ca add blah (from NFL)
+3c916a7 add eagles (from NFL)
+a59b947 add cowboys (from NFL)
+
+#
+[gc]
+    reflogExpire = 300 days  # default: 90 days
+    reflogExpireUnreachable = 200 days #default: 30 days
+    pruneExpire = 90 days #default: "2 weeks ago"
+
+date format:
+git log --since=3.weeks.ago --before="2012-05-22"
+
+# given a commit, find out whether a branch has the equivalent change set.
+#first: get patch-id of the commit; then do this:
+git rev-list HEAD | awk '{printf("git show %s | git patch-id | grep 96ab965e8f\n",$1)}'| sh
+
+A commit represents a snapshot of all the files. It does not know which file has been changed.
+Git finds out which file has been changed by comparing a commit against its parent.
+
+when you do git log Data/wsdls/WLS_DOM_SHP/GetShipmentSVC.wsdl.app
+Starting from the tip of the branch, git looks at commits where the file has
+been changed compared to the commit's parent.
+Git looks at commits in topological order, not reverse chronological order.
+topological order: breadth first: descendants are examined first before their parents.
+
+comparing merge commit against its parents:
+1st parent is the current branch during merge.
+1st parent against merge: has diff: traverse to 2nd parent
+2nd parent againt merge: no diff
+that means the merge takes the changes from 2nd parent.
+therefore, git traverses to the second parent when showing change history of a file.
+--> second possibility:
+1st parent againt merge: no diff: traverse to the first parent
+
+#show commits in topological order:
+$ git rev-list HEAD --topo-order |grep -n 7f59a92baaa89afb152d804bcdbabab2e2820a4d
+111:7f59a92baaa89afb152d804bcdbabab2e2820a4d
+
+$  git rev-list --topo-order --parents HEAD
+bfed2f3fde9a16ebe33d4109d21210f639bfb6ec 3b3902bdb6cf9041f8abc9d48f0d4be1b8d10f7d be293111a772ca1346303440b5f3a15e9e93a63d
+be293111a772ca1346303440b5f3a15e9e93a63d e058cc2ca4519296ffa571c5a83c37d9aabee028 00c1757425e976bd858cb173cc4758587882dbe3
+00c1757425e976bd858cb173cc4758587882dbe3 2e797dcd0593d9c325c381a1165d4ca3d2824497
+2e797dcd0593d9c325c381a1165d4ca3d2824497 e058cc2ca4519296ffa571c5a83c37d9aabee028 a612e2daf393f41312790a7e2c5041986dbb1f3b
+
+$  git rev-list --topo-order --children HEAD
+bfed2f3fde9a16ebe33d4109d21210f639bfb6ec
+be293111a772ca1346303440b5f3a15e9e93a63d bfed2f3fde9a16ebe33d4109d21210f639bfb6ec
+00c1757425e976bd858cb173cc4758587882dbe3 be293111a772ca1346303440b5f3a15e9e93a63d
+
+#example #2:
+#769a919ff57d8b3b498a37875d84ec8193ccfc90 is the parent of 03c36f60f438ab009c129bdacab4ecd0286aac76
+#first column is parent
+git rev-list --children -n 2 03c36f6
+03c36f60f438ab009c129bdacab4ecd0286aac76
+769a919ff57d8b3b498a37875d84ec8193ccfc90 03c36f60f438ab009c129bdacab4ecd0286aac76
+
+#example #2a:
+#first column is child
+git rev-list --parents -n 2 03c36f6
+03c36f60f438ab009c129bdacab4ecd0286aac76 769a919ff57d8b3b498a37875d84ec8193ccfc90
+769a919ff57d8b3b498a37875d84ec8193ccfc90 0f963c24d8af1884f62322a98061eedf16b13293
+
+#find the direct child of a commit
+git rev-list --children HEAD | awk '$1 ~ /SHA/'  --> look for <SHA> in first column
+#<SHA> in first column : parent, second column is the child
+
+#find out whether a commit is in a branch or reachable from where I am
+git rev-list HEAD |grep <sha-id>
+
+#merge DnD changes into release branch
+Step 1: checkout 19.x branch
+step 2: git merge dnd # we are more interested in the tree object, which combines DnD and other changes
+step 3: echo "Official Dnd" | git commit-tree HEAD^{tree} -p HEAD^ --> return commit D
+step 4: git reset D # 19.x branch now points to D
+Done
+
+
+git diff output format:
+example: git diff pom.xml
+++++++++++++++++
+diff --git a/WLS_DOM_SHP/pom.xml b/WLS_DOM_SHP/pom.xml
+index f6332e4..08eb4e4 100644
+--- a/WLS_DOM_SHP/pom.xml
++++ b/WLS_DOM_SHP/pom.xml
+@@ -10,7 +10,7 @@
+   <parent>
+     <groupId>ir4.shp</groupId>
+     <artifactId>IRIS4_SHP</artifactId>
+-    <version>19.2.0.0.003</version>
++    <version>19.2.0.0.004</version>
+   </parent>
+
+   <modules>
+++++++++++++++++
+@@ -10,7 +10,7 @@ --> @@ <start line>,# of lines> <start line>,# of lines>
+in this example, the first line of the output is line 10 of pom.xml and it displays 7 lines from the file.
+in this example, both files have the same number of lines.
+another example:
+++++++++++++++++++++
+@@ -20,6 +20,11 @@
+       <version>19.2.0.0.005</version>
+     </dependency>
+     <dependency>
++      <groupId>ir4.tnm</groupId>
++      <artifactId>TNMProxy</artifactId>
++      <version>19.3.0.0.001</version>
++    </dependency>
++    <dependency>
+       <groupId>ir4.gsp</groupId>
+       <artifactId>IRIS4_GSPCommon</artifactId>
+       <version>19.2.0.0.005</version>
+++++++++++++++++++++
+start at line 20, display 6 lines from old file.
+start at line 20, display 11 lines from new file.
+
+#show current branch
+git rev-parse --abbrev-ref HEAD -> master
+git symbolic-ref HEAD -> refs/heads/master
+
+#commit history of a deleted file
+git log -- <pathname>
+
+git log --summary
+#output: the --summary option shows new/deleted files
+commit dc6860648af9157efacdf1889346b4e4b143f40b
+Author: sntcdbld6 <sntcdbld6@oocl.com>
+Date:   Thu Sep 19 15:47:45 2013 -0700
+
+    Convert mltConfig.xml to vpp
+
+ delete mode 100644 WLS_DOM_SHP/Config/mltConfig.xml
+ create mode 100644 WLS_DOM_SHP/Config/mltConfig.xml.vpp
+
+#####
+git log --summary --diff-filter=D
+# show only commits where files have been deleted
+--diff-filter=A -> show only commits where files have been added
+--diff-filter=M -> show only commits where files have been modified
+
+#find commit that deleted a file
+git log --diff-filter=D -- <filename>
+
+#find commit that added a file
+git log --diff-filter=A -- <filename>
+
+#find commits that add/remove a string
+git log -S<string> : git log -Sweight
+
+#find commit that deleted a line. START is a revision which still contains the line in question.
+#END is optional. if absent, imply HEAD
+git blame --reverse START..END file1.txt
+e.g. git blame --reverse HEAD~7..HEAD file1.txt
+# you can see what was the last revision to contain each line:
+
+#git blame --reverse example:
+$  git lg g1.txt
+9089081 wow,three,four
+a47decb one,wow,three,four
+7aa03d1 one,wow,three
+03c36f6 add g1: one,two,three
+
+#HEAD is 90890813
+#tell you what happens to the lines at HEAD~3
+# the ^ signifies the range start boundary commit: HEAD~3 is 03c36f6
+$ git blame --reverse HEAD~3.. g1.txt
+a47decbb (Cheok Hee 2013-09-26 1) one
+^03c36f6 (Cheok Hee 2013-09-26 2) two
+90890813 (Cheok Hee 2013-09-26 3) three
+
+$ git blame --reverse HEAD~2.. g1.txt
+a47decbb (Cheok Hee 2013-09-26 1) one
+90890813 (Cheok Hee 2013-09-26 2) wow
+90890813 (Cheok Hee 2013-09-26 3) three
+
+# the ^ signifies the range start boundary commit. HEAD~1 is a47decb
+$ git blame --reverse HEAD~1.. g1.txt
+^a47decb (Cheok Hee 2013-09-26 1) one
+90890813 (Cheok Hee 2013-09-26 2) wow
+90890813 (Cheok Hee 2013-09-26 3) three
+90890813 (Cheok Hee 2013-09-26 4) four
+
+#filter-branch
+git filter-branch -f --prune-empty --index-filter 'git rm --cached --ignore-unmatch -rf build/oneModelEditor' afaeadb^..HEAD
+
+# NOT working example: cannot use find
+git filter-branch -f --prune-empty --index-filter 'find WLS_PRS_DND -name Thumbs.db | xargs git rm --cached --ignore-unmatch -rf' HEAD~1..HEAD
+#do this instead:
+git filter-branch -f --prune-empty --index-filter 'git ls-files | grep Thumbs.db | xargs git rm --cached
+--ignore-unmatch -rf' HEAD~1..HEAD
+
+#after filter-branch, original refs: .git/refs/original/
+
+#interactive rebase command:
+pick, squash,
+reword: This is similar to pick, but the rebase process will pause and give you a chance to change the commit message.
+edit: use commit, but stop for amending
+fixup: like "squash", but discard this commit's log message
+
+#update bare repo:
+1. after cloning.
+2. add a remote: git remote add team git://snt-cddyuehp/iris4_shp.git
+2a. after this the config will say:
+[remote "team"]
+        url = git://snt-cddyuehp/iris4_gsp.git
+        fetch = +refs/heads/*:refs/remotes/team/*
+3. then do this: git config remote.team.fetch '+refs/heads/*:refs/heads/*'
+3a. after this the config will say:
+[remote "team"]
+        url = git://snt-cddyuehp/iris4_gsp.git
+        fetch = +refs/heads/*:refs/heads/*
+
+
+#reject push for all
+create a file: hooks/pre-receive
+contents of file:
+#!/bin/sh
+exit 1
+================
+
+#pre-receive hook:
+It takes no arguments, but for each ref to be updated it receives on standard input a line of the format:
+oldref newref refname
+here's how you process it:
+#!/bin/sh
+while read oldref newref refname ; do
+   do stuff with $oldref $newref $refname
+done
+
+# ex 1: push master to blah
+oldref = 0000000000000000000000000000000000000000
+newref = 7b808d73e5ccd3fa23b5220405e1899f0abfd1b4
+refname = refs/heads/blah
+# ex 2: update master branch
+oldref = 4efa9615450f3ac3151cc2b07521946504bcccbf
+newref = 7b808d73e5ccd3fa23b5220405e1899f0abfd1b4
+refname = refs/heads/master
+
+=====
+eg #1 and #2: you want to know which are the last branches you was working on
+eg #1: git for-each-ref --count=3 --sort='-authordate' \
+  --format="%(refname) | %(subject) | %(authordate)" \
+  refs/heads
+output:
+refs/heads/afpacket-100-full | af-packet: fix reconnection on netdown error. | Wed Nov 9 18:30:01 2011 +0100
+refs/heads/bug296-v1.0 | tls app layer: add missing free | Wed Nov 9 15:55:43 2011 +0100
+refs/heads/bug296 | tls app layer: add missing free | Wed Nov 9 15:45:49 2011 +0100
+eg #2: $ git for-each-ref --count=3 --sort='-committerdate' \
+  --format="%(refname) | %(subject) | %(committerdate)" \
+  refs/heads
+eg #3: list  the last commit timestamp for each  branch
+git for-each-ref --shell --format="echo %(refname:short) &&
+git log -n 1 --format=format:\" %%cd%%n %%B\" %(refname)" refs/ | sh
+output:
+master
+  Sat Feb 5 09:06:16 2011 -0700
+  some updates and bug fixes
+some-branch
+  Fri Jan 28 10:20:33 2011 -0700
+  initial work on a new feature
+
+eg #4:
+git for-each-ref --sort=-committerdate --format='%(refname:short) %(committerdate:short)'
+
+eg #5:
+git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d
+
+#my listref:
+git for-each-ref --sort='-committerdate' --format="%(refname:short) | %(authorname) | %(committerdate)" refs/heads
+
+#set up upstream tracking branch for an existing branch
+git 1.8:
+git branch -u upstream/foo foo
+git 1.7:
+git branch --set-upstream foo upstream/foo
+older git:
+git config branch.<branchname>.remote origin
+git config branch.<branchname>.merge refs/heads/<branchname>
+example:
+git config branch.master.remote origin
+git config branch.master.merge refs/heads/master
+OR:
+git config branch.`cu`.remote origin
+git config branch.`cu`.merge refs/heads/`cu`
+
+#manually set author date: does not seem to work
+export GIT_AUTHOR_DATE="Thu May 22 18:50:24 2014 -0700"
+#manually set commiter date
+export GIT_COMMITTER_DATE="Thu May 22 18:50:24 2014 -0700"
+then do commit or cherry-pick
+
+git update-index --really-refresh
+
+#maybe?
+git config core.ignoreStat true
+
+windows git client 1.9.4 cannot push to cygwin-based git daemon.
+solution: git config --global sendpack.sideband false

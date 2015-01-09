@@ -1,0 +1,643 @@
+TEE: The tee command reads standard input, then writes its content to standard output and simultaneously copies it into the specified file(s) or variables. 
+example: ls -1 | tee file.txt | less
+
+
+The output of ls -l is redirected to tee which copies them to the file file.txt and to the pager less.
+ The name tee comes from this scheme - it looks like the capital letter T
+
+To view and save the output from a command (lint) at the same time:
+lint program.c | tee program.lint
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+parenthesis and curly braces:
+
+(cmd1; cmd2) | cmd3
+{ cmd1; cmd2;} | cmd3
+
+Notice the semicolon at the end of the list in the curly brace. Also notice a space is required after the first "{."
+ There is another difference: the parenthesis causes the shell to execute a new process, while the curly 
+brace does not. You can set variables in a curly brace, and it will be known outside the braces. 
+In the example below, the first echo prints "OLD" and the second prints "NEW:"
+
+    a=OLD
+    (a=NEW) ; echo $a
+    { a=NEW;} ; echo $a
+
+
+The parenthesis and curly brace are useful when you want to merge standard output of multiple commands
+
+The parenthesis is useful when you want to change a state of the process without affecting the other processes.
+
+#do a diff between stdin and a file
+cat file1 | diff - file2 
+
++++
+Process substitution
+
+<(command) expression tells the command interpreter to run command and make its output appear as a file. 
+
+## does not work in Git bash, need cygwin
+example: diff <(sort file1) <(sort file2)
+
+
+Process substitution can also be used to capture output that would normally go to a file, and redirect it to the input of a process.
+
+The Bash syntax for writing to a process is >(command).
+
+counts the lines in a file with wc -l and compresses it with gzip in one pass:
+tee >(wc -l >&2) < bigfile | gzip > bigfile.gz   # does not work
+
+#log a command to console and to 2 files separately stdout and stderr 
+command > >(tee stdout.log) 2> >(tee stderr.log >&2)  # does not work?
+
+With <(...) one is expected to read from the substitution, and the command is set up to write to it. 
+With >(...) one is expected to write to the substitution, and the command inside is set up to read from it. 
+
+counter=0
+
+while read; do
+  ((counter++))
+done < <(find /etc)
+
+echo "$counter files"
+
+uses named pipe under the hood
+The syntax <(command) creates a named pipe, and attaches command's STDOUT to the pipe. 
+So, anything that reads from the pipe will actually be reading the output of command.
+
+
+++++++++++++++
+
+#If there is any error in the grep command it will be directed to the error file.
+#redirect stderr to a file
+grep wow file34 2>error
+
+#redirect stderr to blah, then redirect stdout to where stderr is headed
+echo "Alright man..." 2>blah >&2
+
+#redirect stdout to output, then redirect stderr to where stdout is headed
+grep wow file34 >output 2>&1
+
+# grep wow non_existent_file 2>&1 |wc -l
+result: 1
+
+
++++++
+#complain if undefined:
+$ echo ${none?"does not exist"}
+bash: none: does not exist
+
+#use default if undefined
+$ echo ${none-default}
+default
+
+#use default if defined
+$ echo ${HOME+default}
+default
+
+#use and define if undefined
+$ echo ${none}   #undefined at T1
+$ echo ${none="new value"}
+new value
+$ echo ${none}
+new value
+
+variations:
+${variable:?word}   Complain if undefined or null
+${variable:-word}   Use new value if undefined or null	
+${variable:+word}   Opposite of the above
+${variable:=word}   use and define if undefined or null
+
+++++++++++
+
+
+if [ -z "$BLAH" ]; then echo none; fi
+   -z is true if BLAH is undefined or has no value, think of -z as zero length
+
+
+
+++++++++++++++
+An exec <filename command redirects stdin to a file. From that point on, all stdin comes
+ from that file, rather than its normal source (usually keyboard input). 
+
+exec > >(tee logfile)
+
+exec > logfile #redirect stdout to a file. from this point, all stdout goes to that file
+
+exec 6<&0          # Link file descriptor #6 with stdin.
+                   # Saves stdin.
+exec 0<&6 # Now restore stdin from fd #6
+exec 6<&- #close fd #6
+
+exec 6>&1           # Link file descriptor #6 with stdout.
+                    # Saves stdout.
+exec 1>&6 6>&-      # Restore stdout and close file descriptor #6.
+
++++++++++++++++++++
+
+Copy all images to external hard-drive
+# ls *.jpg | xargs -n1 -i cp {} /external-hard-drive/directory
+
++++++++++++++++++
+shopt -s cdspell
+shopt -s -> to set
+shopt -u -> to unset
+shopt -s nocaseglob -> match filename in a case-insensitive manner
+
+find ~ -empty #find empty file
+
++++++++++++++++++++
+test2.txt: one    two        three
+$ cat test2.txt | awk -F " " '{print $2}'
+two
+
+$ cat test2.txt  | cut -d" " -f2
+--> nothing
+
+$ cat test2.txt  | tr -s " " |cut -d" " -f2
+two
+
+++++++
+
+echo -e  #enable interpretation of backslash esacpe characters
+
+echo ${blah} --> hello
+
+echo ${#blah} --> 5
+
++++++++++++++++++++++
+
+Replace all spaces in a filename with underscore for a given directory.
+
+for i in *; do if echo $i | grep " " > /dev/null; then new_name=`echo $i | sed 's/ /_/g'`; mv "$i" $new_name; fi; done
+
++++++++++++++++++++++
+run a command forever
+--> while true; do echo hi; sleep 2; done
+
+
+#dd default block size: 512 bytes
+# create a 1MB file filled with null character (0x00)
+dd if=/dev/zero of=foobar count=1024 bs=1024
+OR (the next one is slower)
+dd if=/dev/zero of=foobar count=1M bs=1
+
+#by default, dd displays some output
+$ dd if=/dev/zero of=blah count=10 
+10+0 records in
+10+0 records out
+5120 bytes (5.1 kB) copied, 0.004 s, 1.3 MB/s
+
+#to ignore output:
+$ dd if=/dev/zero of=blah count=10 2> /dev/null
+
+#overwrite the first 10 bytes of a file with null bytes
+dd if=/dev/zero of=mfReceiver.log bs=1 count=10 conv=notrunc
+
+#back up entire harddisk, noerror: ignore error, sync: pad output blocks
+dd if=/dev/sda of=/dev/sdb conv=noerror,sync
+#create an image of a hard disk
+dd if=/dev/hda of=~/hdadisk.img
+
+#restore using hard disk image
+dd if=hdadisk.img of=/dev/hdb
+
+#benchmarking
+dd if=/dev/zero bs=1024 count=1000000 of=file_1GB
+dd if=file_1GB of=/dev/null bs=64k
+
+#resize a file to 1M without resizing
+dd if=/dev/zero of=mytestfile.out bs=1 count=0 seek=1M
+
+#dd
+skip=n Skips n input blocks (using the specified input block size) before starting to copy. 
+seek=n Skips n blocks (using the specified output block size) from beginning of output file before copying.
+
+# find files that have been changed since 00:00
+$ find .  -type f -newermt "00:00" -printf "%s %p\n" | sort -nr
+1004057 ./pfw/pfwMsg.log
+26248 ./messagebroker/mf/mfReceiver.log
+25209 ./filLogs/trxMsg.log
+24905 ./jpatxn/jpaTxnMsg.log
+5995 ./dnd/dndMsg.log
+
+find .... -printf "%f\n" --> print file name without leading directory stuff
+
+find -xdev : don't descend to other filesystem
+
+#listen on a port
+nc -l <port-number>
+#then in another terminal, do: telnet localhost <port-number>
+
+#meaning of "$@" in script: all the command line arguments
+#script:
+#!/bin/sh
+echo "$@"
+-> ./test "this is just" wow ere
+this is just wow ere
+
+"$@" : expand to a quoted set of the command line arguments.
+"$*" : expand to a unquoted set of the command line arguments.
+
+$@ example: gzcat "a" "b" "my file.txt" > ...
+
+-- diff between $* and $@
+cmd line arg: one "two three"
+$* is same as $@ -> each word is treated as a separate word
+"$*" : all cmd line arg is treated as one parm --> "$1 $2"
+"$@" : preserves the original set --> "$1" "$2"
+preferred: "$@"
+
+# using expr with regexp: expr <string> : <regexp>
+# return # of chars that match
+$ expr 'cheok' : '.*'
+--> 5
+# if use \( and \), return the matched string
+$ expr 'cheok' : '\(.*\)'
+--> cheok
+
+whereis: search binary, source, and manual pages
+which: search for binary only
+type ls
+
+$$: proc id
+$!: proc id of last background job
+$PPID: parent proc id
+
+pr: paginate files for printing
+fold: wrap each file of a file to a specified width
+
+who -b : show last system boot time
+last : show system boot time
+last -x : 
+====
+runlevel (to lvl 2)   3.0.0-15-generic Tue Apr 23 10:13 - 09:55  (23:41)    
+reboot   system boot  3.0.0-15-generic Tue Apr 23 10:13 - 09:55  (23:41)    
+shutdown system down  3.0.0-15-generic Tue Apr 23 10:13 - 10:13  (00:00)    
+runlevel (to lvl 6)   3.0.0-15-generic Tue Apr 23 10:13 - 10:13  (00:00)    
+
+wtmp begins Tue Apr 23 10:13:17 2013
+======
+
+stat <filename>: show mtime, atime, ctime
+
+getopt, getopts
+
+cat -v : show non-printable char
+od -c : dump file with ascii
+
+runlevel:
+0: shutdown
+1: single user
+2: multi user w/o networking
+3: multi user w/ networking
+5: multi user with X
+6: reboot
+
+utmp: keep track of the current login state of each user
+wtmp: records all login and logout histories
+btmp: records failed login attempts
+
+#expand tab characters
+pr -t -e[char width] file
+
+#to see special chars of function keys
+do: stty -echo; cat -v; stty echo
+then press function keys
+
+#init terminal 
+tput init
+#reset terminal
+tput reset
+
+GNU history:
+!# : the entire command line typed so far
+$ cheok hee !#
+cheok hee cheok hee
+
+!!:2 : 2nd arg of previous cmd
+!!:0 : the 0th word (the cmd word)
+!!:^ : first arg
+!!:$ : same as !$, last arg
+!!:2-$ , same as !!:2*
+!!:2- : like !!:2*, but omit the last word
+!!:0- : get the previous cmd without the last word
+!$:h -> remove trailing path of last arg
+previous cmd: ls /etc/passwd
+echo !$:h -> echo /etc
+!$:t -> remove leading path of last arg
+echo !$:t -> echo passwd
+!$:r -> remove file extension
+previous cmd: echo linux.txt 
+echo !$:r -> echo linux
+# sed-like substitution: g is for global, s is for substitute
+!!:gs/password/passwd/
+#reuse the last substitution
+!!:g&
+!!:0-1:p -> print without executing it.
+
+bash bind built-in command
+bind -l : List the names of all Readline functions. 
+bind -p : list bindings
+bind -P : list bindings
+bind -v : display var and values
+bind -V : display var and values
+$ bind -q reverse-search-history
+reverse-search-history can be invoked via "\C-r".
+
+#set: set cmd line arg $1, $2, ...
+#set one two : set $1 to one, set $2 to two
+# $# will change as a result
+#example:
++++++++++++++++++++++
+$ cat test_set
+#!/bin/bash
+echo "first arg" $1
+echo "second arg" $2
+set new1 new2
+echo "first arg" $1
+echo "second arg" $2
++++++++++++++++++++++
+#output:
+$ test_set one "two 2"
+first arg one
+second arg two 2
+first arg new1
+second arg new2
+
+# : eval to true
+while :; do date; sleep 5; done
+if :; then echo yes; else echo no; fi
+#other usage: an empty statement
+if false; then :; else echo no; fi
+
+========================================
+--> jot [rep] [start] [end] [step]
+jot -c 1 65 -> A
+
+jot -b yes 5 -> print 5 yes
+jot -b yes 0 -> print an infinite number of yes
+
+jot -w xa%c 26 a -> print strings xaa thru xaz
+
+jot -r 4 -> give me 4 random number
+
+jot -c 5 33 -> print ! " # $ % (from ASCII)
+
+jot 1 A -> 65 (convert from ASCII to number)
+
+jot -c 26 A -> print A thru Z
+
+jot -s "" -b . 80 -> print 80 dots
+
+jot -c -s " " 26 65 #returns the following
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+jot -s " " 26 A #returns the following
+65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90
+
+
+=======
+grep hi blah &> /dev/null # send stdout and stderr to /dev/null
+
+(umask 666; > mine)
+ls -l mine
+---------- 1 adminuser adminuser 0 Jun  4 10:18 mine
+
+[[ -> prevent word splitting and pathname expansion
+[ value == val* ]  --> false
+[[ value == val* ]]  --> true
+
+TEST="cheok hee"
+--> [ "cheok hee" == $TEST ] 
+bash: [: too many arguments
+[ "cheok hee" == "$TEST" ] --> true
+[[ "cheok hee" == $TEST ]] --> true
+
+#temporary set a variable for a command
+LESS=-X less thoughts.txt
+
+#trace system calls
+strace -p <pid>
+
+BASHOPTS var: shopt setting
+SHELLOPTS var: set -o setting
+RANDOM var: return a random number
+SECONDS var: return number of seconds
+LINENO var: line #
+HISTCMD var: The history number, or index in the history list, of the current command
+BASH_COMMAND var: the currently executing command.
+GROUPS var: group id
+DIRSTACK : dirs
+for debugging: BASH_SOURCE, FUNCNAME, BASH_LINENO arrays
+use : FUNCNAME[0], 
+
+((..)), let : arithmetic
+echo $((a++))
+echo $((3*6))
+let b=b+10
+
+#create temp files
+mktemp --tmpdir=. tmp.XXX
+
+/dev/random and /dev/urandom : random number generator from the kernel
+/dev/random blocks if there is not enough noise in the entropy pool
+/dev/urandom does not block
+
+select builtin : for building menu
+select file in *; do echo "you picked $REPLY: $file"; done
+1) tmp.sUd
+2) tmp.ySY
+#? 1
+you picked 1: tmp.sUd
+#? 2
+you picked 2: tmp.ySY
+
+====================
+hash builtin in bash: a hash table of executed commands
+(1) hash
+hits	command
+   4	/bin/grep
+   1	/usr/bin/tty
+(2) hash -d cat
+(3) hash -l -> list hash table
+(4) hash -r --> clear entire hash table
+
+$ ls b*
+ls: cannot access b*: No such file or directory
+$ shopt -s failglob
+$ ls b*
+bash: no match: b*
+
+other shopt: dotglob, nullglob
+
+sort IP address with gnu sort
+sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4
+
+sort -k 4.10,4.13n ->  sort by chars 10-13 of the fourth field (numerically)
+
+#sort human-readable fils sizes
+$ echo -e "1G\n1M" | sort -h
+1M
+1G
+
+#count characters in a string: echo a number line directly below or above it.
+echo "this is a test"; echo 123456789012345678901234567890
+
+===============
+HTTP 302 -> redirection
+there is a Location field: contains the other URL
+
+$ nc www.google.com 80
+GET / HTTP/1.1
+
+HTTP/1.1 200 OK
+Date: Fri, 14 Jun 2013 15:49:11 GMT
+===============
+
+nohup
+when a login shell exits, it sends a HUP signal to all of its children (background jobs),
+which will terminate the background jobs.
+To prevent this, use nohup to wrap the command.
+
+#run a command with time limit
+$ timeout 10 cheok
+$ echo $?
+124 # means time out
+
+#answer no to all the prompts
+yes n | cp -i * ../test
+#answer yes to all the prompts
+yes y | cp -i * ../test
+
+#openssl
+openssl s_client -connect www.google.com:443 #afterwards, type GET / HTTP/1.1
+openssl genrsa -des3 1024 > server.key #generate RSA private key: passphrase: 4tnuyear
+openssl req -new -key server.key -x509 -days 3650 -out server.crt #generate certificate 
+cat server.crt server.key > server.pem
+openssl s_server -cert server.pem -accept 4433 -WWW #start SSL server: https://localhost:4433/README
+
+#without WWW option, server will echo whatever is sent by client
+openssl s_server -quiet -accept 4433
+echo "cheok is here" | openssl s_client -quiet -connect localhost:4433
+
+regular expression:
+positive lookahead: (?=pattern)
+/one(?=two)/ -> matches "one" followed by "two", without including "two" in $&
+
+negative lookahead: (?!pattern)
+/one(?!two)/ -> matches "one" not followed by "two", without including "two" in $&
+
+positive lookbehind: (?<=pattern)
+/(?<=one)two/ -> matches "two" preceded by "one", without including "one" in $&
+
+negative lookbehind: (?<!pattern)
+/(?<=one)two/ -> matches "two" not preceded by "one", without including "one" in $&
+
+#sort and change the same file
+sort -o sort.test sort.test
+
+#paste : combine files horizontally
+$ cat > f1
+cheok
+christine
+$ cat > f2
+20
+10
+$ paste -d" " f1 f2
+cheok 20
+christine 10
+
+various programs:
+colrm : remove columns
+fmt: formatting
+look:  display lines beginning with a given string
+nl: number lines
+rev: reverse chars in a line
+
+#test redirection
+#corresponding C function: isatty
+if [ -t 1 ]; then
+   echo "not redirected"
+else
+   echo "redirected"
+fi
+
+!# on command line: repeat everything up to this point:
+example:
+
+$ echo hi > blah && echo !#:0
+echo hi > blah && echo echo
+
+$ echo hi > blah && echo !#:1
+echo hi > blah && echo hi
+
+$ echo hi > blah && echo !#:2
+echo hi > blah && echo >
+
+$ echo hi > blah && echo !#:4
+echo hi > blah && echo &&
+
+#switch date formats: DD/MM and MM/DD
+sed 's%\([0-9][0-9]\)/\([0-9][0-9]\)%\2/\1%' < file.txt
+
+#change date of a file: format: YYYYMMDDhhmm
+touch -t 201407311234 test.txt
+ls -l test.txt
+-rw-r--r-- 1 adminuser adminuser 0 Jul 31 12:34 test.txt
+
+curly brace expansion:
+$ echo {aa,bb,cc,dd,ee}
+aa bb cc dd ee
+
+$ echo {1..12}
+1 2 3 4 5 6 7 8 9 10 11 12
+
+$ echo d{2,3,4,5}
+d2 d3 d4 d5
+
+cygwin: bash completion is slow
+rename /etc/profile.d/bash_completion.sh.orig
+
+#print colors
+for i in {0..255} ; do printf "\x1b[38;5;${i}mcolour${i}\n"; done
+
+#linux: flush system buffers
+sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches" 
+sudo sh -c "sync; echo 0 > /proc/sys/vm/drop_caches" 
+
+#create backup file with original date time
+cp -p pom.xml{,.bak}
+
+#serve current directory tree at http://localhost:8000
+python -m SimpleHTTPServer
+
+#redirect stderr to terminal, redirect stdout to garbage
+#end result: original stderr becomes stdout, original stdout disappears
+<commands> 2>&1 1>/dev/null 
+
+#append a line at the end of the file, the last line will be 'wow'
+sed -i '$awow' test.txt
+
+#readline:
+Ctrl-]: search forward
+M-Ctrl-]: search backward
+
+#bash:
+M-. : insert the last argument of the previous command at cursor point
+M-C-y: insert the first argument of the previous command at cursor point
+
+#get day of the year, see more by date --help
+date +'%j'
+
+#rename file to same name plus timestamp
+mv -iv $FILENAME{,.$(stat -c %y $FILENAME | awk '{print $1}')}
+
+linux: check bad sector
+badblocks -sv /dev/sda
+
+gpicview <.png> #show picture
+
+find . -name get_shp_num.sql | xargs -i sed -i 's/20140901000000/20141201000000/g' {}
+find . -name get_shp_num.sql | awk '{printf("sqlplus -S global_supp/global_supp@ir4prod < %s >> unsorted\n",$1)}'
+

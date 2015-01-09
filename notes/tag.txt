@@ -1,0 +1,4 @@
+#default file name: TAGS
+find . -name "*.java"  | etags -  
+
+#etags -a -> append -> don't use

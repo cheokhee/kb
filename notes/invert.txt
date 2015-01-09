@@ -1,0 +1,5 @@
+compiz
+compizconfig-settings-manager
+
+/usr/bin/xcalib -invert -alter; // apt-get install xcalib
+magnifier -z 1 -fi 

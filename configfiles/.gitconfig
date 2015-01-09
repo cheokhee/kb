@@ -1,0 +1,56 @@
+[user]
+	name = Cheok Hee
+	email = cheok.hee@gmail.com
+[core]
+	autocrlf = false
+	preloadindex = true
+	fscache = true
+[advice]
+	statusHints = false
+[color]
+	ui = true
+	branch = false
+[alias]
+	lg = log --oneline -10
+	lgg = log --oneline
+	lgd = log --oneline -10 --decorate
+	lggd = log --oneline --decorate
+	lgy = log --since=yesterday --abbrev-commit
+	lgs = log --stat --abbrev-commit
+	lgn = log --name-status --abbrev-commit
+	lga = log --abbrev-commit
+	co = checkout
+	coo = checkout --ours
+	cot = checkout --theirs
+	lsu = ls-files -u --abbrev
+	cm = commit
+	cma = commit --amend
+	df = diff
+	dfc = diff --color-words
+	ds = diff --staged
+	dsc = diff --staged --color-words
+	br = branch
+	sh = show --name-status
+	ss = show -s
+	sf = show -s --pretty=fuller
+	rt = remote -v show
+	st = status
+	su = status -uno
+	ro = remote -v show origin
+	bu = branch --no-merged
+	bm = branch --merged
+	bua = branch -a --no-merged
+	bma = branch -a --merged
+	fo = fetch origin
+	me = merge
+	meq = merge --quiet
+	po = push origin
+	wh = whatchanged
+	cp = cherry-pick
+	cy = cherry -v HEAD
+	rv = revert --no-edit
+	why = whatchanged --since=yesterday
+	ct = count-objects -v
+	dn = diff --name-status
+[blame]
+	date = short

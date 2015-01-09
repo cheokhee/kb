@@ -1,0 +1,25 @@
+xdg-open index.html
+
+
+mimeopen index.html
+
+xdg-mime query filetype blank.png -> image/png
+
+xdg-mime query default image/png -> gpicview.desktop
+
+mimetype -d blank.png # -d is optional
+
+#set default brower
+xdg-settings set default-web-browser firefox.desktop
+xdg-settings set default-web-browser google-chrome.desktop
+xdg-settings set default-web-browser chromium-browser.desktop
+
+#ubuntu way:
+sudo update-alternatives --config x-www-browser
+sudo update-alternatives --config gnome-www-browser
+
+/etc/alternatives/x-www-browser -> /usr/bin/google-chrome-stable
+/etc/alternatives/gnome-www-browser -> /usr/bin/google-chrome-stable
+
+debugging:
+bash -x xdg-settings get default-web-browser

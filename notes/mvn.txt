@@ -1,0 +1,8 @@
+mvn archetype:generate -DgroupId=com.cheok -DartifactId=simple -DpackageName=org.cheok -Dversion=1.0
+mvn help:effective-pom
+mvn help:active-profiles
+mvn archetype:generate -DgroupId=com.cheok -DartifactId=simple-web -DpackageName=org.cheok -DarchetypeArtifactId=maven-archetype-webapp
+mvn jetty:run
+mvn dependency:resolve
+mvn dependency:analyze
+mvn dependency:tree

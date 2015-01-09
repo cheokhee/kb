@@ -1,0 +1,9 @@
+source /home/adminuser/.rvm/scripts/rvm
+https://rvm.io/workflow/screen/
+
+cp /usr/lib/ruby/1.9.1/i686-linux/zlib.so .rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/i686-linux/
+
+rail:
+change this ./rubies/default/lib/ruby/gems/1.9/gems/railties-3.2.8/lib/rails/generators/rails/app/templates/Gemfile
+https -> http
+after this "rails new app" -> no more warning about openSSL

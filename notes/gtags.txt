@@ -1,0 +1,6 @@
+gtags does not like space in directory/file name.
+
+first do: dir_no_space
+
+then do : gtags 2> /dev/null
+

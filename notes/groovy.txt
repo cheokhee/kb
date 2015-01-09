@@ -1,0 +1,40 @@
+Regex:
+"aString" =~ /regex/ -> return a Matcher object (has to match entire string)
+"aString" ==~ /regex/ -> return boolean (has to match entire string)
+
+Map a = [:]
+Map b = ["key":"value"]
+
+collection methods: each, collect, findAll, find, any, every
+keysAndValuesDo: use each, the arg is an association, it.key and it.value
+
+aString.toURL().text
+
+'xxx' -> regular string
+"xxx" -> interpolated/parameterized string (variable substitution), an instance of GString
+
+new XMLSlurper().parse(url) -> set a DOM tree
+
+Groovy.sql.Sql = Sql.newInstance('jdbc:....','userid','pw','com...driver')
+sql.execute "sql statement"
+
+MarkupBuilder -> generate XML
+
+JsonSlurper
+JsonBuilder
+
+binding: a collection of variables visible to a script
+any var not declared in a script is part of the binding
+
+elvis operator : ?:
+safe dereference: ?.
+
+every closure has a delegate property.
+by default, delegate points to the object on which the closure was invoked.
+
+add a method to a class:
+String.metaClass.isPalindrome = { -> delegate == delegate.reverse() }
+
+closure:
+["hi","hoo"].each { wow -> println wow } OR
+["hi","hoo"].each { println it }

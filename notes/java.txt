@@ -1,0 +1,3 @@
+Regex:
+aString.matches("regex") -> has to match entire string
+

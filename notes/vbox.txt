@@ -1,0 +1,58 @@
+Upgrade from 11.10 to 12.04: May 7 2013
+Upgrade from 12.04 to 12.10: May 8 2013
+Upgrade from 12.10 to 13.04: May 10 2013
+Upgrade from 13.04 to 13.10: Dec 4 2013
+Upgrade from 13.10 to 14.04,14.10: Dec 16 2014
+
+distro upgrade from 11.10 to 12.04
+after upgrade, no full screen. need to install guest additions
+1. apt-get install virtualbox-guest-additions
+2. mount -o loop /usr/share/virtualbox/VBoxGuestAdditions.iso /mnt/disk/
+    now we can see /mnt/disk/VBoxLinuxAdditions.run
+3. /mnt/disk/VBoxLinuxAdditions.run
+4. restart
+
+problem encountered when upgrading from 12.04 to 12.10: step #3 fails
+upgrade VirtualBox from 4.1.10 to 4.2.12
+and do: apt-get install build-essential linux-headers-`uname -r` dkms
+also install libglib2.0-dev package: didn't help
+get VBoxGuestAdditions.iso 4.2.12 from VirtualBox web site.
+sample URL: 
+attach iso file to VM. 
+iso shows up as /media/adminuser/VBOXADDITIONS_4.2.12_84980/
+then run /media/adminuser/VBOXADDITIONS_4.2.12_84980/VBoxLinuxAdditions.run
+
+after upgrade to 13.10:
+upgrade VirtualBox from 4.2.12 to 4.3.4
+get VBoxGuestAdditions.iso 4.3.4 from VirtualBox web site.
+VBox guest additions download: http://download.virtualbox.org/virtualbox/
+sample URL: http://download.virtualbox.org/virtualbox/2.2.0/VBoxGuestAdditions_2.2.0.iso
+attach iso file to VM. 
+iso file shows up as /media/adminuser/VBOXADDITIONS_4.3.4_91027 
+then run /media/adminuser/VBOXADDITIONS_4.3.4_91027/VBoxLinuxAdditions.run
+
+Dec 16 2014:
+upgrade VirtualBox from 4.3.4 to 4.3.8
+get VBoxGuestAdditions.iso 4.3.8 from VirtualBox web site.
+run iso file: did not work
+do the following:
+   apt-get install virtualbox-guest-additions-iso
+then mount and run /mnt/disk/VBoxLinuxAdditions.run (see above). This worked
+
+#VirtualBox problem during startup:
+piix4_smbus 0000.00.07.0: SMBus base address uninitialized - upgrade bios or use force_addr=0xaddr
+#This error is caused by VM having no smbus but Ubuntu always trying to load the module
+
+step #1: check if the module is loaded
+lsmod | grep i2c_piix4
+
+step #2:  If so, blacklist it in /etc/modprobe.d/blacklist.conf, by adding the following to the end of the file:- 
+blacklist i2c_piix4
+
+step #3: 
+update-initramfs -u -k all
+#output
+update-initramfs: Generating /boot/initrd.img-3.8.0-19-generic
+update-initramfs: Generating /boot/initrd.img-3.5.0-17-generic
+update-initramfs: Generating /boot/initrd.img-3.2.0-23-generic
+update-initramfs: Generating /boot/initrd.img-3.0.0-15-generic

@@ -1,0 +1,11 @@
+pgrep -d, -x bash
+ps -fp `pidof bash`
+pkill
+killall
+prtstat
+fuser
+pstree
+
+sysctl: configure kernel parm at runtime
+/sys: sysfs is a virtual file system. it exports device info from kernel space to user space.
+

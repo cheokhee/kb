@@ -1,0 +1,52 @@
+fold -w20 gpg.readme #wrap each input line to fit in specified width
+join: join two files 
+fmt: simple text formatter
+  fmt -ut <file> #
+  fmt -p"#" -w 40 -s <file> #format only lines starting with #
+od -t x1 <file> #hex 1 byte
+od -t d1 <file> #decimal 1 byte
+od -t o1 <file> #octal 1 byte
+od -a -t x1 <file> #show hex and named characters
+================
+paste: combines several files to create tabular date
+example:
+$ cat > file1
+one
+two
+$ cat > file2
+1
+2
+$ cat > file3
+first
+second
+$ paste file1 file2 file3
+one	1	first
+two	2	second
+$ paste -d, file1 file2 file3
+one,1,first
+two,2,second
+===================
+
+Name service switch:
+getent
+/etc/nsswitch.conf
+
+logger "just a test" -> write to /var/log/syslog
+
+mkfifo: make named pipes
+
+nmap: network mapper (not installed)
+
+pv : monitor the progress of data through a pipe
+$cat /C/Users/heech/Downloads/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe | pv -b > /dev/null
+42.2MB
+$ cat /C/Users/heech/Downloads/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe | pv -t > /dev/null
+0:00:00
+$ cat /C/Users/heech/Downloads/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe | pv -r > /dev/null
+[ 126MB/s]
+
+openssl s_client -connect www.google.com:443 #port 443: HTTPS
+
+man -t find > find.ps
+ps2pdf find.ps # generate find.pdf file
+

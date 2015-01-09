@@ -1,0 +1,33 @@
+apt-get clean #don't do autoclean and autoremove
+
+autoclean and autoremove creates two files in /var/cache/apt: pkgcache.bin, srcpkgcache.bin
+apt-get clean : removes these two files
+
+--show what is used
+update-alternatives --display vim
+
+--change to another
+update-alternatives --config vim
+
+#how to use PPA
+add-apt-repository ppa:hotot-team
+apt-get update
+apt-get install hotot
+
+/usr/bin/do-release-upgrade
+
+apt-cache show ack-grep
+
+apt-file - allows you to find which package includes a specific file.
+
+apt-file update #update the cache, cache location: /var/cache/apt/apt-file
+apt-file search <pattern>
+
+/etc/apt/sources.list
+
+5 types of repos in archive
+main: all packages installed by default (Officially supported software.)
+restricted: packages with restricted copyright (h/w drivers) Supported software that is not available under a completely free license.
+backports: newer versions of packages in the archive
+universe: packages maintained by the ubuntu community (not officially supported)
+multiverse: packages that are not free

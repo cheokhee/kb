@@ -1,0 +1,29 @@
+# find pattern, print it and the next line
+/DirectNominationChange/{
+p
+n
+p
+}
+
+OR
+
+sed -n '/DirectNominationChange/{p;n;p;} ' EQMProcessing.txt
+
+++++++++++++++++++
+--> Capitalize first letter of each word in a string
+
+echo 'fOo BaR' | tr '[A-Z]' '[a-z]' | sed 's/\(^\| \)\([a-z]\)/\1\u\2/g'
+
+--> uppercase
+$ echo "abc" | sed 's/[a-z]*/\u&/'
+Abc
+
+--> lowercase
+$ echo "ABC" | sed 's/[A-Z]/\l&/'
+aBC
+
++++ extract artifact id from this:
+
+<dependency><groupId>thirdparty_tools</groupId><artifactId>ant-contrib</artifactId><version>1.0b3</version><type>pom
+
+sed 's%\(<dependency>.*<artifactId>\)\([^<]\+\)\(</ar.*$\)%\2%'

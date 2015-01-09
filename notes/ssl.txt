@@ -1,0 +1,45 @@
+openssl list-cipher-algorithms
+openssl list-message-digest-algorithms
+openssl list-public-key-algorithms
+
+openssl s_client -connect www.google.com:443 #port 443: HTTPS
+openssl genrsa -des3 1024 > server.key
+openssl s_server -cert server.pem -accept 4433 -WWW #port 4433 is default, server.pem contains cert and key
+openssl s_server -quiet -accept 4433 #default: server.pem in current directory, without WWW: echo client input
+openssl ciphers -v
+
+#generate a key and cert (unencrypted private key: no passphrase)
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout key.pem -out server.pem
+#generate a self-signed cert based on an existing key (with passphrase)
+openssl req -new -key server.key -x509 -days 3650 -out server.crt
+
+#if cert does not contain key
+openssl s_server -key key.pem -WWW #use server.pem as cert and port 4433 by default, emulate a web server
+openssl s_server -key key.pem -www #send lots of info back to client
+
+#generate a request
+openssl req -new -key key.pem -out req.pem
+
+#sign a digest
+openssl dgst -sha1 -sign key.pem -out gpgtest.txt.sha gpgtest.txt
+#verify a signed digest
+openssl dgst -sha1 -verify pubkey.pem -signature gpgtest.txt.sha gpgtest.txt
+
+#show cert info
+openssl x509 -in server.pem -text
+
+#generate pub key
+openssl rsa -in key.pem -pubout -out pubkey.pem
+
+openssl verify server.pem
+
+#in /etc/shadow: the salt is the characters btw the second and third dollar signs
+#example: $6$VNOiaeVW$LOTcBMu1UTdb1WqOOHDjTu6RCB34EgKk1EnbsqyK4VELCV2bDaZ02ipKKwViz1KMdR1nZZrq7wtpC5s47srrb1
+openssl passwd -1 -salt VNOiaeVW adminuser
+
+#test whether a prime number
+openssl prime 4
+
+/usr/lib/ssl/openssl.cnf
+/etc/ssl/certs/
+/usr/lib/ssl/misc

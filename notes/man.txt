@@ -1,0 +1,5 @@
+man -t find > find.ps
+ps2pdf find.ps
+
+man -k printf : equiv to apropos -r printf : search man page name and description
+man -f printf: Lookup  the  manual pages referenced and print out the short descriptions

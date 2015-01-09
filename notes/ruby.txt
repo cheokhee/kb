@@ -1,0 +1,145 @@
+Regex:
+aString =~ /regex/ , match partial: return the position at which the match occurs
+  if no match, return nil
+  e.g. "wowhihoo" =~ /hi/ -> return 3, treated as true
+
+$& -> the string matched by the pattern
+$` -> part of the string that preceeded the match
+$' -> part of the string that followed the match
+
+!~ : negation of =~
+
+regex: /pattern/ or %r{pattern}
+\s -> whitespace
+\d -> digit
+\w -> any word character
+
+line.sub(/perl/,'ruby')
+line.gsub(/per/,'ru')
+
+only false and nil are treated as false
+
+hash: {1=>"one"}
+each member of a hash is an array: the key is each[0], the value is each[1]
+array = ["hi","ho"]
+
+aHash.each { |e| print e[0]; print " : "; puts e[1] }; "DONE" # in irb, print "DONE", otherwise, it will
+dump the contents of the hash
+
+print
+puts
+gets
+
+#read from console
+puts "What is your name?"
+$name = STDIN.gets
+puts "Hi "+$name
+
+10.times { puts 1 } == 10.times do puts 1 end
+10.times { |each| puts each }
+
+#define a method
+def second(name = "default value")
+puts "hi #{name}"
+end
+
+ClassName.instance_methods(false) -> return only those defined in ClassName
+ClassName.instance_methods -> return those defined in ClassName and its superclass
+
+variable:
+local: first_name
+instance: @first_name
+class: @@first_name
+global: $FIRST_NAME
+
+__FILE__ : is the magic variable that contains the name of the current file
+$0 is the name of the file used to start the program.
+This allows a file to be used as a library, and
+not to execute code in that context, but if the file is being used as an executable,
+ then execute that code.
+--> if __FILE__ == $0
+
+=begin
+This is a comment line
+it explains that the next line of code displays
+a welcome message
+=end
+
+module : M::C --> module M and class C
+module provides namespace
+
+FILE:
+File.open(filename) do |f|
+  f.each { |line| print line }
+end
+
+f = File.new("output.txt","w")
+f.write "word1"
+ f.puts "line 3?"
+ f.close
+
+IO.write("/path/to/file.txt", "This is my cool text I need to write! Yay!")
+This opens the file at /path/to/file.txt, writes the text to it and closes the file.
+
+contents = IO.read("/path/to/file.txt") # read the file's contents and return it.
+IO.readlines -> an array of strings (represent lines)
+IO.foreach(" ") { } read lines one at a time
+
+FileUtils.copy
+
+%q: single-quoted string
+%Q: double-quoted string
+
+ARGF: an IO object providing access to a virtual concatenation of files named in ARGV,or
+to stdin if ARGV is empty, same as $<
+
+ARGV: command line arguments
+
+ENV: environment variable (behaves like a hash)
+
+equal? ==> identity, should not be overridden
+==, ===, eql? --> equality, should be overridden
+
+"hi" == "hi" -> true
+"hi" === "hi" -> true
+"hi".equal? "hi" -> false
+"hi".eql? "hi" -> true
+
+if don't override, all four methods mean identity
+
+Cheok.ancestors
+=> [Cheok, Mix2, Mix1, Object, Kernel, BasicObject]
+
+Object include Kernel module
+
+collection methods: each, collect, select, detect, any?, all?
+keysAndValuesDo: use each: key=each[0], value=each[1]
+
+irb --simple-prompt -rrbconfig -> -rrbconfig is same as require rbconfig feature
+RbConfig::CONFIG -> a hash containing config info
+
+load -> load a file
+require -> require a feature , does not reload if already loaded
+
+STDIN, STDOUT, STDERR: constants
+$stdin, $stdout, $stderr: variables
+
+closure: ["hi","hoo"].each { |e| puts e }
+
+--------------------------------
+when installing a ruby gem:
+Building native extensions.  This could take a while...
+ERROR:  Error installing jekyll:
+	ERROR: Failed to build gem native extension.
+
+    /usr/bin/ruby2.1 extconf.rb
+mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /var/lib/gems/2.1.0/gems/yajl-ruby-1.1.0 for inspection.
+Results logged to /var/lib/gems/2.1.0/extensions/x86-linux/2.1.0/yajl-ruby-1.1.0/gem_make.out
+
+solution:
+apt-get install ruby-dev
+--------------------------------

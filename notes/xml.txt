@@ -1,0 +1,11 @@
+validate xml:
+
+xmllint cms2.xml --schema LightWeightCargoMovementSpecification_my.xsd  --noout
+
+possible output:
+cms.xml validates
+
+OR
+cmsbad.xml:384: element shipmentNumber: Schemas validity error : Element 'shipmentNumber': This element is not expected. Expected is one of ( shipmentStatus, transshipment, unplanned ).
+cmsbad.xml fails to validate
+

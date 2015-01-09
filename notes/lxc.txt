@@ -1,0 +1,12 @@
+/etc/lxc/default.conf
+/var/lib/lxc
+
+lxc-ls --fancy [name]
+
+lxc-create -t ubuntu -n <name>
+lxc-start -n <name> -d #in daemon mode
+then do lxc-console -n cheok -> to disconnect: Ctrl-a q
+
+lxc-stop -n <name>
+
+lxc-info -n cheok

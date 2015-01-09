@@ -1,0 +1,20 @@
+Regex:
+if ($0 ~ /regex/) {} -> can match part of a string
+
+# find pattern, print it and the previous line
+/cancellation/{print x; print}
+{x=$0}
+
+#find pattern, print it, the previous line, and the following line
+$ awk '/cheok/{print x; print; getline; print};{x=$0}' test.txt
+line before
+cheok is great
+line after
+
+$ echo -e "hi\nho" | awk '{print array["blah"]++}'
+0
+1
+
+$ echo -e "hi\nho" | awk '{print ++array["blah"]}'
+1
+2

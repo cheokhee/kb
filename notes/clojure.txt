@@ -1,0 +1,60 @@
+=====
+1. get leiningen script: (put in ~/bin)
+curl https://raw.github.com/technomancy/leiningen/preview/bin/lein > lein
+
+2. run lein
+this will install leiningen in ~/.lein/self-installs
+
+3. create a test project
+lein new testclj
+
+4. install clojure-mode and nrepl from ELPA (list-packages)
+
+start the repl with lein: lein repl
+
+5. in emacs, do M-x nrepl-jack-in
+
+user=> (defn factorial [n]
+(loop [cnt n acc 1]
+   (if (zero? cnt)
+      acc
+      (recur (dec cnt) (* acc cnt)))))
+
+*command-line-args*
+
+do: evaluate a sequence of expressions: (do (print "hi") (print "ho"))
+
+#java interoperability:
+(import
+  '(java.util Calendar GregorianCalendar)
+  '(javax.swing JFrame JLabel))
+#access a constant:
+Calendar/APRIL <==> (. Calendar APRIL)
+#invoke a static method:
+(. Math pow 2 4) <==> (Math/pow 2 4)
+#invoke an instance method
+(. calendar add Calendar/MONTH 2)
+(. calendar get Calendar/MONTH)
+(.add calendar Calendar/MONTH 2)
+(.get calendar Calendar/MONTH)
+
+#check for membership (same as #contains:) : (some #(= % 1) '(1 2 3))
+#another way (using set): (contains? (set '(1 2 3)) 1)
+
+clojure equivalents of smalltalk:
+#do: --> (doseq [x '(1 "ho")] (println x))
+#select: --> cheok select: [:e | e size = 2] ==> (filter #(= 2 (count %)) cheok)
+#conform: every? --> (every? #(= % 1) '(1 2 3))
+#contains: --> (some #(= % 1) '(1 2 3))
+#collect: --> (map #(+ % 5) '(1 2 3))
+#detect: --> (find-first #(= 2 (count %)) cheok) ; find-first is in clojure-contrib
+
+====
+(defn find-first
+  "Returns the first item of coll for which (pred item) returns logical true.
+  Consumes sequences up to the first match, will consume the entire sequence
+  and return nil if no match is found."
+  [pred coll]
+  (first (filter pred coll)))
+
+(ns-publics 'clojure.core)

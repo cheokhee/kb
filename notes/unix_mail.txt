@@ -1,0 +1,9 @@
+unix:
+
+send mail with attachment and body:
+(cat body.txt; uuencode my.zip my.zip) | mailx -s "subject" cheok.hee@oocl.com
+
+send mail with attachment only
+uuencode my.zip my.zip | mailx -s "eqm stat2" cheok.hee@oocl.com
+
+cat body.txt | mailx -s "test" "cheok.hee@oocl.com; eqmtms2@exch.oocl.com"

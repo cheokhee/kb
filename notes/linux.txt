@@ -1,0 +1,39 @@
+ldd : print shared library dependencies
+
+=====
+boot-up:
+
+/etc/init.d/rcS
+run scripts in /etc/rc2.d, which links to /etc/init.d
+
+default runlevel in /etc/init/rc-sysinit.conf
+
+upstart jobs are in /etc/init
+
+/etc/init/ttyN.conf : start a getty process for ttyN
+stop tty6 : stop tty6
+
+/etc/init/control-alt-delete.conf; define behavior for ctrl-alt-del
+
+/var/log : lots of logs
+
+dig: DNS lookup utility
+
+file copy tool: rsync
+
+lsmod: list kernel module
+modinfo: display module info
+modules are in /lib/modules/
+rmmod: remove modules
+modprobe: add or remove modules
+
+--cron change
+move popularity-contest from /etc/cron.daily to ~root/cron
+move bsdmainutils from /etc/cron.daily to ~root/cron
+move mlocate from /etc/cron.daily to /etc/cron.monthly
+ 
+/etc/updatedb.conf:
+   add /C to prunepaths
+   add vboxsf to prunefs
+
+consider disabling mlocate cron job

@@ -1,0 +1,5 @@
+from package linux-tools-common, linux-tools-3.8.0-19
+
+get stats: perf stat <cmd>
+example: perf stat ls
+

@@ -1,0 +1,35 @@
+gpg --search-keys heinlein@madboa
+gpg -k #list pub key
+gpg -K #list private key
+gpg --armor --output pubkey.txt --export cheok
+gpg --delete-key heinlein
+gpg --gen-key
+gpg -e -r cheok gpgtest.txt  #encrypt
+gpg -r cheok --armor -e gpgtest.txt #generates gpgtest.txt.asc (ascii version)
+gpg --output out.txt -d gpgtest.txt.gpg # decrypt
+gpg --import key.asc
+gpg --verify f.tar.gz.asc f.tar.gz #verify detached signature
+gpg --armor --detach-sign gpgtest.txt # generate a separate signature file
+gpg --armor --sign <file> #encrypt and sign a file. the output contains encrypted msg and signature
+gpg --clearsign gpgtest.txt #the output contains plaintext msg and signature. use ASCII armor for signature by default
+
+ASCII armor: a system for converting binary data into ASCII representation
+format: radix 64, allow each 8-bit char to represent 6 binary bits
+uses 4 ASCII char to represent 3 binary char.
+takes up one-third more space.
+the last line of the ASCII armor is the checksum
+
+during decryption:
+You need a passphrase to unlock the secret key for
+user: "Cheok Hee <cheok.hee@oocl.com>"
+2048-bit RSA key, ID 3A22DA19, created 2013-06-06 (main key ID 16D83159)
+
+output of -k
+pub   2048R/16D83159 2013-06-06
+uid                  Cheok Hee <cheok.hee@oocl.com>
+sub   2048R/3A22DA19 2013-06-06
+
+certifying a key means signing a key with your own secret key
+
+signing is sometimes known as "encrypting to the private key."
+The recipient will decrypt the file with our public key and verify the signature

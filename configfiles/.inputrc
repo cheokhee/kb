@@ -1,0 +1,13 @@
+$include /etc/inputrc
+
+#If set to `on', words which have more than one possible completion cause the matches to be listed
+#immediately instead of ringing the bell
+set show-all-if-ambiguous on
+
+#If set to `on', Readline performs filename matching and completion in a case-insensitive fashion.
+set completion-ignore-case on
+
+#If set to `on', and completion-ignore-case is enabled, Readline treats hyphens (`-') and
+#underscores (`_') as equivalent when performing case-insensitive filename matching and completion.
+set completion-map-case on
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Replace space in directory/file names with underscore
+
+for i in *
+do
+  if echo $i | grep -q " "; then
+	new=`echo $i | sed 's/ /_/g'`
+	mv "$i" $new
+  fi
+done

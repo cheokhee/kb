@@ -1,0 +1,2 @@
+dpkg -l "*guest-add*" | cut -c1-$COLUMNS
+

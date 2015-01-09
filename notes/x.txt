@@ -1,0 +1,11 @@
+--from child to parent process
+bash --> lxterminal --> openbox --> lxsession --> init --user --> lightdm --session-child --> lightdm --> init
+
+lightdm is also the parent of /usr/bin/X
+summary:
+lightdm is the parent of /usr/bin/X and "lightdm --session-child"
+
+env variable:
+XDG_CURRENT_DESKTOP=LXDE
+GDMSESSION=Lubuntu
+

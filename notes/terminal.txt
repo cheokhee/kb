@@ -1,0 +1,5 @@
+how to change lxterminal title programmatically:
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+
+from the command line:
+echo -ne "\033]0;NEW_TITLE\007"

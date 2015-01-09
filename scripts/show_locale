@@ -1,0 +1,14 @@
+#!/bin/bash
+LANG=C
+for loc in $(locale -a | grep utf8 | sort); do
+  echo "Locale: $loc"
+  # Aug 1, 2004 was a Sunday, Aug 7 a Saturday
+  for n in $(seq 1 7); do
+    LANG="$loc" date +"%A (%a)" -d 2004/8/${n}
+  done
+  for n in $(seq 1 12); do
+    LANG="$loc" date +"%B (%b)" -d 2004/${n}/1
+  done
+  echo
+done
+
