@@ -1,0 +1,22 @@
+1. gem install jekyll
+   Got error:
+	ERROR: Failed to build gem native extension.
+
+    /usr/bin/ruby2.1 extconf.rb
+mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
+
+   solution: apt-get install ruby-dev
+
+2. jekyll --version
+   got error:
+   /var/lib/gems/2.1.0/gems/execjs-2.2.2/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
+
+   solution: apt-get install ruby-execjs
+
+3. jekyll new mysite
+
+4. cd mysite
+
+5. jekyll serve
+
+6. in browser: http://localhost:4000
