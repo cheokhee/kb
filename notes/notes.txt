@@ -1,0 +1,2150 @@
+scourge, bane, : something causing misery
+(the bane of my life)
+
+cynosure: An object that serves as a focal point of attention and admiration.
+Something that serves to guide.
+
+spectral line: atoms absorb and give out light at characteristic wavelengths.
+if they swallow more than they emit, the result is a dark line in the spectrum
+of a celestial object. if they emit more than they swallow, the result is
+a bright line.
+Individual elements have their own spectrum. When hydrogen gas is heated,
+it gives off only a few narrow colored lines that make up the unique spectral
+fingerprint of that element. This is called emission spectrum. If light from
+a star passes through a cool cloud of the same gas, the element will absorb
+from the light the same colored bands produced by an emission spectrum, leaving
+black lines in their place. The result is an absorption spectrum.
+absorpton lines are produced when particular wavelenghts of radiation from a
+hot source are absorbed by a cooler, intervening medium.
+
+Because the moon completes each rotation in exactly the same time it takes
+to revolve the Earth, we can only look at one side of the moon.
++++
+the Moon is in a synchronous orbit (meaning it spins exactly once on its axis for
+ every one revolution around Earth), forced to show the same face toward Earth for all eternity.
+
+supernova: a cataclysmic explosion of a massive star. an explosion where
+a dying star blows off its outer layers.
+
+Right ascension: celestial equivalent of terrestrial longitude.
+declination: celestial equivalent of terrestrial latitude.
+
+black body: a body that absorbs all the heat that falls on it.
+
+In computer networking literature, digital bandwidth refers to data rate
+measured in bit/s, for example channel capacity (digital bandwidth capacity)
+or throughput (digital bandwidth consumption). The reason for this usage
+is that the channel capacity in bit/s is proportional to the analogue bandwidth
+in hertz according to Hartley's law.
+
+In communication networks, throughput is the amount of digital data per
+time unit that is delivered over a physical or logical link, or that is
+passing through a certain network node. For example, it may be the amount
+ of data that is delivered to a certain network terminal or host computer,
+ or between two specific computers. The throughput is usually measured
+in bits per second (bits/s or bps), occasionally in data packets per
+ second or data packets per timeslot. The term corresponds to digital bandwidth consumption.
+
+Cable modems are primarily used to deliver broadband Internet access,
+taking advantage of unused bandwidth on a cable television network.
+Like all residential broadband network technologies (e.g. DSL, FTTX,
+ Satellite internet, WiMAX), a fixed channel capacity is shared by a
+ population of users (in the case of cable internet, users in a neighborhood
+share the available capacity provided by a single coaxial cable line).
+ Therefore, service speed can vary depending on how many people are using the service at the same time.
+
+octothorpe: the # sign
+
+point-and-shoot vs SLR:
+The image that the photographer sees through the viewfinder of a point-and-shoot
+camera is not the same image that passes through the primary lens of the camera
+ (that is, the lens that projects the image onto the film or,
+in the case of digital cameras, the image sensor). Rather, the
+image seen in the viewfinder of a point-and-shoot camera passes
+ through a separate lens. SLRs, on the other hand, have only one lens,
+and a mirror diverts the image from the lens into the viewfinder;
+ that mirror then retracts when the picture is taken so that
+ the image can be recorded on the film or sensor. It is because
+of this method of diverting the image into the viewfinder that
+ pictures cannot be previewed on the LCD screens of most digital SLRs.
+
+fluorescence: Fluorescence is a luminescence that is mostly found as an
+optical phenomenon in cold bodies, in which the molecular absorption of
+a photon triggers the emission of another photon with a longer wavelength.
+The energy difference between the absorbed and emitted photons ends up as
+ molecular vibrations or heat. Usually the absorbed photon is in the
+ ultraviolet range, and the emitted light is in the visible range,
+
+The life of a CFL lamp is significantly shorter if it is only turned on for
+ a few minutes at a time: In the case of a 5-minute on/off cycle the lifespan
+of a CFL can be up to 85% shorter, reducing its lifespan to the level of an incandescent lamp
+they burn out more quickly when cycled frequently.
+
+In telecommunications, modulation is the process of varying a periodic
+waveform, i.e. a tone, in order to use that signal to convey a message,
+
+analog signal: a continuous-time signal.
+discrete-time signal is a signal that has been sampled from a continuous-time signal.
+digital signal: a discrete-time signal that takes on only a discrete set of values.
+It typically derives from a discrete signal that has been quantized.
+first step: sampling
+quantizing: representing the value with a number of bits.
+any number of quantization levels is possible, not just powers of two.
+
+victual: food , victuals: provisions (Food supplies)
+
+cotton to: to take a liking to, to come to understand
+
+unctuous, fulsome, oily, oleaginous, smarmy: Characterized by affected, exaggerated, or
+insincere earnestness:
+
+to be left to one's own devices: to be left alone, unsupervised
+
+celestial sphere: an imaginary sphere of infinite extent with
+the earth at its center, upon which all the celestial bodies
+appear to be projected as though they were at a uniform distance.
+
+idioms: phrases that don't mean what they literally say.
+
+affect: to act in a way you don't feel (she affected an air of superiority)
+
+that: before a restrictive clause (no commas needed)
+which: before everything else (commas needed)
+
+googol: 1 followed by 100 zeroes. 10 to the 100th power.
+10 raised to the power of one hundred.
+Two to the power of three is eight
+is raised to the 100th power
+a^n : a raised to the n-th power, a raised to the power [of] n, or possibly a
+raised to the exponent [of] n, or more briefly as a to the n.
+
+unlawful: not authorized by law
+illegal: forbidden by law.
+
+Zoning is a term used in urban planning for a system of land-use regulation in various parts of the world.
+The word is derived from the practice of designating permitted uses of land based on mapped
+zones which separate one set of land uses from another.
+Theoretically, the primary purpose of zoning is to segregate uses that are thought
+ to be incompatible; in practice, zoning is used as a permitting system to prevent
+new development from harming existing residents or businesses.
+A term that refers to a system of land-use  regulation that specifies
+what can be built on a piece of land.
+
+colon: to introduce something.
+I have two favorite dishes: chicken and shrimp.
+use colon after a complete sentence. don't capitalize
+the first word after a colon.
+the second clause does not have to be a complete sentence.
+
+semicolon: separate two complete sentences.
+two clauses should be related.
+don't use with coordinating conjunction (and, or)
+can also be used in a list.
+<....>; however, <...>
+<....>; nevertheless, <...>
+<....>, and <...>
+However, <...>
+<...>, however, <...>
+
+comma splice: joining two sentence with a comma without a coordinating conjunction.
+
+hopefully -> in a hopeful manner, use "I hope" instead.
+
+A dongle is a piece of hardware that attaches to a computer in order
+to make a piece of secured software run. A dongle in this sense is used as
+a high-end form of security to prevent the unauthorized copying of software,
+The term has been somewhat generalized to describe specialized connectors that
+convert one type of port to another, for example an 8P8C modular jack that plugs
+ into the edge connector on some kinds of PC card Ethernet adaptors, as well as
+small devices such as USB flash drives or wireless networking adapters.
+a security device that plugs into a computer.
+
+run-on sentence: a sentence that lacks punctuations.
+
+economies of scale: A reduction in unit costs that arise from an increase in production.
+
+spoonerism: A transposition of sounds of two or more words, especially a ludicrous one,
+such as Let me sew you to your sheet for Let me show you to your seat.
+
+mondegreen: A series of words that result from the mishearing or misinterpretation of a statement or song lyric. For example,
+I led the pigeons to the flag for I pledge allegiance to the flag.
+
+malapropism: Ludicrous misuse of a word, especially by confusion with one of similar sound.
+
+spoonerism: when the speaker mixes up sound.
+mondegreen: when listener mishears words,
+eggcorn: when speaker swaps homophones in phrases.
+malapropism: when speaker substitutes a similar-sounding word for another.
+
+dentistry:
+ The letter part of the code refers to different parts or surfaces of the tooth.
+An "M" mesial, or "D" distal, is the front or back surface of the tooth, respectively.
+An "O" occlusal, is the top or biting surface of a back tooth (molar or premolar),
+and "I" incisal, is the biting edge of front teeth (incisors and canines).
+ A "B" buccal, is the surface of the tooth towards the cheek, and an "L" lingual,
+ is the surface of the tooth towards the tongue. So if the dentist says number
+3MOD, you'll know that you have a cavity on your upper right first molar,
+ involving the front, top, and back parts of the tooth.
+occlusal: biting surface
+mesial: toward the center of the mouth
+distal: away from the center of the mouth
+facial: toward the face
+buccal: toward the cheek
+lingual: toward the tongue
+
+silver amalgam: biocompatible (unlikely to iritate living tissue. not actually
+cemented to the cavity walls. it is held in place by a close frictional
+fit, plus undercutting the cavity  to lock in the in the filling when it hardens.
+require at least 24 hours before reaching full strength (do not chew on it for
+at least 24 hours). require support from the surrounding tooth to keep it from
+chipping or shattering.
+
+composite resin: not as strong as amalgam. not biocompatible, must be separated
+from living tissue with bases or liners. easily stained. boundaries between
+the tooth and the filling tend to open up.
+
+Dental sealants (also known as "tooth sealants") can play an important role
+in helping to prevent tooth decay ("cavities") in some locations on teeth.
+ The placement of dental sealants involves your dentist bonding a plastic
+ coating into the grooves of your tooth (the tooth's pits and fissures).
+ The net result is a smoother tooth surface, one which is less likely to
+trap food and plaque and one which is easier to clean with your toothbrush.
+
+PPO: offer a list of dentists/doctors who have agreed to provide services
+at a discounted fee.
+
+HMO: dentist/doctor agrees to provide care in exchange for an amount prepaid
+by the insurer per consumer per month. (capitation fee)
+
+===========================================================
+
+questions to ask doctor/dentist:
+
+1. is a nonsurgical alternative available? why have you recommended surgery?
+
+2. what happens if I don't have surgery? any advantage or disadvantage to waiting?
+
+3. what complications do patients commonly experience? Any side effects?
+
+4. what is the test called? how is it performed?
+
+5. what do you expect the test to show?
+
+6. why is the test necessary?
+
+7. will it hurt? any risks? who performs? who analyzes the results?
+
+8. can I get a copy of the results? how long does it take? how long before the results are known?
+
+9. how much does it cost? is it covered by insurance?
+
+10. what happens if I don't undergo the test? Are there any alternatives?
+
+11. do the potential benefits outweight the risks?
+
+12. why is the procedure recommended in this case?
+
+13. what are the alternatives?
+
+14. what kind do you recommend and why?
+
+15. what is the cost? how does this compare with the cost of the alternatives, if any?
+
+16. what is likely to happen if we do nothing at this time?
+
+===========================================================
+
+shank's mare: one's legs: travel by shank's mare.
+
+scarify: to make scratches or small cuts in something, to lacerate the feeling of someone.
+
+allay, assuage, alleviate: to lessen the intensity of
+
+dingleberry: A piece of dried feces caught in the hair around the anus.
+An incompetent, foolish, or stupid person.
+a small clot of dung, as clinging to the hindquarters of an animal.
+
+dry heaves: repeated involuntary retching unaccompanied by vomit
+
+PBX: A Private Branch eXchange (PBX) is a telephone exchange that serves a
+particular business or office, as opposed to one that a common carrier
+ or telephone company operates for many businesses or for the general public.
+
+a telephone exchange or telephone switch is a system of electronic components that
+connects telephone calls.
+A network switch is a computer networking device that connects network segments.
+
+SKU (Stock keeping unit): a term used by retailers to identify the lowest level of product detail.
+
+take one's lumps: suffer the results or consequences of one's behavior or actions
+
+philippic: a tirade, declamation
+
+collegium: a group in which each member has approximately equal power and authority.
+
+degringolade: a rapid decline or deterioration
+
+contumely: harsh language or treatment arising from haughtiness or contempt
+an instance of such language or treatment.
+
+jaundiced:  Affected by or exhibiting envy, prejudice, or hostility
+bilious:
+
+logy: lethargic, marked by sluggishness.
+
+dodgery: trickery, artifice
+
+pass for someone/something: to appear to be someone or something else.
+
+pass something off as something: to pretend that something is different from what it really is.
+
+pass something on (to someone)
+
+pass the smell test
+
+come to pass : to happen
+
+raddled: being in a state of confusion : lacking composure; broken-down, worn
+
+estimable: admirable
+
+put on emergency flashers  , hazard lights
+
+To bear up to, to tend or move toward; as, to bear up to one another.
+
+Call a spade a spade: To speak plainly - to describe something as it really is.
+
+on a dime: At a precise point; within a narrowly defined area:
+turn on a dime - have a small turning radius;
+
+Blue Cross and Blue Shield consists of a network of local community health service corporations.
+A nationwide federation, Blue Cross and Blue Shield operate under and
+are covered by state laws as not-for-profit service providers.
+Blue Cross covers hospital costs, as well as outpatient care and home care.
+Blue Shield plans cover physicians' services, dental, vision, and some
+outpatient services. The two plans cooperate with one another
+ to provide a form of comprehensive coverage for the subscribers to the plans.
+
+Health Maintenance Organization (HMO) provides prepaid comprehensive health care
+ services to an enrolled group of members within a specified area -- controlled
+by geography and enrollment allowances. Its doctors are employed by the HMO, on
+a salary which is not dictated by the number or patients or the nature of the
+ treatment given. The HMO selects its doctors, hospitals and other care facilities,
+ which are solely offered under its coverage. An HMO may be contracted by both
+for-profit and nonprofit health organizations to provide care.
+The enrollee is required to choose a primary care provider, and agree to only see them for medical care.
+There is no deductible or coinsurance for health care, and little red tape if you go in for care services.
+A benefit of HMOs is the coverage for preventative health care, including
+checkups and many testing procedures. In fact, emphasis is placed on preventative medicine
+Most HMO coverage is employer-provided, and is group coverage. That
+is, a group of people are enrolled at a group rate,
+Freedom of choice exists only within the infrastructure of selected doctors
+and facilities. To be fully covered by the HMO, the insured has to use
+the HMO's previously arranged services.
+
+Staff Model HMOs: is a network of salaried employees of the HMO,
+consisting of doctors, physicians and specialists who are employed
+s by the HMO, and the facility is often owned by the HMO.
+However, most have contracts with other hospitals and physicians to provide
+ care to HMO clients at other facilities. Internal medicine physicians,
+ family physicians, and pediatricians are chosen from the hospital-based HMO staff
+
+Group Model HMO: A physicians group is contracted by the HMO to provide
+its specific services to the enrollees. Rarely are the physicians directly
+employed, nor are the HMO participants their only patients.
+
+Independent Practice Associations (IPAs): Individual private practitioners are contracted,
+and they are paid a fixed fee per each patient they agree to treat under HMO contract.
+They are chosen by the HMO members as the primary care doctors. IPAs offer more choice
+ to HMO recipients, since there are a lot of private practice doctors to choose from,
+once the HMO contract has been prepared with the physicians. It is also sometimes
+ possible to avoid changing your doctor when you change to an IPA-HMO, if a
+contract can be established between the HMO and your current doctor(s).
+
+Point Of Service Plans (POS):
+ Traditionally, HMOs have kept their costs to a minimum by managing care. To manage
+care, HMOs keep medical care and expenses in their network of doctors and facilities.
+HMOs commonly frown on its members seeking care outside the network, and maintain
+this system by requiring members to pay high out-of-pocket (sometimes footing the
+entire bill) costs when care is provided by physicians who are not employed or contracted by the HMO.
+The POS was developed to provide HMO members with more choices. Still restricted
+ somewhat (not offered by all HMOs or employers., POs plans offer coverage outside
+the network of the HMO, but the coverage outside the network resembles traditional
+ health care insurance, where it is required to pay a deductible for that care
+outside the HMO structure. This coverage is most often chosen by a family that
+wishes to see a family physician they have dealt with for years, but who is not
+ a part of their HMO system.
+
+Preferred Provider Organization (PPO): A PPO is usually put together by an
+insurance company or employer, in that they arrange a network of doctors and
+ hospitals to provide care at a lower cost than traditional insurance.
+PPOs have higher premiums, and also require the payment of a deductible for health services.
+ The system works as though one were simply getting a percentage discount on
+medical care. In this manner, it is a fee-for-service policy, rather than
+prepaid for services. For coverage outside the network, the insurer pays
+less of the bill and the insured has more out-of-pocket expenses. In some
+ways the PPO is a lot more lenient. For example, it is not necessary to
+choose a primary care physician and only receive care from that provider.
+
+medicare:
+   1.   Those 65 or older who are also eligible for Social Security benefits based on their acquired credits and years in the work force.
+   2. Those disabled and under the age of 65 -- but they have to meet requirements of Social Security Disability Insurance (SSDI) through the Disability Determination Service (DDS. of the particular state government.
+   3. People any age who have permanent kidney failure.
+   4. Those 65 or older who are beneficiaries of Railroad Retirement.
+Medicare:
+Part A covers costs while hospitalized, and services procured in the
+hospital. Inpatient services which are deemed medically necessary are
+ covered, as well as hospice care for the terminally ill. Home health
+care is fully covered, as well as 80 percent of necessary medical
+equipment. If the patient must pay for blood on a regular basis,
+Medicare Part A will pick up the payments after the insured pays
+for the first three pints (three pints a year). The premium of
+part A coverage is covered by FICA taxes as long as one is approved for Social Security.
+Part B coverage helps pay for physician services, other medical procedures, and supplies including tests, prescription drugs, speech therapy and other services. Medicare Part B requires that the recipient pay a premium for this coverage.
+	Go to previous page
+
+Medicare Supplement Policies (Medigap):
+are not government policies as are Medicare and Medicaid, although Medigap
+ may be regulated strictly by some states. In most states, Medigap is offered
+ to Medicare recipients over the age of 65, and the coverage picks up where Medicare lacks in coverage
+coverage is offered by private insurers,
+
+Medicaid: Run by the states, unlike the federally funded Medicare program,
+Medicaid provides health coverage for low-income families and individuals who have few assets.
+
+Insurance can be defined as a means to reduce risk or the uncertainty of loss by
+bringing together enough entities exposed to loss to make their individual
+losses collectively predictable, often referred to as the "Law of Large Numbers"
+
+strategic  refers to the "what and why" and tactical refers to the "how."
+
+Strategic thinking, planning, and actions reflect the doer's ability to consider
+ the big picture, recognize patterns and trends, honor priorities, anticipate
+issues, predict outcomes, and have smart alternatives to fall back upon. Strategic
+issues deal with overriding mission and purpose, why the organization exists,
+how it makes a difference that others don't or can't make, and where it will be in the future.
+
+Tactical refers to the hands-on part of getting the job done, making sure the
+strategic goals are met. It's performing each implementation task with quality and efficiency.
+
+it all balances out in the end.
+
+aleatory: Dependent on chance, luck, or an uncertain outcome; Of or characterized by gambling
+
+jumping-off point - a beginning from which an enterprise is launched
+
+deductible: the amount you are required to pay out of the total bill.
+
+distaff: women in general; distaff side (female side):
+
+holds himself out to be an "expert"
+
+A fiduciary is defined as someone who is held in trust or complete confidence.
+a person who holds assets in trust for a beneficiary.
+The fiduciary duty is a legal relationship between two or more parties
+(most commonly a "fiduciary" or "trustee" and a "principal" or "beneficiary")
+
+estoppel: A bar preventing one from making an allegation or a denial that
+ contradicts what one has previously stated as the truth.
+a rule of evidence whereby a person is barred from denying the truth of a fact that has already been settled
+
+The Prudent Man Rule is based on common law stemming from the 1830 Massachusetts
+ court decision - Harvard College v. Armory, 9 Pick. (26 Mass.) 446, 461 (1830).
+The Prudent Man Rule directs trustees "to observe how men of prudence, discretion
+ and intelligence manage their own affairs, not in regard to speculation, but in
+regard to the permanent disposition of their funds, considering the probable
+income, as well as the probable safety of the capital to be invested"
+The fiduciary is required to invest trust assets as a "prudent man" would invest
+his own property with the following factors in mind: the needs of beneficiaries,
+ the need to preserve the estate (or corpus of the trust) and the amount and
+regularity of income. The application of these general principles depends on
+the type of account administered. The Prudent Man Rule continues to be the
+sprevailing statute in a small number of states.
+
+slapdash: characterized by haste and carelessness.
+
+antediluvian: antiquated.
+
+presentiment: premonition
+
+omphalos: focal point
+
+lave: to wash, bathe
+
+loam: Soil composed of a mixture of sand, clay, silt, and organic matter.
+
+aphthous stomatitis: aphthous ulcer (aka canker sore)
+
+salad days: a time of youthful inexperience
+
+go along for the ride
+
+crick my neck
+
+I am not much on fate
+
+    * Etorre's Observation - The other line moves faster.
+    * Barth's Distinction - There are two types of people in the world: those who divide people into types and those who don't.
+    * Acton's Law - Power corrupts, absolute power corrupts absolutely
+    * Boob's Law - You always find something in the last placea variety of services which help meet both the medical and non-medical need of people with a chronic illness or disability who cannot care for themselves for long periods of time. you look.
+    * Clarke's Third Law - Any sufficiently advanced society is indistinguishable from magic.
+    * Franklin's Rule - Blessed is he who expects nothing, for he will not be disappointed.
+    * Issawi's Law of the Path of Progress - A shortcut is the longest distance between two points.
+    * Mencken's Law - Those who can, do. Those who cannot, teach.
+    * Patton's Law - A good plan today is better than a perfect plan tomorrow.
+Peter Principle, which states that all people will eventually be promoted to their level of incompetence,
+
+long-term care: Refers to the broad range of medical and personal services for individuals who
+need assistance with daily activities for an extended period of time.
+A variety of services which help meet both the medical and non-medical need of people
+ with a chronic illness or disability who cannot care for themselves for long periods of time.
+
+An application server is a software engine that delivers applications to client computers
+ or devices, typically through the Internet and using the HyperText Transfer Protocol.
+ Application servers are distinguished from web servers by the extensive use of
+server-side dynamic content and frequent integration with database engines.
+
+An application server handles most, if not all, of the business logic and data
+access of the application (see Centralization). The main benefit of an application
+server is the ease of application development, since applications need not be programmed;
+ instead, they are assembled from building blocks provided by the application server.
+
+no good will come of it
+
+six degrees of separation:
+any two individuals could be connected through at most five acquaintances.
+the idea that everyone in the world is separated from everyone else by six links.
+
+line of sight:
+Radio transmission requires a clear path between antennas known as radio line of sight.
+Line of sight is the direct free-space path that exists between two points
+
+synergy: The interaction of two or more agents or forces so that their combined
+effect is greater than the sum of their individual effects.
+
+beyond a reasonable doubt
+
+it can as easily be
+could have just as easily
+the reverse could just as easily be said of March.
+but it could just as well have been used to pitch fish sticks or odor eaters
+
+first class object:
+in the context of a particular programming language, is an entity which can be used in programs
+without restriction (when compared to other kinds of objects in the same language).
+First-class objects are said to belong to a first-class data type.
+
+double dispatch:
+a mechanism that dispatches a function call to different concrete functions depending on
+the runtime types of multiple objects involved in the call.
+
+strong typing:
+implies that the programming language places severe restrictions on the intermixing
+ that is permitted to occur, preventing the compiling or running of source code which
+uses data in what is considered to be an invalid way. For instance, an integer division
+operation may not be used upon strings; a procedure which operates upon linked lists may
+not be used upon numbers. However, the nature and strength of these restrictions is highly variable.
+
+static typing: type checking is performed during compile-time
+dynamic typing: type checking is performed during run-time.
+
+umami
+: a taste sensation that is meaty or savory and is produced by several amino acids
+and nucleotides (as glutamate and aspartate)
+
+jetsam: jettisoned goods
+flotsam: floating wreckages.
+
+cabotage:
+trade or transport in coastal waters or airspace or between two points within a country
+ the right to engage in coastal trade or transport
+
+as it were:
+As if it were really so; so to speak; In a manner of speaking; as we say; if I can put it that way;
+figuratively speaking; as if such were so
+a parenthetic phrase used to indicate that a word or statement is perhaps not formally
+exact though practically right
+e.g., she lives here, as it were
+the feeling is, so to speak, quite dead
+I was so terrified that my legs were like jelly, so to speak.
+Don't you feel, as it were, overwhelmed by so many words and ways of putting them together?
+
+all the same:
+in spite of a preceding event or consideration: however, nevertheless, nonetheless,
+still, yet. Informal still and all. Idioms: be that as it may.
++++
+John wants to stay another week, but I'm going home all the same.
+Even if you vote against it, this measure will pass just the same.
++++
+after all: in spite of the circumstances; notwithstanding: He came in time after all.
++++
+She went to the game anyway, doctor's orders notwithstanding.
++++
+in spite of the fact that; although: It was the same material, notwithstanding the texture
+ seemed different.
++++
+nevertheless; anyway; yet: We were invited notwithstanding.
+
+cloud forms when air rises and cools to its dewpoint. (form around tiny particles in the air)
+fog forms when air above the ground cools to its dewpoint. (form around tiny particles in the air)
+
+solstice:
+either of the two times of the year when the sun is at its greatest distance from the celestial equator.
+Point at which Sun is furthest south or north from Earths equator.
++++
+A solstice is an astronomical event that occurs twice each year, when the tilt of the Earth's
+axis is most inclined toward or away from the Sun, causing the Sun's apparent position in the sky
+to reach its northernmost or southernmost extreme.
++++
+the apparent movement of the Sun's path north or south comes to a stop before reversing direction.
++++
+winter solstice: the longest night of the year as well as the shortest daylight.
+the moment in time when the earth's axis is angled directly away from the sun
+in the northen hemisphere. summer solstice: angled toward the sun.
+
+color spectrum:
+red, orange, yellow, green, blue, indigo, and violet
+
+rainbow
+when you are seeing a rainbow, you are looking at falling rain.
+rainbow occurs only when it is raining in one part of the sky and the
+sun is hining in another.
+
+red sky at night, sailor's delight
+red sky in the morning, sailor's warning
+
+most weather travels from west to east in the middle latitudes
+where most people live.
+
+Rainbow in the morning gives you fair warning
+
+zeitgeist:
+the general intellectual, moral, and cultural climate of an era.
+
+cop to: to admit to
+
+moral hazard: the idea that insurance makes people take on greater risk.
+
+ex post facto law:
+a law that retroactively changes the legal consequences of an act that was commited
+before the enactment of the law.
+
+such as it is
+In the form that it has, which is not very good but all that's available,
+as in Of course you can stay for supper, such as it is. This expression is
+generally used apologetically, indicating that the item in question isn't very good or worth much.
++++
+being the kind it is (or was, etc.): used in referring to something in either an apologetic or a derogatory way
++++
+in the imperfect state that one sees it; in the less-than-perfect condition in which one sees it.
+This is where I live. This is my glorious home, such as it is.
+I've worked for days on this report, and I've done the best that I can do.
+It's my supreme effort, such as it is.
+
+give credence to someone or something
+to consider someone or something as believable or trustworthy. How can you
+give credence to a person like Henry? I can't give any credence to Donald. He
+ tells lies. Don't give credence to what he says. Please don't give credence
+to that newspaper article.
+
+take or put stock in,
+to put confidence in or attach importance to; believe; trust:
+Considering his general unreliability, I can't take stock in what he has told you.
+
+We're not big on quitting.
+I'm not big on snobbery,
+We're not big on mushiness, cheesiness, religiousness..
+
+natural key
+a candidate key that has a logical relationship to the attributes within that row.
+A natural key is sometimes called a domain key.
+
+surrogate key
+opposite of natural key
+The surrogate key is not derived from application data.
+
+Iatrogenic
+ induced inadvertently by a physician or surgeon or by medical treatment or diagnostic
+procedures <an iatrogenic rash>
+
+base metal
+In chemistry, the term base metal is used informally to refer to a metal that oxidizes or
+corrodes relatively easily, and reacts variably with diluted hydrochloric acid (HCl) to form
+hydrogen. Examples include iron, nickel, lead and zinc. Copper is considered a base metal as
+it oxidizes relatively easily, although it does not react with HCl. It is commonly used in
+ opposition to noble metal.
+
+boilerplate : syndicated material supplied especially to weekly newspapers in matrix or plate form
+: standardized text : formulaic or hackneyed language 3 : tightly packed icy snow
+e.g. Most of the real estate contract was legal boilerplate.
+
+straw man
+--> A straw man argument attempts to refute a given proposition by showing that a slightly different or inaccurate form of the proposition (the "straw man") is absurd or ridiculous
+--> A straw man argument is an informal fallacy based on misrepresentation of an opponent's position.
+To "attack a straw man" is to create the illusion of having refuted a proposition by
+substituting a superficially similar proposition (the "straw man"), and refuting it,
+ without ever having actually refuted the original position
++++
+a stand-in created to draw attention away from the central issue
+===
+The Straw Man fallacy is committed when a person simply ignores a person's actual position
+and substitutes a distorted, exaggerated or misrepresented version of that position.
+This sort of "reasoning" has the following pattern:
+
+   1. Person A has position X.
+   2. Person B presents position Y (which is a distorted version of X).
+   3. Person B attacks position Y.
+   4. Therefore X is false/incorrect/flawed.
++++
+Examples of Straw Man
+
+   1. Prof. Jones: "The university just cut our yearly budget by $10,000."
+      Prof. Smith: "What are we going to do?"
+      Prof. Brown: "I think we should eliminate one of the teaching assistant positions.
+		That would take care of it."
+      Prof. Jones: "We could reduce our scheduled raises instead."
+      Prof. Brown: " I can't understand why you want to bleed us dry like that, Jones."
+
+   2. "Senator Jones says that we should not fund the attack submarine program. I disagree entirely.
+	I can't understand why he wants to leave us defenseless like that."
+
+   3. Bill and Jill are arguing about cleaning out their closets:
+      Jill: "We should clean out the closets. They are getting a bit messy."
+      Bill: "Why, we just went through those closets last year. Do we have to clean them out everyday?"
+      Jill: "I never said anything about cleaning them out every day. You just want to keep all your
+	junk forever, which is just ridiculous."
+
+relay
+A relay is a device that allows a small amount of electrical current to control a large amount of current.
+
+Cluster vs. Grid
+++
+A cluster is a group of computers organized together to perform the same set of functions.
+For instance, you may have a cluster running your database software.
+++
+A grid is a collection of resources. A grid can be composed of multiple clusters.
+In Oracle's grid world, you can have a cluster of servers running the database software and a cluster of servers running the Application Server software. Since they are all in the grid, you can move resources from one cluster to another should demands dictate.
++++
+In sum, a cluster is one large computer made up of small, similar computers, just
+ as R.A.I.D. is one large hard disk made up of small hard disks. Whereas a grid is a bunch of computers that make their unused resources available to select computers (often a single server) over a network.
+++
+In cluster computing, a bunch of similar (or identical) computers are hooked up locally
+(in the same physical location, directly connected with very high speed connections) to operate as
+a single computer. The computers that make up the cluster cannot be operated independently
+as separate computers. A cluster, as far as any software or other computer is concerned, looks
+like essentially one big computer.
+++
+in grid computing, the computers do not have to be in the same physical location and can be operated
+independently. As far as other computers are concerned each computer on the grid is a distinct computer.
+Computers on a network have a program on them that allows unused resources (usually processing time and memory)
+ to be used by another computer on the network.
+
+middleware: is computer software that connects software components or applications.
+
+An application server, in an n-tier architecture, is a server that hosts an API to expose
+business logic and business processes for use by third-party applications.
+
+Business rule is a statement that defines or constrains some aspect of the business. It is
+intended to assert business structure or to control or influence the behavior of the business.
+
+business logic:
+models real life business objects (such as accounts, loans, itineraries, and inventories)
+Business logic comprises:
+
+* business rules that express business policy (such as channels, location, logistics, prices, and products); and
+* workflows that are the ordered tasks of passing documents or data from one participant
+  (a person or a software system) to anothother
+
+Presentation
+a leave-behind document
++++
+1. what is my point?
+2. why does it matter?
++++
+slides are not meant to tell the whole story. they are there to support the speaker.
++++
+prepare slids, notes, and handouts.
++++
+it is more difficult to process information when it is presented in spoken and
+written form at the same time.
++++
+questions:
+1. how much time do I have?
+2. what's the venue like?
+3. what time of the day?
+4. who is the audience?
+5. what's their background?
+6. what do they expect of me?
+7. why was I asked to speak?
+8. what do I want them to do?
+9. what visual medium is most appropriate?
+10. what is the fundamental purpose of my talk?
+11. what is the story here?
+
+I prefer that you didn't mention my name
+I'd rather you didn't do that
+
+I don't want to go over my time (regarding presentation)
+
+come down on the side of
+
+availability: the percentage of time that a system operates during its intended duty cycle.
+High availability: specifies an amount of time as a percentage of the intended duty
+cycle that a system must be functional.
++++
+High availability vs. fault tolerance
+The difference between fault tolerance and high availability, is this: A fault tolerant
+ environment has no service interruption but a significantly higher cost, while a highly
+ available environment has a minimal service interruption.
++++
+Fault tolerance relies on specialized hardware to detect a hardware fault and instantaneously
+switch to a redundant hardware component whether the failed component is a processor, memory board,
+ power supply, I/O subsystem, or storage subsystem. Although this cutover is apparently
+seamless and offers non-stop service, a high premium is paid in both hardware cost and
+performance because the redundant components do no processing. More importantly, the fault
+tolerant model does not address software failures, by far the most common reason for downtime.
+++++++
+High availability views availability not as a series of replicated physical components, but
+rather as a set of system-wide, shared resources that cooperate to guarantee essential
+services. High availability combines software with industry-standard hardware to minimize
+ downtime by quickly restoring essential services when a system, component, or application
+fails. While not instantaneous, services are restored rapidly, often in less than a minute.
+
+In all fairness,
+
+Left to their own devices
+
+
+ be none the wiser:
+to fail to understand something;
+to not be aware of something:
+The health department gave the restaurant a health warning, but customers were none the wiser.
+I figured I could just get rid of the stuff, and you'd be none the wiser.
+
+White tea: Unwilted and unoxidized
+Yellow tea: Unwilted and unoxidized but allowed to yellow
+Green tea: Wilted and unoxidized
+Oolong: Wilted, bruised, and partially oxidized
+Black tea: Wilted, sometimes crushed, and fully oxidized
+Post-fermented tea: Green Tea that has been allowed to ferment/compost
+
+persuasive speaking:
+ethos: refers to the credibility of the speaker
+pathos: refers to the speaker's emotional intensity
+logos: refers to the logic or reasoning behind what a speaker says.
+
+astringent
+is a chemical that tends to shrink or constrict body tissues, usually locally after topical
+medicinal application.
+++++
+Astringency is also the dry, puckering mouthfeel caused by tannins found in many fruits such as
+blackthorn, chokecherry, bird cherry and persimmon fruits, and banana skins. The tannins denature
+ the salivary proteins, causing a rough "sandpapery" sensation in the mouth.
++++
+Astringent substances are also found in some red wines and teas.
++++
+Astringent medicines cause shrinkage of mucous membranes or exposed tissues and are often used
+internally to check discharge of blood serum or mucous secretions. This can happen with a sore
+throat, hemorrhages, diarrhea, or with peptic ulcers. Externally applied astringents, which
+cause mild coagulation of skin proteins, dry, harden, and protect the skin.
+
+Impromptu speaking
+++++++++++++++++++
+Impromptu Response Structures
+
+* The first one is called PREP: Position, reason, example, position (PREP). In this model,
+first you state your position on the topic, and then you state your reason for taking that position.
+ Next, you provide an example or story that supports your reason. Finally, you summarize by restating
+your position.
+* The second structure is called PEP: Point, Example, Point (PEP). It's easier than the first one
+and can be used to answer a wider variety of questions. In this one you start by briefly making
+a point or stating a key idea or objective. Then you give an example or story that proves your point.
+Then you wrap up by restating the main idea, or your main point. When you are short on time, this is
+the way to go.
+*** PEP: Point, evidence, point:
+Obesity is a serious problem in the United States (Point).
+Obesity is associated with over 100,000 deaths per year (Evidence).
+The National Institutes of Health reported that about two-thirds of U.S. adults are obese (Point).
+**** PEP: point, example, point:
+I like to relax and enjoy warm, sunny, tropical beaches for my vacations.
+For example, I'll be heading to an all-inclusive resort in Panama this year.
+We'll be able to scuba dive, swim, kayak and just chill on the beach and my mother-in-law,
+ who happens to live only 25 minutes from the resort, will takes care of my girls.
+++++++++++++
+* The final structure calls for you to quickly think of a way to divide up your response. I call
+ this one divide and conquer. There are a few classic two and three part divisions that you'll want
+to memorize such as: past, present, future; problem, solution; cost, benefit; us, them;
+ideal, real; low, medium, high. Of course, there are many of these, so try to practice the
+ ones that are common to your field. These are easy, you just pick an appropriate division
+and then include a little bit for each section.
++++++
+what I think I heard you say was
+++++
+response to rambler: all right then, is this what you meant?
+++++
+don't go over your time
+
+hashing
+Hashing is the transformation of a string of characters into a usually shorter fixed-length value
+or key that represents the original string. Hashing is used to index and retrieve items in a
+ database because it is faster to find the item using the shorter hashed key than to find it
+ using the original value. It is also used in many encryption algorithms.
++++
+A hash function is any well-defined procedure or mathematical function which converts a large,
+possibly variable-sized amount of data into a small datum, usually a single integer that may
+serve as an index into an array. The values returned by a hash function are called hash values,
+hash codes, hash sums, or simply hashes.
+
+poetry
+++++
+foot: a pattern of stressed an unstressed syllables. Has either 2 or 3 syllables.
+++++
+foot pattern:
+++++
+iamb, iambic : unstressed stressed
+trochee, trochaic : stressed unstressed
+spondee, spondaic : stressed stressed
+pyrrhic, pyhrric : unstressed unstressed
+anapest, anapestic :  unstressed unstressed stressed
+dactyl, dactylic : stressed unstressed unstressed
+amphibrach, amphibrachic: unstressed stressed unstressed
+tribrach, tribrachic : unstressed unstressed unstressed
+===============
+meter: the number of feet in a line
+++++
+monometer: 1 foot in a line
+dimeter: 2 in a line
+trimeter:
+tetrameter
+pentameter
+hexameter
+heptameter
+octometer
++++++
+iambic pentameter: heroic verse
+
+bridging
+1. let's look at the big picture
+2. I can best answer that by telling you
+3. let me give you an example
+4. it is also important to remember
+5. before we wrap up today, i want to be sure to mention
+6. and that's not all
+7. there is even more exciting news
+
+transitive closure:
+in computer science the concept of transitive closure can be thought of as constructing
+a data structure that makes it possible to answer reachability questions [1]. That is,
+can one get from node a to node d in one or more hops? A binary relation tells you only
+ that node a is connected to node b, and that node b is connected to node c, etc. After
+the transitive closure is constructed, as depicted in the following figure, in an O(1)
+operation one may determine that node d is reachable from node a. The data structure is
+typically stored as a matrix, so if matrix[1][4] = 1, then it is the case that node 1
+can reach node 4 through one or more hops.
++++
+Transitive closure can be thought of as establishing a data structure that makes
+it possible to solve reachability questions (can I get to x from y?) efficiently.
+After the preprocessing of constructing the transitive closure, all reachability
+queries can be answered in constant time by simply reporting a matrix entry. Transitive
+closure is fundamental in propagating the consequences of modified attributes of a graph G.
+ For example, consider the graph underlying any spreadsheet model, where the vertices are
+cells and there is an edge from cell $i$ to cell j if the result of cell j depends on
+cell i. When the value of a given cell is modified, the values of all reachable cells
+must also be updated. The identity of these cells is revealed by the transitive closure
+of G. Many database problems reduce to computing transitive closures, for analogous reasons.
++++
+related to directed graph
++++
+Several graph-based algorithms have been proposed in the literature to compute
+the transitive closure of a directed graph
++++
+transitive closure is a data structure for answering reachability questions:
+can I get from point A to point B? usually in the form of a matrix,
+e.g., matrix[1][4]=1 means I can go from point 1 to point 4.
+++++
+finding all the objects that can be reached from a certain root object.
+
+analemma:
+the figure-8 path that the sun makes in the sky.
++++
+if you could record the position of the sun in the sky at the same time every day,
+let's say sometime around noon and subtracting one hour if you are observing daylight
+ saving time, you would notice that the sun takes a rather strange path.
++++
+
+coded character set (character code)
+a mapping between a set of characters and a set of integers.
+++++
+character encoding scheme
+a mapping between a coded character set and a set of byte sequences
++++
+charset
+the combination of a coded character set and a character-encoding scheme
+
+fault-tolerance
+replication:
+Providing multiple identical instances of the same system or subsystem, directing tasks
+or requests to all of them in parallel, and choosing the correct result on the basis of a quorum;
+++++
+redundancy: Providing multiple identical instances of the same system and switching to one
+of the remaining instances in case of a failure (failover);
+
+storage area network (SAN)
+is an architecture to attach remote computer storage devices (such as disk arrays, tape libraries,
+and optical jukeboxes) to servers in such a way that the devices appear as locally attached to
+the operating system.
+++++
+Network-attached storage (NAS)
+vs SAN: uses file-based protocols such as NFS or SMB/CIFS where it is clear that the storage is remote,
+and computers request a portion of an abstract file rather than a disk block.
+is file-level computer data storage connected to a computer network providing data access to
+heterogeneous network clients.
+++++
+difference
+A NAS is a single storage device that operate on data files, while a SAN is a local
+ network of multiple devices that operate on disk blocks.
++++
+difference
+SAN: uses Fibre Channel interconnects (wire), encapsulated SCSI (protocol)
+NAS: uses Ethernet and TCP/IP
+
+Java generics
+allow "a type or method to operate on objects of various types while providing compile-time type safety
+++++
+allows the programmer to specify the type that will be accepted by an object.
+classic example: collection framework
+by default, a collection can accept any object.
+generics allows the programmer to create a collection that accepts only
+a certain of objects. This allows the compiler to check the type correctness
+of the program at compile-time.
++++
+allow programmer to specify concrete types to general purpose classes and methods
+that operated on Object.
+allow you to limit what kind of objects can be inserted into the collection.
++++
+Generic programming is a style of computer programming in which algorithms are written
+in terms of to-be-specified-later types that are then instantiated when needed for specific
+types provided as parameters.
+====
+allow you to write code that operates on objects whose types have not been determined.
+=====
+called generics in Java and C#, template in C++, parameterized type by gang of four.
++++
+type erasure:
+When a generic type is instantiated, the compiler translates those types by a technique called
+type erasure  a process where the compiler removes all information related to type parameters
+ and type arguments within a class or method. Type erasure enables Java applications that use
+generics to maintain binary compatibility with Java libraries and applications that were
+ created before generics.
+e.g. ArrayList<String> is translated to ArrayList, which is called the raw type.
+raw type: a generic class without any type arguments.
+++++
+A class is generic if it declares one or more type variables. These type variables are known
+as the type parameters of the class.
+
+canonical:
+Authoritative or standard; conforming to an accepted rule or procedure.
+When referring to programming, canonical means conforming to well-established patterns or rules.
+When referring to IP addressing, canonical means the authoritative host name stored
+in a DNS database that all of an IP address aliases resolve to.
++++
+reduced to the simplest and most significant form possible without loss of generality,
+
+canonicalization
+in computer science, canonicalization (abbreviated c14n, where 14 represents the number of letters
+between the C and the N) is a process for converting data that has more than one possible
+representation into a "standard" canonical representation.
+
+bookmarklet
+A bookmarklet is an applet, a small computer application, stored as the URL of a bookmark
+ in a web browser or as a hyperlink on a web page. The term is a portmanteau of
+the terms bookmark and applet. Whether bookmarklet utilities are stored as bookmarks
+or hyperlinks, they are designed to add one-click functionality to a browser or web
+ page. When clicked, a bookmarklet performs some function, one of a wide variety
+such as a search query or data extraction. Usually the applet is a JavaScript program.
+
+Objects In Mirror Are Closer Than They Appear
+passenger-side side-view mirror
+passenger-side mirrors are convex to allow the drivers to get a wide-angle view of the road
+-- behind them and to the sides -- but at the same time, causes objects to appear more distant.
+A flat mirror used on driver's side mirrors, on the other hand, would not provide a wider view
+of the road.
+
+ODBC
+a standard that enables applications to interact with different db. a wrapper around
+databases that makes all db behave in a consistent and clearly defined fashion.
+It accomplishes this by using s/w drivers that two primary functions. First, they
+encapsulate any native db features and hide these from the client. Second, they provide
+a common language for interacting with the db.
+ODBC client applications do not interact with db directly. Instead, they interact with
+ODBC data sources. a data source is logical db that includes the driver (each db type
+has its own driver) and info on how to connect to the db.
+
+true to form: exactly as expected;
+
+++++++++ GRAMMAR ++++++++++++
+case: describe the syntactical relationship of a noun/pronoun to other words in the sentence.
+case: nominative, possessive, objective
+
+grammatical mood: indicates a speaker's attitude toward his use of the verb.
+	: indicative, imperative, subjunctive moods
+
+subjunctive mood: (the verb is in the subjunctive mood)
+	express wishes/request/command or a statement contrary to fact.
+	no present perfect subjunctive form.
+present tense: (that) I/you/he/she/it do
+	(that) I/you/he/she/it be
+past tense: (if) I/you/he/she/it did
+	(if) I/you/he/she/it were
+past perfect: (if) I/you/he/she/it had done
+	(if) I/you/he/she/it had been
+
+wiki
+Wiki is a piece of server software that allows users to freely create and edit
+ Web page content using any Web browser. Wiki supports hyperlinks and has a simple
+text syntax for creating new pages and crosslinks between internal pages on the fly.
+Wiki is unusual among group communication mechanisms in that it allows the
+ organization of contributions to be edited in addition to the content itself.
+===
+an editable web site, where you can add pages and update existing pages
+inside your browser.
+
+copy-on-write
+an optimizing strategy in computer programming. here's how it works.
+let's say multiple processes want to access a resource. instead of giving
+each process a copy of the resource, you give them a pointer to the same resource.
+when one of the processes tries to modify the resource, you create a private copy
+for that process. this prevents the changes from becoming visible to everyone else.
+
+shadow paging
+a copy-on-write technique for avoiding in-place updates of pages. when a page is to
+be modified, a shadow page is allocated. The shadow page is then modified (the
+original page is unchanged). when the shadow page is ready to become persistent,
+all pages that refer to the original are updated to refer to the new replacement page.
+
+suit your fancy
+tickle your fancy
+catch my fancy
+strike my fancy
+suit one's fancy
+take a fancy to something
+
+chassis:
+Trailer or wheeled unit on which a container is placed in order to move container over the road.
+
+CFS/CFS	A kind of cargo movement by container. Delivered loose at origin point with vanning
+by carrier, devanned by carrier at destination, and picked up loose at destination.
++++
+CFS/CY	A kind of cargo movement by container. Loose cargo received at origin point,
+loaded in a container by carrier, then delivered intact at destination.
+++++
+CY/CFS	Cargo loaded in a full container by a shipper at origin, delivered to pier facility
+ at destination, and then devanned by carrier for loose pick up.
+++++
+CY/CY	Cargo loaded by shipper in a full container at origin and delivered to carrier's
+terminal at destination for pick up intact by consignee.
++++
+CY	Container Yard. Point at which carrier hands over to or receive laden containers
+from merchant haulier. Commonly where mode of transport changes e.g. a sea port, feeder
+ terminal, barge terminal or rail ramp.
+
+http://www.oocl.com/eng/resourcecenter/shippinglossary/
+http://www.maerskline.com/link/?page=brochure&path=/glossary/a
+
+hypervisor,
+also called virtual machine monitor (VMM), is a piece of software/hardware platform-virtualization
+software that allows multiple operating systems to run on a host computer concurrently.
++++
+Type 1 (or native, bare-metal) hypervisors are software systems that run directly on the
+host's hardware to control the hardware and to monitor guest operating-systems.
+A guest operating system thus runs on another level above the hypervisor.
+examples include VMware ESX Server, Microsoft Hyper-V
++++
+Type 2 (or hosted) hypervisors are software applications running within a conventional
+operating-system environment. Considering the hypervisor layer as a distinct software
+layer, guest operating systems thus run at the third level above the hardware.
+Examples include VMware Server (formerly known as GSX), VMware Workstation,
+ VMware Fusion, the open source QEMU, Microsoft Virtual PC and Microsoft Virtual Server products,
+
+========= cloud computing ==========
+cloud computing
+The cloud is a metaphor for "the Internet."
+cloud computing means using the Internet to provide your programs and store your data.
++++
+a general term for anything that involves delivering hosted services over the Internet.
+These services are broadly divided into three categories: Infrastructure-as-a-Service (IaaS),
+Platform-as-a-Service (PaaS) and Software-as-a-Service (SaaS).
++++
+A cloud service has three distinct characteristics that differentiate it from traditional
+hosting. It is sold on demand, typically by the minute or the hour; it is elastic -- a
+user can have as much or as little of a service as they want at any given time; and
+the service is fully managed by the provider (the consumer needs nothing but a personal
+computer and Internet access).
++++
+Infrastructure-as-a-Service like Amazon Web Services provides virtual server instances
+with unique IP addresses and blocks of storage on demand. Customers use the provider's
+application program interface (API) to start, stop, access and configure their virtual
+servers and storage
++++
+Platform-as-a-service in the cloud is defined as a set of software and product
+ development tools hosted on the provider's infrastructure. Developers create
+applications on the provider's platform over the Internet. PaaS providers may
+use APIs, website portals or gateway software installed on the customer's computer.
+ Force.com, (an outgrowth of Salesforce.com) and GoogleApps are examples of PaaS.
++++
+In the software-as-a-service cloud model, the vendor supplies the hardware infrastructure,
+ the software product and interacts with the user through a front-end portal. SaaS is
+a very broad market. Services can be anything from Web-based email to inventory control
+and database processing. Because the service provider hosts both the application and
+the data, the end user is free to use the service from anywhere.
+
+container: a run-time environment for components.
+
+servlet: purpose is to receive HTTP requests, generate dynamic data (usually in HTML),
+and delver an HTTP response.
+Servlets are pure Java objects that generate HTML by writing it to a stream. The files
+do not contain any HTML tags; they simply contain Java code which write out HTML (as strings)
+ to produce the page that is sent to the user's browser.
+
+JSP: an HTML page containing embedded java code. an HTML page embedded with java code.
+
+JSPs and servlets are two different ways to accomplish the same goal: generating dynamic HTML pages
+ using Java code. One puts Java code in your HTML, and one puts HTML in your Java code.
+Functionally, they are equivalent. In fact, under the covers, the web server takes a JSP and
+converts it to the corresponding servlet and dynamically compiles it.
+
+JSPs live in an object called a container, which is essentially a server
+
+eclipse
+
+regular JAR vs external JAR
+
+regular JAR: part of the application and get deployed with it.
+external JAR: resides elsewhere. does not get deployed with it. you expect it to be
+available in the prod environment.
+
+FSB: front-side bus
+is the bus that carries data between the CPU and the northbridge.
++++
+The northbridge, also known as a memory controller hub (MCH) or an integrated memory
+controller (IMC) in Intel systems (AMD, VIA, SiS and others usually use 'northbridge'),
+ is one of the two chips in the core logic chipset on a PC motherboard, the other being
+the southbridge.
+The northbridge typically handles communications among the CPU, RAM, BIOS ROM,
+ and PCI Express (or AGP) video cards,
++++
+The Southbridge, also known as an I/O Controller Hub (ICH) or a Platform Controller Hub (PCH)
+ in Intel systems (AMD, VIA, SiS and others usually use 'southbridge'), is a chip that
+implements the "slower" capabilities of the motherboard in a northbridge/southbridge chipset
+computer architecture.
++++
+The southbridge can usually be distinguished from the northbridge by not being directly
+ connected to the CPU. Rather, the northbridge ties the southbridge to the CPU.
+
+do a number on someone/something
+to damage or harm someone or something
+to treat someone very badly or unfairly
+
+So much for that.
+That is the end of that.; We will not be dealing with that anymore.
+
+HTML 4 has been reformulated into XHTML 1.0. XHTML is HTML 4 written as an XML application.
+
+DOCTYPE: used to specify the HTML version of the web page. allows the browser to render
+the content correctly
+The Doctype is an xml specific item that tells the xml parser where to look
+for the dtd consistency rules for our xml document.
+
+Design by Contract (DbC) or Programming by Contract is an approach to designing computer
+software. It prescribes that software designers should define formal, precise and verifiable
+interface specifications for software components, which extend the ordinary definition
+of abstract data types with preconditions, postconditions and invariants.
++++
+preconditions: what must be true when the method is called
+postconditions: what must be true after the method completes
+class invariant: what must be true about each instance of a class
++++
+design by contract says that there are 3 concepts about any piece of code:
+preconditions, postconditions, and invariants
++++
+precondition: expect a certain condition to be true on entry
+postcondition: guarantee a certain condition on exit
+invariant: maintain a certain condition
+--- 3 questions about the contract:
+what does the contract expect?
+what does the contract guarantee?
+what does the contract maintain?
+
+virtual memory
+An imaginary memory area supported by some operating systems
+in conjunction with the hardware. You can think of virtual memory as an alternate set of
+ memory addresses. Programs use these virtual addresses rather than real addresses to store
+instructions and data. When the program is actually executed, the virtual addresses are
+converted into real memory addresses.
+The purpose of virtual memory is to enlarge the address space, the set of addresses a program
+ can utilize. For example, virtual memory might contain twice as many addresses as main memory.
+ A program using all of virtual memory, therefore, would not be able to fit in main memory all
+ at once. Nevertheless, the computer could execute such a program by copying into main memory
+those portions of the program needed at any given point during execution.
+To facilitate copying virtual memory into real memory, the operating system divides virtual
+ memory into pages, each of which contains a fixed number of addresses. Each page is stored
+on a disk until it is needed. When the page is needed, the operating system copies it from
+disk to main memory, translating the virtual addresses into real addresses.
++++
+ gives an application program the impression that it has contiguous working memory
+(an address space), while in fact it may be physically fragmented and may even
+ overflow on to disk storage.
+
+thrashing
+In systems that use virtual memory, the resulting condition of a hard drive being used
+ excessively for virtual memory because the physical memory (i.e., RAM) is full.
+(The process of moving data into and out of virtual memory also is called swapping pages.)
+
+ecliptic
+the plane of the earth's orbit around the sun.
+also: the path of the ecliptic can be conceptualized as the path of the sun
+against the background of the sky.
+
+solar day
+the time it takes for the earth to complete one rotation with respect to the sun (24 hr)
+the length of the solar day fluctuates throughout the year.
+the average length is 24 hr: mean solar day
+
+sidereal day
+the time it takes for the earth to complete one rotation with respect to the stars (23 hr 56 minutes)
+
+equation of time
+the difference between the true solar day and the mean solar day
+fictitious mean sun crosses the prime meridian at noon universal time
+====
+equation of time
+The difference in time between what your watch reads and the position of the sun
+(clock time vs. sun time) is called the Equation-of-Time. If you are in the northern
+ hemisphere and the sun's position is to the east of where your watch indicates it
+would be, the Equation-of-Time is negative. If the sun is to the west, the Equation-of-Time is positive.
+
+tease out something also tease something out
+to carefully separate particular facts from a great deal of information.eg What has always
+been interesting for me is how you can tease out the reasons for an event as you review its
+history. After a while, you learn how to tease out the errors hidden in texts.
+
+in short order : very quickly
+
+we are all the better for it
+
++++++
+HTML: a language for structure (HTML 4.0): define the structure of a web page.
+CSS: a language for presentation. specify how the web page should be displayed
+latest HTML: 4.01
+is a style sheet language used to describe the presentation semantics (the look and formatting)
+of a document written in a markup language.
+A style sheet language, or style language, is a computer language that expresses the presentation of structured documents.
+
++++
+browsers have two modes for displaying HTML: quirks mode for old HTML and standards
+mode for HTML 4.01
+
+DOCTYPE: document type definition. specify the HTML version of the web page.
+this allows the browser to render the page correctly.
+DOCTYPE: used to tell the browser which version of HTML your web page is written in.
+strict: fully compliant HTML 4.01
+transitional: includes display-oriented elements and attributes (legacy code). allow legacy HTML.
+display-oriented elements are mostly deprecated. that is now CSS's job.
+<meta> tag: specify character encoding (to be precise: charaacter set)
++++
+advantage of standards compliant: web pages will display more quickly and with fewer
+display differences among browsers.
+
+JTA (Java Transaction API):
+allows distributed transactions to be done across multiple XA resources in a Java environment.
+specifies standard Java interfaces between a transaction manager and the parties involved in
+a distributed transaction system: the resource manager, the application server, and the transactional
+applications.
++++
+In XA architecture, a transaction mgr (transaction processing monitor) coordinates the transaction
+across multiple resources. Each resource has its own mgr. App communicates with transaction mgr
+to begin, commit, or rollback transactions. App communicates with resource mgr to modify the resource.
+The javax.transaction.UserTransaction interfacer allows app to control transaction boundaries
+programmatically
++++
+allows you to demarcate transactions in a manner that is independent of the transaction manager implementation.
++++
+a java implementation of the XA spec.
+---
+A transaction manager (transaction coordinator) implements the JTA interface javax.transaction.TransactionManager
+A resource implements the JTA interface javax.transaction.xa.XAResource
+
+JTS (Java Transaction Service):
+specifies the implementation of a transaction manager that supports the Java Transaction API (JTA)
+specification at the high level and implements the Java mapping of the OMG
+ Object Transaction Service (OTS) specification at the low level.
+
+j2ee architecture
+data -> business logic (EJB) -> presentation logic (servlet/JSP) -> user interface (HTML)
+
+anonymous class:
+a way of defining and instantiating a class inside a method, in the place where it is used.
+the semantics require that this class either implement an interface or extend a superclass.
+a convenient shorthand for creating listeners for GUI components.
++++++++++++
+
+catch-as-catch-can
+Using or making do with whatever means are available
+using any method or opportunity that comes to hand
+
+ultracrepidarian
+giving opinions on something beyond his or her knowledge.
+One who speaks above his level of knowledge, experience or expertise.
+
+wheelhouse: area of expertise
+Singing this song in that key is right in your wheelhouse.
+
+virtualization
+consolidate server infrastructure, reduce cost, reduce # of servers.
+provide quick provisioning capabilities
+
+
+Java Connector Architecture (JCA)
+provides an architecture for connecting application servers to enterprise
+information system (EIS). EIS: any product that manages the information infrastructure
+of an enterprise. examples: ERP, mainframe transaction processing monitors, legacy db.
+
+===============
+JAXP
+provide a generic way to access any parser
+
+SAX
+an event-based API for parsing XML docuents. it defines various events that are
+triggered while an XML parser is reading an xml document.
+a custom handler can listen for these events and process the document
+the handler implements the relevant callback methods and responds to various events
+push model. data is pushed to the application.
+When you use a SAX parser you pass a handler object to the SAX parser. This handler
+object has a method for every "event" you want to handle, during the traversal of the XML document.
+--> a callback-based API
+
+SAX uses a "push" model, and StAX uses a "pull" model.
+The SAX push model means that it is the SAX parser that calls your handler,
+The StAX pull model means that it is your "handler" class that calls the parser,
+
+SAX: has Schema Validation  ; no subparsing; no XML writing
+StAX: No Schema Validation; Subparsing / Delegation possible; Support for XML Writing
+
+=============
+
+a platform is a combination of hardware and software necessary to run applications.
+
+===
+SQL
+
+select name from table where EXISTS (select * from a where item = 'blah')
+if (select * from a where item = 'blah') returns any rows, the exists clause is true
+
+select item from antique where price >= ALL (select price from antique);
+
+The subquery returns a list of all Prices in the Antiques table, and the outer query goes
+ through each row of the Antiques table, and if its Price is greater than or equal to every
+(or ALL) Prices in the list, it is listed, giving the highest priced
+Item. The reason "=" must be used is that the highest
+
+select custID from orders where regionID != "E" and discount > ANY
+ (select discount from orders where regionID = "E" and discount > 3)
+
+This query lists the customers who are getting discounts greater than any offered in the East region.
+
+=======
+
+In XPath, there are seven kinds of nodes: element, attribute, text, namespace, processing-instruction,
+comment, and document nodes.
+
+chestnut
+An old, frequently repeated joke, story, or song.
+
+double truck
+refers to a pair of facing pages, usually in a newspaper  or magazine, with content that
+stretches over both pages.
+
+MIME: used to send multipart emails.
+SMTP: used to deliver email messages.
+POP3: store-and-forward service where messages are stored on the server until the client
+log in to receive them. the msgs are then downloaded to the client and deleted from the server.
+IMAP (internet message access protocol): client views email on a server. requires continuous
+interaction between client and server.
+
+inheritance should not be used for the sole purpose of code reuse (implementation inheritance).
+need to think about substitutability. do the subclass and the superclass have a subtype relationship?
+otherwise, should use delegation.
+public inheritance represents an "is-a" relationship and delegation represents a "has-a" relationship,
+
+on-board diagnostics reader (OBD) for cars
+blue smoke: burning smoke
+white smoke: coolant leak
+black smoke: fuel calibration is off
+
+bring something to bear:
+to use influence, arguments, or threats in order to change a situation (often + on )
+Pressure should be brought to bear on the illegal regime and support given to the resistance.
+to use something to achieve a result
+She said that they were attempting to bring additional pressure to bear on the government.
+It will be a major issue for the community because such strong arguments can be brought to bear on both sides of it.
+
+The meeting ran over by 30 minutes.
+
+Use parentheses when you want to enclose something that is incidental to the sentence, something that
+	is background or almost unnecessary.
+Use dashes when you want to enclose or set off something that deserves a lot of attention, is
+	meant to interrupt your sentence, or already has commas or parentheses in it.
+Use commas to enclose things that belong firmly in the flow of your sentence.
+
+JAXB: java architecture for XML Binding
+allows you to create an XML document from Java objects and to create
+a Java representation of an XML document
+
+xmlbeans: a Java-to-XML binding framework
+-- generate java classes from XML schema
+
+St. Elmo's fire
+a type of continuous electric spark called a "glow discharge."
+When it occurs naturally, we call it St. Elmo's Fire, but when it occurs inside a glass tube, we call it a neon sign.
+seen during thunderstorms when the ground below the storm is electrically charged, and there is high voltage
+ in the air between the cloud and the ground. The voltage tears apart the air molecules and the gas begins to glow.
+St. Elmo's Fire is plasma. color is blue
+St. Elmo's Fire is exactly what's happening in neon tubes -- essentially a continuous spark.
+A neon tube is simply St. Elmo's Fire contained in glass.
+is a weather phenomenon involving a gap in electrical charge. It's like lightning, but not quite.
+St. Elmo's Fire is plasma, or ionized air that emits a glow
+But while lightening is the movement of electricity from a charged cloud  to the ground, St. Elmo's Fire
+ is simply sparking, something like a shot of electrons into the air. It's a corona discharge, and it occurs when
+there is a significant imbalance in electrical charge, causing molecules to tear apart, sometimes resulting in a slight hissing sound.
+caused by a dramatic difference in charge between the air and a charged object,
+
+lightening is the movement of electricity from a charged cloud  to the ground,
+
+Oracle JDBC drivers
+JDBC OCI client-side driver: This is a JDBC Type 2 driver that uses Java native methods to call
+entrypoints in an underlying C library. That C library, called OCI (Oracle Call Interface),
+interacts with an Oracle database. The JDBC OCI driver requires an Oracle client installation of
+ the same version as the driver.
++++
+JDBC Thin client-side driver: This is a JDBC Type 4 driver that uses Java to connect directly to Oracle.
+ It implements Oracle's SQL*Net Net8 and TTC adapters using its own TCP/IP based Java socket implementation.
+ The JDBC Thin driver does not require Oracle client software to be installed, but does
+require the server to be configured with a TCP/IP listener.
+
+String.split() returns an array (String[]) and StringTokenizer returns one token at a time.
+StringTokenizer  is legacy. split is more powerful, uses regex
+StringTokenizer  does not handle empty strings well. delimiter is one char
+
+full text search: examine all the words in a document.
+The indexing stage will scan the text of all the documents and build a list of search terms,
+ often called an index, but more correctly named a concordance.
+text indexing; full-text indexing
++++
+concordance: an alphabetical index of all the words in a text, with their immediate contexts.
+
++++
+JAVA NIO
+
+channel, buffer, selector
+
+data is read from channels into buffers, and written from buffers to channels.
+A Selector allows a single thread to handle multiple Channels.
+allows asynchronous IO.
+
+Azure (microsoft): platform as a service: development and hosting of web apps, pay-per-use
+
+deduplication: look for repeating patterns at the block and bit levels.  when multiple instances
+of the same pattern are discovered, the system stores a single copy of the pattern.
+is a method of reducing storage needs by eliminating redundant data.
+
+s-expression (symbol expression)
+a list-based data structures that represent semi-structured data.
+e.g., (a (b c))
+S-expressions are able to represent complex, structured data without requiring additional meta-data describing the structure
+they are recursive
+a data structure for representing complex data.
+
++++
+test fixture
+A test fixture is something used to consistently test some item, device, or piece of software.
+a test fixture is all the things that must be in place in order to run a test and expect a particular outcome.
+frequently fixtures are created by handling setUp() and tearDown()  events of the unit testing framework. In setUp()  one would create the expected state for the test, and in tearDown()  it would clean up what had been set up.
+
+Four phases of a test:
+   1. Set up -- Setting up the test fixture.
+   2. Exercise -- Interact with the system under test.
+   3. Verify -- Determine whether the expected outcome has been obtained.
+   4. Tear down -- Tear down the test fixture to return to the original state.
+
+test harness
+a test harness or automated test framework is a collection of software and test data configured
+ to test a program unit by running it under varying conditions and monitoring its behavior and outputs.
+
+a cluster is a group of computers that work together to form what appears to
+the users as a single system.
+
+RAC (real application cluster): a cluster of computers with access to a common db.
+
+load balancing: a technique for minimizing response time and maximing throughput
+by spreading requests among multiple resources.
+
+performance:refers to the system throughput under a particular workload
+for a defined period of time.
+
+How do you know the message came from me?
+1. I encrypt the message first with my private key
+2. then I encrypt it again using your public key.
+You:
+1. you decrypt it first using your private key.
+2. then you decrypt it again using my public key
+
+to vouch for someone else's public key, you use your private key to sign
+that person's public key.
+
+monovision
+With monovision, you wear a contact lens on one eye to correct your distance vision and a
+ contact lens on your other eye to correct your near vision. The lens for distance vision
+is usually worn on your dominant eye.
+
+speakers running overtime
+run over my time slot
+go over his allotted time
+keep to the schedule
+
+what gets tracked, gets improved
+
+Class of service (CoS):
+is a way of managing traffic in a network by grouping similar types of traffic
+(for example, e-mail, streaming video, voice, large document file transfer) together
+ and treating each type as a class with its own level of service priority. Unlike Quality
+of Service (QoS) traffic management, Class of Service technologies do not guarantee a level
+ of service in terms of bandwidth and delivery time; they offer a "best-effort." On the other
+hand, CoS technology is simpler to manage and more scalable as a network grows in structure
+ and traffic volume. One can think of CoS as "coarsely-grained" traffic control and QoS as
+ "finely-grained" traffic control.
++++++++++++
+a form of priority queuing that has been used in a number of communication and networking protocols.
+It is a way of classifying and prioritizing packets based on application type
+++++
+CoS is a queuing discipline while QoS covers a wider range of techniques to manage bandwidth and network resources.
++++
+As an analogy, CoS is like classifying packages for delivery via regular mail, second-day delivery,
+or next-day delivery. QoS is what the delivery company does to ensure your packages are delivered
+on time (such as package tracking, air transport, door-to-door pickup and drop-off).
+
+coupling: the degree to which a module depends on another module.
+cohesion: a measure of how strongly-related or focused the responsibilities of a single module are
+--> cohesion: the degree to which a component's responsibilities form a meaningful unit;
+--> Cohesion refers to the relatedness of the data and methods within a class.
+Good cohesion is desired within object-oriented programming so that each class has a well defined purpose and therefore contains the variables and methods necessary to fulfill that purpose.
+low coupling often correlates with high cohesion
+
+handle criticism
+Diffuse Criticism Quickly by Saying Thanks
+A short, a simple way to quickly diffuse criticism is to say, Thank-you. I like to say,
+ Thanks for taking the time to give me feedback. I sincerely appreciate it. If you sense that you
+ are in control of your emotions, you might also approach the criticism with curiosity. Thanks
+ for letting me know; can you tell me more so I can understand better?
+You could also say, Can you help me understand why you think that. Can you give me specific
+ examples? What was your impression when If you are open to learning, these questions
+ can help you modify your behavior.
+
+The HTTP transport does not provide guaranteed message delivery. The SOAP protocol is not
+ specific to any transport, so SOAP messages in theory can be bound to any transport.
+JMS provides a highly reliable transport that can guarantee message delivery.
+
+double-dispatch: means that the operation that gets executed depends on the types
+of two objects.
+
+"Burgle" is a back-formation (that is, a word formed by removing a suffix or prefix) from "burglar."
+
+Hobson's choice: : an apparently free choice when there is no real alternative
+: the necessity of accepting one of two or more equally objectionable alternatives
+a free choice in which only one option is offered
+
+je ne sais quoi: I don't know what
+An intangible quality that makes something distinctive or attractive.
+She has a certain je ne sais quoi about her.
+
+MapReduce
+from lisp:
+map:
+let's say we have a square function: square(x) = x*x
+
+calling map square [1,2,3,4,5] will return [1,4,9,16,25], as map will go through the
+ list, and apply the function square to each element.
+
+reduce/fold:
+folding of the list [1,2,3,4,5] with the addition operator would result in 15, the
+ sum of the elements of the list [1,2,3,4,5]
+
+In Lisp, a map takes as input a function and a sequence of values. It then applies
+ the function to each value in the sequence. A reduce combines all the elements of a
+sequence using a binary operation. For example, it can use "+" to add up all the elements in the sequence.
+
+mapreduce of google:
+
+map: takes an input pair and produces a set of intermediate key/value pairs.
+reduce: accepts an intermediate key and a set of values for that key. It merges together these
+ values to form a possibly smaller set of values.
+
+e.g.
+consider the problem of counting the number of occurrences of each word in a large collection of documents:
+
+map(String key, String value):
+// key: document name
+// value: document contents
+for each word w in value:
+  EmitIntermediate(w, "1");
+
+reduce(String key, Iterator values):
+// key: a word
+// values: a list of counts
+int result = 0;
+for each v in values:
+  result += ParseInt(v);
+Emit(AsString(result));
+
+The map function emits each word plus an associated count of occurrences ("1" in this example).
+ The reduce function sums together all the counts emitted for a particular word.
+Here, each document is split in words, and each word is counted initially with a "1" value by the Map
+ function, using the word as the result key. The framework puts together all the pairs with the same
+ key and feeds them to the same call to Reduce, thus this function just needs to sum all of its
+ input values to find the total appearances of that word.
+
+JVM heap: an area of memory used for dynamic memory allocation. divided into 3 generations:
+    * The young generation stores short-lived objects that are created and immediately garbage collected.
+    * Objects that persist longer are moved to the old generation (also called the tenured generation).
+    * The permanent generation (or permgen) is used for class definitions and associated metadata.
+
+page cache / disk cache
+a buffer of disk-backed pages kept in main memory (RAM) by the operating system for quicker access.
+
+model
+a system of abstractions that describes selected aspects of a domain and can be used to solve
+problems related to that domain
+
+tactical solution: quick, simple, temporary
+strategic solution: complex, need more time, lasting, requires planning
+
+coarse-grained: large loads, efficient, not convenient
+fine-grained: small loads, not efficient, convenient
+
+materialized view
+the query result is cached  as a concrete table that may be updated from the original base
+ tables from time to time. This enables much more efficient access, at the cost of some data
+being potentially out-of-date. It is most useful in data warehousing scenarios, where frequent
+ queries of the actual base tables can be extremely expensive.
+A materialized view is a database object that contains the results of a query. They are local
+ copies of data located remotely, or are used to create summary tables based on aggregations
+ of a table's data. Materialized views, which store data based on remote tables are also, know as snapshots.
+the material view is manifested as a real table.
+==> regular view:
+a view is a virtual table representing the result of a database query. Whenever an ordinary view's
+ table is queried or updated, the DBMS converts these into queries or updates against the underlying
+ base tables
+
+xpath: a language for referencing particular parts of XML document.
+
+on point
+Directly applicable or dispositive of the matter under consideration.
+A statute or case is "on point" if it has direct application to the facts of a case currently
+ before a tribunal for determination.
+
+literal
+ is a notation for representing a fixed value in source code. Almost all programming languages have
+ notations for atomic values such as integers, floating-point numbers, strings, and booleans;
+ some also have notations for elements of enumerated types and compound values such as arrays, records, and objects.
+--> something that represents a fixed value, such as string, integer, boolean, etc in source code
+--> A string literal is the representation of a string value within the source code of a computer program.
+--
+In some object-oriented languages (like JaveScript), objects can also be represented by literals.
+--> {name:"cat",length:57}
+
+
+java exceptions:
+use checked exceptions for recoverable conditions
+use runtime exceptions for programming errors
+
+DAO
+hide all details of data storage from the rest of the application.
+act as an intermediary between your application and the database. They move data back and forth between Java objects and database records.
+allow ripple effects from possible changes to the persistence mechanism to be confined to a specific area.
+
+java synchronization
+synchronization is required for reliable inter-thread communications as well as for mutual exclusion.
+when multiple threads share mutable data, each thread that reads or writes the data must perform
+synchronization. Otherwise, there is no guarantee that one thread's changes will be visible to another.
+
+Code refactoring is the process of changing a computer program's source code without modifying its
+ external functional behavior in order to improve some of the nonfunctional attributes of the software.
+ Advantages include improved code readability and reduced complexity to improve the maintainability of
+ the source code, as well as a more expressive internal architecture or object model to improve extensibility.
+
+Four stages of competence
+Unconscious Incompetence
+Conscious Incompetence
+Conscious Competence
+Unconscious Competence
+
+second-order incompetence, which means that a novice at a particular skill is so unskilled
+that they don't even realize how unskilled they really are. This leads beginners to greatly
+ overestimate their own ability. In many cases, it can lead a beginner to be more confident
+ in their own skill than an expert.
+
+WebSocket is a technology providing for bi-directional, full-duplex communications channels, over
+ a single Transmission Control Protocol (TCP) socket, designed to be implemented in web browsers
+and web servers but can be utilised by any client or server application.
+part of the HTML5 initiative
++++
+introduced the WebSocket JavaScript interface, which defines a full-duplex single socket connection
+ over which messages can be sent between client and server. The WebSocket standard attempts to
+simplify much of the complexity around bi-directional web communication and connection management.
+=====
+WebSockets represent an alternative to Comet and Ajax.
++++
+This specification defines an API that enables Web pages to use the WebSocket protocol for two-way
+ communication with a remote host.
+++++
+provides for full duplex communication between a browser and a server
+
+the original model of the web, in which a browser requests a complete web page at a time.
+++++++
+Comet is a web application model in which a long-held HTTP request allows a web server to push data to a browser, without the browser explicitly requesting it.
+The use of Comet techniques predates the name Comet, and is also known by several other names,
+ including Ajax Push, Reverse Ajax, Two-way-web, HTTP Streaming, and HTTP server push
+
+Push technology, or server push, describes a style of Internet-based communication where the request
+ for a given transaction is initiated by the publisher or central server.
+It is contrasted with pull technology, where the request for the transmission of information is
+ initiated by the receiver or client.
+
+duck typing
+the type of an object is defined by what it can do
+This method of not caring about the actual type of a variable, just relying on what methods
+ it supports is known as Duck Typing.
+
+edge case
+a problem or situation that occurs only at an extreme (maximum or minimum) operating parameter.
+
+boundary case is frequently used in software engineering  to refer to the behavior of a system when
+ one of its inputs is at or just beyond its maximum or minimum limits. It is frequently used when
+discussing software testing.
+For example, if an input field is meant to accept only integer values 0 - 100, entering the
+ values -1, 0, 100, and 101 would represent the boundary cases.
+=====
+It is commonly thought that three cases should be used when boundary testing (one on the boundary,
+ and one on either side to it). However, the case on the valid side of the boundary is redundant,
+ and so equivalence partitioning recommends skipping it.
+
+corner case (or pathological case) is a problem or situation that occurs only outside of normal
+ operating parameters   specifically one that manifests itself when multiple environmental
+variables or conditions are simultaneously at extreme levels, even though each parameter is
+within the specified range for that parameter.
++++
+Contrast a corner case with an edge case, an issue that occurs only at a (single) maximum or
+ minimum parameter. For example, a speaker that distorts audio at maximum volume, even in
+the absence of other extreme settings or conditions.
+
+Behavior driven development (or BDD) is an agile software development technique that encourages
+ collaboration between developers, QA and non-technical or business participants in a software project.
+++
+BDD focuses on obtaining a clear understanding of desired software behaviour through discussion
+ with stakeholders. It extends TDD by writing test cases in a natural language that non-programmers can read.
+
+six thinking hats
+The de Bono Hats system (also known as "Six Hats" or "Six Thinking Hats") is a thinking tool for
+ group discussion and individual thinking.
++++++++++
+Six distinct states are identified and assigned a color:
+
+    * Questions (White) - considering purely what information is available, what are the facts?
+    * Emotions (Red) - instinctive gut reaction or statements of emotional feeling (but not any justification)
+    * Bad points judgment (Black) - logic applied to identifying flaws or barriers, seeking mismatch
+    * Good points judgment (Yellow) - logic applied to identifying benefits, seeking harmony
+    * Creativity (Green) - statements of provocation and investigation, seeing where a thought goes
+    * Thinking (Blue) - thinking about thinking
+
+The Maxim of Quantity: do not leave out details
+
+The Maxim of Relevance: mention relevant info only
+
+QBE (query by example): (in hibernate)
+partially populate an instance of an object
+let hibernate build a criterion using the instance as an example behind the scene
+
+N+1 select problem
+let's say you have a collection of persons and you want to get the address of each person.
+first, you get all the persons: select name from person_table;
+then for each person, you get an address: select address from address_table where person_name = ?
+hence N+1
+solution: use joins
+select person_table.name, address_table.address
+    from person_table left join address_table on (person_table.name = address_table.person_name);
+
+You're falling asleep, then suddenly snap awake. There's a term for that: hypnagogic startle or hypnic jerk.
+
+Fermi problem, Fermi estimate
+is an estimation problem designed to teach dimensional analysis, approximation, and the importance of clearly identifying one's assumptions
+such problems typically involve making justified guesses about quantities that seem impossible to compute given limited available information.
+e.g "How many piano tuners are there in Chicago?
+
+Fermi paradox is the apparent contradiction between high estimates of the probability of the
+ existence of extraterrestrial civilizations and the lack of evidence for, or contact with, such civilizations.
+
+wire protocol
+refers to a way of getting data from point to point: A wire protocol is needed if more than one application
+has to interoperate.
+the mechanism for transmitting data from point a to point b
+===
+In a network, it is the mechanism for transmitting data from point a to point b. It often refers
+to a distributed object protocol such as SOAP, CORBA or RMI, which is software only and which
+ invokes the running of programs on remote servers.
+===
+The term is a bit confusing, because it sounds like the physical layer (layer 1) of the network
+ that places the bits "onto the wire." In some cases, it may refer to this layer; however, it
+generally refers to protocols higher than the physical layer or even the next higher data link
+layer (layer 2) such as Ethernet and ATM.
+
+examples of wire protocols are
+    * IIOP for CORBA
+    * JRMP for RMI
+    * SOAP for Web Services
+      AMQP for Message Oriented Middleware
+
+DOM:
+The XML DOM defines a standard way for accessing and manipulating XML documents.
+The DOM presents an XML document as a tree-structure.
+
+XPath:
+seven kinds of nodes: element, attribute, text, namespace, processing-instruction, comment, and document nodes.
+
+rostrum: a platform for public speaking
+
+Web API
+a defined set of HTTP request messages along with a definition of the structure of response messages, typically expressed in JSON or XML.
+Web APIs allow the combination of multiple services into new applications known as mashups
+
+Web Services allow programs written in different languages on different platforms to communicate
+ with each other in a standards-based way
+
+Long on style, short on substance
+
+want for nothing: not to lack anything; to have everything one needs or desires
+The Smiths don't have much money, but their children seem to want for nothing.
+
+consolidation/groupage:
+Combining several smaller shipments into a full container load or a large shipment to avail of better freight rates.
+
+In shipping, breakbulk cargo or general cargo is a term that covers a great variety of goods
+ that must be loaded individually, and not in intermodal containers nor in bulk as with oil or grain.
+
+Bulk cargo is commodity cargo that is transported unpackaged in large quantities. This cargo
+is usually dropped or poured, with a spout or shovel bucket, as a liquid or as a mass of
+ relatively small solids (e.g. grain, coal), into a bulk carrier ship's hold, railroad car,
+or tanker truck/trailer/semi-trailer body. Smaller quantities (still considered "bulk") can
+ be boxed (or drummed) and palletised. Bulk cargo is classified as liquid or dry.
+
+POSIX
+"Portable Operating System Interface for uni-X",
+a set of standards for operating systems
+Ideally, a developer should have to write a program only once to run on all POSIX-compliant systems.
+The POSIX specifications describe an operating system that is similar to, but not necessarily the same as, Unix.
+
+JPA: embeddable
+a relationship where the target object's data is embedded in the source object's table is
+considered an embedded relationship, and the target object is considered an Embeddable object.
+An embeddable object cannot be directly persisted, or queried, it can only be persisted or queried in the context of its parent. An embeddable object does not have an id or table.
+
+JPA Orphan removal will ensure that any object no longer referenced from the sourceis deleted
+ from the database.
+
+JPA cascading : allows the relationship to be cascaded
+If persist() is called on the parent, and the child is also new, it will also be persisted.
+used in one-to-one and one-to-many relationships
+cascade options: persist, remove, merge, refresh, all
+e.g. relationship: Order -> OrderLine.
+Cascading the orderLines relationship allows for the Order's -> OrderLines to be persisted,
+ removed, merged along with their parent.
+
+lyceum:
+hall for public lecture
+
+load factor: used capacity divided by total capacity
+
+bean-managed transaction
+the code in the session or message-driven bean explicitly marks the boundaries of the transaction.
+ An entity bean cannot have bean-managed transactions; it must use container-managed transactions
+instead. Although beans with container-managed transactions require less coding, they have one
+limitation: When a method is executing, it can be associated with either a single transaction
+ or no transaction at all. If this limitation will make coding your bean difficult, you should
+ consider using bean-managed transactions.
+
+Container-Managed Transactions
+the EJB container sets the boundaries of the transactions.
+
+The bee's knees:
+the highest quality. Excellent
+
+JMX : Java Management Extensions
+MBean: a java object representing a resource to be managed.
+its interface consists of:
+	attributes that can be read and written
+	operations that can be invoked
+	notifications that can be emitted by the MBean
+
+EclipseLink:
+session: the facade through which an application accesses EclipseLink functionality
+An EclipseLink session provides the primary access to the EclipseLink runtime. It is the means
+ by which your application performs all persistence operations with the data source that contains
+ persistent objects.
+
+EAV
+Conceptually an EAV design involves a single table with three columns, an entity (such as an
+olfactory receptor ID), an attribute (such as species, which is actually a pointer into the
+ metadata table) and a value for the attribute (e.g., rat). In EAV design, one row stores
+ a single fact. In a conventional table that has one column per attribute, by contrast,
+ one row stores a set of facts. EAV design is appropriate when the number of parameters
+ that potentially apply to an entity is vastly more than those that actually apply to an individual entity.
++++
+appropriate when the number of possible attributes is much greater than the number
+that will actually apply to a given entity
+
+The Simplest Thing that Could Possibly Work
+
+scientific notation: ("a times ten to the power of b"),
+a is called the mantissa/significand/coefficient
+normalized notation: 1<=|a|<10
+
+an order of magnitude difference: 10 times as large
+two orders of magnitude difference: 100 times as large
+
+floating point number: significand X radix^exponent
+
+break the mold
+to do something differently, after it has been done in the same way for a long time
+
+in the grand/great scheme of things
+if you say that in the grand scheme of things something is not important, you mean that
+it is not important when compared to much more serious things
+
+in the scheme of things
+in a general view of the situation
+
+weaving
+means manipulating the byte-code of compiled Java classes.
+
+reverse index:
+reverse the key value before entering into the index. reduce contention for index block.
+not effective for range search. very useful when the key is a sequence number that increases by
+a fixed value.
+
+on the count of three
+
+five bucks says you can't do it
+
+"how to handle questions"
+the short answer is that ...
+the long answer is that ..
+that's another way of doing it.
+you could do that
+give me the pros and cons
+compare and contrast the two options
+what do you suggest?
+thank you for your time
+can you repeat that?
+why don't you give it a try?
+is this what you meant?
+
+writ large: expressed in a bigger way, stronger form of that thing.
+e.g. Hollywood is American society writ large.
+She believed that cultures are just personalities writ large.
+ The genius of the story is that it's about ordinary life writ large.
+
+out-of-band:
+In software, describes values of a function which are not in its natural
+ range of return values, but are rather signals that some kind of exception has occurred.
+ Many C functions, for example, return a nonnegative integral value, but indicate failure
+ with an out-of-band return value of -1.
+--
+refers to communications which occur outside of a previously established communication method or channel.
+==
+Out-of-band communication is the exchange of call control information in a separate band
+from the data or voice stream, or on an entirely separate, dedicated channel
+
+turing machine: An abstract device that can simulate the logic of any conceivable computer algorithm
+A programming language that is capable of modeling any possible computation algorithm is said to
+be "Turing complete." it could be used to solve any computation problem.
+
+Prototype-based programming is a style of object-oriented programming in which classes
+ are not present, and behavior reuse (known as inheritance in class-based languages) is
+performed via a process of cloning existing objects that serve as prototypes. This model
+ can also be known as classless, prototype-oriented or instance-based programming.
+ Delegation is the language feature that supports prototype-based programming.
+
+JSONP: JSON with padding
+a pattern of usage allowing a page to request data from a server in a different domain
+--
+same origin policy:
+ a web page served from server1.example.com cannot normally connect to or communicate
+ with a server other than server1.example.com.
+---
+An exception is the HTML <script> element. Exploiting the open policy for <script> elements,
+ some pages use them to retrieve JavaScript code that operates on dynamically generated
+JSON-formatted data from other origins. This usage pattern is known as JSONP. Requests
+ for JSONP retrieve not JSON, but arbitrary JavaScript code. They are evaluated by
+ the JavaScript interpreter, not parsed by a JSON parser.
+-->
+a usage pattern that allows a page to request data from a server in a different domain.
+-->
+example return value: functionCall({"Name": "Foo", "Id" : 1234, "Rank": 7});
+==
+<script type="text/javascript"
+         src="http://server2.example.com/RetrieveUser?UserId=1234&jsonp=parseResponse">
+ </script>
+== return payload:
+parseResponse({"Name": "Foo", "Id" : 1234, "Rank": 7})
+
+In computer graphics, a sprite  is a two-dimensional image or animation that is integrated
+into a larger scene.
+===
+CSS sprite:
+To reduce the number of requests the browser makes to the server, some web designers combine
+ numerous small images or icons into a larger image called a sprite sheet.
+ CSS is used to display the parts of the composite image to display at different points
+in the page. If a page has 10 1 kB images, they can be combined into one 10 kB image,
+ downloaded with a single HTTP request, and then positioned with CSS. Reducing the number
+ of HTTP requests can make a Web page load much faster.
+
+HTML div tag
+The <div> tag defines a division or a section in an HTML document.
+===
+HTML span tag
+The <span> tag is used to group inline-elements in a document.
+The <span> tag provides no visual change by itself.
+
+maginot line:
+ a defensive barrier or strategy that inspires a false sense of security
+
+idempotent receiver
+one that can safely receive the same message multiple times
+-->
+define the message semantics to support idempotency
+don't overload a single field with dual semantics
+
+remittance man: a man living aborad on money sent from home
+
+concurrency: the execution of disparate tasks at roughtly the same time, each sharing a common
+resource.
+The result of concurrent tasks often affect the behavior of other concurrent tasks.
++++
+Parallelism: refers to partitiioning a task into multiple parts, each run at the same time.
+typically, parallel tasks work toward an aggregate goal. The result of one does not affect
+the behavior of any other task.
+===
+concurrency: conceptually simultaneous
+parallelism: physically simultaneous
+
+He doesn't have much in the way of education
+Do not expect much in the way of blogging
+Jaime doesn't have much in the way of company
