@@ -2148,3 +2148,995 @@ parallelism: physically simultaneous
 He doesn't have much in the way of education
 Do not expect much in the way of blogging
 Jaime doesn't have much in the way of company
+
+I am not so much disappointed as I am surprised.
+
+It is not so much an alternative as ...
+
+so much as: but rather
+
+elan: distinctive style (flair), liveliness (verve)
+flair: Dazzling style
+verve: vitality, energy or enthusiasm in the express of ideas
+panache: dash, verve, flair, Dazzling style
+pizzazz: flair, vigorous spirit, zest
+zest: flavor, gusto, enjoyment
+brio: vivacity
+vim: energy
+
+myopia: a vision problem where light rays entering the eye are brought to a focus
+in front of the retina. The end result being the inability to see distant objects.
+is a condition in which visual images come to a focus in front of the retina of the eye,
+resulting in the inability to see distant objects clearly
+
+hyperopia: a vision problem where light rays entering the eye are brought to a focus
+behind the retina. The end result being distant objects are seen more clearly than near objects.
+
+astigmatism: a vision problem where light rays entering the eye are focused on two points
+because the cornea is irregularly (not spherically) shaped. The end result is blurry images.
+A vision problem where the eye does not focus light evenly.
+
+presbyopia: the inability of the eye to focus on near objects as a person ages.
+
+I was impressed not so much by ...., as much as I was astounded by ...
+It is not about change ... so much as it is about ...
+
+solar calendar: a calendar whose dates indicate the position of the earth in its orbit
+around the sun. If the dates indicate season, it is called tropical solar calendar
+(Gregorian calendar).
+If the position of the earth is reckoned with respect to the fixed stars, it is
+called sidereal solar calendar (Hindu Solar calendar).
+
+ecliptic: the apparent path of the sun as seen from the earth.
+If the sun's path is observed from the Earth's reference frame, it appears
+ to move around the Earth in a path which is tilted with respect to the spin
+ axis at 23.5. This path is called the ecliptic.
+---> the sun's path in the sky
+
+ecliptic plane: the plane that contains the orbit of the earth.
+
+celestial sphere: an imaginary sphere of infinite radius concentric with
+the earth. on which
+all celestial bodies except the Earth are imagined to be projected.
++++
+The stars can be imagined to be points of light on a sphere which rotates about the Earth.
+ Projecting the Earth's poles and equator out onto this imaginary sphere provides a
+ framework for celestial measurement.
+
+The length of a day, which is measured by the time it takes Earth to rotate once on its axis.
+
+mean solar day: the average period of rotation of the earth about its axis
+with respect to the sun. defined to be 24 hours.
+
+sidereal day: the period of rotation of the earth about its axis with
+respect to the stars.
+
+The celestial equator is a great circle on the imaginary celestial sphere,
+ which is actually the plane of the terrestrial equator extended out into
+the universe (i.e., it could be constructed by extrapolating the Earth's
+equator until it touches the celestial sphere).
+the projection of the geographical equator upon the celestial sphere.
+
+great circle: a circle on the surface of a sphere that has
+the same circumference as the sphere. a circle on the surface
+of a sphere such that the plane containing the circle passes
+through the center of the sphere.
+
+the equivalent of latitude: declination
+the equivalent of longitude: right ascension (measured in hours, minutes, seconds).
+one hour = 15 degrees
+
+Using the celestial sphere as a reference is called sidereal time.
+Solar (tropical) time: use the sun as a reference.
+
+tropical year: the length of time that the sun, as viewed from the earth, takes to return
+to the same position along the ecliptic. The precise length of time depends on which
+point of the ecliptic one chooses.
+The time from one fixed point, such as a solstice or equinox,
+to the next is called a tropical year (this is a generalization)
+
+The time from one new moon to the next is called a synodic month.
+
+19 years is called a Metonic cycle. 19 tropical years is about 235 synodic months.
+Every 19 years, the phases of the moon fall on the same dates.
+
+lunisolar calendar: a calendar whose dates indicate both the moon phase and the time of
+the solar year. If the solar year is defined as a tropical year then a lunisolar
+calendar will give an indication of the season.
+the year coincides with the tropical year and the month coincides with the synodic month.
+
+Chinese calendar: based on a combination of lunar and solar movements.
+The lunar cycle is roughly 29.5 days.
+Every few years, the lunar calendar is synchronized with the solar year
+by adding an extra month.
+
+intercalation: solar year does not have whole number of days. a calendar year must
+have a whole number of days. To reconcile the two, one must vary the number of days
+in a year. In gregorian calendar, the intercalary day is Feb 29. The solar year does
+not have a whole number of months either, so lunisolar calendar must have a variable
+number of months in a year.
+
+A constellation is any one of the 88 areas into which the sky  or the celestial sphere  is divided.
+
+The term zodiac denotes an annual cycle of twelve stations along the ecliptic,
+the apparent path of the sun across the heavens through the constellations
+that divide the ecliptic into twelve equal zones of celestial longitude.
+The zodiac is the first known celestial coordinate system.
+Zodiac: represents 12 constellations.
+
+Common Era is the system of numbering years from the supposed beginning of the life of Jesus.
+
+In chronology, an epoch is an instant chosen as the origin of a particular time scale.
+
+morals: a core set of values that help us define what is right and what is wrong.
+ethics: how we behave with regard to our moral values.
+	When one acts in ways that are consistent with our moral values
+	 we will characterize that as acting ethically
+
+unsaturated fat: has double bonds.
+saturated fat: no double bonds. saturated with hydrogen.
+trans fat: vegetable oil treated with hydrogen. partially hydrogenated unsaturated fat.
+	increase shelf life and flavor stability of foods containing trans fat.
+	raises LDL and lowers HDL.
+valence shell: the outermost electron shells.
+free radical: has an unpaired electron in the valence shell. highly reactive.
+oxidize: to lose an electron
+oxidant (oxidizing agent): tends to oxidize other substances (i.e., steal electrons from other substances)
+	A substance that gains electrons in a redox chemical reaction.
+reduce: to gain an electron
+
+oxidation is better defined as an increase in oxidation number, and reduction as a decrease in oxidation number.
+
+Substances that have the ability to oxidize other substances are said to be oxidative
+and are known as oxidizing agents, oxidants or oxidizers. Put another way, the oxidant
+ removes electrons from another substance, and is thus reduced itself. And because
+it "accepts" electrons it is also called an electron acceptor.
+
+Substances that have the ability to reduce other substances are said to be reductive
+and are known as reducing agents, reductants, or reducers. Put in another way, the
+reductant transfers electrons to another substance, and is thus oxidized itself.
+And because it "donates" electrons it is also called an electron donor.
+
+antioxidant: reduce oxidative damage to cells. donate electrons to free radicals.
+An antioxidant is a molecule capable of slowing or preventing the oxidation of other molecules.
+Oxidation is a chemical reaction that transfers electrons from a substance to an oxidizing agent.
+Oxidation reactions can produce free radicals, which start chain reactions that damage cells.
+Antioxidants terminate these chain reactions by removing free radical intermediates, and
+inhibit other oxidation reactions by being oxidized themselves. As a result, antioxidants
+are often reducing agents such as thiols or polyphenols.
+
+plant cells have walls. cell wall is composed of cellulose, hemicellulose and pectin.
+Lignin fills the spaces in the cell wall between cellulose, hemicellulose and pectin components.
+Lignin makes wood stiff and trees stand upright
+Paper is made from wood, which is made up mainly of white cellulose. Wood also has a lot
+of a dark substance in it called lignin, which ends up in the paper, too, along with the
+cellulose. The exposure of lignin to air and sunlight is what turns paper yellow.
+
+normal paper is made from wood (the cellulose found in trees)
+paper money is made from cotton and linen fibers (known as rag paper)
+counterfeit detector pen: It contains an iodine solution that reacts with the starch in
+wood-based paper to create a black stain. When the solution is applied to the fiber-based paper
+used in real bills, no discoloration occurs.
+
+patent: A grant made by a government that confers upon the
+creator of an invention the sole right to make, use,
+and sell that invention for a set period of time
+
+copyright: the right granted to an author, composer, for exclusive
+publication, sale, or distribution of a literary work.
+
+alpha testing: in-house testing of a s/w product.
+
+baud: symbol rate: symbols per second. not the same as data rate:
+each symbol may carry more than 1 bit of information.
+If baud is 600 and each symbol carries 4 bits of information, the data
+rate is 2400 bits/s.
+channel capacity: the amount of information that can be reliably transmitted over a channel.
+
+parallax: An apparent change in the direction of an object, caused by a change
+in observational position that provides a new line of sight.
+
+Precession refers to a change in the direction of the axis of a rotating object.
+
+A gyroscope is a device for measuring or maintaining orientation,
+based on the principle of conservation of angular momentum. The
+essence of the device is a spinning wheel on an axle. The device,
+once spinning, tends to resist changes to its orientation due to
+the angular momentum of the wheel. In physics this phenomenon is
+also known as gyroscopic inertia or rigidity in space.
+
+ice age causes:
+	1. orbit eccentricity of the earth. changes from near circular to elliptical.
+		period: about 100,000 years
+	2. axial tilt: the angle changes (every 41,000 years)
+	3. axial orientation (precession of the equinoxes): every 22,000 years.
+
+glacier: a river of ice that moves in response to gravity.
+ice sheet: a large sheet of non-moving ice.
+
+UML: a language for visualizing, specifying, constructing,
+and documenting the artifacts of a software system.
+
+a class is used to model an abstraction drawn from the vocabulary
+of the problem space or the solution space.
+
+interface: a collection of operations that specify the service
+of a class or component.
+
+instance: a concrete manifestation of an abstraction to which a set of
+operations may be applied and which may have a state that stores
+the effects of the operation.
+
+stereotype: an extension of the vocabulary of the UML.
+
+polymorphism:
+In object-oriented programming, the ability of different objects to respond, each in its own way,
+to the same message.
+types of polymorphism:
+(1) overloading, aka ad-hoc polymorphism
+(2) type coercion
+(3) parametric polymorphism: java generics, C++ templates, a method that can accept any type.
+     used a lot in functional programming.
+(4) subtype/inclusion polymorphism
+
+An objects class defines how the object is implemented.
+In contrast, an objects type only refers to its interface.
+Class inheritance defines an objects implementation in terms of another objects implementation.
+Type inheritance describes when an object can be used in place of another
+Inheritance: a language feature that allows you to derive a new class from an existing class.
+inheritance: object types are organized in a class hierarchy.
+
+encapsulation:
+The localization of knowledge within a module. Because objects encapsulate data and
+implementation, the user of an object can view the object as a black box that provides services.
+Programming technique that hides the implementation of an operation from its users behind
+an abstract interface. This allows the implementation to be updated or changed without
+ impacting the users of the interface.
+--- data and behavior are package together.
+
+default:
+A particular setting or value for a variable that is assigned automatically
+ by an operating system and remains in effect unless canceled or overridden by the operator.
+A situation or condition that obtains in the absence of active intervention
+
+Modeling is a central part of all the activities that
+lead up to the deployment of good software. We
+build models to communicate the desired structure and
+behavior of our system. We build models to visualize
+and control the system's architecture. We build models
+to better understand the system we are building, often
+exposing opportunities for simplification and reuse.
+And we build models to manage risk.
+
+a model is a simplification of reality.
+
+principles of modeling:
+1. The choice of what models to create has a profound influence
+ on how a problem is attacked and how a solution is shaped.
+2. Every model may be expressed at different levels of precision.
+3. The best models are connected to reality.
+4. No single model or view is sufficient. Every nontrivial
+system is best approached through a small set of nearly
+independent models with multiple viewpoints.
+
+aims:
+1. Models help us to visualize a system as it is or as we want it to be.
+2. Models permit us to specify the structure or behavior of a system.
+3. Models give us a template that guides us in constructing a system.
+4. Models document the decisions we have made.
+
+We build models of complex systems because we cannot comprehend such a system in its entirety.
+
+To understand the architecture of such a system, you need
+several complementary and interlocking views: a use case
+ view (exposing the requirements of the system), a design
+ view (capturing the vocabulary of the problem space and
+the solution space), an interaction view (showing the
+ interactions among the parts of the system and between
+ the system and the environment), an implementation view
+ (addressing the physical realization of the system), and
+ a deployment view (focusing on system engineering issues).
+ Each of these views may have structural, as well as
+ behavioral, aspects. Together, these views represent
+the blueprints of software.
+
+model: an interpretation of reality that abstracts the aspects relevant
+to solving the problem at hand and ignores extraneous details.
+
+Systems design is the process or art of defining the hardware
+ and software architecture, components, modules, interfaces,
+and data for a computer system to satisfy specified requirements.
+
+Abstraction is the process of reducing the information
+content of a concept, or of an observation of an empirical
+ phenomenon, typically in order to retain only information
+which is relevant for a particular purpose. For example,
+abstracting a leather soccer ball to a ball retains only
+the information on general ball attributes and behaviour.
+ Similarly, abstracting happiness to an emotional state
+reduces the amount of information conveyed about the emotional state.
+---
+is the elimination of the irrelevant and the amplification of the essential.
+---
+An abstraction layer is a way of hiding the implementation details of a particular set of functionality.
+
+----
+omitting certain kinds of detail in order to emphasise others
+"The ability to simplify means to eliminate the unnecessary so that the necessary may speak"
+
+aggregation: composite aggregation vs shared aggregation
+composition: the part cannot exist on its own
+
+Systems analysis is the science dealing with analysis of
+complex, large scale systems and the interactions within those systems.
+
+A business analyst (BA) is responsible for analyzing the business
+ needs of their clients and stakeholders to help identify business
+problems and propose solutions. Within the systems
+ development life cycle domain, the BA typically performs
+a liaison function between the business side of an enterprise
+and the information technology department or external service providers.
+
+Requirements analysis encompasses all of the tasks that
+go into the instigation, scoping and definition of a new or altered system.
+Identify the needs or requirements of a client.
+
+Popular architectural styles are often a product of the weaknesses of their predecessors.
+
+OEM: are manufacturers who resell another company's product under
+their own name and branding.
+While an OEM is similar to a VAR (value-added reseller),
+it refers specifically to the act of a company rebranding
+ a product to its own name and offering its own warranty,
+support and licensing of the product. The term is really
+a misnomer because OEMs are not the original manufacturers;
+they are the customizers.
+OEM was an adjective used to describe a company that produced
+ hardware to be marketed under another company's brand
+
+VAR: typically load applications or proprietary software
+onto computers and may also incorporate third-party options
+to design a complete solution for a client. This "value-added"
+system is often customized for a specific application, but
+is sold to the VAR's customer base under the original design
+ manufacturer brand; with that manufacturer's warranty,
+ support, and license agreements.
+
+holding company: Company formed for the purpose of owning or controlling other companies.
+
+c/o: care of: Through someone, by way of someone, as in I sent the gift
+ in care of your parents. This phrase indicates that something is
+to be delivered to someone at someone else's address.
+
+organic growth: A company is said to be growing organically when it is
+increasing the turnover of its existing business.
+Contrast this with a company that is growing by acquiring other companies.
+The growth rate that a company can achieve by increasing output
+and enhancing sales. This excludes any profits or growth
+acquired from takeovers, acquisitions or mergers. Takeovers,
+ acquisitions and mergers do not bring about profits generated
+ within the company, and therefore, are not considered organic.
+Organic growth represents the true growth for the core of the company.
+ It is a good indicator of how well management has used its internal
+ resources to expand profits. Organic growth also identifies whether
+managers have used their skills to improve the business.
+
+boilerplate: standard formulations uniformly found in certain types
+of legal documents or news stories.
+
+raised pavement marker: Stimsonite marker, botts' dot.
+
+cement is an ingredient of concrete.
+concrete contains cement, plus sand and gravel.
+when mixed with water, the cement hardens and binds
+the gravel into a rocklike mass. does not stretch well.
+changes in volume as it dries out.
+
+an XML namespace is a collection of element type and attribute names.
+
+URI: a string of characters which identiies a resource. it can come in one of two flavors: URL or URN:
+URL: a unique address for a file on the internet. URL is a type of URI.
+URN: urn:<namespace identifier (NID)>:<namespace specific string (NSS)>
+An URI locator is known as URL.
+
+serialization: The process of converting the data in an object to XML (or byte stream)
+is called serialization. The reverse of serialization, loading XML into the object,
+is called deserialization.
+
+Curb weight is the total weight of an automobile with standard equipment,
+motor oil, coolant, a full tank of fuel and not loaded with either passengers or cargo.
+
+A gross vehicle weight rating (GVWR) is the maximum allowable total weight
+of a road vehicle that is loaded to capacity, including the weight of the
+vehicle itself plus fuel, passengers, cargo,
+
+Dry weight: the weight of an automobile or motorcycle with standard equipment,
+no motor oil, coolant or fuel and not loaded with either passengers or cargo.
+
+far be it from me to do something:
+it is not my responsibility to do this...
+something that you say when you are giving advice or criticizing someone
+and you want to seem polite.
+e.g., Far be it from me to tell you what to do, but don't you think you should apologize?
+
+Impedance matching is the practice of attempting to make the output impedance
+of a source equal to the input impedance of the load to which it is ultimately
+connected, usually in order to maximise the power transfer and minimise reflections from the load.
+
+Impedance mismatch is a term in systems analysis which describes
+an inadequate or excessive ability of one system to accommodate
+input from another.
+
+Object-relational impedance mismatch: refers to the difficulty in
+mapping tables in the relational database to an object model.
+
+severability: If any part of this agreement is legally declared invalid
+or unenforceable, all other parts of this agreement are still valid and enforceable.
+
+law of demeter: principle of least knowledge. a design guideline for software
+development, particularly OO. "Talk to your immediate friends". a given object
+should assume as little as possible about the structure and properties of other
+objects.
+
+QoS:
+a networking term that specifies a guaranteed throughput level.
+---
+In the fields of packet-switched networks and computer networking,
+the traffic engineering term Quality of Service (QoS) refers to control
+ mechanisms that can provide different priority to different users or
+ data flows, or guarantee a certain level of performance to a data
+ flow in accordance with requests from the application program.
+The term Quality of Service is sometimes used as a quality
+measure with many alternative definitions.
+The goal of QoS is to provide guarantees on the ability of a network to deliver predictable results.
+Elements of network performance within the scope of QoS often
+include availability (uptime), bandwidth (throughput), latency (delay), and error rate.
+QoS involves prioritization of network traffic.
+QoS: provides guaranteed timely delivery of specific application data or resources
+ to a particular destination or destinations.
+
+Bandwidth in computer networking refers to the data rate supported by a network connection or interface.
+Bandwidth represents the capacity of the connection
+the capacity of a communications channel.
+
+throughput: Output or production, as of a computer program, over a period of time.
+In communication networks, such as Ethernet or packet radio, throughput is the average rate of
+successful message delivery over a communication channel. usually in bits per second
+
+SOAP performance:
+    * Extracting the SOAP envelope from the SOAP packet is time-expensive.
+    * Parsing the contained XML information in the SOAP envelope using a XML parser is also time-expensive.
+    * There is not much optimization possible with XML data.
+    * SOAP encoding rules make it mandatory to include typing information in all
+	the SOAP messages sent and received.
+    * Encoding binary data in a form acceptable to XML results in overhead of
+	additional bytes added as a result of the encoding as well as processor
+	 overhead performing the encoding/decoding.
+
+nanotechnology:
+A branch of science and engineering devoted to the design and production
+of extremely small electronic devices and circuits built from individual atoms and molecules.
+
+remainder mark:
+A mark (rubber stamp, felt marker stroke, or spray, often on a book's bottom edge)
+ signifying that the book was returned to publisher as unsold, and then sold at a much lower price
+
+spectrum: a graph of the intensity of light given off at different wavelengths.
+
+risk factor: something that increases the chance of getting a disease.
+
+get the time: dial 767 followed by any four numbers, e.g. 767-0000
+
+are thrown for an even bigger loop.
+she was thrown for a loop.
+
+ergonomics: the science of office equipment design that enables a person
+to work with less pain and tiredness.
+
+Donald Knuth: premature optimization is the root of all evil in programming
+
+buffer: a storage place where data are kept before it is needed by a program that reads or writes that data.
+
+an order of magnitude: about ten times difference.
+two orders of magnitude: about 100 times difference
+basically, a power of ten
+
+prolepsis: The anticipation and answering of an objection or argument before one's opponent has put it forward.
+
+gregorian calendar: Years in the calendar are numbered from the traditional birth year of Jesus.
+named after Pope Gregory XIII. Decreed in 1582. By that time, spring equinox was on Mar 10. Skipped
+ten days in 1582. Adopted by UK in 1752 (skipped 11 days). motivated by the calculation of the date
+of Easter (the first sunday after the first full moon on or after the spring equinox). repeat
+every 400 years. 97 leap years in 400 years. Julian calendar has 100 leap years in 400 years.
+Leap years are all years divisible by 4, with the exception of those divisible by 100, but not by 400.
+
+Anno Domini: latin: in the year of our lord.
+
+The Common Era, also known as the Current Era, is the period of measured time beginning with the year 1 on the Gregorian calendar.
+
+equinox: the equinox happens when the Sun is at one of two opposite points on
+the celestial sphere where the celestial equator and ecliptic intersect.
+In a wider sense, the equinoxes are the two days each year when the center
+ of the Sun spends an equal amount of time above and below the horizon at every location on Earth.
+The sun is directly above the equator at equinox.
+Visualization: there is a location on the surface of the earth where the sun
+reaches an altitude of 90 degree. This location moves from north to south
+and then back. At equinox, this location is on the equator. At solstice, this
+location reaches its most northerly/southerly latitude.
+On the day of an equinox, the geometric center of the Sun's disk crosses the equator.
++++
+the moment in time when there is a location on the equator where the sun is directly overhead.
+
+Twilight is the time before sunrise or after sunset when sunlight scattered in the upper
+atmosphere illuminates the lower atmosphere and the surface of the Earth.
+Civil twilight begins in the morning when the center of the Sun is less than 6
+below the horizon, and ends at sunrise. Evening civil twilight begins at sunset
+and ends when the center of the Sun is more than 6 below the horizon.
++++
+dawn: the beginning of morning twilight.
+sunrise: is the instant at which the upper edge of the Sun appears above the horizon in the east.
+dusk: the end of evening twilight.
+sunset: the moment the trailing edge of the sun's disk disappears below the horizon in the west.
+twilight: the time between dawn and sunrise, and the time between sunset and dusk.
++++
+astronomical dawn: formally defined as the time at which the sun is 18 degrees below the horizon in the morning
+nautical dawn: formally defined as the time at which the sun is 12 degrees below the horizon in the morning
+civil dawn: formally defined as the time at which the sun is 6 degrees below the horizon in the morning
+
+tropic of cancer: It is the farthest northern latitude at which the sun can
+appear directly overhead at noon, an event which occurs on the June solstice.
+It is difficult to specify an exact location for both tropic circles because
+the obliquity of the ecliptic varies between 22.5 and 24.5 with a 41,000 year periodicity.
+
+The northern solstice is in June on Earth, when the sun is directly over the Tropic of Cancer in the Northern Hemisphere,
+
+it depends on what your definition of <something> is
+
+the chemical properties of elements are periodic functions of their atomic numbers.
+atomic number: number of protons.
+atomic mass: number of protons plus neutrons.
+
+scientific method: observation, hypothesis, prediction, experiment
+
+the substitution of symbols (e.g., the word electron) for physical
+reality is referred to as abstraction.
+
+inductive reasoning: the creation of a general statement about a set
+of specific facts. going from certain truths to an uncertain generality.
+
+deductive reasoning: going from general truths to specific truths.
+
+"Never increase, beyond what is necessary, the number of entities required to explain anything"
+--- William of Ockham (1285-1349)
+Occam's razor:
+In other words, when multiple competing theories are equal in other respects, the
+ principle recommends selecting the theory that introduces the fewest assumptions
+and postulates the fewest hypothetical entities.
+"when you have two competing theories which make exactly the same predictions, the one that is simpler is the better."
+
+Aesthetics (also spelled esthetics) is a branch of philosophy called value theory or
+axiology, which is the study of sensory or sensori-emotional values,
+ sometimes called judgments of sentiment and taste.
+
+Camp is an aesthetic in which something has appeal because of its bad taste or ironic value.
+Something that is amusing by virtue of its being
+
+public key cryptography:
+sender uses recipient's public key to encrypt the message.
+recipient uses recipient's private key to decrypt the message.
+
+digital signature: sender encrypts the message using his private key.
+Digital signature schemes normally give two algorithms, one for signing which involves the user's
+secret or private key, and one for verifying signatures which involves the user's public key.
+ The output of the signature process is called the "digital signature."
+signing: sender encrypt using sender's private key.
+verifying: recipient uses sender's public key.
+digital signature: lets the recipient of information verify the information's
+origin, and also verify that the information was not tampered with.
+
+"Problems cannot be solved at the same level of awareness that created them" - einstein
+
+C'est la vie: it is the life (literal). -> such is life
+
+Alice in Wonderlands:
+sentence first, verdict afterwards (the queen)
+
+In mathematics, a transcendental number is a real or complex number which is not algebraic,
+that is, not a solution of a non-zero polynomial equation, with rational coefficients.
+
+real number: include rational (can be expressed as a fraction) and irrational
+(cannot be expressed as a fraction) numbers.
+
+complex number: include the imaginary number (square root of -1)
+
+As is so often the case ...
+
+Never Let It Be Said that ...
+
+The phrase "Pot calling the kettle black" is an idiom, used to accuse another
+speaker of hypocrisy, in that the speaker disparages the subject in a way that
+ could equally be applied to him or her. In former times cast iron pots and
+ kettles were quickly blackened from the soot of the fire. If personified
+into animate objects, the pot would then be hypocritical to insult the
+ kettle's colour. The phrase "It takes one to know one" has a similar meaning.
+
+Hypocrisy is the act of condemning another person, when the critic is guilty of the same
+thing that is being condemned.
+
+political action committee, is the name commonly given to a private group organized to elect or
+defeat government officials in order to promote legislation, often supporting the group's special interests.
+A group organized to raise money for their favorite political candidates.
+
+Being carbon neutral, or carbon neutrality, refers to the practice of balancing carbon dioxide
+released into the atmosphere from burning fossil fuels, wood, or other sources; with practices
+that remove or sequestor carbon from the atmosphere, and use of renewable energy that creates
+a similar amount of useful energy without releasing carbon, so that the net carbon emissions are zero.
+(carbon offset)
+
+Carbon offsetting is the act of reducing ("offsetting") greenhouse gas emissions.
+A well-known example is the planting of trees to compensate for the
+greenhouse gas emissions from personal air travel. The idea of paying
+ for emission-reductions elsewhere instead of reducing by own actions
+is also known from the closely related concept of emissions trading.
+
+carbon footprint: a measure of the impact human activities have on the environment, in terms
+of the amount of carbon dioxide produced. A measure of the amount of CO2 emitted
+through the combustion of fossil fuels; in the case of an individual, as part of
+their daily lives.
+
+vendor-agnostic
+
+sticking it out
+
+The earth's rotation is slowing due to tidal deceleration (gravitational pull from the moon).
+The rotation increases due to melting glaciers (water flows from high elevation to low
+elevation). The net result is still a decrease in rotational speed.
+
+Coordinated Universal Time (UTC) is a high-precision atomic time standard.
+Leap seconds are added to or subtracted from UTC to keep it within 0.9 seconds of UT1.
+
+Universal Time (UT) is a timescale based on the rotation of the Earth. It is
+a modern continuation of the Greenwich Mean Time (GMT), i.e., the mean solar time
+ on the meridian of Greenwich, England, which is the conventional 0-meridian for
+ geographic longitude. GMT is sometimes used, incorrectly, as a synonym for UTC.
+The old GMT has been split, in effect, into UTC and UT1.
+
+Greenwich Mean Time (GMT) is a term originally referring to mean solar time
+at the Royal Observatory, Greenwich in England. It is now often used to refer
+to Coordinated Universal Time (UTC) when this is viewed as a time zone,
+although strictly UTC is an atomic time scale which only approximates GMT
+in the old sense. It is also used to refer to Universal Time (UT), which is the
+astronomical concept that directly replaced the original GMT.
+
+Solar time is based on the idea that when the sun reaches its highest point in the sky, it is noon.
+The time measured by Earth's rotation relative to the Sun.
+a reckoning of the passage of time based on the sun's position in the sky.
+
+Apparent solar time is based on the apparent solar day, which is the interval between two
+successive returns of the Sun to the local meridian. Solar time can be measured by a sundial.
+Apparent solar time (or true or real solar time) is the time indicated by the Sun on a sundial,
+while mean solar time is the average as indicated by clocks.
+The average time taken for the sun to return to its highest point is 24 hours.
+apparent solar day: the time interval between successive passages of the sun over a local
+meridian: not constant because of earth's axial tilt and elliptical shape of earth's orbit.
+
+Mean solar time is artificial clock time adjusted via observations of the diurnal rotation
+of the fixed stars to agree with average apparent solar time. The length of a mean solar
+ day is a constant 24 hours throughout the year. A time based on a hypothetical sun
+moving uniformly along the celestial equator.
+Mean solar time, kept by most clocks and watches, is the solar time that
+would be measured by observation if the Sun traveled at a uniform apparent speed throughout the year.
+To  remedy  the  situation  created  by  apparent  solar  time,  mean  solar  time was
+ introduced.  Mean  solar  time  is  based  on  a  fictional  Sun  that
+is considered to move at a constant rate of 360 in 24 hours along the celestial  meridian.
+ One  mean  day  is  24  hours  in  length,  each  hour consisting of 60 minutes,
+and each minute consisting of 60 seconds.
+
+mean sun : an imaginary sun moving uniformly along the celestial equator.
+
+The equation of time is the difference, over the course of a year, between time as read from a sundial and a clock.
+The difference between apparent solar time and mean solar time.
+The sundial can be ahead (fast) by as much as 16 min 33 s (around November 3)
+or fall behind by as much as 14 min 6 s (around February 12).
+
+TAI: international atomic time. not adjusted for leap seconds.
+initially, in 1972: TAI - UTC = 10 seconds
+as of 2007, total # of leap seconds: 23
+	therefore, TAI - UTC = 33 seconds
+TAI = UT1 on jan 1 1958
+as of 2013: TAI - UTC = 35 seconds
+
+SI second is based on the transition between two energy states in caesium atoms.
+defined as a certain number of atomic vibrations.
+The SI second that is counted by atomic time standards is currently defined
+in such a way that its length matches the nominal second of 1/86400 of a mean solar day between 1750 and 1892.
+
+Cross-sell is a marketing term for the practice of suggesting related products
+or services to a customer who is considering buying something. (e.g., would you like fries with that?)
+
+Up-sell is a marketing term for the practice of suggesting higher priced products or
+ services to a customer who is considering a purchase. (e.g., Would you like to biggie-size that?")
+
+bear repeated viewing
+
+prototype:  An original type, form, or instance serving as a basis or standard for later stages.
+An original, full-scale, and usually working model of a new product or new version of an existing product
+
+loose coupling: means a reduction in assumptions between components.
+
+In computer science, a reference is an object containing information which refers to
+ data stored elsewhere, as opposed to containing the data itself. Accessing the
+value referred to by a reference is called dereferencing it.
+More generally, a reference can be considered as a piece of data that allows
+unique retrieval of another piece of data.
+A reference may be compared to the address of a house. It is a small identifier
+ from which it is possible to find a potentially much larger object.
+Finding a house based on its address is analogous to dereferencing a reference.
+Dereference a pointer.
+
+32-bit: Most CPUs are currently (as of 2005) designed so that the contents of
+a single integer register can store the address (location) of any datum in
+the computer's virtual memory. Therefore, the total number of addresses
+in the virtual memory  the total amount of data the computer can keep
+in its working area  is determined by the width of these registers.
+32-bit --> 4G of memory.
+
+load balancer: A load balancer can be used to increase the capacity of a server
+ farm beyond that of a single server. It can also allow the service to
+continue even in the face of server down time due to server failure or server maintenance.
+A load balancer consists of a virtual server (also referred to as vserver or VIP) which,
+in turn, consists of an IP address and port. This virtual server is bound to a number
+ of physical services running on the physical servers in a server farm. These physical
+ services contain the physical server's IP address and port. A client sends a request
+ to the virtual server, which in turn selects a physical server in the server farm
+and directs this request to the selected physical server. Load balancers are sometimes referred to as "directors"
+
+Designers may not (or, more likely, cannot) be aware of future implementation difficulties
+ when writing a design for an unimplemented software product.
+
+grand poobah: The name has come to be used as a mocking title for someone self-important
+or high-ranking and who exhibits an inflated self-regard.
+
+wonk: A student who studies excessively; One who studies an issue or a topic thoroughly or excessively
+
+give something a lick and a promise: to clean something quickly and not carefully;
+to do a job or piece of work quickly and not carefully.
+
+lick your chops: to be eager to do something that you think will be satisfying or pleasant
+
+alpha testing: testing of an application when development is nearing completion;
+minor design changes may still be made as a result of such testing.
+Typically done by end-users or others, not by programmers or testers.
+
+beta testing: testing when development and testing are essentially completed and
+final bugs and problems need to be found before final release. Typically done by
+ end-users or others, not by programmers or testers.
+
+make out: to discern, to understand, to represent, to fare, ..
+
+demonym: Place name-based label that describes a resident of a particular city, territory, or country.
+endonym: a name used by a group of people to refer to themselves.
+    Deutschen is the endonym of a people known in English as German
+exonym: a name given to a place by foreigners: Londres is an exonym of London.
+"Llundain" is the Welsh exonym for the English endonym "London."
+ China, India and Germany are the English exonyms corresponding to the endonyms Zhongguo, Bharat and Deutschland, respectively.
+
+put stock in: to believe in.
+
+past isn't necessarily prologue
+
+opportunity cost: The value of the best foregone opportunity when a choice is made.
+
+Sherman pledge: a remark made by American Civil War General William Tecumseh Sherman:
+"If drafted, I will not run; if nominated, I will not accept; if elected, I will not serve."
+
+as much as it breaks my heart to say that I cannot make it to the event...
+
+zeitgeist: is originally a German expression that means "the spirit of the age".
+It describes the intellectual and cultural climate of an era. In German, the word has
+ more layers of meaning than the English translation, including the fact that
+ Zeitgeist can only be observed for past events.
+
+truthiness : "something that is spoken as if true that one wants others to believe is true,
+that said often enough with enough voices orchestrated behind it, might even sound true, but is not true."
+Believing in something without regard for evidence, logic, intellectual examination, or actual facts.
+
+flash in the pan: Something which disappoints by failing to deliver anything of value,
+despite a showy beginning.
+
+portmanteau: a new word formed by joining two others and combining their meanings;
+"`smog' is a blend of `smoke' and `fog'"; "`motel' is a portmanteau word made by
+combining `motor' and `hotel'"; "`brunch' is a well-known portmanteau"
+
+neologism: a new word
+
+A nonce word is a word used only "for the nonce" to meet a need that is not expected to recur
+
+Pi is the ratio of a circle's circumference to its diameter in Euclidean geometry,
+
+radian: a unit of plane angle, a unit of angular measurement. equal to 180/pi degrees.
+One radian is the angle subtended at the center of a circle by an arc of length equal to
+ the radius of the circle.
+
+mulligan: A golf shot not tallied against the score, granted in informal play after a poor
+ shot especially from the tee.
+A mulligan, in a game, happens when a player gets a second chance to perform a certain move or action.
+
+A QAM tuner is a device present in some digital televisions and similar
+devices which enables direct reception of digital cable channels without
+ the use of a set-top box. QAM stands for "quadrature amplitude modulation,"
+the format by which digital cable channels are encoded and transmitted via
+ cable. QAM tuners can be likened to the cable equivalent of an ATSC tuner
+ which is required to receive over-the-air (OTA) digital channels broadcast
+ by local television stations.
+Most cable companies don't encrypt the digital signals that they pick up from local broadcasters.
+
+SDTV: 480i, or 525i (When they broadcast video information, they need
+to give CRT-type TVs time to reset the electronic beam to the top
+of the screen so it can get ready to paint the next sequence of
+lines. So they build in an interframe gap that equals about 45
+lines. There is no picture information in this 45 line gap it
+is there just to allow the TV time to get ready to receive the next frame).
+30 frames per second. 1/60 second in one pass.
+
+EDTV: 480p, or 525p
+
+HDTV: 1080i and 720p
+
+ATSC: used to receive HD signals over the air.
+
+The biggest difference between HDTV signals on a cable system and those
+ broadcast over the air revolves around the system used to modulate an
+ HDTV signal for transmission as radio-frequency signals across the cable system.
+HD signals are modulated for transmission.
+Broadcast HDTV uses a system called 8-VSB (vestigial sideband), while cable
+usually uses a system called QAM (quadrature amplitude modulation).
+
+For a lot of people, HDTV cable service comes through an HDTV set-top box
+(or cable box) that has a built-in QAM tuner.
+the channels are also encrypted (scrambled)
+
+In some cable systems, the local broadcast HDTV channels are transmitted across the cable system unencrypted.
+
+*  TVs are being built as digital-cable-ready(DCR) - just as regular analog TVs have been built as
+cable-ready for analog cable for years. These DCR TVs have a QAM tuner built-in and a slot for a
+"smart card" called the CableCARD.
+
+* Some cable companies rent these CableCARDs to their customers. A customer
+ with a CableCARD and a DCR HDTV can simply plug the CableCARD into the HDTV -
+the card basically gives your TV "permission" to unscramble encrypted premium channels.
+
+modulation is the process of varying a periodic waveform, i.e. a tone, in order to use that signal to convey a message.
+
+tuner
+A tuner is a circuit module or free-standing equipment which detects radio-frequency (RF)
+signals usually of low amplitude and amplifies them and converts them to a form suitable for further processing.
+
+radio tuner:
+receives radio broadcasts and converts them into audio-frequency signals
+ which can be fed into an amplifier driving a loudspeaker.
+
+the time it takes light to fly across 400k km to earth.
+you see them as they were a billionth of a second earlier.
+
+relativistic aberration: The shape, position or orientation of an object
+seen by a person moving near the speed of light can be quite unusual, and
+even different to what is predicted by the non-optical aspects of Einstein's
+theory of special relativity, such as length contraction. This is due to
+the purely visual effects of angular compression and distortion.
+Angular compression:
+As we travel faster, light appears to come at us from different angles.
+as we travel close to the speed of light, the angles of light coming towards us
+from all sides appear to contract, such that more light approaches us from in front.
+Among other things, this has the effect of allowing a moving observer
+ to see behind them. Watch what happens to an arrow originally behind
+the green dot as it accelerates. Aberration allows objects which normally
+ make an obtuse angle (greater than 90 degrees) with the direction of
+ motion to be wrapped forward into the field of view.
+Distortion:
+ is a visual effect that arises because the speed of light is not infinite,
+so light takes some small amount of time to travel a certain distance.
+Therefore, light from distant objects must leave earlier in time than
+light from closer objects in order for that light to enter an observer's eye at the same time.
+When things move at relativistic speeds, however, this effect is noticeable on a
+more local scale. This is because in the short time between seeing one part
+of an object and another, its enormous speed allows it to move a significant
+distance. This has the effect of making objects appear distorted; possible bent,
+ curved or twisted. For example, long rods may appear as parabolic arcs
+bending away from the viewer, and cubes can present curved edges or
+ non-parallel surfaces. Surprisingly, distortion cancels the effect
+ of length contraction in the case of a sphere, which will always
+ look circular to a moving observer.
+
+pilot: One who, though not belonging to a ship's company, is licensed to conduct a ship into and out of port or through dangerous waters.
+  A television program produced as a prototype of a series being considered for adoption by a network.
+pilot light: small auxiliary gas burner that provides a flame to ignite a larger gas burner
+
+A hull is the body of a ship or boat.
+
+In boats and ships, keel can refer to either of two parts: a structural element, or a hydrodynamic element.
+A structural keel is a large beam which the hull of a ship is built around.
+The keel runs in the middle of the ship, from the bow to the stern, and
+ serves as the foundation or spine of the structure, providing the
+major source of structural strength of the hull.
+
+Displacement is the actual total weight of the vessel. It is often expressed
+in long tons or in metric tons, and is calculated simply by multiplying the
+volume of the hull below the waterline (ie. the volume of water it is displacing) by the density of the water.
+The word "displacement" arises from the basic physical law, discovered by Archimedes,
+ that the weight of a floating object equates exactly to that of the water which
+ would otherwise occupy the "hole in the water" displaced by the ship.
+
+Lightship measures the actual weight of the ship with no fuel, passengers, cargo, water, etc. on board.
+
+Deadweight (often abbreviated as DWT for deadweight tonnes) is the displacement at any loaded
+ condition minus the lightship weight. It includes the crew, passengers, cargo, fuel, water,
+ and stores. Like Displacement, it is often expressed in long tons or in metric tons.
+
+Bulk cargo is commodity cargo that is transported unpackaged in large quantities.
+These cargos are usually dropped or poured, with a spout or shovel bucket, as a
+ liquid or solid, into a bulk carrier's hold, railroad car, or tanker truck/trailer/semi-trailer
+ body. Bulk cargos are classified as liquid or dry.
+dry bulk cargo: coal, grain, cement
+liquid bulk cargo: petroleum, gasoline
+
+A bulk carrier, bulk freighter, or bulker is a merchant ship used to transport
+unpackaged bulk cargo such as cereals, coal, ore, and cement.
+
+Roll-on/roll-off (RORO or ro-ro) ships are designed to carry wheeled cargo such as
+automobiles, trailers or railroad cars. This is in contrast to lo-lo (lift on-lift off)
+vessels which use a crane to load and unload cargo.
+
+The draft (or draught) of a ship's hull is the vertical distance between the waterline and the
+bottom of the hull (keel), with the thickness of the hull included
+
+Tonnage is a measure of the size or cargo capacity of a ship (in units of 100 cubic feet.)
+
+Suezmax is a naval architecture term for the largest ships capable of transiting the Suez Canal fully loaded,
+
+Ships classified as Panamax are of the maximum dimensions that will fit through
+the locks of the Panama Canal. This size is determined by the dimensions of the
+lock chambers, and the depth of the water in the canal.
+
+A lock is a device for raising and lowering boats between stretches of water of
+different levels on river and canal waterways. The distinguishing feature of a
+lock is a fixed chamber whose water level can be varied; whereas in a caisson
+lock, a boat lift, or on a canal inclined plane, it is the chamber itself
+that moves, and is then called a caisson
+
+caisson: A watertight structure within which construction work is carried on under water.
+
+culvert: A sewer or drain crossing under a road or embankment.
+
+A pallet (sometimes called a skid) is a flat transport structure designed to support
+ a variety of goods in a stable fashion while being lifted by any mobile forklift,
+pallet jack, or other jacking device. The goods are placed on top of the pallet,
+ and can be secured to it by straps or stretch-wrapped plastic film.
+
+A Trailer is generally an unpowered vehicle pulled by a powered vehicle. Commonly,
+the term trailer refers to such vehicles used for transport of goods and materials.
+
+A semi-trailer is a trailer without a front axle. A large proportion of its weight
+is supported either by a road tractor or by a detachable front axle assembly known
+ as a dolly or by the tail of another trailer.
+A road tractor coupled to a semi-trailer is often called a semi-trailer truck or semi.
+
+Intermodal freight transport involves the transportation of freight in a container
+ or vehicle, using multiple modes of transportation (rail, ocean vessel, and truck),
+without any handling of the freight itself when changing modes.
+
+Exits will be numbered from south to north and west to east. Each exit number is
+determined by the number of miles it is from the beginning of a route. For example,
+on Interstate 5, exit No. 1 is just north of the Mexican border and Exit 796 is the
+off-ramp before the freeway enters Oregon, 796 miles north of the Mexican border.
+
+loaded for bear: ready and eager to deal with something that is going to be difficult
+
+Cognitive dissonance is a psychological term describing the uncomfortable tension
+that may result from having two conflicting thoughts at the same time, or from engaging
+in behavior that conflicts with one's beliefs.
+
+Electrical impedance, or simply impedance, describes a measure of opposition
+to a sinusoidal alternating current (AC). Electrical impedance extends the
+concept of resistance to AC circuits, describing not only the relative
+amplitudes of the voltage and current, but also the relative phases.
