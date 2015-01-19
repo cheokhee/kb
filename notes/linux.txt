@@ -3,8 +3,12 @@ ldd : print shared library dependencies
 =====
 boot-up:
 
+run scripts at startup : put in /etc/rc.local
+others:
 /etc/init.d/rcS
 run scripts in /etc/rc2.d, which links to /etc/init.d
+
+read /etc/rc2.d/README
 
 default runlevel in /etc/init/rc-sysinit.conf
 
@@ -31,9 +35,20 @@ modprobe: add or remove modules
 move popularity-contest from /etc/cron.daily to ~root/cron
 move bsdmainutils from /etc/cron.daily to ~root/cron
 move mlocate from /etc/cron.daily to /etc/cron.monthly
- 
+
+--cron change 2015-01-16
+change /etc/cron.daily/locate:
+ add "/C /D /Data" to PRUNEPATHS
+ add vboxsf to PRUNEFS
+
 /etc/updatedb.conf:
    add /C to prunepaths
    add vboxsf to prunefs
 
 consider disabling mlocate cron job
+
+anacron: for desktops and laptops that are not running 24/7
+/var/spool/anacron
+/etc/anacrontab
+
+run-parts --report /etc/cron.daily

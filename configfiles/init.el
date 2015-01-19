@@ -292,6 +292,32 @@
   (interactive)
   (unless (is-on-space) (forward-until-space)))
 (global-set-key (kbd "C-c e") 'my-end-word)
+;; remove all text properties: facemenu-remove-all
+(add-to-list 'yank-excluded-properties 'font)
+(add-to-list 'yank-excluded-properties 'face)
+;; XML pretty print
+;; sgml-mode; then sgml-pretty-print )
+(defun bf-pretty-print-xml-region (begin end)
+  "Pretty format XML markup in region. You need to have nxml-mode
+http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
+this. The function inserts linebreaks to separate tags that have
+nothing but whitespace between them. It then indents the markup
+by using nxml's indentation rules."
+  (interactive "r")
+  (save-excursion
+    (nxml-mode)
+    (goto-char begin)
+    (while (search-forward-regexp "\>[ \\t]*\<" nil t)
+      (backward-char) (insert "\n") (setq end (1+ end)))
+    (indent-region begin end))
+  (message "Ah, much better!"))
+
+; (modify-syntax-entry ?_ "w")
+(add-hook 'text-mode-hook
+  (lambda () (modify-syntax-entry ?_ "w")))
+;;
+; see the syntax of the + character: (char-to-string (char-syntax ?+))
+;; align-regexp
 ;;variable: split-width-threshold: I want my pop-up window to split
 ;;horizontally even on wide-screen monitor
 ;;variable: split-height-threshold

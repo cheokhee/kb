@@ -31,3 +31,8 @@ restricted: packages with restricted copyright (h/w drivers) Supported software 
 backports: newer versions of packages in the archive
 universe: packages maintained by the ubuntu community (not officially supported)
 multiverse: packages that are not free
+
+#check updates, bring up UI
+update-manager
+
+apt-get --only-upgrade install google-chrome-stable

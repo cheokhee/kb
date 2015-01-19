@@ -20,3 +20,17 @@ mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
 5. jekyll serve
 
 6. in browser: http://localhost:4000
+
+Using jekyll with GitHub Pages
+
+1. gem install bundler
+
+2. In the repository, create a file called Gemfile with these two lines:
+source 'https://rubygems.org'
+gem 'github-pages'
+
+3. bundle install #do in the site repository, this command needs the Gemfile file
+
+4. bundle exec jekyll serve
+
+Keeping jekyll up to date: bundle update
