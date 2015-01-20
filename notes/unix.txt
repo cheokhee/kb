@@ -1,4 +1,4 @@
-TEE: The tee command reads standard input, then writes its content to standard output and simultaneously copies it into the specified file(s) or variables. 
+TEE: The tee command reads standard input, then writes its content to standard output and simultaneously copies it into the specified file(s) or variables.
 example: ls -1 | tee file.txt | less
 
 
@@ -15,8 +15,8 @@ parenthesis and curly braces:
 { cmd1; cmd2;} | cmd3
 
 Notice the semicolon at the end of the list in the curly brace. Also notice a space is required after the first "{."
- There is another difference: the parenthesis causes the shell to execute a new process, while the curly 
-brace does not. You can set variables in a curly brace, and it will be known outside the braces. 
+ There is another difference: the parenthesis causes the shell to execute a new process, while the curly
+brace does not. You can set variables in a curly brace, and it will be known outside the braces.
 In the example below, the first echo prints "OLD" and the second prints "NEW:"
 
     a=OLD
@@ -29,12 +29,12 @@ The parenthesis and curly brace are useful when you want to merge standard outpu
 The parenthesis is useful when you want to change a state of the process without affecting the other processes.
 
 #do a diff between stdin and a file
-cat file1 | diff - file2 
+cat file1 | diff - file2
 
 +++
 Process substitution
 
-<(command) expression tells the command interpreter to run command and make its output appear as a file. 
+<(command) expression tells the command interpreter to run command and make its output appear as a file.
 
 ## does not work in Git bash, need cygwin
 example: diff <(sort file1) <(sort file2)
@@ -47,11 +47,11 @@ The Bash syntax for writing to a process is >(command).
 counts the lines in a file with wc -l and compresses it with gzip in one pass:
 tee >(wc -l >&2) < bigfile | gzip > bigfile.gz   # does not work
 
-#log a command to console and to 2 files separately stdout and stderr 
+#log a command to console and to 2 files separately stdout and stderr
 command > >(tee stdout.log) 2> >(tee stderr.log >&2)  # does not work?
 
-With <(...) one is expected to read from the substitution, and the command is set up to write to it. 
-With >(...) one is expected to write to the substitution, and the command inside is set up to read from it. 
+With <(...) one is expected to read from the substitution, and the command is set up to write to it.
+With >(...) one is expected to write to the substitution, and the command inside is set up to read from it.
 
 counter=0
 
@@ -62,7 +62,7 @@ done < <(find /etc)
 echo "$counter files"
 
 uses named pipe under the hood
-The syntax <(command) creates a named pipe, and attaches command's STDOUT to the pipe. 
+The syntax <(command) creates a named pipe, and attaches command's STDOUT to the pipe.
 So, anything that reads from the pipe will actually be reading the output of command.
 
 
@@ -104,7 +104,7 @@ new value
 
 variations:
 ${variable:?word}   Complain if undefined or null
-${variable:-word}   Use new value if undefined or null	
+${variable:-word}   Use new value if undefined or null
 ${variable:+word}   Opposite of the above
 ${variable:=word}   use and define if undefined or null
 
@@ -118,7 +118,7 @@ if [ -z "$BLAH" ]; then echo none; fi
 
 ++++++++++++++
 An exec <filename command redirects stdin to a file. From that point on, all stdin comes
- from that file, rather than its normal source (usually keyboard input). 
+ from that file, rather than its normal source (usually keyboard input).
 
 exec > >(tee logfile)
 
@@ -183,7 +183,7 @@ OR (the next one is slower)
 dd if=/dev/zero of=foobar count=1M bs=1
 
 #by default, dd displays some output
-$ dd if=/dev/zero of=blah count=10 
+$ dd if=/dev/zero of=blah count=10
 10+0 records in
 10+0 records out
 5120 bytes (5.1 kB) copied, 0.004 s, 1.3 MB/s
@@ -210,7 +210,7 @@ dd if=file_1GB of=/dev/null bs=64k
 dd if=/dev/zero of=mytestfile.out bs=1 count=0 seek=1M
 
 #dd
-skip=n Skips n input blocks (using the specified input block size) before starting to copy. 
+skip=n Skips n input blocks (using the specified input block size) before starting to copy.
 seek=n Skips n blocks (using the specified output block size) from beginning of output file before copying.
 
 # find files that have been changed since 00:00
@@ -269,12 +269,12 @@ fold: wrap each file of a file to a specified width
 
 who -b : show last system boot time
 last : show system boot time
-last -x : 
+last -x :
 ====
-runlevel (to lvl 2)   3.0.0-15-generic Tue Apr 23 10:13 - 09:55  (23:41)    
-reboot   system boot  3.0.0-15-generic Tue Apr 23 10:13 - 09:55  (23:41)    
-shutdown system down  3.0.0-15-generic Tue Apr 23 10:13 - 10:13  (00:00)    
-runlevel (to lvl 6)   3.0.0-15-generic Tue Apr 23 10:13 - 10:13  (00:00)    
+runlevel (to lvl 2)   3.0.0-15-generic Tue Apr 23 10:13 - 09:55  (23:41)
+reboot   system boot  3.0.0-15-generic Tue Apr 23 10:13 - 09:55  (23:41)
+shutdown system down  3.0.0-15-generic Tue Apr 23 10:13 - 10:13  (00:00)
+runlevel (to lvl 6)   3.0.0-15-generic Tue Apr 23 10:13 - 10:13  (00:00)
 
 wtmp begins Tue Apr 23 10:13:17 2013
 ======
@@ -285,6 +285,11 @@ getopt, getopts
 
 cat -v : show non-printable char
 od -c : dump file with ascii
+
+hex dump:
+od -x <file>
+hexdump -C <file>
+hexdump -x <file>
 
 runlevel:
 0: shutdown
@@ -305,7 +310,7 @@ pr -t -e[char width] file
 do: stty -echo; cat -v; stty echo
 then press function keys
 
-#init terminal 
+#init terminal
 tput init
 #reset terminal
 tput reset
@@ -328,7 +333,7 @@ echo !$:h -> echo /etc
 !$:t -> remove leading path of last arg
 echo !$:t -> echo passwd
 !$:r -> remove file extension
-previous cmd: echo linux.txt 
+previous cmd: echo linux.txt
 echo !$:r -> echo linux
 # sed-like substitution: g is for global, s is for substitute
 !!:gs/password/passwd/
@@ -337,7 +342,7 @@ echo !$:r -> echo linux
 !!:0-1:p -> print without executing it.
 
 bash bind built-in command
-bind -l : List the names of all Readline functions. 
+bind -l : List the names of all Readline functions.
 bind -p : list bindings
 bind -P : list bindings
 bind -v : display var and values
@@ -409,7 +414,7 @@ ls -l mine
 [[ value == val* ]]  --> true
 
 TEST="cheok hee"
---> [ "cheok hee" == $TEST ] 
+--> [ "cheok hee" == $TEST ]
 bash: [: too many arguments
 [ "cheok hee" == "$TEST" ] --> true
 [[ "cheok hee" == $TEST ]] --> true
@@ -430,7 +435,7 @@ BASH_COMMAND var: the currently executing command.
 GROUPS var: group id
 DIRSTACK : dirs
 for debugging: BASH_SOURCE, FUNCNAME, BASH_LINENO arrays
-use : FUNCNAME[0], 
+use : FUNCNAME[0],
 
 ((..)), let : arithmetic
 echo $((a++))
@@ -513,7 +518,7 @@ yes y | cp -i * ../test
 #openssl
 openssl s_client -connect www.google.com:443 #afterwards, type GET / HTTP/1.1
 openssl genrsa -des3 1024 > server.key #generate RSA private key: passphrase: 4tnuyear
-openssl req -new -key server.key -x509 -days 3650 -out server.crt #generate certificate 
+openssl req -new -key server.key -x509 -days 3650 -out server.crt #generate certificate
 cat server.crt server.key > server.pem
 openssl s_server -cert server.pem -accept 4433 -WWW #start SSL server: https://localhost:4433/README
 
@@ -603,8 +608,8 @@ rename /etc/profile.d/bash_completion.sh.orig
 for i in {0..255} ; do printf "\x1b[38;5;${i}mcolour${i}\n"; done
 
 #linux: flush system buffers
-sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches" 
-sudo sh -c "sync; echo 0 > /proc/sys/vm/drop_caches" 
+sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches"
+sudo sh -c "sync; echo 0 > /proc/sys/vm/drop_caches"
 
 #create backup file with original date time
 cp -p pom.xml{,.bak}
@@ -614,7 +619,7 @@ python -m SimpleHTTPServer
 
 #redirect stderr to terminal, redirect stdout to garbage
 #end result: original stderr becomes stdout, original stdout disappears
-<commands> 2>&1 1>/dev/null 
+<commands> 2>&1 1>/dev/null
 
 #append a line at the end of the file, the last line will be 'wow'
 sed -i '$awow' test.txt
@@ -641,3 +646,6 @@ gpicview <.png> #show picture
 find . -name get_shp_num.sql | xargs -i sed -i 's/20140901000000/20141201000000/g' {}
 find . -name get_shp_num.sql | awk '{printf("sqlplus -S global_supp/global_supp@ir4prod < %s >> unsorted\n",$1)}'
 
+function toSlash { echo $1 | sed 's%\\%/%g'; }
+function fromSlash { echo $1 | sed 's%/%\\%g'; }
+function get { sed -n "$1,$1p" script_groovy; }

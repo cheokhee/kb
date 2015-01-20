@@ -160,3 +160,5 @@ alias mv="mv -i"
 export EDITOR=vi
 alias mc="cut -c1-$COLUMNS"
 alias po='git push origin `cu`'
+alias da='date +"%Y-%m-%d"'
+

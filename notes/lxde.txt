@@ -1,0 +1,8 @@
+lxpanel:
+
+~/.config/lxpanel/<profile name>
+~/.config/lxpanel/LXDE
+
+if no profile, use /usr/share/lxpanel/profile/<Profile name>
+
+generate a menu for installed applications from *.desktop files in /usr/share/applications
