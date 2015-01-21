@@ -20,6 +20,9 @@ stop tty6 : stop tty6
 /etc/init/control-alt-delete.conf; define behavior for ctrl-alt-del
 
 /var/log : lots of logs
+/var/lib
+/var/spool
+/usr/share
 
 dig: DNS lookup utility
 
@@ -35,6 +38,7 @@ modprobe: add or remove modules
 move popularity-contest from /etc/cron.daily to ~root/cron
 move bsdmainutils from /etc/cron.daily to ~root/cron
 move mlocate from /etc/cron.daily to /etc/cron.monthly
+move locate from /etc/cron.daily to /etc/cron.monthly
 
 --cron change 2015-01-16
 change /etc/cron.daily/locate:

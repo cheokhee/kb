@@ -1,0 +1,4 @@
+#!/bin/bash
+
+zenity --text="Current time is `date +%R`" --info --title="Current Time"
+

@@ -1,5 +1,8 @@
+simplest solution:
+xcalib -i -a # bind it to a keyboard shortcut, need to install xcalib, does not work inside VirtualBox
+
 compiz
 compizconfig-settings-manager
 
 /usr/bin/xcalib -invert -alter; // apt-get install xcalib
-magnifier -z 1 -fi 
+magnifier -z 1 -fi

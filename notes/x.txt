@@ -9,3 +9,25 @@ env variable:
 XDG_CURRENT_DESKTOP=LXDE
 GDMSESSION=Lubuntu
 
+init starts lxdm, which starts X and lxsession
+
+lxsession starts ibus-daemin, openbox, lxpanel, screensaver
+
+openbox is the parent of processes started from menu and keyboard shortcut
+
+/etc/init/lxdm.conf
+/etc/lxdm/default.conf -> call startlubuntu, start lxsession
+/etc/lxdm/Xsession -> call /etc/X11/Xsession
+
+/etc/X11/xinit/xserverrc -> changed to allow tcp listening: does not work
+
+get lxdm source code.
+install packages: pkg-config, intltool, libx11-dev
+
+cannot install libgtk2.0-dev due to dependency hell
+
+lxdm starts X with -nolisten tcp: hard-coded
+bottom line: X cannot accept remote connections
+
+after upgrade to 12.04:
+become lightdm.

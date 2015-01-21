@@ -113,7 +113,7 @@
     <name>desktop 2</name>
     -->
     </names>
-    <popupTime>875</popupTime>
+    <popupTime>0</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -342,11 +342,18 @@
     <!-- Fast access to emacs-->
     <keybind key="C-A-E">
       <action name="Execute">
-        <command>emacs -rv -g +0+0 -fn Monospace-12</command>
+        <command>emacs -rv -g +0+0</command>
       </action>
     </keybind>
 
-   <!-- Fast access to filemanager --> 
+    <!-- display current time-->
+    <keybind key="C-A-N">
+      <action name="Execute">
+        <command>~/bin/current_time</command>
+      </action>
+    </keybind>
+
+   <!-- Fast access to filemanager -->
    <keybind key="C-A-D">
       <action name="Execute">
         <startupnotify>
@@ -354,6 +361,43 @@
           <name>PCManFM</name>
         </startupnotify>
         <command>pcmanfm</command>
+      </action>
+    </keybind>
+
+    <!-- Fast switching -->
+    <keybind key="W-2">
+      <action name="Execute">
+        <command>wmctrl -x -a terminal</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-3">
+      <action name="Execute">
+        <command>wmctrl -x -a emacs</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-4">
+      <action name="Execute">
+        <command>wmctrl -x -a chrome</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-S">
+      <action name="Execute">
+        <command>~/bin/switch_window</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-A">
+      <action name="Execute">
+        <command>wmctrl -r :ACTIVE: -b toggle,hidden</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-Q">
+      <action name="Execute">
+        <command>wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz</command>
       </action>
     </keybind>
 
@@ -368,7 +412,7 @@
       <action name="Execute">
        <execute>scrot -s</execute>
       </action>
-    </keybind> 
+    </keybind>
 
     <!-- Keybinding for Volume management -->
     <keybind key="XF86AudioRaiseVolume">

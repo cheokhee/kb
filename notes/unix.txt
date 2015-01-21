@@ -649,3 +649,7 @@ find . -name get_shp_num.sql | awk '{printf("sqlplus -S global_supp/global_supp@
 function toSlash { echo $1 | sed 's%\\%/%g'; }
 function fromSlash { echo $1 | sed 's%/%\\%g'; }
 function get { sed -n "$1,$1p" script_groovy; }
+
+#truncate the last character
+$ echo test | rev | cut -c2- | rev
+> tes

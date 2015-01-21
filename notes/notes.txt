@@ -186,11 +186,18 @@ and "I" incisal, is the biting edge of front teeth (incisors and canines).
 3MOD, you'll know that you have a cavity on your upper right first molar,
  involving the front, top, and back parts of the tooth.
 occlusal: biting surface
-mesial: toward the center of the mouth
-distal: away from the center of the mouth
+mesial: toward the center of the mouth, Situated toward the middle of the front of the jaw along the curve of the dental arch.
+distal: away from the center of the mouth, Situated farthest from the middle and front of the jaw, as a tooth or tooth surface.
 facial: toward the face
 buccal: toward the cheek
 lingual: toward the tongue
+
+sealant: resins that are applied in the pits and fissures of the chewing surfaces of teeth
+to protect those surfaces. First etch the surface with acid to create a porous
+surface to which the resin will adhere.
+bonding: used in the restoration of discolored, damaged, or missing teeth.
+
+A cusp is an occlusal or incisal eminence on a tooth.
 
 silver amalgam: biocompatible (unlikely to iritate living tissue. not actually
 cemented to the cavity walls. it is held in place by a close frictional
@@ -3140,3 +3147,1740 @@ Electrical impedance, or simply impedance, describes a measure of opposition
 to a sinusoidal alternating current (AC). Electrical impedance extends the
 concept of resistance to AC circuits, describing not only the relative
 amplitudes of the voltage and current, but also the relative phases.
+
+Impedance is the measure of the amount that some object impedes (or obstructs) the
+flow of a current. Impedance might refer to resistance, reactance, or some complex combination of the two.
+
+Impedance matching is the practice of attempting to make the output impedance of
+a source equal to the input impedance of the load to which it is ultimately connected,
+usually in order to maximize the power transfer and minimize reflections from the load.
+ This only applies when both are linear devices. The concept of impedance matching was
+originally developed for electrical power,
+
+Electrical resistance is a measure of the degree to which an object opposes an electric current through it
+
+object-relational impedance mismatch: refer to the difficulty encountered when mapping
+a relation database model to an object model.
+
+cheiloschisis, harelip: cleft lip
+
+demographic: A shortened term for 'population characteristics
+
+refactoring: the practice of restructuring the internals of a program without altering the
+external behavior of a program, in an effort to improve readability and/or maintenance.
+
+mountebank:  A hawker of quack medicines who attracts customers with stories, jokes, or tricks;
+a charlatan.
+
+verisimilitude - the appearance of truth; the quality of seeming to be true
+
+homeostasis: The ability or tendency of an organism or cell to maintain internal equilibrium by adjusting its
+physiological processes.
+
+gore point, gore zone: a triangular piece of land found where roads merge or split.
+
+jersey barrier, jersey wall: separates lanes of traffic (often opposing lanes of traffic) with a goal
+of minimizing vehicle crossover in the case of accidents.
+
+hibernation:
+Animals enter hibernation during winter to conserve energy by going into a deep sleep-like state.
+Mammals, such as gophers, bears, skunks, raccoons, hamsters, and bats, lower their metabolism
+and enter a state of torpor, but they are not asleep.
+A list of hibernating animals might include the following mammals: Chipmunks, ground squirrels,
+echidnas, possums, hedgehogs, hamsters, skunks, bats, prairie dogs, marmots, badgers, and some lemurs.
+Among non-mammals, you can find species of lizards, frogs, toads, newts, snakes, turtles, and
+insects like bees that hibernate
+
+Torpor is a kind of deep sleep accompanied by drastically lowered body temperature,
+heart rate, and breathing. Like a short-term hibernation.
+
+Estivation or aestivation (from Latin aestas, summer) is a rare state of
+dormancy similar to hibernation, but during the months of the summer.
+
+Cold-blooded animals (ectotherms) are animals that do not have an internal mechanism
+for regulating body temperature, relying instead on solar energy captured by the environment.
+ Reptiles, amphibians and fish are examples of cold-blooded animals.
+Cold-blooded creatures take on the temperature of their surroundings.
+Warm-blooded creatures, like mammals and birds, try to keep the inside of their bodies at a constant temperature.
+
+Warm-bloodedness generally refers to three separate aspects of thermoregulation:
+1. Endothermy is the ability of some creatures to control their body temperatures
+ through internal means such as muscle shivering, fat burning, and panting
+2. Homeothermy is thermoregulation that maintains a stable internal body temperature regardless of external influence
+3. Tachymetabolism is the kind of thermoregulation used by creatures that maintain a high resting metabolism
+
+Cold-bloodedness generally refers to three separate areas of thermoregulation:
+1. Ectothermy - This refers to creatures that control body temperature through external means
+2. Poikilothermy - This refers to creatures whose internal temperatures vary, often matching the ambient temperature of the immediate environment
+3. Bradymetabolism - This term refers to creatures with a high active metabolism and a
+considerably slower resting metabolism
+
+grasp at straws: Make a desperate attempt at saving oneself.
+to seize at any chance, no matter how slight, of saving oneself from calamity.
+This metaphoric expression alludes to a drowning person trying to save himself by grabbing at flimsy reeds.
+
+Line-of-sight propagation refers to electro-magnetic radiation or electro-magnetic waves
+ travelling in a straight line. The rays or waves are deviated or reflected by obstructions
+and cannot travel over the horizon or behind obstacles. Beyond that, material disperses the
+rays respectively the energy of the waves
+++++
+Line-of-sight transmission means the transmitting and receiving antennae can "see" each other
+
+chomp at the bit: To show impatience or frustration when delayed.
+
+captious: Marked by a disposition to find and point out trivial faults
+
+quibble, carp, cavil, niggle, nitpick, pettifog: These verbs mean to raise petty or frivolous objections or complaints
+
+The standard model of particle physics is a theory that describes three of the four
+ known fundamental interactions between the elementary particles that make up all matter.
+ It is a quantum field theory developed between 1970 and 1973 which is consistent with both
+ quantum mechanics and special relativity.
+The Standard Model describes approximately 200 elementary particles and their interactions using 6 quarks,
+ 6 leptons and a few force-carrying particles.
+strong force: gluon
+electromagnetic: photon
+weak nuclear: W+, W-, Z
+gravity: graviton (unconfirmed)
+two categories of particles: quark and lepton.
+lepton (e.g., electron): are immune to the strong force. have no color
+quarks have color (a property akin to spin)
+
+boson: force-carrying particle
+
+Refraction is the change in direction of a wave due to a change in its speed. This is
+most commonly seen when a wave passes from one medium to another.
+
+Diffraction refers to various phenomena associated with the bending of waves when they
+interact with obstacles in their path.
+
+Onomatopoeia: The formation or use of words such as buzz or murmur that imitate the sounds
+associated with the objects or actions they refer to.
+
+Key Performance Indicators (KPI) are financial and non-financial metrics used to quantify objectives
+to reflect strategic performance of an organization.
+
+Everything Balances Out in the End.
+
+snigger, snicker: a disrespectful laugh
+
+buy a pig in a poke: make a risky purchase without inspecting the item beforehand.
+
+neither a borrower, nor a lender be
+
+bridge (dental): missing teeth replaced by false teeth attached to crowns on neighboring teeth.
+
+weasel word: a word used in order to mislead a person or to avoid a straight answer.
+
+national party convention: convention delegates select party nominee.
+primary election: not a direct election. voting for a delegate allied with
+a particular candidate.
+Before the primary or caucus, each candidate on a state's ballot submits the names of
+local Democrats who would serve as their delegates at the national convention, if necessary.
+However, voters do not directly select presidential nominees in these primaries. Instead,
+they choose delegates from their respective states who will attend a national party convention
+to nominate a presidential candidate for their party.
+
+dodgy: risky; marked by skill in deception
+
+extraordinary claims require extraordinary proofs.
+
+hustings: A place where political campaign speeches are made; The activities involved in political campaigning
+on the hustings: on the stump
+
+fiat currency: money backed by faith (backed by an authority)
+
+gold standard is a monetary system in which the standard economic unit of account is a
+fixed weight of gold. Under the gold standard, currency issuers guarantee
+to redeem notes, upon demand, in that amount of gold.
+In other words, gold standard is a monetary system under which the issuer of a currency
+guarantee to redeem the currency for a fixed amount of gold.
+history of money: commodity money (in which actual valuable objects are bartered);
+representative money (in which paper notes are used represent real commodities stored
+elsewhere; fiat money (in which paper notes are backed only by a government.
+
+The theory of the gold standard rests on the idea that inflation is caused by
+ an increase in the supply of money, an idea advocated by David Hume, and that
+ uncertainty over the future purchasing power of currency depresses business
+confidence and leads to reduced trade and capital investment.
+
+advantage: limit inflation disadvantage: Loss of control over economic policy
+Prevent the country from printing too much money.
+To avoid a gold standard-generated run on the dollar.
+
+Bretton Woods System (1946) created a system of fixed exchange rates that allowed
+governments to sell their gold to the United States treasury at the price of $35/ounce.
+"The Bretton Woods system ended on August 15, 1971, when President Richard Nixon ended
+trading of gold at the fixed price of $35/ounce. Fixed the dollar to gold and fixed
+other nations' currencies to the dollar.
+
+The value of money is set by the supply and demand for money and the supply and demand
+for other goods and services in the economy.
+
+The Double Coincidence of Wants: the situation where the supplier of good A wants good B
+and the supplier of good B wants good A.
+
+de jure: by right, according to law
+
+de rigueur: Required by the current fashion or custom; socially obligatory.
+
+du jour: Prepared for a given day; Most recent
+
+periapical: At or around the apex of the root of a tooth
+
+meconium: A dark green fecal material that accumulates in the fetal intestines and is discharged at or near the time of birth
+
+adjuvant: serving to aid; assisting in the amelioration of disesse;
+A pharmacological agent added to a drug to increase or aid its effect.
+
+Thomas Robert Malthus: British economist who wrote An Essay on the Principle of Population (1798),
+arguing that population tends to increase faster than food supply, with inevitably disastrous
+results, unless the increase in population is checked by moral restraints or by war, famine, and disease
+Malthusian: his theory.
+
+The spot market or cash market is a commodities or securities market in which
+goods are sold for cash and delivered immediately. Contracts bought and sold on
+ these markets are immediately effective.
+
+Lucullan: lavish and luxurious.
+
+synergy:  The interaction of two or more agents or forces so that their
+ combined effect is greater than the sum of their individual effects
+
+caduceus: a symbol of the medical profession
+
+legislature: An officially elected or otherwise selected body of people vested with the
+responsibility and power to make laws for a political unit, such as a state or nation.
+Legislatures are known by many names, the most common being parliament and congress,
+although these terms also have more specific meanings. The main job of the legislature
+is to make and interpret laws. In parliamentary systems of government, the legislature
+is formally supreme and appoints the executive. In presidential systems of government,
+the legislature is considered a power branch which is equal to, and independent of,
+the executive.
+
+In most parliamentary systems, the lower house is the more powerful house while
+ the upper house is merely a chamber of advice or review.
+
+A parliamentary system, also known as parliamentarianism (and parliamentarism in
+ U.S. English), is distinguished by the executive branch of government being
+dependent on the direct or indirect support of the parliament, often expressed
+through a vote of confidence. Hence, there is no clear-cut separation of powers
+between the executive and legislative branches, leading to a differing set of
+ checks and balances compared to those found in a presidential republic.
+Parliamentary systems usually have a clear differentiation between the head
+of government and the head of state, with the head of government being the
+prime minister or premier, and the head of state often being an elected
+ (either popularly or through parliament) president or hereditary monarch.
+
+A federation (Latin: foedus, covenant) is a union comprising a number of partially
+ self-governing states or regions united by a central ("federal") government. In
+a federation, the self-governing status of the component states is typically
+constitutionally entrenched and may not be altered by a unilateral decision of the central government.
+
+The form of government or constitutional structure found in a federation is known as federalism.
+It can be considered the opposite of another system, the unitary state
+
+The Head of Government is the chief officer of the executive branch of a government,
+often presiding over a cabinet. In a parliamentary system, the head of government is
+often styled Prime Minister, Premier, etc. In presidential republics or monarchies,
+ the head of government may be the same person as the head of state, who is often a president
+(of the republic) or a monarch.
+
+head of state: or Chief of state is the generic term for the individual or
+collective office that serves as the chief public representative of a monarchic
+ or republican nation-state, federation, commonwealth or any other political
+ state. His or her role generally includes personifying the continuity and
+legitimacy of the state and exercising the political powers, functions and
+duties granted the head of state in the country's laws and constitution.
++++
+presides over ceremonial functions. usually does not have governing power.
+
+Different countries have different executive systems but in essence four major, generalizing categories can be distinguished:
+
+   1. the non-executive head of state system, in which the head of state does not
+	 hold any executive power and mainly plays a symbolic role on behalf of the state;
+   2. the parliamentary system, in which the head of state possesses executive
+	 power but the exercise of this power is done on the advice of a cabinet;
+   3. the presidential (or imperial) system, in which the head of state is also
+	the head of government and actively exercises executive power; and,
+   4. the semi-presidential system, in which the head of state shares exercise
+	of executive power with a head of government.
+
+A presidential system, also called a congressional system, is a system of government
+ where an executive branch exists and presides (hence the term) separately from the
+legislature, to which it is not accountable and which cannot in normal circumstances dismiss it.
+
+two-round system: runoff voting
+
+A cabinet is a body of high-ranking members of government, typically representing
+the executive branch. It can also sometimes be referred to as the Council of Ministers,
+an Executive Council or an Executive Committee.
+In some countries, particularly those under the Westminster system, the cabinet
+collectively decides the government's policy and tactical direction, especially
+in regard to legislation passed by the parliament. In countries with a presidential
+system, such as the United States, the cabinet does not function as a collective
+legislative influence; rather, their primary role is as an unofficial advisory
+council to the head of government, consisting of the heads of the executive departments
+ they are appointed to lead.
+
+A coalition government, or coalition cabinet, is a cabinet of a parliamentary government
+in which several parties cooperate. The usual reason given for this arrangement is
+that no party on its own can achieve a majority in the parliament.
+
+Single transferable vote (STV) is a preferential voting system designed to minimize
+ wasted votes and provide proportional representation while ensuring that votes are
+explicitly for candidates rather than party lists. It achieves this by using multi-seat
+constituencies (districts) and by transferring votes that would otherwise be wasted.
+ STV initially allocates an individual's vote to his or her most preferred candidate,
+ and then subsequently transfers unneeded or unused votes after candidates are either
+elected or eliminated, according to the voter's stated preferences
+
+first past the post: winner-takes-all, plurality voting.
+The plurality voting system is a single-winner voting system often used to elect
+executive officers or to elect members of a legislative assembly which is based on single-member
+constituencies.
+A voting system in which a single winner is chosen in a given constituency by having
+more votes than any other individual representative.
++++
+the person receiving the greatest number of votes in each voting region wins.
+
+Proportional representation (sometimes referred to as full representation, or PR), is
+a category of electoral formula aiming at a close match between the percentage of votes
+ that groups of candidates (grouped by a certain measure) obtain in elections and the
+percentage of seats they receive (usually in legislative assemblies).
+PR: the number of seats allocated to a group is proportional to the number of votes
+received by that group.
+
+parliamentary democracy relies upon the election of representatives from each voting region
+ to form a governing body.
+The party that holds the majority in parliament is held to be in control, and its leader
+becomes the prime minister.
++++
+parliamentary representatives are elected by voting regions.
+
+A person is considered LEGALLY blind when the best corrected visual acuity is 20/200
+People with a visual field of less than 20 degrees diameter (10 degrees radius) are also considered legally blind
+
+cousin:
+A system of degrees and removes is used to describe the relationship between the
+two cousins and the ancestor they have in common. The degree (first, second, third
+cousin, etc.) indicates the minimum number of generations between either cousin and
+the nearest common ancestor; the remove (once removed, twice removed, etc.) indicates
+ the number of generations, if any, separating the two cousins from each other.
+For example, a person with whom you share a grandparent is your first cousin; someone
+with whom you share a great-grandparent is a second cousin. Where your relationship
+to the nearest common ancestor is different from your cousin's relationship then the
+ term removed is used to indicate this, for example the child of your first cousin
+is your first cousin once removed because there is a generation between you.
+
+ceteris paribus a Latin phrase, literally translated as "with other things [being] the same,"
+and usually rendered in English as "all other things being equal", "all else being equal"
+
+boundary condition: The set of conditions specified for the solution to
+a set of differential equations at the boundary of its domain.
+In mathematics, in the field of differential equations, a boundary value problem is
+ a differential equation together with a set of additional restraints, called the
+boundary conditions. A solution to a boundary value problem is a solution to the
+ differential equation which also satisfies the boundary conditions.
+
+The rotation curve of a galaxy can be represented by a graph that plots the orbital
+velocity of the stars or gas in the galaxy on the y-axis against the distance from the
+ center of the galaxy on the x-axis. Stars revolve around the center of galaxies at a
+constant speed over a large range of distances from the center of the galaxy. Thus they
+ revolve much faster than would be expected if they were in a free Newtonian potential.
+=================
+The galaxy rotation problem is this discrepancy between the observed rotation speeds of
+ matter in the disk portions of spiral galaxies and the predictions of
+Newtonian dynamics considering the visible mass.
+=================
+One of the theories for explaining this discrepancy is the presence of dark matter.
+Galactic rotation curves, which illustrate the velocity of rotation versus the distance
+from the galactic center, cannot be explained by only the visible matter.
+Hypothetical form of matter for explaining the discrepancy between the observed
+speed and the theoretical speed of stars revolving around the center of galaxies.
+
+dark matter halo:
+Most of the mass of any galaxy is dominated by a component concentrated at
+the centre of the galaxy but dominating its dynamics throughout, known as the dark matter halo.
+The presence of dark matter in the halo is demonstrated by its gravitational effect
+ on a spiral galaxy's rotation curve. Without large amounts of mass in the extended halo,
+the rotational velocity of the galaxy should decrease at large distance from the galactic
+core. However, observations of spiral galaxies, particularly radio observations of line
+emission from neutral atomic hydrogen (known, in astronomical parlance, as HI), show that
+ the rotation curve of most spiral galaxies remains flat far beyond the visible matter.
+ The absence of any visible matter to account for these observations implies the presence
+ of unobserved (i.e. dark) matter. Asserting that this dark matter does not exist would
+ mean that the accepted theory of gravitation (General Relativity) is wrong, something
+that could be possible but most scientists would require extensive amounts of compelling evidence before considering it.
+
+dark matter is a hypothetical form of matter that does not emit or reflect enough
+electromagnetic radiation to be observed directly, but whose presence can be inferred
+ from gravitational effects on visible matter.
+
+corvee: unpaid labor
+
+choke point: A narrow passage, such as a strait, through which shipping must pass;
+a point of congestion or obstruction (bottleneck)
+
+Nucleation is the onset of a phase transition in a small region. The phase
+transition can be the formation of a bubble or of a crystal from a liquid.
+ Creation of liquid droplets in saturated vapor or the creation of gaseous
+bubble in a saturated liquid is also characterized by nucleation
+
+Nucleation normally occurs at nucleation sites on surfaces containing
+ the liquid or vapor. Suspended particles or minute bubbles also provide
+nucleation sites. This is called heterogeneous nucleation. Nucleation without
+ preferential nucleation sites is homogeneous nucleation. Homogeneous nucleation
+occurs spontaneously and randomly, but it requires superheating or supercooling of the medium.
+
+Supercooling is the process of chilling a liquid below its freezing point, without it becoming solid.
+A liquid below its freezing point will crystallize in the presence of a seed
+crystal or nucleus around which a crystal structure can form. However, lacking
+any such nucleus, the liquid phase can be maintained all the way down to the
+temperature at which crystal homogeneous nucleation occurs.
+
+superheating (sometimes referred to as boiling retardation, or boiling delay)
+is the phenomenan in which a liquid is heated to a temperature higher than
+its standard boiling point, without actually boiling. This can be caused by
+ rapidly heating a homogeneous substance while leaving it undisturbed
+ (in order to avoid the introduction of bubbles at nucleation sites).
+
+Small particles (seeds) can trigger the separation of the dissolved material
+ from the solvent or condensation of the vapor. Seeds triggering the
+condensation of vapor are referred to as condensation nuclei, as in the case of water vapor.
+
+Supersaturation refers to a solution that contains more of the
+dissolved material than could be dissolved by the solvent under normal
+circumstances. It can also refer to a vapor of a compound that has a
+higher (partial) pressure than the vapor pressure of that compound.
+
+Carbonated water is a supersaturated solution of carbon dioxide gas in water.
+ At the elevated pressure in the bottle, carbon dioxide can dissolve in water
+ more than at atmospheric pressure. At atmospheric pressure, the carbon
+ dioxide gas escapes very slowly from the supersaturated liquid. This
+process may be accelerated by the presence of nucleation sites within
+ the solution, such as small bubbles, caused by shaking the bottle,
+or another solute, such as sugar powder or a widget. A Diet Coke and
+ Mentos eruption is a rather extreme example. Some beverage products
+ such as ales and stouts e.g. Guinness rely on this effect to produce
+ the 'head' on the surface of the poured product.
+Scuba divers' tissues become supersaturated with breathing gases during a dive.
+If the diver ascends too fast, these gases form bubbles, resulting in decompression sickness.
+In air that is supersaturated with water, water droplets may precipitate upon being disturbed.
+
+Vapor pressure (also known as equilibrium vapor pressure or saturation vapor pressure),
+is the pressure of a vapor in equilibrium with its non-vapor phases. All liquids and
+solids have a tendency to evaporate to a gaseous form, and all gases have a tendency
+to condense back into their original form (either liquid or solid). At any given
+temperature, for a particular substance, there is a pressure at which the gas of
+that substance is in dynamic equilibrium with its liquid or solid forms. This is
+the vapor pressure of that substance at that temperature. The equilibrium vapor
+pressure is an indication of a liquid's evaporation rate. It relates to the tendency
+ of molecules and atoms to escape from a liquid or a solid.
+
+The boiling point of a liquid is the temperature at which the vapor pressure
+ of the liquid equals the environmental pressure surrounding the liquid
+
+desert:   Something that is deserved or merited, especially a punishment.
+just deserts. (pronounced like dessert)
+
+cardiac arrest: also known as cardiorespiratory arrest, cardiopulmonary arrest
+or circulatory arrest, is the abrupt cessation of normal circulation of the blood
+due to failure of the heart to contract effectively during systole.
+Cardiac arrest is an abrupt cessation of pump function
+(evidenced by absence of a palpable pulse) of the heart
+
+heart attack or myocardial infarction, where blood flow to the still-beating heart is interrupted.
+is a medical condition that occurs when the blood supply to a part of the heart is
+interrupted, most commonly due to rupture of a vulnerable plaque
+
+carried to its logical conclusion
+
+you'll likely be none the wiser.
+
+According to AAA auto experts, topping off your tank is not a good idea.
+ When you overfill your tank, you are taking up the space needed for
+the emissions system to operate correctly. The pump is designed to
+turn off when the fuel reaches a certain level, leaving the necessary
+room in the tank to capture vapors. If there's too much liquid in the
+tank, there's also a chance gas can spill on the ground.
+vapor recovery system??
+
+idiopathic: designating a disease having no known cause
+
+Paresthesia: A skin sensation, such as burning, prickling, itching, or tingling,
+or numbness with no apparent physical cause.
+
+wheedle: to cajole ( To persuade or attempt to persuade by flattery or guile)
+To obtain through the use of flattery or guile
+
+riff: A clever or inventive commentary or remark
+
+dipped into the cliche well.
+
+too far in the past;
+too far in the future
+
+Opportunity cost is the cost (sacrifice) incurred by choosing one option over
+an alternative one that may be equally desired.
+Opportunity cost is the cost of pursuing one choice instead of another.
+Every action has an opportunity cost.
+Opportunity cost is not restricted to monetary or financial costs: the real
+ cost of output forgone, lost time, pleasure or any other benefit that provides
+ utility should also be considered.
+When economists refer to the "opportunity cost" of a resource, they mean the
+value of the next-best alternative use of that resource. If, for
+example, you spend time and money going to a movie, you cannot spend that
+time at home reading a book, and you can't spend the money on something else.
+ If your next-best alternative to seeing the movie is reading the book, then
+the opportunity cost of seeing the movie is the money spent plus the pleasure
+you forgo by not reading the book.
+Scarcity of resources is one of the more basic concepts of economics.
+Scarcity necessitates trade-offs, and trade-offs result in an opportunity
+cost. While the cost of a good or service often is thought of in monetary
+ terms, the opportunity cost of a decision is based on what must be given
+up (the next best alternative) as a result of the decision. Any decision
+that involves a choice between two or more options has an opportunity cost.
+
+TANSTAAFL is an acronym for the adage "There Ain't No Such Thing As A Free Lunch,"
+popularized by science fiction writer Robert A. Heinlein in his 1966 novel
+The Moon Is a Harsh Mistress, which discusses the problems caused by
+ not considering the eventual outcome of an unbalanced economy.
+
+The parable of the broken window was created by Frdric Bastiat in his 1850
+essay Ce qu'on voit et ce qu'on ne voit pas (That Which Is Seen and That Which Is Unseen)
+ to illuminate the notion of hidden costs.
+Bastiat uses this story to introduce a concept he calls the broken window fallacy,
+ which is related to the law of unintended consequences, in that both involve an
+incomplete accounting for the consequences of an action.
+The parable describes a shopkeeper whose window is broken by a little boy. Everyone
+sympathizes with the man whose window was broken, but pretty soon they start to
+suggest that the broken window makes work for the glazier, who will then buy
+bread, benefiting the baker, who will then buy shoes, benefiting the cobbler,
+ etc. Finally, the onlookers conclude that the little boy was not guilty of
+vandalism; instead he was a public benefactor, creating economic benefits for everyone in town.
+The fallacy of the onlookers' argument is that they considered only the positive
+benefits of purchasing a new window, but they ignored the cost to the shopkeeper. As
+ the shopkeeper was forced to spend his money on a new window, he obviously could
+not have spent it on something else. For example, the shopkeeper may have spent
+the money on bread and shoes for himself, but now cannot so enrich the baker and
+cobbler because he must fix his window.
+Thus, the child did not bring any net benefit to the town. Instead, he made the
+town poorer by at least the value of one window, if not more
+
+electoral college:
+Under the Electoral College system, we do not elect the President and Vice President through
+a direct nation-wide vote. The Presidential election is decided by the combined results
+ of 51 State elections (in this context, the term "State" includes DC).
+ Your vote helps decide which candidate receives your State's electoral votes.
+Generally, the political parties nominate electors at their State party conventions
+or by a vote of the party's central committee in each State. Electors are often
+selected to recognize their service and dedication to their political party. They
+may be State elected officials, party leaders, or persons who have a personal or
+political affiliation with the Presidential candidate. Then the voters in each
+State choose the electors on the day of the general election.
+Electoral votes are awarded on the basis of the popular vote in each State.
+If no candidate receives a majority of electoral votes, the House of Representatives
+ elects the President from the 3 Presidential candidates who received the most
+electoral votes. Each State delegation has one vote. The Senate would elect
+the Vice President from the 2 Vice Presidential candidates with the most
+electoral votes. Each Senator would cast one vote for Vice President. If
+the House of Representatives fails to elect a President by Inauguration
+ Day, the Vice-President Elect serves as acting President until the deadlock is resolved in the House.
+Maine and Nebraska do not do winner-takes-all
+For example, Maine has four electoral votes. Two electors are selected on
+the basis of the statewide vote and two are selected according to outcome
+ of the vote in each of Maine's two Congressional districts. Nebraska's five
+electoral votes are distributed in the same manner:   two based on the statewide
+vote, and three based on the results in Congressional districts.
+The Electoral College was established by the founding fathers as a compromise between
+election of the president by Congress and election by popular vote. The electors are
+a popularly elected body chosen by the States and the District of Columbia on the
+Tuesday after the first Monday in November
+The slates of electors are generally chosen by the political parties.
+No Constitutional provision or Federal law requires electors to vote in accordance with
+the popular vote in their States.
+
+undivided interest: The interest in property owned by tenants whereby each tenant has
+an equal right to enjoy the entire property.
+An ownership right to use and possession of a property that is shared among co-owners,
+with no one co-owner having exclusive rights to any portion of the property.
+
+deductible: the amount a person must pay first (in addition to the premium) before
+insurance coverage will pay for a loss on an insurance claim.
+The amount a beneficiary pays out-of-pocket before insurance benefits are paid.
+The annual deductible is the amount you are responsible for under the health plan
+before the health plan will begin to pay.
+
+copay: copay is usually a flat fee. For example, every time you go to the doctor
+ you pay a 25.00 copay for the office visit, regardless of the level of service you receive.
+Co-payments are charged and paid at the time you receive certain types of services,
+such as office visits, prescription drugs, and emergency room services.
+ These charges do not apply to the out-of-pocket maximum??
+
+Coinsurance: coinsurance is a term used for a percentage amount you are responsible for.
+For example if your insurance policy is 80/20, where you are responsible for paying 20% of
+your bill, the 20% is a coinsurance.
+Coinsurance is the percentage of each claim above the deductible that you pay.
+ If the coinsurance is 20 percent, you pay for the deductible plus 20% of the covered expenses.
+Coinsurance Applies After The Services.
+
+the main difference between assisted living and a nursing home is "the level of care
+someone needs." She says a nursing home would be the right choice for someone who
+ doesn't need to be in a hospital, but who needs fairly constant nursing care.
+An assisted living facility typically offers more independence and less intensive medical care
+a nursing home is a facility designed for someone who needs less care than a
+ hospital, but requires daily health care assistance.
+Assisted-living: provide assistance with the activities of daily living (cooking,
+laundry, etc). not required to provide health care.
+
+Ultra high frequency (UHF) designates a range (band) of electromagnetic waves with
+ frequencies between 300 MHz and 3 GHz (3,000 MHz).
+
+Radio waves with frequencies above the UHF band fall into the SHF (Super high frequency)
+ and EHF (Extremely high frequency) bands; all of which fall into the Microwave frequency range.
+
+Very high frequency (VHF) is the radio frequency range from 30 MHz to 300 MHz
+
+Common uses for VHF are FM radio broadcast, television broadcast (together with UHF)
+
+VHF propagation characteristics are ideal for short-distance terrestrial communication,
+with a range generally somewhat farther than line-of-sight from the transmitter.
+ Unlike high frequencies (HF), the ionosphere does not usually reflect VHF radio
+and thus transmissions are restricted to the local area (and don't interfere with
+transmissions thousands of kilometres away). VHF is also less affected by atmospheric
+ noise and interference from electrical equipment than lower frequencies. Whilst it
+is more easily blocked by land features than HF and lower frequencies, it is less
+ bothered by buildings and other less substantial objects than UHF frequencies.
+
+VHF: TV channel 2-13
+VHF:
+88-108 MHz: FM radio broadcasting (88-92 non-commercial, 92-108 commercial in the United States)
+
+UHF: TV channel 14-69
+
+DTV transition:
+The move would free 108 MHz of spectrum: the upper end of the UHF band, or TV channels 52 to 69.
+
+forensic: Relating to the use of science or technology in the investigation and
+establishment of facts or evidence in a court of law: a forensic laboratory;
+of, relating to, or used in public debate or argument
+
+Rorschach inkblot test:
+
+The amount of time a trade takes to reach a certain point.
+
+she's known not so much for her own strong character traits, but for the attributes people assume she has
+
+Osmosis is the diffusion of water through a cell wall or membrane or any partially-permeable
+barrier from a solution of low solute concentration (high water potential) to a solution
+with high solute concentration (low water potential), up a solute concentration gradient.
+It is a physical process in which a solvent moves, without input of energy, across a
+semi-permeable membrane (permeable to the solvent, but not the solute) separating
+two solutions of different concentrations.
+
+hard up: poor
+
+nocebo: a harmless substance that when taken by a patient is associated with harmful
+effects due to negative expectations or the psychological condition of the patient
+
+nocent: harmful
+
+procrustean \pruh-KRUSS-tee-un\ adjective
+
+grandfather: An exemption that allows persons or entities to continue with an activity
+ they were engaging in before it became illegal through a change in regulation.
++++
+Grandfather clause is a legal term used to describe a situation in which an old rule continues to apply to
+some existing
+situations, while a new rule will apply to all future situations.
+This extends the idea of a rule not being retroactively applied.
+
+headset jack: 2.5 mm is the standard for phone headsets, the slightly larger
+3.5mm size is the standard for music headphones and devices other than phones.
+
+reify : to regard (something abstract) as a material or concrete thing :
+to give definite content and form to (something abstract)
+--> taking something abstract and making it concrete
+e.g. "He describes the phenomenal popularity of Edwin Markham's proletarian poem
+'The Man With the Hoe,' which reified labor's feelings of injustice."
+
+IT TAKES ONE TO KNOW ONE - "Only a person with identical character traits would be
+able to recognize those traits in someone else. Often used as a curt rejoinder to
+deflect an accusation; you're only saying that about me because it's true of you.
+
+sunset provision:
+A clause in a statute, regulation or similar piece of legislation that provides for
+an automatic repeal of the entire or sections of a law once a specific date is reached.
+ Once the sunset provision date is reached, the pieces of legislation mentioned in the
+clause are rendered void. If the government wishes to extend the length of time for
+ which the law in question will be in effect, it can push back the sunset provision
+date any time before it is reached.
+
+tactics are the actual means used to gain an objective, while strategy is the overall campaign plan,
+tactic: An expedient for achieving a goal; a maneuver.
+
+expedient: something that achieves a particular purpose:
+e.g.: income controls were used only as a short-term expedient
+
+beyond the shadow of a doubt
+
+proof beyond a reasonable doubt
+
+metering light: regulates the flow of traffic entering freeways according to current traffic conditions.
+
+play for keeps: If you are playing for keeps, you take things very seriously
+and the outcome is very important to you; it is not a mere game.
+
+Technically, cellular systems in the United States operate in the 824-MHz to 894-MHz frequency bands;
+ PCS operates in the 1850-MHz to 1990-MHz bands.
+
+in place:
+In the same spot; without moving forwards or backwards:
+While marching in place, the band played a popular tune.
+
+A continental divide is a line of elevated terrain which forms a border
+ between two watersheds such that water falling on one side of the line
+ eventually travels to one ocean or body of water, and water on the other
+ side travels to another, generally on the opposite side of the continent.
+
+A drainage basin is an extent of land where water from rain or snow melt drains
+ downhill into a body of water, such as a river, lake, reservoir, estuary, wetland,
+sea or ocean. The drainage basin includes both the streams and rivers that convey
+ the water as well as the land surfaces from which water drains into those channels,
+ and is separated from adjacent basins by a drainage divide.
+The drainage basin acts like a funnel, collecting all the water within the
+ area covered by the basin and channelling it into a waterway. Each drainage
+ basin is separated topographically from adjacent basins by a geographical
+barrier such as a ridge, hill or mountain, which is known as a water divide.
+Other terms that are used to describe the a drainage basin are catchment,
+catchment area, catchment basin, drainage area, river basin water basin and watershed.
+In the technical sense, a watershed refers to a divide that separates one drainage
+area from another drainage area.[3] However, in the United States and Canada, the
+term is often used to mean a drainage basin or catchment area itself.
+
+high altitude:
+At high altitude, atmospheric pressure is lower compared to sea level. This
+is due to two competing physical effects: gravity, which causes the air to be
+ as close as possible to the ground; and the heat content of the air, which
+causes the molecules to bounce off each other and expand.
+Because of the lower pressure, the air expands as it rises, which causes it to cool.
+Thus, high altitude air is cold,
+
+sinecure: A position or office that requires little or no work but provides a salary.
+
+meme:
+A unit of cultural information, such as a cultural practice or idea, that is
+transmitted verbally or by repeated action from one mind to another.
+++++
+consists of any idea or behavior that can pass from one person to another by
+learning or imitation. Examples include thoughts, ideas, theories, gestures,
+ practices, fashions, habits, songs, and dances. Memes propagate themselves
+and can move through the cultural sociosphere in a manner similar to the contagious behavior of a virus.
+++++
+Richard Dawkins coined the word "meme" as a neologism in his book
+The Selfish Gene (1976) to describe how one might extend evolutionary principles
+ to explain the spread of ideas and cultural phenomena. He gave as examples
+ melodies, catch-phrases, beliefs (notably religious belief, clothing/fashion,
+and the technology of building arches)
+
+State of matter
+A state of matter (or physical state, or form of matter) has physical properties
+ which are qualitatively different from other states of matter.
+Traditionally three states of matter were recognized : solid which maintains
+ a fixed volume and shape, liquid maintains a fixed volume but adopts the shape
+ of its container, and gas which occupies the entire volume available.
++++++++
+a solid to a liquid = melting (heat energy added) e.g. ice melts to water
+a liquid to a gas = evaporation (heat energy added) e.g. water to water vapour
+a solid to a gas = sublimation (heat energy added) e.g. dried ice (frozen CO2) to carbon dioxide
+a gas to a liquid = condensation (heat energy removed) e.g. cloud to rain
+a liquid to a solid = freezing (heat energy removed) e.g. water to ice
+a gas to a solid = deposition (heat energy removed) e.g. water vapour to frost
+++++
+plasma: An electrically neutral, highly ionized gas composed of ions, electrons, and neutral particles.
+ It is a phase of matter distinct from solids, liquids, and normal gases.
++++
+Plasma is the fourth state of matter. It is hotter than a gas. A plasma occurs when the
+temperature is between 1000 degrees C and 1,000,000,000 degrees C. Some examples of
+ plasma are the charged air around lightning and stars, including our own sun.
+As a gas is heated, electrons begin to leave the atoms, resulting in the presence of
+free electrons, which are not bound to an atom or molecule, and ions, which are chemical
+species that contain unequal number of electrons and protons, and therefore possess an
+electrical charge. The free electric charges make the plasma electrically conductive so
+ that it responds strongly to electromagnetic fields. At very high temperatures,
+ such as those present in stars, it is assumed that essentially all electrons
+ are "free," and that a very high-energy plasma is essentially bare nuclei swimming
+in a sea of electrons. Plasma is believed to be the most common state of matter in the universe.
++++
+plasma is an ionized gas, in which a certain proportion of electrons are free
+rather than being bound to an atom or molecule. The ability of the positive and negative
+ charges to move somewhat independently makes the plasma electrically conductive so
+that it responds strongly to electromagnetic fields. Plasma therefore has properties
+ quite unlike those of solids, liquids or gases and is considered to be a distinct
+ state of matter. Plasma typically takes the form of neutral gas-like clouds (e.g. stars).
+ The explanation of the example, star, is a massive, luminous ball of plasma.
+
+Disabuse me of my ignorance
+
+contrail:
+condensation trail left behind jet aircrafts.
+Contrails form when hot humid air from jet exhaust mixes with environmental air of
+low vapor pressure and low temperature. The mixing is a result of turbulence generated
+by the engine exhaust. Cloud formation by a mixing process is similar to the cloud you
+ see when you exhale and "see your breath".
++++
+How long a contrail remains intact, depends on the humidity structure and winds
+of the upper troposphere. If the atmosphere is near saturation, the contrail may
+ exist for sometime. On the other hand, if the atmosphere is dry then as the contrail
+ mixes with the environment it dissipates.
++++
+Jet fuel is made of carbon and hydrogen.
+When jet fuel burns with oxygen, most of the exhaust consists of CO2 (carbon dioxide)
+and H2O (water). The water is generally an invisible vapor.
++++
+When you exhale, your breath contains a great deal of invisible water vapor as well.
+You may have noticed that on certain days in the winter, your breath will form a cloud
+of condensation when you exhale. In the summer, however, you don't see your breath.
+Cold air can hold a lot less moisture than warm air, so in the winter, when the
+moisture in your breath hits the cold air, the moisture condenses into a visible cloud.
++++
+The same thing happens when a jet engine "exhales." If the temperature, winds and humidity
+ in the upper atmosphere are right, long, white contrails form when the moisture in
+ the exhaust condenses.
++++++++
+The main products of hydrocarbon fuel combustion are carbon dioxide and water vapor.
+At high altitudes this water vapor emerges into a cold environment, and the local
+increase in water vapor can push the water content of the air past saturation point.
+ The vapor then condenses into tiny water droplets and/or deposits into ice. These
+ millions of tiny water droplets and/or ice crystals form the vapour trail or
+contrails. The energy drop (and therefore, time and distance) the vapor needs
+to condense accounts for the contrail forming some way behind the aircraft's engines.
+++
+Exhaust vapour trails or contrails usually occur above 8000 metres (26,000 feet). where
+the temperature is below -40C.
+++++++++++++++++++
+Contrails are clouds formed when water vapor condenses and freezes around small
+particles (aerosols) that exist in aircraft exhaust. Some of that water vapor comes
+ from the air around the plane; and, some is added by the exhaust of the aircraft.
+
+cloud:
+Clouds form when relatively warm air containing water vapor is lighter than its
+surrounding air and this causes it to rise. As it rises it cools and the vapor
+condenses out of the air as micro-droplets. These tiny particles of water are
+ relatively densely packed and sunlight cannot penetrate far into the cloud before
+ it is reflected out, giving a cloud its characteristic white color. As a cloud
+ matures, the droplets may combine to produce larger droplets, which may combine
+to form droplets large enough to fall as rain.
+
+absolute humidity:
+is the mass of water vapor divided by the mass of dry air in a volume of air at a
+given temperature. The hotter the air is, the more water it can contain.
+++
+relative humidity:
+is the ratio of the current absolute humidity to the highest possible absolute humidity
+(which depends on the current air temperature).
+A reading of 100 percent relative humidity means that the air is totally saturated with
+ water vapor and cannot hold any more, creating the possibility of rain. This doesn't
+mean that the relative humidity must be 100 percent in order for it to rain -- it
+must be 100 percent where the clouds are forming, but the relative humidity near
+ the ground could be much less.
+If the air is at 100-percent relative humidity, sweat will not evaporate into the
+air. As a result, we feel much hotter than the actual temperature when the relative humidity is high.
+
+"For Want of a Nail" is a proverbial rhyme showing that small actions can result in large consequences.
+a good illustration of the "The butterfly effect".
+++++++
+For want of a nail the shoe was lost.
+For want of a shoe the horse was lost.
+For want of a horse the rider was lost.
+For want of a rider the battle was lost.
+For want of a battle the kingdom was lost.
+And all for the want of a horseshoe nail.
++++++++
+
+Five stages of grief:
+The Kbler-Ross model first introduced by Elisabeth Kbler-Ross in her 1969 book "On Death and Dying",
+1. Denial:
+       * Example - "I feel fine."; "This can't be happening."'Not to me!"
+2. Anger:
+       * Example - "Why me? It's not fair!" "NO! NO! How can you accept this!"
+3. Bargaining:
+       * Example - "Just let me live to see my children graduate."; "I'll do anything, can't you stretch it out? A few more years."
+4. Depression:
+       * Example - "I'm so sad, why bother with anything?"; "I'm going to die . . . What's the point?"
+5. Acceptance:
+       * Example - "It's going to be OK."; "I can't fight it, I may as well prepare for it."
+
+Psychological Projection:
+In psychology, psychological projection (or projection bias) is a defense mechanism in which
+one attributes one's own unacceptable or unwanted thoughts or/and emotions to others.
+Projection reduces anxiety by allowing the expression of the unwanted subconscious
+impulses/desires without letting the conscious mind recognize them. The theory
+was developed by Sigmund Freud and further refined by his daughter Anna Freud,
++++
+According to Sigmund Freud, projection is a psychological defense mechanism whereby
+one "projects" one's own undesirable thoughts, motivations, desires, and feelings onto someone else.
+
+confirmation bias is a tendency to search for or interpret new information in a way
+that confirms one's preconceptions and avoids information and interpretations which
+contradict prior beliefs.
+++++++
+a type of selective thinking  whereby one tends to notice and to look for what confirms
+one's beliefs, and to ignore, not look for, or undervalue the relevance of what contradicts one's beliefs.
+
+loaded for bear:
+ready and eager to deal with something that is going to be difficult.
+e.g. Their team came out onto the field, loaded for bear, but our defense stopped them.
+
+third-party check:
+Say Jack has a cheque from Bob, and Jack wants to pay walmart with that cheque...that would be
+ a 3rd party check. Essentially it would be a cheque you are using (with the permission of
+who ever owns the cheque) to pay someone, so the owner of the cheque would be the 3rd party
+ since they are outside of the acutal transaction betwen you and who ever you are paying.
+ Hardly anywhere will accept a third party check because of the high risk of fraud.
++++++
+If somebody gives you a check, and you turn it over and write "pay to the order of ____" in
+order to give it to a third party, that makes it a third party check. An example would be
+ using your paycheck to pay for your groceries.
+
+Up or down vote
+An up or down vote refers to a direct vote in the U.S. House of Representatives or
+ the U.S. Senate on an amendment or bill; it is sometimes referred to as a "clean vote".
+ Members simply vote yea or nay on it. Depending upon the rules of order for that particular
+ type of amendment or bill, the vote required for passage might be a 2/3 majority, a 3/5 majority,
+or a simple majority.
+
+run the table: to keep winning
+
+network protocol stack
+TCP/IP is frequently referred to as a "stack." This refers to the layers
+ (TCP, IP, and sometimes others) through which all data passes at both client
+and server ends of a data exchange.
+
+signing statement
+A signing statement is a written pronouncement issued by the President of the
+ United States upon the signing of a bill into law.
+Used to modify the meaning of laws.
+
+anaphylaxis
+Hypersensitivity especially in animals to a substance, such as foreign protein or a
+drug, that is caused by exposure to a foreign substance after a preliminary exposure.
+
+John Maynard Keynes:
+ "When the facts change, I change my mind - what do you do, sir?"
+It is better to be roughly right than precisely wrong.
+You can't push on a string.
+Successful investing is anticipating the anticipations of others.
+The market can stay irrational longer than you can stay solvent.
+The avoidance of taxes is the only intellectual pursuit that still carries any reward.
+
+of one's own volition through one's own choice
+
+confit:
+a generic term for various kinds of food that have been immersed in a substance for both flavor and
+preservation. Sealed and stored in a cool place, confit can last for several months.
+
+tickler file:
+A tickler file is a collection of date-labeled file folders organized in a way that allows
+time-sensitive documents to be filed according to the future date on which each document needs action.
+ Documents within the folders of a tickler file can be to-do lists, pending bills, unpaid invoices,
+travel tickets, hotel reservations, meeting information, birthday reminders, coupons, claim tickets,
+call-back notes, follow-up reminders, maintenance reminders, or any other papers that require
+future action. Each day, the folder having the current date is retrieved from the tickler file
+so that any documents within it may be acted on. Essentially, a tickler file provides a way
+ to send a reminder to oneself in the future: "tickling" one's memory.
++++++++++
+A tickler file is system that allows you to send something to yourself in the future for later action.
+
+Tide pools are rocky pools by oceans that are filled with seawater.
+
+off the top of your head:
+based on what you remember
+if you say something off the top of your head, you say it without thinking about it for very long
+ or looking at something that has been written about it.
+
+Unsweetened condensed milk and evaporated milk are the same thing.
++++++
+Condensed milk, also known as sweetened condensed milk, is cow's milk from which water
+has been removed and to which sugar has been added, yielding a very thick, sweet product
+that can last for years without refrigeration if unopened. The two terms, condensed milk
+ and sweetened condensed milk, have become synonymous;
+++++
+Evaporated milk, also known as dehydrated milk, is a shelf-stable canned milk product with
+about 60% of the water removed from fresh milk. It differs from condensed milk, which
+ contains added sugar. Condensed milk requires less processing since the added sugar inhibits bacterial growth.
+
+endonym:
+A name used by a group or category of people to refer to themselves or their language,
+ as opposed to a name given to them by other groups.
+For example, Deutschen is the endonym of a people known in English as German.
+
+exonym:
+is a name for a place that is not used within that place by the local inhabitants
+(neither in the official language of the state nor in local languages),
+ or a name for a people or language that is not used by the people or language to which
+ it refers. The name used by the people or locals themselves is called endonym, autonym, or
+self-appellation. For example, Deutschland is an endonym; Germany is an
+ English exonym for the same place; and Allemagne is a French exonym.
+
+A patronym or patronymic, is a component of a personal name based on the name of one's
+ father, grandfather or an even earlier male ancestor.
+
+sight unseen
+without seeing or examining something first.
+e.g. He purchased the Longfellow manuscript sight unseen from a collector in Houston.
+
+integer:
+the set of numbers consisting of the natural numbers including 0
+and the negatives. ( -2, -1 , 0 , 1 , 2 ).
+They are numbers that can be written without a fractional or decimal component.
+
+Natural number:
+either the set (1,2,3..) (positive integers) or the set (0,1,2,3) (non-negative integers)
+also called whole number
+
+Parkinson's law
+Work expands to fill the time available.
+
+raison d'etre: reason for existing
+
+argot: a specialized vocabulary
+
+CableCard
+CableCard is an interface for digital TV that lets you plug your cable line directly into your TV
+set without the need for a set-top box.
+CableCard's first function--and arguably its most important--is to prevent people from stealing
+ cable TV. Like a set-top box, it stores subscriber information and codes for unlocking and viewing scrambled digital-cable signals.
+you can't yet use CableCard for services that require two-way interactivity, such as accessing
+your cable company's interactive programming guide or purchasing pay-per-view programs.
+
+analog signal
+consists of a continuous waveform
+
+digital signal
+consists of a series of rapid transitions in voltage.
+
+chyron:
+A piece of equipment that allows video editors to insert text and graphics over the video picture or
+within the video frame.
++++
+A well-known brand of character generator. The word Chyron is often used generically to mean character generator.
++++
+Text graphics which appear at the bottom of a screen used to describe time, place, or name of person
+on screen; can also describe the technology
+
+more geared toward the medical community
+
+A "Sophie's Choice" is a tragic choice between two unbearable options.
+
+control:
+A standard of comparison for checking or verifying the results of an experiment.
+An individual or group used as a standard of comparison in a control experiment.
+
+navel-gazing: Excessive introspection, self-absorption, or concentration on a single issue
+
+Cognitive dissonance is an uncomfortable feeling caused by holding two contradictory ideas simultaneously.
+
+inductive reasoning: inference from the specific to the general
+The process by which a conclusion is inferred from multiple observations
+
+deductive reasoning: inference from the general to the specific
+The process by which a conclusion is logically inferred from certain premises
+
+inference: the process of deriving logical conclusions from premises
+known or assumed to be true.
+
+
+    * "Do not add new functionality unless you know of some real application that will require it."
+    * "If you can get 90% of the desired effect for 10% of the work, use the simpler solution."
+    * "If a problem is not completely understood, it is probably best to provide no solution at all."
+
+to that end
+For that reason, with that goal, intending to produce that result.
+++
+We think that the world would be a better place without adverts. To that end, we are going
+to remove all of the banners from our website.
+++
+He was aiming to get into the school swimming team, and to that end he swam every evening.
+
+Due Diligence
+Due Diligence is a term used for a number of concepts involving either the performance of an
+investigation of a business or person, or the performance of an act with a certain standard
+of care. It can be a legal obligation, but the term will more commonly apply to voluntary
+investigations. A common example of due diligence in various industries is the process
+ through which a potential acquirer evaluates a target company or its assets for acquisition
+
+pareto principle
+the Pareto principle (also known as the 80-20 rule,the law of the vital few and the principle of factor sparsity)
+ states that, for many events, roughly 80% of the effects come from 20% of the causes.
+
+cam-out
+To cam out (or cam-out) is a process by which a screwdriver slips out of the head of a screw
+being driven once the torque required to turn the screw exceeds a certain amount.
+
+burn down chart
+A burn down chart is graphical representation of work left to do vs. time. The outstanding work
+(or backlog) is often on the vertical axis, with time along the horizontal. It is useful for
+predicting when all of the work will be completed.
+
+lavalier microphone
+lapel microphone:
+is a small electret or dynamic microphone used for television, theatre, and public speaking
+applications, in order to allow hands-free operation
+
+Wi-Fi: an industry standard for a wireless networking technology that connects computers
+to LAN. (IEEE 802.11)
+	802.11a, b, g, n
+Bluetooth: an industry standard for a wireless networking technology that connects
+phones, PDAs, and computers over short distance. (IEEE 802.15.1.)
+WiMax: an industry standard for a long-range wireless network technology that connects
+computers to a WAN (IEEE 802.16)
+
+VPN:
+utilizes public telecommunications networks to conduct private data communications. Most
+VPN implementations use the Internet as the public infrastructure and a variety of specialized
+protocols to support private communications through the Internet.
++++
+VPN follows a client and server approach. VPN clients authenticate users, encrypt data,
+ and otherwise manage sessions with VPN servers utilizing a technique called tunneling.
+++++
+a private network that uses a public network to connect remote site/users together.
+----
+provides secure data transfer over the public Internet,
+
+leased line
+A leased line connects two locations for private voice and/or data telecommunication service.
+Not a dedicated cable, a leased line is actually a reserved circuit between two points. Leased
+lines can span short or long distances. They maintain a single open circuit at all times,
+as opposed to traditional telephone services that reuse the same lines for many different
+conversations through a process called "switching."
++++
+Leased lines most commonly are rented by businesses to connect branch offices, because these
+lines guarantee bandwidth for network traffic. So-called T1 leased lines are common and
+offer the same data rate as symmetric DSL (1.544 Mbps).
+
+intranet
+Intranet is the generic term for a collection of private computer networks within an organization.
+
+extranet
+An extranet is a computer network that allows controlled access from the outside for specific
+business or educational purposes. Extranets are extensions to, or segments of, private intranet
+networks that have been built in many corporations for information sharing and ecommerce.
++++
+Most extranets use the Internet as the entry point for outsiders, a firewall configuration
+ to limit access, and a secure protocol for authenticating users.
+
+WAN
+The world's most popular WAN is the Internet. Some segments of the Internet, like VPN-based extranets,
+ are also WANs in themselves. Finally, many WANs are corporate or research networks that utilize leased lines.
+
+brinksmanship/brinkmanship
+ the art or practice of pushing a dangerous situation or confrontation to the limit of safety
+ especially to force a desired outcome
++++
+The practice, especially in international politics, of seeking advantage by creating the
+impression that one is willing and able to push a highly dangerous situation to the limit rather than concede.
+
+gamesmanship
+The art or practice of using tactical maneuvers to further one's aims or better one's position
++++
+  The use in a sport or game of aggressive, often dubious tactics, such as psychological
+intimidation or disruption of concentration, to gain an advantage over one's opponent.
+
+sui generis: unique
+
+Collateral adjective
+refers to an adjective with the same meaning as a noun but derived from a different root.
+For example, lunar serves as an adjective to describe attributes of the Moon; moon
+comes from the Old English mona and lunar from the Latin luna.
+
+spine
+The spine is a column of 33 bones, called vertebrae, that stack on top of each other,
+extending from the base of the skull to the tailbone. Most vertebrae are separated by discs
+that acts as shock absorbers for the spine.
++++
+The spinal column is the main structure to support movement. The structures of the spine also
+surround and protect the spinal cord, which is a nerve that stretches from the base of the
+ brain to the lower back. The spinal cord allows complex communication between the brain and the body.
++++
+
+herniated disc
+when a disc is damaged, it may bulge or break open. This is called a herniated disc.
+It may also be called a slipped or ruptured disc.
+
+Spinal nerve roots branch out from each side of the spinal cord and then join to form
+ the spinal nerves, which pass through openings between the spinal bones (vertebrae) and
+then form branches that extend throughout the body.
+Each spinal nerve is attached to the spinal cord by 2 nerve roots.
+
+dumpster: emptied into garbage truck
+
+dump truck
+A dump truck or production truck is a truck used for transporting loose material
+(such as sand, gravel, or dirt) for construction. A typical dump truck is equipped
+ with a hydraulically operated open-box bed hinged at the rear, the front of which
+can be lifted up to allow the contents to be deposited on the ground behind the truck at the site of delivery
+
+bulldozer:
+A bulldozer is a crawler (caterpillar tracked tractor), equipped with a substantial metal plate
+(known as a blade), used to push large quantities of soil, sand, rubble, etc., during construction work.
+the term refers only to a tractor (usually tracked) fitted with a dozer blade.
+
+loader
+A loader (also known as: bucket loader, front loader, front end loader, payloader, scoop loader,
+shovel, skip loader, and/or wheel loader) is a type of tractor, usually wheeled, sometimes on tracks,
+ that has a front mounted square wide bucket connected to the end of two booms (arms) to scoop up
+loose material from the ground, such as dirt, sand or gravel, and move it from one place to another
+without pushing the material across the ground. A loader is commonly used to move a stockpiled
+material from ground level and deposit it into an awaiting dump truck or into a open trench excavation.
+
+excavator
+An excavator (also called a digger) is an engineering vehicle consisting of an articulated arm
+(boom, stick), bucket and cab mounted on a pivot (a rotating platform, like a Lazy Susan) atop
+an undercarriage with tracks or wheels.
+
+tractor
+A tractor is a vehicle specifically designed to deliver a high tractive effort at slow speeds,
+ for the purposes of hauling a trailer or machinery used in agriculture or construction.
+ Most commonly, the term is used to describe the distinctive farm vehicle: agricultural
+ implements may be towed behind or mounted on the tractor, and the tractor may also provide
+a source of power if the implement is mechanised
+
+crawler
+A tracked vehicle (also called: track-type tractor, tractor crawler, or track-laying vehicle)
+ is a vehicle that runs on tracks instead of wheels.
+
+trailer
+A Trailer is generally an unpowered vehicle pulled by a powered vehicle.
+
+axle
+An axle is a central shaft for a rotating wheel or gear.
+
+articulated: consisting of segments held together by joints
+
+use something as a springboard to become ...
+use something as a springboard for ...
+
+too far in the future
+
+SKU (stock keeping unit): a unique identifier for each distinct product or service
+that can be purchased.
+
+deduction vs induction
+The logical processes known as deduction and induction work in opposite ways. In deduction general
+ principles are applied to specific instances. Thus, using a mathematical formula to figure the
+ volume of air that can be contained in a gymnasium is applying deduction. Similarly, applying
+a law of physics to predict the outcome of an experiment is reasoning by deduction. By contrast,
+induction makes generalizations based on a number of specific instances. The observation of hundreds
+of examples in which a certain chemical kills plants might prompt the inductive conclusion that the
+ chemical is toxic to all plants. Inductive generalizations are often revised as more examples are
+ studied and more facts are known. If certain plants that have not been tested turn out to be
+unaffected by the chemical, the conclusion about the chemical's toxicity must be revised or
+ restricted. In this way, an inductive generalization is much like a hypothesis.
+
+90th percentile
+is that position in a data set which has 90% of data points below it, and 10% above it.
+
+heuristic
+is an adjective for experience-based techniques that help in problem solving, learning and discovery.
+A heuristic method is particularly used to rapidly come to a solution that is hoped to be close to
+the best possible answer, or 'optimal solution'. Heuristics are "rules of thumb", educated guesses,
+ intuitive judgments or simply common sense.
+
+botnet
+Botnets are networks of Windows PC, which have been taken over by malware programs.
+
+(and) no one will be (any) the wiser;
+and no one is the wiser;
+nobody (being) the wiser;
+without anyone being the wiser
+with nobody being the wiser
+--> No one will ever know
+
+heuristics:
+an experience-based approach to problem solving
+++
+pertains to the process of gaining knowledge or some desired result by intelligent guesswork rather than
+by following some preestablished formula. (Heuristic can be contrasted with algorithm ic.)
+The term seems to have two usages:
+1) Describing an approach to learning by trying without necessarily having an organized hypothesis
+ or way of proving that the results proved or disproved the hypothesis. That is, "seat-of-the-pants"
+ or "trial-by-error" learning.
+2) Pertaining to the use of the general knowledge gained by experience, sometimes expressed as
+"using a rule-of-thumb." (However, heuristic knowledge can be applied to complex as well as simple
+ everyday problems. Human chess players use a heuristic
++++
+heuristic algorithm
+an algorithm that can produce an acceptable result in many scenarios, but for which
+there is no formal proof of its correctness.
+
+class invariant
+Class invariants are methods which check the validity of an object's state (its data).
+The idea is to define validation methods for fields, and to perform these validations whenever the fields change.
+--> a condition that every object of the class must satisfy at all times.
+
+for want of a better word: for lack of a better word
+
+dependency injection
+a style of object configuration in which an object is configured by an external entity.
+
+They would rather you didn't use "Google" as a verb
+
+bearing
+is a device to allow constrained relative motion between two or more parts, typically rotation or linear movement.
+
+bushing
+bushing is a type of bearing. It is a cylindrical lining designed to reduce friction and wear inside a hole,
+ or constrict and restrain motion of mechanical parts
+
+contretemp
+An unforeseen event that disrupts the normal course of things; an inopportune occurrence.
+a small disagreement that is rather embarrassing
+an awkward clash
+
+cursor
+a db structure for traversing the records in a result set.
+used for processing individual rows returned by the db
+
+braise, broil, grill, roast
+When you cook meat on a pre-heated, dry pan without oil it is called pan-grilling.
+ Broiling and grilling are the same: cooking food directly under or over a heat source in the oven
+under the broiling element or on the grill.  Braising is to brown food in oil first, then cover
+and cook in a small amount of liquid at a low temperature for a long time either on top of the
+stove or in the oven.  Roasting is to cook a food in an open pan in the oven with no added liquid.
++++
+Broiling is cooking with high heat from above. Grilling is cooking with high heat from below.
+Roasting is cooking with low heat all around.
+
+saturated
+containing all the solute that can normally be dissolved at a given temperature
+containing the equilibrium amount of gaseous material at a given temperature and pressure
+
+solute
+A substance dissolved in another substance
+
+black ice
+(or glare ice) is ice frozen without many air bubbles trapped inside, making it highly transparent.
+ This type of ice appears in the color of the material beneath it, often wet asphalt or a darkened pond
+++
+Black ice is sometimes called "glare ice" or "clear ice," typically refers to a thin coating of
+glazed ice on a surface, often a roadway. While not truly black, it is transparent, allowing the
+usually-black asphalt/macadam roadway to be seen through it
+
+java.util.List interface is a subtype of the java.util.Collection interface.
+
+list implementation: ArrayList, LinkedList, Vector, Stack
+
+java.util.Set interface
+
+set implemention: EnumSet, HashSet, LinkedHashSet, TreeSet
+HashSet is backed by a HashMap. It makes no guarantees about the sequence of the elements when you iterate them
+LinkedHashSet differs from HashSet by guaranteeing that the order of the elements during iteration is
+the same as the order they were inserted into the LinkedHashSet. Reinserting an element that is already in
+the LinkedHashSet does not change this order.
+TreeSet also guarantees the order of the elements when iterated, but the order is the sorting order of the elements.
+
+diff btw HashSet and Set: Hashset allows null
+
+java.util.SortedSet interface is a subtype of the java.util.Set. actual implementation: java.util.TreeSet
+
+The order of the sorting is either the natural sorting order of the elements (if they implement
+java.lang.Comparable), or the order determined by a Comparator that you can give to the SortedSet
+
+java.util.Map interface: a dictionary
+	implementation: HashMap, HashTable, EnumMap, IdentityHashMap, LinkedHashMap,
+	Properties, TreeMap, WeakHashMap
+	note: key must be an object, no primitive type
+	Note: Properties is a subclass of HashTable, each key and value is a string
+	Hashtable is one of the original collection classes in Java. HashMap is
+	 part of the new Collections Framework, added with Java 2, v1.2.
+	Hashtable is synchronized, HashMap is not.
+	iterator in the HashMap is fail-safe while the enumerator for the Hashtable isn't.
+	HashMap permits null values in it, while Hashtable doesn't. conclusion: use HashMap
+
+Properties: a subclass of HashTable: Properties.load(inputStream): load properties file
+properties.keySet() : return a set of keys
+properties.values() : return a collection of values
+properties.entrySet() : return a collection of Map.Entry, which a key-value pair (like Association in Smalltalk)
+
+HashMap: no sequencing
+TreeMap: order (iteration order is the sort order of keys/values)
+
+// key iterator
+Iterator iterator = mapA.keySet().iterator();
+
+// value iterator
+Iterator iterator = mapA.values();
+
+Iterator iterator = mapA.keySet().iterator();
+while(iterator.hasNext(){
+  Object key   = iterator.next();
+  Object value = mapA.get(key);
+}
+
+//access via new for-loop
+for(Object key : mapA.keySet()) {
+    Object value = mapA.get(key);
+}
+
+NavigableMap and Navigableset
+
+java.util.Queue interface (inserted at the end of the queue, and elements removed from the beginning of the queue)
+	implementation: LinkedList, PriorityQueue
+
+java.util.Deque  (a queue where you can insert and remove elements from both ends of the queue) Double Ended Queue"
+	ArrayDeque, LinkedList
+
+implement hashCode() and equals()
+
+sorting: sort List collections using the java.util.Collections.sort()
+	can sort List and LinkedList
+++
+List list = new ArrayList();
+
+//add elements to the list
+
+Collections.sort(list);
+
+For objects to have a natural order they must implement the interface java.lang.Comparable
+
+public interface Comparable<T> {
+  int compareTo(T o);
+}
+
+ The compareTo() method should compare this object to another object, return an int value. Here are the rules for that int value:
+
+    * Return a negative value if this object is smaller than the other object
+    * Return 0 (zero) if this object is equal to the other object.
+    * Return a positive value if this object is larger than the other object
+
+Comparator (non-natural order)
+List list = new ArrayList();
+
+//add elements to the list
+
+Comparator comparator = new SomeComparator();
+
+Collections.sort(list, comparator);
+
+or implements the Comparator interface
+	2 methods: compare(), equals()
+
+synchronization wrapper: Map m = Collections.synchronizedMap(new HashMap(...));
+The iterators returned by all of this class's "collection view methods" are fail-fast: if the
+map is structurally modified at any time after the iterator is created, in any way except
+through the iterator's own remove or add methods, the iterator will throw a ConcurrentModificationException.
+
+Enumeration is legacy, not in the new Collection framework
+	contains 2 methods namely hasMoreElements() & nextElement().
+Iterator is new , in the collection framework
+	three methods namely hasNext(), next(),remove().
+diff: Iterator: can remove elements during iteration
+
+Cloneable interface:
+A class implements the Cloneable interface to indicate to the Object.clone() method that it
+is legal for that method to make a field-for-field copy of instances of that class.
+Invoking Object's clone method on an instance that does not implement the Cloneable interface
+ results in the exception CloneNotSupportedException being thrown.
+By convention, classes that implement this interface should override Object.clone (which is protected)
+ with a public method. See Object.clone() for details on overriding this method.
+
+ByteArrayInputStream: read data from byte arrays as streams
+DataInputStream: enables you to read Java primitives from InputStream's instead of only bytes
+PrintStream: enables you to write formatted data to an underlying OutputStream.
+PrintWriter: enables you to write formatted data to an underlying Writer
+StringWriter: enables you to obtain the characters written to a Writer  as a String: uses StringBuffer
+So StringWriter is basically an Adapter that adapts a StringBuffer to the Writer interface.
+
+stream: continuous flow of data you can read from or write to. no concept of index.
+
+exception wrapping
+wrapping is when you catch an exception, wrap it in a different exception and throw that exception.
+to prevent the code further up the call stack from having to know about every possible exception in the system.
+--> do not want to end up with top level methods that declare many different exceptions.
+--> you may not want your top level components to know anything about the bottom level components,
+++
+Exception wrapping may result in very long stack traces consisting of one stack trace for each exception
+in the wrapping hierarchy.
+The messages of the exceptions are spread out over the stack traces.
+
+another approach: exception enrichment : add additional info to an exception
+
++++++++++++++++++++++++++++++++
+TIBCO
+
+max job: specifies the number of process instances that are kept in memmory. Once this limit is
+reached newly created process instances (subject to flow limit) are paged out to disk.0 specifies no
+limit and is the default.
+
+flow limit: specifies the maximum number of running process instances that are spawned before
+ the process starter is suspended ie it enters a FLOW_CONTROLLED state and does not accept new events.
+ This can be used to control the number of process instances running simultaneously and when the protocol
+ generating the event can store the event till it is received, like email servers, JMS, RV etc. 0 specifies
+ no limit and is the default.
++++++++++++++++++++
+
+interview question:
+
+"I want to earn a salary that is commensurate with the contributions I can make. I am confident
+I can make a substantial contribution at your firm. What does your firm plan to pay for this position?"
+
+"I prefer to discuss the compensation package after you've decided that I'm the best
+candidate and we can sit down and negotiate the package."
+
+"'Based on our interview, do you have any concerns about my ability to do the job?'
+
++++++++++++++++++++++++++++++++++
+
+leave it the way you found it
+
+ISO image
+An ISO image is an archive file (also known as a disc image) of an optical disc in a format defined by
+the International Organization for Standardization (ISO). This format is supported by many software vendors.
+ ISO image files typically have a file extension of .iso. The name ISO is taken from the ISO 9660 file
+system used with CD-ROM media, but an ISO image can also contain a UDF file system since UDF
+ is backward-compatible with ISO 9660.
++++
+In the context of files and programs, an "image", whether an ISO, floppy, or other media image,
+ is simply a file that can be used as a virtually identical copy of the original media. This file not
+only contains individual data files; it also contains track and sector information and arranges all
+this information in a file system, just like disk media. Image files, unlike normal files, are
+usually not opened; rather, they are mounted.
+An ISO image is simply a CD-ROM or DVD image saved in ISO-9660 format.
+++
+ISO images are mainly used as source files from which to create media.
+After you download the image, you can use CD-burning software to recreate the physical CD-ROM/DVD install media.
+
++++++
+Know what you do Know
+Know what you need to Know
+Know what you don't know
+Know where you want to go
+
+dependency injection
+a style of object configuration where an object is configured by an external entity,
+as opposed to having the object configure itself.
+passing in an object to initialize an inst var
+DI container: know what to instantiate and inject into components
+3 types: (1) interface injection (2) setter injection (3) constructor injection
+--> instead of an object initializing other objects internally, it accepts those objects
+as parameters that are supplied by an external entity (usually an app container).
+--> an object gets its dependencies given to it, as opposed to having to construct them itself.
+--> DI is a form of IoC
+--
+Inversion of Control (IoC) : the Hollywood principle: don't call us, we'll call you
+there is another piece of code that has the control and will call your code, rather than
+your code calling it.
+--
+non-IoC: your code is in control
+IoC: your code is not in control
+
+do a number on
+to damage or ruin something; to destroy something
+To defeat, abuse, or humiliate in a calculated and thorough way.
+
+cloud computing
+A public cloud is one in which a cloud service provider makes resources such as servers,
+ storage, networking and, possibly, applications available to users over the Internet.
+example: Amazon's EC2
+++
+Private clouds take two forms: internal clouds and external private clouds. An internal cloud
+is inside your data center (on-premises), giving IT managers complete control over the available resources.
+example: Ubuntu Enterprise Cloud and Microsoft Azure are examples of packaged software for creating internal clouds.
++++
+External private clouds combine characteristics of internal clouds and public clouds. They are like
+ public clouds because they are off-premises. But unlike public clouds, applications run on dedicated
+ servers, and the cloud provider has built container walls around the external private cloud to make
+it more secure than public clouds. example: Amazon's Virtual Private Cloud
+
+OSGi
+OSGi (Open Services Gateway Initiative) is an industry plan for a standard way to connect devices
+ such as home appliances and security systems to the Internet. With such a standard, home users
+ could, for example, install a security system and be able to change from one monitoring service
+to another without having to install a new system of wires and devices. The "service gateway"
+would be an application server in a computer that was a gateway between the Internet and a home
+ or small business's network of device. The OSGi plans to specify the application program interface (API)
+for programmers to use to allow communication and control between service providers and the devices
+ within the home or small business network. OSGi's API will be built on the Java programming language.
+
+OSGi technology is the dynamic module system for Java
+
+An OSGi Framework is an open, modular and sizeable "Service Delivery Plattform".
+
+OSGi emerged out of work to connect home appliances and security systems to the Internet.
+It has since evolved into a more generic SOA componentized model for connecting a variety of services.
+initially: a set of standards for a Java-based service framework that could be remotely managed.
+
++++
+java classloader
+
+The main role of the class loader is to define a class scope  where the class is visible
+and where it isn't. This scoping allows for classes with the same name to exist as long as
+ they are loaded in different classloaders. It also allows loading a newer version of the
+class in a different classloader.
+
++++++++
+Java generics: C++ templates, parameterized type (Gang of four)
+
+a class/interface whose declaration has one or more type parameters is a generic class/interface.
+
+anObject.getClass() same as Object.class
+Object.class called class literal
+Class.forName(aString): Returns the Class object
+
++++++
+
+embedded SQL:
+has a precompilation step, where the embedded SQL code is converted to the host language code(C/C++).
+
+god forbid (heaven forbid)
+I hope it does not happen
+e.g., If, God forbid, anything should happen to him I might not want to stay here.
+e.g., Heaven forbid (that)  his parents should ever find out.
+also used to suggest that someone would never do something
+e.g., God forbid they should help someone who isn't paying them for help.
+
+A phrasal verb is a combination of a verb and a preposition, a verb and an adverb,
+ or a verb with both an adverb and a preposition,
+
+be full of beans
+to have a lot of energy and enthusiasm
+
+femtocell (Access Point Base Station)
+A femtocell is a wireless access point that improves cellular reception inside a home or office building.
+The device, which resembles a wireless router, essentially acts as a VoIP repeater. When connected
+to Internet broadband, it broadcasts the connection using radio waves.
+It connects to the service provider's network via broadband (such as DSL or cable);
+Is connected to the internet via a broadband connection
+A cell phone call initiated in a home equipped with femtocall would start at the handset,
+be sent to the femtocell, go from the femtocell to the Internet through the broadband connection,
+ and end up back on the cellular network
+
+Java: all arguments are passed by value
+Object variables in Java are all references.
+A reference is an abstract identifier for an object.
+A handle is a pointer to a pointer.
+
+java:
+variable length argument list (introduced in Java 5)
+syntax: public static double average( double... numbers )
+
+be the cat's whiskers
+to be better than everyone else: I thought I was the cat's whiskers in my new dress.
+
+ALM: application lifecycle management
+Application lifecycle management (ALM) is the marriage of business management to software
+ engineering made possible by tools that facilitate and integrate
+ requirements management, architecture, coding, testing, tracking, and release management.
+SCM: software configuration management
+is the task of tracking and controlling changes in the software. Configuration management
+practices include revision control and the establishment of baselines.
+
+SCCM: software configuration and change management (same as SCM?)
+
+agile: unit testing, daily standup, iteration planning, shorter release cycles
+(planning from user stories)
+
+Java EE 6:
+more modular Java EE implementation through the definition of profiles.
+This is to allow vendors to create smaller subsets of their entire Java EE stack for specific uses,
+Currently Java EE 6 specifies two profiles: the web profile (Servlets, JSP, and JSF only),
+and the Java EE enterprise profile (the entire stack).
+
+stable sorting algorithms maintain the relative order of records with equal keys
+equal elements will not be reordered as a result of the sort.
+
+canonical form: standard way of presenting that object.
+an authoritative form. the simplest form
+canonicalization (c14n) also called standardization/normalization
+is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form
+
+an in-place algorithm (or in Latin in situ) is an algorithm which transforms input using a data
+structure with a small, constant amount of extra storage space. The input is usually
+overwritten by the output as the algorithm executes. An algorithm which is not in-place is
+sometimes called not-in-place or out-of-place.
+An algorithm is sometimes informally called in-place as long as it overwrites its input with its output.
+
+code page
+is another name for character encoding.
+It consists of a table of values that describes the character set for a particular language.
+
+ALM (application lifecycle management)
+the administration of an application from inception to de-commissioning.
+it includes requirements management, and development.
+3 distinct areas: governance, development, and operations
+
+public-key cryptography
+1. To send me an encrypted message, you use my public key to encrypt the message.
+2. then I use my private key to decrypt the message
+
+digital signature
+1. I have a message/document to send
+2. apply a hashing function to the document to create a message digest (aka hash, checksum)
+3. to create a digital signature, I sign(encrypt) the message digest with my private key
+4. I then send the document and the digital signature (encrypted message digest)
+recipient to authenticate:
+1. apply the same hashing function to the document.
+2. decrypt the encrypted message digest (digital signature) using my public key.
+3. compare the output of 1 against the output of 2
+If not equal -> (1) someone is impersonating me (2) the document has been altered
+(3) error during transmission
+
+Certificates are digital documents attesting to the binding of a public key to an individual or other entity.
+In their simplest form, certificates contain a public key and a name
+certificate: a signed public key
+
+hashing: the transformation of a string of characters into a fixed-length string
+in smalltalk: the transformation of an object into an integer, which is used as an
+index into a collection.
+A hash function H is a transformation that takes an input m and returns a fixed-size string,
+which is called the hash value h  (that is, h = H(m)).
+A hash function H is said to be one-way if it is hard to invert
+The hash value represents concisely the longer message or document from which it was computed;
+ this value is called the message digest. One can think of a message digest as
+ a "digital fingerprint" of the larger document.
++++
+collision resistance: hard to find two inputs that hash to the same output
+
+birthday attack that relies on the fact that it is easier to find two messages that hash
+to the same value than to find a message that hashes to a particular value.
+birthday problem in probability theory
+for a group of 23 or more people the probability that two or more people share the same birthday
+ is better than 50%. (in a group of at least 23 randomly chosen people)
+For 57 or more people, the probability is more than 99%
+
+necessiate and obviate
+The  breakdown  of  the  car  necessitated  a  change  in  our  plans.
+ The  new  wage  demand  will  necessitate  a  price  increase.
+to  obviate  the  risk  of  serious  injury.
+
+irrational number
+a number that cannot be written as a repeating decimal or a finite decimal or a fraction
+
+XHTML
+almost identical to HTML 4.01
+a stricter and cleaner version of HTML
+HTML defined as an XML application
+
+use checked exceptions for recoverable conditions
+use runtime exceptions for programming errors
+If a client can reasonably be expected to recover from an exception, make it a checked exception.
+If a client cannot do anything to recover from the exception, make it an unchecked exception.
+
+JNI (Java native interface)
+an interface that allows java programs to call and to be called by native code (in C/C=+)
+
+Mind your Ps and Qs
+"mind your manners", "mind your language", "be on your best behaviour"
+
+Were you born in a barn?
+If someone asks you this, it means that you forgot to close the door when you came in
+meaning: why have you left the door open?
+Addressed to one who leaves a door open
+
+groak
+To stare silently at someone while they are eating, in the hopes that they will give you some of their food
+
+French door, also called a French window, is a door that has multiple windows
+("lights") set into it for the full length of the door.
