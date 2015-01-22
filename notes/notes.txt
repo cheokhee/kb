@@ -4884,3 +4884,156 @@ To stare silently at someone while they are eating, in the hopes that they will 
 
 French door, also called a French window, is a door that has multiple windows
 ("lights") set into it for the full length of the door.
+
+++++++++++++++++++++++++
+servlet/JSP and EJB
+ervlets/JSPs and EJB are complementary, not competing technologies: Servlets provide support for writing web based applications whereas EJBs provide support for writing transactional objects.
+JSP or XML/XSL technologies provide support for the front end (UI, client) code, where EJB provides
+ support for the back end (database connection pooling, declaritive transactions, declaritive security, standardized parameterization...)
+
+ EJB model mandates  a separation between display and business logic.
+
+Some of the hings that servlets and JSPs can do that EJBs cannot are:
+
+    * Respond to http/https protocol requests.
+    * (With JSP) provide an easy way to format HTML output.
+    * Easily associate a web user with session information
+
+Some of the things that EJBs enable you to do that servlets/JSPs do not are:
+
+    * Declaritively manage transactions. In EJB, you merely specify whether a bean's methods require,
+	disallow, or can be used in the context of a transaction. The EJB container will manage your
+	transaction boundaries appropriately. In a purely servlet architecture, you'll have to write code
+	 to manage the transaction, which is difficult if a logical transaction must access multiple datasources.
+    * Declaritively manage security. The EJB model allows you to indicate a security role that
+	the user must be assigned to in order to invoke a method on a bean. In Servlets/JSPs you must
+	 write code to do this. Note, however that the security model in EJB is sufficient for
+	only 90% to 95% of application code - there are always security scenarios that require reference
+	 to values of an entity, etc.
+
+EJB provides:
+resource management, transaction management, security, scalability, threading issues, pooling,
+
+Granularity is the extent to which a system is broken down into small parts
+It is the extent to which a larger entity is subdivided.
+For example, a yard broken into inches has finer granularity than a yard broken into feet
+
+Coarse-grained systems consist of fewer, larger components than fine-grained  systems;
+a coarse-grained description of a system regards large subcomponents while a fine-grained
+description regards smaller components of which the larger ones are composed.
+The granularity of data refers to the fineness with which data fields are sub-divided.
+For example, a postal address can be recorded, with low granularity, as a single field:
+or with high granularity, as multiple fields:
+Higher granularity has overheads for data input and storage.
+
++++++++++++++++++++++++++++
+
+BitTorrent
+a decentralized peer-to-peer file sharing protocol for transferring files.
+when transferring, bits and pieces of the file are uploaded at the same time
+from different peers to improve your overall speed
+
+strategic planning
+designed to answer two questions: (1) what does the company want to be in
+the future? (2) how does the company get to that position in the future?
+
+++++++++++++++
+XML elements vs attributes
+one way of thinking about XML elements and attributes uses the concept of visibility.
+if it is displayed to the end user, then it should be an element.
+if the info guides XML processing but is never seen by a user, then it may be better to model it as an attribute.
+
+TV (interlacing)
+interlace is a technique of improving the picture quality of a video signal without consuming extra bandwidth.
+TV and video pictures are made up of a number of images (frames) that are sequentially displayed
+ on your screen to give the illusion of movement. The rate at which the frames are displayed
+is fixed at 25 frames-per second (fps) in the PAL system, and 30 fps in the NTSC system.
+In order to send these pictures over the air, or along a cable, each frame is split up into a number of horizontal strips (lines),
+Each line is transmitted separately to your TV tube where they are 'painted' (scanned) in sequence on the viewing screen, to recreate the original frame images.
+Each frame is divided into two parts (fields) by taking even numbered lines as one field, and odd
+numbered lines as the other. These two fields are then transmitted in sequence (odd, then even),
+instead of the original frame. The rate at which these fields are produced on our TV tube is now twice the frame rate, which reduces the perceptible flicker substantially.
+The reason why 50 fields/sec (60 NTSC) is used is to minimise the visual disturbance caused by mains-power interference which would show as a wobble in the picture.
+The PAL system comprises 625 lines, of which 574 are active. NTSC has 525 lines, of which 485 are active.
+NTSC: 60 fields every second, resulting in 30 frames per second
+
+
+Microsoft DirectX is a collection of application programming interfaces (APIs) for handling tasks
+ related to multimedia, especially game programming and video, on Microsoft  platforms.
+++
+OpenGL (Open Graphics Library) is a standard specification defining a cross-language, cross-platform API for writing applications that produce 2D and 3D computer graphics.
+
+Dedicated Graphics generally come in 3 different types of add in cards: PCI  | AGP | PCI-Express
+
+raster graphics (use bitmaps): represent an image as an array of pixels.
+vector graphics: represent an image as mathematical formulae
+the use of geometrical primitives such as points, lines, curves, and shapes or polygon(s), which
+are all based on mathematical equations, to represent images in computer graphics.
+a raster graphics image or bitmap is a data structure representing a generally rectangular  grid of pixels,
+Raster graphics: graphical techniques using arrays of pixel values
+
+tethering:
+the use of your cell phone -- or other Internet-enabled mobile device -- as a modem for another device,
+usually a notebook or PDA.
+The connection is made either with a cable (USB or serial) or wirelessly through bluetooth
+
+bring something to bear
+to use influence, arguments, or threats in order to change a situation (often + on )
+Pressure should be brought to bear on the illegal regime and support given to the resistance.
+
+MHTML: MIME HTML
+is a web page archive format used to combine  resources that are typically represented by external
+links (such as images, Flash animations, Java applets, audio files) together with HTML code into
+ a single file. The content of an MHTML file is encoded as if it were an HTML e-mail message,
+ using the MIME type multipart/related. The first part of the file is normally encoded HTML; subsequent parts are additional resources identified by their original URLs and encoded in base64. This format is sometimes referred to as MHT,
+
+MIME
+is an Internet standard that extends the format of e-mail to support:
+
+    * Text in character sets other than ASCII
+    * Non-text attachments
+    * Message bodies with multiple parts
+    * Header information in non-ASCII character sets
+has grown beyond describing the content of e-mail to describing content type in general, including for the web
+is an Internet Standard that allows email systems to interpret complex data
+
+MIME type (internet media type): a two-part identifier for file formats
+
+Java heap: the area of memory used by the JVM (and specifically HotSpot) for dynamic memory allocation.
+young generation (eden), tenured, perm
++++
+    * The Young generation stores short-lived objects that are created and immediately garbage collected.
+    * Objects that persist longer are moved to the Old generation (also called the Tenured generation).
+    * The Permanent generation (or permgen) is used for class definitions and associated metadata.
+
+SOA security
+1. point-to-point: security inside web services
+2. intercepting agent: security inside j2ee container
+3. XML gateway/SOA governance gateway/service proxy:
+
+JSON: JavaScript Object Notation
+a lightweight data-interchange format.
+designed for human-readable data interchange
+The JSON format is often used for serializing  and transmitting structured data over a network connection. It is primarily used to transmit data between a server and web application, serving as an alternative to XML.
+
+A CLSID is a globally unique identifier that identifies a COM class object.
+e.g.
+HKEY_CLASSES_ROOT\CLSID\{2F25CF20-C569-11D1-B94C-00608CB45480}
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{2F25CF20-C569-11D1-B94C-00608CB45480}
+
+ProgID (short for PROGrammatic IDentifier) is a COM term, which is basically a string
+ like "msxml2.domdocument" to represent an underlying CLSID which is
+something like {F9043C85-F6F2-101A-A3C9-08002B2F49FB}.
+
+Character encodings control how tools translate raw bytes into text.
+
++++++++++
+oracle execution plan
+
+Whenever an SQL statement is executed, Oracle (CBO: cost based optimizer) designs an execution plan for it.
+This execution plan is basically a step by step instruction for how the statement must be executed. That is,
+ the order in which tables are read, if indexes are used, which join methods are used to join tables and so on.
+
+usability: the extent to which a product can be used by specified users to achieve specified
+goals with effectiveness.
+accessibility: the extent to which a product can be used by people with disabilities.

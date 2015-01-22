@@ -1179,3 +1179,28 @@ git config core.ignoreStat true
 
 windows git client 1.9.4 cannot push to cygwin-based git daemon.
 solution: git config --global sendpack.sideband false
+
+#checkout previous branch
+git checkout -
+
+git stripspace < README.md > README.md.new
+
+#auto-correct
+git config --global help.autocorrect 1
+
+git instaweb
+
+#search for most recent commit whose message contains the word string (case-sensitive)
+git show :/string
+#if above has no match, get this message
+fatal: ambiguous argument ':/blah': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+git status -sb
+output:
+## master...origin/master
+MM notes/git.txt
+ M notes/notes.txt
