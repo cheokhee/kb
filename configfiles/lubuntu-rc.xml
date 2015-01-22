@@ -401,6 +401,18 @@
       </action>
     </keybind>
 
+    <keybind key="W-F">
+      <action name="Execute">
+        <command>wmctrl -x -a firefox</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-P">
+      <action name="Execute">
+        <command>wmctrl -x -a leafpad</command>
+      </action>
+    </keybind>
+
    <!-- Keybinding for PrintScreen Key -->
     <keybind key="Print">
       <action name="Execute">

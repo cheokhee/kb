@@ -38,3 +38,15 @@ String.metaClass.isPalindrome = { -> delegate == delegate.reverse() }
 closure:
 ["hi","hoo"].each { wow -> println wow } OR
 ["hi","hoo"].each { println it }
+
+y =2
+this.binding.getVariable("y") -> print 2
+--
+def x =2
+this.binding.getVariable("x") -> groovy.lang.MissingPropertyException
+--
+String name = 'cheok'
+this.binding.getVariable("name") -> groovy.lang.MissingPropertyException
+---
+def : put the var in local scope
+If you define a method in your script, it won't have access to the variables that are created with "def" in the body of the main script as they aren't in scope:

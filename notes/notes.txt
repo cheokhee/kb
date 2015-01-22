@@ -117,6 +117,8 @@ Two to the power of three is eight
 is raised to the 100th power
 a^n : a raised to the n-th power, a raised to the power [of] n, or possibly a
 raised to the exponent [of] n, or more briefly as a to the n.
+2 to the 32nd power (32-bit)
+10 to the 36th power
 
 unlawful: not authorized by law
 illegal: forbidden by law.
@@ -1204,6 +1206,63 @@ In the software-as-a-service cloud model, the vendor supplies the hardware infra
 a very broad market. Services can be anything from Web-based email to inventory control
 and database processing. Because the service provider hosts both the application and
 the data, the end user is free to use the service from anywhere.
+====
+A public cloud is one in which a cloud service provider makes resources such as servers,
+ storage, networking and, possibly, applications available to users over the Internet.
+example: Amazon's EC2
+++
+Private clouds take two forms: internal clouds and external private clouds. An internal cloud
+is inside your data center (on-premises), giving IT managers complete control over the available resources.
+example: Ubuntu Enterprise Cloud and Microsoft Azure are examples of packaged software for creating internal clouds.
++++
+External private clouds combine characteristics of internal clouds and public clouds. They are like
+ public clouds because they are off-premises. But unlike public clouds, applications run on dedicated
+ servers, and the cloud provider has built container walls around the external private cloud to make
+it more secure than public clouds. example: Amazon's Virtual Private Cloud
+=====
+cloud computing (another definition)
+Cloud computing is a category of computing solutions in which a technology and/or service lets
+users access computing resources on demand, as needed, whether the resources are physical or
+virtual, dedicated, or shared, and no matter how they are accessed (via a direct connection,
+LAN, WAN, or the Internet). The cloud is often characterized by self-service interfaces that
+let customers acquire resources when needed as long as needed.
++++
+a computing solution that allows the users to access computing resources on demand
+regardless of capacity or duration.
++++++
+a way to increase capacity or add capabilities on the fly without investing in new infrastructure,
+training new personnel, or licensing new software. Cloud computing encompasses any subscription-based
+or pay-per-use service that, in real time over the Internet, extends IT's existing capabilities.
++++
+SaaS
+This type of cloud computing delivers a single application through the browser to thousands of
+customers using a multitenant architecture. On the customer side, it means no upfront investment in
+ servers or software licensing; on the provider side, with just one app to maintain, costs are
+low compared to conventional hosting.
++++
+utility computing
+offer storage and virtual servers that IT can access on demand.
++++
+Platform-as-a-service
+delivers development environments as a service.
+You build your own applications that run on the provider's infrastructure and are delivered to your users
+via the Internet from the provider's servers.
+--> provide a cloud-based application development environment. allow developers to build applications
+that run in a cloud.
+--> sits between IaaS and SaaS models.
++++
+Amazon Elastic Compute Cloud (EC2)
+allows users to rent virtual computers on which to run their own computer applications.
+----
+infrastructure as a service, also hardware as a service
+a provision model in which an organization outsources the equipment used to support operations,
+including storage, hardware, servers and networking components. The service provider owns
+the equipment and is responsible for housing, running and maintaining it. The client typically
+ pays on a per-use basis.
+-- virtual private cloud
+the implementation of a private cloud in a public cloud environment.
+VPC provides secure data transfer between a private enterprise and a public cloud provider, ensuring that each customer's data remains isolated from every other customer's data both in transit and inside the cloud provider's network.
+-- behave as if it is within a corporate firewall.
 
 container: a run-time environment for components.
 
@@ -1586,6 +1645,9 @@ Four phases of a test:
 test harness
 a test harness or automated test framework is a collection of software and test data configured
  to test a program unit by running it under varying conditions and monitoring its behavior and outputs.
+====
+The software, tools, samples of data input and output, and configurations are all referred
+to collectively as a test harness.
 
 a cluster is a group of computers that work together to form what appears to
 the users as a single system.
@@ -1668,10 +1730,6 @@ of two objects.
 Hobson's choice: : an apparently free choice when there is no real alternative
 : the necessity of accepting one of two or more equally objectionable alternatives
 a free choice in which only one option is offered
-
-je ne sais quoi: I don't know what
-An intangible quality that makes something distinctive or attractive.
-She has a certain je ne sais quoi about her.
 
 MapReduce
 from lisp:
@@ -1852,6 +1910,8 @@ within the specified range for that parameter.
 Contrast a corner case with an edge case, an issue that occurs only at a (single) maximum or
  minimum parameter. For example, a speaker that distorts audio at maximum volume, even in
 the absence of other extreme settings or conditions.
+===
+edge case: extreme situations that challenge the system
 
 Behavior driven development (or BDD) is an agile software development technique that encourages
  collaboration between developers, QA and non-technical or business participants in a software project.
@@ -4680,20 +4740,6 @@ do a number on
 to damage or ruin something; to destroy something
 To defeat, abuse, or humiliate in a calculated and thorough way.
 
-cloud computing
-A public cloud is one in which a cloud service provider makes resources such as servers,
- storage, networking and, possibly, applications available to users over the Internet.
-example: Amazon's EC2
-++
-Private clouds take two forms: internal clouds and external private clouds. An internal cloud
-is inside your data center (on-premises), giving IT managers complete control over the available resources.
-example: Ubuntu Enterprise Cloud and Microsoft Azure are examples of packaged software for creating internal clouds.
-+++
-External private clouds combine characteristics of internal clouds and public clouds. They are like
- public clouds because they are off-premises. But unlike public clouds, applications run on dedicated
- servers, and the cloud provider has built container walls around the external private cloud to make
-it more secure than public clouds. example: Amazon's Virtual Private Cloud
-
 OSGi
 OSGi (Open Services Gateway Initiative) is an industry plan for a standard way to connect devices
  such as home appliances and security systems to the Internet. With such a standard, home users
@@ -5037,3 +5083,2083 @@ This execution plan is basically a step by step instruction for how the statemen
 usability: the extent to which a product can be used by specified users to achieve specified
 goals with effectiveness.
 accessibility: the extent to which a product can be used by people with disabilities.
+
+bookmarklet
+a tiny program (a JavaScript application) contained in a bookmark (the URL is a "javascript:" URL)
+which can be saved and used the same way you use normal bookmarks.
+
+application state is the info necessary to understand the context of an interfaction
+
+tunneling
+when one network protocol (the delivery protocol) encapsulates a different payload protocol.
+provide a secure path through an untrusted network.
++++
+also known as "port forwarding," is the transmission of data intended for use only within a private,
+usually corporate network through a public network in such a way that the routing nodes in the public
+network are unaware that the transmission is part of a private network. Tunneling is generally done by
+ encapsulating the private network data and protocol information within the public network transmission
+units so that the private network protocol information appears to the public network as data. Tunneling
+allows the use of the Internet, which is a public network, to convey data on behalf of a private network.
+
+message semantics:
+synchronous/asynchronous, request/reply, transactional, publish/subscribe and guaranteed delivery.
+ The choice of protocol should depend on messaging requirements, for example a common requirement
+is point-to-point versus one-to-many, which drives the request/reply or publish/subscribe decision.
+ Another example would be a fast message producer paired with a slow message consumer, which is easily
+ implemented with a message queue.
+
+business intelligence
+(BI) systems take vast quantities of data and put it into visually useful forms (such as graphs and charts)
+for sophisticated analysis of business trends.
+++
+Business Intelligence (BI) refers to computer-based techniques used in spotting, digging-out, and
+analyzing business data, such as sales revenue by products and/or departments or associated costs and incomes
+
+codec: encodes a signal for transmission and storage, decodes it for playback.
+converts an analog signal into a digital siginal for transmission and storage.
+converts a digital signal back to an analog signal for playback.
+
+Secure Shell or SSH is a network protocol that allows data to be exchanged using a secure channel
+between two networked devices.
+
+in the scheme of things:
+in a general view of the situation
+e.g., A two-week delay will not matter in the overall scheme of things.
+
+stovepipe system is a legacy system  that is an assemblage of inter-related elements that are
+so tightly bound together that the individual elements cannot be differentiated, upgraded or refactored.
+The stovepipe system must be maintained until it can be entirely replaced by a new system.
+
+domain specific language
+a computer language targeted to a particular kind of problem.
+Internal DSL: ways of using a host language to give the host language the feel of a particular language
+External DSLs have their own custom syntax and you write a full parser to process them
+
+Sisyphean: like Sisyphus (punished to roll a stone uphill over and over again)
+endless and toilsome, useless, etc.: a Sisyphean task
+
+cache:
+a component that improves performance by transparently storing data such that future requests for
+that data can be served faster.
+
+thrashing: a condition where the computer spends most of the time transferring pages
+between disk and physical memory and little time doing actual work.
+
+WPF:
+is a graphical subsystem for rendering user interfaces in Windows-based applications.
+WPF, previously known as "Avalon", was initially released as part of .NET Framework 3.0.
+ Rather than relying on the older GDI subsystem, WPF utilizes DirectX. WPF attempts to provide
+a consistent programming model for building applications and provides a clear separation between the user interface and the business logic.
+WPF employs XAML, a derivative of XML, to define and link various UI elements
+
+Windows Forms
+is the name given to the graphical application programming interface (API) included as a
+part of Microsoft's .NET Framework, providing access to the native Microsoft Windows interface
+elements by wrapping the existing Windows API in managed code.
+
+XAML
+Extensible Application Markup Language . is a declarative XML-based language created by Microsoft
+ which is used to initialize structured values and objects.
+
+domain-driven design
+an approach to developing software for complex needs by deeply connecting the implementation to an evolving model of the core business concepts.
+The premise of domain-driven design is the following:
+
+    * Placing the project's primary focus on the core domain and domain logic
+    * Basing complex designs on a model
+    * Initiating a creative collaboration between technical and domain experts to iteratively cut ever closer to the conceptual heart of the problem.
+premise of DDD:
+    * For most software projects, the primary focus should be on the domain and domain logic; and
+    * Complex domain designs should be based on a model.
++++++
+Entity: An object that is not defined by its attributes, but rather by a thread of continuity and its identity.
+Value Object: An object that contains attributes but has no conceptual identity. They should be treated as immutable.
+Aggregate: A collection of objects that are bound together by a root entity, otherwise known as an aggregate root.
+++++++
+we want to build a domain model that captures the problem domain of the system being built, and we’re going to express that understanding in code / software artifacts.
+
+too far off in the future
+
+mixin
+a class that provides a certain functionality to be inherited by a subclass, while not meant for
+instantiation  (the generation of objects of that class). Inheriting from a mixin is not a form of
+ specialization but is rather a means of collecting functionality.
+++ A mixin can also be viewed as an interface with implemented methods.
+--> an interface with an implementation
+
+Action-based (aka Push-based MVC) frameworks: model pushes data to view
+	eg. Struts, Django, Ruby on Rails and Spring MVC
+Component-based (aka Pull-based MVC) frameworks: view pulls data from model/controller
+	eg. Struts2, Lift, Tapestry, JBoss Seam, Wicket and Stripes
+
+inversion of control (dependency injection)
+in the Java EE world, there is the mechanism called the Java Naming and Directory Interfaces (JNDI)
+used to look up internal or external services.
+These could be an enterprise JavaBean, a database, or a message queue. Instead of the developer doing
+all those extra steps to look up internal or external services, the framework does the work and hands
+ to the component or object a reference to that external service. In other words, the service look-up
+responsibility is delegated to the framework.
+
+OOP: a paradigm where real world problems are decomposed into objects that abstract behavior
+and data in a single unit.
+
+AOP is a new technology for separating crosscutting concerns into single units called aspects.
+join point: an execution point in a program
+point cut: specifies criteria that match join points. a way to specify joint points
+advice: a means to specify code to be run at joint points
+--> let you add behavior to your POJO without modifying your code
+---
+1. Aspect: An aspect is a class that implements enterprise application concerns that cut across multiple classes, such as transaction management. Aspects can be a normal class configured through Spring XML configuration or we can use Spring AspectJ integration to define a class as Aspect using @Aspect annotation.
+2. Join Point: A join point is the specific point in the application such as method execution, exception handling, changing object variable values etc. In Spring AOP a join points is always the execution of a method.
+3. Advice: Advices are actions taken for a particular join point. In terms of programming, they are methods that gets executed when a certain join point with matching pointcut is reached in the application. You can think of Advices as Struts2 interceptors or Servlet Filters.
+ --> define the what and when of an aspect
+4. Pointcut: Pointcut are expressions that is matched with join points to determine whether advice needs to be executed or not. Pointcut uses different kinds of expressions that are matched with the join points and Spring framework uses the AspectJ pointcut expression language.Target Object: They are the object on which advices are applied. Spring AOP is implemented using runtime proxies so this object is always a proxied object. What is means is that a subclass is created at runtime where the target method is overridden and advices are included based on their configuration.
+  --> define the where.
+5. AOP proxy: Spring AOP implementation uses JDK dynamic proxy to create the Proxy classes with target classes and advice invocations, these are called AOP proxy classes. We can also use CGLIB proxy by adding it as the dependency in the Spring AOP project.
+6. Weaving: It is the process of linking aspects with other objects to create the advised proxy objects. This can be done at compile time, load time or at runtime. Spring AOP performs weaving at the runtime.
+ --> weaving: the process of applying aspects to a target object to create a new proxied object.
+-- The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect.
+-- aspects help to modularize cross-cutting concerns.
+-- cross-cutting concern: any functionality that affects multiple points of a system.
+-- AOP: an alternative to Inheritance and delegation.
+
+Scaffolding is a meta-programming method of building database-backed software applications. It
+is a technique supported by some model-view-controller frameworks, in which the programmer may
+ write a specification that describes how the application database may be used. The compiler
+uses this specification to generate code that the application can use to create, read, update
+and delete database entries, effectively treating the template as a "scaffold" on which to build
+a more powerful application.
+--> Scafolding is usually some type of code generation where you point it at a database, and the technology creates basic CRUD (create, read, update, delete) screens.
+
+Metaprogramming is the writing of computer programs that write or manipulate other programs
+(or themselves) as their data, or that do part of the work at compile time that would otherwise
+ be done at runtime.
+
+active record pattern
+an approach to accessing data in a database. A database table or view is wrapped into a class.
+ Thus, an object  instance is tied to a single row in the table. After creation of an object,
+ a new row is added to the table upon save. Any object loaded gets its information from the
+database. When an object is updated the corresponding row in the table is also updated. The
+wrapper class implements accessor methods or properties for each column in the table or view.
+
+continuous query
+traditional query: the query result is static, represents a snapshot of db in the past.
+continuous query: the query result is dynamic, updated constantly in real-time.
+++ is ideal for situations in which an application repeats a particular query, and would benefit
+ from always having instant access to the up-to-date result of that query.
+--> a Coherence Continuous Query is a cached query result that never gets out-of-date.
+
+oracle optimizer hints
+all_rows: explicitly chooses the cost-based approach to optimize a statement block with a goal of best throughput (that is, minimum total resource consumption).
+designed to minimize overall machine resources and disk I/O.
+tends to favor full table scans, and is generally used in large data warehouses where immediate response time is not required.
+the downside to this optimization technique that no rows from the query will be available until the entire query has been completed.
+e.g. SELECT /*+ ALL_ROWS */ empno, ename, sal, job FROM emp WHERE empno = 7566;
+
+first_rows: instruct Oracle to optimize an individual SQL statement for fast response.
+ goal is to begin to return rows to the query as quickly as possible, even if it means extra disk I/O.
+use index. has the downside of causing additional I/O within the database as the index nodes are accessed.
+e.g. SELECT /*+ FIRST_ROWS(10) */ empno, ename, sal, job FROM emp WHERE deptno = 20;
+
+Read-consistent queries: Queries that produce consistent results with respect to a
+point in time.
+
+read consistency (oracle)
+
+Statement-Level Read Consistency:
+all the data returned by a single query comes from a single point in time—the time that the query began. Therefore, a query never sees 'dirty' data nor any of the changes made by transactions that commit during query execution.
+-- > Guarantees that the set of data seen by a statement is consistent with respect to a single point in time and does not change during statement execution
+
+Transaction-Level Read Consistency:
+the data returned by all the queries comes from a single point in time
+
+By default, Oracle guarantees statement-level read consistency. The set of data returned by
+ a single query is consistent with respect to a single point in time. However, in some situations,
+ you might also require transaction-level read consistency. This is the ability to run multiple
+queries within a single transaction, all of which are read-consistent with respect to the
+same point in time, so that queries in this transaction do not see the effects of
+intervening committed transactions. If you want to run a number of queries against multiple tables
+ and if you are not doing any updating, you prefer a read-only transaction.
+
+strategy pattern:
+where algorithms are represented as interchangeable objects
+
+software architectural style
+generally refers to "a set of design rules that identify the kinds of components and connectors that may
+be used to compose a system or subsystem.
+
+MVC model 2
+separates the view layer (JSP page, for example) from the controller layer (JavaServer Faces navigation rules or Struts action classes for page flow control).
+
+SQL injection attack
+To protect against SQL injection, user input must not directly be embedded in SQL statements.
+use parameterized statements
+
+The higher the level, the less detail. The lower the level, the more detail.
+higher level of abstraction
+
+should throw exceptions at the same level of abstraction as the method itself.
+
+cross that bridge when one comes to it
+to delay worrying about something that might happen until it actually does happen.
+Let's cross that bridge when we come to it: a way of telling someone not to worry about something that has not happened yet.
+
+aggregate:
+A collection of objects that are bound together by a root entity, otherwise known as an aggregate root.
+ The aggregrate root guarantees the consistency of changes being made within the aggregate by forbidding external objects from holding references to its members.
+An aggregate also defines the boundary for concurrency control
+a unit of business entity
+
+++++++ From DDD +++++++++
+
+    * Services: When an operation does not conceptually belong to any object. Following the natural contours of the problem, you can implement these operations in services. The Service concept is called "Pure Fabrication" in GRASP.
+
+    * Repositories: methods for retrieving domain objects should delegate to a specialized Repository object such that alternative storage implementations may be easily interchanged.
+
+    * Factories: methods for creating domain objects should delegate to a specialized Factory object such that alternative implementations may be easily interchanged.
+
++++++++++++++++++++++++++++++++++++++++
+
+Multiversion concurrency control (abbreviated MCC or MVCC),
+in the database field of computer science, is a concurrency control method commonly used by database management
+systems to provide concurrent access to the database and in programming languages to implement transactional memory.
+For instance, a database will implement updates not by deleting an old piece of data and overwriting it with
+a new one, but instead by marking the old data as obsolete and adding the newer "version."
+
+Test-driven development
+is a software development process that relies on the repetition of a very short development cycle:
+first the developer writes a failing automated test case that defines a desired improvement or new function,
+then produces code to pass that test and finally refactors the new code to acceptable standards.
+++++
+Test-driven development requires developers to create automated unit tests that define code requirements
+(immediately) before writing the code itself. The tests contain assertions that are either true or false.
+Passing the tests confirms correct behavior as developers evolve and refactor the code. Developers often
+use testing frameworks, such as xUnit, to create and automatically run sets of test cases.
++++
+each new feature begins with writing a test
+
+capitalize a cost
+to classify a cost as a long-term investment
+A capitalized cost does not appear on the income statement, but instead appears as a debit on the
+long-term assets account and a credit on the cash account of the balance sheet.
++++
+means to record the amount of an item in a balance sheet account as opposed to the income statement.
+
+mind map
+is a diagram used to represent words, ideas, tasks, or other items linked to and arranged around a
+central key word or idea.
+++
+a graphical method of taking notes
+
+Ishikawa diagrams (also called fishbone diagrams or cause-and-effect diagrams) are diagrams that show
+ the causes of a certain event. Common uses of the Ishikawa diagram are product design  and quality
+ defect prevention, to identify potential factors causing an overall effect. Each cause or reason
+ for imperfection is a source of variation.
+
+SOFEA (Service-Oriented Front-End Architecture) apps, where the backend serves up XML or JSON and
+the frontend client is
+HTML/JavaScript/CSS, Android, iPad or Sony Blu-Ray players.
+
+essential complexity is inherent and unavoidable.
+accidental complexity is caused by the approach chosen to solve the problem
+
+SOA is about loose coupling between systems. loose couping means eliminating implicit dependencies
+between systems and stating all legitimate dependencies in the form of explicit contracts.
+
+desire path (desire line or social trail)
+is a path developed by erosion caused by animal or human footfall. The path usually represents
+the shortest or most easily navigated route between an origin and destination.
+
+long on style but short on subtance
+
+DMZ, or demilitarized zone is a physical or logical subnetwork that contains and exposes an
+ organization's external services to a larger untrusted network, usually the Internet.
+The purpose of a DMZ is to add an additional layer of security to an organization's local area network (LAN);
+ an external attacker only has access to equipment in the DMZ, rather than any other part of the network.
+
+OWSM has two ways of enforcing (or applying) security etc. for a Web Service. Oracle calls
+these Policy Enforcement Points (PEPs). The two types of PEPs are called Gateways and Agents.
++++
+Gateways
+Runs in the OAS and acts as an proxy for all incoming requests. The Gateway inspects the request and
+allows or disallows it to pass-through to the Web Service.
+    * Content routing so which Web Service that is called is based on the content in the message request.
+    * Do not guarantee endpoint-level security, meaning that the communication between a Gateway and a Web Service is not encrypted.
++++
+Agents : security inside containers
+An Agent can either run server side with the actual Web Service or client side with the Web Service client.
+ It can be configured to communicate with the OWSM Policy Manager. If it is, it retrieves its security
+information (the policies to enforce/apply) from the Policy Manager. If the the Policy Manager is disabled,
+ then the Agent will look for a local file that contains the most recently retrieved set of security
+ policies to be enforced/applied.
+---------------
+A client-side Agent would typically be used if the client does not support the security protocols
+needed to consume Web Services -- e.g., encrypting the requests it sends (or portions of the requests),
+ validating signatures on the responses it gets in return, etc. A server-side Agent would typically
+ be used to guarantee endpoint-level security by, for instance, requiring requests it receives to
+be digitally signed, encrypting the responses (or portions of the responses) being returned, etc.
+ These are just examples of a couple of security features that the OWSM Agents support, and is not
+ by any means an exhaustive list.
+---------------
+Gateways are easier to implement than Agents.
+
+transitive closure: another definition
+all the objects that can be reached from a particular root
+
+Correlation Identifier pattern:
+How does a requestor that has received a reply know which request this is the reply for?
+how to know which request the reply is for?
+
+junction table (for many-to-many relationship)
+a junction table is a table that contains common fields from two or more tables. It is
+on the many side of a one-to-many relationship with each of the other tables. Junction
+tables are known under many names, among them cross-reference table, bridge table, join table,
+ map table, intersection table, linking table, many-to-many resolver, link table, or association table.
+
+Idempotent Receiver
+Design a receiver to be an Idempotent Receiver--one that can safely receive the same message multiple times.
+
+MVC
+The model is not a database: the 'model' in MVC is both the data and the business/domain logic needed to manipulate the data in the application.
+he view renders the model into a form suitable for interaction
+A controller accepts input from the user and instructs the model and viewport to perform actions based on that input.
+
+General average
+The law of general average is a legal principle of maritime law according to which all parties
+in a sea venture proportionally share any losses resulting from a voluntary sacrifice of part of the ship or cargo to save the whole in an emergency.
+In the exigencies of hazards faced at sea, crew members often have precious little time in which
+to determine precisely whose cargo they are jettisoning. Thus, to avoid quarrelling that could
+waste valuable time, there arose the equitable practice whereby all the merchants whose cargo
+landed safely would be called on to contribute a portion, based upon a share or percentage,
+to the merchant or merchants whose goods had been tossed overboard to avert imminent peril.
+ While general average traces its origins in ancient maritime law, still it remains part of
+the admiralty law of most countries.
+
+butcher's bill: A count of soldier casualties after a battle, sometimes used for civilians after a large disater.
+
+UML Stereotype
+A Stereotype is there and used to present more information about the artifact which the
+documentation or the Classification of the same into a specific block of artifacts may not give.
+++
+a mechanism to categorize an element in some way. A stereotype name is surrounded by Gulliments symbols <<
+
+TIBCO ADB adapter is a generic database adapter which can be used to connect to different
+ databases from different vendors.
+
+trees - data structures that consist of nodes with optional data elements and one or
+more child pointers/references, and possibly parent pointers, representing a heirarchical or
+ordered set of data elements.
+++++
+a hierarchical data structure with a set of linked nodes.
+where each node has zero or more children nodes and at most one parent node.
++++
+a binary tree is a tree data structure in which each node has at most two child nodes, usually distinguished as "left" and "right".
++++
+a B-tree is a tree data structure that keeps data sorted and allows searches, sequential access,
+insertions, and deletions in logarithmic amortized time. The B-tree is a generalization of
+ a binary search tree in that a node can have more than two children.
+
+graphs - data structures that represent arbitrary relationships between members of any data set,
+ represented as networks of nodes and edges.
++++
+A graph data structure consists mainly of a finite (and possibly mutable) set of ordered pairs, called edges
+ or arcs, of certain entities called nodes or vertices. As in mathematics, an edge (x,y) is said to
+point or go from x to y.
++++
+graph db: stores information as arbitrarily interconnected nodes linked by named relations.
+
+TOAD (Tool for Oracle Application Developers): a db dev and admin tool
+
+a solution stack is a set of software subsystems or components needed to deliver a fully functional solution
+For example, to develop a web application, the designer needs to use an operating system, web server, database and programming language. Another version of a solution stack is operating system, middleware, database, and applications
+One of the many possible solution stacks available is LAMP
+
+dynamic typing: when the majority of its type checking is performed at run-time as opposed to at compile-time
+
+has-a: used to indicate part-whole relationship
+is-a: used to indicate inheritance
+inheritance vs delegation
+
+linked list (when to use it)
+1 . you need constant-time insertions/deletions from the list (such as in real-time computing where time predictability is absolutely critical)
+2. you don't know how many items will be in the list. With arrays, you may need to re-declare and copy memory if the array grows too big
+3. you don't need random access to any elements
+4. you want to be able to insert items in the middle of the list (such as a priority queue)
+array vs linked list
+Arrays have O(1) random access, but are really expensive to add stuff onto or remove stuff from.
+inked lists are really cheap to add or remove items anywhere and to iterate, but random access is O(n).
+++++
+if you want to insert/delete in the middle and you don't want to resize and shift things around.
+
+balanced tree:
+A balanced tree is a tree which is balanced - it has roughly the same height on each of its sub-nodes.
+ A balanced tree will have the lowest possible overall height.
+---
+operations on the tree always are guaranteed to have O(lg n) time, rather than the O(n) time that
+they might have in an unbalanced tree.
+
+O(log n): Finding an item in a sorted array with a binary search or a balanced search tree as well as all operations in a Binomial heap.
+
+Travelling Salesman Problem
+given a list of cities and their pairwise distances, the problem is to find the
+shortest possible route that visits each city exactly once.
+
+method dispatch: the process of mapping a method call to a method implementation.
+--> single dispatch: a method call is dispatched based on the type of the object on which
+the method is called.
+--> multiple dispatch: a method call is dispatched based on multiple pieces of info (typically
+the types of the arguments).
+
+dynamic dispatch
+is the process of mapping a message to a specific sequence of code (method) at runtime.
+This is done to support the cases where the appropriate method cannot be determined at compile-time
+(i.e. statically). Dynamic dispatch is only used for code invocation and not for other binding
+ processes (such as for global variables) and the name is normally only used to describe a language
+ feature where a runtime decision is required to determine which code to invoke.
+
+XSD all element:
+The all element specifies that the child elements can appear in any order and that each child element
+ can occur zero or one time.
+maxOccurs: must be 1
+minOccurs: The value can be 0 or 1
+
+XSLT: With XSLT you can transform XML documents into other formats, like XHTML.
+XQuery is about querying XML data.
+XQuery is designed to query anything that can appear as XML, including databases.
+Linking in XML is divided into two parts: XLink and XPointer.
+XLink and XPointer define a standard way of creating hyperlinks in XML documents.
+
+A "Dear John letter" is a letter written to a husband or boyfriend by his wife or girlfriend to
+inform him their relationship is over, usually because the author has found another lover.
+
+A stalking horse is a person who tests a concept with someone or mounts a challenge against them on
+behalf of an anonymous third party. If the idea proves viable and/or popular, the anonymous figure
+ can then declare their interest and advance the concept with little risk of failure. If the concept
+fails, the anonymous party will not be tainted by association and can either drop the idea completely
+or bide their time and wait until a better moment for launching an attack.
+
+stalking-horse bid
+An initial bid on a bankrupt company's assets from an interested buyer chosen by the bankrupt company.
+ From a pool of bidders, the bankrupt company chooses the stalking horse to make the first bid.
+++
+This method allows the distressed company to avoid low bids on its assets. Once the stalking horse
+has made its bid, other potential buyers may submit competing bids for the bankrupt company's assets.
+ In essence, the stalking horse sets the bar so that other bidders can't low-ball the purchase price.
+
+RESTFul web services: four principles
+    * Use HTTP methods explicitly.
+    * Be stateless.
+    * Expose directory structure-like URIs.
+    * Transfer XML, JavaScript Object Notation (JSON), or both.
+
+a mashup is a web page or application that uses and combines data, presentation or functionality from
+ two or more sources to create new services.
+
+DWR : Direct Web Remoting
+is a Java open source library that helps developers write web sites that include Ajax technology. It allows code in a web browser to use Java functions running on a web server as if those functions were within the browser.
+
+scaffolding code:
+triggers or updateable views which support refactorings
+The attribute(s) and operations required to implement a relationship are often referred to as scaffolding.
+
+inflection point: An event that changes the way we think and act; A moment of dramatic change
+
+Eclipse facet
+Facets define characteristics and requirements for Java EE projects and are used as part
+ of the runtime configuration.
+++
+When you add a facet to a project, that project is configured to perform a certain task,
+ fulfill certain requirements, or have certain characteristics. For example,
+the EAR facet sets up a project to function as an enterprise application by adding
+a deployment descriptor and setting up the project's classpath.
+++++
+facets define additional behavior for a J2EE project
+
+waterline, national Load Line or Plimsoll Line was invented by Samuel Plimsoll,
+ to be positioned amidships, indicating the legal limit to which a ship may be loaded
+for specific water types and temperatures.
+
+deadweight tonnage (DWT)
+is a measure of how much weight a ship is carrying or can safely carry.
+ It is the sum of the weights of cargo, fuel, fresh water, ballast water, provisions,
+passengers, and crew.[1] The term is often used to specify a ship's maximum permissible
+ deadweight, the DWT when the ship is fully loaded so that its Plimsoll line is at the
+point of submersion,
+++
+an expression of a ship's carrying capacity, including the weight of the crew, passengers,
+ cargo, fuel, ballast, drinking water, and stores.
+
++++++++++++++++
+JPA:
+an API for persisting java object in a relational db.
+An entity is a lightweight persistence domain object. Typically an entity represents a table in a r
+elational database, and each entity instance corresponds to a row in that table. The primary programming artifact of an entity is the entity class, although entities can use helper classes.
+++
+The persistent state of an entity is represented either through persistent fields or persistent properties.
+These fields or properties use object/relational mapping annotations to map the entities and entity relationships to the relational data in the underlying data store.
+
+mapped superclass
+A mapped superclass is not a persistent class, but allow common mappings to be defined for its subclasses.
+A mapped superclass has no separate table defined for it.
+
+++++++++++++++++
+
+JPA: setFirstResult()
+The setFirstResult(N) method is used to skip the first "N"  elements from the result set.
+Please note that the counting starts from 0, so if you specify 2 then first 3 records will be skipped.
+JPA: setMaxResults()
+
+Property of programming language
+A property, in some object-oriented programming languages, is a special sort of class member,
+intermediate between a field (or data member) and a method. Properties are read and written like fields,
+ but property reads and writes are (usually) translated to get and set method calls. The field-like syntax
+is said to be easier to read and write than lots of method calls, yet the interposition of method calls
+allows for data validation, active updating (as of GUI visuals), and/or read-only 'fields'. That is,
+ properties are intermediate between member code (methods) and member data (instance variables)
+of the class, and properties provide a higher level of encapsulation than public fields.
+
+rolling upgrade: the nodes in a cluster are upgraded one at a time
+
+Java singleton:
+public enum YourSingleton {
+	INSTANCE;
+
+	public void doStuff(String stuff) {
+		System.out.println("Doing " + stuff);
+	}
+}
+
+++++++++++++++++++++++
+
+Weaving is a technique of manipulating the byte-code of compiled Java classes. The EclipseLink JPA
+persistence provider uses weaving to enhance JPA entities for such things as lazy loading, change tracking,
+ fetch groups, and internal optimizations.
+
+JPA: one to many
+use mappedBy if bidirectional relationship in model
+use @JoinColumn if unidirectional relationship in model.
+use @JoinTable if
+e.g.
+@JoinColumn(name = "CGO_REF", referencedColumnName = "REF_NUM")
+
+@JoinColumn:
+	columnDefinition: not needed
+	name: name of the foreign key column.
+	referencedColumnName: The name of the column referenced by this foreign key column.
+
+one-to-one
+public class Employee {
+  @Id
+  @Column(name="EMP_ID")
+  private long id;
+  ...
+  @OneToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name="ADDRESS_ID")
+  private Address address;
+
+many-to-many
+public class Employee {
+  @Id
+  @Column(name="EMP_ID")
+  private long id;
+  ...
+  @ManyToMany
+  @JoinTable(
+      name="EMP_PROJ",
+      joinColumns={@JoinColumn(name="EMP_ID", referencedColumnName="EMP_ID")},
+      inverseJoinColumns={@JoinColumn(name="PROJ_ID", referencedColumnName="PROJ_ID")})
+  private List<Project> projects;
+
+eclipse perspective:
+A perspective determines the visible actions, views, and view layout
+
+content-addressable storage: a file is retrieved based on its contents, not its storage location.
+when you store a file, the system calculates a content address, which is later used to retrieve the file.
+
+JPA merge
+Usually merge() is used in the following scenario:
+
+    the application loads an object in the first entity manager
+    the object is passed up to the presentation layer
+    some modifications are made to the object
+    the object is passed back down to the business logic layer
+    the application persists these modifications by calling merge() in a second entity manager
+
+Here is the exact semantic of merge():
+
+    if there is a managed instance with the same identifier currently associated with the persistence
+ context, copy the state of the given object onto the managed instance
+    if there is no managed instance currently associated with the persistence context, try to load it
+ from the database, or create a new managed instance
+    the managed instance is returned
+    the given instance does not become associated with the persistence context, it remains detached and
+is usually discarded
+
+Persist takes an entity instance, adds it to the context and makes that instance managed
+(ie future updates to the entity will be tracked)
+
+Merge creates a new instance of your entity, copies the state from the supplied entity, and makes
+ the new copy managed. The instance you pass in will not be managed (any changes you make will not
+ be part of the transaction - unless you call merge again).
+
+================
+
+A QR code (abbreviated from Quick Response code) is a type of matrix barcode (or two-dimensional code)
+can store URL
+
+unicode 0x262f : tai chi symbol
+
+a continuation is an abstract representation of the control state of a computer program.
+Continuations represent execution state that can be re-invoked
+
+cascading: performing the same operation on a dependent object: persist, remove, refresh.
+	should be used in dependent relationships only.
+orphan removal: when a dependent object is removed from a relationship, it will be auto-deleted.
+
+MapReduce
+map: a function that divides work and distributes it to different nodes in a cluster.
+Reduce: collates the work and merges the results into a single value
+---
+the result of the Map computation is a list of key-value pairs
+Reduce then takes each set of values that has the same key and combines them into a single value.
+----
+Map: Do some data processing to every element of a collection (apply the same function to
+every element of a collection)
+Reduce: Iterate over the collection of data produced by the Map step and summarize the results.
+---
+MapReduce is a programming model for parallel processing. it works by breaking the processing
+into two phases: the map phase and the reduce phase.
+in the map phase, the input is divided into smaller chunks and processed.
+in the reduce phase, the answers from the map phase are collected and merged into a single value.
+
+Hadoop: a framework for distributed processing
+
+same-origin policy
+JavaScript communications are restricted to the host serving the web page.
+it means scripts loaded from one site cannot interact with scripts from other sites.
+scripts loaded from one site can only communicate with that particular site.
+XMLHTTPRequest object is allowed to communicate only with URLs within its own domain.
+---
+The same origin policy prevents a document or script loaded from one origin from getting or setting
+properties of a document from another origin.
+---
+same origin policy says that the content loaded from one site is not allowed to interact
+with the content loaded from other sites.
+
+federated network identity
+A network identity scheme involving multiple repositories of identities instead of a
+ central logical identity repository.
+--> It means linking identity information stored across multiple identity management systems.
+---
+network identity
+An identity that is recognized throughout a network, such as the Internet or an enterprise LAN
+---
+Networks, whether wireless or wired, may be loosely associated and coalesced into small groups
+called federations
+----
+Federated networks are composed of several member networks that share some level of trust,
+but member networks retain their own administrative control.
+===
+Federated identity allows users to link identity information between accounts without centrally
+ storing personal information. This enables them to have a singular authentication without having
+to logon with varying usernames and passwords.
+===
+SAML eliminates the need to maintain multiple authentication credentials in multiple locations?
+
+DHTML is a TERM for making interactive web pages.
+DHTML combines HTML, JavaScript, the HTML DOM, and CSS.
+what is the DOM?
+   --  a tree-based model for representing HTML and XML docs
+   --  a language-indepedent API for accessing elements in HTML/XML docs
+   --  a w3c standard
+The HTML DOM is a standard for how to get, change, add, or delete HTML elements.
+The contents of a web page are available to the JS program thru a mechanism called the DOM.
+The DOM is an API by which languauges (such as JS) can access the contents of a web page.
+====
+to make interactive web pages, you need to manipulate the HTML document in the browser.
+the language for doing this is JavaScript.
+To manipulate the HTML document, you manipulate the DOM.
+the Document Object Model is the way JavaScript sees the browser state and the HTML page it contains.
+====
+ AJAX is a way of exchanging data with a server, and updating parts of a web page - without reloading
+ the whole page.
+
+In mathematics, two lines or curves are orthogonal if they are perpendicular at their point of intersection.
+Two vectors are orthogonal if and only if their dot product is zero.
+In computer science, orthogonality has to do with the ability of a language, method, or object to vary without
+side-effects. When two statistics vary independently of each other, they are considered orthogonal.
+
+testing concepts
+===
+Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.
+===
+Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an in memory database is a good example).
+Fake objects act like the real object, but they go about it in a simpler way -- such as a DAO that uses a Map to store data instead of a real database.
+===
+Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test. Stubs may also record information about calls, such as an email gateway stub that remembers the messages it 'sent', or maybe only how many messages it 'sent'.
+Stub objects provide a valid response, but it's static -- no matter what input you pass in, you'll always get the same response.
+===
+Mock objects are used in mock test cases -- they validate that certain methods are called on those objects.
+Mocks are what we are talking about here: objects pre-programmed with expectations which form a
+specification of the calls they are expected to receive.
+Mocks are like stubs on steroids. They also know which methods to call and with what arguments.
+ mock objects are simulated objects that mimic the behavior of real objects in controlled ways.
+--> mock object: simulate the behavior of real objects upon which some code depends.
+---
+stubs enable state verification. you set expectations on mock objects (like which methods will be called)
+mocks enable behavior verification
+--> mock: you create expectations on which methods will be called on the mock objects
+--> mock: represent a series of expectations
+
+Recursion
+In traditional recursion, the typical model is that you perform your recursive calls first,
+and then you take the return value of the recursive call and calculate the result. In this
+ manner, you don't get the result of your calculation until you have returned from every recursive call.
++++
+In tail recursion, you perform your calculations first, and then you execute the recursive call,
+ passing the results of your current step to the next recursive step. This results in the last
+ statement being in the form of "(return (recursive-function params))" (I think that's the syntax
+for Lisp). Basically, the return value of any given recursive step is the same as the return value
+ of the next recursive call.
++++
+Tail Recursion is a specialized type of recursion where there is a guarantee that nothing is
+ left to execute in the function after a recursive call. In other words, the function returns
+ the result of a recursive call.
+====
+A function is tail-recursive if there is nothing left to do in the function after a recursive call.
+===
+A compiler is said to implement tail recursion if it reuses the current stack frame instead of
+creating a new stack frame.
+==
+tail call optimization: the ability to call a function without allocating a new stack frame.
+Can only happen if the called function is in the tail position.
+
+Database sharding: a shared-nothing, horizontal partitioning scheme for large databases.
+A large database is divided into multiple smaller databases. Rows of a table are distributed
+among these smaller databases.
+
+Helper method: a method that can be called from many places to perform some task.
+
+Wrapper class: provide a different way to access another class/object. Scenarios:
+(a) to hide complexity of another class (b) to perform something in a generic way (e.g.,
+ multiple serialization formats using multiple classes). Almost like a facade.
+
+mediator pattern: an object that encapsulates how a set of objects interact
+
+modular arithmetic: where numbers wrap around after they reach a certain value -> modulus
+a = b (mod n) if a-b is an integer multiple of n.
+e.g., 38=14 (mod 12) ; -8=7 (mod 5) ; 2=-3 (mod 5); -3=-8 (mod 5)
+if same sign, a/n and b/n have the same remainder.
+
+remainder: a=qd+r (a=dividend, q=quotient, d=divisor, r=remainder) and |r|<|d|
+that means there are two possible remainders, one negative and the other positive.
+Languages choose the remainder with the same sign as the dividend/divisor.
+
+An inferior planet (closer to the sun than Earth - Mercury and Venus) is said to be "in inferior conjunction" when
+ it is directly between the Earth and the Sun. It is "in superior conjunction" when it is on the opposite side of
+the Sun from the Earth. The superior planets (the six planets farther from the Sun than Earth) are "in conjunction"
+when it is on the opposite side of the Sun from the Earth. A superior planet obviously cannot have an
+inferior conjunction.
+
+New moon: the phase of the moon when the moon passes between the sun and the earth
+New moon (original meaning): the sighting of the first crescent (the time and date depend on the
+location of the observer)
+
+Metonic cycle: 19 years is almost exactly equal to 235 synodic months
+Synodic month: the time between two new moons.
+
+Chinese calendar: 7 intercalary months every 19 years
+
+Network address translation: the process of modifying IP address info in a network packet
+ while the packet is in transit.
+Typical: enable multiple hosts on a private network to access the Internet using a single public IP address.
+
+Port forwarding: a technique for allowing a remote computer to connect to a computer in a private network.
+When configuring port forwarding, the network administrator sets aside one port number on the gateway
+for the exclusive use of communicating with a service in the private network, located on a specific host.
+
+Durian (how to choose)
+1. shake it: if no sound, it is too ripe. hard knock: not ripe enough. dull, subtle knocks: just right
+   should hear some slightly movement.
+2. smell: neither too strong nor too raw
+3. stem: very dry stem means it has been kept for a while. wet stem: fresh
+4. choose one that is shapely rather than round
+
+idempotent capability: network/hw failure can lead to lost messages. Need to resend.
+May send multiple.
+Design services to be idempotent: it means the system can safely accept multiple
+copies of the same message.
+Not all services can be idempotent (increment, decrement)
+----
+An idempotent HTTP method is a HTTP method that can be called many times without different outcomes.
+Safe methods are HTTP methods that do not modify resources.
+
+OOP identity: the property of an object that distinguishes it from other objects.
+is whatever makes an object distinct from other objects.
+What makes up the identity of an object in an object-oriented system? A common answer is "object identity" is defined by being in the same spot in memory, which is called "reference equality" and matches Java's == operator.
+
+state object: an object that stores mutable state and is identified through reference equality
+value object: is always immutable and is identified through value equality.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+concurrency approaches: STM, msg-passing concurrency, dataflow concurrency.
+other concurrency approaches: future/promise/delay, coroutine(??)
+Software transactional memory (STM)
+see the memory as a transactional db (begin/commit/rollback)
+
+actor model of concurrency (message-passing concurrency)
+actor: basic computational unit
+is a lightweight process
+communicate thru messages (sent/received through mailboxes (message queue))
+asynchronous and non-blocking
+no shared state
+
+future/delay/promise: refer to constructs used for synchronizing in some concurrent programming languages. They
+describe an object that acts as a proxy for a result that is initially unknown, usually because the
+computation of its value is yet incomplete. Setting the value of a future is also called resolving,
+fulfilling, or binding it.
+--> a placeholder for something that you will get in the future.
+---> future: an asynchronous task that computes a value for later use.
+--> an object that immediately returns from an asynchronous message call. the future becomes
+the result once the result is available. If you ask for the value of a future before the result
+is available, the process blocks until the value is available.
+--> future: a concurrency construct that allows an asynchronous return before computation is complete.
+--> future: a construct that computes a value asynchronously and represents a value that will become
+available in the future.
+
+coroutine: a coroutine is a subroutine or function that can pause in the middle and return a value. When you
+call it again it picks up right where it was when you paused, environment intact, and keeps on going.
+Coroutines are almost always closures,
+--> coroutines are symmetric units that explicitly activate each other; they do not return, but
+resume each other.
+--> coroutines are threads that are cooperatively scheduled. they yield to each other.
+
+Java: take a threading approach to concurrency.
+A process consists of one or more threads. Threads have their own execution path but share
+resources with other threads in the same process. Shared resources lead to the need for locking.
+To coordinate control between applications sharing resources, threading system require semaphore
+or system-level locks.
+--> threads with shared resources versus shared-nothing processes.
+-> thread of execution: the smallest sequence of programmed instructions that can be managed independently by an operating system scheduler.
+fiber: like thread, share address space, fibers use cooperative multitasking. threads use
+preemptive multitasking. Threads often depend on the kernel's thread scheduler to preempt a busy thread and
+resume another thread; fibers yield themselves to run another fiber while executing.
+--> fiber describe the same concept as coroutine.
+that coroutines are a language-level construct, a form of control flow, while fibers are a systems-level construct, viewed as threads that happen not to run concurrently
+
+dataflow concurrency: a variable can only be assigned once in its lifetime.
+if you read a variable before it is bound, you will block until someone assigns a value to it.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Parallelism refers to physically simultaneous execution. raise your arms in parallel.
+--> requires multiple processing units.
+Concurrency refers to conceptually simultaneous execution. juggling 3 balls (throw/catch one ball at a time).
+--> can be implemented on a single processing unit.
+execution agent: the number of core/CPU.
+
+Global interpreter lock (GIL): is a mutual exclusion lock held by a programming language interpreter
+thread to avoid sharing code that is not thread-safe with other threads
+Some language implementations that implement a Global Interpreter Lock are CPython, the most widely
+used implementation of Python and Ruby MRI, the reference implementation of Ruby (where it is called Global VM Lock).
+
+Typeface: A set of fonts in the same style. Or, in other words, a font family.
+Ex: Times New Roman, Helvetica, or Arial.
+Another acceptable way to refer to a typeface can be a font-family.
+is a set of characters that share common design features.
+====
+Font: A single kind of typeface. Ex: Times New Roman in 10 point size is a font, and
+Times New Roman in 14 point size is also a font. Times New Roman in Bold is also a font.
+(Basically designating a specific type inside of a typeface is a font.)
+----
+Typeface is a broader term that describes the whole set and Font is the specific variation of a typeface.
+====
+Typesetting: the composition of text using types (or sorts: a stored letter in a mechanical system)
+===
+font is the delivery mechanism and a typeface is the creative work.
+font is what you use, and typeface is what you see.
+
+seizure: often used interchaneably with convulsion.
+Convulsions are when a person's body shakes uncontrollably.
+Seizures are episodes of disturbed brain activity that cause changes in attention or behavior.
+
+clojure:
+need to implement an abstraction for an existing , hard-to-modify object:
+adapter (wrapper), monkey patch, multimethod, protocol
+
+clojure: (defn blank? [s] (every? #(Character/isWhitespace %) s))
+
+thread-local storage: a programming method that uses global memory local to a thread.
+====
+normally global variables are shared by all threads in a process. TLS is a mechanism
+where each thread gets a private copy of a global variable.
+----
+normally all threads in a process share the same address space, which is sometimes undesirable.
+In other words, data in a static or global variable is normally always located at the same memory location,
+when referred to by threads from the same process. Variables on the call stack however are local to threads,
+because each thread has its own stack, residing in a different memory location.
+Sometimes it is desirable that two threads referring to the same static or global variable are actually
+referring to different memory locations, thereby making the variable thread local, a canonical example
+being the C error code variable errno.
+
+lexical scope (also called static scoping or static scope) vs dynamic scope:
+ In a lexically scoped language, the scope of an identifier is fixed at compile time to some region in
+the source code containing the identifier's declaration. This means that an identifier is only accessible
+within that region (including procedures declared within it).
+dynamic scope: the scope depends on the nesting of functions at run time.
+Perl and common lisp allow you to choose between static and dynamic scoping.
+Most languages use static scoping
+
+form follows function
+the shape of an object should be based on its intended function or purpose.
+
+Comet is a web application model in which a long-held HTTP request allows a web server to push data to a browser,
+without the browser explicitly requesting it.
+Comet is known by several other names, including Ajax Push, Reverse Ajax, Two-way-web, HTTP Streaming,
+ and HTTP server push among others.
+
+using a persistent or long-lasting HTTP connection between the server and the client.
+The biggest hurdle is the HTTP 1.1 specification, which states that a browser should not have
+more than two simultaneous connections with a web serve
+
+referential transparency:
+-- the same function with the same input will always return the same result.
+a term commonly used in functional programming, means that given a function and an input value, you will always receive the same output.
+With a referential transparent function, given an input and a function, you could replace it with a value instead of calling the function.
+e.g., 5*5 can be replaced by 25.
+referential opaqueness: Calling the function may not always produce the same output.
+
+memoization:
+a memoized function remembers the results for certain input values.
+Subsequent calls with the remembered inputs will just return the remembered result
+instead of recalculating it.
+an optimization technique. optimized for speed in exchange for a higher use of memory.
+memoization is a run-time optimization
+--> means caching the result of a function/method call.
+Can be done if a method always returns the same result for an input value (referential transparency).
+
+forward proxy: takes requests from an internal network and forwards them to the internet.
+reverse proxy: takes requests from the internet and forwards them to servers in an internal network.
+
+static binding: the function call is mapped to the function definition at compile time.
+Dynamic binding: the function call is mapped to the function definition at run time.
+virtual function (C++): declare virtual function if you want dynamic binding.
+
+lexical variable: A lexical variable is a variable that can be referenced only within the lexical scope of the form that establishes that variable; lexical variables have lexical scope. Each time a form creates a lexical binding of a variable, a fresh binding is established.
+
+expression problem:
+how do you extend existing types to new methods and extend existing methods to new types
+without changing existing code
+OR: how do you add new types to existing methods and add new methods to existing types
+without changing existing code
+--> how do you create new types implementing existing interfaces and implement new interfaces
+for existing types without recompiling existing code.
+
+A cons cell is composed of two pointers; the car operation extracts the first pointer, and the cdr operation extracts the second.
+When cons cells are used to implement singly linked lists (rather than trees and other more complicated structures), the car operation returns the first element of the list, while cdr returns the rest of the list. For this reason, the operations are sometimes given the names first and rest or head and tail.
+
+SOLID:
+single responsibility principle, open/closed principle, liskov substitution principle,
+interface segregation, dependency inversion.
+-->
+Single responsibility: a class should have only one responsibility.
+Open/closed: software should be open for extension, but closed for modification (means adding new
+behavior with mininum changes to existing code)
+Liskov substitution: if a program module is using a Base class, then the reference to the Base class can be replaced with a Derived class without affecting the functionality of the program module.
+or: if S is a subtype of T, then objects of type T may be replaced with objects of type S without changing
+the correctness of the program.
+or: objects of a base class can be replaced with objects of a derived class without altering the correctness
+of the program.
+or:  must make sure that the new derived classes just extend without replacing the functionality of old classes. Otherwise the new classes can produce undesired effects when they are used in existing program modules.
+--> Derived types must be completely substitutable for their base types.
+--> BEST: objects should be replaceable by their subtypes
+Interface segregation: a client should not be forced to implement interfaces it does not use.
+--> clients should not have to depend on abstractions they don't use.
+--> it is better to have many small interfaces than one big interface.
+--> BEST: small, specific interfaces are better than monolithic ones.
+Dependency inversion: high-level classes should not depend on low-level classes. both should
+depend on abstractions. For example: Manager class has an inst var of class Worker (bad).
+Should have an inst var of interface IWorker. The Worker class implements IWorker.
+
+Reference equality: == (java)
+Value equality: equals() (java)
+
+reification: a process by which an abstract idea is turned into an object (or data model).
+example:
+functional language: reify the concept of a function abstraction in the form of lambda expression.
+Scheme reifies continuations
+smalltalk: thisContext is a reification of the current executing block.
+
+RDF (resource description framework): a framework for describing web resources, such
+as the title, author, of a web page.
+
+Voltaire quote: perfect is the enemy of good
+Dont let the perfect be the enemy of the good
+
+POST vs PUT:
+post: not idempotent. Post to example/users since you dont know the ID of the new object and youre asking the syetem to create one.
+put: idempotent. Post to example/users/1234 since you know the ID already (create or update).
+--> An idempotent method means that the result of a successful performed request is independent of the number of times it is executed
+
+a fixed point of a function is a point that is mapped to itself by the function.
+a value that, when given to a function, return itself.
+e.g. 1 = sqrt(1). 1 is a fixed point of the sqrt() function.
+--> a fixed-point combinator is a higher-order function that computes a fixed point of other functions
+
+turing machine: a device that manipulates symbols on a strip of tape according to some rules.
+
+turning complete: if I say something is turing complete, it means in principle it can be used
+to solve any computational problem.
+
+formal parameter: a reference variable declared in a function definition.
+actual argument: the value you pass into a function.
+
+Wi-fi
+802.11a -> 5GHz
+802.11b/g -> 2.4GHz
+802.11n -> 2.4 and 5GHz
+2.4GHz -> used by bluetooth, microwave, remote controlled toys, etc
+
+CAP theorem
+It is impossible for a distributed computer system to simultaneously provide all three of the following guarantees:
+Consistency (all nodes see the same data at the same time)
+Availability (all nodes can return data at any time): A guarantee that every request to the system receives a response about whether it was successful or not.
+Partition tolerance (the system continues to operate as a whole even if individual nodes cannot be reached.)
+
+According to the theorem, a distributed system can satisfy any two of these guarantees at the
+same time, but not all three
+
+The easiest way to understand CAP is to think of two nodes on opposite sides of a partition. Allowing at
+least one node to update state will cause the nodes to become inconsistent, thus forfeiting C.
+Likewise, if the choice is to preserve consistency, one side of the partition must
+act as if it is unavailable, thus forfeiting A. Only when nodes communicate is it possible to preserve both
+consistency and availability, thereby forfeiting P.
+
+partition tolerant: distributed
+if a node is disconnected from the rest of the system and it receives a query, it has two options:
+(1) answer the query (available) even though the answer may not be consistent with the rest of the system
+(2) not answer the query (consistent) because the answer may not be consistent
+
+Maintaining strict consistency in a distributed system requires a synchronous coordination of all write operations between the nodes. This principle has two unpleasant side effects: (1) it adds latencies and increases response times; (2) it reduces the overall availability because multiple members must be available at the same time to complete a write operation.
+
+Dropping strict consistency, on the other hand, solves the availability problem and eliminates the increased response time. The basic idea is to reestablish the global consistency after completing the write operation on a subset of the nodes. This approach leaves just one problem unsolved: it is impossible to prevent conflicts if two nodes accept contradictory changes. Consistency is eventually reached by handling conflicts, not by preventing them. In that context, consistency means that all nodes have the same data¿it is not necessarily the correct or best data.
+
+Opposite of ACID:
+BASE: Basically Available Soft-state wht Eventual consistency
+
+Consistency in ACID: means that a transaction pre-serves all the database rules,
+Consistency in CAP refers only to single copy consistency
+
+aliasing: (in signal processing)
+refers to an effect that causes different signals to become indistinguishable (or aliases of one another) when
+sampled. It also refers to the distortion or artifact that results when the signal reconstructed from samples is
+different from the original continuous signal.
+related to digital audio: temporal aliasing
+related to digital images: spatial aliasing
+
+anti-aliasing:
+In computer graphics, antialiasing is a software technique for diminishing jaggies - stairstep-like lines that
+should be smooth. Jaggies occur because the output device, the monitor or printer, doesn't have a high enough
+resolution to represent a smooth line. Antialiasing reduces the prominence of jaggies by surrounding the
+stairsteps with intermediate shades of gray (for gray-scaling devices) or color (for color devices).
+Although this reduces the jagged appearance of the lines, it also makes them fuzzier.
+--> spatial anti-aliasing:
+the technique of minimizing aliasing when representing a high-resolution image at a lower resolution
+
+POSIX (Portable Operating System Interface for UNIX)
+a standard that defines an interface between programs and Unix-like operating systems.
+the purpose is to make it easier to port programs between systems.
+
+prototype language: JavaScript, Io, Lua, Self
+--> use the object, rather than the class, as the basis for object definition
+
+string vs symbol:
+2 strings with the same value can be 2 different objects in memory.
+2 symbols with the same value always refer to the same object in memory.
+String: used to hold data
+symbol: used to name things
+symbol: an identifier consisting of a string of characters.
+Symbols are used to represent names.
+you can have multiple string objects with the same value.
+you cannot have multiple symbol objects with the same value.
+
+power set: a set of all the subsets of a set.
+if set is {a,b,c},
+then power set is { {}, {a}, {b}, {c}, {a, b}, {a, c}, {b, c}, {a, b, c} }
+the power set has 2^n members
+
+library vs framework:
+a library is a set of functions you can call.
+library: you are in control. you call the library.
+framework: fwk is in control. fwk calls your code.
+
+ClassNotFoundException:
+thrown when you try to load a class using its string name and the class cannot be found
+--> Class:forName(), ClassLoader.findSystemClass(), ClassLoader.loadClass()
+NoClassDefFoundError:
+Thrown if the Java Virtual Machine or a ClassLoader instance tries to load in the definition of a class (as part of a normal method call or as part of creating a new instance using the new expression) and no definition of the class could be found. also static initializer. also class visibility problem between class loaders.
+Exception in thread "main" java.lang.NoClassDefFoundError: com/cheok/C
+        at com.cheok.A.main(A.java:17)
+Caused by: java.lang.ClassNotFoundException: com.cheok.C
+
+graceful degradation:
+web page is designed for a particular browser version and would remain presentable or degrade if
+older versions of browsers are used.
+
+progressive enhancement:
+the opposite of graceful degradation.
+divide a web application into 3 components: HTML (structure), CSS (presentation), JavaScript (behavior)
+--> a web design strategy that emphasizes accessibility to all devices, using a layered approach.
+a basic HTML doc is created, geared towards the lowest common denominator of browser s/w functionality.
+
+semantic HTML
+Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in
+webpages rather than merely to define its presentation (look). Semantic HTML is processed by regular web
+browsers as well as by many other user agents. CSS is used to suggest its presentation to human users.
+As an example, recent HTML standards discourage use of the tag <i> in preference of more specific tags
+such as <em> (emphasis); the CSS stylesheet should then specify whether emphasis is denoted by an italic
+font, a bold font, underlining, slower or louder audible speech etc. This is because italics are used for
+purposes other than emphasis,
+--> should not use presentational HTML markup such as <i>, <font>, etc
+
+race condition
+multiple threads access a resource at the same time, leading to unpredictable results.
+
+imperative programming: you tell the computer exactly how to do a job.
+
+binding: the process of assigning parameters based on the inbound arguments.
+destructuring: binding a set of variables to a corresponding set of values.
+--> you take apart a data structure and grab only the pieces that are important to you.
+
+fail-fast vs fail-safe
+fail-fast Iterators fail as soon as they realized that structure of Collection has been changed since
+iteration has begun. Structural changes means adding, removing or updating any element from
+collection while one thread is Iterating over that collection. fail-fast behavior is implemented by
+keeping a modification count and if iteration thread realizes the change in modification count it
+throws ConcurrentModificationException.
+Iterators returned by most of JDK1.4 collection are fail-fast including Vector, ArrayList, HashSet etc
+--
+fail-safe iterator doesn't throw any Exception if Collection is modified structurally
+while one thread is Iterating over it because they work on clone of Collection instead of original
+collection and thats why they are called as fail-safe iterator. Iterator of CopyOnWriteArrayList is an
+example of fail-safe Iterator also iterator written by ConcurrentHashMap keySet is also fail-safe iterator
+and never throw ConcurrentModificationException in Java.
+
+project management triangle
+aka triple constraint. cost, scope, time
+pick any two: fast, good, cheap
+
+buffer overflow
+a program, when writing data to a buffer, overruns the buffer's boundary and overwrites
+adjacent memory. C/C++ has no built-in protection against buffer overflow.
+they do not check that data written to a buffer is within the boundaries of that buffer.
+
+segmentation fault: means a program tries to access a memory location that it
+is not allowed to access.
+
+too far in the future
+
+semantic web: attach meaning to the services and information on the web.
+
+ordered array: fast searching, slow insertion/deletion
+linked list: slow searching, fast insertion/deletion
+tree: fast searching and fast insertion/deletion: O(logN)
+
+spatial locality
+1. data has spatial locality if it is located close together in memory.
+2. data/instruction close to recently accessed data/instruction are likely to be
+accessed in the near future.
+3. the use of data/resource within relatively close storage locations.
+4. the use of data that are located close to one another.
+5. resources that are near one another are likely to be accessed close together in time.
+temporal locality
+1. data has temporal locality if it is accessed at roughly the same time. (or recently accessed)
+2. recently accessed data/instruction are likely to be accessed again in the near future.
+3. the reuse of data/resource within a short time.
+locality of reference = spatial locality and temporal locality
+--> refers to the same data or related storage locations being frequently accessed.
+--> Programs tend to reuse data and instructions they have used recently.
+
+tuple: a fixed-length set of objects
+tuple: an ordered list of elements (like an ordered collection)
+
+In OOP, need to handle this problem: an object can have several different roles.
+C++: multiple inheritance
+Java: interface
+Ruby: mixin
+Scala: trait
+
+dark moon: moon is directly between the sun and the earth. moon is invisible from earth.
+new moon: first crescent (depends on location of observer).
+beginning of islamic, hebrew, hindu calendar month: new moon
+beginning of chinese calendar month: dark moon
+dark moon comes before new moon. chinese 1 comes before islamic 1.
+
+functional programming
+1. programs are made up of functions
+2. a function always returns a value
+3. a function given the same input will always return the same value
+3. functional programs avoid changing state or mutating data (immutability).
+--> functioinal programming: emphasizes the evaluation of function and immutability
+
+list comprehension:
+a syntactic construct for creating a list based on existing lists.
+Smalltalk example: ((1 to: 100) select: [:x|x*x>3]) collect: [:x|2*x]
+--> follows the form of set comprehension:
+a mathematical notation for describing a set by stating the properties that its members must satisfy.
+
+call with current continuation: (call/cc)
+(call/cc F): takes one argument F
+F is expected to be a function that takes one argument C.
+C represents the current continuation. C is a function that takes one argument.
+Invoking C in F will force execution of the program to jump to the point where call/cc was called.
+The argument to C is the return value of call/cc.
+---
+continuation: allow you to save the execution state of your program and later return to the same point.
+
+--> call-with-current-continuation allows you to save the state of a computation, package it up as a data structure, and go off and do something else. Whenever you want, you can restore the old saved state, abandoning the current computation and and picking up where the saved computation left off.
+--> allows you to implement advanced control structures such as backtracking, cooperative multitasking, and custom exception-handling.
+
+backtracking: a general algorithm for finding all (or some) solutions to some computational problem, that
+incrementally builds candidates to the solutions, and abandons each partial candidate c ("backtracks")
+as soon as it determines that c cannot possibly be completed to a valid solution
+--> an attempt to re-satisfy the last satisfied goal when the next goal fails.
+
+--> Securitization is the financial practice of pooling various types of contractual debt such as residential mortgages, commercial mortgages, auto loans or credit card debt obligations and selling said consolidated debt as bonds, pass-through securities, or Collateralized mortgage obligation (CMOs), to various investors. The principal and interest on the debt, underlying the security, is paid back to the various investors regularly.
+--> An asset-backed security is a security whose value and income payments are derived from and collateralized (or "backed") by a specified pool of underlying assets. The pool of assets is typically a group of small and illiquid assets that are unable to be sold individually. Pooling the assets into financial instruments allows them to be sold to general investors, a process called securitization, and allows the risk of investing in the underlying assets to be diversified because each security will represent a fraction of the total value of the diverse pool of underlying assets.
+--> a mortgage-backed security (MBS) is an asset-backed security that represents a claim on the cash flows from mortgage loans through a process known as securitization.
+
+pangram: a sentence that uses every letter of the alphabet at least once.
+e.g. the quick brown fox jumps over the lazy dog.
+
+deadlock: a situation in which two or more competing actions are each waiting for the other to finish, and
+thus neither ever does. processes are stuck due to circular dependencies.
+livelock: similar to a deadlock, except that the states of the processes involved in the livelock constantly
+change with regard to one another, none progressing
+--
+Deadlock describes a situation where two or more threads are blocked forever, waiting for each other.
+--
+Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress.
+
+programming languages by year of creation:
+1957: Fortran
+1958: Lisp
+1959: Cobol
+1964: Basic
+1966: ISWIM (If you See What I Mean)
+1970: Pascal
+1972: Smalltalk, C, Prolog
+1973: ML
+1975: Scheme
+1983: C++
+1984: Common Lisp, Standard ML
+1985: Caml (Categorical Abstract Machine Language)
+1986: Objective-C
+1987: Perl, Erlang
+1988: Tcl
+1990: Haskell
+1991: Python
+1995: Java, PHP, Ruby
+1996: JavaScript, Ocaml
+2000: C#
+2002: Io
+2003: Scala
+2004: Groovy
+2005: F#
+2007: Clojure
+
+autotroph: An organism capable of synthesizing its own food from inorganic substances, using light or chemical energy. Green plants, algae, and certain bacteria are autotrophs.
+heterotroph: An organism that cannot synthesize its own food and is dependent on complex organic substances for nutrition.
+
+erlang atom : self-indicating identifiers
+can I apply this description to smalltalk/ruby symbol or lisp keyword?
+
+force majeure: superior force; unexpected or uncontrollable event
+
+closure: anonymous functions with closed scope
+it carries around the context in which it was defined.
+a block can reference the variables that were in scope when it was defined,
+even if those variables later go out of scope.
+
+jumbo loan: a loan above the conforming loan limit.
+the conforming loan limit is set by Fannie Mae and Freddie Mac, which are
+government-sponsored enterprises that purchase residential mortgages from
+banks, allowing them to free up money to lend more mortgages.
+
+aspect-oriented programming (AOP): allow separation of cross-cutting concerns (logging, transaction,
+security, persistence). In OO code, a behavior is often repeated in multiple classes or spread
+across multiple methods. AOP allows you to abstract this behavior and apply it to classes and methods
+without using inheritance.
+
+homoiconicity: Expressing the language in its own data structures
+code is represented using its own data structure
+
+An Armstrong number is an n-digit number that is equal to the sum of the nth powers of its individual digits.
+example: 371 = 3**3 + 7**3 + 1**3
+
+quine: a program that prints its own source code.
+
+liar paradox: "this sentence is false"
+Quine's paradox: "Yields falsehood when preceded by its quotation" yields falsehood when preceded by its quotation.
+
+hygienic marco: means that variables defined within macro code are renamed, or subject to some other transformation, in order to avoid name clashes with the code surrounding the macro call site.
+
+knapsack problem: a problem in combinatorial optimization: Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. It derives its name from the problem faced by someone who is constrained by a fixed-size knapsack and must fill it with the most valuable items.
+--> Combinatorial optimization is a topic that consists of finding an optimal object from a finite set of objects.
+--> we have a knapsack with a limited capacity. we have a number of items, each of which has a weight
+and a value. the problem is put one or more items in the knapsack such that the we have the maximum value
+without exceeding the capacity of the knapsack.
+====
+knapsack problem: Given a set of items, each with a weight and a value, determine the number of each item to
+include in a collection so that the total weight is less than or equal to a given limit and the
+total value is as large as possible.
+example: given a set of boxes with a weight and an amount of money, which boxes should be chosen to
+maximize the amount of money while still keeping the overall weight under or equal to 15 kg?
+
+clojure: persistent data structure: means that the data structure is immutable, yet has efficient
+non-destructive operations that correspond to the operations on the classical hash table. The word
+efficient means on par with their mutating counterparts.
+
+time complexity: quantifies the amount of time taken by an algorithm.
+commonly expressed using the big O notation.
+constant time: O(1)
+linear time: O(n)
+logarithmic time: O(log n)
+polynomial time: O(n^k). quicksort: O(n^2). Most familiar mathematical operations such as addition, subtraction, multiplication, and division, as well as computing square roots, powers, and logarithms, can be performed in polynomial time. Computing the digits of most interesting mathematical constants, including pi and e, can also be done in polynomial time.
+--> Non-deterministic turing machine: A nondeterministic Turing machine is a "parallel" Turing machine that can take many computational paths simultaneously, with the restriction that the parallel Turing machines cannot communicate.
+--> NP-problem: A problem is assigned to the NP (nondeterministic polynomial time) class if it is solvable in polynomial time by a nondeterministic Turing machine.
+--> NP-hard: A problem is NP-hard if an algorithm for solving it can be translated into one for solving any NP-problem (nondeterministic polynomial time) problem. NP-hard therefore means "at least as hard as any NP-problem," although it might, in fact, be harder.
+--> NP-Complete : A problem which is both NP (verifiable in nondeterministic polynomial time) and NP-hard (any NP-problem can be translated into this problem). Examples of NP-hard problems include the Hamiltonian cycle and traveling salesman problems.
+
+python generator: a function that generates a sequence of values instead of a single value.
+--> a function that stops in the middle, returns a value to the caller, and later on
+picks up where it left off.
+Generators decouple iteration from the code that uses the results of the iteration
+The function only executes on next()
+yield produces a value, but suspends the function
+Function resumes on next call to next()
+One of the most powerful applications of generators is setting up processing pipelines
+When you call a coroutine, nothing happens
+They only run in response to next() and send()
+Generators produce values
+Coroutines tend to consume values
+
+Tell me how you measure me and I will tell you how I behave.
+
+off-side rule: the scope of a block is indicated by its indentation
+
+interview stuff:
+most challenging
+what you learned
+most interesting
+hardest bug
+enjoyed most
+conflicts with teammates
+
+compiler: translate source code into machine language
+linker: combines multiple object files into an an executable program.
+
+abstract data type: defined by the operations that may be performed on it and its implementation is hidden.
+
+Von Neumann architexture: memory that contains data and instructions; and a processing unit.
+processing unit takes instruction and data out of memory, manipuate the data and store the result
+to some memory cells. Repeat.
+two characteristics: sequential step-by-step execution of instructions and mutable data.
+
+orthogonality: means that any composition of the basic primitives should be allowed. This would
+achive the greatest degree of generality.
+
+Dunning-Kruger effect: is a cognitive bias in which unskilled individuals suffer from illusory superiority, mistakenly rating their ability much higher than average.
+--> the miscalibration of the incompetent stems from an error about the self, whereas the miscalibration of the highly competent stems from an error about others
+--> when incompetent people not only fail to realise their incompetence, but consider themselves much more competent than everyone else. Basically, they're too stupid to know that they're stupid.
+--> the incompetent overestimate their ability.
+--> the competent underestimate their ability.
+--> a little knowledge is a dangerous thing
+
+In a web browser, an access key or accesskey allows a computer user immediately to jump to a specific part of a web page via the keyboard.
+
+first sale doctrine: the purchaser of a copyrighted work can resell or give away or destroy the copyrighted work
+without the permission of the copyright owner.
+
+currying: converting a function that takes multiple arguments into a chain of functions that take one argument.
+currying vs partial application
+--> Where partial application takes a function and from it builds a function which takes fewer arguments, currying builds functions which take multiple arguments by composition of functions which each take a single argument.
+
+Java web application: model 1 vs model 2 (two usage patterns for JSP pages)
+Model 1: logic is contained within JSP pages.
+-->
+Model 2 JSP programming
+1. requests from browsers are passed to the controller (servlet)
+2. controller obtains the correct content for display (from model (POJO, beans))
+3. controller then passes content to a view (JSP pages)
+4. view renders the content
+In model 2, logic is in servlet. JSP only renders the content.
+--> Model 1 and Model 2 simply refer to the absence or presence (respectively) of a controller servlet that dispatches requests from the client tier and selects views.
+
+association list: a list where each node is a key-value pair. like a dictionary. search is O(n)
+
+setuid, setgid: allow users to execute a program with the access rights of the program's owner or group.
+Normally, the permission rights of a process is the same as the user who executes the process.
+setuid/setgid allow users to execute programs with temporarily elevated privileges in order to
+perform a specific task.
+Needed for tasks that require higher privileges.
+The user who executes the program gains the privileges of the user who owns the program.
+-->
+Setting the setgid permission on a directory (chmod g+s) causes new files and subdirectories created within it to
+inherit its group ID, rather than the primary group ID of the user who created the file (the owner ID is never
+affected, only the group ID). Newly created subdirectories inherit the setgid bit.
+---
+unix: setuid bit, setgid bit, sticky bit
+sticky bit: chmod +x <dirname> : a file in the dir can only be deleted/renamed by the owner of the file,
+or the owner of the directory, or superuser
+---
+sticky bit: set on a directory.
+if it is set, the only user who can rename or remove any file is the file's owner, the directory's owner,
+or superuser.
+--> Normally, if you have write permssion for a directory, you can rename or remove files not owned by you.
+
+federated database:
+a system in which several databases appear to function as a single entity. Each component database in the system is completely self-sustained and functional. When an application queries the federated database, the system figures out which of its component databases contains the data being requested and passes the request to it. Federated databases can be thought of as database virtualization in much the same way that storage virtualization makes several drives appear as one.
+
+x window primary selection: highlight text with left mouse button, paste with middle button
+x window clipboard: do "Edit/copy" and "Edit/paste" explicitly.
+
+lisp: non-terminating dispatching macro character. example: #
+a character that has an associated table that specifies the function to be called for each character
+that follows the dispatching macro character.
+non-terminating: being treated as a constituent character when it appears in the middle of an extended token.
+
+-- network gateway
+A gateway is a network point that acts as an entrance to another network. On the Internet, a node or stopping point can be either a gateway node or a host (end-point) node. Both the computers of Internet users and the computers that serve pages to users are host nodes. The computers that control traffic within your company's network or at your local Internet service provider (ISP) are gateway nodes.
+In the network for an enterprise, a computer server acting as a gateway node is often also acting as a proxy server and a firewall server. A gateway is often associated with both a router, which knows where to direct a given packet of data that arrives at the gateway, and a switch, which furnishes the actual path in and out of the gateway for a given packet.
+proxy server: receive a request from a computer, request a page from a server on the internet,
+then forwards it to the user.
+firewall: prevent outsiders from accessing a private network and control what outside resources
+firewall: a barrier that controls what kind of data comes into and out of your network
+users can access
+-- SOCKS
+a protocol that a proxy server can use to accept requests from client users in a company's network so that it can forward them across the Internet.
+is a network protocol designed to allow clients to communicate with Internet servers through firewalls.
+
+CMS vs RDBMS (like car vs diesel engine)
+CMS is a full-blown system allowing end-users to view and modify content (articles, media, etc.) in an easy way.
+RDBMS  is a back-end software used to store low-level data.
+CMSes use RDBMSes (like MySQL)
+
+have no truck with sth
+to have nothing to do with something, refuse to become involved with something
+ to want nothing to do with sth
+
+hard link: cannot create a hard link to a directory. cannot cross a file system.
+
+OSI model: a conceptual model that defines the internal functions of a communications system by partitioning
+it into seven layers. think of the layers as an assembly line. At each layer, certain things happen
+to the data that prepare it for the next layer.
+Application set: layer 5,6,7. transport set: 1,2,3,4
+Layer 7 (application): this layer interacts with the OS.
+layer 6 (presentation): Layer 6 takes the data provided by the Application layer and converts it into a standard format that the other layers can understand
+layer 5 (session): Layer 5 establishes, maintains and ends communication with the receiving device.
+layer 4 (transport): This layer maintains flow control of data and provides for error checking and recovery of data between the devices. Flow control means that the Transport layer looks to see if data is coming from more than one application and integrates each application's data into a single stream for the physical network.
+layer 3 (network): The way that the data will be sent to the recipient device is determined in this layer. Logical protocols, routing and addressing are handled here.
+layer 2 (data link): In this layer, the appropriate physical protocol is assigned to the data. Also, the type of network and the packet sequencing is defined.
+layer 1 (physical): This is the level of the actual hardware. It defines the physical characteristics of the network such as connections, voltage levels and timing.
+
+TCP/IP:
+Layer 1: Network Interface - This layer combines the Physical and Data layers and routes the data between devices on the same network. It also manages the exchange of data between the network and other devices.
+Layer 2: Internet - This layer corresponds to the Network layer. The Internet Protocol (IP) uses the IP address, consisting of a Network Identifier and a Host Identifier, to determine the address of the device it is communicating with.
+Layer 3: Transport - Corresponding to the OSI Transport layer, this is the part of the protocol stack where the Transport Control Protocol (TCP) can be found. TCP works by asking another device on the network if it is willing to accept information from the local device.
+Layer 4: Application - Layer 4 combines the Session, Presentation and Application layers of the OSI model. Protocols for specific functions such as e-mail (Simple Mail Transfer Protocol, SMTP) and file transfer (File Transfer Protocol, FTP) reside at this level.
+
+lisp reduce:
+expect 2-arg function
+e.g. (reduce 'func '(1 2 3)) ==> (func (func 1 2) 3)
+
+endorsement: Signing a legal document in a legal capacity.
+To endorse a promissory note as a third-party means the endorser guarantees payment in case the principal borrower defaults.
+
+drawer
+writer of a bill of exchange (check, draft, letter of credit, etc.) who directs the drawee (such as a bank) to
+pay the stated amount to a third party (the payee).
+
+third-party check
+If somebody gives you a check, and you turn it over and write "pay to the order of ____" in order to give it to a
+third party, that makes it a third party check. An example would be using your paycheck to pay for your groceries.
+
+fold, aka reduce, inject (smalltalk)
+example list: [1,2,3], function: +
+left fold: (1+2)+3
+right fold: 1+(2+3)
+
+oracle: RLS (row-level security), VPD (virtual private database)
+restrict access to rows and columns based on a security policy
+
+interior gateway protocol (IGP):
+a protocol for exchanging routing information between gateways (hosts with routers) within an autonomous network (for example, a system of corporate local area networks). two types: Routing Information Protocol (RIP) and the Open Shortest Path First (OSPF) protocol.
+
+exterior gateway protocol (EGP):
+a protocol for exchanging routing information between two neighbor gateway hosts (each with its own router) in a network of autonomous systems. now replaced by border gateway way protocol (BGP).
+
+looking glass server:
+allows you to see routing info.
+a piece of software running as a CGI on an ISP's webserver that allows external users to get a look at routing and network behavior within their network.
+looking glass server:
+allows you to see routing info.
+a piece of software running as a CGI on an ISP's webserver that allows external users to get a look at routing and network behavior within their network.
+example: http://lg.pch.net/cgi-bin/lgform.cgi
+
+Little's law
+The long-term average number of customers in a stable system L is equal to the long-term average effective
+arrival rate, R, multiplied by the average time a customer spends in the system, W; or expressed
+algebraically: L = RW.
+
+It does exactly what it says on the tin
+
+discretionary access control (DAC)
+a means of restricting access to objects based on the identity of subjects and/or groups to which they belong.
+the subject can change the permissions of objects.
+example: unix user and group id
+--> Mandatory Access Control (MAC) is a type of access control in which only the administrator manages the access controls. The administrator defines the usage and access policy, which cannot be modified or changed by users, and the policy will indicate who has access to which programs and files.
+--> mandatory access control (MAC) refers to a type of access control by which the operating system constrains the ability of a subject or initiator to access or generally perform some sort of operation on an object or target.
+--> Role-based access control (RBAC) is a method of regulating access to computer or network resources based on the roles of individual users within an enterprise. In this context, access is the ability of an individual user to perform a specific task, such as view, create, or modify a file. Roles are defined according to job competency, authority, and responsibility within the enterprise.
+
+autoboxing: automatic conversion from primitive types to object wrapper classes.
+example: Character ch = 'a';
+Converting an object of a wrapper type (Integer) to its corresponding primitive (int) value is called unboxing.
+
+NE monsoon (Oct-Mar) , SW monsoon (Apr-Sep)
+
+stream: an ordered sequence of bytes of indeterminate length.
+stream: a source or sink of data (character or byte)
+
+one's complement: a value obtained by inverting all the bits in a binary number.
+two's complement: one's complement + one
+
+firmware: refers to the program and data stored in non-volatile memory.
+it is used to control a device.
+
+Modulation is the process of modifying one or more parameters of a base communications signal such as amplitude, frequency, phase, angle or simply the presence and absence of the signal, for the purpose of encoding information into the signal and transmitting it to a destination.
+
+baseband: means a single signal is transmitted.
+broadband: transmitting multiple signals.
+
+A packet and a frame are both packages of data moving through a network.
+frame: exists at Layer 2 of the OSI Model. (data link layer)
+packet:  exists at Layer 3 of the OSI Model, (network layer)
+
+store-and-forward:  information is sent to an intermediate station where it is kept and sent at a later time to the final destination or to another intermediate station.
+cut-through: method for packet switching systems, wherein the switch starts forwarding a frame (or packet) before the whole frame has been received, normally as soon as the destination address is processed
+
+liveness: A concurrent application's ability to execute in a timely manner is known as its liveness.
+
+crossing the memory barrier (java):
+the copying of data from local memory (registers/cache) to main memory and vice versa.
+when? synchronized, volatile,
+
+java synchronized:
+When one thread is executing a synchronized method for an object, all other threads that invoke synchronized methods for the same object block (suspend execution) until the first thread is done with the object.
+--when a synchronized method exits, it automatically establishes a happens-before relationship with any subsequent invocation of a synchronized method for the same object. This guarantees that changes to the state of the object are visible to all threads.
+----
+
+happens-before relationship:
+is a guarantee that memory written to by statement A is visible to statement B, that is, that statement A completes its write before statement B starts its read
+Memory consistency errors occur when different threads have inconsistent views of what should be the same data.
+---
+happened-before relationship  is a guarantee that memory written to by statement A is visible to statement B,
+that is, that statement A completes its write before statement B starts its read
+---
+Synchronization is built around an internal entity known as the intrinsic lock or monitor lock.
+Every object has an intrinsic lock associated with it. By convention, a thread that needs exclusive and consistent access to an object's fields has to acquire the object's intrinsic lock before accessing them, and then release the intrinsic lock when it's done with them.
+--
+When a thread invokes a synchronized method, it automatically acquires the intrinsic lock for that method's object and releases it when the method returns.
+---
+Allowing a thread to acquire the same lock more than once enables reentrant synchronization.
+-- java synchronized keyword:
+The memory representation in different threads of the object being locked is being synchronized.
+after the synchronized block is completed, all changes made to the locked object are flushed
+to main memory before the lock is released.
+before the synchronized block is entered, all changes to the locked object are read in from main
+memory.
+--> volatile keyword:
+the value seen by a thread is always re-read from main memory before use.
+any changed value is flushed to main memory before the instruction is completed.
+
+je ne sais quoi: a quality that is difficult to express
+je ne sais quoi: I don't know what
+An intangible quality that makes something distinctive or attractive.
+She has a certain je ne sais quoi about her.
+
+SSDP (Simple Service Discovery Protocol)
+is a network protocol based on the Internet Protocol Suite for advertisement and discovery of network services and presence information.
+SSDP is the basis of the discovery protocol of Universal Plug and Play and is intended for use in residential or small office environments.
+Universal Plug and Play (UPnP) is a set of networking protocols that permits networked devices, such as personal computers, printers, Internet gateways, Wi-Fi access points and mobile devices to seamlessly discover each other's presence on the network and establish functional network services for data sharing, communications, and entertainment.
+
+Expose EJB 3 as web services
+exposing stateless session beans as Web services. Java-based clients may access the Web services through JAX-RPC API, while non-Java clients through SOAP 1.1.
+
+salt:
+In cryptography, a salt is random data that are used as an additional input to a one-way function that hashes a password or passphrase.
+nonce is an arbitrary number used only once in a cryptographic communication.
+A rainbow table is a large list of pre-computed hashes for commonly-used passwords.
+
+AES (advanced encryption standard):
+an encryption algorithm used by the US government for  sensitive but unclassified material.
+a replacement for the Data Encryption Standard (DES)
+is a symmetric algorithm (same key for encryption and decryption)
+
+DSA (Digital Signature Algorithm)
+a US government standard for digital signatures.
+RSA : asymmetric algorithm: a public key and a private key
+
+CAPTCHA:
+Completely Automated Public Turing test to tell Computers and Humans Apart",
+a type of challenge-response test used in computing to determine whether or not the user is human
+
+rainbow table:
+a list of pre-computed hashes for commonly used passwords.
+
+prime factors of a positive integer are the prime numbers that divide that integer exactly.
+The process of finding these numbers is called integer factorization, or prime factorization.
+
+one-time pad
+In cryptography, a one-time pad is a system in which a private key generated randomly is used only once to encrypt a message that is then decrypted by the receiver using a matching one-time pad and key.
+--
+work by adding a set of random digits to a message thereby creating a ciphertext that looks random to any eavesdropper. The receiver decodes the message by taking away the same set of random digits to reveal the original message.
+--
+ a crypto algorithm where plaintext is combined with a random key. It is the only known method to perform mathematically unbreakable encryption.
+---
+requirements:
+The key is at least as long as the message or data that must be encrypted.
+The key is truly random (not generated by a simple computer function or such)
+Key and plaintext are calculated modulo 10 (digits), modulo 26 (letters) or modulo 2 (binary)
+Each key is used only once, and both sender and receiver must destroy their key after use.
+There should only be two copies of the key: one for the sender and one for the receiver (some exceptions exist for multiple receivers)
+
+transaction isolation level
+Serializable, Repeatable read (phantom read problem), Read committed (non-repeatable read problem),
+Read uncommitted (dirty read problem)
+--
+non-repeatable read: during a transaction, you get different results when you read a row multiple times.
+phantom read: during a transaction, you get different result sets when you execute a query multiple times.
+===
+oracle isolation level:
+Read Committed Isolation Level :  every query executed by a transaction sees only data committed before the query
+began.
+Serializable Isolation Level: a transaction sees only changes committed at the time the transaction began.
+A serializable transaction operates in an environment that makes it appear as if no other users were modifying data in the database.
+
+certificate authority, or certification authority (CA), is an entity that issues digital certificates.
+a root certificate is either an unsigned public key certificate or a self-signed certificate that identifies the Root Certificate Authority (CA)
+Digital certificates are verified using a chain of trust. The trust anchor for the digital certificate is the Root Certificate Authority (CA).
+
+public key certificate
+an electronic document that uses a digital signature to bind a public key with an identity
+--> The certificate can be used to verify that a public key belongs to an individual.
+In a typical public key infrastructure (PKI) scheme, the signature will be of a certificate authority (CA). In a web of trust scheme, the signature is of either the user (a self-signed certificate) or other users ("endorsements"). In either case, the signatures on a certificate are attestations by the certificate signer that the identity information and the public key belong together.
+--
+digital signature:
+demonstrate the authenticity of a message.  A valid digital signature gives a recipient reason to believe that the message was created by a known sender, such that the sender cannot deny having sent the message (authentication and non-repudiation) and that the message was not altered in transit (integrity).
+-- first : generate private key and a corresponding public key.
+-- A signing algorithm that, given a message and a private key, produces a signature.
+-- A signature verifying algorithm that, given a message, public key and a signature, either accepts or rejects the message's claim to authenticity.
+
+A trapdoor function is a function that is easy to compute in one direction, yet believed to be difficult to compute in the opposite direction (finding its inverse) without special information, called the "trapdoor". Trapdoor functions are widely used in cryptography.
+
+ByteArray stream: allow you to use stream methods to manipulate data in byte arrays.
+Data stream: to read write multi-byte data (int, long, float, etc). a type of filter stream
+
+twin prime: a prime number that differs from another by two: 41, 43.
+Goldbach's conjecture: Every even integer greater than 2 can be expressed as the sum of two primes.
+
+virtualization types:
+1. h/w emulation: VM emulates complete h/w. unmodified guest OS can be run. Bochs, QEMU
+   -> Represents a computer hardware environment in software so that multiple operating systems can be installed on a single computer.
+2. full virtualization: VM emulates "enought" h/w to allow an unmodified guest OS to run.
+   use hypervisor: VMWare workstation
+3. para-virtualization: modified guests (use hypervisor)
+   -> A thin software layer that coordinates access from multiple operating systems to underlying hardware.
+   -> the guest servers are aware of one another?
+4. OS virtualization: OpenVX, Linux-Vserver
+type 1 hypervisor (bare metal): h/w -> hypervisor -> OSs : VMWare ESX, Xen, KVM, Microsoft Hyper-V
+type 2: h/w -> OS -> hypervisor -> OSs (VMWare workstation, Virtualbox)
+type 1 hypervisor: paravirtualization (modified guests) , h/w-assited virtualization (unmodified guests)
+
+greedy match: consumes as much of a string as possible, and then backtracks to attempt to find a match.
+lazy match: consumers a subject string one char at a time. does not backtrack
+possesive match: consumes the entire string in one fell swoop. does not backtrack
+greedy match: take one big bite and spits out one small piece at a time.
+
+A cluster is the smallest logical amount of disk space that can be allocated to hold a file.
+
+weak typing: a variable can be interpreted as something else (C/C++)
+
+PHP: a markup language designed to be embedded into HTML
+
+-->
+needs I can meet
+problems I can solve
+challenges I can rise up
+-->
+
+Conway's law: the architecture of the system matches the organization of the team.
+
+Dietzlers Law for Access
+--> the "80-10-10 Rule" for Access
+you can get 80% of what the customer wants in a remarkably short time. The next 10% of what they want is possible, but takes a lot of effort. The last 10% is flat out impossible because you can't get "underneath" all the tooling and frameworks.
+
+kernel: the part of an O/S that communicates directly to the h/w.
+OS : kernel + utilities (an ensemble of s/w)
+
+A system call is a mechanism that is used by the application program to request a service from the operating system.
+
+java enum: enum.class.getName() -> com.cheok.EnumTest$Day
+java array: array.getClass().getName() -> [Ljava.lang.String;
+
+PrintStream vs PrintWriter:
+PrintStream converts objects to string.
+PrintWriter is better in the sense that it handles multi-byte characters properly.
+
+data mining:
+the extraction of implicit, previously unknown, and potentially useful info from data.
+
+fork (file system):
+File system forks are associated with Apple's Hierarchical File System (HFS). Apple's HFS, and the original Apple Macintosh file system MFS, allowed a file system object to have several kinds of forks: a data fork, a resource fork, and multiple named forks.
+NTFS file system fork is known as alternate data stream.
+example to create: echo "hidden data" > sample.txt:secret.txt
+--> to view: notepad sample.txt:secret.txt
+--> dir /r -> show alternate data streams
+
+full text search that match plurals:
+--> you want apples and apple or daisies and daisy to match
+--> enable stemming: store the base form of the word
+--> use Snowball Analyzer with English Stemmer (lucene)
+--> has to do stemming on both indexing and querying
+--> The important rule for Lucene is: Use the same Analyzer for indexing and query parsing
+
+black box testing:  vulnerability assessment, dynamic testing, run-time analysis
+white box testing: source code review, static analysis
+
+SAST: Static Analysis Software Testing
+DAST: dynamic Analysis Software Testing
+
+Predictable Resource Location:
+ an attack technique used to uncover hidden web site content and functionality by guessing.
+example, q3 report: http://host/2013q3.html, then guess q4: http://host/2013q4.html
+
+Distilling the Essence of Your Value Proposition
+
+Manichean
+Of or relating to a dualistic view of the world, dividing things into either good or evil, light or dark, black or white, involving no shades of gray.
+
+What you do today will be the reputation you have tomorrow
+
+java.io.File: represent filenames, not actual files.
+
+java char: a UTF-16 code point. most of the time, same as a unicode character.
+once in a while, need 2 java chars to represent a unicode character.
+
+Unicode: first 256 : ISO-8859-1
+
+latency: the elapsed time taken to process a work unit
+utilization: the % of available resources that are used to handle work units.
+efficiency: throughput divided by the resources used.
+capacity: the number of work units that can be in flight through the system at any time.
+
+chrestomathy: A selection of literary passages
+
+BEDMAS: brackets, exponents, division, multiplication, addition, subtraction: the order of arithmetic operations
+
+SQL: schema on write
+hadoop: schema on read
+
+hadoop:
+HDFS nodes: NameNode (1), DataNode (many)
+MapReduce nodes: JobTracker (1), TaskTracker (many)
+
+Big data:
+velocity: the rate of incoming data
+variety
+volume
+
+software-defined networking (SDN)
+3 planes of operation:
+management plane: SNMP
+control plane: routing , OSPF (open shortest path first): a router protocol
+data plane:
+
+Switching fabric is the combination of hardware and software that moves data coming in to a network node out by the correct port (door) to the next node in the network.
+
+the primary function of tread on a tire is to divert water from beneath the tire to improve traction and avoid hydroplaning on wet roads
+
+detention relates to the equipment
+demurrage relates to the cargo
+detention is the penalty you pay when you return the container too late
+demurrage is the penalty you pay when the carrier has to keep your cargo for too long.
+
+OLAP
+a category of software tools that provides analysis of data stored in a database. OLAP tools enable users to analyze different dimensions of multidimensional data. For example, it provides time series and trend analysis views. OLAP often is used in data mining.
+--> refer to multi-dimensional analysis of consolidated enterprise data.
+
+Live set: The set of active objects retained by the application at any point in time
+
+ACID: consistency: transactions violating consistency constraints are rejected/aborted
+
+two phase commit variants: presumed-nothing, presumed-abort, presumed-commit
+XA txn: presumed-abort 2PC
+
+key-value db vs document db:
+key-value db: a big hash table, low data complexity
+document db: the db understands the documents in the db. the document contents can be indexed for
+better querying and search
+
+operational data store: store data collected from users, systems.
+usually don't do reporting from operational data store.
+An operational data store (or "ODS") is a database designed to integrate data from multiple sources for additional operations on the data. The data is then passed back to operational systems for further operations and to the data warehouse for reporting.
+
+working set: a set of memory pages that a process requires in a given time period
+
+Oracle:
+SCN: system change number: A database ordering primitive. The value of an SCN is the logical point in time at which changes are made to a database.
+savepoint: A named SCN in a transaction to which the transaction can be rolled back.
+schema: A named collection of database objects, including logical structures such as tables and indexes. A schema has the name of the database user who owns it.
+
+O(1): order 1, constant time
+O(n): order N, linear time
+O(N^2): order N squared, quadratic time
+O(logN): order log N, logarithm time
+O(N!): factorial time
+
+unit test: set up data to support the test.
+test fixture: a known state for running tests. also mean all the things that must be in place in order to run a test.
+examples of fixtures:
+Loading a database with a specific, known set of data
+Erasing a hard disk and installing a known clean operating system installation
+Copying a specific known set of files
+Preparation of input data and set-up/creation of fake or mock objects
+--> end of examples
+
+memory-mapped IO: uses the same address bus to address both memory and I/O devices
+so a memory address can refer to physical RAM or the memory of the I/O device
+
+memory-mapped file I/O: map a file to virtual memory. can access a file as if it were in main memory.
+mmap: memory-mapped file I/O
+
+disk/page cache: the cache of disk pages kept by the operating systems, stored in unused main memory
+
+scalar: one unit of data (vs compound)
+
+clojure: the separation of mutable identity from immutable state value
+clojure: identity is mutable, state is immutable
+keyword: ref: represents a mutable identity with an immutable value.
+
+DSL: a language targeted at a specific problem.
+contains syntax and semantics that model concepts at the same level of abstraction as
+the problem domain.
+a communication medium between developers and business practitioners.
+
+thread: a flow of execution
+
+SQL injection: an attack where the attacker inserts an SQL statement into an entry field for execution.
+cross-site scripting: an attack where the attacker inserts client-side script into a web page.
+The underlying problem is that many Web pages display input that is not validated. If input is not validated, malicious script can be embedded within the input. If a server-side script then displays this non-validated input, the script runs on the browser as though the trusted site generated it.
+
+histogram: used to show distributions of variables while bar charts are used to compare variables
+ it does not make sense to rearrange the bars of a histogram.
+Histograms plot binned quantitative data while bar charts plot categorical data.
+
+demand paging:  is a type of swapping in which pages of data are not copied from disk to RAM until they are needed
+
+java: instanceof , isAssignableFrom
+instanceof -> if true, can be cast to the class
+class Parent {
+  String name;
+}
+
+class Child extends Parent {
+  String name2;
+}
+Child c = new Child();
+c instanceof Child -> true
+c instanceof Parent -> true
+Parent p = new Parent();
+p instanceof Parent -> true
+p instanceof Child -> false
+Parent.isAssignableFrom(Child) -> true
+Child.isAssignableFrom(Parent) -> false
+
+dry-heat cooking: cooking without moisture (includes deep-drying)
+moist-heat cooking: cooking with liquid
+broil and grill: cooking by direct heat. broil: heat from above, grill: heat from below.
+bake and roast: cooking by ambient heat (surround food with hot air). uses indirect heat.
+bake and roast: mostly the same. roast sometimes implies greater heat.
+some uses roast for meat and uses bake for cakes
+caramelization: the browning of carbohydrate such as sugar at temperatures of 300F or higher
+Maillard reaction: the browning of protein in meat.
+
+RDBMS: set-theory-based system implemented as two-dimensinal tables with rows and columns.
+relation: table
+tuple: row
+attribute: column
+
+window functions (oracle: analytic functions):
+-> select dnd_record_id, avg(usage_days) over(partition by dnd_record_id), usage_days from shp_dnd_record;
+window function results do not collapse results per group.
+
+NoSQL:
+columnar (column-oriented) db: data from a given column is stored together.
+by contrast: in RDBMS , data from a given row is stored together
+
+SQL injection: a vulnerability that occurs when a web app takes data from the users and include it
+in an SQL statement without first validating the data.
+cross-site scripting: a vulnerability that occurs when a web app takes data from the users and dynamically include it
+in web pages without first validating the data.
+
+MVC: a design pattern for implementing user interfaces. the controller accepts user input
+and instructs the model/view to act according to that input.
+
+REST: an architectural style where requests and responses represent the current state of
+the system's resources.
+
+Precision is the number of digits in a number. Scale is the number of digits to the right of the decimal point in a number. For example, the number 123.45 has a precision of 5 and a scale of 2.
+
+removing car battery:
+remove negative terminal first: if the tool comes into contact with the terminal and the car, no short circuit.
+don't remove positive first: if the tool comes into contact with the terminal and the car: short circuit
+installing car battery: opposite of removal: positive first.
+
+ThreadLocal:
+every thread that accesses a ThreadLocal variable via its get or set method has its own, independently initialized copy of the variable
+ThreadLocal is a Java class which make instance variable of a class as local to a thread.
+
+queue starvation:
+Its a problem that can occur when scheduling tasks in priority queues if there are too many high priority tasks
+so that lower priority tasks never get scheduled and are just waiting indefinitely. For example, lets say we
+have three queues: high, medium and low priority. Tasks in the high priority one always get processed first.
+Once this queue is empty the tasks from the medium priority queue get processed. Of course the tasks in the
+low priority queue get processed only if the other two queues are empty. If there are too many high and
+medium priority tasks incoming all the time so that the queues never get empty, then the low priority tasks
+are not processed at all.
+-- If high priority processes use up a lot of CPU time, lower priority processes may starve and be
+postponed indefinitely. The situation where a process never gets scheduled to run is called starvation
+
+API vs SPI (service provider interface)
+API: API is the description of classes/interfaces/methods/... that you call and use to achieve a goal
+SPI: SPI is the description of classes/interfaces/methods/... that you extend and implement to achieve a goal
+
+REST principles:
+addressable resource: items are accessible through URI
+uniform interface: resources are accessed using the standard HTTP verbs: GET, POST, PUT, and DELETE
+content negotiation: the client can request different representations of resources, using MIME types
+stateless services
+HATEOAS: hypermedia/hypertest as the engine of application state: hypertest should be used to find
+your way thru the API. The response contains links.
+GET: safe and idempotent
+PUT and DELETE: idempotent but not safe
+POST: not safe and not idempotent
+
+assertion: used to validate that an expected condition is true.
+
+AST: an in-memory representation of source code.
+AST transformation: adding new code into source code before the final byte code is generated.
+
+currying: transforming a multi-argument function into a chain of single-argument functions.
+
+e: maximum possible result when you have 100% continous growth
+
+William Blake: The road of excess leads to the palace of wisdom.
+You never know what is enough until you know what is more than enough.
+
+stunnel: a program that provides SSL/TLS tunneling. it can be used to create a secure
+encrypted connections between programs that do not speak SSL/TLS natively.
+
+grounding: The primary purpose of grounding is to reduce the risk of serious electric shock
+from current leaking into uninsulated metal parts of an appliance
+
+An Internet hosting service is a service that runs Internet servers, allowing organizations and individuals to serve content to the Internet.
+A common kind of hosting is web hosting.
+----
+A virtual private server (VPS) is a virtual machine sold as a service by an Internet hosting service.
+A VPS runs its own copy of an operating system, and customers have superuser-level access to that operating system instance, so they can install almost any software that runs on that OS. For many purposes they are functionally equivalent to a dedicated physical server,
+
+wire-level protocol is a description of the format of the data that is sent across the network as a stream of octets
+
+oracle execution plan:
+access predicate: we are using something to "access" the data - we only "access" relevant data.
+In general - you'll see "access" when using an index for example. We are using the index to "access" only the rows of interest.
+filter predicate: we are getting more data then we need, and we filter it after we get it.
+
+DB join:
+A join combines the output from exactly two row sources, such as tables or views, and returns one row source. The returned row source is the data set.
+
+A join condition compares two row sources using an expression. The join condition defines the relationship between the tables. If the statement does not specify a join condition, then the database performs a Cartesian join (see "Cartesian Joins"), matching every row in one table with every row in the other table.
+
+In general, nested loops joins work best on small tables with indexes on the join conditions.
+
+The optimizer always tries to put the smallest row source first, making it the driving table.
+nested loop:
+ The optimizer determines the driving table and designates it as the outer table.
+ The other table is designated as the inner table.
+ For every row in the outer table, Oracle accesses all the rows in the inner table. The outer loop is for every row in the outer table and the inner loop is for every row in the inner table. The outer loop appears before the inner loop in the execution plan, as follows:
+
+NESTED LOOPS
+  outer_loop
+  inner_loop
+
+hash join: A method for joining large data sets. The database uses the smaller of two data sets to build a hash table on the join key in memory. It then scans the larger data set, probing the hash table to find the joined rows.
+The indexing strategy for a hash join is very different because there is no need to index the join columns. Only indexes for independent where predicates improve hash join performance.
+
+Hash joins can not look up rows from the inner (probed) row source based on values retrieved from the outer (driving) row source, nested loops can.
+When joining table A and B (A being driving table and B being the probed table), then hash joins can not perform index lookups into table B based on the values returned from table A
+
+java volatile keyword: Reads and writes are atomic for all variables declared volatile (including long and double variables).
+--> indicate the var will be modified by multiple threads.
+--> the values will always be read from main memory.
+
+Both CyclicBarrier and CountDownLatch are used to implement a scenario where one Thread waits for one or more Thread to complete there job before starts processing but there is one Difference between CountDownLatch and CyclicBarrier in Java which separates them apart and that is, you can not reuse same CountDownLatch instance once count reaches to zero and latch is open, on the other hand CyclicBarrier can be reused by resetting Barrier, Once barrier is broken.
+
+switch: pole and throw
+pole: the number of circuits controlled by the switch
+throw: the number of connections that can be made by a pole
+   SPST: two terminals
+   SPDT: three terminals
+
+Semantic Versioning
+Given a version number MAJOR.MINOR.PATCH, increment the:
+MAJOR version when you make incompatible API changes,
+MINOR version when you add functionality in a backwards-compatible manner, and
+PATCH version when you make backwards-compatible bug fixes.
+
+fruit: the ripened ovary of flowering plant. fruits have seeds.
+fruit: the mature ovary of a flower, containing the seed
+vegetable is the part of a plant that is edible and does not have a role in the reproductive cycle.
+green bean, cucumber, tomato, green pepper is a fruit
+strawberry: an aggregate accessory fruit, not a berry, the flesh is derived not from the ovary, but from the receptacle that holds the ovary.
+berry: a fleshy fruit produced from a single ovary,
+
+Docker is a container virtualization technology that offers the promise of a more efficient, lightweight approach to application deployment than most organizations are currently implementing. With a traditional virtualization hypervisor like VMware ESX, Microsoft Hyper-V or the open-source Xen and Kernel-based Virtual Machine (KVM) technologies, each virtual machine (VM) needs its own operating system. In contrast, with Docker, applications sit inside a container that resides on a single host operating system, that can serve many containers.
+--  hypervisor abstracts an entire device, containers just abstract the operating system kernel.
+-- container: share OS, and where applicable, bins/libraries
+-- developers can use Docker to pack, ship, and run any application as a lightweight, portable, self sufficient LXC container that can run virtually anywhere
+-- It can get more applications running on the same hardware than other technologies; it makes it easy for developers to quickly create, ready-to-run containered applications; and it makes managing and deploying applications much easier
+
+homograph: same spelling, different sound and meaning: lead/lead, wind/wind, row/row
+homophone: same sound, different spelling and meaning: too/two, flour/flower
+homonym: same sound and spelling, different meaning: bank/bank
+
+firmware: software embedded in hardware for the purpose of controlling the hardware.
+
+device driver: a program that allows the os to communicate with the device.
+
+loop device: a pseudo-device that makes a file accessible as a block device. used to mount a file that contains a filesystem.
+
+ZRAM: Makes a swap device in the RAM. Pages sent here are compressed as they are stored.
+
+Sass: syntactically awesome stylesheet. a CSS preprocessor
+Sass has two syntaxes: (1) the indented syntax (original) (2) SCSS (Sassy cSS)
+
+CSS: selector
+p {...}
+#blah -> id selector
+.classname -> class selector
+p.center -> p element with class=center
+
+padding: extra space inside the border
+margin: extra space outside the border
