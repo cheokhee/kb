@@ -32,5 +32,10 @@ gem 'github-pages'
 3. bundle install #do in the site repository, this command needs the Gemfile file
 
 4. bundle exec jekyll serve
+   To see drafts, add --drafts option
 
 Keeping jekyll up to date: bundle update
+
+
+=== layout ===
+_layouts/default.html + index.html -> generated index.html
