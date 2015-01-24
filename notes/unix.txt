@@ -653,3 +653,15 @@ function get { sed -n "$1,$1p" script_groovy; }
 #truncate the last character
 $ echo test | rev | cut -c2- | rev
 > tes
+
+#file attributes , see man page on chattr
+#make file un-removable
+chattr +i hi
+lsattr hi
+output: ----i--------e-- hi
+rm hi
+rm: cannot remove ‘hi’: Operation not permitted
+chattr -i hi #now can remove file
+
+#show extra debug info
+bash -x <script name>

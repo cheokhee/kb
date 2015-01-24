@@ -8,6 +8,9 @@ others:
 /etc/init.d/rcS
 run scripts in /etc/rc2.d, which links to /etc/init.d
 
+create init-style startup script:
+update-rc.d <name> defaults
+
 read /etc/rc2.d/README
 
 default runlevel in /etc/init/rc-sysinit.conf
@@ -56,3 +59,6 @@ anacron: for desktops and laptops that are not running 24/7
 /etc/anacrontab
 
 run-parts --report /etc/cron.daily
+
+ufw - program for managing a netfilter firewall
+ufw allow 22

@@ -1,0 +1,27 @@
+MBR type hard disk can have a maximum of 4 primary partitions.
+
+HP machine
+Partition #1: System
+Partition #2: C drive
+Partition #3: RECOVERY
+Partition #4: HP_TOOLS
+
+Steps:
+1. copy MBR :
+2. copy HP_TOOLS :
+3. Shrink volume of partition #2 to create space (in Windows7, program: diskmgmt.msc)
+4. Delete HP_TOOLS partition (in Windows7)
+5. Create an extended partition for the unallocated space from partition #2 (in Ubuntu)
+   Use gparted program
+   logical partition #1: ext4
+   logical partition #2: swap
+   logical partition #3: FAT32 , name it HP_TOOLS
+6. Copy HP_TOOLS to logic partition #3 :
+
+Reboot machine:
+F2: diagnostics
+F11: recovery
+Conclusion: HP_TOOLS can run from a logical partition
+
+Assign / to logical partition #1.
+Install Ubuntu from USB drive

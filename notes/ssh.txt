@@ -1,12 +1,12 @@
 create keys:
 
---> ssh-keygen -t dsa
+--> ssh-keygen -t rsa
 
-This will place the private key in ~/.ssh/id_dsa and the public key in ~/.ssh/id_dsa.pub. 
+This will place the private key in ~/.ssh/id_rsa and the public key in ~/.ssh/id_rsa.pub.
 
-Now, append the contents of ~/.ssh/id_dsa.pub to the end of ~/.ssh/authorized_keys on the remote machine.
+Now, append the contents of ~/.ssh/id_rsa.pub to the end of ~/.ssh/authorized_keys on the remote machine.
 For example:
 
- $ cat .ssh/id_dsa.pub | ssh host 'cat >> ~/.ssh/authorized_keys'
+ $ cat .ssh/id_rsa.pub | ssh host 'cat >> ~/.ssh/authorized_keys'
 
 after this, it won't ask for password

@@ -1,0 +1,52 @@
+docker search
+docker pull
+docker info
+
+#list containers
+docker ps [-a]
+
+#remove containers, ID from ps command
+docker rm f50dcfdfac19
+
+#list images
+docker images
+
+#remove images
+docker rmi
+
+#run
+#how to specify image: repository_name:tag
+#sample repository name: learn/tutorial, cheok/ubuntu, 32bit/ubuntu
+#if no tag is specified, use latest
+docker run learn/tutorial echo "Hi"
+docker run -i -t 32bit/ubuntu:14.04 /bin/bash
+
+#show what has changed
+docker diff <container id>
+
+docker inspect <cntr id>
+
+docker events
+
+docker history <image name>
+
+docker kill c8badca79ef5
+
+docker top 91d70c5acea1
+
+docker commit -a="cheok hee" -m="added blah" 91d70c5acea1 cheok/ubuntu:test
+
+#show what you have done
+docker logs <91d70c5acea1>
+
+#delete untagged/dangling images
+docker rmi `docker images -q -f dangling=true`
+
+#delete all images
+docker rmi $(docker images -q)
+
+#kill all running containers
+docker kill $(docker ps -q)
+
+#delete all stopped containers
+docker rm $(docker ps -a -q)

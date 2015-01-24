@@ -7163,3 +7163,7 @@ p.center -> p element with class=center
 
 padding: extra space inside the border
 margin: extra space outside the border
+
+technical debt: the sacrifice of quality for speed
+
+java 8: default methods: interface methods with concrete implementations.

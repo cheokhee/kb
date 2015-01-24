@@ -3,6 +3,11 @@ apt-get clean #don't do autoclean and autoremove
 autoclean and autoremove creates two files in /var/cache/apt: pkgcache.bin, srcpkgcache.bin
 apt-get clean : removes these two files
 
+#clean up in this order
+apt-get autoclean
+apt-get autoremove
+apt-get clean
+
 --show what is used
 update-alternatives --display vim
 
