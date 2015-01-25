@@ -65,6 +65,6 @@ ufw allow 22
 
 sudo visudo #change /etc/sudoers file:
 #allow user cheok to run docker without being prompted for the password
-#seem to work for all commands
+#sudo only ask for password per xterm session
 added this line:
 cheok ALL=(ALL) NOPASSWD: /usr/bin/docker
