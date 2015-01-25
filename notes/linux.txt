@@ -62,3 +62,9 @@ run-parts --report /etc/cron.daily
 
 ufw - program for managing a netfilter firewall
 ufw allow 22
+
+sudo visudo #change /etc/sudoers file:
+#allow user cheok to run docker without being prompted for the password
+#seem to work for all commands
+added this line:
+cheok ALL=(ALL) NOPASSWD: /usr/bin/docker

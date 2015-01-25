@@ -6,6 +6,7 @@
 mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
 
    solution: apt-get install ruby-dev
+   also need the make program, which is in build-essential package
 
 2. jekyll --version
    got error:
@@ -29,7 +30,8 @@ Using jekyll with GitHub Pages
 source 'https://rubygems.org'
 gem 'github-pages'
 
-3. bundle install #do in the site repository, this command needs the Gemfile file
+3. need zlib: install zlib1g-dev package
+   bundle install #do in the site repository, this command needs the Gemfile file
 
 4. bundle exec jekyll serve
    To see drafts, add --drafts option
