@@ -27,6 +27,22 @@ stop tty6 : stop tty6
 /var/spool
 /usr/share
 
+/var/log/syslog
+/var/log/auth.log #sudo log
+/var/log/Xorg.0.log
+/var/log/apport.log
+/var/log/kern.log
+/var/log/wtmp
+/var/log/pm-powersave.log
+/var/log/gpu-manager.log
+/var/log/boot.log
+/var/log/dmesg
+/var/log/udev
+/var/log/dpkg.log
+/var/log/alternatives.log
+/var/log/upstart/
+/var/log/lightdm/
+
 dig: DNS lookup utility
 
 file copy tool: rsync
