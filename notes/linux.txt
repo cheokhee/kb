@@ -68,3 +68,9 @@ sudo visudo #change /etc/sudoers file:
 #sudo only ask for password per xterm session
 added this line:
 cheok ALL=(ALL) NOPASSWD: /usr/bin/docker
+
+#swappiness
+#the smaller the number, the less aggressive linux will swap
+cat /proc/sys/vm/swappiness
+
+/etc/sysctl.conf
