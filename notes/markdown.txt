@@ -1,0 +1,36 @@
+Markdown Cheatsheet
+
+# -> h1
+## -> h2
+### -> h3
+> --> blockquote (at beginning of line, followed by a space)
+*italic* , _italic_
+**bold** , __some bold__
+__*make text bold and italic*__
+
+- item -> unordered list
+* item -> unordered list
+1. item -> ordered list
+`inline` -> html <code>
+[text](https://pages.github.com){:target="_blank"} -> absolute link
+[text](docs/more_words.md) -> relative link
+
+mixing html and markdown: Adding HTML <strong>within your text</strong>
+
+![Step 1](/images/step1.gif "Step 1")
+
+Here is some text before a code block
+
+markdown:
+~~~
+# Code
+def hello
+    puts "Hello Write.app"
+end
+~~~
+output:
+<pre><code># Code
+def hello
+    puts "Hello Write.app"
+end
+</code></pre>

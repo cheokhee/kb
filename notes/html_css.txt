@@ -1,0 +1,9 @@
+<hr/> : horizontal line
+
+<pre> : pre-formatted text, preserves space and line breaks
+
+<code> : computer code
+<kbd> : keyboard input
+<tt> : teletype text
+<samp> : sample text
+<var> : variable
