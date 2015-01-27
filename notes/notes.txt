@@ -6878,6 +6878,9 @@ Big data:
 velocity: the rate of incoming data
 variety
 volume
+--
+big data is right-time business insight and decision making at extreme scale.
+velocity, variety, volume, value, veracity
 
 software-defined networking (SDN)
 3 planes of operation:
