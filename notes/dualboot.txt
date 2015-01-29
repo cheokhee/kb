@@ -7,8 +7,8 @@ Partition #3: RECOVERY
 Partition #4: HP_TOOLS
 
 Steps:
-1. copy MBR :
-2. copy HP_TOOLS :
+1. copy MBR : dd if=/dev/sda of=mbr.backup bs=512 count=1
+2. copy HP_TOOLS : dd if=/dev/sda4 of=hptools.backup bs=512 count=211632
 3. Shrink volume of partition #2 to create space (in Windows7, program: diskmgmt.msc)
 4. Delete HP_TOOLS partition (in Windows7)
 5. Create an extended partition for the unallocated space from partition #2 (in Ubuntu)
@@ -16,7 +16,7 @@ Steps:
    logical partition #1: ext4
    logical partition #2: swap
    logical partition #3: FAT32 , name it HP_TOOLS
-6. Copy HP_TOOLS to logic partition #3 :
+6. Copy HP_TOOLS to logic partition #3 : dd if=hptools.backup of=/dev/sda7 bs=512 count=211632
 
 Reboot machine:
 F2: diagnostics

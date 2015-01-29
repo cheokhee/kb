@@ -6881,6 +6881,7 @@ volume
 --
 big data is right-time business insight and decision making at extreme scale.
 velocity, variety, volume, value, veracity
+it is about the insights that data analytics provide in supporting data-driven decision-making
 
 software-defined networking (SDN)
 3 planes of operation:
@@ -7170,3 +7171,18 @@ margin: extra space outside the border
 technical debt: the sacrifice of quality for speed
 
 java 8: default methods: interface methods with concrete implementations.
+
+SQL union vs union all
+union concatenates the results of two SQL queries:
+example:
+--
+select ref_num from shp_dnd_record where ref_num = '51X4JM9'
+union all select category from shp_dnd_detail where dnd_record_id = 6373409;
+--
+union : remove duplicates
+union all: does not remove duplicates
+---
+Union vs full outer join:
+Union is vertical - rows from table1 followed by rows from table2 (distinct for union, all for union all)
+and both table must have same number of columns with compatible datatypes.
+Full outer join is horizontal. Number of rows in full outer join is max of table1 and table 2 rows and number of columns = table1 columns + table2 columns.

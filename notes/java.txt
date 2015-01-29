@@ -1,3 +1,6 @@
 Regex:
 aString.matches("regex") -> has to match entire string
 
+remove an element while iterating:
+Iterator.remove()
+java 8: coll.removeIf(i -> i.intValue() == 5);

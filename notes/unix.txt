@@ -665,3 +665,18 @@ chattr -i hi #now can remove file
 
 #show extra debug info
 bash -x <script name>
+
+#eval builtin : used in combination with command substitution
+#The args are read and concatenated together into a single command.
+#This command is then  read  and executed by the shell,
+example #1:
+$( echo VAR=value ) -> VAR=value: command not found
+eval $( echo VAR=value ) ->  echo $VAR -> value
+example #2:
+a="ls | more"
+$a ->
+ls: cannot access |: No such file or directory
+ls: cannot access more: No such file or directory
+eval $a -> list files
+
+comm : compare two sorted files line by line
