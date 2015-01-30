@@ -4,3 +4,6 @@ aString.matches("regex") -> has to match entire string
 remove an element while iterating:
 Iterator.remove()
 java 8: coll.removeIf(i -> i.intValue() == 5);
+
+HashMap is not thread-safe but Hashtable is thread-safe
+HashMap allows one null key and null values but Hashtable doesn't allow null key or values.

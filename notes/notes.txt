@@ -7186,3 +7186,28 @@ Union vs full outer join:
 Union is vertical - rows from table1 followed by rows from table2 (distinct for union, all for union all)
 and both table must have same number of columns with compatible datatypes.
 Full outer join is horizontal. Number of rows in full outer join is max of table1 and table 2 rows and number of columns = table1 columns + table2 columns.
+
+bit mask: a value used with bit-wise operators to test, set, or reset the state of individual bits in a bit-wise field value.
+bit vector: a data structure which compactly stores individual bits (boolean values).
+mask: A filter that selectively includes or excludes certain values.
+
+SLA: A contract between a service provider and a customer that specifies the customerÅfs requirements and the providerÅfs commitments.
+
+Thread-safe: A piece of code is thread-safe if it is reentrant or protected from multiple simultaneous executions by some form of mutual exclusion.
+A piece of code is reentrant if it functions correctly during simultaneous execution by multiple threads.
+A subroutine is reentrant, and thus thread-safe, if it only uses variables from the stack, depends only on the arguments passed in,
+and only calls other subroutines with similar properties.
+Thread-safety can be achieved through: (a) reentrancy (b) mutual exclusion (c) thread-local storage (d) atomic operations.
+Thread safety means that an object always maintains a valid state, even when used concurrently by multiple threads. Safe for use by multiple threads.
+
+Instrumentation: the insertion of additional code into a program in order to collect information about program behavior during program execution.
+Useful for dynamic analysis techniques such as assertion checking, coverage analysis, tuning.
+
+Assertion: an expression, if false, indicates an error.
+
+Scalability:
+The ability of a system to accommodate growth.
+Scalability measures the ability of a system to deliver consistent performance while the workload increases
+
+Document Object Model (DOM):
+HTML contents are made available to script code via an object hierarchy called DOM.
