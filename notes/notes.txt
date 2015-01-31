@@ -6658,14 +6658,21 @@ java synchronized:
 When one thread is executing a synchronized method for an object, all other threads that invoke synchronized methods for the same object block (suspend execution) until the first thread is done with the object.
 --when a synchronized method exits, it automatically establishes a happens-before relationship with any subsequent invocation of a synchronized method for the same object. This guarantees that changes to the state of the object are visible to all threads.
 ----
-
 happens-before relationship:
 is a guarantee that memory written to by statement A is visible to statement B, that is, that statement A completes its write before statement B starts its read
 Memory consistency errors occur when different threads have inconsistent views of what should be the same data.
 ---
+a guarantee that state changes made by one thread is visible to all threads.
+---
 happened-before relationship  is a guarantee that memory written to by statement A is visible to statement B,
 that is, that statement A completes its write before statement B starts its read
 ---
+In concurrent programming, a monitor is a synchronization construct that allows threads to have both mutual exclusion and the ability to wait (block) for a certain condition to become true. Monitors also have a mechanism for signalling other threads that their condition has been met.
+--
+monitor : a construct that allows threads to gain exclusive access to an object. it also allows threads to wait (block) for a certain
+condition and to signal other threads that the condition has been met.
+ supports two kinds of thread synchronization: mutual exclusion and cooperation
+----
 Synchronization is built around an internal entity known as the intrinsic lock or monitor lock.
 Every object has an intrinsic lock associated with it. By convention, a thread that needs exclusive and consistent access to an object's fields has to acquire the object's intrinsic lock before accessing them, and then release the intrinsic lock when it's done with them.
 --
@@ -6681,6 +6688,23 @@ memory.
 --> volatile keyword:
 the value seen by a thread is always re-read from main memory before use.
 any changed value is flushed to main memory before the instruction is completed.
+--
+The java.lang.Thread.join() method waits for this thread to die.
+the Java wait/notify mechanism is essentially a way to communicate between threads.
+wait(): release the lock and the thread is suspended.
+wait() is used when you are waiting for some condition that is under the control of another thread.
+Once notification arrives, the JVM wakens the waiting thread, which then tries to reacquire the lock.
+wait() and notify() must be called from a synchronized context to avoid a potential race condition:
+the notify() comes before the wait(). and the waiting thread waits forever.
+race condition detail:
+Thread A tests a condition and discovers it must wait.
+Thread B sets the condition and calls notify() to inform A to resume execution. Because A is not yet waiting, nothing happens.
+Thread A waits, by calling wait().
+Because of the prior notify() call, A waits indefinitely.
+---> wait() and notify() compete for the same lock.
+--
+synchronized method: acquire the monitor for the method's object.
+static synchronized method: acquire the monitor for the Class object.
 
 je ne sais quoi: a quality that is difficult to express
 je ne sais quoi: I don't know what

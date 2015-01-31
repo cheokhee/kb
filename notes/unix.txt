@@ -680,3 +680,18 @@ ls: cannot access more: No such file or directory
 eval $a -> list files
 
 comm : compare two sorted files line by line
+
+regexp:
+1. positive lookahead: match a pattern followed by something else
+t(?=s) : match the second t in streets
+
+2. negative lookahead: match a pattern not followed by something else
+t(?!s) : match the first t in streets
+
+3. positive lookbehind: match a pattern preceeded by something else
+(?<=s)t : match the first t in streets
+
+4. negative lookbehind: match a pattern not preceeded by something else
+(?<!s)t : match the second t in streets
+another example:
+(?<!c)ie : i before e except after c (matches ie not preceeded by c)
