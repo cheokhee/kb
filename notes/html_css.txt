@@ -14,3 +14,15 @@
 	<base target="_blank">
     <meta charset="utf-8" />
   </head>
+
+style sheet precedence:
+1. author style sheet
+2. user style sheet
+3. user agent style sheet (user agent: browser, or any program that accesses web pages)
+
+how to resolve conflicting properties for an element?
+1. where does it come from? style sheet precedence (see above)
+2. !important : add more weight to a declaration
+3. The more specific a selector is, the more precedence it will get.
+4. sort the rules by the order they were defined. Rules that are defined later in the document
+   tree have higher precedence than those defined earlier. And rules from an imported style sheet are considered before rules directly in the style sheet.

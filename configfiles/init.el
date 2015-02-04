@@ -10,6 +10,7 @@
  '(calendar-longitude -121.9)
  '(column-number-mode t)
  '(cua-delete-selection t)
+ '(cua-enable-cua-keys nil)
  '(cua-mode t nil (cua-base))
  '(cua-remap-control-v nil)
  '(delete-old-versions t)

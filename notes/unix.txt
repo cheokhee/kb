@@ -678,6 +678,18 @@ $a ->
 ls: cannot access |: No such file or directory
 ls: cannot access more: No such file or directory
 eval $a -> list files
+example #3: interesting observations:
+3a:
+HI=ls
+$HI -> execute ls command
+3b:
+HI="ls|more"
+$HI
+ls|more: command not found
+
+conclusion about shell:
+first pass: init variable (VAR=VALUE), expand *, variable, and command substitution (`), identify pipes, and set up re-direction
+second pass: execute the command
 
 comm : compare two sorted files line by line
 
@@ -695,3 +707,53 @@ t(?!s) : match the first t in streets
 (?<!s)t : match the second t in streets
 another example:
 (?<!c)ie : i before e except after c (matches ie not preceeded by c)
+
+$RANDOM: generate random integer : range: 0 - 32767
+echo $RANDOM
+
+seq: print a sequence of numbers
+seq <last>
+seq <first> <last>
+seq <first> <increment> <last>
+
+#the colon command -> equivalent to true
+: is a shell builtin
+example: while :; do echo hi; sleep 2; done
+another usage: execute a command without any output. example:
+: `some_command` #execute a command without any output
+example:
+script name: vecho
+==start
+#!/bin/bash
+if [[ "$VERBOSE" == "" || "$VERBOSE" == "0" ]]; then
+    vecho=":"     # no "verbose echo"
+else
+    vecho=echo    # enable "verbose echo"
+fi
+$vecho "Verbose echo is ON"
+==end
+
+$ ./vecho
+$ VERBOSE=1 ./vecho
+Verbose echo is ON
+========
+another usage: assign default value
+# assign FOO=bar iff FOO is unset
+: ${FOO:=bar}
+
+example:
+# ${HI:=wow} #HI is set to wow
+wow: command not found
+# : ${HI:=wow} #no error msg
+
+==end of colon command
+
+#set a variable for a command only
+VAR=value command
+
+watch #execute a command periodially
+
+inotify: monitor filesystem events
+inotify-tools : command line interface to inotify
+entr - Run arbitrary commands when files change
+incron - cron-like daemon which handles filesystem events

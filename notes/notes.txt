@@ -5776,6 +5776,11 @@ The HTML DOM is a standard for how to get, change, add, or delete HTML elements.
 The contents of a web page are available to the JS program thru a mechanism called the DOM.
 The DOM is an API by which languauges (such as JS) can access the contents of a web page.
 ====
+when the browser renders a web page, it constructs a Document Object Model, a collection of
+objects that represent the HTML elements on the page.
+====
+HTML contents are made available to script code via an object hierarchy called DOM.
+====
 to make interactive web pages, you need to manipulate the HTML document in the browser.
 the language for doing this is JavaScript.
 To manipulate the HTML document, you manipulate the DOM.
@@ -6204,12 +6209,16 @@ Caused by: java.lang.ClassNotFoundException: com.cheok.C
 graceful degradation:
 web page is designed for a particular browser version and would remain presentable or degrade if
 older versions of browsers are used.
+=====
+start with modern browsers and provide workaround for older browsers.
 
 progressive enhancement:
 the opposite of graceful degradation.
 divide a web application into 3 components: HTML (structure), CSS (presentation), JavaScript (behavior)
 --> a web design strategy that emphasizes accessibility to all devices, using a layered approach.
 a basic HTML doc is created, geared towards the lowest common denominator of browser s/w functionality.
+---
+start with older browsers and add new features for modern browsers.
 
 semantic HTML
 Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in
@@ -6392,6 +6401,7 @@ without using inheritance.
 
 homoiconicity: Expressing the language in its own data structures
 code is represented using its own data structure
+Lisp code, its textual representation, is written in the same format as its internal representation (AST). Such a property is called homoiconicity,
 
 An Armstrong number is an n-digit number that is equal to the sum of the nth powers of its individual digits.
 example: 371 = 3**3 + 7**3 + 1**3
@@ -7233,5 +7243,31 @@ Scalability:
 The ability of a system to accommodate growth.
 Scalability measures the ability of a system to deliver consistent performance while the workload increases
 
-Document Object Model (DOM):
-HTML contents are made available to script code via an object hierarchy called DOM.
+diamond problem: the ambiguity that can result from multiple inheritance.
+
+generalization: a relationship between a thing and a more specific kind of that thing.
+
+container (or wrapper) format: define how to store things within them, not what kind of data is stored
+a metafile format whose specification describes how different elements of data and metadata coexist in a computer file.
+--> a metadata format that describes how to store different data elements in a computer file.
+--> does not describe how data is encoded.
+therefore, a program may be able to identify and open a container file, but it
+might not be able to decode the contained data. This may be caused by the program lacking the required decoding algorithm.
+example container formats: MPEG-4 (.mp4), Flash (.flv), Ogg (.ogv), WebM (.webm), Audio Video Interleave (.avi)
+===
+audio coding format:
+is a content representation format for storage or transmission of digital sound (such as in a video file, a sound file, or a bitstream).
+Examples of audio coding formats include MP3, AAC, Vorbis
+MP3: raw audio coding format without a container format
+----
+codec: a device/program capable of encoding/decoding a digital data stream or signal.
+---
+diff between coding format and codec
+coding format: a document (standard), a way of storing data. specification for representing video/audio as a file/bitstream
+codec: a program (an implementation) that can read/write files of a specific coding format.
+---
+video codec: H.264, Theora, VP8
+audio codec: MP3, AAC, Vorbis
+codes/container:
+Theora video and Vorbis audio in an Ogg container
+H.264 and AAC in MP4 container
