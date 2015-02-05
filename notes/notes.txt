@@ -5176,7 +5176,7 @@ Entity: An object that is not defined by its attributes, but rather by a thread 
 Value Object: An object that contains attributes but has no conceptual identity. They should be treated as immutable.
 Aggregate: A collection of objects that are bound together by a root entity, otherwise known as an aggregate root.
 ++++++
-we want to build a domain model that captures the problem domain of the system being built, and weíre going to express that understanding in code / software artifacts.
+we want to build a domain model that captures the problem domain of the system being built, and we are going to express that understanding in code / software artifacts.
 
 too far off in the future
 
@@ -5267,7 +5267,7 @@ point in time.
 read consistency (oracle)
 
 Statement-Level Read Consistency:
-all the data returned by a single query comes from a single point in timeóthe time that the query began. Therefore, a query never sees 'dirty' data nor any of the changes made by transactions that commit during query execution.
+all the data returned by a single query comes from a single point in time when the query began. Therefore, a query never sees 'dirty' data nor any of the changes made by transactions that commit during query execution.
 -- > Guarantees that the set of data seen by a statement is consistent with respect to a single point in time and does not change during statement execution
 
 Transaction-Level Read Consistency:
@@ -6146,7 +6146,7 @@ if a node is disconnected from the rest of the system and it receives a query, i
 
 Maintaining strict consistency in a distributed system requires a synchronous coordination of all write operations between the nodes. This principle has two unpleasant side effects: (1) it adds latencies and increases response times; (2) it reduces the overall availability because multiple members must be available at the same time to complete a write operation.
 
-Dropping strict consistency, on the other hand, solves the availability problem and eliminates the increased response time. The basic idea is to reestablish the global consistency after completing the write operation on a subset of the nodes. This approach leaves just one problem unsolved: it is impossible to prevent conflicts if two nodes accept contradictory changes. Consistency is eventually reached by handling conflicts, not by preventing them. In that context, consistency means that all nodes have the same dataøit is not necessarily the correct or best data.
+Dropping strict consistency, on the other hand, solves the availability problem and eliminates the increased response time. The basic idea is to reestablish the global consistency after completing the write operation on a subset of the nodes. This approach leaves just one problem unsolved: it is impossible to prevent conflicts if two nodes accept contradictory changes. Consistency is eventually reached by handling conflicts, not by preventing them. In that context, consistency means that all nodes have the same data, it is not necessarily the correct or best data.
 
 Opposite of ACID:
 BASE: Basically Available Soft-state wht Eventual consistency
@@ -6309,6 +6309,11 @@ functional programming
 3. a function given the same input will always return the same value
 3. functional programs avoid changing state or mutating data (immutability).
 --> functioinal programming: emphasizes the evaluation of function and immutability
+--> functional programming is programming without assignment statements.
+best practices:
+a function must take at least one argument
+a function must return data or another function
+no loop
 
 list comprehension:
 a syntactic construct for creating a list based on existing lists.
@@ -7225,7 +7230,7 @@ bit mask: a value used with bit-wise operators to test, set, or reset the state 
 bit vector: a data structure which compactly stores individual bits (boolean values).
 mask: A filter that selectively includes or excludes certain values.
 
-SLA: A contract between a service provider and a customer that specifies the customerÅfs requirements and the providerÅfs commitments.
+SLA: A contract between a service provider and a customer that specifies the customer's requirements and the provider's commitments.
 
 Thread-safe: A piece of code is thread-safe if it is reentrant or protected from multiple simultaneous executions by some form of mutual exclusion.
 A piece of code is reentrant if it functions correctly during simultaneous execution by multiple threads.
@@ -7271,3 +7276,15 @@ audio codec: MP3, AAC, Vorbis
 codes/container:
 Theora video and Vorbis audio in an Ogg container
 H.264 and AAC in MP4 container
+
+continuous integration: every check-in is verified by an automated build.
+continuous delivery: every check-in is delivered to a staging area or non-production environment (proven to be deployable)
+continuous deployment: every check-in is deployed to production.
+
+fork-join paradigm:
+In parallel computing, the fork‚Äìjoin model is a way of setting up and executing parallel programs,
+such that execution branches off in parallel at designated points in the program, to "join" (merge) at a subsequent point and resume sequential execution.
+
+koan (software):
+a demonstration of a feature with something missing.
+you provide the missing value to make the test case pass.
