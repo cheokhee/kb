@@ -1731,6 +1731,10 @@ Hobson's choice: : an apparently free choice when there is no real alternative
 : the necessity of accepting one of two or more equally objectionable alternatives
 a free choice in which only one option is offered
 
+each: execute a block of code for each element of a list
+map: apply a function to each element of a list and return a new list of the same size.
+reduce/fold: combine all the elements of a list using a function and return a single value.
+
 MapReduce
 from lisp:
 map:
@@ -7288,3 +7292,29 @@ such that execution branches off in parallel at designated points in the program
 koan (software):
 a demonstration of a feature with something missing.
 you provide the missing value to make the test case pass.
+
+functor
+A functor is a mapping between two categories that preserves their structure.
+an example of a functor is the "map" function that turns a list of objects into another list by applying a function to each of its elements.
+
+Tree traversal
+1. in-order: left, root, right
+2. pre-order: root, left, right
+3. post-order: left, right, root
+pre and post refer to when we visit the root
+in-order: print from smallest to largest
+post-order: depth-first search
+storage order: pre-order
+|-------------------+--------+-------------+-------------|
+|                   | vector | linked list | binary tree |
+|-------------------+--------+-------------+-------------|
+| insert/remove     | O(N)   | O(1)        | O(h)        |
+|-------------------+--------+-------------+-------------|
+| indexing (lookup) | O(1)   | O(N)        | O(h)        |
+|-------------------+--------+-------------+-------------|
+| searching         | O(N)   | O(N)        | O(h)        |
+|-------------------+--------+-------------+-------------|
+====
+N: number of elements; h: height
+full binary tree: N=2^(h+1) - 1
+on average, h=O(logN), tree operation (on average): O(logN)

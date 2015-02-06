@@ -112,8 +112,15 @@ Cheok.ancestors
 
 Object include Kernel module
 
-collection methods: each, collect, select, detect, any?, all?
+collection methods: each, collect (same as map), select, detect, any?, all?
 keysAndValuesDo: use each: key=each[0], value=each[1]
+
+The following are equivalent:
+a = ["hi","hoo"]
+1. a.collect { |x| x.size } => [2, 3]
+2. a.map { |x| x.size } => [2, 3]
+3. a.map(&:size) => [2, 3]
+4. a.collect(&:size) => [2, 3]
 
 irb --simple-prompt -rrbconfig -> -rrbconfig is same as require rbconfig feature
 RbConfig::CONFIG -> a hash containing config info
@@ -154,3 +161,10 @@ output
 4, gggg
 answer:
 given.scan(/((\w)\2*)/).map(&:first).group_by(&:size).max
+
+--view API offline
+1. gem server
+2. then go to http://localhost:8808/
+
+got core doc from http://ruby-doc.org/downloads/
+got other doc from https://rubydocs.org/
