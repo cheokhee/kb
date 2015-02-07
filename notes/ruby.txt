@@ -156,11 +156,30 @@ apt-get install ruby-dev
 
 #Find the character with most consecutive repetitions, in a string
 input
-given = "ssyy fffyy ggggoo"
+given = "ssyy fffyy ggggoo z"
 output
 4, gggg
 answer:
 given.scan(/((\w)\2*)/).map(&:first).group_by(&:size).max
+
+given.scan(/((\w)\2*)/).map(&:first).group_by(&:size) #=> {2=>["ss", "yy", "yy", "oo"], 3=>["fff"], 4=>["gggg"], 1=>["z"]}
+
+String.scan(pattern) method:
+For each match, a result is generated and either added to the result array or passed to the block.
+If the pattern contains no groups, each individual result consists of the matched string, $&.
+If the pattern contains groups, each individual result is itself an array containing one entry per group.
+my comment: if use group in pattern, should group the entire pattern.
+
+a = "cruel world"
+a.scan(/\w+/)        #=> ["cruel", "world"]
+a.scan(/.../)        #=> ["cru", "el ", "wor"]
+a.scan(/(...)/)      #=> [["cru"], ["el "], ["wor"]]
+a.scan(/(..)(..)/)   #=> [["cr", "ue"], ["l ", "wo"]]
+
+b="ssyy fffyy ggggoo z"
+b.scan(/((\w)\2*)/) #=>  [["ss", "s"], ["yy", "y"], ["fff", "f"], ["yy", "y"], ["gggg", "g"], ["oo", "o"], ["z", "z"]]
+
+=========================================
 
 --view API offline
 1. gem server

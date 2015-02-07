@@ -7318,3 +7318,8 @@ storage order: pre-order
 N: number of elements; h: height
 full binary tree: N=2^(h+1) - 1
 on average, h=O(logN), tree operation (on average): O(logN)
+
+A type system is a syntactic method for enforcing levels of abstraction in programs.
+
+Hindley-Milner (or “Damas-Milner”) is an algorithm for inferring value types based on use.
+It literally formalizes the intuition that a type can be deduced by the functionality it supports.
