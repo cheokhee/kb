@@ -7323,3 +7323,8 @@ A type system is a syntactic method for enforcing levels of abstraction in progr
 
 Hindley-Milner (or “Damas-Milner”) is an algorithm for inferring value types based on use.
 It literally formalizes the intuition that a type can be deduced by the functionality it supports.
+
+type safety: does not allow the programmer to treat a value as a type to which it does not belong.
+weak typing: use a value of one type as if it were a value of another type. example: C
+
+8.8.8.8: google DNS server

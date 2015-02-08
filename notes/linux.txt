@@ -90,3 +90,6 @@ cheok ALL=(ALL) NOPASSWD: /usr/bin/docker
 cat /proc/sys/vm/swappiness
 
 /etc/sysctl.conf
+
+iftop : display bandwidth usage on an interface by host
+whois : client for the whois directory service
