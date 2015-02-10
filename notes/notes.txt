@@ -6318,6 +6318,17 @@ best practices:
 a function must take at least one argument
 a function must return data or another function
 no loop
+---
+how you divide up a problem depends on how you put the solutions together.
+FP: provides two new kinds of glue: higher-order functions and lazy evaluation.
+allow greatly improved modularization
+functions that are indivisible in conventional languages can be expressed as a
+combination of functions.
+lazy evaluation: g(f(x)): g() and f() are run in synchronization.
+f() is only started when g() tries to read some input, and only run long
+enough to deliver the output g() is trying to read. Then f() is suspended and g() is run
+until it tries to read another input. f() is terminated as soon as g() is terminated.
+f() can be a non-terminating function.
 
 list comprehension:
 a syntactic construct for creating a list based on existing lists.
@@ -7328,3 +7339,47 @@ type safety: does not allow the programmer to treat a value as a type to which i
 weak typing: use a value of one type as if it were a value of another type. example: C
 
 8.8.8.8: google DNS server
+
+sequence point (C): a point in the program's execution where
+all side effects of previous evaluations are guaranteed to be complete.
+some of the defined sequence points:
+The end of the first operand of the following operators:
+a) logical AND &&
+b) logical OR ||
+c) conditional ?
+d) comma ,
+====
+The end of a full expression. This category includes following expression statements
+a) Any full statement ended with semicolon like “a = b;”
+b) return statements
+c) The controlling expressions of if, switch, while, or do-while statements.
+d) All three expressions in a for statement.
+====
+the operator ‘+’ doesn’t have standard defined order of evaluation for its operands.
+Either operand can be executed first
+
+techniques for solving problems:
+Brute Force:
+example: insertion sort
+Divide and Conquer:
+example: Mergesort and Quicksort
+Greedy Programming:
+Algorithms like Kruskal's and Prim's to find the minimum spanning tree of a graph and Dijkstra's to find the shortest path in a graph are classic examples of the greedy programming technique.
+Dynamic Programming:
+Problems like finding the longest common subsequence between two strings demonstrate one of the hallmarks of dynamic programming: overlapping subproblems that must be solved over and over again.
+
+Dynamic programming:
+Used for optimization problem.
+solve problem by combining solutions to sub-problems.
+sub-problems are not independent.
+solve sub-problem in a bottom-up fashion.
+store solution to a sub-problem
+look up the solution when sub-problem is encountered again.
+in order to use DP, the problem must have two attributes:
+1. principle of optimality (optimal sub-structure):
+in an optimal sequence of decisions, each sub-sequence must be optimal.
+an optimal solution to the problem contains within it optimal solutions to sub-problems.
+2. overlapping sub-problems:
+there exist some places where we solve the same sub-problems more than once.
+----
+vs divide-and-conquer: cannot reuse solutions to sub-problems. non-overlapping sub-problems.
