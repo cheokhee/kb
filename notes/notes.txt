@@ -7383,3 +7383,8 @@ an optimal solution to the problem contains within it optimal solutions to sub-p
 there exist some places where we solve the same sub-problems more than once.
 ----
 vs divide-and-conquer: cannot reuse solutions to sub-problems. non-overlapping sub-problems.
+====
+vs greedy algorithm:
+greedy: make a local optimization. we just pick one solution.a special case of DP
+-> follows local optimization.It tries to choose the solution which is locally optimum at that particular point of time and may not be the globally optimum solution.
+DP: make a global optimization. pick the best solution from a collection of solutions

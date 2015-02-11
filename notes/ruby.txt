@@ -45,6 +45,7 @@ end
 
 ClassName.instance_methods(false) -> return only those defined in ClassName
 ClassName.instance_methods -> return those defined in ClassName and its superclass
+"Hi".methods
 
 variable:
 local: first_name
@@ -187,3 +188,38 @@ b.scan(/((\w)\2*)/) #=>  [["ss", "s"], ["yy", "y"], ["fff", "f"], ["yy", "y"], [
 
 got core doc from http://ruby-doc.org/downloads/
 got other doc from https://rubydocs.org/
+
+inspect method: like printString in Smalltalk
+
+exception: raise, rescue, ensure
+
+'string' : no string interpolation
+"string" : has string interpolation
+
+object individuation: the ability of individual objects to behave differently from other
+objects of the same class.
+
+Proc vs code block
+ruby code block is not an object. code block is part of the syntax of the method call.
+when you provide a code block, you are not sending the block to the method as an argument.
+you are just providing a code block.
+===
+capturing code block as a Proc:
+def call-a-proc(&block)
+  block.call
+end
+--
+call-a-proc { puts "hi" }
+OR
+p = Proc.new { puts "hi" }
+call-a-proc(&p)
+=====
+an instance of Proc is an object:
+--> Proc.new { puts "hi" } ==> #<Proc:0x8cbe7bc@(irb):1>
+--> lambda { puts "hi" } ==> #<Proc:0x8bc1cb0@(irb):2 (lambda)>
+difference:
+return from lambda: exit lambda body
+return from Proc: exit the whole method
+==
+lam = lambda { |x| p x } OR
+lam = ->(x) { p x }
