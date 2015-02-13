@@ -6919,6 +6919,8 @@ capacity: the number of work units that can be in flight through the system at a
 
 chrestomathy: A selection of literary passages
 
+quod est necessarium est licitum: what is necessary is lawful
+
 BEDMAS: brackets, exponents, division, multiplication, addition, subtraction: the order of arithmetic operations
 
 SQL: schema on write
@@ -7063,6 +7065,7 @@ window function results do not collapse results per group.
 
 NoSQL:
 columnar (column-oriented) db: data from a given column is stored together.
+beneficial when you access many rows but only a few columns.
 by contrast: in RDBMS , data from a given row is stored together
 
 SQL injection: a vulnerability that occurs when a web app takes data from the users and include it
@@ -7156,6 +7159,7 @@ nested loop:
  The optimizer determines the driving table and designates it as the outer table.
  The other table is designated as the inner table.
  For every row in the outer table, Oracle accesses all the rows in the inner table. The outer loop is for every row in the outer table and the inner loop is for every row in the inner table. The outer loop appears before the inner loop in the execution plan, as follows:
+--> fetch the result from one table and query the other table for each row from the first
 
 NESTED LOOPS
   outer_loop
@@ -7163,7 +7167,7 @@ NESTED LOOPS
 
 hash join: A method for joining large data sets. The database uses the smaller of two data sets to build a hash table on the join key in memory. It then scans the larger data set, probing the hash table to find the joined rows.
 The indexing strategy for a hash join is very different because there is no need to index the join columns. Only indexes for independent where predicates improve hash join performance.
-
+--> build a hash table from the samller data set, then for each row in the larger data set, probe the hash table for a match.
 Hash joins can not look up rows from the inner (probed) row source based on values retrieved from the outer (driving) row source, nested loops can.
 When joining table A and B (A being driving table and B being the probed table), then hash joins can not perform index lookups into table B based on the values returned from table A
 
@@ -7379,6 +7383,7 @@ in order to use DP, the problem must have two attributes:
 1. principle of optimality (optimal sub-structure):
 in an optimal sequence of decisions, each sub-sequence must be optimal.
 an optimal solution to the problem contains within it optimal solutions to sub-problems.
+--> (best) the optimal solution to a problem consists of optimal solutions to sub-problems.
 2. overlapping sub-problems:
 there exist some places where we solve the same sub-problems more than once.
 ----
@@ -7386,5 +7391,9 @@ vs divide-and-conquer: cannot reuse solutions to sub-problems. non-overlapping s
 ====
 vs greedy algorithm:
 greedy: make a local optimization. we just pick one solution.a special case of DP
+--> make the choice that looks best at the moment. locally optimal choice.
+top-down
 -> follows local optimization.It tries to choose the solution which is locally optimum at that particular point of time and may not be the globally optimum solution.
 DP: make a global optimization. pick the best solution from a collection of solutions
+bottom-up
+globally optimal choice
