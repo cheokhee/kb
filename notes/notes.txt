@@ -7397,3 +7397,9 @@ top-down
 DP: make a global optimization. pick the best solution from a collection of solutions
 bottom-up
 globally optimal choice
+
+hysteresis: the dependence of the output of a system not only on its current input, but also on its
+history of past inputs. The dependence arises because the history affects the value of an internal state.
+--> memory of previous events
+
+Operations transform resource or data inputs into desired goods, services, or results, and create and deliver value to the customers.

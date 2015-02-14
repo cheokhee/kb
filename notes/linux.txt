@@ -67,6 +67,7 @@ change /etc/cron.daily/locate:
 /etc/updatedb.conf:
    add /C to prunepaths
    add vboxsf to prunefs
+DB: /var/lib/mlocate/mlocate.db
 
 consider disabling mlocate cron job
 
@@ -93,3 +94,24 @@ cat /proc/sys/vm/swappiness
 
 iftop : display bandwidth usage on an interface by host
 whois : client for the whois directory service
+
+font cache commands:
+fc-cache
+fc-cat
+fc-list
+fc-match
+fc-pattern
+fc-query
+fc-scan
+fc-validate
+
+fc : shell builtin that display and edits command
+help fc : help is a shell builtin
+
+#show distro info : LSB: linux standard base
+--> lsb_release -a
+output:
+Distributor ID: Ubuntu
+Description:    Ubuntu 14.10
+Release:        14.10
+Codename:       utopic
