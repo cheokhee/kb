@@ -7403,3 +7403,18 @@ history of past inputs. The dependence arises because the history affects the va
 --> memory of previous events
 
 Operations transform resource or data inputs into desired goods, services, or results, and create and deliver value to the customers.
+
+diff between remainder and modulo
+remainder:
+1 % 6 = 1
+-1 % 6 = -1
+1 % -6 = 1
+-1 % -6 = -1
+modulo:
+1 \\ 6 = 1
+-1 \\ 6 = 5
+1 \\ -6 = -5
+-1 \\ -6 = -1
+Conclusion:
+if dividend and divisor have same sign, same answer
+remainder: answer has same sign as dividend
