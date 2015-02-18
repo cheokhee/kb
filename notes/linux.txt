@@ -115,3 +115,22 @@ Distributor ID: Ubuntu
 Description:    Ubuntu 14.10
 Release:        14.10
 Codename:       utopic
+
+partprobe: inform the OS of partition table changes
+
+commands:
+lsattr
+lsblk
+lsb_release
+lscpu
+lsdiff
+lshw
+lsinitramfs
+lslocks
+lsmod
+lsnrctl
+lsof
+lspci
+lspcmcia
+lspgpot
+lsusb

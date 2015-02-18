@@ -201,8 +201,10 @@ objects of the same class.
 
 Proc vs code block
 ruby code block is not an object. code block is part of the syntax of the method call.
+a code block is not an argument.
 when you provide a code block, you are not sending the block to the method as an argument.
 you are just providing a code block.
+if there is a code block, the method can yield to the code block
 ===
 capturing code block as a Proc:
 def call-a-proc(&block)
