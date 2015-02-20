@@ -225,3 +225,6 @@ return from Proc: exit the whole method
 ==
 lam = lambda { |x| p x } OR
 lam = ->(x) { p x }
+
+gem which jekyll -> /var/lib/gems/2.1.0/gems/jekyll-2.5.3/lib/jekyll.rb
+gem env

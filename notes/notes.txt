@@ -6450,6 +6450,7 @@ non-destructive operations that correspond to the operations on the classical ha
 efficient means on par with their mutating counterparts.
 
 time complexity: quantifies the amount of time taken by an algorithm.
+--> quantifies the running time of an algorithm based on the size of the dataset.
 commonly expressed using the big O notation.
 constant time: O(1)
 linear time: O(n)
@@ -7311,6 +7312,10 @@ you provide the missing value to make the test case pass.
 functor
 A functor is a mapping between two categories that preserves their structure.
 an example of a functor is the "map" function that turns a list of objects into another list by applying a function to each of its elements.
+monad
+a pure functional program has these characteristics: executed in no particular order, no side effects, stateless.
+but sometimes we need to do these things.
+monad is a construct that allows you to write imperative-style programs, to maintain state, and to do IO.
 
 Tree traversal
 1. in-order: left, root, right
@@ -7333,6 +7338,7 @@ storage order: pre-order
 N: number of elements; h: height
 full binary tree: N=2^(h+1) - 1
 on average, h=O(logN), tree operation (on average): O(logN)
+height of a tree is a logarithmic function of the # of elements in the tree.
 
 A type system is a syntactic method for enforcing levels of abstraction in programs.
 
@@ -7418,3 +7424,6 @@ modulo:
 Conclusion:
 if dividend and divisor have same sign, same answer
 remainder: answer has same sign as dividend
+
+detention: late fee for overdue containers
+demurrage: fee for returning laden container too early or picking up laden container too late.

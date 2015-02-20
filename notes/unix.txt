@@ -757,3 +757,15 @@ inotify: monitor filesystem events
 inotify-tools : command line interface to inotify
 entr - Run arbitrary commands when files change
 incron - cron-like daemon which handles filesystem events
+
+script:
+====
+#!/bin/bash
+
+for arg; do
+  echo $arg
+done
+====
+./script one two
+one
+two
