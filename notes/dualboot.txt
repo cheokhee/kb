@@ -25,3 +25,10 @@ Conclusion: HP_TOOLS can run from a logical partition
 
 Assign / to logical partition #1.
 Install Ubuntu from USB drive
+
+on office computer:
+gparted hangs because of dell utility partition.
+use fdisk /dev/sda to add new partitions
+format command: mkfs.ext4
+make swap: mkswap
+alternatively, can format during installation.

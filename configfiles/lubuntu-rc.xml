@@ -353,6 +353,13 @@
       </action>
     </keybind>
 
+    <!-- reverse video-->
+    <keybind key="C-A-I">
+      <action name="Execute">
+        <command>xcalib -i -a</command>
+      </action>
+    </keybind>
+
    <!-- Fast access to filemanager -->
    <keybind key="C-A-D">
       <action name="Execute">
@@ -410,6 +417,12 @@
     <keybind key="W-P">
       <action name="Execute">
         <command>wmctrl -x -a leafpad</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-L">
+      <action name="Execute">
+        <command>dm-tool lock</command>
       </action>
     </keybind>
 
