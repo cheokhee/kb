@@ -326,7 +326,7 @@
     </keybind>
 
     <!-- Fast access to leafpad -->
-    <keybind key="C-A-L">
+    <keybind key="C-A-P">
       <action name="Execute">
         <command>leafpad</command>
       </action>
@@ -336,6 +336,27 @@
     <keybind key="C-A-G">
       <action name="Execute">
         <command>google-chrome</command>
+      </action>
+    </keybind>
+
+    <!-- Fast access to firefox -->
+    <keybind key="C-A-F">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
+
+    <!-- Fast access to eclipse -->
+    <keybind key="C-A-L">
+      <action name="Execute">
+        <command>~/eclipse/eclipse</command>
+      </action>
+    </keybind>
+
+    <!-- invert color -->
+    <keybind key="C-A-I">
+      <action name="Execute">
+        <command>xcalib -i -a</command>
       </action>
     </keybind>
 
@@ -350,13 +371,6 @@
     <keybind key="C-A-N">
       <action name="Execute">
         <command>~/bin/current_time</command>
-      </action>
-    </keybind>
-
-    <!-- reverse video-->
-    <keybind key="C-A-I">
-      <action name="Execute">
-        <command>xcalib -i -a</command>
       </action>
     </keybind>
 
@@ -387,6 +401,12 @@
     <keybind key="W-4">
       <action name="Execute">
         <command>wmctrl -x -a chrome</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-5">
+      <action name="Execute">
+        <command>wmctrl -x -a eclipse</command>
       </action>
     </keybind>
 
