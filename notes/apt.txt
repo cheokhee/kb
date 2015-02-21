@@ -41,3 +41,9 @@ multiverse: packages that are not free
 update-manager
 
 apt-get --only-upgrade install google-chrome-stable
+
+apt-get uses ipv6 address: can get slow
+workaround:
+edit /etc/gai.conf
+uncomment this line (#54):
+precedence ::ffff:0:0/96  100
