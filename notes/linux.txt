@@ -16,6 +16,7 @@ read /etc/rc2.d/README
 default runlevel in /etc/init/rc-sysinit.conf
 
 upstart jobs are in /etc/init
+initctl list : list upstart job
 
 /etc/init/ttyN.conf : start a getty process for ttyN
 stop tty6 : stop tty6
