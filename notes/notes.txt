@@ -6329,6 +6329,7 @@ f() is only started when g() tries to read some input, and only run long
 enough to deliver the output g() is trying to read. Then f() is suspended and g() is run
 until it tries to read another input. f() is terminated as soon as g() is terminated.
 f() can be a non-terminating function.
+--> delaying execution until the value is needed
 
 list comprehension:
 a syntactic construct for creating a list based on existing lists.
@@ -7308,10 +7309,12 @@ such that execution branches off in parallel at designated points in the program
 koan (software):
 a demonstration of a feature with something missing.
 you provide the missing value to make the test case pass.
+A koan is a small snippet of almost-correct code,
 
 functor
 A functor is a mapping between two categories that preserves their structure.
 an example of a functor is the "map" function that turns a list of objects into another list by applying a function to each of its elements.
+In Haskell, and in some related pure functional language, Functor is a type class. A type belongs to a type class (or more technically, the type "is an instance of" the type class) when the type provides certain operations with certain expected behavior. A type T can belong to class Functor if it has certain collection-like behavior:
 monad
 a pure functional program has these characteristics: executed in no particular order, no side effects, stateless.
 but sometimes we need to do these things.
@@ -7427,3 +7430,5 @@ remainder: answer has same sign as dividend
 
 detention: late fee for overdue containers
 demurrage: fee for returning laden container too early or picking up laden container too late.
+
+type: a label used by the type system to prove some property of a program's behavior.

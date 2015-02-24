@@ -222,9 +222,19 @@ an instance of Proc is an object:
 difference:
 return from lambda: exit lambda body
 return from Proc: exit the whole method
+diff:
+(1) lambdas are strict argument checkers, like methods, they can throw an ArgumentError exception.
+    Simple procs will just ignore incorrect, extra or fewer argument combinations.
+(2) lambdas act like methods regarding their return status - they can return values just like methods.
+    When you try to return a value from a simple proc you end up with a LocalJumpError.
 ==
 lam = lambda { |x| p x } OR
 lam = ->(x) { p x }
+
+&object is evaluated in the following way:
+if object is a block, it converts the block into a simple proc.
+if object is a Proc, it converts the object into a block while preserving the lambda? status of the object.
+if object is not a Proc, it first calls #to_proc on the object and then converts it into a block.
 
 gem which jekyll -> /var/lib/gems/2.1.0/gems/jekyll-2.5.3/lib/jekyll.rb
 gem env
