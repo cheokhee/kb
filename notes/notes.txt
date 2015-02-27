@@ -7437,3 +7437,8 @@ detention: late fee for overdue containers
 demurrage: fee for returning laden container too early or picking up laden container too late.
 
 type: a label used by the type system to prove some property of a program's behavior.
+a type system is a collection of rules that assign a property called a type to the various
+construct, such as variables, expressions, functions or module.
+Haskell:
+type class is like Java interface?
+a type is an instance of a type class?
