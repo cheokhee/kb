@@ -6461,6 +6461,11 @@ polynomial time: O(n^k). quicksort: O(n^2). Most familiar mathematical operation
 --> NP-problem: A problem is assigned to the NP (nondeterministic polynomial time) class if it is solvable in polynomial time by a nondeterministic Turing machine.
 --> NP-hard: A problem is NP-hard if an algorithm for solving it can be translated into one for solving any NP-problem (nondeterministic polynomial time) problem. NP-hard therefore means "at least as hard as any NP-problem," although it might, in fact, be harder.
 --> NP-Complete : A problem which is both NP (verifiable in nondeterministic polynomial time) and NP-hard (any NP-problem can be translated into this problem). Examples of NP-hard problems include the Hamiltonian cycle and traveling salesman problems.
+Big O: upper bound, worst case
+Big Omega: lower bound, best case
+Big Theta: when best and worst case are the same, can use Big Theta
+
+in-place algorithm: uses a small constant amount of extra space, usually overwrites the input space.
 
 python generator: a function that generates a sequence of values instead of a single value.
 --> a function that stops in the middle, returns a value to the caller, and later on

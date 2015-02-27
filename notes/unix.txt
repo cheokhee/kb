@@ -436,6 +436,9 @@ GROUPS var: group id
 DIRSTACK : dirs
 for debugging: BASH_SOURCE, FUNCNAME, BASH_LINENO arrays
 use : FUNCNAME[0],
+see current setting: shopt , set -o
+see current setting for set: echo $-
+
 
 ((..)), let : arithmetic
 echo $((a++))
