@@ -144,3 +144,11 @@ make a copy of /etc/default/grub and /boot/grub/grub.cfg
 GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true
 2. run update-grub , this will change /boot/grub/grub.cfg
+output of update-grub:
+Found linux image: /boot/vmlinuz-3.16.0-30-generic
+Found initrd image: /boot/initrd.img-3.16.0-30-generic
+Found linux image: /boot/vmlinuz-3.16.0-23-generic
+Found initrd image: /boot/initrd.img-3.16.0-23-generic
+Found memtest86+ image: /boot/memtest86+.elf
+Found memtest86+ image: /boot/memtest86+.bin
+Found Windows 7 (loader) on /dev/sda2
