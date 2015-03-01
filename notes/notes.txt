@@ -5821,6 +5821,9 @@ mocks enable behavior verification
 --> mock: represent a series of expectations
 
 Recursion
+===
+solve a problem by solving smaller instances of the same problem
+===
 In traditional recursion, the typical model is that you perform your recursive calls first,
 and then you take the return value of the recursive call and calculate the result. In this
  manner, you don't get the result of your calculation until you have returned from every recursive call.

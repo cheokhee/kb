@@ -43,9 +43,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 120 :width normal)))))
-;(package-initialize)
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (global-linum-mode t)
 (setq linum-format "%d ")
 (setq initial-scratch-message nil)
@@ -322,3 +323,4 @@ by using nxml's indentation rules."
 ;;variable: split-width-threshold: I want my pop-up window to split
 ;;horizontally even on wide-screen monitor
 ;;variable: split-height-threshold
+;(ac-config-default)
