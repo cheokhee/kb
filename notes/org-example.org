@@ -1,0 +1,38 @@
+TAB: visibility cycling (this level only)
+Shift-TAB: visibility cycling (global)
+C-c C-n/p: move to next/prev heading
+C-c C-f/b: move to next/prev heading (same level)
+
+* Introduction
+  This is an intro
+* section 2
+  I am in section 2
+** section 2a
+   in section 2a
+
+commands: org-insert-heading, org-insert-heading-after-current, org-insert-subheading
+M-left/right : promote/demote current heading
+M-up/down: move subtree up/down
+
+link: [[http://google.com][google]] (edit a link: C-c C-l)
+C-c C-o: open link
+[[section 2]] (type C-c C-o to jump)
+
+: [[text]] : internal link (heading only)
+: link: [[http://google.com][google]]
+put a colon and a space as the first char of the line, and the link will be shown literally
+
+Table:
+type |- , followed by C-c RET
+C-c - : insert line below current row
+M-left/right: move column left/right
+M-up/down: move row up/down
+org-table-kill-row, org-table-delete-column
+org-table-insert-row: insert above
+C-c RET: insert line below current row and add a new blank row
+
+| name  | gender | age |
+|-------+--------+-----|
+| cheok | m      |   3 |
+| hee   | m      |   4 |
+|-------+--------+-----|

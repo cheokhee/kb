@@ -1190,6 +1190,8 @@ user can have as much or as little of a service as they want at any given time; 
 the service is fully managed by the provider (the consumer needs nothing but a personal
 computer and Internet access).
 +++
+an elastic, pay per use computing architecture and model
++++
 Infrastructure-as-a-Service like Amazon Web Services provides virtual server instances
 with unique IP addresses and blocks of storage on demand. Customers use the provider's
 application program interface (API) to start, stop, access and configure their virtual
@@ -7445,3 +7447,5 @@ construct, such as variables, expressions, functions or module.
 Haskell:
 type class is like Java interface?
 a type is an instance of a type class?
+
+Database normalization is the process of organizing the attributes and tables of a relational database to minimize data redundancy.
