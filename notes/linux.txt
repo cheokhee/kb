@@ -152,3 +152,6 @@ Found initrd image: /boot/initrd.img-3.16.0-23-generic
 Found memtest86+ image: /boot/memtest86+.elf
 Found memtest86+ image: /boot/memtest86+.bin
 Found Windows 7 (loader) on /dev/sda2
+
+/tmp cleanup, happen on reboot:
+/etc/init/mounted-tmp.conf , which uses /etc/default/rcS , use TMPTIME var

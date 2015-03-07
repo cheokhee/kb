@@ -7449,3 +7449,10 @@ type class is like Java interface?
 a type is an instance of a type class?
 
 Database normalization is the process of organizing the attributes and tables of a relational database to minimize data redundancy.
+
+analytics: info gained from the analysis of data, the result of analysis. you know what you are looking for.
+data mining: identify previously unknown pattern and relationship. you don't know what you're looking for.
+
+Finite Capacity Scheduling:
+A scheduling method that matches resource requirements to a finite supply of available resources to develop a realistic production plan.
+Fair-share scheduling is a scheduling strategy for computer operating systems in which the CPU usage is equally distributed among system users or groups,
