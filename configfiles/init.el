@@ -44,9 +44,10 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 120 :width normal)))))
 (require 'package)
-(package-initialize)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(package-initialize)
 (global-linum-mode t)
 (setq linum-format "%d ")
 (setq initial-scratch-message nil)
@@ -214,10 +215,10 @@
   (move-end-of-line 1)
   (newline-and-indent))
 (global-set-key (kbd "C-c o") 'my-newline)
-(autoload 'gtags-mode "gtags")
-(add-hook 'java-mode-hook
-   (lambda ()
-       (gtags-mode 1)))
+;(autoload 'gtags-mode "gtags")
+;(add-hook 'java-mode-hook
+;   (lambda ()
+;       (gtags-mode 1)))
 ;;;
 ;; If on space/tab, jump to the next non-space char
 ;; If not on space/tab, jump to the next non-space char after the next series of space/tab
@@ -251,20 +252,6 @@
 	  (my-next-word-1)
 	  (setq count (1- count)))))
 (global-set-key (kbd "C-c n") 'my-next-word)
-;; the opposite of my-next-word
-;; similar to B in vim
-;; (defun my-previous-word-1 ()
-;;      (let (char is-on-space regexp)
-;; 	   (unless (bobp)
-;; 		 (progn
-;; 		   (backward-char)
-;; 	       (setq char (following-char))
-;; 		   (setq regexp "[ \t\n]\\|\\`")
-;; 	       (setq is-on-space (or (equal char 32) (equal char 10) (equal char 9)))
-;; 	       (if is-on-space
-;; 		     (progn (search-backward-regexp "[^ \t\n]\\|\\`") (search-backward-regexp regexp))
-;; 		     (search-backward-regexp regexp))
-;; 	       (unless (bobp) (forward-char))))))
 (defun backward-until-non-space ()
   (while (and (is-on-space) (not (bobp)))
 	(backward-char)))

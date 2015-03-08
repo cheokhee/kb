@@ -6469,6 +6469,8 @@ polynomial time: O(n^k). quicksort: O(n^2). Most familiar mathematical operation
 Big O: upper bound, worst case
 Big Omega: lower bound, best case
 Big Theta: when best and worst case are the same, can use Big Theta
+these are called asymptotic functions: because they capture the growth of a function
+as its argument asymptotically approaches infinity.
 
 in-place algorithm: uses a small constant amount of extra space, usually overwrites the input space.
 
@@ -7407,6 +7409,10 @@ an optimal solution to the problem contains within it optimal solutions to sub-p
 there exist some places where we solve the same sub-problems more than once.
 ----
 vs divide-and-conquer: cannot reuse solutions to sub-problems. non-overlapping sub-problems.
+---
+divide-and-conquer: break the problem into subproblems that are similar to the original
+problem, solve the subproblems recursively, combine solutions to the subproblems to solve the original problem.
+---
 ====
 vs greedy algorithm:
 greedy: make a local optimization. we just pick one solution.a special case of DP
