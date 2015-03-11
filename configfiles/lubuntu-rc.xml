@@ -386,6 +386,12 @@
     </keybind>
 
     <!-- Fast switching -->
+    <keybind key="W-1">
+      <action name="Execute">
+        <command>wmctrl -x -a evolution</command>
+      </action>
+    </keybind>
+
     <keybind key="W-2">
       <action name="Execute">
         <command>wmctrl -x -a terminal</command>
