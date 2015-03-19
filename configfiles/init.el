@@ -23,6 +23,7 @@
  '(ido-everywhere t)
  '(ido-save-directory-list-file "~/.emacs.d/.ido.last")
  '(ido-use-filename-at-point (quote guess))
+ '(indent-tabs-mode nil)
  '(kill-whole-line t)
  '(pcomplete-ignore-case t)
  '(python-python-command "python3")
@@ -38,6 +39,8 @@
  '(split-width-threshold 9999)
  '(tab-width 4)
  '(tool-bar-mode nil)
+ '(user-full-name "Cheok Hee")
+ '(user-mail-address "cheok.hee@oocl.com")
  '(version-control t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -313,3 +316,8 @@ by using nxml's indentation rules."
 ;;horizontally even on wide-screen monitor
 ;;variable: split-height-threshold
 ;(ac-config-default)
+;(setq smtpmail-default-smtp-server "hkgsmtpgw05.oocl.com")
+
+;original ("\\.rb\\'" . ruby-mode)
+;(delq (assoc "\\.rb\\'" auto-mode-alist) auto-mode-alist)
+;(add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
