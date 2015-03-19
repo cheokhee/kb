@@ -7462,3 +7462,7 @@ data mining: identify previously unknown pattern and relationship. you don't kno
 Finite Capacity Scheduling:
 A scheduling method that matches resource requirements to a finite supply of available resources to develop a realistic production plan.
 Fair-share scheduling is a scheduling strategy for computer operating systems in which the CPU usage is equally distributed among system users or groups,
+
+event loop, message dispatcher, message loop, message pump, or run loop is a programming construct that waits for and dispatches events or messages in a program.
+
+a callback is a piece of executable code that is passed as an argument to other code, which is expected to call back (execute) the argument at some convenient time.

@@ -155,3 +155,23 @@ Found Windows 7 (loader) on /dev/sda2
 
 /tmp cleanup, happen on reboot:
 /etc/init/mounted-tmp.conf , which uses /etc/default/rcS , use TMPTIME var
+
+#printf builtin (in bash):
+$ printf "%d" "'a"
+97
+$ printf "%x" "'a"
+61
+'a -> convert a to its ascii code
+
+need cifs-utils to access windows server, then do: sudo mount -t cifs -o username=heech //snt2/isdc ~/j
+
+#add shared library path
+option 1:
+LD_LIBRARY_PATH is an environment variable you set to give the run-time shared library loader (ld.so) an extra set of directories to look for when searching for shared libraries
+option 2:
+ create a file under /etc/ld.so.conf.d/, then run ldconfig
+
+##print shared libraries dependencies: ldd command
+
+#stop this message (when running evince): Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-sCAvokkUFt: Connection refused
+export NO_AT_BRIDGE=1

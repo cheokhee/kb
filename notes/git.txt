@@ -1204,3 +1204,13 @@ output:
 ## master...origin/master
 MM notes/git.txt
  M notes/notes.txt
+
+#look at dangling commits:
+git fsck --no-reflog | awk '/dangling commit/ {print $3}' | xargs git show -s --oneline > file.txt
+----
+git fsck --no-reflog -> return more dangling commits
+
+#more on stash
+git stash list -> comes from .git/logs/refs/stash file
+.git/refs/stash -> store stash@{0}
+stash@{0} is the top of the stack
