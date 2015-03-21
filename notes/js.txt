@@ -1,0 +1,34 @@
+#before declaration:
+
+> typeof c
+'undefined'
+> c == null
+ReferenceError: c is not defined
+
+#declare var
+> var c
+undefined
+> typeof c
+'undefined'
+> c == null
+true
+
+> var c = null
+undefined
+> typeof c
+'object'
+> c == null
+true
+
+#undefined
+> var cheok
+undefined
+> cheok === undefined
+true
+
+> var cheok = null
+undefined
+> cheok === undefined
+false
+
+b.map(function(item) { return item.length})
