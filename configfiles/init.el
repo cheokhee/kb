@@ -322,8 +322,15 @@ by using nxml's indentation rules."
 ;(delq (assoc "\\.rb\\'" auto-mode-alist) auto-mode-alist)
 ;(add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
 ;(add-hook 'js3-mode-hook (lambda () (tern-mode t)))
-;eval-after-load 'tern
+;(eval-after-load 'tern
 ;  '(progn
 ;	  (require 'tern-auto-complete)
 ;	  (tern-ac-setup)))
-;add-to-list 'ac-modes 'js3-mode)
+;(add-to-list 'ac-modes 'js3-mode)
+;(add-hook 'js3-mode-hook
+;   (lambda ()
+;       (define-key js3-mode-map (kbd "C-.") 'tern-ac-complete)))
+;(require 'nodejs-repl)
+;(defun delete-tern-process ()
+;  (interactive)
+;  (delete-process "Tern"))
