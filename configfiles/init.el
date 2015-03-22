@@ -321,3 +321,9 @@ by using nxml's indentation rules."
 ;original ("\\.rb\\'" . ruby-mode)
 ;(delq (assoc "\\.rb\\'" auto-mode-alist) auto-mode-alist)
 ;(add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
+;(add-hook 'js3-mode-hook (lambda () (tern-mode t)))
+;eval-after-load 'tern
+;  '(progn
+;	  (require 'tern-auto-complete)
+;	  (tern-ac-setup)))
+;add-to-list 'ac-modes 'js3-mode)
