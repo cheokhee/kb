@@ -32,3 +32,5 @@ undefined
 false
 
 b.map(function(item) { return item.length})
+
+anArray.forEach(function(eachObj,index,originalArray) {console.log(eachObj)});
