@@ -21,12 +21,12 @@ the last line of the ASCII armor is the checksum
 
 during decryption:
 You need a passphrase to unlock the secret key for
-user: "Cheok Hee <cheok.hee@oocl.com>"
+user: "Cheok Hee <email>"
 2048-bit RSA key, ID 3A22DA19, created 2013-06-06 (main key ID 16D83159)
 
 output of -k
 pub   2048R/16D83159 2013-06-06
-uid                  Cheok Hee <cheok.hee@oocl.com>
+uid                  Cheok Hee <email>
 sub   2048R/3A22DA19 2013-06-06
 
 certifying a key means signing a key with your own secret key

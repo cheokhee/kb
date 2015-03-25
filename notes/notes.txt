@@ -1157,7 +1157,6 @@ CY	Container Yard. Point at which carrier hands over to or receive laden contain
 from merchant haulier. Commonly where mode of transport changes e.g. a sea port, feeder
  terminal, barge terminal or rail ramp.
 
-http://www.oocl.com/eng/resourcecenter/shippinglossary/
 http://www.maerskline.com/link/?page=brochure&path=/glossary/a
 
 hypervisor,

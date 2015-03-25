@@ -69,8 +69,6 @@ git show -s --pretty=raw 882c66e841d19d273ae0876f4f9bd33d4193d381 #commit object
 	commit 882c66e841d19d273ae0876f4f9bd33d4193d381
 	tree 9c0f3681c52cd6b8eff44b13684bd43cbb512ed3
 	parent ff7d43dc005ca8e394ecd93cd96553c327e0fbcf
-	author Cheok Hee <cheok.hee@oocl.com> 1291314311 -0800
-	committer Cheok Hee <cheok.hee@oocl.com> 1291314311 -0800
 		<comment>
 
 a commit is defined by a tree (representing the contents of a directory at a certain time)
@@ -266,7 +264,7 @@ git br -a --contains b2ac956
 git br -r --contains b2ac956
 
 #show diff between two commits
-git diff ac88b36 68ebc6e IRIS4_SHP_DMN/war_file/src/com/oocl/ir4/shp/model/Shipment.java
+git diff ac88b36 68ebc6e <file>
 
 #Lists commit objects in reverse chronological order
 git rev-list df59479
@@ -1007,7 +1005,7 @@ git log -- <pathname>
 git log --summary
 #output: the --summary option shows new/deleted files
 commit dc6860648af9157efacdf1889346b4e4b143f40b
-Author: sntcdbld6 <sntcdbld6@oocl.com>
+Author: sntcdbld6
 Date:   Thu Sep 19 15:47:45 2013 -0700
 
     Convert mltConfig.xml to vpp
