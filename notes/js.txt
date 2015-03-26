@@ -32,5 +32,22 @@ undefined
 false
 
 b.map(function(item) { return item.length})
+a.filter(function(each,index,array) { return each.length == 4 }) -> like select:
+array.every -> like conform:
+no detect method yet!!
 
 anArray.forEach(function(eachObj,index,originalArray) {console.log(eachObj)});
+
+append to array: anArray.push(object)
+
+#show properties of an object
+> var a = { name: 'cheok', addr: 'sala'}
+> a
+{ "name" : "cheok", "addr" : "sala" }
+> Object.keys(a)
+[ "name", "addr" ]
+another way:
+for (var m in a) { console.log("prop: " + m) }
+
+anObject.constructor.name -> return "class" name
+anObject.constructor -> is a function

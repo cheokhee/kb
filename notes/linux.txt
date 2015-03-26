@@ -175,3 +175,8 @@ option 2:
 
 #stop this message (when running evince): Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-sCAvokkUFt: Connection refused
 export NO_AT_BRIDGE=1
+
+rsync -av userid@host:/path/to/file .
+
+#remove leading/trailing spaces from a file (in place)
+sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' <file>
