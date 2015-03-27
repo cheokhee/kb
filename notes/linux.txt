@@ -180,3 +180,25 @@ rsync -av userid@host:/path/to/file .
 
 #remove leading/trailing spaces from a file (in place)
 sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' <file>
+
+ls options:
+--time-style=
+full-iso
+long-iso
+iso
+locale
++%H:%M:%S:%D
+
+ls --format=across
+# ls --format=comma
+# ls --format=horizontal
+# ls --format=long
+# ls --format=single-column
+# ls --format=verbose
+# ls --format=vertical
+
+ls --sort=extension
+# ls --sort=size
+# ls --sort=time
+# ls --sort=version
+# ls --sort=none

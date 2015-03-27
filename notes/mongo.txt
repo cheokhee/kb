@@ -20,3 +20,86 @@ db.testdata.insert(a)
 db.testdata.find()
 db.testdata.remove({})
 db.testdata.drop()
+
+db.testdata.find({code: 'blah}).explain()
+OR
+db.testdata.explain().find({_id: {}})
+
+#create index
+db.testdata.ensureIndex({code:1})
+
+db.system.indexes.find()
+{ "v" : 1, "key" : { "code" : 1 }, "name" : "code_1", "ns" : "test.testdata" }
+
+db.testdata.dropIndex({code:1})
+
+query plan:
+before index:
+{
+        "queryPlanner" : {
+                "plannerVersion" : 1,
+                "namespace" : "test.testdata",
+                "indexFilterSet" : false,
+                "parsedQuery" : {
+                        "code" : {
+                                "$eq" : "blah"
+                        }
+                },
+                "winningPlan" : {
+                        "stage" : "COLLSCAN",
+                        "filter" : {
+                                "code" : {
+                                        "$eq" : "blah"
+                                }
+                        },
+                        "direction" : "forward"
+                },
+                "rejectedPlans" : [ ]
+        },
+        "serverInfo" : {
+                "host" : "blah",
+                "port" : 27350,
+                "version" : "3.0.0",
+                "gitVersion" : "a841fd6394365954886924a35076691b4d149168 modules: enterprise"
+        },
+        "ok" : 1
+}
+
+after index:
+{
+        "queryPlanner" : {
+                "plannerVersion" : 1,
+                "namespace" : "test.testdata",
+                "indexFilterSet" : false,
+                "parsedQuery" : {
+                        "code" : {
+                                "$eq" : "blah"
+                        }
+                },
+                "winningPlan" : {
+                        "stage" : "FETCH",
+                        "inputStage" : {
+                                "stage" : "IXSCAN",
+                                "keyPattern" : {
+                                        "code" : 1
+                                },
+                                "indexName" : "code_1",
+                                "isMultiKey" : false,
+                                "direction" : "forward",
+                                "indexBounds" : {
+                                        "code" : [
+                                                "[\"blah\", \"blah\"]"
+                                        ]
+                                }
+                        }
+                },
+                "rejectedPlans" : [ ]
+        },
+        "serverInfo" : {
+                "host" : "blah",
+                "port" : 27350,
+                "version" : "3.0.0",
+                "gitVersion" : "a841fd6394365954886924a35076691b4d149168 modules: enterprise"
+        },
+        "ok" : 1
+}
