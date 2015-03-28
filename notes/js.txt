@@ -51,3 +51,14 @@ for (var m in a) { console.log("prop: " + m) }
 
 anObject.constructor.name -> return "class" name
 anObject.constructor -> is a function
+
+> a = { name: 'cheok' }
+{ name: 'cheok' }
+> a.name
+'cheok'
+> a["name"]
+'cheok'
+> a['name']
+'cheok'
+> a[name]
+ReferenceError: name is not defined
