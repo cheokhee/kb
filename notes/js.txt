@@ -31,6 +31,27 @@ undefined
 > cheok === undefined
 false
 
+> typeof 'hi'
+'string'
+> typeof 3
+'number'
+> typeof true
+'boolean'
+> typeof function() {return1}
+'function'
+> typeof null
+'object'
+> typeof undefined
+'undefined'
+> typeof NaN
+'number'
+
+NaN != NaN
+true
+> NaN !== NaN
+true
+
+
 b.map(function(item) { return item.length})
 a.filter(function(each,index,array) { return each.length == 4 }) -> like select:
 array.every -> like conform:

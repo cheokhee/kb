@@ -1775,6 +1775,18 @@ for each v in values:
   result += ParseInt(v);
 Emit(AsString(result));
 
+--more:
+there is a intermediate (shuffle) step between map and reduce where the output of map is grouped by key;
+--example:
+map emits: {'hello': {count:1}}, {'world': {count: 1}}, {'hello': {count: 1}}
+shuffle produces:
+{'hello': [{count: 1},{count: 1}]) , {'world': [{count:1}])
+the output of shuffle goes to reduce
+--
+Map(k1,v1) → list(k2,v2)
+intermediate: list(k2,v2) -> list(k2, list(v2))
+Reduce(k2, list (v2)) → list(v3)
+
 The map function emits each word plus an associated count of occurrences ("1" in this example).
  The reduce function sums together all the counts emitted for a particular word.
 Here, each document is split in words, and each word is counted initially with a "1" value by the Map
@@ -5939,6 +5951,7 @@ is available, the process blocks until the value is available.
 --> future: a concurrency construct that allows an asynchronous return before computation is complete.
 --> future: a construct that computes a value asynchronously and represents a value that will become
 available in the future.
+future/promise: an object that represents the result of an asynchronous function call.
 
 coroutine: a coroutine is a subroutine or function that can pause in the middle and return a value. When you
 call it again it picks up right where it was when you paused, environment intact, and keeps on going.

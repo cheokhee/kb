@@ -20,6 +20,8 @@ db.testdata.insert(a)
 db.testdata.find()
 db.testdata.remove({})
 db.testdata.drop()
+db.itsVessel.findOne()
+db.itsVessel.find({code: 'YL2'}, {name: 1})
 
 db.testdata.find({code: 'blah}).explain()
 OR

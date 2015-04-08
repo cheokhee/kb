@@ -202,3 +202,8 @@ ls --sort=extension
 # ls --sort=time
 # ls --sort=version
 # ls --sort=none
+
+ip addr
+route -n
+/etc/network/interfaces
+route add default gw 146.222.122.137
