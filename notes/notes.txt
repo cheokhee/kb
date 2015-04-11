@@ -1757,6 +1757,8 @@ mapreduce of google:
 map: takes an input pair and produces a set of intermediate key/value pairs.
 reduce: accepts an intermediate key and a set of values for that key. It merges together these
  values to form a possibly smaller set of values.
+---
+All values with the same key are presented to a single reduce task.
 
 e.g.
 consider the problem of counting the number of occurrences of each word in a large collection of documents:
@@ -5748,6 +5750,9 @@ MapReduce is a programming model for parallel processing. it works by breaking t
 into two phases: the map phase and the reduce phase.
 in the map phase, the input is divided into smaller chunks and processed.
 in the reduce phase, the answers from the map phase are collected and merged into a single value.
+---
+map: data transformation
+reduce: aggregation
 
 Hadoop: a framework for distributed processing
 

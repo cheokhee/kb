@@ -1,0 +1,37 @@
+V1: MapReduce contains both resource management and data processing
+V2: MapReduce: only data processing. YARN: resource management.
+
+MapReduce: high latency
+
+YARN: resource manager and node manager
+
+HDFS: name node and data node
+
+Apache Pig: a scripting languauge for MapReduce
+Apache Hive: an SQL-like interface to MapReduce. Also data warehousing.
+Pig/Hive: turn queries into jobs that run on MapReduce.
+Apache Samza: used by linkedin
+Apache Storm: used by Twitter. real-time
+Apache Spark: in-memory analytic engine
+ZooKeeper: maintain config info
+Ambari:
+Avro: data serialization system
+Flume: gather data from multiple sources and put them into HDFS
+Chukwa: data collection system
+HBase:
+HCatalog:
+Hue:
+Mahout: recommendation engine
+Giraph: graph processing
+Oozie: orchestrate mapreduce jobs.
+Sqoop: transfer data between HDFS and relational database
+Kafka: distributed messaging system
+Apache Drill: MapR. interactive analysis of large data sets
+Impala: Cloudera. real-time processing of big data.
+
+Hadoop streaming: allows you to create and run Map/Reduce jobs with any executable or script as the mapper and/or the reducer. For example:
+$HADOOP_HOME/bin/hadoop  jar $HADOOP_HOME/hadoop-streaming.jar \
+    -input myInputDirs \
+    -output myOutputDir \
+    -mapper /bin/cat \
+    -reducer /bin/wc

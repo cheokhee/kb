@@ -12,6 +12,8 @@ undefined
 'undefined'
 > c == null
 true
+> c === null
+false
 
 > var c = null
 undefined
@@ -83,3 +85,11 @@ anObject.constructor -> is a function
 'cheok'
 > a[name]
 ReferenceError: name is not defined
+
+falseness:
+  false
+  0
+  ''
+  null
+  undefined
+  NaN
