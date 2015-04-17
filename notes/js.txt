@@ -93,3 +93,22 @@ falseness:
   null
   undefined
   NaN
+
+comparison: ==
+compare number to string: the string is converted to a number
+compare boolean to number: the boolean is converted to a number
+compare object to non-object: the object's valueOf() method is called to get a primitive value.
+  if valueOf() is not defined, toString() is called.
+
+
+npm:
+#1
+$npm_package_config_greet:
+greet is an attribute in the config object of package.json:
+  "config": {
+    "greet": "cheok"
+  },
+#2:
+$npm_config_build_type:
+build_type is not in package.json's config object.
+it is defined this way: npm config set build_type dev

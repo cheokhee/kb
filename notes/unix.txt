@@ -627,6 +627,9 @@ python -m SimpleHTTPServer
 #append a line at the end of the file, the last line will be 'wow'
 sed -i '$awow' test.txt
 
+#add a line at the top of a file
+sed -i "1s/^/line1\n/" file
+
 #readline:
 Ctrl-]: search forward
 M-Ctrl-]: search backward

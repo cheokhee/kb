@@ -1,5 +1,8 @@
 #mongo in docker
 
+#connect from an app
+docker run --name some-app --link some-mongo:mongo -d application-that-uses-mongo
+
 docker run --name my-mongo -d mongo
 #use mongo shell this way
 sudo docker run -it --link my-mongo:mongo --rm mongo sh -c 'exec mongo "$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"'
@@ -7,6 +10,8 @@ sudo docker run -it --link my-mongo:mongo --rm mongo sh -c 'exec mongo "$MONGO_P
 OR
 docker run --name my-mongo -d -p 27017:27017 mongo
 #then just run mongo, need to wait a little
+
+mongo host:port/db -u user -p pw
 
 sudo docker stop $(sudo docker ps -q)
 sudo docker start $(sudo docker ps -aq)

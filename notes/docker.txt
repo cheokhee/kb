@@ -1,3 +1,5 @@
+Docker is a shipping container system for software applications
+
 docker search
 docker pull
 docker info
@@ -50,3 +52,27 @@ docker kill $(docker ps -q)
 
 #delete all stopped containers
 docker rm $(docker ps -a -q)
+
+docker cp CONTAINER:PATH HOSTPATH
+http://0x74696d.com/posts/docker-logging/
+http://docs.oracle.com/cd/E37670_01/E37355/html/section_vtr_p2z_fp.html
+http://blog.heavybit.com/blog/2015/3/23/dockermeetup
+http://xmodulo.com/networking-between-docker-containers.html
+
+"do this: install from official docker page"
+wget -qO- https://get.docker.com/ | sh
+
+"below is what is done by above"
+wget -qO- https://get.docker.io/gpg | apt-key add -
+echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
+install lxc-docker
+
+#add user to docker group
+sudo usermod -aG docker your-user
+
+docker build -t my-moc-app:1.0 .
+
+#create an interactive session to a running container
+docker exec -it moc-ss /bin/bash
+
+docker run -P -d --name moc-ss -v /a/log:/usr/src/app/log moc-ss:1.0

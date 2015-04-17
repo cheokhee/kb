@@ -1,0 +1,5 @@
+#manual install
+mvn install:install-file -DgroupId=exp.js -DartifactId=qa1ConfigProperties -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=/path/to/file
+
+#manual deploy
+mvn deploy:deploy-file -DgroupId=exp.js -DartifactId=qa1ConfigProperties -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
