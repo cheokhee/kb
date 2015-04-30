@@ -110,3 +110,16 @@ after index:
         },
         "ok" : 1
 }
+
+  mongoose.connection.close(function() {
+    console.log('Closed DB connection and exitting due to uncaught exception');
+    process.exit(0);
+  });
+
+#db connection pool size:
+#1: single server
+mongoose.connect(dbPath, { server: { poolSize: 10 } }, function onMongooseError(err){
+#2: ReplicaSet
+mongoose.connect(dbPath, { replset: { poolSize: 3 ,  rs_name: 'reptest' }}, function onMongooseError(err){
+
+dbPath = 'mongodb://userid:password@host:27250/moc_ss,host:27251';

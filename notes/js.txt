@@ -86,6 +86,15 @@ anObject.constructor -> is a function
 > a[name]
 ReferenceError: name is not defined
 
+> a = {1: 'name'}
+{ '1': 'name' }
+> a[1]
+'name'
+> a['1']
+'name'
+> a["1"]
+'name'
+
 falseness:
   false
   0
@@ -112,3 +121,30 @@ greet is an attribute in the config object of package.json:
 $npm_config_build_type:
 build_type is not in package.json's config object.
 it is defined this way: npm config set build_type dev
+
+> a = {name: 'hi', last: 'hee'}
+{ name: 'hi', last: 'hee' }
+> Object.getOwnPropertyNames(a)
+[ 'name', 'last' ]
+
+// get methods
+function getMethods(obj)
+{
+    var res = [];
+    for(var m in obj) {
+        if(typeof obj[m] == "function") {
+            res.push(m)
+        }
+    }
+    return res;
+}
+
+nodejs Error object:
+> err.errno
+-2
+> err.message
+'ENOENT, open \'somefile.txt\''
+> err.stack
+'Error: ENOENT, open \'somefile.txt\'\n    at Error (native)'
+> err.name
+'Error'

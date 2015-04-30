@@ -76,3 +76,48 @@ docker build -t my-moc-app:1.0 .
 docker exec -it moc-ss /bin/bash
 
 docker run -P -d --name moc-ss -v /a/log:/usr/src/app/log moc-ss:1.0
+
+docker run --rm -it --name moc-ss --entrypoint="/bin/bash" moc_mean:0.1.0 -i
+
+#private registry
+command: docker pull host:5000/rhel6.5
+ Error: v1 ping attempt failed with error: Get https://host:5000/v1/_ping: dial tcp: i/o timeout. If this private registry supports only HTTP or HTTPS with an unknown CA certificate, please add `--insecure-registry host:5000` to the daemon's arguments. In the case of HTTPS, if you have access to the registry's CA certificate, no need for the flag; simply place the CA certificate at /etc/docker/certs.d/host:5000/ca.crt
+===
+Error: v1 ping attempt failed with error: Get http://host:5000/v1/_ping: dial tcp: i/o timeout
+
+solution:
+change /etc/default/docker:
+DOCKER_OPTS=--insecure-registry=host:5000 # docker 1.5
+DOCKER_OPTS=--insecure-registry host:5000 #docker 1.6?
+then reboot
+the local docker daemon process:
+/usr/bin/docker -d --insecure-registry=host:5000 #docker 1.5
+
+Error:
+[0030] Error response from daemon: v1 ping attempt failed with error: Get http://sjstoas3:5000/v1/_ping: dial tcp: i/o timeou
+
+#test private registry
+curl localhost:5000
+curl localhost:5000/v1/_ping
+curl localhost:5000/v1/search
+
+{"num_results": 2, "query": "", "results": [{"description": null, "name": "library/tibcobw"}, {"description": "", "name": "library/rhel6.5"}]}12:36:55 ~$
+
+#transfer an image
+1. docker commit <container id> <new image> #optional
+2. docker save mynewimage > /tmp/mynewimage.tar
+3. docker load < /tmp/mynewimage.tar
+
+data volume container
+doc create -v /usr/src/app/logs --name sslog debian:latest
+
+docker run -a : attach stdin, stdout, stderr and pipe it to the shell
+docker run -a stdout nimblestratus/rpi-substructure-grepper $PATTERN | wc -l
+
+filter:
+docker inspect -f '{{.Config.Labels}}' 4b2b863e87f0
+
+private registry:
+docker run -p 5000:5000 -d --name my-reg registry
+docker tag 8dbd9e392a96 localhost:5000/moc-ss
+docker push localhost:5000/moc-ss

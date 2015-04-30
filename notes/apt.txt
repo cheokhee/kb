@@ -47,3 +47,5 @@ workaround:
 edit /etc/gai.conf
 uncomment this line (#54):
 precedence ::ffff:0:0/96  100
+
+apt-get install --only-upgrade <packagename>

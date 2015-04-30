@@ -220,6 +220,11 @@
   (move-end-of-line 1)
   (newline-and-indent))
 (global-set-key (kbd "C-c o") 'my-newline)
+(defun my-newline-above ()
+  (interactive)
+  (previous-line)
+  (my-newline))
+(global-set-key (kbd "C-c u") 'my-newline-above)
 ;(autoload 'gtags-mode "gtags")
 ;(add-hook 'java-mode-hook
 ;   (lambda ()

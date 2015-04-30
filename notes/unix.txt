@@ -780,3 +780,27 @@ time command output:
 real: elapsed time including time slices used by other processes and time the process spends blocked (for example if it is waiting for I/O to complete).
 user: the amount of CPU time spent in user-mode code (outside the kernel) within the process.
 sys:   the amount of CPU time spent in the kernel within the process. This means executing CPU time spent in system calls within the kernel,
+
+#bash shell split array
+IP=1.2.3.4
+IFS=. read -a ARRAY <<< "$IP" # one-line solution
+echo "$IFS" # notice that IFS didn't change afterwards
+echo "${ARRAY[@]}" # shows the results -> 1 2 3 4
+
+#explanation:
+read -a : assign the words to an array variable called ARRAY
+${ARRAY[@]} or ${ARRAY[*]} # show the entire array
+echo "${ARRAY[0]}" # show the first element
+
+another solution:
+echo ${IP//./ } -> 1 2 3 4
+
+#end of shell split array
+
+bash array variable:
+arr=("one" "two" "three")
+echo ${#arr[@]} #show size of array
+
+blah="just a test"
+echo ${#blah} # the # provide the number of characters in the variable
+11

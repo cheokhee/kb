@@ -1454,6 +1454,13 @@ a way of defining and instantiating a class inside a method, in the place where 
 the semantics require that this class either implement an interface or extend a superclass.
 a convenient shorthand for creating listeners for GUI components.
 +++++++++++
+Anonymous classes are used to create an ad-hoc implementation of an interface or an abstract class, like so:
+Runnable run = new Runnable() {
+    @Override
+    public void run() {
+        runThisThing(someArgument);
+    }
+};
 
 catch-as-catch-can
 Using or making do with whatever means are available

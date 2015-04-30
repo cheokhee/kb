@@ -18,6 +18,13 @@ default runlevel in /etc/init/rc-sysinit.conf
 upstart jobs are in /etc/init
 initctl list : list upstart job
 
+#start/stop upstart job
+start/stop docker
+
+#service
+service --status-all
+service docker stop/start/restart
+
 /etc/init/ttyN.conf : start a getty process for ttyN
 stop tty6 : stop tty6
 
@@ -207,3 +214,19 @@ ip addr
 route -n
 /etc/network/interfaces
 route add default gw 146.222.122.137
+
+redirecting stdout and stderr:
+&>word
+>&word
+the first one is preferred.
+this is equivalent to >word 2>&1
+
+#last reboot:
+last reboot
+#last shutdown entries:
+last -x
+last -x shutdown reboot
+
+who -a or -b #show system boot info
+
+ubuntu-drivers
