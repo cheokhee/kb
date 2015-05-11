@@ -1,5 +1,10 @@
 Docker is a shipping container system for software applications
 
+Docker is an engine designed to help you package, ship and deploy applications stacks and services as lightweight, portable and isolated containers.
+The Docker engine sits directly on top of the host operating system. Its containers share the kernel and hardware of the host machine with roughly the same
+overhead as processes launched directly on the host machine.
+But Docker itself isn’t a container system; it merely piggybacks off the existing container facilities baked into the OS, such as LXC on Linux.
+
 docker search
 docker pull
 docker info
@@ -111,6 +116,9 @@ curl localhost:5000/v1/search
 data volume container
 doc create -v /usr/src/app/logs --name sslog debian:latest
 
+#mount a host directory as a data volume
+docker run -P -d --name cntr-name -v /a/log:/usr/src/app/logs -v ${PWD}/target/config:/usr/src/app/config image:0.1.0
+
 docker run -a : attach stdin, stdout, stderr and pipe it to the shell
 docker run -a stdout nimblestratus/rpi-substructure-grepper $PATTERN | wc -l
 
@@ -121,3 +129,15 @@ private registry:
 docker run -p 5000:5000 -d --name my-reg registry
 docker tag 8dbd9e392a96 localhost:5000/moc-ss
 docker push localhost:5000/moc-ss
+#get tags for a repository:
+curl localhost:5000/v1/repositories/library/moc-ss/tags
+#delete: need the slash at the end
+#syntax: /v1/repositories/(namespace)/(repository)/tags/(tag*)
+curl -X DELETE http://localhost:5000/v1/repositories/library/moc-ss/
+
+migrating data volume container
+backup:
+1. docker run --rm --volumes-from dbdata -v $PWD:/backup ubuntu tar cvf /backup/backup.tar /dbdata
+restore:
+1. docker create -v /dbdata -name DATA2 ubuntu
+2. docker run --rm --volumes-from DATA2 -v $PWD:/backup ubuntu tar xvf /backup/backup.tar

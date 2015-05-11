@@ -230,3 +230,13 @@ last -x shutdown reboot
 who -a or -b #show system boot info
 
 ubuntu-drivers
+
+#list file descriptors in kernel memory
+sysctl fs.file-nr
+#same as cat /proc/sys/fs/file-nr
+
+#list max number of file descriptors
+sysctl fs.file-max
+#same as cat /proc/sys/fs/file-max
+
+sysctl -a #show all values

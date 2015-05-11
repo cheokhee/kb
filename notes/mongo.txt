@@ -122,4 +122,45 @@ mongoose.connect(dbPath, { server: { poolSize: 10 } }, function onMongooseError(
 #2: ReplicaSet
 mongoose.connect(dbPath, { replset: { poolSize: 3 ,  rs_name: 'reptest' }}, function onMongooseError(err){
 
-dbPath = 'mongodb://userid:password@host:27250/moc_ss,host:27251';
+mongodb://userid:password@host:27250/moc_ss,host:27251
+mongodb://userid:password@host:27350/moc_ss
+
+db.routeSearchStats.aggregate({$group: {_id: null, avgElapsedTimeInMs: {$avg: "$elapsedTimeInMs"}}})
+{ "_id" : null, "avgElapsedTimeInMs" : 20.432262530833317 }
+
+Write concern describes the guarantee that MongoDB provides when reporting on the success of a write operation.
+
+db.products.insert(
+    { item: "envelopes", qty : 100, type: "Clasp" },
+    { writeConcern: { j: true } }
+)
+
+db.collection.insert(
+   <document or array of documents>,
+   {
+     writeConcern: <document>,
+     ordered: <boolean>
+   }
+)
+
+mongotop/mongostat --host host --port 27350 -u siteRootAdmin -p password --authenticationDatabase admin
+
+db.collection.find({timestamp: { $gte: ISODate("2015-05-01T20:29:00.000Z"), $lt: ISODate("2015-05-01T20:47:00.000Z") }}).count()
+
+db.collection.find({"route.CargoCutoffLocalDateTime": {$gt: "20150125000000.000", $lt: "20150126000000.000"}, "route.OriginCity.ID": "461802935876553", "route.DestinationCity.ID": "461802935877067"})
+
+aggregate:
+db.zipcodes.aggregate( [
+   { $group: { _id: "$state", totalPop: { $sum: "$pop" } } },
+   { $match: { totalPop: { $gte: 10*1000*1000 } } }
+] )
+
+equivalent to:
+SELECT state, SUM(pop) AS totalPop
+FROM zipcodes
+GROUP BY state
+HAVING totalPop >= (10*1000*1000)
+
+db.collection.aggregate([{$match: { numberOfResults: { $gt: 0 }}}, {$group: {_id: null, avgElapsedTimeInMs: {$avg: "$elapsedTimeInMs"}}}])
+
+db.routeSearchStats.aggregate({$group: {_id: "$inCache", avgElapsedTimeInMs: {$avg: "$elapsedTimeInMs"}}})

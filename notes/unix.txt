@@ -795,6 +795,14 @@ echo "${ARRAY[0]}" # show the first element
 another solution:
 echo ${IP//./ } -> 1 2 3 4
 
+#parameter substitution:
+IP=1.2.3.4
+echo ${IP/./ }
+1 2.3.4
+echo ${IP//./ }
+1 2 3 4
+#an extra means global substitution
+
 #end of shell split array
 
 bash array variable:
@@ -804,3 +812,31 @@ echo ${#arr[@]} #show size of array
 blah="just a test"
 echo ${#blah} # the # provide the number of characters in the variable
 11
+
+#convert date to iodt format:
+date +%Y%m%d%H%M%S # -> 20150504090117
+
+other monitoring tool:
+vmstat
+htop
+dstat
+iftop
+iotop
+iostat
+mpstat
+/proc/meminfo
+
+sync : flush system buffers
+
+#process content of a file line by line
+========
+#!/bin/bash
+
+while read line
+do
+  echo "$line"
+done < "${1:-/dev/stdin}"
+=========
+can do:
+1. cat <file> | script
+2. script <file>

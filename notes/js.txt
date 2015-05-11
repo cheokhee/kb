@@ -148,3 +148,44 @@ nodejs Error object:
 'Error: ENOENT, open \'somefile.txt\'\n    at Error (native)'
 > err.name
 'Error'
+
+array detection:
+Array.isArray(var)
+
+#loop: --i : do the loop (i-1) times
+> i=5
+5
+> while (--i) { console.log("cheok") }
+cheok
+cheok
+cheok
+cheok
+==============
+#do the loop i times
+> i=5
+5
+> while (i--) { console.log("cheok") }
+cheok
+cheok
+cheok
+cheok
+cheok
+
+error:
+1. console.trace() : show the stack where console.trace() is called
+2. Error.stack: show the stack where the error occurs
+
+setTimeout: schedule the execution of a one-time callback after a delay.
+setInterval: schedule the repeated execution of a callback every delay milliseconds
+setImmediate: schedule the "immediate" execution of callback after I/O events callbacks and before setTimeout and setInterval
+
+node debug app.js -> CLI debugger
+node --debug app.js -> enable debug mode (port 5858)
+node --debug-brk app.js -> stop on first line
+node-debug app.js -> does not work for incoming http
+#this works:
+start app this way: node --debug app.js
+start node-inspector: node-inspector
+then go to http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858
+
+http://$host:$port/debug?ws=$host:$port&port=5858
