@@ -1,0 +1,25 @@
+config language, resource abstraction layer, transaction layer
+
+Each resource is made up of a type (what sort of resource is being managed: packages,services, or cron jobs),
+a title (the name of the resource), and a series of attributes (values that specify thestate of the resource -
+for example, whether a service is started or stopped).
+
+hiera: key-value lookup system
+Puppet uses a tool called “Facter” to return information about that agent, i
+It returns “facts” about each agent, such as its hostname, IP address, operating system and version, and other configuration items.
+
+
+agent:
+
+puppet agent --test
+puppet agent --enable
+
+master:
+puppet cert list
+puppet cert sign osboxes.cheok.com
+====
+Notice: Signed certificate request for osboxes.cheok.com
+Notice: Removing file Puppet::SSL::CertificateRequest osboxes.cheok.com at '/var/lib/puppet/ssl/ca/requests/osboxes.cheok.com.pem'
+===
+
+change fileserver.conf , add site.pp

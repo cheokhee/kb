@@ -7505,3 +7505,11 @@ In computer programming, a shim is a small library that transparently intercepts
 A connection timeout occurs only upon starting the TCP connection. This usually happens if the remote machine does not answer. This means that the server has been shut down, you used the wrong IP/DNS name or the network connection to the server is down.
 ----
 A socket timeout is dedicated to monitor the continuous incoming data flow. If the data flow is interrupted for the specified timeout the connection is regarded as stalled/broken.
+
+CNAME stands for Canonical Name. CNAME records can be used to alias one name to another.
+
+For example, if you have a server where you keep all of your documents online, it might normally be accessed through docs.example.com. You may also want to access it through documents.example.com. One way to make this possible is to add a CNAME record that points documents.example.com to docs.example.com. When someone visits documents.example.com they will see the exact same content as docs.example.com.
+
+step into: the next statement displayed is the first statement of the called function
+step over: the next statement displayed is the next statement of the current function
+step out: execute the remaining lines of a function. the next statement displayed is the statement following the function call.

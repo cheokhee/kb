@@ -131,9 +131,16 @@ docker tag 8dbd9e392a96 localhost:5000/moc-ss
 docker push localhost:5000/moc-ss
 #get tags for a repository:
 curl localhost:5000/v1/repositories/library/moc-ss/tags
-#delete: need the slash at the end
+this also works:
+curl localhost:5000/v1/repositories/rhel-node/tags
+-----
+#delete a repo: need the slash at the end
 #syntax: /v1/repositories/(namespace)/(repository)/tags/(tag*)
 curl -X DELETE http://localhost:5000/v1/repositories/library/moc-ss/
+this also works:
+curl -X DELETE http://localhost:5000/v1/repositories/rhel-node/
+#delete a tag:
+curl -X DELETE http://localhost:5000/v1/repositories/rhel-node/tags/0.1.0
 
 migrating data volume container
 backup:

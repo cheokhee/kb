@@ -15,15 +15,28 @@ read /etc/rc2.d/README
 
 default runlevel in /etc/init/rc-sysinit.conf
 
+===================================
+#ways to manage upstart/init job
+
 upstart jobs are in /etc/init
 initctl list : list upstart job
 
+#1:
 #start/stop upstart job
-start/stop docker
+start/stop/status docker #as root
 
+#2:
 #service
 service --status-all
 service docker stop/start/restart
+
+#3:
+/etc/init.d/docker start/stop/status
+
+#4:
+invoke-rc.d docker status
+
+==================================
 
 /etc/init/ttyN.conf : start a getty process for ttyN
 stop tty6 : stop tty6
@@ -124,6 +137,8 @@ Description:    Ubuntu 14.10
 Release:        14.10
 Codename:       utopic
 
+/etc/os-release
+
 partprobe: inform the OS of partition table changes
 
 commands:
@@ -215,6 +230,8 @@ route -n
 /etc/network/interfaces
 route add default gw 146.222.122.137
 
+ls /sys/class/net/ to see network interfaces.
+
 redirecting stdout and stderr:
 &>word
 >&word
@@ -240,3 +257,6 @@ sysctl fs.file-max
 #same as cat /proc/sys/fs/file-max
 
 sysctl -a #show all values
+
+#motd for ssh login
+/var/run/motd.dynamic

@@ -17,8 +17,8 @@ upgrade VirtualBox from 4.1.10 to 4.2.12
 and do: apt-get install build-essential linux-headers-`uname -r` dkms
 also install libglib2.0-dev package: didn't help
 get VBoxGuestAdditions.iso 4.2.12 from VirtualBox web site.
-sample URL: 
-attach iso file to VM. 
+sample URL:
+attach iso file to VM.
 iso shows up as /media/adminuser/VBOXADDITIONS_4.2.12_84980/
 then run /media/adminuser/VBOXADDITIONS_4.2.12_84980/VBoxLinuxAdditions.run
 
@@ -27,8 +27,8 @@ upgrade VirtualBox from 4.2.12 to 4.3.4
 get VBoxGuestAdditions.iso 4.3.4 from VirtualBox web site.
 VBox guest additions download: http://download.virtualbox.org/virtualbox/
 sample URL: http://download.virtualbox.org/virtualbox/2.2.0/VBoxGuestAdditions_2.2.0.iso
-attach iso file to VM. 
-iso file shows up as /media/adminuser/VBOXADDITIONS_4.3.4_91027 
+attach iso file to VM.
+iso file shows up as /media/adminuser/VBOXADDITIONS_4.3.4_91027
 then run /media/adminuser/VBOXADDITIONS_4.3.4_91027/VBoxLinuxAdditions.run
 
 Dec 16 2014:
@@ -46,13 +46,78 @@ piix4_smbus 0000.00.07.0: SMBus base address uninitialized - upgrade bios or use
 step #1: check if the module is loaded
 lsmod | grep i2c_piix4
 
-step #2:  If so, blacklist it in /etc/modprobe.d/blacklist.conf, by adding the following to the end of the file:- 
+step #2:  If so, blacklist it in /etc/modprobe.d/blacklist.conf, by adding the following to the end of the file:-
 blacklist i2c_piix4
 
-step #3: 
+step #3:
 update-initramfs -u -k all
 #output
 update-initramfs: Generating /boot/initrd.img-3.8.0-19-generic
 update-initramfs: Generating /boot/initrd.img-3.5.0-17-generic
 update-initramfs: Generating /boot/initrd.img-3.2.0-23-generic
 update-initramfs: Generating /boot/initrd.img-3.0.0-15-generic
+
+====================
+create a guest that can talk to internet and talk to the host, host can also talk to guest, guest has a static ip
+#1. in VirtualBox->preference->network: create a host-only network, disable dchp,
+      ip address: 192.168.56.1 (this is the address at which the guest accesses the host)
+#2: guest needs two adapters: NAT and host-only
+get two interfaces: eth0 (NAT) and eth1 (host-only adapter)
+
+On guest: assign 192.168.56.10 to the guest
+edit /etc/network/interfaces, add:
+=======================================
+# Host-only interface
+auto eth1
+iface eth1 inet static
+        address         192.168.56.10
+        netmask         255.255.255.0
+        network         192.168.56.0
+        broadcast       192.168.56.255
+
+======================================
+Edit /etc/hosts, add:
+192.168.56.1    puppet
+
+ifconfig on guest:
+
+eth0      Link encap:Ethernet  HWaddr 08:00:27:fe:1c:15
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fefe:1c15/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:106 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:188 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:32104 (32.1 KB)  TX bytes:20004 (20.0 KB)
+
+eth1      Link encap:Ethernet  HWaddr 08:00:27:66:8c:3f
+          inet addr:192.168.56.10  Bcast:192.168.56.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe66:8c3f/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:648 (648.0 B)
+
+========================================
+On host:
+edit /etc/hosts, add:
+192.168.56.10   osboxes
+
+ifconfig on host:
+vboxnet0  Link encap:Ethernet  HWaddr 0a:00:27:00:00:00
+          inet addr:192.168.56.1  Bcast:192.168.56.255  Mask:255.255.255.0
+          inet6 addr: fe80::800:27ff:fe00:0/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:174 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:29048 (29.0 KB)
+
+========================================
+
+ref:
+http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbox
+http://askubuntu.com/questions/293816/in-virtualbox-how-do-i-set-up-host-only-virtual-machines-that-can-access-the-in
+
+==================================================
