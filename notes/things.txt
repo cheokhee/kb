@@ -1,0 +1,92 @@
+this file documents changes to office linux system:
+used 2.4G after installation
+move mlocate from /etc/cron.daily to /etc/cron.monthly
+/etc/updatedb.conf: add /home/heech, /var/cache and /var/tmp to PRUNEPATHS
+software updater: never check for updates
+  setting stored in:
+  /etc/apt/apt.conf.d/10periodic
+	daily: APT::Periodic::Update-Package-Lists "1";
+	never: APT::Periodic::Update-Package-Lists "0";
+
+Language support: get chinese
+configure lxterminal: font size and color
+
+use evolution to connect to exchange server, ref: http://www.linux.com/learn/tutorials/370590-connect-evolution-to-an-exchange-server
+need cifs-utils to access windows server, then do: sudo mount -t cifs -o username=heech //snt2/isdc ~/j
+
+chrome: --allow-file-access-from-files
+this allow you to apply XSLT from local filesystem
+
+ln -s ~/sql-client/bin/sqlplus /usr/local/bin/sqlplus
+
+create /etc/ld.so.conf.d/sqlplus.conf, then run ldconfig
+
+/etc/maven/settings.xml
+
+#stop this message (when running evince): Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-sCAvokkUFt: Connection refused
+export NO_AT_BRIDGE=1
+
+hermes error (when using jdk 1.8):
+javax.naming.NamingException: org.xml.sax.SAXNotRecognizedException: Feature 'http://javax.xml.XMLConstants/feature/secure-processing' is not recognized.
+solution: use JDK 1.7
+
+weblogic remote debugging:
+/home/heech/d/Eclipse_workspace/.metadata/.plugins/org.eclipse.debug.core/.launches/DndInfoDto.launch
+
+windows image: need to remove this file after reverting back to the snapshot
+C:\Users\IEUser\AppData\Local\Microsoft\Outlook\outlook.ost
+virtualbox image: http://dev.modern.ie/tools/vms/#downloads
+
+create $ORACLE_HOME/sqlplus/admin/glogin.sql -> did not work
+this works:
+export SQLPATH=/home/heech/sql-client/sqlplus
+put login.sql in $SQLPATH
+
+#/etc/inetd.conf : original
+talk            dgram   udp     wait    nobody.tty      /usr/sbin/in.talkd      in.talkd
+ntalk           dgram   udp     wait    nobody.tty      /usr/sbin/in.ntalkd     in.ntalkd
+#change to
+talk            dgram   udp     wait    root    /usr/sbin/in.talkd      in.talkd
+ntalk           dgram   udp     wait    root    /usr/sbin/in.ntalkd     in.ntalkd
+
+install packages:
+vim
+git
+emacs24
+emacs24-el
+tmux
+wmctrl
+xcalib
+curl
+libreoffice
+libappindicator1
+google-chrome-stable_current_amd64.deb
+build-essential
+ruby2.1
+ruby-dev
+ruby-execjs
+zlib1g-dev
+ruby2.1-doc
+evolution
+evolution-mapi
+cifs-utils
+printer-driver-cups-pdf : don't really need it? chrome can do it already:
+						chrome: save as pdf: file is smaller, but text is more spread out
+libaio1 libaio-dev
+node-express-generator
+a2ps -> a2ps -1 -R -B --border=no simple-server.js
+xsel
+ttf-mscorefonts-installer
+hplip
+traceroute
+xml-twig-tools
+libxml2-utils
+remmina
+thunderbird (remove later)
+ibus-gtk3 (display candidates near where you type)
+inetutils-talk
+talk
+talkd
+apache2-utils (apache bench)
+siege (load test)
+xmlcopyeditor

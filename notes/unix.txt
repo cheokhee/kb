@@ -322,7 +322,7 @@ cheok hee cheok hee
 
 !!:2 : 2nd arg of previous cmd
 !!:0 : the 0th word (the cmd word)
-!!:^ : first arg
+!!:^ : first arg, same as !^
 !!:$ : same as !$, last arg
 !!:2-$ , same as !!:2*
 !!:2- : like !!:2*, but omit the last word
@@ -840,3 +840,7 @@ done < "${1:-/dev/stdin}"
 can do:
 1. cat <file> | script
 2. script <file>
+
+#remove files except
+1. rm !(file.txt)  #remove all the files except file.txt
+2. rm !(*.pdf)  #remove all the files except those with pdf suffix

@@ -189,3 +189,12 @@ start node-inspector: node-inspector
 then go to http://127.0.0.1:8080/debug?ws=127.0.0.1:8080&port=5858
 
 http://$host:$port/debug?ws=$host:$port&port=5858
+
+===========
+tern:
+curl -X POST -d '{"query": {"type":"files"}}' localhost:35433
+curl -X POST -d '{"query": {"type":"completions", "file":"schedule.js", "end": {"line": 375, "ch":9}}}' localhost:35433/
+
+==============
+a = new Date()
+Date.prototype === a.__proto__  #true

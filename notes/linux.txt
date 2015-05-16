@@ -260,3 +260,35 @@ sysctl -a #show all values
 
 #motd for ssh login
 /var/run/motd.dynamic
+
+because of the 3-way handshake, the kernel has two backlog queues for socket waiting for a connection:
+listen syscall backlog parameter: the limit for the accept queue of incoming connections.
+There are two queues: SYN queue and accept queue.
+#1. when the server receives a SYN, the connection is in SYN-RECEIVED state, and it goes to the SYN queue.
+#2. when the server receives a ACK, the connection is in ESTABLISHED state, and it goes to the accept queue.
+#3. the application then has to call accept syscall to remove the connection from the accept queue.
+
+net.core.somaxconn = 128
+net.ipv4.tcp_max_syn_backlog = 512
+somaxconn (which is right?)
+1. backlog per port??
+2. is the number of complete connections waiting.
+3. Limit of socket listen() backlog,
+4. limit for the accept queue
+=================
+tcp_max_syn_backlog (which is right?)
+1. is the number of incomplete connections waiting.
+2. global backlog??
+3. the limit for the SYN queue
+
+netstat -ant | grep -c SYN_REC
+
+tcp 3-way handshake
+1. client send SYN to server (client in SYN-SENT state and server in SYN-RECEIVED state)
+2. server send SYN-ACK to client
+3. client send ACK to server (client and server in ESTABLISHED state)
+
+calendar:
+cal -y 2014
+cal -3 #show prev, current, next months
+cal -d 2014-07

@@ -7513,3 +7513,23 @@ For example, if you have a server where you keep all of your documents online, i
 step into: the next statement displayed is the first statement of the called function
 step over: the next statement displayed is the next statement of the current function
 step out: execute the remaining lines of a function. the next statement displayed is the statement following the function call.
+
+A TCP socket is an endpoint instance defined by an IP address and a port in the context of either a particular TCP connection or the listening state.
+A port is a virtualisation identifier defining a service endpoint (as distinct from a service instance endpoint aka session identifier).
+  like a virtualised endpoint.
+A TCP socket is not a connection, it is the endpoint of a specific connection.
+There can be concurrent connections to a service endpoint, because a connection is identified by both its local and remote endpoints, allowing traffic to be routed to a specific service instance.
+There can only be one listener socket for a given address/port combination.
+The combination of an IP address and a port is strictly known as an endpoint and is sometimes called a socket. protocol too?
+A TCP connection is defined by two endpoints aka sockets.
+In order to get a service you need a service number. This service number is called a port.
+
+ARP request : Computer ‘A’ asks on the network, “who has this IP?”
+ARP reply : All the other computers ignore the request except the computer which has the requested IP. This computer, lets say ‘B’ says, I have the requested
+    IP address and here is my MAC address.
+RARP request: This is more or less same as ARP request, the difference being that in this message a MAC address is broad-casted on network.
+RARP reply : Same concept. Computer ‘B’ tells that the requested MAC is mine and here is my IP address.
+
+HTTP keep-alive, or HTTP connection reuse, is the idea of using a single TCP connection to send and receive multiple HTTP requests/responses,
+as opposed to opening a new connection for every single request/response pair. The newer HTTP/2 protocol uses the same idea and takes it
+further to allow multiple concurrent requests/responses to be multiplexed over a single connection.
