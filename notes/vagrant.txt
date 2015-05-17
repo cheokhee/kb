@@ -1,0 +1,11 @@
+vagrant init designerror/windows-7
+
+vagrant up
+
+vagrant destroy
+
+vagrant ssh
+
+vagrant box repackage designerror/windows-7 virtualbox 1.0
+
+https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20150512.0.1/providers/virtualbox.box
