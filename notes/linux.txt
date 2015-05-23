@@ -292,3 +292,17 @@ calendar:
 cal -y 2014
 cal -3 #show prev, current, next months
 cal -d 2014-07
+
+envsubst: substitute environment variables
+e.g:
+echo "this is $HOME, wow" | envsubst
+this is /home/heech, wow
+"this is ${HOME}, wow" | envsubst
+this is /home/heech, wow
+
+#prevent ssh from asking you to add a host to known_hosts
+#1: ssh-keyscan -H host >> ~/.ssh/known_hosts
+#2: ssh -o StrictHostKeyChecking=no user@host  #ask for password
+#3: change /etc/ssh/ssh_config:
+Host *
+   StrictHostKeyChecking no

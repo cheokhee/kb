@@ -122,6 +122,10 @@ $npm_config_build_type:
 build_type is not in package.json's config object.
 it is defined this way: npm config set build_type dev
 
+npm run blah --wow=cheok
+inside package.json:     "blah": "echo hi ${npm_config_wow}",
+output: hi cheok
+
 > a = {name: 'hi', last: 'hee'}
 { name: 'hi', last: 'hee' }
 > Object.getOwnPropertyNames(a)
@@ -198,3 +202,34 @@ curl -X POST -d '{"query": {"type":"completions", "file":"schedule.js", "end": {
 ==============
 a = new Date()
 Date.prototype === a.__proto__  #true
+
+Array.prototype.slice(start, end): select elements from an array
+start	Required. An integer that specifies where to start the selection (The first element has an index of 0). Use negative numbers to select from the end of an array
+end	Optional. An integer that specifies where to end the selection. If omitted, all elements from the start position and to the end of the array will be selected. Use negative numbers to select from the end of an array
+
+String slice(): extract parts of a string
+
+#cast to a string
+> var a = 20
+undefined
+> '' + a
+'20'
+
+#cast to a number
+> var b = '10'
+undefined
+> +b
+10
+
+#child process
+var spawn = require('child_process').spawn;
+var ls = spawn('ls');
+ls.stdout.on('data', function(data) { console.log(data.toString())};
+
+node --expose-gc
+gc()
+
+> process.memoryUsage()
+{ rss: 21479424, heapTotal: 10771712, heapUsed: 4931408 }
+
+node-memwatch

@@ -23,7 +23,9 @@
  '(ido-everywhere t)
  '(ido-save-directory-list-file "~/.emacs.d/.ido.last")
  '(ido-use-filename-at-point (quote guess))
+ '(imenu-auto-rescan t)
  '(indent-tabs-mode nil)
+ '(js-indent-level 2)
  '(kill-whole-line t)
  '(pcomplete-ignore-case t)
  '(python-python-command "python3")
@@ -41,7 +43,12 @@
  '(tool-bar-mode nil)
  '(user-full-name "Cheok Hee")
  '(user-mail-address "blah@com")
- '(version-control t))
+ '(version-control t)
+ '(w3m-coding-system (quote utf-8))
+ '(w3m-default-coding-system (quote utf-8))
+ '(w3m-file-coding-system (quote utf-8))
+ '(w3m-file-name-coding-system (quote utf-8))
+ '(w3m-terminal-coding-system (quote utf-8)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -339,3 +346,18 @@ by using nxml's indentation rules."
 ;(defun delete-tern-process ()
 ;  (interactive)
 ;  (delete-process "Tern"))
+
+(defun term-toggle-mode ()
+  "Toggles term between line mode and char mode"
+  (interactive)
+  (if (term-in-line-mode)
+      (term-char-mode)
+      (term-line-mode)))
+(eval-after-load 'term
+  '(progn
+     (define-key term-mode-map (kbd "C-c C-j") 'term-toggle-mode)
+     (define-key term-raw-map (kbd "C-c C-j") 'term-toggle-mode)))
+
+(setq browse-url-browser-function 'w3m-goto-url-new-session)
+(global-set-key (kbd "C-c b") 'browse-url-at-point)
+(autoload 'idomenu "idomenu" nil t)

@@ -5449,6 +5449,7 @@ MVC
 The model is not a database: the 'model' in MVC is both the data and the business/domain logic needed to manipulate the data in the application.
 he view renders the model into a form suitable for interaction
 A controller accepts input from the user and instructs the model and viewport to perform actions based on that input.
+User uses controller to manipulate model, which updates the view.
 
 General average
 The law of general average is a legal principle of maritime law according to which all parties
