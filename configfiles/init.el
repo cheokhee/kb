@@ -16,6 +16,7 @@
  '(delete-old-versions t)
  '(dired-listing-switches "-Al")
  '(enable-recursive-minibuffers t)
+ '(helm-for-files-preferred-list (quote (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
  '(ibuffer-default-sorting-mode (quote major-mode))
  '(ibuffer-expert t)
  '(ido-create-new-buffer (quote always))
@@ -54,7 +55,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 130 :width normal)))))
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -117,8 +118,8 @@
 (setq save-place-file "~/.emacs.d/.emacs-places")
 ;(setq make-backup-files nil)
 (require 'goto-last-change)
-(require 'smex)
-(global-set-key (kbd "M-x") 'smex)
+;(require 'smex)
+(global-set-key (kbd "M-x") 'helm-M-x)
 ;(require 'json-pretty-print)
 (setq next-screen-context-lines 7)
 (require 'highlight-symbol)
@@ -163,7 +164,8 @@
 ;(eval-after-load "w32-browser"
 ;  '(progn
 ;    (define-key dired-mode-map (kbd "<C-f12>") 'dired-w32explore)))
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'helm-mini)
+(global-set-key (kbd "C-x b") 'helm-mini)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 (eval-after-load "ibuf-ext"
   '(progn
@@ -210,7 +212,7 @@
 				  (let ((kill-buffer-query-functions nil))
 					(kill-buffer-and-window))))
 (require 'kill-ring-ido)
-(global-set-key (kbd "C-c r") 'kill-ring-ido)
+(global-set-key (kbd "C-c r") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c s")
 				(lambda () (interactive)
 				  (kill-ring-ido t "search-ring: " search-ring)))
@@ -327,6 +329,8 @@ by using nxml's indentation rules."
 ;;variable: split-width-threshold: I want my pop-up window to split
 ;;horizontally even on wide-screen monitor
 ;;variable: split-height-threshold
+;(require 'yasnippet)
+;(yas-global-mode 1)
 ;(ac-config-default)
 ;(setq smtpmail-default-smtp-server "blah.com")
 
@@ -346,6 +350,8 @@ by using nxml's indentation rules."
 ;(defun delete-tern-process ()
 ;  (interactive)
 ;  (delete-process "Tern"))
+(setenv "ORACLE_HOME" "/home/heech/sql-client")
+(setenv "SQLPATH" "/home/heech/sql-client/sqlplus")
 
 (defun term-toggle-mode ()
   "Toggles term between line mode and char mode"
@@ -360,4 +366,7 @@ by using nxml's indentation rules."
 
 (setq browse-url-browser-function 'w3m-goto-url-new-session)
 (global-set-key (kbd "C-c b") 'browse-url-at-point)
-(autoload 'idomenu "idomenu" nil t)
+;(autoload 'idomenu "idomenu" nil t)
+(global-set-key (kbd "C-c i") 'helm-imenu)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c f") 'helm-for-files)

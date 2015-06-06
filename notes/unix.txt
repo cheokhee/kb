@@ -801,7 +801,7 @@ echo ${IP/./ }
 1 2.3.4
 echo ${IP//./ }
 1 2 3 4
-#an extra means global substitution
+#an extra / means global substitution
 
 #end of shell split array
 

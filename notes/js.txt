@@ -233,3 +233,8 @@ gc()
 { rss: 21479424, heapTotal: 10771712, heapUsed: 4931408 }
 
 node-memwatch
+
+bind/call/apply: specify the object that should be bound to the this keyword
+
+node.js: non-blocking functions are executed by the event loop thread, blocking functions
+are executed by a background thread. Node.js maintains a thread pool in the background.
