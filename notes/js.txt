@@ -238,3 +238,24 @@ bind/call/apply: specify the object that should be bound to the this keyword
 
 node.js: non-blocking functions are executed by the event loop thread, blocking functions
 are executed by a background thread. Node.js maintains a thread pool in the background.
+
+setImmediate: execute a function after I/O event callbacks
+process.nextTick: execute a function on the next cycle of the event loop
+
+passing additional parameters to callbacks:
+event.on('run', function(originalParm) {
+  ...
+  intendedCallback(originalParm, additionalParm);
+});
+
+passing variable from parent function's scope to a callback:
+encapsulate an async call inside a function block and pass in the variable
+also call anonymous wrapper:
+
+for (var i=0; i<10; i++) {
+  (function(e) {
+    setTimeout(function() {
+      console.log(e);
+    }, 1000);
+  })(i);
+}
