@@ -306,3 +306,21 @@ this is /home/heech, wow
 #3: change /etc/ssh/ssh_config:
 Host *
    StrictHostKeyChecking no
+
+nmcli dev
+DEVICE  TYPE      STATE        CONNECTION
+wlan0   wifi      connected    SCC_GUEST
+eth1    ethernet  unavailable  --
+
+nmcli dev show
+GENERAL.DEVICE:                         wlan0
+GENERAL.TYPE:                           wifi
+GENERAL.HWADDR:                         00:26:C7:3A:5F:9C
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected)
+GENERAL.CONNECTION:                     SCC_GUEST
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/0
+IP4.ADDRESS[1]:                         ip = 192.168.92.214/23, gw = 192.168.93.253
+IP4.DNS[1]:                             209.244.0.3
+IP4.DNS[2]:                             209.244.0.4
+IP6.ADDRESS[1]:                         ip = fe80::226:c7ff:fe3a:5f9c/64, gw = ::
