@@ -235,6 +235,8 @@ gc()
 node-memwatch
 
 bind/call/apply: specify the object that should be bound to the this keyword
+call/apply: execute the function immediately.
+bind: return a new function to be executed later.
 
 node.js: non-blocking functions are executed by the event loop thread, blocking functions
 are executed by a background thread. Node.js maintains a thread pool in the background.

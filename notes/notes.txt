@@ -2502,6 +2502,8 @@ exposing opportunities for simplification and reuse.
 And we build models to manage risk.
 
 a model is a simplification of reality.
+--
+modeling is the representation of reality in an abstract way.
 
 principles of modeling:
 1. The choice of what models to create has a profound influence
