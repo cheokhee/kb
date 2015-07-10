@@ -197,9 +197,10 @@
 ;;; example: (prin1-to-string (car (buffer-list)))
 ;; flet is obsolete since 24.3, use cl-flet
 ;; cl-flet does not work
+(require 'cl)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (cl-flet ((process-list ())) ad-do-it))
+  (flet ((process-list ())) ad-do-it))
 (setq-default abbrev-mode t)
 (quietly-read-abbrev-file)
 (global-set-key (kbd "C-x s") (lambda () (interactive) (save-some-buffers 1)))
@@ -332,6 +333,9 @@ by using nxml's indentation rules."
 ;(require 'yasnippet)
 ;(yas-global-mode 1)
 ;(ac-config-default)
+;(define-key yas-minor-mode-map (kbd "<tab>") nil)
+;(define-key yas-minor-mode-map (kbd "TAB") nil)
+;(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
 ;(setq smtpmail-default-smtp-server "blah.com")
 
 ;original ("\\.rb\\'" . ruby-mode)
