@@ -844,3 +844,6 @@ can do:
 #remove files except
 1. rm !(file.txt)  #remove all the files except file.txt
 2. rm !(*.pdf)  #remove all the files except those with pdf suffix
+
+#Collapse groups of 3 lines to 1 line and seperate the values by commas
+cat list | sed -e "N;N;s/\n/,/g"

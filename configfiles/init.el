@@ -374,3 +374,4 @@ by using nxml's indentation rules."
 (global-set-key (kbd "C-c i") 'helm-imenu)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-c f") 'helm-for-files)
+;emacs-init-time to find out time for init at start-up

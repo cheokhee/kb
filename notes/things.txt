@@ -49,6 +49,7 @@ ntalk           dgram   udp     wait    nobody.tty      /usr/sbin/in.ntalkd     
 talk            dgram   udp     wait    root    /usr/sbin/in.talkd      in.talkd
 ntalk           dgram   udp     wait    root    /usr/sbin/in.ntalkd     in.ntalkd
 
+======= start of packages ============
 install packages:
 vim
 git
@@ -95,3 +96,10 @@ python-dev
 install teamviewer_10.0.41499_i386.deb, which also installed
   gcc-4.9-base:i386 libasound2:i386 libc6:i386 libexpat1:i386 libfontconfig1:i386 libfreetype6:i386 libgcc1:i386 libice6:i386 libjpeg62:i386 libpng12-0:i386 libsm6:i386 libuuid1:i386
   libx11-6:i386 libxau6:i386 libxcb1:i386 libxdamage1:i386 libxdmcp6:i386 libxext6:i386 libxfixes3:i386 libxinerama1:i386 libxrandr2:i386 libxrender1:i386 libxtst6:i386 zlib1g:i386
+corekeeper
+
+=========== end of packages ==============
+
+emacs elpa at work:
+auto-complete-20150225.715/  groovy-mode-201203310931/  nodejs-repl-20130520.842/  tern-20150302.211/                w3m-20150513.1/
+async-20150529.529/  enh-ruby-mode-20150215.136/  helm-20150604.831/         js3-mode-20140805.1529/  popup-20150315.612/        tern-auto-complete-20141121.453/  yasnippet-20150415.244/

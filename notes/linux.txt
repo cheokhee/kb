@@ -270,16 +270,12 @@ There are two queues: SYN queue and accept queue.
 
 net.core.somaxconn = 128
 net.ipv4.tcp_max_syn_backlog = 512
-somaxconn (which is right?)
-1. backlog per port??
-2. is the number of complete connections waiting.
-3. Limit of socket listen() backlog,
-4. limit for the accept queue
+somaxconn
+1. Limit of socket listen() backlog,
+2. limit for the accept queue
 =================
-tcp_max_syn_backlog (which is right?)
-1. is the number of incomplete connections waiting.
-2. global backlog??
-3. the limit for the SYN queue
+tcp_max_syn_backlog
+the limit for the SYN queue
 
 netstat -ant | grep -c SYN_REC
 
@@ -346,3 +342,17 @@ DVI-1 disconnected (normal left inverted right x axis y axis)
 ++++++++++++++++++++
 change resolution:
 xrandr --output DVI-0 --mode 1920x1080
+
+#terminate the shell if no activity for 30 seconds
+export TMOUT=30
+
+#check if my machine is being pinged
+tcpdump -ni eth2 icmp
+
+#related to ulimit
+/etc/security/limits.conf
+
+useful shortcuts for top command:
+1 : show individual cpu
+z : highlight running processes
+c : show absolute path of process

@@ -23,6 +23,12 @@ MarkupBuilder -> generate XML
 JsonSlurper
 JsonBuilder
 
+#call restful api that returns json
+def slurper = new JsonSlurper().parseText(urlString.toURL().text)
+
+import groovy.json.JsonOutput
+JsonOutput.prettyPrint(str.toURL().text)
+
 binding: a collection of variables visible to a script
 any var not declared in a script is part of the binding
 
