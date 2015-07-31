@@ -7546,3 +7546,5 @@ template engine: generate HTML from a template file and application data.
 
 Classless Inter-Domain Routing (CIDR): allocate IP address space on any address bit boundary
 e.g. 192.168.2.0/24 . 24 is the number of bits in the network address or network/routing mask.
+
+software-defined networking: the decoupling of the network control plane from the network forwarding plane
