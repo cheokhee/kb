@@ -10,3 +10,6 @@ HashMap allows one null key and null values but Hashtable doesn't allow null key
 
 jstack: show stack trace of each thread
 e.g. jstack <process id of java process>
+
+--format string
+System.out.format("my name is %s, age is %03d", "cheok", 42);

@@ -6273,6 +6273,8 @@ purposes other than emphasis,
 
 race condition
 multiple threads access a resource at the same time, leading to unpredictable results.
+===
+The situation where multiple threads compete for the same resource, where the sequence in which the resource is accessed is significant,
 
 imperative programming: you tell the computer exactly how to do a job.
 
@@ -7371,8 +7373,8 @@ monad is a construct that allows you to write imperative-style programs, to main
 
 Tree traversal
 1. in-order: left, root, right
-2. pre-order: root, left, right
-3. post-order: left, right, root
+2. pre-order: root, left, right (visit each node before its children)
+3. post-order: left, right, root (visit each node after its children)
 pre and post refer to when we visit the root
 in-order: print from smallest to largest
 post-order: depth-first search
@@ -7548,3 +7550,13 @@ Classless Inter-Domain Routing (CIDR): allocate IP address space on any address 
 e.g. 192.168.2.0/24 . 24 is the number of bits in the network address or network/routing mask.
 
 software-defined networking: the decoupling of the network control plane from the network forwarding plane
+
+connected graph: we can reach any vertex from any other vertex by following edges in either direction.
+a tree is a connected graph with no cycles
+spanning tree:
+Let G be a connected graph. A spanning tree in G is a subgraph of G that includes all the vertices of G
+and is also a tree. The edges of the tree are called branches.
+
+framebuffer: The portion of memory reserved for holding the complete bit-mapped image that is sent to the monitor.
+Typically the frame buffer is stored in the memory chips on the video adapter. In some instances, however, the
+video chipset is integrated into the motherboard design, and the frame buffer is stored in general main memory.

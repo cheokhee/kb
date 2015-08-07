@@ -356,3 +356,8 @@ useful shortcuts for top command:
 1 : show individual cpu
 z : highlight running processes
 c : show absolute path of process
+
+run with an empty environment: env -i
+
+port scanning:
+nmap -sT -p- -Pn <hostname or IP>

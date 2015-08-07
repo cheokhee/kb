@@ -1,0 +1,46 @@
+Paros: A Java based HTTP/HTTPS proxy for assessing web application vulnerability. It supports editing/viewing HTTP messages on-the-fly. Other featuers include spiders, client certificate, proxy-chaining, intelligent scanning for XSS and SQL injections etc.
+
+Backtrack, Kali linux: for penetration testing
+
+dhclient: DHCP protocol client
+
+HTTrack: web site copier
+
+nmap: port scanner
+
+whois
+
+netcraft
+
+Doxygen: is a documentation generator for generating documentation from source code.
+
+Valgrind is a multipurpose code profiling and memory debugging tool
+
+====================
+nslookup
+> set type=mx
+> www.google.com
+Server:         146.222.121.228
+Address:        146.222.121.228#53
+
+Non-authoritative answer:
+*** Can't find www.google.com: No answer
+
+Authoritative answers can be found from:
+google.com
+        origin = ns1.google.com
+        mail addr = dns-admin.google.com
+        serial = 100028558
+        refresh = 7200
+        retry = 1800
+        expire = 1209600
+        minimum = 300
+====================
+
+satan (security administrator tool for analyzing networks)
+
+ettercap
+
+dsniff
+
+webmitm

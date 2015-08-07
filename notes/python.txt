@@ -1,0 +1,13 @@
+def main():
+...
+if __name__ == '__main__':
+    main()
+===============
+if the script is invoked directly, the above will be true
+if the script is imported, the above will be false
+
+==== automatic resource management ===
+with open(r'filename') as myfile:
+  for line in myfile:
+    print(line)
+==== automatic resource management ===

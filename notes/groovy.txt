@@ -56,3 +56,6 @@ this.binding.getVariable("name") -> groovy.lang.MissingPropertyException
 ---
 def : put the var in local scope
 If you define a method in your script, it won't have access to the variables that are created with "def" in the body of the main script as they aren't in scope:
+
+format string:
+sprintf("my name is %s, age is %03d\n", "cheok", 42)

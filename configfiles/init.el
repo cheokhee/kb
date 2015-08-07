@@ -16,6 +16,7 @@
  '(cua-remap-control-v nil)
  '(delete-old-versions t)
  '(dired-listing-switches "-Al")
+ '(elpy-rpc-python-command "python3")
  '(enable-recursive-minibuffers t)
  '(helm-for-files-preferred-list (quote (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
  '(ibuffer-default-sorting-mode (quote major-mode))
@@ -31,9 +32,11 @@
  '(kill-whole-line t)
  '(pcomplete-ignore-case t)
  '(python-python-command "python3")
+ '(python-shell-interpreter "python3")
  '(read-file-name-completion-ignore-case t)
  '(recentf-max-menu-items 25)
  '(recentf-save-file "~/.emacs.d/.recentf")
+ '(require-final-newline t)
  '(savehist-file "~/.emacs.d/.savehistory")
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
@@ -347,7 +350,11 @@ by using nxml's indentation rules."
 ;original ("\\.rb\\'" . ruby-mode)
 (delq (assoc "\\.rb\\'" auto-mode-alist) auto-mode-alist)
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
-(add-hook 'js3-mode-hook (lambda () (tern-mode t)))
+(add-hook 'js3-mode-hook
+  (lambda ()
+    (tern-mode t)
+    (company-mode)
+    (add-to-list 'company-backends 'company-tern)))
 ;(eval-after-load 'tern
 ;  '(progn
 ;       (require 'tern-auto-complete)
@@ -382,3 +389,6 @@ by using nxml's indentation rules."
 (global-set-key (kbd "C-c f") 'helm-for-files)
 ;emacs-init-time to find out time for init at start-up
 (global-set-key (kbd "<f6>") 'goto-line)
+;(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "C-c c") 'company-manual-begin)
+(elpy-enable)
