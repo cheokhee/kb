@@ -247,6 +247,8 @@ $* is same as $@ -> each word is treated as a separate word
 "$*" : all cmd line arg is treated as one parm --> "$1 $2"
 "$@" : preserves the original set --> "$1" "$2"
 preferred: "$@"
+"$@" expands to "$1" "$2" "$3" ...
+"$*" expands to "$1 $2 $3 .."
 
 # using expr with regexp: expr <string> : <regexp>
 # return # of chars that match
@@ -847,3 +849,7 @@ can do:
 
 #Collapse groups of 3 lines to 1 line and seperate the values by commas
 cat list | sed -e "N;N;s/\n/,/g"
+
+#here string: a stripped down form of a here document
+In Bash, <<<word is used as a "here string", where word is expanded and supplied to the command on its standard input, similar to a heredoc.
+COMMAND <<<$WORD, where $WORD is expanded and fed to the stdin of COMMAND

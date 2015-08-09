@@ -361,3 +361,7 @@ run with an empty environment: env -i
 
 port scanning:
 nmap -sT -p- -Pn <hostname or IP>
+
+systemctl list-unit-files --type=service
+
+xxd: make a hex dump
