@@ -392,3 +392,4 @@ by using nxml's indentation rules."
 ;(add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "C-c c") 'company-manual-begin)
 (elpy-enable)
+(put 'dired-find-alternate-file 'disabled nil)

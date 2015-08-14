@@ -1,0 +1,33 @@
+*a++ same as *a;a++
+
+#x is an array
+x[i] same as *(x+i)
+
+int x[5];
+printf("%p\n",x); // actually prints &x[0]
+
+profiling: use the -pg flag, then run gprof <program> > profile-file
+
+gdb:
+break frame.c:16 // line number
+s // step into
+n // step over
+finish // step out
+c // continue
+l // list
+info break // show breakpoint
+del 2 // delete 2nd breakpoint
+enable/disable 1 // enable/disable 1st breakpoint
+where // show where you are
+where full // show where you are and locals
+
+
+x/4xb &i // examine 4 values in memory, formatted as hex, one byte at a time
+0x7fffffffdc4c: 0x01    0x00    0x00    0x00
+(gdb) print &i
+$1 = (int *) 0x7fffffffdc4c
+
+Autotools:
+./configure
+make
+make install

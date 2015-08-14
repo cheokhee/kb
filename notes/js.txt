@@ -266,3 +266,7 @@ a = { name: 'hi', last: 'hee', count: 3}
 { name: 'hi', last: 'hee', count: 3 }
 Object.keys(a)
 [ 'name', 'last', 'count' ]
+
+#add days to date:
+> c=new Date(a.getTime() - (7*24*60*60*1000))
+> c=new Date(a.getTime() + (7*24*60*60*1000))

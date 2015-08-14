@@ -11,3 +11,9 @@ with open(r'filename') as myfile:
   for line in myfile:
     print(line)
 ==== automatic resource management ===
+
+python interpreter:
+>>> s=''
+>>> dir(s)  #show attributes and methods
+
+>>> help(s.isspace)  #get help on attributes

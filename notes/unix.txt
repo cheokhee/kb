@@ -290,8 +290,18 @@ od -c : dump file with ascii
 
 hex dump:
 od -x <file>
-hexdump -C <file>
+hexdump -C <file> #preferred
 hexdump -x <file>
+preferred: xxd // no need to worry about endianness
+
+xxd: can patch binary files
+#1: do "xxd <file>" to identify address for patching
+example: xxd <file>
+0000000: 4220 7061 7463 6865 6420 2020 0000 0000  B patched   ....
+0000010: 2066 6f6f 6c2e                            fool.
+
+#2: change the first byte to C
+echo "0000000: 43" | xxd -r - <file> #change the file in-place
 
 runlevel:
 0: shutdown
