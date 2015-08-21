@@ -321,7 +321,7 @@
     <!-- Fast access to Terminal -->
     <keybind key="C-A-T">
       <action name="Execute">
-        <command>lxterminal --geometry=125x47</command>
+        <command>lxterminal --geometry=125x40</command>
       </action>
     </keybind>
 
@@ -335,7 +335,7 @@
     <!-- Fast access to chrome -->
     <keybind key="C-A-G">
       <action name="Execute">
-        <command>google-chrome</command>
+        <command>~/bin/chrome</command>
       </action>
     </keybind>
 
@@ -349,7 +349,7 @@
     <!-- Fast access to eclipse -->
     <keybind key="C-A-L">
       <action name="Execute">
-        <command>~/eclipse/eclipse</command>
+        <command>/a/eclipse/eclipse</command>
       </action>
     </keybind>
 
@@ -382,6 +382,42 @@
           <name>PCManFM</name>
         </startupnotify>
         <command>pcmanfm</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-A-M">
+      <action name="Execute">
+        <command>evolution</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-A-O">
+      <action name="Execute">
+        <command>libreoffice</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-A-U">
+      <action name="Execute">
+        <command>/a/soapui-5.1.2/bin/SoapUI-5.1.2</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-A-H">
+      <action name="Execute">
+        <command>~/bin/hermes</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-A-Y">
+      <action name="Execute">
+        <command>VirtualBox</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-A-X">
+      <action name="Execute">
+        <command>xzoom -geometry 900x900</command>
       </action>
     </keybind>
 

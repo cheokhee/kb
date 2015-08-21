@@ -1941,6 +1941,14 @@ Contrast a corner case with an edge case, an issue that occurs only at a (single
 the absence of other extreme settings or conditions.
 ===
 edge case: extreme situations that challenge the system
+===
+edge case vs corner case:
+edge case:  is situation arised in system due to only 1 factor reached to its minimum/maxiumm state.
+corner: is the problem or situation arised in system which is caused by more than 1 factors
+or variables reaching to its minimum/maximum state.
+=====
+An edge case is where the program logic meets a boundary condition. A corner case is where
+you meet more than one boundary condition at once.
 
 Behavior driven development (or BDD) is an agile software development technique that encourages
  collaboration between developers, QA and non-technical or business participants in a software project.
@@ -4505,6 +4513,10 @@ The term seems to have two usages:
 heuristic algorithm
 an algorithm that can produce an acceptable result in many scenarios, but for which
 there is no formal proof of its correctness.
+===
+heuristic function:
+a function that ranks alternatives in search algorithms at each branching step based on available info
+to decide which branch to follow.
 
 class invariant
 Class invariants are methods which check the validity of an object's state (its data).
@@ -5237,8 +5249,13 @@ and data in a single unit.
 AOP is a new technology for separating crosscutting concerns into single units called aspects.
 join point: an execution point in a program
 point cut: specifies criteria that match join points. a way to specify joint points
+  an expression that determines whether an advice should be executed.
 advice: a means to specify code to be run at joint points
+  action that should be taken at join points.
 --> let you add behavior to your POJO without modifying your code
+---
+AOP: a technique that enables adding executable blocks to your source code without changing it.
+--> allow you to add behavior to your source code without changing it.
 ---
 1. Aspect: An aspect is a class that implements enterprise application concerns that cut across multiple classes, such as transaction management. Aspects can be a normal class configured through Spring XML configuration or we can use Spring AspectJ integration to define a class as Aspect using @Aspect annotation.
 2. Join Point: A join point is the specific point in the application such as method execution, exception handling, changing object variable values etc. In Spring AOP a join points is always the execution of a method.
@@ -7577,3 +7594,13 @@ linker performs address binding: assigning relative addresses.
 loader: assign actual address
 An object file is a file containing object code, meaning relocatable format machine code that is usually not directly executable.
 object code: what a computer compiler produces. Object code is a portion of machine code that has not yet been linked into a complete program. It is the machine code for one particular library or module that will make up the completed product. It may also contain placeholders or offsets, not found in the machine code of a completed program, that the linker will use to connect everything together. Whereas machine code is binary code that can be executed directly by the CPU, object code has the jumps partially parameterized so that a linker can fill them in.
+
+There are three types of solutions that can occur in your body based on solute concentration: isotonic, hypotonic, and hypertonic.
+An isotonic solution is one in which the concentration of solutes is the same both inside and outside of the cell.
+A hypotonic solution is one in which the concentration of solutes is greater inside the cell than outside of it, and
+a hypertonic solution is one where the concentration of solutes is greater outside the cell than inside it.
+
+Frame: Any one function has a space in memory called a frame, holding info about the function, such as where to
+return when finished and spaces for all the local variables.
+When a function calls another function, the caller halts and a new function is added to the stack of frames. When a
+function completes, its frame is popped off the stack and all local variables disappear.

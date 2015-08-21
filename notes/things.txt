@@ -53,6 +53,8 @@ edit /etc/apport/crashdb.conf :
 put a # in front of 'problem_types': ['Bug', 'Package'] : enable crash interception
 to disable crash reporting, remove the #
 
+emacs c ide: https://github.com/tuhdo/emacs-c-ide-demo.git
+
 ======= start of packages ============
 install packages:
 vim
@@ -89,9 +91,9 @@ libxml2-utils
 remmina
 thunderbird (remove later)
 ibus-gtk3 (display candidates near where you type)
-inetutils-talk
-talk
-talkd
+inetutils-talk (removed)
+talk (removed)
+talkd (removed)
 apache2-utils (apache bench)
 siege (load test)
 xmlcopyeditor
@@ -101,6 +103,9 @@ install teamviewer_10.0.41499_i386.deb, which also installed
   gcc-4.9-base:i386 libasound2:i386 libc6:i386 libexpat1:i386 libfontconfig1:i386 libfreetype6:i386 libgcc1:i386 libice6:i386 libjpeg62:i386 libpng12-0:i386 libsm6:i386 libuuid1:i386
   libx11-6:i386 libxau6:i386 libxcb1:i386 libxdamage1:i386 libxdmcp6:i386 libxext6:i386 libxfixes3:i386 libxinerama1:i386 libxrandr2:i386 libxrender1:i386 libxtst6:i386 zlib1g:i386
 corekeeper
+exuberant-ctags (removed)
+cscope
+global
 
 =========== end of packages ==============
 

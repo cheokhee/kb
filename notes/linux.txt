@@ -190,10 +190,17 @@ need cifs-utils to access windows server, then do: sudo mount -t cifs -o usernam
 #add shared library path
 option 1:
 LD_LIBRARY_PATH is an environment variable you set to give the run-time shared library loader (ld.so) an extra set of directories to look for when searching for shared libraries
+example: LD_LIBRARY_PATH=~/instantclient_11_2 python3
 option 2:
  create a file under /etc/ld.so.conf.d/, then run ldconfig
 
 ##print shared libraries dependencies: ldd command
+
+add include and library path gcc:
+C_INCLUDE_PATH=~/instantclient_11_2/sdk/include LIBRARY_PATH=~/instantclient_11_2 pip3 install --user cx_Oracle
+
+special case (for npm oracledb only):
+OCI_INC_DIR=~/instantclient_11_2/sdk/include LIBRARY_PATH=~/instantclient_11_2 npm install oracledb
 
 #stop this message (when running evince): Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-sCAvokkUFt: Connection refused
 export NO_AT_BRIDGE=1
@@ -365,3 +372,5 @@ nmap -sT -p- -Pn <hostname or IP>
 systemctl list-unit-files --type=service
 
 xxd: make a hex dump
+
+manipulate or dump object files: objcopy and objdump

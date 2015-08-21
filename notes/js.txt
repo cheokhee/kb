@@ -109,6 +109,7 @@ compare boolean to number: the boolean is converted to a number
 compare object to non-object: the object's valueOf() method is called to get a primitive value.
   if valueOf() is not defined, toString() is called.
 
+Objects are coerced to numbers via valueOf() and to strings via toString()
 
 npm:
 #1
@@ -270,3 +271,19 @@ Object.keys(a)
 #add days to date:
 > c=new Date(a.getTime() - (7*24*60*60*1000))
 > c=new Date(a.getTime() + (7*24*60*60*1000))
+
+#create Non-enumerable properties
+var person = { age: 18 };
+Object.defineProperty(person, 'name', { value: 'Joshua', enumerable: false });
+
+node js: add repl.js
+in app.js:
+require('./repl')
+exports.app = app;
+
+then: telnet localhost 3003:
+Object.keys(global.require.main.exports.app.get('facilities')).length
+
+global.require.main.exports.app.get('facilities').LGB01
+
+global.require.main.exports.app.get('port')

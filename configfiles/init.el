@@ -162,7 +162,7 @@
 (add-hook 'python-mode-hook
    (lambda ()
        (define-key python-mode-map (kbd "M-p") 'python-shell-switch-to-shell)))
-(global-set-key (kbd "<f11>") 'delete-other-windows)
+(global-set-key (kbd "<f11>") 'zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "<f12>") 'delete-window)
 (require 'dired+)
 ;(eval-after-load "w32-browser"
@@ -305,7 +305,7 @@
 	(while (> count 0)
 	  (my-previous-word-1)
 	  (setq count (1- count)))))
-(global-set-key (kbd "C-c p") 'my-previous-word)
+(global-set-key (kbd "C-c b") 'my-previous-word)
 (defun my-end-word ()
   (interactive)
   (unless (is-on-space) (forward-until-space)))
@@ -382,7 +382,7 @@ by using nxml's indentation rules."
      (define-key term-raw-map (kbd "C-c C-j") 'term-toggle-mode)))
 
 (setq browse-url-browser-function 'w3m-goto-url-new-session)
-(global-set-key (kbd "C-c b") 'browse-url-at-point)
+;(global-set-key (kbd "C-c b") 'browse-url-at-point)
 ;(autoload 'idomenu "idomenu" nil t)
 (global-set-key (kbd "C-c i") 'helm-imenu)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
@@ -393,3 +393,26 @@ by using nxml's indentation rules."
 (global-set-key (kbd "C-c c") 'company-manual-begin)
 (elpy-enable)
 (put 'dired-find-alternate-file 'disabled nil)
+(global-anzu-mode 1)
+(add-hook 'emacs-lisp-mode-hook
+  (lambda ()
+    (company-mode)))
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c-mode-common-hook
+  (lambda ()
+    (company-mode)
+    (ggtags-mode 1)))
+(eval-after-load "helm-gtags"
+  '(progn
+     (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+     (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+     (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+(setq
+  helm-gtags-ignore-case t
+  helm-gtags-auto-update t
+  helm-gtags-use-input-at-cursor t
+  helm-gtags-pulse-at-cursor t
+  helm-gtags-prefix-key "\C-cg"
+  helm-gtags-suggested-key-mapping t)
+(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
