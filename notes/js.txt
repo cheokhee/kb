@@ -202,7 +202,8 @@ curl -X POST -d '{"query": {"type":"completions", "file":"schedule.js", "end": {
 
 ==============
 a = new Date()
-Date.prototype === a.__proto__  #true
+Date.prototype === a.__proto__  #true, non-standard
+Object.getPrototypeOf(d) === Date.prototype #true, preferred
 
 Array.prototype.slice(start, end): select elements from an array
 start	Required. An integer that specifies where to start the selection (The first element has an index of 0). Use negative numbers to select from the end of an array
@@ -287,3 +288,24 @@ Object.keys(global.require.main.exports.app.get('facilities')).length
 global.require.main.exports.app.get('facilities').LGB01
 
 global.require.main.exports.app.get('port')
+
+==== prototype chain =====
+function User(name) { this.name=name }
+User.prototype.toString = function() {};
+var u = new User('hi');
+
+The User function has a property called prototype, which points to an object.
+
+the instance object u "inherits" from User.prototype (think of u as an instance of User)
+If a property is not in u, the lookup will move up to User.prototype
+summary: u.__proto__ points to User.prototype (non-standard)
+
+User is a function object (think of User as an instance of Function)
+User.__proto__ points to Function.prototype
+
+==== prototype chain =====
+
+string: a sequence of 16-bit code units
+uses UTF-16 for internal string representation
+some unicode code points in UTF-16 require two 16-bit code units
+so aString.length can be incorrect if a code point requires 2 code units

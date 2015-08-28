@@ -18,6 +18,7 @@
  '(dired-listing-switches "-Al")
  '(elpy-rpc-python-command "python3")
  '(enable-recursive-minibuffers t)
+ '(fill-column 100)
  '(helm-for-files-preferred-list (quote (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
  '(ibuffer-default-sorting-mode (quote major-mode))
  '(ibuffer-expert t)
@@ -400,6 +401,7 @@ by using nxml's indentation rules."
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c-mode-common-hook
   (lambda ()
+    (delete 'company-clang company-backends)
     (company-mode)
     (ggtags-mode 1)))
 (eval-after-load "helm-gtags"
@@ -416,3 +418,8 @@ by using nxml's indentation rules."
   helm-gtags-prefix-key "\C-cg"
   helm-gtags-suggested-key-mapping t)
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
+(ws-butler-global-mode 1)
+(eval-after-load 'flycheck
+  '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
+(global-set-key (kbd "M-i") 'helm-swoop)
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)

@@ -109,9 +109,10 @@ global
 
 =========== end of packages ==============
 
-emacs elpa at work:
-dash-20150717.1321/          find-file-in-project-3.3/     js3-mode-20140805.1529/    s-20140910.334/
-async-20150529.529/          dash-functional-20150311.2358/  groovy-mode-201203310931/     nodejs-repl-20130520.842/  tern-20150302.211/
-auto-complete-20150225.715/  elpy-1.8.1/                     helm-20150604.831/            tern-auto-complete-20141121.453/
-company-20150706.347/        highlight-indentation-0.6.0/  popup-20150315.612/        w3m-20150513.1/
-company-tern-20150525.216/   enh-ruby-mode-20150215.136/     idomenu-0.1/                  pyvenv-1.7/                yasnippet-20150415.244/
+anzu-20150802.2203/          dash-functional-20150311.2358/  groovy-mode-201203310931/      idomenu-0.1/               projectile-20150728.2141/         yasnippet-20150415.244/
+archives/                    elpy-1.8.1/                     helm-20150604.831/             iedit-20150415.1804/       pyvenv-1.7/                       zygospore-20140703.152/
+async-20150529.529/          enh-ruby-mode-20150215.136/     helm-flycheck-20140915.752/    js3-mode-20140805.1529/    s-20140910.334/
+auto-complete-20150225.715/  epl-20150517.433/               helm-gtags-20150816.1935/      let-alist-1.0.4/           tern-20150302.211/
+company-20150706.347/        find-file-in-project-3.3/       helm-projectile-20150826.321/  nodejs-repl-20130520.842/  tern-auto-complete-20141121.453/
+company-tern-20150525.216/   flycheck-20150821.47/           helm-swoop-20150704.839/       pkg-info-20150517.443/     w3m-20150513.1/
+dash-20150717.1321/          ggtags-20150814.842/            highlight-indentation-0.6.0/   popup-20150315.612/        ws-butler-20150126.759/

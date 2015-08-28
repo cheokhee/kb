@@ -374,3 +374,7 @@ systemctl list-unit-files --type=service
 xxd: make a hex dump
 
 manipulate or dump object files: objcopy and objdump
+
+readlink: follow symbolic link
+readlink -f `which google-chrome`
+/opt/google/chrome/google-chrome
