@@ -355,6 +355,8 @@ export TMOUT=30
 
 #check if my machine is being pinged
 tcpdump -ni eth2 icmp
+#capture 2 packets and display packets n hex and ascii, write to a file, -tttt: print a timestamp
+tcpdump -ni eth2 -c 2 -XX -w filename -tttt
 
 #related to ulimit
 /etc/security/limits.conf
@@ -378,3 +380,17 @@ manipulate or dump object files: objcopy and objdump
 readlink: follow symbolic link
 readlink -f `which google-chrome`
 /opt/google/chrome/google-chrome
+
+== virtual console
+tty1 through 6 : there is a getty process
+To access virtual console from X11: Ctrl-Alt-F1 thru F6
+Once in virtual console, can use Alt-F1 throu 6 to switch. can also use alt-lefarrow and alt-rightarrow to cycle
+
+X11 is running on tty7
+
+do it from a command line: chvt 1
+== virtual console
+
+keyboard related programs:
+loadkeys
+showkey

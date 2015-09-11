@@ -6,6 +6,9 @@ x[i] same as *(x+i)
 int x[5];
 printf("%p\n",x); // actually prints &x[0]
 
+declare array (2 ways): 1. pointer form: int *p 2. static form: int p[100]
+address of the nth element: &p[n]
+
 profiling: use the -pg flag, then run gprof <program> > profile-file
 
 gdb:

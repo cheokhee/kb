@@ -863,3 +863,5 @@ cat list | sed -e "N;N;s/\n/,/g"
 #here string: a stripped down form of a here document
 In Bash, <<<word is used as a "here string", where word is expanded and supplied to the command on its standard input, similar to a heredoc.
 COMMAND <<<$WORD, where $WORD is expanded and fed to the stdin of COMMAND
+
+sed -r 's/\s//g' # -r use extended regular expression

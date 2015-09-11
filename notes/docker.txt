@@ -105,6 +105,7 @@ Error:
 curl localhost:5000
 curl localhost:5000/v1/_ping
 curl localhost:5000/v1/search
+curl host:5000/v1/search?q=nodejs
 
 {"num_results": 2, "query": "", "results": [{"description": null, "name": "library/tibcobw"}, {"description": "", "name": "library/rhel6.5"}]}12:36:55 ~$
 
@@ -148,3 +149,12 @@ backup:
 restore:
 1. docker create -v /dbdata -name DATA2 ubuntu
 2. docker run --rm --volumes-from DATA2 -v $PWD:/backup ubuntu tar xvf /backup/backup.tar
+
+T1: no data volume
+$ls /usr/src/app/config # two files
+config.json.vpp  default-config.json
+T2: docker run --rm -it -v ~/config:/usr/src/app/config --entrypoint="/bin/bash" moc-ss:0.1.1 -i
+$ls /usr/src/app/config # one file
+default-config.json
+---
+conclusion: data volume shadows original directory

@@ -1,0 +1,1 @@
+under GOPATH: a top-level directory named "pkg", for holding compiled packages that can be imported

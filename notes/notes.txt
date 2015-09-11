@@ -7604,6 +7604,8 @@ Frame: Any one function has a space in memory called a frame, holding info about
 return when finished and spaces for all the local variables.
 When a function calls another function, the caller halts and a new function is added to the stack of frames. When a
 function completes, its frame is popped off the stack and all local variables disappear.
+--------
+call stack: the chain of active functions that are currently executing.
 
 Union file systems allow files and directories of separate file systems, known as branches, to be
 transparently overlaid, forming a single coherent file system.
@@ -7616,3 +7618,10 @@ through union filesystems, such as UnionFS, aufs and OverlayFS. Generally, one o
 directories or filesystems will be treated as read-write, while other directories or filesystems are
 treated as read-only. If changes are written by applications to the union filesystem, they are
 recorded in the writeable overlay. As such, union mounts are frequently used by Live CDs.
+
+Lisp-1: one namespace (Scheme)
+Lisp-2: 2 namespaces (1 for function name and 1 for variable). Common Lisp
+
+mixin is a class that contains a combination of methods from other classes. How such a combination
+is done depends on the language. If a combination contains all methods of combined classes, it is
+equivalent to multiple inheritance.
