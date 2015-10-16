@@ -7625,3 +7625,20 @@ Lisp-2: 2 namespaces (1 for function name and 1 for variable). Common Lisp
 mixin is a class that contains a combination of methods from other classes. How such a combination
 is done depends on the language. If a combination contains all methods of combined classes, it is
 equivalent to multiple inheritance.
+
+thrashing: pages are constantly being written to disk and then read back.
+
+working set: the set of pages that a process is currently using.
+
+buffer cache: contain data buffers used by block device drivers.
+container data read from a block device or written to it.
+block device is only accessed via the buffer cache.
+
+page cache: use to cache the logical contents of a file one page at a time.
+memory-mapped files are read a page at a time and they are stored in the page cache.
+
+data buffer: a region of a physical memory storage used to temporarily store data while it is being
+moved from one place to another Typically, the data is stored in a buffer as it is retrieved from an
+input device or just before it is sent to an output device.  Buffers are typically used when there
+is a difference between the rate at which data is received and the rate at which it can be
+processed.

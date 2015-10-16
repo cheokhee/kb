@@ -322,3 +322,6 @@ link libclntsh.so.11.1 to libclntsh.so
 OCI_INC_DIR=~/instantclient_11_2/sdk/include LIBRARY_PATH=~/instantclient_11_2 npm install oracledb
 ===
 LD_LIBRARY_PATH=~/instantclient_11_2 node app.js
+
+#add an array of objects to another array
+Array.prototype.push.apply(targetArray, sourceArray);

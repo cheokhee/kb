@@ -394,3 +394,21 @@ do it from a command line: chvt 1
 keyboard related programs:
 loadkeys
 showkey
+
+download a full website:
+wget --random-wait -r -p -e robots=off -U mozilla www.example.com
+
+pmap: show memory map of a process
+/proc/[pid]/statm:
+  field #1: size, mapped to VIRT
+  field #2: resident, mapped to RES
+  field #3: share, mapped to SHR
+  field #4: text, mapped to CODE
+  field #5: lib , always 0
+  field #6: data, mapped to DATA
+  field #7: dt, always 0
+/proc/[pid]/maps
+/proc/[pid]/smaps
+/proc/[pid]/status
+/proc/meminfo
+smem program
