@@ -7642,3 +7642,6 @@ moved from one place to another Typically, the data is stored in a buffer as it 
 input device or just before it is sent to an output device.  Buffers are typically used when there
 is a difference between the rate at which data is received and the rate at which it can be
 processed.
+
+communicating sequential processes: a program is a parallel composition of processes that have no
+shared state; the processes communicate and synchronize using channels.

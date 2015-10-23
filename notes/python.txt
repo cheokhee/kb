@@ -27,3 +27,33 @@ link libclntsh.so.11.1 to libclntsh.so
 C_INCLUDE_PATH=~/instantclient_11_2/sdk/include LIBRARY_PATH=~/instantclient_11_2 pip3 install --user cx_Oracle
 ===
 LD_LIBRARY_PATH=~/instantclient_11_2 python3
+
+python dictionary looks like a JSON object
+
+read command line argument: sys.argv
+sys.argv[0]: command
+sys.argv[1]: first argument
+# need to import sys
+
+Single and double quoted strings in Python are identical
+
+>>> print('string1\nstring2')
+string1
+string2
+>>> print(r'string1\nstring2') #raw character
+string1\nstring2
+
+string formatting:
+>>> print("hi there %s" % "cheok")
+hi there cheok
+>>> "hi there {name}".format(name="cheok")
+'hi there cheok'
+
+__foo__: this is just a convention, a way for the Python system to use names that won't conflict
+with user names. considered to built-in methods.
+
+_foo: this is just a convention, a way for the programmer to indicate that the variable is private
+(whatever that means in Python).
+
+__foo: this has real meaning: the interpreter replaces this name with _classname__foo as a way to
+ensure that the name will not overlap with a similar name in another class.
