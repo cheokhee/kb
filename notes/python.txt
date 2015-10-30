@@ -57,3 +57,62 @@ _foo: this is just a convention, a way for the programmer to indicate that the v
 
 __foo: this has real meaning: the interpreter replaces this name with _classname__foo as a way to
 ensure that the name will not overlap with a similar name in another class.
+
+Python has two different ways to convert an object to a string: str() and repr().
+str(): string representation of an object
+repr(): internal representation
+Printing an object uses str(); printing a list containing an object uses str()
+for the list itself, but the
+implementation of list.__str__() calls repr() for the individual items.
+So you should also overwrite __repr__(). A simple
+__repr__ = __str__
+
+built-in class attributes:
+__dict__: Dictionary containing the class's namespace.
+
+__doc__: Class documentation string or none, if undefined.
+
+__name__: Class name.
+
+__module__: Module name in which the class is defined. This attribute is "__main__" in interactive mode.
+
+__bases__: A possibly empty tuple containing the base classes, in the order of their occurrence in the base class list.
+
+def test_var_args(*args): non-keyworded, variable-length argument list
+def test_var_kwargs(**kwargs): keyworded, variable-length argument list.
+
+An iterable is an object that has an __iter__ method which returns an iterator, or which defines a
+__getitem__ method that can take sequential indexes starting from zero (and raises an IndexError
+when the indexes are no longer valid). So an iterable is an object that you can get an iterator
+from.
+==
+iter(anIterable): return an iterator
+===
+An iterator is an object with a next (Python 2) or __next__ (Python 3) method.
+Whenever you use a for loop, or map, or a list comprehension, etc. in Python, the next method is
+called automatically to get each item from the iterator, thus going through the process of
+iteration.
+===
+for x in iterable:
+===
+iterable: an object that can be used in an iteration
+iterator: an object that defines how to do the iteration
+===
+First let’s look at the for loop under the hood. When Python executes the for loop, it first invokes
+the __iter__() method of the container to get the iterator of the container. It then repeatedly
+calls the next() method (__next__() method in Python 3.x) of the iterator until the iterator raises
+a StopIteration exception. Once the exception is raised, the for loop ends.
+===
+A list is iterable, but a list is not its own iterator.
+
+============= elpy ==============
+C-c C-v         elpy-check
+C-c C-z         elpy-shell-switch-to-shell
+C-c C-c         elpy-shell-send-region-or-buffer
+C-c C-n         elpy-flymake-next-error
+C-c C-p         elpy-flymake-previous-error
+============= elpy ==============
+
+print without newline:
+print('blah', end="")
+sys.stdout.write('blah')

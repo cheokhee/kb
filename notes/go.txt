@@ -1,6 +1,7 @@
 under GOPATH: a top-level directory named "pkg", for holding compiled packages that can be imported
 
 go list ./...
+the pattern "./..." means start in the current directory ("./") and find all packages below that directory ("..."):
 
 os.Args , os.Args[0]
 
@@ -57,3 +58,19 @@ a = append(a, b...) // equivalent to "append(a, b[0], b[1], b[2])"
 zero value of slice is nil
 zero value of int : 0
 zero value of string: ""
+
+for initialization; condition; post {
+}
+
+// an infinite loop
+for {
+}
+
+// a while loop
+for condition {
+}
+
+for _,arg := range os.Args[1:] {
+}
+
+range produces a pair of values: the index and the value of the element at that index

@@ -55,6 +55,13 @@ to disable crash reporting, remove the #
 
 emacs c ide: https://github.com/tuhdo/emacs-c-ide-demo.git
 
+.config/flake8 -->
+[flake8]
+max-line-length=200
+.config/pep8 -->
+[pep8]
+max-line-length=200
+
 ======= start of packages ============
 install packages:
 vim
@@ -106,6 +113,8 @@ corekeeper
 exuberant-ctags (removed)
 cscope
 global
+enca
+install jitsi_2.8.5426-1_amd64.deb
 
 =========== end of packages ==============
 
@@ -116,3 +125,18 @@ auto-complete-20150225.715/  epl-20150517.433/               helm-gtags-20150816
 company-20150706.347/        find-file-in-project-3.3/       helm-projectile-20150826.321/  nodejs-repl-20130520.842/  tern-auto-complete-20141121.453/
 company-tern-20150525.216/   flycheck-20150821.47/           helm-swoop-20150704.839/       pkg-info-20150517.443/     w3m-20150513.1/
 dash-20150717.1321/          ggtags-20150814.842/            highlight-indentation-0.6.0/   popup-20150315.612/        ws-butler-20150126.759/
+
+my changes to yasnippet-20150415.244:
+in snippets directory: add a symbolic link from js3-mode -> js-mode
+in yasnippet-20150415.244/snippets/js-mode/for: add a space after for
+
+
+====================
+pidgin to cisco jabber:
+protocol: XMPP
+username: heech
+domain: oocl.com
+port: 5222
+connect server: apiptcup13.oocl.com
+file transfer proxies: proxy.eu.jabber.org
+no proxy

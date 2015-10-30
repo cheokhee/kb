@@ -1,1 +1,14 @@
 C-u C-space : to go back to a saved mark
+
+you can see / change the current buffer encoding with C-x RET f
+you can also change the detected encoding to force an other one and reload the file with C-x RET r
+you can set an encoding for the next I/O command only with C-x RET c
+
+(listp before-save-hook)
+t
+(length before-save-hook)
+3
+(nth 0 before-save-hook)
+gofmt-before-save
+(nth 1 before-save-hook)
+t

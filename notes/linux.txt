@@ -412,3 +412,7 @@ pmap: show memory map of a process
 /proc/[pid]/status
 /proc/meminfo
 smem program
+
+#add new repo
+#1: add key: apt-key add <key>
+#2: add a file to /etc/apt/sources.list.d, call it something like docker.list

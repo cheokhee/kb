@@ -865,3 +865,30 @@ In Bash, <<<word is used as a "here string", where word is expanded and supplied
 COMMAND <<<$WORD, where $WORD is expanded and fed to the stdin of COMMAND
 
 sed -r 's/\s//g' # -r use extended regular expression
+
+rename: rename multiple files
+#translate uppercase names to lower
+rename 'y/A-Z/a-z/' *
+#ename all files matching "*.bak" to strip the extension
+rename 's/\.bak$//' *.bak
+#remove spaces from file names
+option #1: rename 'y/ /_/' *
+option #2: rename 's/ /_/g' *
+#y: transliteration (like tr); s: substitution
+
+#show encoding of file
+#1:
+file -bi <filename> #b: brief (don't show filename)
+text/plain; charset=us-ascii
+#2:
+file -b --mime-encoding <filename>
+us-ascii
+#3:
+file -b --mime-type <filename>>
+text/plain
+#4:
+enca -L none newrelic.js #require enca package, which includes enconv
+7bit ASCII characters
+
+#show supported encodings
+iconv -l
