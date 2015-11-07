@@ -135,8 +135,8 @@ in yasnippet-20150415.244/snippets/js-mode/for: add a space after for
 pidgin to cisco jabber:
 protocol: XMPP
 username: heech
-domain: oocl.com
+domain: xyxy.com
 port: 5222
-connect server: apiptcup13.oocl.com
+connect server: apiptcup13.xyxy.com
 file transfer proxies: proxy.eu.jabber.org
 no proxy

@@ -7646,3 +7646,6 @@ processed.
 
 communicating sequential processes: a program is a parallel composition of processes that have no
 shared state; the processes communicate and synchronize using channels.
+
+In computer science, string interning is a method of storing only one copy of each distinct string
+value, which must be immutable. In Smalltalk, symbol is like an interned string
