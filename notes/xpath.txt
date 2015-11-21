@@ -1,0 +1,17 @@
+test xpath in chrome developer tools , console tab, the following are same:
+$x("//records[locationRole='Inbound' and dndType = 'DM']/freeTimeExpiry")
+$x('//records[locationRole="Inbound" and dndType = "DM"]/freeTimeExpiry')
+
+xpath expr: //records[locationRole='Inbound' and dndType = 'DM']/freeTimeExpiry
+xml looks loke this:
+<records>
+<referenceNumber>2AVJB3K</referenceNumber>
+<dndType>DD</dndType>
+<locationRole>Inbound</locationRole>
+<applicability>Y</applicability>
+<freeTime>21</freeTime>
+<freeTimeExpiry>
+<ns2:dateStr>20140912235900.000</ns2:dateStr>
+</freeTimeExpiry>
+...
+</records>

@@ -146,3 +146,24 @@ data.update(data2)  # Where data2 is also a dict.
 del data[key] #Remove specific element in a dictionary
 #OR
 data.clear() #Clear entire dictionary
+
+for k, v in a.items():
+    print("key: %s, value: %s" % (k, v))
+
+-- functional programming --
+a=[2,3,4]
+list(map((lambda x: x**2), a))
+==> [4, 9, 16]
+
+list(filter((lambda x: x<3), a))
+==> [2]
+#same as below
+[x for x in a if x < 3]
+==> [2]
+from functools import reduce
+reduce( (lambda x, y: x + y), [1, 2, 3, 4] )
+#The left argument, x, is the accumulated value and the right argument, y, is the update value from the iterable.
+
+ternary operation (python style):
+expression1 if condition else expression2
+example: 'yes' if 1>0 else 'no'

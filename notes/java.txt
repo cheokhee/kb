@@ -13,3 +13,23 @@ e.g. jstack <process id of java process>
 
 --format string
 System.out.format("my name is %s, age is %03d", "cheok", 42);
+
+double brace initialization:
+original:
+ArrayList<String> list = new ArrayList<String>();
+list.add("A");
+list.add("B");
+list.add("C");
+alternative:
+ArrayList<String> list = new ArrayList<String>() {{
+    add("A");
+    add("B");
+    add("C");
+}};
+
+Arrays.asList("one", "two", "three")
+
+
+    public static <T> List<T> asList(T... a) {
+    return new ArrayList<T>(a);
+    }

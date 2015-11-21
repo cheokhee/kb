@@ -1,0 +1,14 @@
+python:
+a=lambda a,b: a+b
+>>> a(1,2)
+3
+
+ruby:
+a=lambda { |x,y| x + y }
+a.call(2,5)
+=> 7
+
+groovy:
+a= { x, y -> x + y }
+a(2,4)
+===> 6

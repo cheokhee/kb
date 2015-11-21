@@ -416,3 +416,15 @@ smem program
 #add new repo
 #1: add key: apt-key add <key>
 #2: add a file to /etc/apt/sources.list.d, call it something like docker.list
+
+ps f : show process hierarchy
+ps a : show processes owned by others
+ps x : those without tty
+ps u : user-friendly format
+
+7z a -mhe=on -ppassword important.7z important.txt for-honey.txt
+
+check battery:
+upower -i /org/freedesktop/UPower/devices/battery_BAT0 # deprecated supposedly
+OR
+cat /sys/class/power_supply/BAT0/uevent

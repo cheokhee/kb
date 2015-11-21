@@ -7052,6 +7052,7 @@ usually don't do reporting from operational data store.
 An operational data store (or "ODS") is a database designed to integrate data from multiple sources for additional operations on the data. The data is then passed back to operational systems for further operations and to the data warehouse for reporting.
 
 working set: a set of memory pages that a process requires in a given time period
+resident set size (RSS) is the portion of memory occupied by a process that is held in main memory (RAM).
 
 Oracle:
 SCN: system change number: A database ordering primitive. The value of an SCN is the logical point in time at which changes are made to a database.
@@ -7649,3 +7650,11 @@ shared state; the processes communicate and synchronize using channels.
 
 In computer science, string interning is a method of storing only one copy of each distinct string
 value, which must be immutable. In Smalltalk, symbol is like an interned string
+
+EAFP (easier to ask for forgiveness than permission)
+assume the existence of keys/attributes and catches exceptions if the assumption is false.
+LBYL (look before you leap): tests for pre-conditions before making calls or lookups
+In a multi-threaded environment, the LBYL approach can risk introducing a race condition between
+“the looking” and “the leaping”. For example, the code, if key in mapping: return mapping[key] can
+fail if another thread removes key from mapping after the test, but before the lookup. This issue
+can be solved with locks or by using the EAFP approach.

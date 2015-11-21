@@ -12,3 +12,5 @@ t
 gofmt-before-save
 (nth 1 before-save-hook)
 t
+
+C-x C-q : read-only mode
