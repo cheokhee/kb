@@ -33,3 +33,13 @@ Arrays.asList("one", "two", "three")
     public static <T> List<T> asList(T... a) {
     return new ArrayList<T>(a);
     }
+
+deal with keys and values of map:
+for (Map.Entry<K, V> entries: hashmap.entrySet()) { }
+
+anonymous java array: inline array
+void method(String[] a)
+how you call: method(new String[] {"123", "456"})
+alternative:
+void method(String... strs) // strs is seen as an array inside the method
+how you call: method(new String[] {"123", "456"}) or method("123", "456")

@@ -167,3 +167,11 @@ reduce( (lambda x, y: x + y), [1, 2, 3, 4] )
 ternary operation (python style):
 expression1 if condition else expression2
 example: 'yes' if 1>0 else 'no'
+
+function arguments:
+required argument
+keyword argument
+default argument
+variable-length argument:
+  def test_var_args(*args): non-keyworded, variable-length argument list
+  def test_var_kwargs(**kwargs): keyworded, variable-length argument list.

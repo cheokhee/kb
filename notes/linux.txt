@@ -428,3 +428,6 @@ check battery:
 upower -i /org/freedesktop/UPower/devices/battery_BAT0 # deprecated supposedly
 OR
 cat /sys/class/power_supply/BAT0/uevent
+
+#take every 10th line from the file
+awk '!(NR % 10)' test.txt
