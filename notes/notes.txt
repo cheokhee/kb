@@ -7658,3 +7658,8 @@ In a multi-threaded environment, the LBYL approach can risk introducing a race c
 “the looking” and “the leaping”. For example, the code, if key in mapping: return mapping[key] can
 fail if another thread removes key from mapping after the test, but before the lookup. This issue
 can be solved with locks or by using the EAFP approach.
+
+test data:
+#1. production data: not a good idea
+#2. de-identified data: removing sensitive areas of data in order not to reveal the source.
+#3. synthetic/artificial data

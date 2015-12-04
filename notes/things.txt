@@ -114,9 +114,10 @@ exuberant-ctags (removed)
 cscope
 global
 enca
-install jitsi_2.8.5426-1_amd64.deb
+install jitsi_2.8.5426-1_amd64.deb, removed
 htop
 p7zip-full
+libigraph0-dev
 
 =========== end of packages ==============
 
