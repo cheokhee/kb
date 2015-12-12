@@ -43,3 +43,13 @@ how you call: method(new String[] {"123", "456"})
 alternative:
 void method(String... strs) // strs is seen as an array inside the method
 how you call: method(new String[] {"123", "456"}) or method("123", "456")
+
+#print various flags about JVM
+java -XX:+PrintFlagsFinal -version
+OR
+java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+
+#measure elapsed time in code
+long nanos = System.nanoTime();
+nanos = System.nanoTime() - nanos;
+logger.logDebug("elpased time: " + nanos / 1000000 + " ms");

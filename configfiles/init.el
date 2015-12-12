@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(apropos-do-all t)
+ '(avy-all-windows (quote all-frames))
  '(backup-by-copying t)
  '(backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
  '(calendar-latitude 37.3)
@@ -16,6 +17,7 @@
  '(cua-remap-control-v nil)
  '(delete-old-versions t)
  '(dired-listing-switches "-Al")
+ '(electric-indent-mode nil)
  '(elpy-rpc-python-command "python3")
  '(enable-recursive-minibuffers t)
  '(fill-column 100)
@@ -41,7 +43,7 @@
  '(require-final-newline t)
  '(savehist-file "~/.emacs.d/.savehistory")
  '(savehist-mode t nil (savehist))
- '(scroll-bar-mode nil)
+ '(scroll-bar-mode (quote right))
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
  '(smex-save-file "~/.emacs.d/.smex-items")
@@ -420,7 +422,7 @@ by using nxml's indentation rules."
   helm-gtags-prefix-key "\C-cg"
   helm-gtags-suggested-key-mapping t)
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-(ws-butler-global-mode 1)
+;(ws-butler-global-mode 1)
 (eval-after-load 'flycheck
   '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
 (global-set-key (kbd "M-i") 'helm-swoop)
@@ -435,3 +437,13 @@ by using nxml's indentation rules."
      (flycheck-mode)
      (define-key go-mode-map (kbd "M-.") 'godef-jump)
      (define-key go-mode-map (kbd "M-,") 'pop-tag-mark)))
+(progn
+  ;; set arrow keys in isearch. left/right is backward/forward, up/down is history. press Return to exit
+  (define-key isearch-mode-map (kbd "<up>") 'isearch-ring-retreat )
+  (define-key isearch-mode-map (kbd "<down>") 'isearch-ring-advance )
+  (define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
+  (define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
+)
+(global-set-key (kbd "C-,") 'avy-goto-subword-1)
+(global-set-key (kbd "C-.") 'avy-goto-char-in-line)
+(define-key isearch-mode-map (kbd "C-,") 'avy-isearch)

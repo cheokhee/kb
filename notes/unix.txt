@@ -236,7 +236,7 @@ echo "$@"
 -> ./test "this is just" wow ere
 this is just wow ere
 
-"$@" : expand to a quoted set of the command line arguments.
+"$@" : expand to a quoted set of the command line arguments. arguments are individually double quoted
 "$*" : expand to a unquoted set of the command line arguments.
 
 $@ example: gzcat "a" "b" "my file.txt" > ...
@@ -892,3 +892,17 @@ enca -L none newrelic.js #require enca package, which includes enconv
 
 #show supported encodings
 iconv -l
+
+$$ : the process number of the current shell.
+$! : The process number of the last background command
+
+diff betwewn !$ and $_
+#!$ : the last arg of the previous cmd line
+$ cat dmesg.log >> b.txt
+$ echo !$
+echo b.txt
+b.txt
+#$_ : the last arg of the previous command
+$ cat dmesg.log >> b.txt
+$ echo $_
+dmesg.log

@@ -7663,3 +7663,12 @@ test data:
 #1. production data: not a good idea
 #2. de-identified data: removing sensitive areas of data in order not to reveal the source.
 #3. synthetic/artificial data
+
+call by value: pass arguments to function as copies. the variable in the caller is unchanged when
+the function returns.
+call by reference: pass arguments to function as implicit reference. the variable in the caller
+can be changed.
+
+graph db:
+Gremlin query language
+Blueprints API

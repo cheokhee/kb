@@ -14,3 +14,17 @@ gofmt-before-save
 t
 
 C-x C-q : read-only mode
+
+M-s .           isearch-forward-symbol-at-point
+M-s _           isearch-forward-symbol
+M-s h           Prefix Command
+M-s o           occur
+M-s w           isearch-forward-word
+
+M-s h .         highlight-symbol-at-point
+M-s h f         hi-lock-find-patterns
+M-s h l         highlight-lines-matching-regexp
+M-s h p         highlight-phrase
+M-s h r         highlight-regexp
+M-s h u         unhighlight-regexp
+M-s h w         hi-lock-write-interactive-patterns

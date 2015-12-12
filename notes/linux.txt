@@ -431,3 +431,8 @@ cat /sys/class/power_supply/BAT0/uevent
 
 #take every 10th line from the file
 awk '!(NR % 10)' test.txt
+
+#find working directory of a running process
+#1. pwdx <pid1> <pid2>
+#2. lsof -p <pid> | grep cwd
+#3. readlink -e /proc/<pid>/cwd
