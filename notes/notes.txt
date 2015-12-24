@@ -7043,9 +7043,11 @@ two phase commit variants: presumed-nothing, presumed-abort, presumed-commit
 XA txn: presumed-abort 2PC
 
 key-value db vs document db:
-key-value db: a big hash table, low data complexity
+key-value db: a big hash table, low data complexity. a persistent hash table
 document db: the db understands the documents in the db. the document contents can be indexed for
-better querying and search
+better querying and search.
+--better--
+document db is a key-value stores that treat stored values as semi-structured data instead of as opaque blobs.
 
 operational data store: store data collected from users, systems.
 usually don't do reporting from operational data store.

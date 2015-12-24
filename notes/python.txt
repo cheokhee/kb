@@ -175,3 +175,10 @@ default argument
 variable-length argument:
   def test_var_args(*args): non-keyworded, variable-length argument list
   def test_var_kwargs(**kwargs): keyworded, variable-length argument list.
+
+consume rest:
+import requests
+response=requests.get('http://localhost:3002/find-all-routes?pol=HKG&pod=LGB&arrival_date_iodt=20151231000000.000&day_range=7&day_after_arrival=7&max_ts=0')
+response.json()
+
+urwid: console user interface library

@@ -446,4 +446,5 @@ by using nxml's indentation rules."
 )
 (global-set-key (kbd "C-,") 'avy-goto-subword-1)
 (global-set-key (kbd "C-.") 'avy-goto-char-in-line)
+(global-set-key (kbd "C-'") 'avy-goto-line)
 (define-key isearch-mode-map (kbd "C-,") 'avy-isearch)

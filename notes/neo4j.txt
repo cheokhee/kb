@@ -1,0 +1,71 @@
+#create a node, label: Person
+CREATE (ee:Person { name: "Emil", from: "Sweden", klout: 99 }) #my thought: ee seems redundant?
+MATCH (ee:Person) WHERE ee.name = "Emil" RETURN ee;
+
+MATCH (ee:Person) WHERE ee.name = "Emil"
+CREATE (js:Person { name: "Johan", from: "Sweden", learn: "surfing" }),
+(ir:Person { name: "Ian", from: "England", title: "author" }),
+(rvb:Person { name: "Rik", from: "Belgium", pet: "Orval" }),
+(ally:Person { name: "Allison", from: "California", hobby: "surfing" }),
+(ee)-[:KNOWS {since: 2001}]->(js),(ee)-[:KNOWS {rating: 5}]->(ir),
+(js)-[:KNOWS]->(ir),(js)-[:KNOWS]->(rvb),
+(ir)-[:KNOWS]->(js),(ir)-[:KNOWS]->(ally),
+(rvb)-[:KNOWS]->(ally)
+
+(node1)-[:Relationship]->(node2)
+
+MATCH (ee:Person)-[:KNOWS]-(friends)
+WHERE ee.name = "Emil" RETURN ee, friends
+
+MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer)
+WHERE js.name = "Johan" AND surfer.hobby = "surfing"
+RETURN DISTINCT surfer
+
+PROFILE MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer)
+WHERE js.name = "Johan" AND surfer.hobby = "surfing"
+RETURN DISTINCT surfer
+
+MATCH (n:VSID) RETURN n   - show all nodes with label VSID
+MATCH (n:VSID) RETURN count(n) – count of all VSID
+MATCH (f:Facility) RETURN f limit 1
+MATCH (p:Port) RETURN p
+MATCH (f:Facility) RETURN keys(f) limit 1 -- return all property keys of f
+MATCH (f:Port) RETURN keys(f) limit 1
+MATCH (f:VSID) RETURN keys(f) limit 1
+
+facility, port: code property
+VSID: [ommitted, departure_date, arrival_date, id, arrival, departure, code]
+
+Search for particular VSID
+MATCH (n:VSID) WHERE n.code ="MAX-CKR-042-West-HKG01-1" return n
+
+Search for partial VSID string
+MATCH (n:VSID) WHERE n.code STARTS WITH "SCE-HDN" return n limit 5
+
+Show all VSIDs which have a :HAS relation and name starts with "SCE-HDN"
+MATCH (n:VSID)<-[:HAS]-(f) WHERE n.code STARTS WITH "SCE-HDN" return n, f limit 3
+
+MATCH (n:Facility) RETURN n LIMIT 25
+
+#find all labels
+match n return distinct labels(n)
+
+#find relationships
+match n-[r]-() return distinct type(r) -- not work?
+
+LOAD CSV WITH HEADERS FROM "file:///a/tapasjo/VS_epoch_revised.csv" AS line FOREACH(ignoreMe IN CASE WHEN trim(line.DERIVEDSTOPID) <> "NULL"  THEN [1] ELSE [] END | MERGE (v:VSID {code: line.DERIVEDSTOPID}) ON MATCH SET v.arrival = toInt(line.ARRIVALEPOCH), v.departure = toInt(line.DEPARTUREEPOCH));
+
+neo4j rest api:
+http://localhost:7474/db/data/propertykeys
+http://localhost:7474/db/data/node/350/
+http://localhost:7474/db/data/node/350/relationships/in
+http://localhost:7474/db/data/node/350/relationships/out
+http://localhost:7474/db/data/node/0/properties/
+http://localhost:7474/db/data/relationship/types --show all relationship types
+http://localhost:7474/db/data/labels --show all labels
+
+filter relationship by type: BELONGS_TO is a relationship type
+http://localhost:7474/db/data/node/169/relationships/in/BELONGS_TO
+
+path length = # of relationship OR (# of node - 1)
+e.g, 1 node: length = 0
