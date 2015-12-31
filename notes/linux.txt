@@ -196,6 +196,8 @@ option 2:
 
 ##print shared libraries dependencies: ldd command
 
+need instantclient-basic-linux.x64-11.2.0.3.0.zip instantclient-sdk-linux.x64-11.2.0.3.0.zip
+
 add include and library path gcc:
 C_INCLUDE_PATH=~/instantclient_11_2/sdk/include LIBRARY_PATH=~/instantclient_11_2 pip3 install --user cx_Oracle
 

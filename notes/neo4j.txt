@@ -33,6 +33,52 @@ MATCH (f:Facility) RETURN keys(f) limit 1 -- return all property keys of f
 MATCH (f:Port) RETURN keys(f) limit 1
 MATCH (f:VSID) RETURN keys(f) limit 1
 
+#count # of relationships
+start r=relationship(*) return count(r)
+#count # of nodes
+start r=node(*) return count(r)
+#get node id 1
+start n=node(1) return n
+#get relationship id 1
+start n=relationship(1) return n
+#return type of relationship
+start n=relationship(1) return type(n)
+#return all relationship types, first one is faster?
+start n=relationship(*) return distinct type(n)
+OR
+match n-[r]-() return distinct type(r)
+#return all labels
+match n return distinct labels(n)
+#find nodes with a specific property
+start n=node(*) match n where has(n.code) return n limit 1
+#find relationship with a specific property
+start r=relationship(*) match ()-[r]-() where has(r.transit_time) return r limit 1
+#find relationship that match a certain property
+start r=relationship(*) match ()-[r]-() where r.transit_time=0 return count(r)
+start r=relationship(*) match ()-[r]-() where not has(r.transit_time) return r limit 1
+start r=relationship(*) match ()-[r]-() where type(r)='CONNECTED_TO' return r limit 1
+#count # of relationship (both directions)
+start n=node(1000) match n-[r]-() return count(r)
+#count # of incoming relationship
+start n=node(1000) match n<-[r]-() return count(r)
+#count # of outgoing relationship
+start n=node(1000) match n-[r]->() return count(r)
+
+#find voyage leg without transit_time property
+start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' and not has(r.transit_time) return count(r)
+OR
+MATCH ()-[r:CONNECTED_TO]->() where not has (r.transit_time) RETURN count(r)
+
+#total # of voyage leg
+start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' return count(r)
+OR (next one is faster)
+MATCH ()-[r:CONNECTED_TO]->() RETURN count(r)
+
+#find voyage leg where transit_time is zero
+start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' and r.transit_time=0 return count(r)
+OR (next one is faster)
+MATCH ()-[r:CONNECTED_TO]->() where r.transit_time=0 RETURN count(r)
+
 facility, port: code property
 VSID: [ommitted, departure_date, arrival_date, id, arrival, departure, code]
 

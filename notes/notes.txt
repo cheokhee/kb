@@ -1380,6 +1380,9 @@ the time it takes for the earth to complete one rotation with respect to the sun
 the length of the solar day fluctuates throughout the year.
 the average length is 24 hr: mean solar day
 
+solar noon
+the time when the sun is highest in the sky
+
 sidereal day
 the time it takes for the earth to complete one rotation with respect to the stars (23 hr 56 minutes)
 
@@ -1659,6 +1662,10 @@ a test harness or automated test framework is a collection of software and test 
 ====
 The software, tools, samples of data input and output, and configurations are all referred
 to collectively as a test harness.
+--
+test scaffold
+to test a component in isolation, it is usually necessary to create some kind of framework
+or scaffold that provides enough support and interface to the rest of the system that the part will run.
 
 a cluster is a group of computers that work together to form what appears to
 the users as a single system.
@@ -4517,6 +4524,8 @@ there is no formal proof of its correctness.
 heuristic function:
 a function that ranks alternatives in search algorithms at each branching step based on available info
 to decide which branch to follow.
+---
+a function that ranks the nodes based on the estimated cost from that node to the goal
 
 class invariant
 Class invariants are methods which check the validity of an object's state (its data).
@@ -7488,6 +7497,8 @@ top-down
 DP: make a global optimization. pick the best solution from a collection of solutions
 bottom-up
 globally optimal choice
+greedy algorithm
+make the decision that seems most promising at any moment
 
 hysteresis: the dependence of the output of a system not only on its current input, but also on its
 history of past inputs. The dependence arises because the history affects the value of an internal state.
@@ -7629,6 +7640,8 @@ Lisp-2: 2 namespaces (1 for function name and 1 for variable). Common Lisp
 mixin is a class that contains a combination of methods from other classes. How such a combination
 is done depends on the language. If a combination contains all methods of combined classes, it is
 equivalent to multiple inheritance.
+---
+allow you to inject code into a class without using inheritance.
 
 thrashing: pages are constantly being written to disk and then read back.
 
@@ -7674,3 +7687,12 @@ can be changed.
 graph db:
 Gremlin query language
 Blueprints API
+
+uniform cost search (example: dijkstra's algorithm)
+expand the node with the lowest total cost from the initial node.
+
+Dunning–Kruger effect
+the unskilled overestimate their skills while the highly skilled underestimate their skills
+poor performers overestimate their abilities while high performers underestimate their abilities
+less competent people rate their competence higher than it actually is, while more competent people rate theirs lower
+the stupid do not know that they are stupid

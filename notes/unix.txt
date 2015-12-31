@@ -451,6 +451,8 @@ use : FUNCNAME[0],
 see current setting: shopt , set -o
 see current setting for set: echo $-
 
+#enable timestamp in bash history
+export HISTTIMEFORMAT="%F %T "
 
 ((..)), let : arithmetic
 echo $((a++))

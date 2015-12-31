@@ -435,6 +435,7 @@ by using nxml's indentation rules."
      (hs-minor-mode)
      (add-hook 'before-save-hook 'gofmt-before-save nil t)
      (flycheck-mode)
+     (go-eldoc-setup)
      (define-key go-mode-map (kbd "M-.") 'godef-jump)
      (define-key go-mode-map (kbd "M-,") 'pop-tag-mark)))
 (progn
