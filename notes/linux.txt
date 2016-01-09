@@ -440,3 +440,5 @@ awk '!(NR % 10)' test.txt
 #3. readlink -e /proc/<pid>/cwd
 
 pv program: show progress of task
+
+pkg-config: manage compile and link flags for libraries (intended to work with automake and autoconf.)
