@@ -15,6 +15,12 @@ read /etc/rc2.d/README
 
 default runlevel in /etc/init/rc-sysinit.conf
 
+#start service at boot-up:
+update-rc.d SERVICENAME defaults
+
+#remove service from start at boot-up
+update-rc.d -f service_name remove
+
 ===================================
 #ways to manage upstart/init job
 
@@ -380,7 +386,7 @@ xxd: make a hex dump
 manipulate or dump object files: objcopy and objdump
 
 readlink: follow symbolic link
-readlink -f `which google-chrome`
+readlink -e `which google-chrome`
 /opt/google/chrome/google-chrome
 
 == virtual console
@@ -442,3 +448,10 @@ awk '!(NR % 10)' test.txt
 pv program: show progress of task
 
 pkg-config: manage compile and link flags for libraries (intended to work with automake and autoconf.)
+provide the necessary details for compiling and linking a program to a library.
+
+#convert doc to various format
+$ pandoc -t plain README.md
+-f : specify input format
+-t : specify output format
+-o : write to a file

@@ -119,6 +119,7 @@ htop
 p7zip-full
 libigraph0-dev
 fnotifystat
+pandoc
 
 =========== end of packages ==============
 

@@ -28,3 +28,13 @@ M-s h p         highlight-phrase
 M-s h r         highlight-regexp
 M-s h u         unhighlight-regexp
 M-s h w         hi-lock-write-interactive-patterns
+
+C-M-n     forward-list  Move forward over a parenthetical group
+C-M-p     backward-list  Move backward over a parenthetical group
+C-M-f     forward-sexp Move forward over a balanced expression
+C-M-b     backward-sexp  Move backward over a balanced expression
+C-M-k     kill-sexp  Kill balanced expression forward
+C-M-SPC   mark-sexp  Put the mark at the end of the sexp (point at beginning of func)
+C-M-a     beginning of defun
+C-M-e     end of defun
+C-M-h     mark defun (put point anywhere in defun)

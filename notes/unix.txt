@@ -570,6 +570,16 @@ $ paste -d" " f1 f2
 cheok 20
 christine 10
 
+#join two files on a common field, first field is default join field. must be sorted on join field
+$ cat > f1
+cheok 10
+blah 20
+$ cat > f2
+cheok hee
+wow damn
+$ join f1 f2
+cheok 10 hee
+
 various programs:
 colrm : remove columns
 fmt: formatting
@@ -647,6 +657,9 @@ sed -i "1s/^/line1\n/" file
 #readline:
 Ctrl-]: search forward
 M-Ctrl-]: search backward
+C-x C-u: undo
+C-x C-e: open current command in an editor
+Alt-*: expand a glob
 
 #bash:
 M-. : insert the last argument of the previous command at cursor point
@@ -908,3 +921,10 @@ b.txt
 $ cat dmesg.log >> b.txt
 $ echo $_
 dmesg.log
+
+trimming with variable substition:
+$ var=foo.pdf
+$ echo ${var%.pdf} #trim suffix
+foo
+$ echo ${var#foo} #trim prefix
+.pdf

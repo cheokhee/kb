@@ -63,6 +63,16 @@ start n=node(1000) match n-[r]-() return count(r)
 start n=node(1000) match n<-[r]-() return count(r)
 #count # of outgoing relationship
 start n=node(1000) match n-[r]->() return count(r)
+# find relationship between 2 nodes (by ID)
+start a=node(35800), b=node(37876) match a-[r]->b return r
+start a=node(591), b=node(102) match a-[r]->b return id(r),type(r)
+
+rel types:
+BELONGS_TO
+HAS
+TRANSHIPMENT
+CONNECTED_TO
+TERMINALTRANSFERLEG
 
 #find voyage leg without transit_time property
 start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' and not has(r.transit_time) return count(r)

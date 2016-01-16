@@ -6821,6 +6821,10 @@ Because of the prior notify() call, A waits indefinitely.
 --
 synchronized method: acquire the monitor for the method's object.
 static synchronized method: acquire the monitor for the Class object.
+---
+mutual exclusion: means only one thread is in the critical section at any one time.
+critical section: when a shared resource is being accessed.
+samaphore: a variable for controlling access to a common resource.
 
 je ne sais quoi: a quality that is difficult to express
 je ne sais quoi: I don't know what
@@ -7698,3 +7702,7 @@ the unskilled overestimate their skills while the highly skilled underestimate t
 poor performers overestimate their abilities while high performers underestimate their abilities
 less competent people rate their competence higher than it actually is, while more competent people rate theirs lower
 the stupid do not know that they are stupid
+
+Routing (python flask, Express.js)
+a binding between a URL and a function
+express middleware: any function called by the framework before your function is called.

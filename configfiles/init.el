@@ -401,6 +401,7 @@ by using nxml's indentation rules."
 (global-anzu-mode 1)
 (add-hook 'emacs-lisp-mode-hook
   (lambda ()
+    (turn-on-eldoc-mode)
     (company-mode)))
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c-mode-common-hook
@@ -449,3 +450,11 @@ by using nxml's indentation rules."
 (global-set-key (kbd "C-.") 'avy-goto-char-in-line)
 (global-set-key (kbd "C-'") 'avy-goto-line)
 (define-key isearch-mode-map (kbd "C-,") 'avy-isearch)
+(defun show-path-name ()
+  "Show current path name in minibuffer"
+  (interactive)
+  (let (buffer)
+	(setq buffer (if (window-minibuffer-p)
+					 (window-buffer (minibuffer-selected-window))
+				     (current-buffer)))
+	(message (buffer-file-name buffer))))

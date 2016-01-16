@@ -154,12 +154,15 @@ for k, v in a.items():
 a=[2,3,4]
 list(map((lambda x: x**2), a))
 ==> [4, 9, 16]
+#same as below
+[x**2 for x in a]
 
 list(filter((lambda x: x<3), a))
 ==> [2]
 #same as below
 [x for x in a if x < 3]
 ==> [2]
+
 from functools import reduce
 reduce( (lambda x, y: x + y), [1, 2, 3, 4] )
 #The left argument, x, is the accumulated value and the right argument, y, is the update value from the iterable.
@@ -182,3 +185,11 @@ response=requests.get('http://localhost:3002/find-all-routes?pol=HKG&pod=LGB&arr
 response.json()
 
 urwid: console user interface library
+
+python2 -m SimpleHTTPServer
+python3 -m http.server
+
+list comprehension example:
+S = [x**2 for x in range(10)]
+V = [2**i for i in range(13)]
+M = [x for x in S if x % 2 == 0]
