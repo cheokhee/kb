@@ -163,6 +163,9 @@ list(filter((lambda x: x<3), a))
 [x for x in a if x < 3]
 ==> [2]
 
+sorting:
+results.sort(key=lambda route: route.get('transit_time'))
+
 from functools import reduce
 reduce( (lambda x, y: x + y), [1, 2, 3, 4] )
 #The left argument, x, is the accumulated value and the right argument, y, is the update value from the iterable.

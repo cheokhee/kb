@@ -1170,6 +1170,7 @@ Type 1 (or native, bare-metal) hypervisors are software systems that run directl
 host's hardware to control the hardware and to monitor guest operating-systems.
 A guest operating system thus runs on another level above the hypervisor.
 examples include VMware ESX Server, Microsoft Hyper-V
+--> software layer between hardware and OSes
 +++
 Type 2 (or hosted) hypervisors are software applications running within a conventional
 operating-system environment. Considering the hypervisor layer as a distinct software
@@ -7226,6 +7227,8 @@ encrypted connections between programs that do not speak SSL/TLS natively.
 
 grounding: The primary purpose of grounding is to reduce the risk of serious electric shock
 from current leaking into uninsulated metal parts of an appliance
+--
+Ground is used to connect the external conductive parts of the device to the earth.
 
 An Internet hosting service is a service that runs Internet servers, allowing organizations and individuals to serve content to the Internet.
 A common kind of hosting is web hosting.
@@ -7601,6 +7604,8 @@ a tree is a connected graph with no cycles
 spanning tree:
 Let G be a connected graph. A spanning tree in G is a subgraph of G that includes all the vertices of G
 and is also a tree. The edges of the tree are called branches.
+minimum spanning tree of a weighted graph:
+the spanning tree of G whose edges sum to minimum weight.
 
 framebuffer: The portion of memory reserved for holding the complete bit-mapped image that is sent to the monitor.
 Typically the frame buffer is stored in the memory chips on the video adapter. In some instances, however, the
@@ -7706,3 +7711,28 @@ the stupid do not know that they are stupid
 Routing (python flask, Express.js)
 a binding between a URL and a function
 express middleware: any function called by the framework before your function is called.
+
+Vendoring is the moving of all 3rd party items such as plugins, gems and even rails into the /vendor
+directory. This is one method for ensuring that all files are deployed to the production server the
+same as the dev environment.
+
+Static program analysis is the analysis of computer software that is performed without actually
+executing programs (analysis performed on executing programs is known as dynamic analysis
+
+After a home buyer secures a loan, the lender will typically protect the loan with either a deed of
+trust or a mortgage. Both documents place a lien on the house, which allows the lender to sell the
+property if the borrower can’t meet the terms laid out. But, importantly, when a deed of trust is
+used, the lender does not have to go through the court system to sell the home.
+California uses deed of trust.
+---
+For home loans backed by a deed of trust, neither the borrower nor the lender holds the title to the
+property. The deed of trust brings in a third party to hold the title. This party is the
+trustee. The trustee might be a bank, a lawyer or some other entity, but it must be a neutral
+party. When the borrower has repaid the loan, the lender directs the trustee to release the title to
+the borrower, who now owns the house free and clear.
+---
+Home loans backed by a deed of trust are trusts.
+---
+the main purpose of the grant deed is to transfer property title from one person to another, such as
+from a seller to a buyer. A grant deed is written evidence that you actually own your
+property. Additionally, the grant deed provides title guarantees to the new owner.

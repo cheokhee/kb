@@ -215,6 +215,9 @@ export NO_AT_BRIDGE=1
 
 rsync -av userid@host:/path/to/file .
 
+#fast way to delete large number of files
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir empty
+
 #remove leading/trailing spaces from a file (in place)
 sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' <file>
 
@@ -455,3 +458,10 @@ $ pandoc -t plain README.md
 -f : specify input format
 -t : specify output format
 -o : write to a file
+
+#write a tab literal in Bash command line
+$'\t'
+
+#bash: create a string literal
+$'..' : create a string with backslash-escaped characters.
+example: $'\n\t'

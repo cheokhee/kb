@@ -120,17 +120,22 @@ p7zip-full
 libigraph0-dev
 fnotifystat
 pandoc
+xmlstarlet
+httpie
+dstat
+ncdu
+iftop
 
 =========== end of packages ==============
 
-ace-window-0.9.0/            company-tern-20150525.216/      ggtags-20150814.842/         helm-projectile-20150826.321/  pkg-info-20150517.443/            ws-butler-20150126.759/
-anzu-20150802.2203/          dash-20150717.1321/             gnupg/                       helm-swoop-20150704.839/       popup-20150315.612/               yasnippet-20150415.244/
-archives/                    dash-functional-20150311.2358/  go-eldoc-0.26/               highlight-indentation-0.6.0/   projectile-20150728.2141/         zygospore-20140703.152/
-async-20150529.529/          elpy-1.10.0/                    go-mode-20150817.2318/       idomenu-0.1/                   pyvenv-1.7/
-auto-complete-20150225.715/  enh-ruby-mode-20150215.136/     groovy-mode-201203310931/    iedit-20150415.1804/           s-20140910.334/
-avy-0.3.0/                   epl-20150517.433/               helm-20150604.831/           js3-mode-20140805.1529/        tern-20150302.211/
-company-20150706.347/        find-file-in-project-3.3/       helm-flycheck-20140915.752/  let-alist-1.0.4/               tern-auto-complete-20141121.453/
-company-go-20150824.214/     flycheck-20150821.47/           helm-gtags-20150816.1935/    nodejs-repl-20130520.842/      w3m-20150513.1/
+ace-window-0.9.0/            company-tern-20150525.216/      ggtags-20151214.1344/        helm-projectile-20150826.321/  pkg-info-20150517.443/     tern-auto-complete-20141121.453/
+anzu-20150802.2203/          dash-20150717.1321/             gnupg/                       helm-swoop-20150704.839/       popup-20150315.612/        w3m-20150513.1/
+archives/                    dash-functional-20150311.2358/  go-eldoc-0.26/               highlight-indentation-0.6.0/   projectile-20150728.2141/  ws-butler-20150126.759/
+async-20150529.529/          elpy-1.10.0/                    go-mode-20150817.2318/       idomenu-0.1/                   pyvenv-1.7/                yasnippet-20150415.244/
+auto-complete-20150225.715/  enh-ruby-mode-20150215.136/     groovy-mode-201203310931/    iedit-20150415.1804/           restclient-20151128.1512/  zygospore-20140703.152/
+avy-0.3.0/                   epl-20150517.433/               helm-20150604.831/           js3-mode-20140805.1529/        s-20140910.334/
+company-20150706.347/        find-file-in-project-3.3/       helm-flycheck-20140915.752/  let-alist-1.0.4/               tablist-20150618.2218/
+company-go-20150824.214/     flycheck-20150821.47/           helm-gtags-20160123.2129/    nodejs-repl-20130520.842/      tern-20150302.211/
 
 my changes to yasnippet-20150415.244:
 in snippets directory: add a symbolic link from js3-mode -> js-mode
@@ -144,6 +149,12 @@ my changes to elpy-1.8.1/elpy.el
 > ;cheok    (define-key map (kbd "<M-down>") 'elpy-nav-move-line-or-region-down)
 > ;cheok    (define-key map (kbd "<M-up>") 'elpy-nav-move-line-or-region-up)
 
+my changes to ggtags-20151214.1344/ggtags.el:
+;original; cheok (not (equal "" (ggtags-process-string "global" "-crs")))))
+
+my changes to helm-gtags-20160123.2129/helm-gtags.el:
+> ;cheok original    (single-update (list "global" "--single-update" (helm-gtags--real-file-name)))))
+
 ====================
 pidgin to cisco jabber:
 protocol: XMPP
@@ -153,3 +164,12 @@ port: 5222
 connect server: apiptcup13.xyxy.com
 file transfer proxies: proxy.eu.jabber.org
 no proxy
+
+open-source java decompiler:
+https://bitbucket.org/mstrobel/procyon
+https://bitbucket.org/mstrobel/procyon/downloads
+put in jar/procyon-decompiler-0.5.30.jar
+usage:
+java -jar decompiler.jar java.lang.String
+java -DAnsi=true -jar decompiler.jar java.util.Collections
+java -jar decompiler.jar -jar myJar.jar -o out
