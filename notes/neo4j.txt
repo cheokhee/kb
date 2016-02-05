@@ -79,6 +79,11 @@ start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' and not ha
 OR
 MATCH ()-[r:CONNECTED_TO]->() where not has (r.transit_time) RETURN count(r)
 
+check transit time:
+MATCH ()-[r:TRANSHIPMENT]->() where  has (r.transit_time) RETURN count(r);
+MATCH ()-[r:CONNECTED_TO]->() where  has (r.transit_time) RETURN count(r);
+MATCH ()-[r:TERMINALTRANSFERLEG]->() where  has (r.transit_time) RETURN count(r);
+
 #total # of voyage leg
 start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' return count(r)
 OR (next one is faster)

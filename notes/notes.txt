@@ -6342,10 +6342,13 @@ they do not check that data written to a buffer is within the boundaries of that
 segmentation fault: means a program tries to access a memory location that it
 is not allowed to access.
 ---
+segmentation fault: memory access violation
+---
 Segmentation Fault (also known as SIGSEGV and is usually signal 11):
   You can get this message when the program tries to write/read outside the memory allocated for it or when writing memory which can only be read.
 Bus Error (also known as SIGBUS and is usually signal 10) -
   You can encounter this signal error when an invalid pointer is dereferenced i.e when you try to dereference an uninitialised pointer. It is similar to SIGSEGV but the difference is that SIGSEGV indicates an invalid access to valid memory, while SIGBUS indicates an access to an invalid address.
+bus error caterogy: Non-existent address, Unaligned access, Paging errors
 
 too far in the future
 
@@ -7715,6 +7718,8 @@ express middleware: any function called by the framework before your function is
 Vendoring is the moving of all 3rd party items such as plugins, gems and even rails into the /vendor
 directory. This is one method for ensuring that all files are deployed to the production server the
 same as the dev environment.
+---
+another def: Copying all dependencies into your own project instead of go getting the deps and share the same version across all your projects.
 
 Static program analysis is the analysis of computer software that is performed without actually
 executing programs (analysis performed on executing programs is known as dynamic analysis
@@ -7736,3 +7741,11 @@ Home loans backed by a deed of trust are trusts.
 the main purpose of the grant deed is to transfer property title from one person to another, such as
 from a seller to a buyer. A grant deed is written evidence that you actually own your
 property. Additionally, the grant deed provides title guarantees to the new owner.
+
+127.0.0.1
+127.0.0.1 is the loopback address (also known as localhost).
+0.0.0.0
+In the context of a route entry, it usually means the default route.
+In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine. If a host has two
+IP addresses, 192.168.1.1 and 10.1.2.1, and a server running on the host listens on 0.0.0.0, it will
+be reachable at both of those IPs.

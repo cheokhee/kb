@@ -1,0 +1,14 @@
+] : go to next form
+d : while on form, allow to enter data
+C-c C-c : submit form
+G : go to URL (new session)
+U : go to URL (same session)
+S : search
+R : reload
+J/K : scroll one line at a time
+C-c C-n/p : next/previous session
+C-c C-w : close session
+C-c C-a : switch session
+a : add bookmark
+V : view bookmark (new session)
+v : view bookmark (same session)

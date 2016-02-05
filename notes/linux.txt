@@ -213,7 +213,16 @@ OCI_INC_DIR=~/instantclient_11_2/sdk/include LIBRARY_PATH=~/instantclient_11_2 n
 #stop this message (when running evince): Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-sCAvokkUFt: Connection refused
 export NO_AT_BRIDGE=1
 
-rsync -av userid@host:/path/to/file .
+rsync -avP userid@host:/path/to/file .
+also: -z for compress
+-P : preserve partially copied files, you can pick up where you left off
+gotchas:
+#1 Copy entire directory to remote parent directory:
+rsync /path/without/slash host:/path/to/parent/with/slash/
+#2 Copy contents of one directory to another:
+rsync -r /path/to/directory/* host:/path/to/directory/
+#3 Copy a directory into a new directory on another host:
+rsync /path/without/slash host:/path/to/new/directory
 
 #fast way to delete large number of files
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir empty
@@ -465,3 +474,8 @@ $'\t'
 #bash: create a string literal
 $'..' : create a string with backslash-escaped characters.
 example: $'\n\t'
+
+$ ls -d .*
+all files/directories that start with ., include . and ..
+$ ls -d .[^.]*
+all files/directories that start with ., exclude . and ..
