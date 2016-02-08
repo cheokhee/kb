@@ -988,3 +988,31 @@ SIGHUP.
 nohup.out and shields it from SIGHUP. One of the effects (the naming one) is that the process won't
 receive any sent NOHUP. It is completely independent from job control and could in principle be used
 also for foreground jobs (although that's not very useful).
+
+globbing (filename expansion):
+A '?' (not between brackets) matches any single character.
+A '*' (not between brackets) matches any string, including the empty string.
+An expression "[...]" where the first character after the leading '['
+       is not an '!' matches a single character, namely any of the
+       characters enclosed by the brackets.  The string enclosed by the
+       brackets cannot be empty; therefore ']' can be allowed between the
+       brackets, provided that it is the first character.  (Thus, "[][!]"
+       matches the three characters '[', ']' and '!'.)
+If a filename starts with a '.', this character must be matched explicitly.
+
+To ignore a whole directory tree, use -prune rather than checking
+every file in the tree.  For example, to skip the directory
+`src/emacs' and all files and directories under it, and print the
+names of the other files found, do something like this:
+find . -path ./src/emacs -prune -o -print
+to skip hidden files: find . -name '.?*' -prune -o ...
+
+more globbing:
+echo .* -> matches . and ..
+echo .?* -> matches ..
+echo .[!.]* -> does not match . or ..
+
+regex:
+& -> the string matched by the pattern
+example: echo "first line" | sed 's/li.e/hee&cheok/g'
+output: first heelinecheok
