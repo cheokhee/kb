@@ -38,3 +38,21 @@ C-M-SPC   mark-sexp  Put the mark at the end of the sexp (point at beginning of 
 C-M-a     beginning of defun
 C-M-e     end of defun
 C-M-h     mark defun (put point anywhere in defun)
+
+C-x C-f /sudo::/etc/hosts
+C-x C-f /remotehost:filename  RET (or /method:user@remotehost:filename)
+        example: /ssh:webapp@sjdvir32:/home/webapp/ifm-port-list/config/config.json
+        example: /webapp@sjdvir32:/home/webapp/ifm-port-list/config/config.json
+
+C-x ESC ESC redo last command
+M-x list-command-history
+M-x eval-region Evaluate selected region as elisp code
+M-x eval-buffer Evaluate curren buffer as elips code
+M-( Wrap selection in parentheses
+
+M-x manual-entry : read man pages
+
+C-h S : open info for symbol
+
+fontifying: assigning faces to text in the buffer
+faces: colors and fonts for text

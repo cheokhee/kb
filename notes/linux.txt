@@ -479,3 +479,8 @@ $ ls -d .*
 all files/directories that start with ., include . and ..
 $ ls -d .[^.]*
 all files/directories that start with ., exclude . and ..
+
+---
+autotools:
+autogen.sh -> generate configure script
+configure -> create a makefile

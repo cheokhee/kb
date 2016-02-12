@@ -21,7 +21,9 @@
  '(elpy-rpc-python-command "python3")
  '(enable-recursive-minibuffers t)
  '(fill-column 100)
- '(helm-for-files-preferred-list (quote (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
+ '(helm-for-files-preferred-list
+   (quote
+    (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
  '(ibuffer-default-sorting-mode (quote major-mode))
  '(ibuffer-expert t)
  '(ido-create-new-buffer (quote always))
@@ -50,6 +52,7 @@
  '(split-width-threshold 9999)
  '(tab-width 4)
  '(tool-bar-mode nil)
+ '(tramp-default-method "ssh")
  '(user-full-name "Cheok Hee")
  '(user-mail-address "blah@com")
  '(version-control t)
@@ -422,6 +425,11 @@ by using nxml's indentation rules."
   helm-gtags-pulse-at-cursor t
   helm-gtags-prefix-key "\C-cg"
   helm-gtags-suggested-key-mapping t)
+;; helm-gtags: C-c g C-h to find available commands
+;; useful ones:
+;; C-c g d         helm-gtags-find-tag
+;; C-c g f         helm-gtags-parse-file
+;; C-c g r         helm-gtags-find-rtag
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
 ;(ws-butler-global-mode 1)
 (eval-after-load 'flycheck
@@ -458,3 +466,27 @@ by using nxml's indentation rules."
 					 (window-buffer (minibuffer-selected-window))
 				     (current-buffer)))
 	(message (buffer-file-name buffer))))
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))

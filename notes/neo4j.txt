@@ -67,6 +67,11 @@ start n=node(1000) match n-[r]->() return count(r)
 start a=node(35800), b=node(37876) match a-[r]->b return r
 start a=node(591), b=node(102) match a-[r]->b return id(r),type(r)
 
+matching: the following are equivalent:
+match (n:Facility) where n.code = "LGB01" return n;
+match (n:Facility {code:"LGB01"}) return n;
+
+
 rel types:
 BELONGS_TO
 HAS
@@ -115,6 +120,11 @@ match n return distinct labels(n)
 match n-[r]-() return distinct type(r) -- not work?
 
 LOAD CSV WITH HEADERS FROM "file:///a/tapasjo/VS_epoch_revised.csv" AS line FOREACH(ignoreMe IN CASE WHEN trim(line.DERIVEDSTOPID) <> "NULL"  THEN [1] ELSE [] END | MERGE (v:VSID {code: line.DERIVEDSTOPID}) ON MATCH SET v.arrival = toInt(line.ARRIVALEPOCH), v.departure = toInt(line.DEPARTUREEPOCH));
+
+LOAD CSV WITH HEADERS FROM "file:///D:\\VineetP\\Projects\\SOW\\IntegratedNetworkModel\\scripts\\INM_NeoROE_comp\\POLPOD.csv" AS line (p:PolPod {code: line.POLPOD, facilitylist: line.FACILITIES });
+
+load csv with headers from "file:///home/heech/neo4j2/country.csv" as line match (n:Facility {code: line.facility}) set n.country = line.country
+
 
 neo4j rest api:
 http://localhost:7474/db/data/propertykeys

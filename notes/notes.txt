@@ -6490,6 +6490,8 @@ closure: anonymous functions with closed scope
 it carries around the context in which it was defined.
 a block can reference the variables that were in scope when it was defined,
 even if those variables later go out of scope.
+---
+closure: an anonymous function that references variables defined outside the scope of the function
 
 jumbo loan: a loan above the conforming loan limit.
 the conforming loan limit is set by Fannie Mae and Freddie Mac, which are
@@ -7749,3 +7751,85 @@ In the context of a route entry, it usually means the default route.
 In the context of servers, 0.0.0.0 means all IPv4 addresses on the local machine. If a host has two
 IP addresses, 192.168.1.1 and 10.1.2.1, and a server running on the host listens on 0.0.0.0, it will
 be reachable at both of those IPs.
+
+
+advice on reading nonfiction, with a few additions of my own:
+
+1. Start with the author. Who wrote the book? Read his or her bio. If you can find a brief interview
+or article online about the author, read that quickly. It will give you a sense of the person’s bias
+and perspective.
+
+2. Read the title, the subtitle, the front flap, and the table of contents. What’s the big-picture
+argument of the book? How is that argument laid out? By now, you could probably describe the main
+idea of the book to someone who hasn’t read it.
+
+3. Read the introduction and the conclusion. The author makes their case in the opening and closing
+argument of the book. Read these two sections word for word but quickly. You already have a general
+sense of where the author is going, and these sections will tell you how they plan to get there
+(introduction) and what they hope you got out of it (conclusion).
+
+4. Read/skim each chapter. Read the title and anywhere from the first few paragraphs to the first
+few pages of the chapter to figure out how the author is using this chapter and where it fits into
+the argument of the book. Then skim through the headings and subheadings (if there are any) to get a
+feel for the flow. Read the first sentence of each paragraph and the last. If you get the meaning,
+move on. Otherwise, you may want to read the whole paragraph. Once you’ve gotten an understanding of
+the chapter, you may be able to skim over whole pages, as the argument may be clear to you and also
+may repeat itself.
+
+5. End with the table of contents again. Once you’ve finished the book, return to the table of
+contents and summarize it in your head. Take a few moments to relive the flow of the book, the
+arguments you considered, the stories you remember, the journey you went on with the author.
+=======================
+
+--virtualization--
+
+LinuX Containers (LXC) is an operating system-level virtualization method for running multiple
+isolated Linux systems (containers) on a single control host (LXC host). It does not provide a
+virtual machine, but rather provides a virtual environment that has its own CPU, memory, block I/O,
+network, etc. space. This is provided by cgroups features in Linux kernel on LXC host. It is similar
+to a chroot, but offers much more isolation.
+
+The main difference between the KVM virtualization and Linux Containers is that virtual machines
+require a separate kernel instance to run on, while containers can be deployed from the host
+operating system.
+
+KVM is a hypervisor and LXC is OS virtualization. OS virtualization does not have the hypervisor
+layer. There are limitations though; you're limited to the host's kernel, you cannot install
+different distributions (LXC allows for different distributions using templates). Nothing is
+emulated with OS virtualization. Performance is better as the containers share the same kernel. And,
+personally containers are just easier to use and manage. cgroups are used in both KVM and LXC; it's
+not a unique feature to any virtualization technology.
+
+KVM virtualization lets you boot full operating systems of different kinds, even non-Linux systems.
+Running separate kernel instances generally means better separation and security. If one of the
+kernels terminates unexpectedly, it does not disable the whole system. On the other hand, this
+isolation makes it harder for virtual machines to communicate with the rest of the system.  Guest
+virtual machine is isolated from host changes, which lets you run different versions of the same
+application on the host and virtual machine.
+
+hypervisor: a specialized operating system designed to run/manage virtual machines.
+a hypervisor works by having the host operating system emulate machine hardware and then bringing up
+other virtual machines (VMs) as guest operating systems on top of that hardware. This means that the
+communication between guest and host operating systems must follow a hardware paradigm (anything
+that can be done in hardware can be done by the host to the guest).
+
+On the other hand, container virtualization (shown in figure 2), is virtualization at the operating
+system level, instead of the hardware level. So each of the guest operating systems shares the same
+kernel, and sometimes parts of the operating system, with the host. This enhanced sharing gives
+containers a great advantage in that they are leaner and smaller than hypervisor guests, simply
+because they're sharing much more of the pieces with the host. It also gives them the huge advantage
+that the guest kernel is much more efficient about sharing resources between containers, because it
+sees the containers as simply resources to be managed.
+
+An example: Container 1 and Container 2 open the same file, the host kernel opens the file and puts
+pages from it into the kernel page cache. These pages are then handed out to Container 1 and
+Container 2 as they are needed, and if both want to read the same position, they both get the same
+page. In the case of VM1 and VM2 doing the same thing, the host opens the file (creating pages in
+the host page cache) but then each of the kernels in VM1 and VM2 does the same thing, meaning if VM1
+and VM2 read the same file, there are now three separate pages (one in the page caches of the host,
+VM1 and VM2 kernels) simply because they cannot share the page in the same way a container can.
+
+Summary: KVM is a Hypervisor based on emulating virtual hardware. Containers, on the other hand, are
+based on shared operating systems and is skinnier.
+
+--end of virtualization--

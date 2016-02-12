@@ -67,3 +67,10 @@ javap -verbose <class file>
  Java 8 uses major version 52
 OR use the file command:
 file <class file>
+
+reflection
+Class<?> clz = object.getClass();
+try {
+  Field field = clz.getDeclaredField("numberOfWantedPaths");
+  field.setAccessible(true); // for private field
+  field.getInt(object)); // for integer field

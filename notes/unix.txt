@@ -661,9 +661,27 @@ python -m SimpleHTTPServer
 
 #append a line at the end of the file, the last line will be 'wow'
 sed -i '$awow' test.txt
+---another way:
+ed -s file1 << EOF
+\$a    #my comment: need \ to prevent variable substitution by the shell
+append this line
+.
+w
+EOF
+--another way
+awk 'BEGIN{print "new line"}{print}' infile > outfile
 
 #add a line at the top of a file
 sed -i "1s/^/line1\n/" file
+---another way:
+ed -s file1 << EOF
+0a
+prepend line
+.
+w
+EOF
+--another way
+awk '{print} END {print "new line"' infile > outfile
 
 #readline:
 Ctrl-]: search forward
