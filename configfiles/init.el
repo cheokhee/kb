@@ -19,6 +19,7 @@
  '(dired-listing-switches "-Al")
  '(electric-indent-mode nil)
  '(elpy-rpc-python-command "python3")
+ '(elpy-rpc-timeout 5)
  '(enable-recursive-minibuffers t)
  '(fill-column 100)
  '(helm-for-files-preferred-list
@@ -440,6 +441,7 @@ by using nxml's indentation rules."
 (add-hook 'go-mode-hook
    (lambda ()
      (setq gofmt-command "goimports")
+     (add-to-list 'company-backends 'company-go)
      (company-mode)
      (hs-minor-mode)
      (add-hook 'before-save-hook 'gofmt-before-save nil t)

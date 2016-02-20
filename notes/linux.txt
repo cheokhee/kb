@@ -484,3 +484,7 @@ all files/directories that start with ., exclude . and ..
 autotools:
 autogen.sh -> generate configure script
 configure -> create a makefile
+
+printer stuff:
+system-config-printer
+lpstat -d

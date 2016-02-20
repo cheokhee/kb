@@ -71,6 +71,8 @@ matching: the following are equivalent:
 match (n:Facility) where n.code = "LGB01" return n;
 match (n:Facility {code:"LGB01"}) return n;
 
+create:
+create (n:PolPod {code : "LYL-MDS", port_list:"NPR KRI TRG BNE CLB SIN PKG MDS VTZ LYL WEL PG"})
 
 rel types:
 BELONGS_TO
@@ -83,6 +85,11 @@ TERMINALTRANSFERLEG
 start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' and not has(r.transit_time) return count(r)
 OR
 MATCH ()-[r:CONNECTED_TO]->() where not has (r.transit_time) RETURN count(r)
+
+#count terminal transfer relationship
+start r=relationship(*) where type(r)='TERMINALTRANSFERLEG' return count(r)
+OR
+match ()-[r:TERMINALTRANSFERLEG]->() return count(r)
 
 check transit time:
 MATCH ()-[r:TRANSHIPMENT]->() where  has (r.transit_time) RETURN count(r);
@@ -119,12 +126,13 @@ match n return distinct labels(n)
 #find relationships
 match n-[r]-() return distinct type(r) -- not work?
 
-LOAD CSV WITH HEADERS FROM "file:///a/tapasjo/VS_epoch_revised.csv" AS line FOREACH(ignoreMe IN CASE WHEN trim(line.DERIVEDSTOPID) <> "NULL"  THEN [1] ELSE [] END | MERGE (v:VSID {code: line.DERIVEDSTOPID}) ON MATCH SET v.arrival = toInt(line.ARRIVALEPOCH), v.departure = toInt(line.DEPARTUREEPOCH));
+LOAD CSV WITH HEADERS FROM "file:///a/blah/VS_epoch_revised.csv" AS line FOREACH(ignoreMe IN CASE WHEN trim(line.DERIVEDSTOPID) <> "NULL"  THEN [1] ELSE [] END | MERGE (v:VSID {code: line.DERIVEDSTOPID}) ON MATCH SET v.arrival = toInt(line.ARRIVALEPOCH), v.departure = toInt(line.DEPARTUREEPOCH));
 
-LOAD CSV WITH HEADERS FROM "file:///D:\\VineetP\\Projects\\SOW\\IntegratedNetworkModel\\scripts\\INM_NeoROE_comp\\POLPOD.csv" AS line (p:PolPod {code: line.POLPOD, facilitylist: line.FACILITIES });
+LOAD CSV WITH HEADERS FROM "file:////home/blah/POLPOD.csv" AS line (p:PolPod {code: line.POLPOD, facilitylist: line.FACILITIES });
 
-load csv with headers from "file:///home/heech/neo4j2/country.csv" as line match (n:Facility {code: line.facility}) set n.country = line.country
+load csv with headers from "file:///path_to/country.csv" as line match (n:Facility {code: line.facility}) set n.country = line.country
 
+USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM "file:///home/blah/xaf2" AS line MATCH (v1:VSID {code:line.DERIVEDSTOPID}) DETACH DELETE v1;
 
 neo4j rest api:
 http://localhost:7474/db/data/propertykeys
@@ -140,3 +148,5 @@ http://localhost:7474/db/data/node/169/relationships/in/BELONGS_TO
 
 path length = # of relationship OR (# of node - 1)
 e.g, 1 node: length = 0
+
+from CommunityBootstrapper > boot.start(), jump to definition -> does not work correctly

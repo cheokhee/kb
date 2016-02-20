@@ -56,3 +56,9 @@ C-h S : open info for symbol
 
 fontifying: assigning faces to text in the buffer
 faces: colors and fonts for text
+
+elisp:
+character: ?A
+keyword: :name
+string: "string"
+vector: [1 2 3]

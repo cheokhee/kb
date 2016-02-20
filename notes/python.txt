@@ -196,3 +196,7 @@ list comprehension example:
 S = [x**2 for x in range(10)]
 V = [2**i for i in range(13)]
 M = [x for x in S if x % 2 == 0]
+
+convert string to datetime:
+format='%Y%m%d%H%M%S' # date string: 20160126224023
+datetime.datetime.strptime(date_str, format)
