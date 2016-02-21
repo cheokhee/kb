@@ -7849,6 +7849,18 @@ VM1 and VM2 kernels) simply because they cannot share the page in the same way a
 Summary: KVM is a Hypervisor based on emulating virtual hardware. Containers, on the other hand, are
 based on shared operating systems and is skinnier.
 
+When you run a secondary OS on top of a primary OS, the secondary OS is called a virtual machine.
+
+Paravirtualization is a technique in which the hypervisor provides an API and the OS of the
+guest virtual machine calls that API, requiring OS modifications.
+
+hardware-assisted virtualization is a platform virtualization approach
+that enables efficient full virtualization using help from hardware
+capabilities, primarily from the host processors. Full virtualization
+is used to simulate a complete hardware environment, or virtual
+machine, in which an unmodified guest operating system (using the same
+instruction set as the host machine) executes in complete isolation.
+
 --end of virtualization--
 
 ASLR: address space layout randomization
