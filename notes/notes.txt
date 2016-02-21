@@ -5239,7 +5239,7 @@ instantiation  (the generation of objects of that class). Inheriting from a mixi
  specialization but is rather a means of collecting functionality.
 ++ A mixin can also be viewed as an interface with implemented methods.
 --> an interface with an implementation
---best--> a mechanism that allows you to add methods/attributes to a class without using inheritance.
+--best--> a mechanism that allows you to add methods to a class without using inheritance.
 
 Action-based (aka Push-based MVC) frameworks: model pushes data to view
 	eg. Struts, Django, Ruby on Rails and Spring MVC
@@ -7876,3 +7876,7 @@ directly access or change the instruction pointer.  However, instructions that c
 such as calls, jumps, loops, and interrupts, automatically change the instruction pointer.
 In x86_64, the instruction pointer is called RIP
 The ESP register serves as an indirect memory operand pointing to the top of the stack at any time.
+
+surface tension: due to cohesion between water molecules at the surface of a liquid.
+cohesion: attractive forces between similar molecules
+adhesion: attractive forces between disimmilar molecules
