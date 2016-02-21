@@ -5239,6 +5239,7 @@ instantiation  (the generation of objects of that class). Inheriting from a mixi
  specialization but is rather a means of collecting functionality.
 ++ A mixin can also be viewed as an interface with implemented methods.
 --> an interface with an implementation
+--best--> a mechanism that allows you to add methods/attributes to a class without using inheritance.
 
 Action-based (aka Push-based MVC) frameworks: model pushes data to view
 	eg. Struts, Django, Ruby on Rails and Spring MVC
