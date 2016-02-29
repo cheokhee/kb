@@ -130,6 +130,8 @@ LOAD CSV WITH HEADERS FROM "file:///a/blah/VS_epoch_revised.csv" AS line FOREACH
 
 LOAD CSV WITH HEADERS FROM "file:////home/blah/POLPOD.csv" AS line (p:PolPod {code: line.POLPOD, facilitylist: line.FACILITIES });
 
+LOAD CSV WITH HEADERS FROM "file:///a/workspace/roe/port-list-union.csv" AS line MERGE (n:PolPod {code: line.CODE}) ON CREATE SET n.port_list=line.PORT_LIST ON MATCH SET n.port_list=line.PORT_LIST
+
 load csv with headers from "file:///path_to/country.csv" as line match (n:Facility {code: line.facility}) set n.country = line.country
 
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM "file:///home/blah/xaf2" AS line MATCH (v1:VSID {code:line.DERIVEDSTOPID}) DETACH DELETE v1;
@@ -150,3 +152,7 @@ path length = # of relationship OR (# of node - 1)
 e.g, 1 node: length = 0
 
 from CommunityBootstrapper > boot.start(), jump to definition -> does not work correctly
+
+export to csv:
+#jq -r : raw data so that the quotes are not quoted twice
+curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:PolPod) where length(n.code) = 7 return n.code as CODE, n.port_list as PORT_LIST"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv'

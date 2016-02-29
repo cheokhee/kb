@@ -62,3 +62,16 @@ character: ?A
 keyword: :name
 string: "string"
 vector: [1 2 3]
+
+company-mode:
+while the completions are displayed:
+TAB: select common part
+RET: complete
+C-S, C-R : search, after searching: C-O to show only those matching
+F1: display doc
+
+narrowing: making a portion of the buffer visible. commands are limited to this area
+C-x n n : narrow to region
+C-x n w : widen
+
+convert between tab and space: tabify and untabify

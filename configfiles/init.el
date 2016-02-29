@@ -69,7 +69,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 130 :width normal)))))
 (require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (package-initialize)
@@ -399,7 +399,7 @@ by using nxml's indentation rules."
 ;emacs-init-time to find out time for init at start-up
 (global-set-key (kbd "<f6>") 'goto-line)
 ;(add-hook 'after-init-hook 'global-company-mode)
-(global-set-key (kbd "C-c c") 'company-manual-begin)
+(global-set-key (kbd "C-M-SPC") 'company-manual-begin)
 (elpy-enable)
 (put 'dired-find-alternate-file 'disabled nil)
 (global-anzu-mode 1)
@@ -492,3 +492,11 @@ by using nxml's indentation rules."
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
+(put 'narrow-to-region 'disabled nil)
+(setq gdb-many-windows t)
+(setq gdb-show-main t)
+(defun my-inhibit-semantic-p ()
+  (not (equal major-mode 'c-mode)))
+(with-eval-after-load 'semantic
+  (add-to-list 'semantic-inhibit-functions #'my-inhibit-semantic-p))
+(set-frame-name "emacs1")
