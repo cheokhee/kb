@@ -33,3 +33,17 @@ certifying a key means signing a key with your own secret key
 
 signing is sometimes known as "encrypting to the private key."
 The recipient will decrypt the file with our public key and verify the signature
+
+verifying pgp signature
+example: downloaded linux-4.4.tar.sign and linux-4.4.tar.xz
+#1 $ gpg linux-4.4.tar.sign
+Detached signature.
+Please enter name of data file: linux-4.4.tar.xz
+OR $ gpg --verify linux-4.4.tar.sign linux-4.4.tar.xz
+gpg: Signature made Sun 10 Jan 2016 03:09:18 PM PST using RSA key ID 00411886
+gpg: Can't check signature: public key not found
+# get the public key
+#2 $ gpg --keyserver pgp.mit.edu --recv-key 00411886
+#3 $ gpg --import mk_public_key.asc
+#4 optional: gpg --fingerprint EC0FEA84
+#5: verify again

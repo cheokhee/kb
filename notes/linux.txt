@@ -219,10 +219,23 @@ also: -z for compress
 gotchas:
 #1 Copy entire directory to remote parent directory:
 rsync /path/without/slash host:/path/to/parent/with/slash/
+------
+#1a. dest does not exist
+eg. rsync -av max tmp # same as rsync -av max tmp/
+result: tmp is created and max is under tmp: tmp/max
+diff -r max tmp/max #identical
+---
 #2 Copy contents of one directory to another:
 rsync -r /path/to/directory/* host:/path/to/directory/
 #3 Copy a directory into a new directory on another host:
 rsync /path/without/slash host:/path/to/new/directory
+#4 rsync file dirname #copy file to dirname/file
+#5 rsync file dirname/filename #copy file to dirname/filename
+#6 rsync file dirname/ #copy file to dirname/file, creating dirname if necessary
+
+#cp
+#1: dest is a directory -> make a copy with the same name in directory
+#2: dest is not a directory -> make a copy with the specified path name.
 
 #fast way to delete large number of files
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir empty

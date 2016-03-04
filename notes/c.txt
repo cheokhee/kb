@@ -95,3 +95,13 @@ int abc[] = {0,1,2};
 int *copy = abc
 
 copying an array requires memcpy
+
+#1 constant pointer is a pointer that cannot change the address it's holding.
+a constant pointer which points to a variable cannot be made to point to any other variable.
+example: int * const ptr;
+#2 pointer to constant. a pointer through which one cannot change the value of variable it points is
+known as a pointer to constant. These type of pointers can change the address they point to but
+cannot change the value kept at those address.
+example: const int* ptr;
+#3 Constant Pointer to a Constant
+example: const int* const ptr;

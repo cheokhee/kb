@@ -1,0 +1,33 @@
+example 1
+input:
+{
+  "errors": [],
+  "results": [
+    {
+      "data": [
+        {
+          "row": [
+            "HKG-SYD",
+            "SIN JIN BNE KEL CIW SKZ KAO SYD ZIA MEL HKG SHA BON YAT KHH NIN FRE"
+          ]
+        }
+      ],
+      "columns": [
+        "n.code",
+        "n.port_list"
+      ]
+    }
+  ]
+}
+ | jq -r '.results[0] | .columns,.data[].row | @csv'
+output:
+"n.code","n.port_list"
+"HKG-SYD","SIN JIN BNE KEL CIW SKZ KAO SYD ZIA MEL HKG SHA BON YAT KHH NIN FRE"
+
+
+example 2
+input:
+{"code":"HKG-SYD","port_list":"SIN JIN BNE KEL CIW SKZ KAO SYD ZIA MEL HKG SHA BON YAT KHH NIN FRE","is_static":true}
+OR
+{"error":"Destination Port SYDX is not found"}
+ | jq 'if (.error | length) > 0 then .error else .port_list end')

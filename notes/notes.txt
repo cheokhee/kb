@@ -2219,6 +2219,10 @@ example return value: functionCall({"Name": "Foo", "Id" : 1234, "Rank": 7});
 == return payload:
 parseResponse({"Name": "Foo", "Id" : 1234, "Rank": 7})
 
+cross-domain requests: allow a web page to request data from a server in a different domain
+#1. JSONP
+#2: CORS (cross-origin resource sharing) additional header: Access-Control-Allow-Origin:
+
 In computer graphics, a sprite  is a two-dimensional image or animation that is integrated
 into a larger scene.
 ===
@@ -7881,6 +7885,30 @@ hosted architecture: runs the virtualization layer as an application on top of a
 hypervisor architecture: runs the virtualization layer directly on top of hardware.
 the hypervisor manages virtual machine monitors that host virtual machines.
 VMM (virtual machine monitor) notifies the host when the VM tries to access the hardware.
+---
+virtualization: the process of hiding the hardware in a way that makes it usable and shareable by
+multiple OS.
+
+technique #1: full virtualization with binary translation (trap and emulate)
+technique #2: paravirtualization
+technique #3: hardware-assited virtualization
+
+x86 architecture: 4 levels of privilege (ring 0-3). OS runs in ring 0.
+full virtualization with binary translation: hypervisor runs in ring 0. guest OS runs in ring 1.
+Some x86 instructions work only in Ring 0. Those instructions are trapped by VMM, which emulates them.
+hardware-assisted virtualization: a new privilege level: ring -1. hypervisor runs in ring -1, so the
+guest OS runs in ring 0
+
+virtualization requirements:
+#1 equivalence: a program running in a VM cannot tell it is running in a VM.
+#2 resource control: the VMM must be in complete control of the virtualized resouces.
+#3 efficiency: all innocuous instructions are executed by the hardware directly
+
+An OS virtualizes the hardware to processes so that each process thinks it has exclusive use of the
+hardware.
+A hypervisor virtualizes the hardware to guest OSes so that each guest OS thinks it has exclusive use
+of the hardware. a mini OS that abstracts the hardware from its guests.
+
 
 --end of virtualization--
 

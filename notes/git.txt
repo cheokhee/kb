@@ -1212,3 +1212,8 @@ git fsck --no-reflog -> return more dangling commits
 git stash list -> comes from .git/logs/refs/stash file
 .git/refs/stash -> store stash@{0}
 stash@{0} is the top of the stack
+
+ignore files:
+add to .git/info/exclude
+OR
+git config --global core.excludesfile ~/.gitignore_global

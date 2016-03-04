@@ -36,6 +36,7 @@
  '(indent-tabs-mode nil)
  '(js-indent-level 2)
  '(kill-whole-line t)
+ '(menu-bar-mode nil)
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
  '(python-python-command "python3")
@@ -46,7 +47,7 @@
  '(require-final-newline t)
  '(savehist-file "~/.emacs.d/.savehistory")
  '(savehist-mode t nil (savehist))
- '(scroll-bar-mode (quote right))
+ '(scroll-bar-mode nil)
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
  '(smex-save-file "~/.emacs.d/.smex-items")
@@ -78,7 +79,7 @@
 (setq initial-scratch-message nil)
 (setq scroll-step 1)
 (setq scroll-conservatively 1000000)
-(require 'recentf)
+;(require 'recentf)
 (recentf-mode 1)
 (global-set-key (kbd "C-c j") 'recentf-open-files)
 (add-to-list 'load-path "~/.emacs.d/cheok")
@@ -134,23 +135,23 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;(require 'json-pretty-print)
 (setq next-screen-context-lines 7)
-(require 'highlight-symbol)
-(global-set-key [(control f6)] 'highlight-symbol-at-point)
-(global-set-key [(control f7)] 'highlight-symbol-next)
-(global-set-key [(control f8)] 'highlight-symbol-prev)
-(global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
+;; (require 'highlight-symbol)
+;; (global-set-key [(control f6)] 'highlight-symbol-at-point)
+;; (global-set-key [(control f7)] 'highlight-symbol-next)
+;; (global-set-key [(control f8)] 'highlight-symbol-prev)
+;; (global-set-key (kbd "<mouse-2>") 'mouse-yank-at-click)
 ;;
 ;;Delete selection before pasting with mouse
-(defadvice mouse-yank-at-click (before delete-region-before-paste (click arg))
-  (progn
-    (run-hooks 'mouse-leave-buffer-hook)
-    (if (use-region-p) (cua-delete-region))))
-(ad-activate 'mouse-yank-at-click)
-(defadvice mouse-yank-secondary (before delete-region-before-paste (click))
-  (progn
-    (run-hooks 'mouse-leave-buffer-hook)
-    (if (use-region-p) (cua-delete-region))))
-(ad-activate 'mouse-yank-secondary)
+;; (defadvice mouse-yank-at-click (before delete-region-before-paste (click arg))
+;;   (progn
+;;     (run-hooks 'mouse-leave-buffer-hook)
+;;     (if (use-region-p) (cua-delete-region))))
+;; (ad-activate 'mouse-yank-at-click)
+;; (defadvice mouse-yank-secondary (before delete-region-before-paste (click))
+;;   (progn
+;;     (run-hooks 'mouse-leave-buffer-hook)
+;;     (if (use-region-p) (cua-delete-region))))
+;; (ad-activate 'mouse-yank-secondary)
 (require 'point-undo)
 (global-set-key (kbd "C-c ,") 'point-undo)
 (global-set-key (kbd "C-c .") 'point-redo)
@@ -194,7 +195,6 @@
 (set-register ?t '(file . "~/d/cheok/tasks/cheok_notes.txt"))
 (set-register ?g '(file . "/home/heech/gitrepo/kb/notes/things.txt"))
 (set-register ?n '(file . "/home/heech/gitrepo/kb/notes/notes.txt"))
-(set-register ?v '(file . "/home/heech/d/cheok/IRIS4/DD/invoice-prob/invoice-prob.txt"))
 (defun put-buffer-name ()
   "Put current buffer name at point"
   (interactive)
@@ -407,11 +407,14 @@ by using nxml's indentation rules."
   (lambda ()
     (turn-on-eldoc-mode)
     (company-mode)))
-(add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c-mode-common-hook
   (lambda ()
     (delete 'company-clang company-backends)
+    (add-to-list 'company-backends 'company-irony)
+    (helm-gtags-mode)
+    (irony-mode)
     (company-mode)
+    (flycheck-mode)
     (ggtags-mode 1)))
 (eval-after-load "helm-gtags"
   '(progn
@@ -419,6 +422,12 @@ by using nxml's indentation rules."
      (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
      (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
      (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+;; (define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
+;; (define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
+;; (define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
+;; (define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
+;; (define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
+;; (define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
 (setq
   helm-gtags-ignore-case t
   helm-gtags-auto-update t
@@ -500,3 +509,20 @@ by using nxml's indentation rules."
 (with-eval-after-load 'semantic
   (add-to-list 'semantic-inhibit-functions #'my-inhibit-semantic-p))
 (set-frame-name "emacs1")
+;; replace the completion-at-point and complete-symbol bindings in
+;; irony-mode's buffers by irony-mode's function
+(defun my-irony-mode-hook ()
+  (define-key irony-mode-map [remap completion-at-point]
+    'irony-completion-at-point-async)
+  (define-key irony-mode-map [remap complete-symbol]
+    'irony-completion-at-point-async))
+(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+(defun my-copy-line ()
+  (interactive)
+  (move-beginning-of-line nil)
+  (setq p1 (point))
+  (move-end-of-line nil)
+  (setq p2 (point))
+  (kill-ring-save p1 p2))
+(global-set-key (kbd "<f7>") 'my-copy-line)

@@ -74,3 +74,18 @@ try {
   Field field = clz.getDeclaredField("numberOfWantedPaths");
   field.setAccessible(true); // for private field
   field.getInt(object)); // for integer field
+
+=======================
+class.getName() vs class.getCanonicalName()
+java.lang.String vs java.lang.String
+java.util.AbstractMap$SimpleEntry vs java.util.AbstractMap.SimpleEntry // inner class
+ClassnameTest$1 vs null // anonymous inner class
+[Ljava.lang.Integer; vs java.lang.Integer[] // object array
+
+name is the name that you'd use to dynamically load the class with, for example, a call to
+Class.forName with the default classloader.
+
+canonical name is the name that would be used in an import statement and uniquely identifies the
+class. Might be useful during toString or logging operations
+
+====================
