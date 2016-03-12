@@ -79,3 +79,5 @@ convert between tab and space: tabify and untabify
 C-u 0 C-x e : execute a macro an infinite number of times
 
 M-z : zap-to-char
+
+hex editor: hexl-mode, hexl-find-file

@@ -105,3 +105,15 @@ cannot change the value kept at those address.
 example: const int* ptr;
 #3 Constant Pointer to a Constant
 example: const int* const ptr;
+
+difference between char *str and char str[]:
+char str[] = "Hello"
+tell the compiler to allocate an array on the stack and fill the array
+with the string literal. mutable
+vs
+char *str = "hello"
+str is pointing to a constant block of memory in the executable (read-only)
+===
+in function arguments, they are equivalent:
+void foo(char *x);
+void foo(char x[]);

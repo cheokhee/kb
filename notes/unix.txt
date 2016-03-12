@@ -509,6 +509,10 @@ sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4
 
 sort -k 4.10,4.13n ->  sort by chars 10-13 of the fourth field (numerically)
 
+#sort numerically, reverse, csv file, third field
+#-t: separator
+sort -rn -t , -k 3 svc-port-list.csv
+
 #sort human-readable fils sizes
 $ echo -e "1G\n1M" | sort -h
 1M
@@ -1034,3 +1038,48 @@ regex:
 & -> the string matched by the pattern
 example: echo "first line" | sed 's/li.e/hee&cheok/g'
 output: first heelinecheok
+
+get/change file ACL (access control list)
+commands: getfacl/setfacl
+
+use dynamic linker/loader to run a program without execute permission
+/lib64/ld-linux-x86-64.so.2 ./hello
+
+#show elapsed time, start time, cumulative cpu time of a process
+ps -o etime,stime,time <pid>
+
+#show system hardware dmi=desktop management interface
+dmidecode
+option: -t <type>
+# types are: bios, system, baseboard, chassis, processor, memory, cache, connector, slot.
+
+# Automates interactive applications
+application: expect
+
+#EXIF: (exchangeable image format) , digital phone metadata
+exiftool
+
+#list process id listening on port 7474
+lsof -i:7474 -sTCP:LISTEN -t
+
+dstat output:
+cpu: user, sys, idle, wai, hiq, siq
+ hiq - irq: servicing interrupts
+ siq - softirq: servicing softirqs
+disk: read, write
+network: recv, send
+paging: in, out
+system: int (interrupts), csw (context switches)
+#show top I/O processes
+dstat --top-io --top-bio --nocolor
+OR
+dstat --top-io-adv --top-bio-adv --nocolor #more info such as pid
+
+A chroot on Unix operating systems is an operation that changes the apparent root directory for the
+current running process and its children. A program that is run in such a modified environment
+cannot name (and therefore normally not access) files outside the designated directory tree.
+
+A chroot jail is a way to isolate a process from the rest of the system. It should only be used for
+processes that don't run as root, as root users can break out of the jail very easily. The idea is
+that you create a directory tree where you copy or link in all the system files needed for a process
+to run.

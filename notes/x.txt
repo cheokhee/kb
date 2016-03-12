@@ -31,3 +31,5 @@ bottom line: X cannot accept remote connections
 
 after upgrade to 12.04:
 become lightdm.
+
+X is started from here: /etc/X11/xinit/xserverrc

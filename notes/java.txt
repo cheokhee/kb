@@ -89,3 +89,12 @@ canonical name is the name that would be used in an import statement and uniquel
 class. Might be useful during toString or logging operations
 
 ====================
+JMX
+
+To manage any resource through JMX, we need to create Managed Beans (MBeans) and then register it to
+the MBean Server. MBean server works as a management agent for all the MBeans registered.
+
+We use JMX Connectors to connect to MBean server and to manage the registered resources. For
+example, JDK comes with JConsole through which you can connect to any local or remote MBean server.
+
+the platform MBean server is also called the JMX agent

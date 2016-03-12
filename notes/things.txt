@@ -132,17 +132,18 @@ jq
 cmake
 libclang-3.7-dev
 xkbset
+figlet
 
 =========== end of packages ==============
 
-ace-window-0.9.0/            company-irony-20150810.239/     flycheck-20150821.47/      helm-flycheck-20140915.752/    let-alist-1.0.4/           tern-20150302.211/
-anzu-20150802.2203/          company-tern-20150525.216/      ggtags-20151214.1344/      helm-gtags-20160123.2129/      pkg-info-20150517.443/     w3m-20150513.1/
-archives/                    dash-20150717.1321/             gnupg/                     helm-projectile-20150826.321/  popup-20150315.612/        ws-butler-20150126.759/
-async-20150529.529/          dash-functional-20150311.2358/  go-eldoc-0.26/             helm-swoop-20150704.839/       projectile-20150728.2141/  yasnippet-20150415.244/
-auto-complete-20150225.715/  elpy-1.10.0/                    go-mode-20150817.2318/     highlight-indentation-0.6.0/   pyvenv-1.9/                zygospore-20140703.152/
-avy-0.3.0/                   enh-ruby-mode-20150215.136/     groovy-mode-201203310931/  iedit-20150415.1804/           restclient-20151128.1512/
-company-20150706.347/        epl-20150517.433/               helm-20150604.831/         irony-20160203.1207/           s-20140910.334/
-company-go-20150824.214/     find-file-in-project-3.3/       helm-ag-20160126.2147/     js3-mode-20140805.1529/        tablist-20150618.2218/
+ace-window-0.9.0/            company-irony-20150810.239/     flycheck-20150821.47/      helm-ag-20160126.2147/         js3-mode-20140805.1529/    tablist-20150618.2218/
+anzu-20150802.2203/          company-tern-20150525.216/      ggtags-20151214.1344/      helm-flycheck-20140915.752/    let-alist-1.0.4/           tern-20150302.211/
+archives/                    dash-20150717.1321/             gnupg/                     helm-gtags-20160123.2129/      pkg-info-20150517.443/     w3m-20150513.1/
+async-20150529.529/          dash-functional-20150311.2358/  go-eldoc-0.26/             helm-projectile-20150826.321/  popup-20150315.612/        ws-butler-20150126.759/
+auto-complete-20150225.715/  elpy-1.10.0/                    go-mode-20150817.2318/     helm-swoop-20150704.839/       projectile-20150728.2141/  yasnippet-20150415.244/
+avy-0.3.0/                   enh-ruby-mode-20150215.136/     go-scratch-20150809.2140/  highlight-indentation-0.6.0/   pyvenv-1.9/                zygospore-20140703.152/
+company-20150706.347/        epl-20150517.433/               groovy-mode-201203310931/  iedit-20150415.1804/           restclient-20151128.1512/
+company-go-20150824.214/     find-file-in-project-3.3/       helm-20150604.831/         irony-20160203.1207/           s-20140910.334/
 
 my changes to yasnippet-20150415.244:
 in snippets directory: add a symbolic link from js3-mode -> js-mode

@@ -151,8 +151,27 @@ http://localhost:7474/db/data/node/169/relationships/in/BELONGS_TO
 path length = # of relationship OR (# of node - 1)
 e.g, 1 node: length = 0
 
-from CommunityBootstrapper > boot.start(), jump to definition -> does not work correctly
+from CommunityBootstrapper > boot.start()
 
 export to csv:
 #jq -r : raw data so that the quotes are not quoted twice
 curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:PolPod) where length(n.code) = 7 return n.code as CODE, n.port_list as PORT_LIST"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv'
+
+neo4j startup:
+community/server/src/main/java/org/neo4j/server/database/LifecycleManagingDatabase.java
+  print "Successfully started database"
+community/server/src/main/java/org/neo4j/server/AbstractNeoServer.java
+  print "Starting HTTP on port 7474 (200 threads available)" and "Enabling HTTPS on port 7473"
+community/server/src/main/java/org/neo4j/server/modules/ThirdPartyJAXRSModule.java
+  print "Mounted unmanaged extension [com.blah] at [/v1]"
+community/server/src/main/java/org/neo4j/server/web/Jetty9WebServer.java
+  print "Mounting static content at /webadmin" and "Mounting static content at /browser"
+community/server/src/main/java/org/neo4j/server/AbstractNeoServer.java
+  print "Remote interface ready and available at http://0.0.0.0:7474/"
+
+/webadmin root: community/server/src/main/resources/webadmin-html/index.html
+  in system/lib/neo4j-server-2.3.1-static-web.jar
+
+/browser root: community/browser/dist/browser/index.html (this is the one displayed at localhost:7474/browser)
+  in system/lib/neo4j-browser-2.3.1.jar
+  there is another file (community/browser/app/index.html) slightly different from above

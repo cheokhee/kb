@@ -226,9 +226,18 @@ rsync /path/without/slash host:/path/to/parent/with/slash/
 eg. rsync -av max tmp # same as rsync -av max tmp/
 result: tmp is created and max is under tmp: tmp/max
 diff -r max tmp/max #identical
+#1b. dest exists
+eg. rsync -av max tmp # same as rsync -av max tmp/
+result: max is under tmp: tmp/max
+diff -r max tmp/max #identical
 ---
 #2 Copy contents of one directory to another:
 rsync -r /path/to/directory/* host:/path/to/directory/
+----
+#2a. dest does not or does exist (dest dir is created if necessary)
+eg rsync -av max/* tmp/ # same as rsync -av max/* tmp
+diff -r max tmp #identical
+----------
 #3 Copy a directory into a new directory on another host:
 rsync /path/without/slash host:/path/to/new/directory
 #4 rsync file dirname #copy file to dirname/file
@@ -503,3 +512,35 @@ configure -> create a makefile
 printer stuff:
 system-config-printer
 lpstat -d
+
+UML: user mode linux
+#1: create a .config file
+1a. this is better
+make ARCH=um defconfig
+1b. may not work
+make ARCH=um allnoconfig KCONFIG_ALLCONFIG=mini.config
+#2: build it
+make ARCH=um
+#3: run it
+./kernel ubda=Slamd64-12.1-root_fs mem=512m
+#show config
+./kernel --showconfig
+
+verifying linux kernel signature:
+$ xzcat linux-4.4.tar.xz | gpg --verify linux-4.4.tar.sign -
+gpg: Signature made Sun 10 Jan 2016 03:09:18 PM PST using RSA key ID 00411886
+gpg: Can't check signature: public key not found
+$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 00411886
+gpg: requesting key 00411886 from hkp server keys.gnupg.net
+gpg: keyserver timed out
+gpg: keyserver receive failed: keyserver error
+
+passing an environment to a process (one-off):
+$ VAR=value ./test.sh
+#note cannot do ./test.sh VAR=HI
+
+#scan a port
+nmap -p6000 localhost
+
+#make your script more robust
+set -euo pipefail
