@@ -7394,6 +7394,11 @@ Assertion: an expression, if false, indicates an error.
 Scalability:
 The ability of a system to accommodate growth.
 Scalability measures the ability of a system to deliver consistent performance while the workload increases
+---- scalability meanings:
+redundancy in the face of server failure
+managing increasing read load
+managing increasing data set size
+managing increasing write load
 
 diamond problem: the ambiguity that can result from multiple inheritance.
 
@@ -7950,3 +7955,73 @@ private IP addresses:
 10.0.0.0 - 10.255.255.255
 172.16.0.0 - 172.31.255.255
 192.168.0.0 - 192.168.255.255
+
+gear ratio: output/input
+first gear: 4/1. four revolutions of engine to produce one revolution of wheel.
+torque: ft-lbs or Newton-Meter. same as Joule (energy)
+higher torque -> lower top speed
+----
+piston -> crankshaft -> flywheel -> clutch disc -> pressure place
+
+IP forwarding should be enabled when you want the system to act as a router, that is transfer IP
+packets from one network to another.
+IP forwarding involves transferring packets between network interfaces. That means
+the computer should have at least 2 network interface cards.
+===
+A router has multiple network interfaces. If traffic comes in on one interface that matches a subnet
+of another network interface, a router then forwards that traffic to the other network interface.
+===
+So, let's say you have two NICs, one (NIC 1) is at address 192.168.2.1/24, and the other (NIC 2) is
+192.168.3.1/24. If forwarding is enabled, and a packet comes in on NIC 1 with a "destination
+address" of 192.168.3.8, the router will resend that packet out of the NIC 2.
+
+-- hyper-threading: intel's proprietary multi-threading implementation
+A single physical CPU core with hyper-threading appears as two logical CPUs to an operating
+system. The CPU is still a single CPU, so it’s “cheating” a bit — while the operating system sees
+two CPUs for each core, the actual CPU hardware only has a single set of execution resources for
+each core. The CPU pretends it has more cores than it does, and it uses its own logic to speed up
+program execution. Hyper-threading allows the two logical CPU cores to share physical execution
+resources.
+=====
+Logical cores are the number of physical cores times the number of threads that can run on each core
+through the use of hyperthreading. for example, my 4-core processor runs two threads per core, so I
+have 8 logical processors.
+=====
+CPU(s):                8
+Thread(s) per core:    2
+Core(s) per socket:    4 (physical core)
+=====
+
+suji/sooji/rava: semolina
+suji halwa: cream-of-wheat dessert
+bisibelabath: hot lentil rice
+pongal: rice and lentil
+kadhi: a think gravy based on chickpea flour
+chickpea flour : aka gram flour, besan, garbanzo bean flour
+pulse: the edible seeds of certain pod-bearing plants. e.g. lentil, chickpea
+ghee: clarified butter
+Mukhwas: mouth freshener (fennel seeds, anise seeds, etc)
+south indian filter coffee: dabarah and tumbler
+
+SMP (symmetric multiprocessing) is the processing of programs by multiple processors that share a
+common operating system and memory. In symmetric (or "tightly coupled") multiprocessing, the
+processors share memory and the I/O bus or data path. A single copy of the operating system is in
+charge of all the processors. SMP, also known as a "shared everything" system, does not usually
+exceed 16 processors.
+-----
+NUMA (non-uniform memory access) is a method of configuring a cluster of microprocessor in a
+multiprocessing system so that they can share memory locally, improving performance and the ability
+of the system to be expanded. NUMA is used in a symmetric multiprocessing ( SMP ) system. An SMP
+system is a "tightly-coupled," "share everything" system in which multiple processors working under
+a single operating system access each other's memory over a common bus or "interconnect"
+path. Ordinarily, a limitation of SMP is that as microprocessors are added, the shared bus or data
+path get overloaded and becomes a performance bottleneck. NUMA adds an intermediate level of memory
+shared among a few microprocessors so that all data accesses don't have to travel on the main bus.
+-----
+NUMA can be thought of as a "cluster in a box." The cluster typically consists of four
+microprocessors (for example, four Pentium microprocessors) interconnected on a local bus (for
+example, a Peripheral Component Interconnect bus) to a shared memory (called an "L3 cache ") on a
+single motherboard (it could also probably be referred to as a card ). This unit can be added to
+similar units to form a symmetric multiprocessing system in which a common SMP bus interconnects all
+of the clusters. Such a system typically contains from 16 to 256 microprocessors. To an application
+program running in an SMP system, all the individual processor memories look like a single memory.

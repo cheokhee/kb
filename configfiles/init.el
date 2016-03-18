@@ -40,7 +40,7 @@
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
  '(python-python-command "python3")
- '(python-shell-interpreter "python3")
+ '(python-shell-interpreter "ipython3")
  '(read-file-name-completion-ignore-case t)
  '(recentf-max-menu-items 25)
  '(recentf-save-file "~/.emacs.d/.recentf")
@@ -534,3 +534,8 @@ by using nxml's indentation rules."
   (kill-ring-save p1 p2))
 (global-set-key (kbd "<f8>") 'my-copy-to-end)
 (global-set-key (kbd "<f9>") 'other-window)
+(defun switch-to-previous-buffer ()
+  "Switch to previously open buffer"
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer))))
+(global-set-key (kbd "<f4>") 'switch-to-previous-buffer)

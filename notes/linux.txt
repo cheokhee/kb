@@ -165,6 +165,8 @@ lspgpot
 lsusb
 
 initramfs: initial RAM-based filesystem: allow the kernel to execute programs before the root filesystem is mounted.
+initrd: initial RAM disk: serves as a temporary root file system in RAM and allows the kernel to boot without
+having to mount any physical disk.
 
 GRUB config:
 make a copy of /etc/default/grub and /boot/grub/grub.cfg
@@ -541,6 +543,12 @@ $ VAR=value ./test.sh
 
 #scan a port
 nmap -p6000 localhost
+#version scan
+nmap -p7474 -sV localhost
+#TCP SYN scan
+nmap -p7474 -sS localhost
+#
+nmap -oA #output in 3 major formats
 
 #make your script more robust
 set -euo pipefail

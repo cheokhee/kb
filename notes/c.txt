@@ -30,6 +30,9 @@ x/4xb &i // examine 4 values in memory, formatted as hex, one byte at a time
 (gdb) print &i
 $1 = (int *) 0x7fffffffdc4c
 
+gdb:
+disass <function name>
+
 Autotools:
 ./configure
 make
@@ -117,3 +120,26 @@ str is pointing to a constant block of memory in the executable (read-only)
 in function arguments, they are equivalent:
 void foo(char *x);
 void foo(char x[]);
+
+stack frame:
+|--------------------------|
+| ESP                      |
+| stack frame of function1 |
+|                          |
+| EBP                      |
+| saved EBP of main        |
+|--------------------------|
+| return address           |
+|--------------------------|
+| stack frame of main      |
+|--------------------------|
+
+EIP : instruction pointer
+ESP : stack pointer (to the top) (low memory)
+EBP : stack base pointer (to the bottom) (high memory)
+ESI : source index
+EDI : destination index
+EAX : accumulator
+EBX : base
+ECX : counter
+EDX : data

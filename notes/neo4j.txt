@@ -128,8 +128,6 @@ match n-[r]-() return distinct type(r) -- not work?
 
 LOAD CSV WITH HEADERS FROM "file:///a/blah/VS_epoch_revised.csv" AS line FOREACH(ignoreMe IN CASE WHEN trim(line.DERIVEDSTOPID) <> "NULL"  THEN [1] ELSE [] END | MERGE (v:VSID {code: line.DERIVEDSTOPID}) ON MATCH SET v.arrival = toInt(line.ARRIVALEPOCH), v.departure = toInt(line.DEPARTUREEPOCH));
 
-LOAD CSV WITH HEADERS FROM "file:////home/blah/POLPOD.csv" AS line (p:PolPod {code: line.POLPOD, facilitylist: line.FACILITIES });
-
 LOAD CSV WITH HEADERS FROM "file:///a/workspace/roe/port-list-union.csv" AS line MERGE (n:PolPod {code: line.CODE}) ON CREATE SET n.port_list=line.PORT_LIST ON MATCH SET n.port_list=line.PORT_LIST
 
 load csv with headers from "file:///path_to/country.csv" as line match (n:Facility {code: line.facility}) set n.country = line.country
