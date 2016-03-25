@@ -403,6 +403,38 @@ export TMOUT=30
 tcpdump -ni eth2 icmp
 #capture 2 packets and display packets n hex and ascii, write to a file, -tttt: print a timestamp
 tcpdump -ni eth2 -c 2 -XX -w filename -tttt
+# -n : do not resolve IP address, -X: display hex and ascii content, -S: show absolute sequence number
+# -nn: do not resolve IP address or port number
+# -XX: -X plus ethernet header
+# -A : print in ascii only
+tcpdump -nXS
+# -D: show available interfaces
+# -c : get x number of packets
+# -s : show x bytes: -s 0 to show everything (default: 65535)
+tcpdump -nn -XX -i eth2 -c 2 -s 0 -v icmp
+tcpdump -nn -XX -i eth2 -c 2 -s 0 -v tcp
+tcpdump -nn -XX -i eth2 -c 2 -s 0 -v udp
+#
+tcpdump -nn -XX -i eth2 -v host <ip>
+tcpdump -nn -XX -i eth2 -v src <ip>
+tcpdump -nn -XX -i eth2 -v dst <ip>
+tcpdump -nn -XX -i eth2 -v net 1.2.3.0/24
+tcpdump -nn -XX -i eth2 -v port 3389
+tcpdump -nn -XX -i eth2 -v src port 3389
+tcpdump -nn -XX -i eth2 -v dst port 3389
+tcpdump src port 1025 and tcp
+tcpdump portrange 21-23
+#only see packets below or above a certain size (in bytes)
+tcpdump less 32
+tcpdump greater 128
+===
+tcpdump -nnvvS src 10.5.2.3 and dst port 3389
+===
+tcpdump 'src 10.0.2.4 and (dst port 3389 or 22)'
+=== common use
+tcpdump -nnXv -i eth2 host 146.222.121.69
+tcpdump -nnAv -i eth2 host 146.222.121.69
+=====
 
 #related to ulimit
 /etc/security/limits.conf
@@ -467,6 +499,7 @@ ps f : show process hierarchy
 ps a : show processes owned by others
 ps x : those without tty
 ps u : user-friendly format
+ps -L : show threads (LWP (lightweight process column))
 
 7z a -mhe=on -ppassword important.7z important.txt for-honey.txt
 
@@ -552,3 +585,41 @@ nmap -oA #output in 3 major formats
 
 #make your script more robust
 set -euo pipefail
+
+#check dirty pages in page cache
+$ cat /proc/meminfo | grep Dirty
+Dirty:               204 kB
+#flush system buffers
+$ sync
+
+
+As of 2.4 kernel, these two caches (page and buffer caches) have been combined. Today, there is only
+one cache, the Page Cache
+---
+Buffers are in-memory block I/O buffers. They are relatively short-lived. Prior to Linux
+kernel version 2.4, Linux had separate page and buffer caches. Since 2.4, the page and
+buffer cache are unified and Buffers is raw disk blocks not represented in the page
+cache—i.e., not file data. The Buffers metric is thus of minimal importance.
+
+
+#I/O scheduler
+cat /sys/block/sda/queue/scheduler
+--> noop [deadline] cfq
+CFQ : Completely Fair Queuing
+
+#ulimit:
+/etc/security/limits.conf
+
+#run stress test
+siege --log=siege.log -t5M -c 4 -i -b -f url.txt
+
+tmux: from 2 horizontal panes to 2 vertical panes (and vice versa)
+Prefix <SPC> : cycle through available layouts (bound to next-layout)
+Prefix Alt-1 : even horizontal
+Prefix Alt-2 : even vertical
+
+ssh X11 forwarding
+want to display on my-machine (where X server is running)
+remote (where client will be run)
+
+On my-machine: ssh -X user@remote

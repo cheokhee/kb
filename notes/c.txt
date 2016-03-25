@@ -143,3 +143,7 @@ EAX : accumulator
 EBX : base
 ECX : counter
 EDX : data
+
+16-bit processor: IP
+32-bit processor: EIP
+64-bit processor: RIP

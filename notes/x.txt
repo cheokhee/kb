@@ -31,3 +31,6 @@ bottom line: X cannot accept remote connections
 
 after upgrade to 12.04:
 become lightdm.
+
+find out which display manager is used:
+cat /etc/X11/default-display-manager

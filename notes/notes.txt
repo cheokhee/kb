@@ -6043,6 +6043,8 @@ execution agent: the number of core/CPU.
 
 Global interpreter lock (GIL): is a mutual exclusion lock held by a programming language interpreter
 thread to avoid sharing code that is not thread-safe with other threads
+===
+GIL is used to synchronize the execution of threads so that only one native thread can execute at a time.
 Some language implementations that implement a Global Interpreter Lock are CPython, the most widely
 used implementation of Python and Ruby MRI, the reference implementation of Ruby (where it is called Global VM Lock).
 
@@ -6837,7 +6839,7 @@ static synchronized method: acquire the monitor for the Class object.
 ---
 mutual exclusion: means only one thread is in the critical section at any one time.
 critical section: when a shared resource is being accessed.
-samaphore: a variable for controlling access to a common resource.
+semaphore: a variable for controlling access to a common resource.
 
 je ne sais quoi: a quality that is difficult to express
 je ne sais quoi: I don't know what
@@ -7703,6 +7705,13 @@ block device is only accessed via the buffer cache.
 
 page cache: use to cache the logical contents of a file one page at a time.
 memory-mapped files are read a page at a time and they are stored in the page cache.
+---
+page cache: a portion of RAM set aside by the OS to cache file contents from disk, thereby
+making subsequenct I/O faster.
+----
+The page cache caches pages of files to optimize file I/O. The buffer cache caches disk
+blocks to optimize block I/O.
+
 
 data buffer: a region of a physical memory storage used to temporarily store data while it is being
 moved from one place to another Typically, the data is stored in a buffer as it is retrieved from an
@@ -8002,6 +8011,8 @@ pulse: the edible seeds of certain pod-bearing plants. e.g. lentil, chickpea
 ghee: clarified butter
 Mukhwas: mouth freshener (fennel seeds, anise seeds, etc)
 south indian filter coffee: dabarah and tumbler
+kadai, karahi: a cooking pot (similar to wok)
+mutter, matar: peas
 
 SMP (symmetric multiprocessing) is the processing of programs by multiple processors that share a
 common operating system and memory. In symmetric (or "tightly coupled") multiprocessing, the
@@ -8025,3 +8036,15 @@ single motherboard (it could also probably be referred to as a card ). This unit
 similar units to form a symmetric multiprocessing system in which a common SMP bus interconnects all
 of the clusters. Such a system typically contains from 16 to 256 microprocessors. To an application
 program running in an SMP system, all the individual processor memories look like a single memory.
+
+index-free adjacency principle
+graph databases, which are defined as any storage system that provides index-free adjacency. What
+this means is that every element in the database contains a direct link to its adjacent element. No
+index lookups are required; every element (or node) knows what node or nodes it is connected with,
+this connection is called an edge.
+
+resilience and fault tolerance
+the ability of a system to continue functioning and providing services in the presence
+of network disruptions and hardware failures.
+
+Mechanical Sympathy: applying an understanding of the hardware to the creation of software

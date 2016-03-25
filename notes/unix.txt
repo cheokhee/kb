@@ -1088,3 +1088,24 @@ A chroot jail is a way to isolate a process from the rest of the system. It shou
 processes that don't run as root, as root users can break out of the jail very easily. The idea is
 that you create a directory tree where you copy or link in all the system files needed for a process
 to run.
+
+how cron works
+old:
+ 1. Read /usr/etc/crontab
+ 2. Determine if any commands are to be run at the current date and time and if so, run them as the superuser
+ 3. sleep for one minute
+ 4. repeat from step 1
+New:
+1. On start-up, look for a file named .crontab in the home directories of all account holders.
+2. For each crontab file found, determine the next time in the future that each command must run.
+3. Place those commands on the Franta–Maly event list with their corresponding time and their "five field" time specifier.
+4. Enter main loop:
+   a. Examine the task entry at the head of the queue, compute how far in the future it must run.
+   b. Sleep for that period of time.
+   c. On awakening and after verifying the correct time, execute the task at the head of the queue (in background) with the privileges of the user who created it.
+   d. Determine the next time in the future to run this command and place it back on the event list at that time value.
+
+how sleep works
+ 1. Suspend execution of the process and mark it as not runnable.
+ 2. Set a timer for the given wait time. Systems provide hardware timers that let the kernel register to receive an interrupt at a given point in the future.
+ 3. When the timer hits, mark the process as runnable.

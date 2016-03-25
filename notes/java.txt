@@ -134,3 +134,49 @@ outer(), since both methods (or blocks) are synchronized on the same monitor obj
 thread already holds the lock on a monitor object, it has access to all blocks synchronized on the
 same monitor object. This is called reentrance. The thread can reenter any block of code for which
 it already holds the lock.
+
+The set of active objects retained by the application at any point in time is known as the Live Set.
+
+jcmd: send command requests to a JVM.
+jcmd <pid> help
+JFR.stop
+JFR.start
+JFR.dump
+JFR.check
+VM.native_memory
+VM.check_commercial_features
+VM.unlock_commercial_features
+ManagementAgent.stop
+ManagementAgent.start_local
+ManagementAgent.start
+GC.rotate_log
+Thread.print
+GC.class_stats
+GC.class_histogram
+GC.heap_dump
+GC.run_finalization
+GC.run
+VM.uptime
+VM.flags
+VM.system_properties
+VM.command_line
+VM.version
+====
+jcmd <pid> help VM.version
+====
+jcmd <pid> VM.version
+=== can use name ===
+jcmd CommunityBootstrapper JFR.check
+===
+to start a jfr recording
+jcmd 7060 JFR.start name=MyRecording settings=profile delay=20s duration=2m filename=/tmp/myrecording.jfr
+---
+jcmd 7060 JFR.dump name=MyRecording filename=/tmp/myrecording.jfr
+===
+jcmd <pid> GC.heap_dump filename=Myheapdump
+===
+jcmd <pid> GC.class_histogram filename=Myheaphistogram
+===
+jcmd <process id/main class> Thread.print
+===
+JFR.stop should be done after dumping
