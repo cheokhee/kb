@@ -539,3 +539,4 @@ by using nxml's indentation rules."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer))))
 (global-set-key (kbd "<f4>") 'switch-to-previous-buffer)
+(server-start)

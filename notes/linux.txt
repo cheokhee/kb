@@ -435,6 +435,7 @@ tcpdump 'src 10.0.2.4 and (dst port 3389 or 22)'
 tcpdump -nnXv -i eth2 host 146.222.121.69
 tcpdump -nnAv -i eth2 host 146.222.121.69
 =====
+tcpdump -nnvvvA -i eth2 -w file.pcap host <ip>
 
 #related to ulimit
 /etc/security/limits.conf
@@ -454,6 +455,8 @@ systemctl list-unit-files --type=service
 xxd: make a hex dump
 
 manipulate or dump object files: objcopy and objdump
+objdump : display info from object file
+nm: list symbols from object file
 
 readlink: follow symbolic link
 readlink -e `which google-chrome`
@@ -485,7 +488,7 @@ pmap: show memory map of a process
   field #5: lib , always 0
   field #6: data, mapped to DATA
   field #7: dt, always 0
-/proc/[pid]/maps
+/proc/[pid]/maps -> similar to output of pmap
 /proc/[pid]/smaps
 /proc/[pid]/status
 /proc/meminfo
@@ -623,3 +626,49 @@ want to display on my-machine (where X server is running)
 remote (where client will be run)
 
 On my-machine: ssh -X user@remote
+
+#check for CRLF ending:
+$ file /a/tapasjo/copy-paste.txt
+/a/tapasjo/copy-paste.txt: ASCII text, with CRLF line terminators
+---
+$ grep -c  $'\r' /a/tapasjo/copy-paste.txt
+27
+
+braces:
+trimming with variable substition:
+$ var=foo.pdf
+$ echo ${var%.pdf} #trim suffix
+foo
+$ echo ${var#foo} #trim prefix
+.pdf
+====
+#parameter substitution:
+IP=1.2.3.4
+echo ${IP/./ }
+1 2.3.4
+echo ${IP//./ }
+1 2 3 4
+#an extra / means global substitution
+====
+$ echo {00..8..2}
+00 02 04 06 08
+$ echo {00..8}
+00 01 02 03 04 05 06 07 08
+$ echo {D..T..4}
+D H L P T
+
+single bracket vs double bracket
+single: POSIX
+double: non-POSIX, only in bash, zsh, ksh
+[ is a shell builtin and a program (/usr/bin/[
+[[ is a keyword
+
+profiling java program with perf:
+#1. create method mappings : create a file called /tmp/perf-pid.map
+/home/heech/gitrepo/perf-map-agent/create-java-perf-map.sh <pid>
+#2. profiling: generate a file called perf.data
+sudo perf record -F 99 -a -g sleep 30
+#3. generate flame graph (need perf.data in current directory)
+sudo perf script | ~/gitrepo/FlameGraph/stackcollapse-perf.pl | ~/gitrepo/FlameGraph/flamegraph.pl --color=java --hash > flamegraph.svg
+#
+sudo perf report --stdio

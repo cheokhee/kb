@@ -133,6 +133,8 @@ cmake
 libclang-3.7-dev
 xkbset
 figlet
+linux-tools-common
+linux-tools-generic
 
 =========== end of packages ==============
 

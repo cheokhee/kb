@@ -107,6 +107,10 @@ curl localhost:5000/v1/_ping
 curl localhost:5000/v1/search
 curl host:5000/v1/search?q=nodejs
 
+push to private registry:
+1. name your image like this: host:port/name:tag
+2. then push
+
 {"num_results": 2, "query": "", "results": [{"description": null, "name": "library/tibcobw"}, {"description": "", "name": "library/rhel6.5"}]}12:36:55 ~$
 
 #transfer an image

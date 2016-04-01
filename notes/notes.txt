@@ -2593,6 +2593,9 @@ reduces the amount of information conveyed about the emotional state.
 is the elimination of the irrelevant and the amplification of the essential.
 ---
 An abstraction layer is a way of hiding the implementation details of a particular set of functionality.
+----
+Abstraction is what we use to manage complexity. We build something of significant complexity, we
+mask its inner workings, and we expose what we think is necessary for interacting with it.
 
 ----
 omitting certain kinds of detail in order to emphasise others
@@ -7620,7 +7623,8 @@ For example, if you have a server where you keep all of your documents online, i
 
 step into: the next statement displayed is the first statement of the called function
 step over: the next statement displayed is the next statement of the current function
-step out: execute the remaining lines of a function. the next statement displayed is the statement following the function call.
+step out/return: execute the remaining lines of a function. the next statement displayed is the statement following the function call,
+                 continue until the current function returns.
 
 A TCP socket is an endpoint instance defined by an IP address and a port in the context of either a particular TCP connection or the listening state.
 A port is a virtualisation identifier defining a service endpoint (as distinct from a service instance endpoint aka session identifier).
@@ -8062,3 +8066,25 @@ the ability of a system to continue functioning and providing services in the pr
 of network disruptions and hardware failures.
 
 Mechanical Sympathy: applying an understanding of the hardware to the creation of software
+
+docker vs LXC
+In the early days of the Docker project,  LXC was used as its default execution driver,
+so they decided to write a new open source execution driver, libcontainer.
+In conclusion, "LXC is a userspace interface for the Linux kernel containment features.
+Through a powerful API and simple tools, it lets Linux users easily create and manage
+system or application containers.", while docker is a growing and evolving platform that
+provides an standard runtime environment for containers that used to use LXC.
+
+CPU flame graph:
+-> each box represents a function in the stack (stack frame)
+-> the y-axis shows stack depth, the top box is the function on CPU. the function beneath
+a function is its parent.
+-> The x-axis spans the sample population. It does not show the passing of time from left to right,
+as most graphs do. The left to right ordering has no meaning (it's sorted alphabetically to maximize
+frame merging).
+-> The width of the box shows the total time it was on-CPU or part of an ancestry that was on-CPU
+   (based on sample count). Functions with wide boxes may consume more CPU per execution than those
+   with narrow boxes, or, they may simply be called more often. The call count is not shown (or
+   known via sampling).
+
+-> The sample count can exceed elapsed time if multiple threads were running and sampled concurrently.

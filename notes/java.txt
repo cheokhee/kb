@@ -180,3 +180,8 @@ jcmd <pid> GC.class_histogram filename=Myheaphistogram
 jcmd <process id/main class> Thread.print
 ===
 JFR.stop should be done after dumping
+
+java 8 (reading file):
+    List lines = Files.readAllLines(myFile)
+    int count = lines.stream().map( l -> l.toLowerCase() ).filter( l -> l.contains
+    (“secret”)).count();
