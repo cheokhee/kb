@@ -1050,6 +1050,8 @@ use dynamic linker/loader to run a program without execute permission
 
 #show elapsed time, start time, cumulative cpu time of a process
 ps -o etime,stime,time <pid>
+#show long start time
+ps -o lstart <pid>
 
 #show system hardware dmi=desktop management interface
 dmidecode

@@ -436,6 +436,8 @@ tcpdump -nnXv -i eth2 host 146.222.121.69
 tcpdump -nnAv -i eth2 host 146.222.121.69
 =====
 tcpdump -nnvvvA -i eth2 -w file.pcap host <ip>
+=======
+tcpdump broadcast/tcp/udp/icmp
 
 #related to ulimit
 /etc/security/limits.conf
@@ -563,6 +565,10 @@ make ARCH=um
 ./kernel ubda=Slamd64-12.1-root_fs mem=512m
 #show config
 ./kernel --showconfig
+====
+linux kernel:
+#takes current config (.config) and update it based on new kernel release
+make oldconfig/silentoldconfig
 
 verifying linux kernel signature:
 $ xzcat linux-4.4.tar.xz | gpg --verify linux-4.4.tar.sign -
@@ -664,11 +670,48 @@ double: non-POSIX, only in bash, zsh, ksh
 [[ is a keyword
 
 profiling java program with perf:
-#1. create method mappings : create a file called /tmp/perf-pid.map
-/home/heech/gitrepo/perf-map-agent/create-java-perf-map.sh <pid>
-#2. profiling: generate a file called perf.data
+#1. profiling: generate a file called perf.data
 sudo perf record -F 99 -a -g sleep 30
+OR
+sudo perf record -F 99 -a -g -p PID sleep 30
+#2. create method mappings : create a file called /tmp/perf-pid.map
+    this file is used to translate memory address into function and variable names (used by perf report/script)
+/home/heech/gitrepo/perf-map-agent/create-java-perf-map.sh <pid>
 #3. generate flame graph (need perf.data in current directory)
 sudo perf script | ~/gitrepo/FlameGraph/stackcollapse-perf.pl | ~/gitrepo/FlameGraph/flamegraph.pl --color=java --hash > flamegraph.svg
-#
+# text report
 sudo perf report --stdio
+#ncurses window
+sudo perf report
+#list raw event
+sudo script
+===
+#cpu counter stats
+perf stat -a sleep 10
+
+Ctrl-x, Ctrl-e : will bring up an $EDITOR containing whatever is currently entered into the prompt.
+  "\C-x\C-e": edit-and-execute-command
+Ctrl-Alt-e to expand any placeholders/variables in the current line.
+  "\e\C-e": shell-expand-line
+
+echo ~- # echo previous directory
+
+#capture output of command into clipboard
+"do stuff" | xsel -ib
+
+kernel version numbering
+example: 4.2.0-34
+4: kernel version
+2: major revision of the kernel version
+0: minor revision of the kernel. It is only changed when new features or new drivers are added.
+34: The fourth number represents corrections, such as security patches and bug (i.e., error) fixes
+
+#show kernel drivers handling each device and also kernel modules capable of handling it.
+lspci -kv
+
+if the system hangs:
+Hold down the ‘alt’ and ‘sysrq’ keys on your keyboard and whilst they are held down type the following slowly:
+REISUB
+
+#get SATA/IDE device info
+hdparm /dev/sda

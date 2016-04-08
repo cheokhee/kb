@@ -4,6 +4,10 @@ create keys:
 
 This will place the private key in ~/.ssh/id_rsa and the public key in ~/.ssh/id_rsa.pub.
 
+copy id to remote host: create ~/.ssh/authorized_keys
+ssh-copy-id user@host
+
+== old way
 Now, append the contents of ~/.ssh/id_rsa.pub to the end of ~/.ssh/authorized_keys on the remote machine.
 For example:
 

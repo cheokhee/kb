@@ -135,6 +135,9 @@ xkbset
 figlet
 linux-tools-common
 linux-tools-generic
+cowsay
+ranger
+lsscsi
 
 =========== end of packages ==============
 

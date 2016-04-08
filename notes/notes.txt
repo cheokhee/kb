@@ -6857,6 +6857,9 @@ static synchronized method: acquire the monitor for the Class object.
 mutual exclusion: means only one thread is in the critical section at any one time.
 critical section: when a shared resource is being accessed.
 semaphore: a variable for controlling access to a common resource.
+====
+synchronization: controlling access to a shared resource.
+
 
 je ne sais quoi: a quality that is difficult to express
 je ne sais quoi: I don't know what
@@ -7736,6 +7739,9 @@ moved from one place to another Typically, the data is stored in a buffer as it 
 input device or just before it is sent to an output device.  Buffers are typically used when there
 is a difference between the rate at which data is received and the rate at which it can be
 processed.
+----
+data buffer: a region of memory used as a temporary holding place when data is transferred between
+2 devices that are not operating at the same speed.
 
 communicating sequential processes: a program is a parallel composition of processes that have no
 shared state; the processes communicate and synchronize using channels.
@@ -8037,6 +8043,10 @@ common operating system and memory. In symmetric (or "tightly coupled") multipro
 processors share memory and the I/O bus or data path. A single copy of the operating system is in
 charge of all the processors. SMP, also known as a "shared everything" system, does not usually
 exceed 16 processors.
+====
+A symmetric multiprocessor system (SMP) is a multiprocessor system with centralized shared memory
+called main memory (MM) operating under a single operating system with two or more homogeneous
+processors
 -----
 NUMA (non-uniform memory access) is a method of configuring a cluster of microprocessor in a
 multiprocessing system so that they can share memory locally, improving performance and the ability
@@ -8088,3 +8098,29 @@ frame merging).
    known via sampling).
 
 -> The sample count can exceed elapsed time if multiple threads were running and sampled concurrently.
+
+shellcode:
+In computer security, a shellcode is a small piece of code used as the payload in the exploitation
+of a software vulnerability. It is called "shellcode" because it typically starts a command shell
+from which the attacker can control the compromised machine,
+===
+shellcode: code that is executed when a vulnerability is exploited
+
+== PC architecture
+northbridge: a chipset responsible for communications between the CPU, AGP, and the memory.
+northbridge is connected to the CPU via the front side bus.
+Accelerated Graphics Port, AGP is an advanced port designed for Video cards and 3D accelerators.
+AGP acn access memory directly.
+-----
+When the CPU needs data from RAM, a request is sent to the northbridge memory controller. After the
+request has been received, it responds with how long the processor need to wait to read the memory
+over the front side bus (FSB)
+=---
+The southbridge is an IC on the motherboard responsible for the hard drive controller, I/O
+controller and integrated hardware. Integrated hardware can include the sound card and video card if
+on the motherboard, USB, PCI, ISA, IDE, BIOS, and Ethernet.
+southbridge has to go thru northbridge to communicate with CPU, RAM, and graphics controller.
+=====
+
+Von Neumann model:
+divided a computer’s hardware into 5 primary groups: CPU, input, output, working storage, permanent storage

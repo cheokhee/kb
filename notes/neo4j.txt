@@ -66,6 +66,9 @@ start n=node(1000) match n-[r]->() return count(r)
 # find relationship between 2 nodes (by ID)
 start a=node(35800), b=node(37876) match a-[r]->b return r
 start a=node(591), b=node(102) match a-[r]->b return id(r),type(r)
+====
+find relationship between two nodes:
+match (a)-[r:HAS]->(b) where id(a)=316 and id(b)=90520 return r;
 
 matching: the following are equivalent:
 match (n:Facility) where n.code = "LGB01" return n;
