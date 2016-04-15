@@ -407,7 +407,7 @@ by using nxml's indentation rules."
   (lambda ()
     (turn-on-eldoc-mode)
     (company-mode)))
-(add-hook 'c-mode-common-hook
+(add-hook 'c-mode-hook
   (lambda ()
     (delete 'company-clang company-backends)
     (add-to-list 'company-backends 'company-irony)
@@ -540,3 +540,5 @@ by using nxml's indentation rules."
   (switch-to-buffer (other-buffer (current-buffer))))
 (global-set-key (kbd "<f4>") 'switch-to-previous-buffer)
 (server-start)
+(global-set-key (kbd "C-<f6>") 'helm-mini)
+(global-set-key (kbd "C-<f7>") 'ido-switch-buffer-other-window)

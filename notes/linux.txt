@@ -715,3 +715,34 @@ REISUB
 
 #get SATA/IDE device info
 hdparm /dev/sda
+
+badblocks : search a device for bad blocks
+readelf: display info about ELF files
+
+procfs: originally intended to expose process info, then became a big mess
+sysfs: expose kernel info
+
+kernel diff and patch:
+#1 generate patch
+diff -Naur -X linux-2.6.19/Documentation/dontdiff linux-2.6.19/ linux-2.6.19-dirty/ > my_patch
+#2 apply patch
+cd linux-2.6.19; patch -p1 < ../patch-2.6.20
+
+kernel entry point:
+arch/x86/boot/header.S -> calll main
+
+loop device is a pseudo ("fake") device (actually just a file) that acts as a block-based device. a file that contains a filesystem
+
+#system-wide limit on open file descriptors
+cat /proc/sys/fs/file-max
+#change limit:
+/etc/security/limits.conf
+/etc/sysctl.conf
+
+from setrlimit (ulimit is a wrapper around setrlimit):
+===
+The soft limit is the value that the kernel enforces for the corresponding resource.  The hard limit
+acts as a ceiling for the soft limit: an unprivileged process may set only its soft limit to a value
+in the range from 0 up to the hard limit, and (irreversibly) lower its hard limit.  A privileged
+process (under Linux: one with the CAP_SYS_RESOURCE capability) may make arbitrary changes to either
+limit value.

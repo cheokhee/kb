@@ -7789,6 +7789,10 @@ directory. This is one method for ensuring that all files are deployed to the pr
 same as the dev environment.
 ---
 another def: Copying all dependencies into your own project instead of go getting the deps and share the same version across all your projects.
+----
+vendoring: copying your dependencies into your source tree.
+----
+Copying the source from a dependency into your own source is referred to as “vendoring”.
 
 Static program analysis is the analysis of computer software that is performed without actually
 executing programs (analysis performed on executing programs is known as dynamic analysis
@@ -8124,3 +8128,71 @@ southbridge has to go thru northbridge to communicate with CPU, RAM, and graphic
 
 Von Neumann model:
 divided a computer’s hardware into 5 primary groups: CPU, input, output, working storage, permanent storage
+
+PCI: a bus system used by the processor to talk to devices
+PC cards:
+  PCMCIA: 16-bit
+  CardBus: 32-bit
+Plug and Play: a standard that allows peripherals to be configured by software
+IDE: a connecting standard for mass storage devices.
+ATA: a superset of the IDE spec
+ ST506: ATA-1
+ Fast-IDE: ATA-2
+ EIDE: ATA-3
+ UDMA/33: ATA-4
+
+Reinforcement is a procedure that increases the probability that a response will occur, whereas
+punishment is a procedure that decreases the probability that a response will occur.
+positive: adding a stimulus
+negative: removing a stimulus
+reinforcement: intended to encourage a behavior
+punishment: intended to discourage a behavior
+----
+operant conditioning
+----
+===
+So giving a child a dessert after he finishes the vegetables is an example of positive reinforcement.
+(the addition of a positive stimulus)
+The dessert will make it more likely that the child will eat the vegetables again.
+==
+So reducing the prison sentence for good behavior is an example of negative reinforcement.
+(the removal of a negative stimulus)
+The reduced sentence will make it more likely that the prisoner will engage in good behavior again.
+==
+So giving a prison sentence for committing a crime is an example of positive punishment.
+The prison sentence will make is less likely that the convict will commit the crime again.
+===
+So taking away the dessert that has been served to a child after he hits his sister at the dinner
+table is an example of negative punishment.  The lost privilege of eating the dessert will make it
+less likely that the child will hit his sister at the dinner table again.
+
+Dropshipping is a retail fulfillment method where a store doesn't keep the products it sells in
+stock. Instead, when a store sells a product, it purchases the item from a third party and has it
+shipped directly to the customer. As a result, the merchant never sees or handles the product.
+(a a supply chain management technique)
+
+watchpoint: set on variables. when a variable is read/written, the watchpoint is triggered
+and program execution stops.
+
+POSIX is a group of IEEE standards that define the API, shell, and utility interfaces for an
+operating system.
+
+==================
+Orthogonality is the property that means "Changing A does not change B". An example of an orthogonal
+system would be a radio, where changing the station does not change the volume and vice-versa.
+-----
+A non-orthogonal system would be like a helicopter where changing the speed can change the direction.
+----
+In programming languages this means that when you execute an instruction, nothing but that
+instruction happens (very important for debugging).
+-----
+In computer engineering, an orthogonal instruction set is an instruction set architecture where all
+instruction types can use all addressing modes. It is "orthogonal" in the sense that the instruction
+type and the addressing mode vary independently.
+-----
+Orthogonality is one of the most important properties that can help make even complex designs
+compact. In a purely orthogonal design, operations do not have side effects; each action (whether
+it's an API call, a macro invocation, or a language operation) changes just one thing without
+affecting others. There is one and only one way to change each property of whatever system you are
+controlling.
+====================

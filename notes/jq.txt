@@ -31,3 +31,10 @@ input:
 OR
 {"error":"Destination Port SYDX is not found"}
  | jq 'if (.error | length) > 0 then .error else .port_list end')
+
+example 3, get length of array
+input:
+[
+  "BELONGS_TO",
+]
+ | jq '. | length'

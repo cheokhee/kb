@@ -959,11 +959,17 @@ $ echo $_
 dmesg.log
 
 trimming with variable substition:
+called variable slicing
 $ var=foo.pdf
 $ echo ${var%.pdf} #trim suffix
 foo
 $ echo ${var#foo} #trim prefix
 .pdf
+#get the first character (substring)
+$ echo ${var:0:1}
+f
+#get the first character
+$ echo ${var%${var#?}}
 
 =========
 start program from an interactive shell:

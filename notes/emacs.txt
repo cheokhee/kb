@@ -86,3 +86,7 @@ hex editor: hexl-mode, hexl-find-file
 emacs mode line:
 cs:ch-fr
 cs describes the character set of the text in the buffer
+
+c-mode-common-hook: Common hook across all languages
+language-specific:
+c-mode-hook, c++-mode-hook, java-mode-hook, awk-mode-hook
