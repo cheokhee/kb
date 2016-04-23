@@ -8196,3 +8196,19 @@ it's an API call, a macro invocation, or a language operation) changes just one 
 affecting others. There is one and only one way to change each property of whatever system you are
 controlling.
 ====================
+
+BSS (Block Started by Symbol) segment:
+used by many compilers and linkers for a part of the data segment containing statically-allocated
+variables represented solely by zero-valued bits initially.
+Contains static variable.
+
+ATAPI is actually a protocol allowing the ATA interface to carry SCSI commands and responses;
+therefore, all ATAPI devices are actually "speaking SCSI" other than at the electrical interface.
+
+CPU profiling:
+When CPU profiling is enabled, the runtime will interrupt itself every 10ms and record the stack
+trace of the currently running goroutines.  Once the profile is saved to disk, we can analyse it to
+determine the hottest code paths.  The more times a function appears in the profile, the more time
+that code path is taking as a percentage of the total runtime.
+
+Memory profiling records the stack trace when a heap allocation is made.

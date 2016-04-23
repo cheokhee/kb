@@ -690,6 +690,9 @@ EOF
 --another way
 awk '{print} END {print "new line"' infile > outfile
 
+#replace the third apple
+echo "apple,orange,apple,orange,apple,orange" | sed 's/apple/wow/3'
+
 #readline:
 Ctrl-]: search forward
 M-Ctrl-]: search backward

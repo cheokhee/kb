@@ -5,6 +5,7 @@ x[i] same as *(x+i)
 
 int x[5];
 printf("%p\n",x); // actually prints &x[0]
+#array name is converted into a pointer to the array's first element.
 
 declare array (2 ways): 1. pointer form: int *p 2. static form: int p[100]
 address of the nth element: &p[n]
@@ -147,3 +148,9 @@ EDX : data
 16-bit processor: IP
 32-bit processor: EIP
 64-bit processor: RIP
+
+in C, static functions are functions that are only visible to other functions in the same file.
+
+int *arrPtr[10]: an array of 10 pointers to int
+int (*arrPtr)[10]: a pointer to an array of 10 elements with type int
+double (*funcPtr)(double, double)

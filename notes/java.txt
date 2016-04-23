@@ -185,3 +185,19 @@ java 8 (reading file):
     List lines = Files.readAllLines(myFile)
     int count = lines.stream().map( l -> l.toLowerCase() ).filter( l -> l.contains
     (“secret”)).count();
+
+#regular expression
+Pattern r = Pattern.compile("([A-Z0-9]+)-([A-Z0-9]+)-([A-Z0-9]+)-([NSEW])");
+Matcher m = r.matcher(string);
+if (m.find()) { // found something }
+
+Nested classes are divided into two categories: static and non-static. Nested classes that are
+declared static are called static nested classes. Non-static nested classes are called inner
+classes.
+a static nested class is associated with its outer class
+And like static class methods, a static nested class cannot refer directly to instance variables or
+methods defined in its enclosing class: it can use them only through an object reference.
+====
+an inner class is associated with an instance of its enclosing class and has direct access to that
+object's methods and fields. Also, because an inner class is associated with an instance, it cannot
+define any static members itself.

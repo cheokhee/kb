@@ -708,6 +708,8 @@ example: 4.2.0-34
 
 #show kernel drivers handling each device and also kernel modules capable of handling it.
 lspci -kv
+#check graphic driver
+lspci -k |grep -iA2 vga
 
 if the system hangs:
 Hold down the ‘alt’ and ‘sysrq’ keys on your keyboard and whilst they are held down type the following slowly:
@@ -746,3 +748,10 @@ acts as a ceiling for the soft limit: an unprivileged process may set only its s
 in the range from 0 up to the hard limit, and (irreversibly) lower its hard limit.  A privileged
 process (under Linux: one with the CAP_SYS_RESOURCE capability) may make arbitrary changes to either
 limit value.
+
+#time zone: display time
+$ TZ="America/New_York" date
+Tue Apr 19 10:51:17 EDT 2016
+#time zone files: /usr/share/zoneinfo/
+
+cat /etc/os-release

@@ -137,6 +137,10 @@ load csv with headers from "file:///path_to/country.csv" as line match (n:Facili
 
 USING PERIODIC COMMIT LOAD CSV WITH HEADERS FROM "file:///home/blah/xaf2" AS line MATCH (v1:VSID {code:line.DERIVEDSTOPID}) DETACH DELETE v1;
 
+LOAD CSV WITH HEADERS FROM 'file:///a/workspace/roe/NearbyPolMapping.csv' AS line CREATE (:NearbyPolMapping { port: line.PORT_CDE, group_id: line.NEARBY_PORT_GRP_ID});
+
+LOAD CSV WITH HEADERS FROM 'file:///a/workspace/roe/NearbyPodMapping.csv' AS line CREATE (:NearbyPodMapping { port: line.PORT_CDE, group_id: line.NEARBY_PORT_GRP_ID});
+
 neo4j rest api:
 http://localhost:7474/db/data/propertykeys
 http://localhost:7474/db/data/node/350/

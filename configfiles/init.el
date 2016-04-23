@@ -195,6 +195,7 @@
 (set-register ?t '(file . "~/d/cheok/tasks/cheok_notes.txt"))
 (set-register ?g '(file . "/home/heech/gitrepo/kb/notes/things.txt"))
 (set-register ?n '(file . "/home/heech/gitrepo/kb/notes/notes.txt"))
+(set-register ?o '(file . "/home/heech/office-notes/office-notes-2016.org"))
 (defun put-buffer-name ()
   "Put current buffer name at point"
   (interactive)
@@ -542,3 +543,9 @@ by using nxml's indentation rules."
 (server-start)
 (global-set-key (kbd "C-<f6>") 'helm-mini)
 (global-set-key (kbd "C-<f7>") 'ido-switch-buffer-other-window)
+(global-set-key (kbd "C-<f5>") 'hs-toggle-hiding)
+(make-frame '((name . "emacs2")))
+(make-frame '((name . "emacs3")))
+(make-frame '((name . "emacs4")))
+(make-frame '((name . "emacs5")))
+(projectile-global-mode)

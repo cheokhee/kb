@@ -23,6 +23,19 @@ apt-get install hotot
 #may need to change this file: /etc/update-manager/release-upgrades
 /usr/bin/do-release-upgrade
 
+#after release upgrade
+cat /etc/lsb-release
+cat /etc/issue.net
+cat /etc/debian_version
+
+==upgrade
+apt-get update
+apt-get upgrade
+apt-get dist-upgrade
+apt-get autoremove
+apt-get autoclean
+apt-get clean
+
 apt-cache show ack-grep
 
 apt-file - allows you to find which package includes a specific file.
@@ -51,3 +64,8 @@ uncomment this line (#54):
 precedence ::ffff:0:0/96  100
 
 apt-get install --only-upgrade <packagename>
+
+ubuntu LTS point release: eg. 10.04.3
+kind of like Windows service pack (not a perfect analogy)
+The point release essentially contains the bug fixes the version has gone since it was released to
+the public, which includes security fixes, package updates, translation packs updates, etc.

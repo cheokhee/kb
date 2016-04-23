@@ -138,6 +138,7 @@ linux-tools-generic
 cowsay
 ranger
 lsscsi
+at
 
 =========== end of packages ==============
 
