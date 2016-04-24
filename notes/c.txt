@@ -154,3 +154,45 @@ in C, static functions are functions that are only visible to other functions in
 int *arrPtr[10]: an array of 10 pointers to int
 int (*arrPtr)[10]: a pointer to an array of 10 elements with type int
 double (*funcPtr)(double, double)
+
+storage class specifier: modify the linkage and storage duration.
+example: auto, register, static, extern, _Thread_local
+
+linkage of identifiers:
+external:
+an identifier with external linkage represents the same function/object throughout
+the program. the compiler presents the identifier to the linker.
+extern keyword: external linkage
+default: function has external linkage. object has external linkage if defined outside functions.
+=====
+internal:
+an identifier with internal linkage represents the same function/object within
+a given translation unit. the compiler does not present the identifier to the linker.
+static keyword: internal linkage.
+====
+no linkage: each declaration introduces a new entity.
+object defined inside function without any storage class specifier.
+function parameters
+=====
+
+storage duration types: static, thread, automatic, allocated
+each object exits in a memory location for a certain period, called its lifetime.
+static:
+objects defined outside functions.
+objects defined inside functions with static keyword.
+initialized before program execution.
+lifetime spans the program's entire lifetime.
+located in the data segment of the program.
+======
+thread:
+thread-local objects. the lifetime of the thread
+located in the data segment of the program.
+======
+automatic:
+objects defined inside a function with no storage class specifier.
+function parameter
+lifetime is delimited by braces
+located on the stack.
+=========
+allocated:
+located on the heap
