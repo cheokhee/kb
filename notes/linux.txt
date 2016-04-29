@@ -330,6 +330,9 @@ somaxconn
 tcp_max_syn_backlog
 the limit for the SYN queue
 
+#number of incoming connections backlog
+net.core.netdev_max_backlog
+
 netstat -ant | grep -c SYN_REC
 
 tcp 3-way handshake
@@ -755,3 +758,41 @@ Tue Apr 19 10:51:17 EDT 2016
 #time zone files: /usr/share/zoneinfo/
 
 cat /etc/os-release
+
+linux kernel startup:
+#kernel entry point:
+arch/x86/boot/header.S
+#next
+arch/x86/boot/main.c
+#next
+arch/x86/boot/pm.c
+#next
+arch/x86/boot/pmjump.S
+#next entry point:
+arch/x86/kernel/head_64.S
+#next
+arch/x86/kernel/head64.c -> x86_64_start_kernel() ->
+#next
+init/main.c -> start_kernel() -> rest_init() -> kernel_init()
+                                             -> kernel/sched/idle.c: cpu_startup_entry() -> cpu_idle_loop()
+kernel init:
+
+#dump info file system and look at superblock
+dumpe2fs /dev/sda6 | grep -i superblock
+
+superblock is essentially file system metadata and defines the file system type, size, status, and
+information about other metadata structures (metadata of metadata).
+metadata about filesystem.
+====
+An inode exists in, or on, a file system and represents metadata about a file.
+====
+dentry (directory entry)
+what the Linux kernel uses to keep track of the hierarchy of files in directories. Each dentry maps
+an inode number to a file name and a parent directory.
+
+To free pagecache:
+echo 1 > /proc/sys/vm/drop_caches
+To free dentries and inodes:
+echo 2 > /proc/sys/vm/drop_caches
+To free pagecache, dentries and inodes:
+echo 3 > /proc/sys/vm/drop_caches

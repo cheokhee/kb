@@ -90,3 +90,14 @@ cs describes the character set of the text in the buffer
 c-mode-common-hook: Common hook across all languages
 language-specific:
 c-mode-hook, c++-mode-hook, java-mode-hook, awk-mode-hook
+
+shell: use comint-mode to run a subshell
+The subprocess doesn't see any input until you press Enter. Emacs is acting like a dumb terminal. It
+does support color codes, but not things like moving the cursor around, so you can't run
+curses-based applications.
+========
+term/ansi-term:  a terminal emulator written in Emacs Lisp.
+In this mode, the keys you press are sent directly to the subprocess.
+you can run curses-based applications.
+=====
+eshell: a shell implemented in Emacs Lisp.

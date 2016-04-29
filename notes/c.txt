@@ -196,3 +196,17 @@ located on the stack.
 =========
 allocated:
 located on the heap
+
+cpp: the C preprocessor
+as: the assember
+ld: the linker
+
+gcc -E: stop after preprocessing
+gcc -S: stop after compiling, create assembly language output
+gcc -c: stop after assembling, create object file
+
+standard header files:
+assert.h complex.h ctype.h errno.h fenv.h float.h inttypes.h iso646.h
+limits.h locale.h math.h setjump.h signal.h stdalign.h stdarg.h stdatomic.h
+stdbool.h stddef.h stdint.h stdio.h stdlib.h stdnoreturn.h string.h
+tgmath.h threads.h time.h uchar.h wchar.h wctype.h

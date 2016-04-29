@@ -201,3 +201,6 @@ methods defined in its enclosing class: it can use them only through an object r
 an inner class is associated with an instance of its enclosing class and has direct access to that
 object's methods and fields. Also, because an inner class is associated with an instance, it cannot
 define any static members itself.
+
+TimeUnit.MILLISECONDS.toNanos()
+TimeUnit.NANOSECONDS.toMicros()

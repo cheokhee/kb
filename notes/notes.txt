@@ -7694,6 +7694,8 @@ When a function calls another function, the caller halts and a new function is a
 function completes, its frame is popped off the stack and all local variables disappear.
 --------
 call stack: the chain of active functions that are currently executing.
+----
+stack frame: a data structure created on the stack to hold the data required for a function call.
 
 Union file systems allow files and directories of separate file systems, known as branches, to be
 transparently overlaid, forming a single coherent file system.
@@ -8212,3 +8214,29 @@ determine the hottest code paths.  The more times a function appears in the prof
 that code path is taking as a percentage of the total runtime.
 
 Memory profiling records the stack trace when a heap allocation is made.
+
+self-hosting compiler: writing a compiler in the language in compiles. for example, writing
+a C compiler in C. bootstrapping compiler.
+the first such compiler for a language must be either hand written machine code or compiled by a
+compiler written in another language, or compiled by running the compiler in an interpreter.
+
+early machines required operators to enter their program by flipping a series of switches up/down
+to represent 1/0 then hit a "process" button to order the machine to execute the instruction present
+on the switches. Programming started with binary code. Assemblers were written with binary
+code. FORTRAN was written in assembly at first then later it could be written in FORTRAN. The first
+C compiler, for a later example, was first written with assembly then later iterations were written
+in C itself.
+--bootstrapping compiler
+The idea is to write a very simple compiler directly in machine code, use it to write a more
+sophisticated compiler, use the second one to build a third one and so on until you can have a full
+featured compiler.
+
+API: interface between two programs at the source code level
+ABI: interface between two programs at the machine code level
+
+deadlock
+refers to processes which are blocking each other, thus preventing either from executing.
+live-lock
+refers to processes which prevent each other from progressing, but do not actually block the
+execution. For instance, they might continually cause each other to rollback transactions, neither
+ever being able to finish them.
