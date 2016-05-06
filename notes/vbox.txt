@@ -121,3 +121,7 @@ http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbo
 http://askubuntu.com/questions/293816/in-virtualbox-how-do-i-set-up-host-only-virtual-machines-that-can-access-the-in
 
 ==================================================
+
+=========== others ==========
+systemctl start/stop/enable/disable virtualbox
+following modules will be loaded: vboxpci, vboxnetadp, vboxnetflt, vboxdrv

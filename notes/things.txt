@@ -140,6 +140,7 @@ ranger (removed)
 lsscsi
 at
 nasm
+sysstat (suggested package: isag)
 
 =========== end of packages ==============
 

@@ -455,7 +455,23 @@ run with an empty environment: env -i
 port scanning:
 nmap -sT -p- -Pn <hostname or IP>
 
-systemctl list-unit-files --type=service
+=== systemd ====
+systemctl list-unit-files --type=service #equivalent to ls /etc/systemd/system/*.service and /lib/systemd/system/*.service
+systemctl start/stop/enable/disable/restart/status virtualbox
+#systemctl enable/disable: Enables/disable a service to be started on bootup:
+systemctl mask foo  #Prevent a service from starting dynamically or even manually unless unmasked:
+systemctl is-enabled foo
+=============
+Run level 3 is emulated by multi-user.target. Run level 5 is emulated by
+graphical.target. runlevel3.target is a symbolic link to multi-user.target and runlevel5.target is a
+symbolic link to graphical.target.
+#You can switch to 'runlevel 5' by running
+systemctl isolate graphical.target
+systemctl set-default <name of target>.target
+systemctl get-default
+==============
+/etc/systemd , /etc/systemd/system
+/lib/systemd , /lib/systemd/system
 
 xxd: make a hex dump
 
@@ -555,6 +571,11 @@ configure -> create a makefile
 printer stuff:
 system-config-printer
 lpstat -d
+======
+#don't do remote admin
+cupsctl --remote-admin # update /etc/cups/cupsd.conf
+===========
+localhost:631 #cups admin
 
 UML: user mode linux
 #1: create a .config file
@@ -737,6 +758,14 @@ kernel entry point:
 arch/x86/boot/header.S -> calll main
 
 loop device is a pseudo ("fake") device (actually just a file) that acts as a block-based device. a file that contains a filesystem
+loop device is a pseudo device that makes a file look like a block device. (command: losetup /dev/loop0 <filename>)
+
+========= loop device =========
+dd if=/dev/zero of=file.img bs=1k count=10000
+losetup /dev/loop0 file.img
+mkfs.ext4 -c /dev/loop0 10000
+mount -t ext4 /dev/loop0 /mnt/point1
+========= loop device =========
 
 #system-wide limit on open file descriptors
 cat /proc/sys/fs/file-max
@@ -790,9 +819,74 @@ dentry (directory entry)
 what the Linux kernel uses to keep track of the hierarchy of files in directories. Each dentry maps
 an inode number to a file name and a parent directory.
 
+#documentation in linux source: Documentation/sysctl/vm.txt
 To free pagecache:
 echo 1 > /proc/sys/vm/drop_caches
 To free dentries and inodes:
 echo 2 > /proc/sys/vm/drop_caches
 To free pagecache, dentries and inodes:
 echo 3 > /proc/sys/vm/drop_caches
+
+#manipulate the real-time attributes of a process : chrt
+#set or retrieve a process's CPU affinity : taskset
+
+hardware interrupts:
+/proc/interrupts:
+first column: interrupt #
+second column: how many times the CPU core has been interrupted
+#from /proc/interrupts : i8042 is the keyboard controller
+i8042 controller controls PS/2 keyboards and mice in PCs
+smaller IRQ number means higher priority
+=====
+software interrupts: /proc/softirqs
+
+/proc/stat : show interrupt count
+
+/sys/devices/system/cpu
+
+system performance tools:
+mpstat
+sar
+iostat
+pidstat
+sadf
+cifsiostat
+
+interrupt CPU affinity value:
+/proc/irq/<irq#>/smp_affinity  #this is a mask
+/proc/irq/<irq#>/smp_affinity_list #this is the cpu number
+
+showkey #show linux key code
+xev #show X11 key code
+
+block device: data move in blocks. support buffering and random access
+character device: data is streamed character by character.
+
+/proc/filesystems
+
+software interrupt (SoftIRQ)
+processes: ksoftirqd/0 , etc
+software interrupts are kernel routines that are scheduled to run at a time when other
+tasks will not be interrupted.
+
+When a NIC receives incoming data, it copies the data into kernel buffers using DMA.
+The NIC notifies the kernel by means of a hardware interrupt. These interrupts do minimal
+work as they have already interruptted another task and cannot be interruptted themselves.
+Software interrupts then drain the network adapter receive ring buffers.
+protocol handlers then process the data. finally, data is delivered to a socket
+buffer where an application can call the receive function.
+
+networking info:
+/proc/net/dev
+/proc/net/tcp
+/proc/net/unix
+/proc/net/snmp
+
+networking tools:
+dropwatch
+ip
+ethtool
+
+load: # of processes using or waiting for the CPU.
+load average: the load averaged over 1,5,15 minutes
+/proc/loadavg

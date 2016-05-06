@@ -159,6 +159,9 @@ e.g, 1 node: length = 0
 from CommunityBootstrapper > boot.start()
 
 export to csv:
+#use this:
+curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:PolPod) return n.code as CODE, n.port_list as PORT_LIST"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv' | tr -d '"'
+
 #jq -r : raw data so that the quotes are not quoted twice, need to remove double quote
 curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:PolPod) where length(n.code) = 7 return n.code as CODE, n.port_list as PORT_LIST"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv'
 

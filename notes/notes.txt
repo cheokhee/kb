@@ -119,6 +119,8 @@ a^n : a raised to the n-th power, a raised to the power [of] n, or possibly a
 raised to the exponent [of] n, or more briefly as a to the n.
 2 to the 32nd power (32-bit)
 10 to the 36th power
+10^3 : 10 to the third power, 10 to the power 3, 10 to the 3
+order of magnitude: a measure of size expressed as a power of ten
 
 unlawful: not authorized by law
 illegal: forbidden by law.
@@ -1671,6 +1673,14 @@ Four phases of a test:
    2. Exercise -- Interact with the system under test.
    3. Verify -- Determine whether the expected outcome has been obtained.
    4. Tear down -- Tear down the test fixture to return to the original state.
+
+test fixture is a fixed state of a set of objects used as a baseline for running tests. The
+purpose of a test fixture is to ensure that there is a well known and fixed environment in which
+tests are run so that results are repeatable. Examples of fixtures:
+
+Preparation of input data and setup/creation of fake or mock objects
+Loading a database with a specific, known set of data
+Copying a specific known set of files creating a test fixture will create a set of objects initialized to certain states.
 
 test harness
 a test harness or automated test framework is a collection of software and test data configured
@@ -6561,6 +6571,7 @@ efficient means on par with their mutating counterparts.
 
 time complexity: quantifies the amount of time taken by an algorithm.
 --> quantifies the running time of an algorithm based on the size of the dataset.
+--> defined in terms of the order of magnitude of the number of operations required to perform a function.
 commonly expressed using the big O notation.
 constant time: O(1)
 linear time: O(n)
@@ -7102,7 +7113,9 @@ usually don't do reporting from operational data store.
 An operational data store (or "ODS") is a database designed to integrate data from multiple sources for additional operations on the data. The data is then passed back to operational systems for further operations and to the data warehouse for reporting.
 
 working set: a set of memory pages that a process requires in a given time period
+working set: a set of active memory pages
 resident set size (RSS) is the portion of memory occupied by a process that is held in main memory (RAM).
+RSS: the amount of memory that a program has in physical memory.
 
 Oracle:
 SCN: system change number: A database ordering primitive. The value of an SCN is the logical point in time at which changes are made to a database.
@@ -7113,6 +7126,7 @@ O(1): order 1, constant time
 O(n): order N, linear time
 O(N^2): order N squared, quadratic time
 O(logN): order log N, logarithm time
+O(nlogN): order n log N, proportional to the size of the problem and logarithmic time.
 O(N!): factorial time
 
 unit test: set up data to support the test.
@@ -7795,6 +7809,8 @@ another def: Copying all dependencies into your own project instead of go gettin
 vendoring: copying your dependencies into your source tree.
 ----
 Copying the source from a dependency into your own source is referred to as “vendoring”.
+-----
+vendoring: copying your dependencies into your project's repo, and then using them when building.
 
 Static program analysis is the analysis of computer software that is performed without actually
 executing programs (analysis performed on executing programs is known as dynamic analysis
@@ -8053,6 +8069,11 @@ exceed 16 processors.
 A symmetric multiprocessor system (SMP) is a multiprocessor system with centralized shared memory
 called main memory (MM) operating under a single operating system with two or more homogeneous
 processors
+=====
+SMP: a multiprocessor system that shares a common OS and memory. As the number of cores increases,
+the memory bus is under heavy contention, thus limiting scalability. NUMA is one way of reducing
+memory bus contention. This is accomplished by having several memory busses and only a small number
+of CPUs on each of those busses.
 -----
 NUMA (non-uniform memory access) is a method of configuring a cluster of microprocessor in a
 multiprocessing system so that they can share memory locally, improving performance and the ability
@@ -8063,19 +8084,25 @@ path. Ordinarily, a limitation of SMP is that as microprocessors are added, the 
 path get overloaded and becomes a performance bottleneck. NUMA adds an intermediate level of memory
 shared among a few microprocessors so that all data accesses don't have to travel on the main bus.
 -----
-NUMA can be thought of as a "cluster in a box." The cluster typically consists of four
-microprocessors (for example, four Pentium microprocessors) interconnected on a local bus (for
-example, a Peripheral Component Interconnect bus) to a shared memory (called an "L3 cache ") on a
-single motherboard (it could also probably be referred to as a card ). This unit can be added to
-similar units to form a symmetric multiprocessing system in which a common SMP bus interconnects all
-of the clusters. Such a system typically contains from 16 to 256 microprocessors. To an application
-program running in an SMP system, all the individual processor memories look like a single memory.
-
-index-free adjacency principle
-graph databases, which are defined as any storage system that provides index-free adjacency. What
-this means is that every element in the database contains a direct link to its adjacent element. No
-index lookups are required; every element (or node) knows what node or nodes it is connected with,
-this connection is called an edge.
+better:
+means that it will take longer to access some regions of memory than others. this is due to the
+fact that some regions of memory are on physically different buses from other regions.
+NUMA was designed to overcome the scalability limits of the SMP architexture.
+With SMP, all memory access are posted to the same shared memory bus.
+NUMA limits the number of CPUs on any one memory bus and connects the various nodes by means
+of a high-speed interconnect.
+NUMA node: a block of memory and CPU, I/O that are physically on the same bus.
+--> NUMA is an architecture where all the cores are divided into clusters (called nodes). The nodes
+are linked via high-speed interconnect. Each node contains CPUs and memory, much like a small
+SMP system.
+---> NUMA is a hardware layout where CPU and memory do not share a common bus.
+However, an advanced memory controller allows a node to use memory on all other nodes,
+creating a single system image. When a processor accesses memory that does not lie within its own
+node (remote memory), the data must be transferred over the NUMA connection, which is slower than
+accessing local memory. Memory access times are not uniform and depend on the location of the memory
+and the node from which it is accessed, as the technology’s name implies.
+=== NUMA effects: CPUs in a node will have lower memory latency when accessing memory in the same
+node.
 
 resilience and fault tolerance
 the ability of a system to continue functioning and providing services in the presence
@@ -8240,3 +8267,55 @@ live-lock
 refers to processes which prevent each other from progressing, but do not actually block the
 execution. For instance, they might continually cause each other to rollback transactions, neither
 ever being able to finish them.
+
+heap data structure: a tree
+each element is larger than its two children
+heap data structure is a maximally efficient implementation of a priority queue.
+generalized heap property:
+1. each node is larger than or equal to its children (called max heap)
+2. each node is smaller than or equal to its children (called min heap)
+--> allow access to min/max element in constant time.
+--> heaps are commonly implemented with an array
+====
+a binary tree is a tree data structure in which each node has at most two children, which are
+referred to as the left child and the right child.
+---
+full binary tree: every node has either 0 or 2 children
+complete binary tree: all levels of the tree, except possibly the last one, are completely filled.
+If the last level is not filled, the nodes of that level are filled from left to right.
+====
+binary tree implemented with an array:
+root is at index 0
+if a node has index i, the left child is at (2i+1) and right child is at (2i+2), its
+parent is at floor((i-1)/2)
+====
+heap: a pool of memory from which dynamically allocated objects are allocated.
+
+A page, memory page, or virtual page is a fixed-length contiguous block of virtual memory, described
+by a single entry in the page table. It is the smallest unit of data for memory management in a
+virtual memory operating system.
+
+thread: a path of execution
+
+write-through cache: directs write I/O onto cache and through to underlying permanent storage before
+confirming I/O completion to the host.
+----
+write-around cache: write I/O is written directly to permanent storage, bypassing the cache.
+---
+Write-back cache is where write I/O is directed to cache and completion is immediately confirmed to the host.
+
+socket is a data communications endpoint for exchanging data between processes
+
+telemetry: the transmission of data from remote sources to receiving stations for recording and analysis.
+
+pipelining (computer architecture):
+a pipeline is the continuous and somewhat overlapped movement of instruction to the processor or in
+the arithmetic steps taken by the processor to perform an instruction. Pipelining is the use of a
+pipeline. Without a pipeline, a computer processor gets the first instruction from memory, performs
+the operation it calls for, and then goes to get the next instruction from memory, and so
+forth. While fetching (getting) the instruction, the arithmetic part of the processor is idle. It
+must wait until it gets the next instruction. With pipelining, the computer architecture allows the
+next instructions to be fetched while the processor is performing arithmetic operations, holding
+them in a buffer close to the processor until each instruction operation can be performed. The
+staging of instruction fetching is continuous. The result is an increase in the number of
+instructions that can be performed during a given time period.

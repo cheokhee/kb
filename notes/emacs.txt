@@ -1,4 +1,7 @@
 C-u C-space : to go back to a saved mark
+C-x C-SPC : (pop-global-mark) jumps to the buffer and position of the latest entry in the global
+            ring. It also rotates the ring, so that successive uses of C-x C-SPC take you to earlier
+            buffers and mark positions.
 
 you can see / change the current buffer encoding with C-x RET f
 you can also change the detected encoding to force an other one and reload the file with C-x RET r
@@ -101,3 +104,13 @@ In this mode, the keys you press are sent directly to the subprocess.
 you can run curses-based applications.
 =====
 eshell: a shell implemented in Emacs Lisp.
+
+printing:
+M-x print-buffer
+Print hardcopy of current buffer with page headings containing the file name and page number.
+M-x lpr-buffer
+Print hardcopy of current buffer without page headings.
+M-x print-region
+Like print-buffer but print only the current region.
+M-x lpr-region
+Like lpr-buffer but print only the current region.

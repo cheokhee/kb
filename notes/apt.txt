@@ -25,8 +25,10 @@ apt-get install hotot
 
 #after release upgrade
 cat /etc/lsb-release
+cat /etc/issue
 cat /etc/issue.net
 cat /etc/debian_version
+cat /etc/os-release
 
 ==upgrade
 apt-get update
@@ -69,3 +71,21 @@ ubuntu LTS point release: eg. 10.04.3
 kind of like Windows service pack (not a perfect analogy)
 The point release essentially contains the bug fixes the version has gone since it was released to
 the public, which includes security fixes, package updates, translation packs updates, etc.
+
+apt-get upgrade vs dist-upgrade
+upgrade:
+Packages currently installed with new versions available are retrieved and upgraded; under no
+circumstances are currently installed packages removed, or packages not already installed retrieved
+and installed. New versions of currently installed packages that cannot be upgraded without changing
+the install status of another package will be left at their current version.
+====
+upgrade will not change what is installed (only versions),
+will only upgrade existing packages from one version to another.
+will not remove existing packages. will not install new packages
+---------------------------------------------------------------
+dist-upgrade:
+do upgrade and more. may remove packages
+will install or remove packages as necessary to complete the upgrade,
+
+message: The following packages have been kept back:
+resolution: apt-get install <pkg>
