@@ -74,7 +74,7 @@
 (require 'package)
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (package-initialize)
 (global-linum-mode t)
 (setq linum-format "%d ")
@@ -102,8 +102,8 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 ;(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
-(global-set-key (kbd "C-<f9>") (lambda () (interactive) (scroll-down 1)))
-(global-set-key (kbd "C-<f10>") (lambda () (interactive) (scroll-up 1)))
+(global-set-key (kbd "C-<f11>") (lambda () (interactive) (scroll-down 1)))
+(global-set-key (kbd "C-<f12>") (lambda () (interactive) (scroll-up 1)))
 ;; change kill-ring-save to copy current line when the region is not active
 (put 'kill-ring-save 'interactive-form
    '(interactive

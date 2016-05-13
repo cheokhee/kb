@@ -129,9 +129,14 @@ match n return distinct labels(n)
 #find relationships
 match n-[r]-() return distinct type(r) -- not work?
 
+#create relationship
+match (pg:PortGroup {group_id:'3'}) match (oak:Port {code:'OAK'}) match (lgb:Port {code:'LGB'}) merge (pg)-[:HAS_POD]->(oak) merge (pg)-[:HAS_POD]->(lgb);
+
 LOAD CSV WITH HEADERS FROM "file:///a/blah/VS_epoch_revised.csv" AS line FOREACH(ignoreMe IN CASE WHEN trim(line.DERIVEDSTOPID) <> "NULL"  THEN [1] ELSE [] END | MERGE (v:VSID {code: line.DERIVEDSTOPID}) ON MATCH SET v.arrival = toInt(line.ARRIVALEPOCH), v.departure = toInt(line.DEPARTUREEPOCH));
 
 LOAD CSV WITH HEADERS FROM "file:///path/to/port-list.csv" AS line MERGE (n:PolPod {code: line.CODE}) ON CREATE SET n.port_list=line.PORT_LIST ON MATCH SET n.port_list=line.PORT_LIST
+
+LOAD CSV WITH HEADERS FROM "http://146.222.122.158:8000/port-list.csv" AS line MERGE (n:PolPod {code: line.CODE}) ON CREATE SET n.port_list=line.PORT_LIST ON MATCH SET n.port_list=line.PORT_LIST
 
 load csv with headers from "file:///path_to/country.csv" as line match (n:Facility {code: line.facility}) set n.country = line.country
 

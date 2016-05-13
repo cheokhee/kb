@@ -14,3 +14,16 @@ For example:
  $ cat .ssh/id_rsa.pub | ssh host 'cat >> ~/.ssh/authorized_keys'
 
 after this, it won't ask for password
+
+port forwarding
+#1. local (outgoing)
+A-->(encrypted)B-->(plaintext)C
+
+On A: ssh user@B -L A_port:C:C_port
+Users on A: ssh -p A_port localhost uname -a
+
+#2. remote (incoming)
+B-->(encrypted)C-->(plaintext)A
+
+On C: ssh user@B -R B_port:A:A_port
+users on B: ssh -p B_port localhost uname -a

@@ -1052,7 +1052,7 @@ example: echo "first line" | sed 's/li.e/hee&cheok/g'
 output: first heelinecheok
 
 get/change file ACL (access control list)
-commands: getfacl/setfacl
+commands: getfacl/setfacl/chacl
 
 use dynamic linker/loader to run a program without execute permission
 /lib64/ld-linux-x86-64.so.2 ./hello
@@ -1069,12 +1069,15 @@ option: -t <type>
 
 # Automates interactive applications
 application: expect
+the expect package contains multixterm
 
 #EXIF: (exchangeable image format) , digital phone metadata
 exiftool
 
 #list process id listening on port 7474
 lsof -i:7474 -sTCP:LISTEN -t
+#-i: show only network-related files, -P: show port numbers instead of names
+lsof -i -P
 
 dstat output:
 cpu: user, sys, idle, wai, hiq, siq

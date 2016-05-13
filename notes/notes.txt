@@ -6698,6 +6698,7 @@ users can access
 -- SOCKS
 a protocol that a proxy server can use to accept requests from client users in a company's network so that it can forward them across the Internet.
 is a network protocol designed to allow clients to communicate with Internet servers through firewalls.
+SOCKS: a protocol that routes network packets between a client and server through a proxy server.
 
 CMS vs RDBMS (like car vs diesel engine)
 CMS is a full-blown system allowing end-users to view and modify content (articles, media, etc.) in an easy way.
@@ -7748,7 +7749,9 @@ making subsequenct I/O faster.
 ----
 The page cache caches pages of files to optimize file I/O. The buffer cache caches disk
 blocks to optimize block I/O.
-
+=======
+page cache: physical pages in RAM, the contents of which correspond to physical blocks on a disk.
+the pages originate from reads and writes of regular files, block device files, and memory-mapped files.
 
 data buffer: a region of a physical memory storage used to temporarily store data while it is being
 moved from one place to another Typically, the data is stored in a buffer as it is retrieved from an
@@ -8319,3 +8322,47 @@ next instructions to be fetched while the processor is performing arithmetic ope
 them in a buffer close to the processor until each instruction operation can be performed. The
 staging of instruction fetching is continuous. The result is an increase in the number of
 instructions that can be performed during a given time period.
+===================================
+sequence: fetch instruction, decode instruction, execute instruction, memory access, write back result
+
+lexical (linear) analysis: stream of characters are grouped into tokens, which are sequences of
+characters having a collective meaning.
+===========
+syntax (hierarchical) analysis (parsing): tokesn are grouped hierarchically into nested
+collections with a collection meaning.
+============
+semantic analysis: ensure that components of a program fit together meaningfully.
+
+ssh tunnel: a mapping between local and remote ports so that all traffic to a specified
+port on a remote machine is forwarded via SSH to a port on your local machine.
+
+logging vs instrumentation:
+only log actionable information. stuff consumed by humans or structured data consumed by machines.
+instrumentation: capture meaningful info. RED: request rate (count), Error rate, duration of requests
+
+logs should be treated as event streams. no beginning or end, but an ongoing collection of events.
+should not write to any log file. should write to stdout.
+
+journaling filesystem: the filesystem keeps a record of file transactions so that the files
+can be recovered in the event of hard drive crash. like a transaction log.
+example: ext3
+
+WebDAV (Web-based Distributed Authoring and Versioning) lets you edit and manage files
+stored on remote file servers.
+
+DVD-R: only be written to in one layer on the discs surface. cheaper
+DVD+R: can be written to in multiple layers, giving them slightly better and more disc storage than the
+“minus“ format. Because of this additional capacity, they are slightly more expensive than “minus“
+discs.
+
+PXE (Preboot Execution Environment): network boot. booting a computer from a network instead of
+a local drive.
+
+stack-based vs register-based virtual machine:
+=======
+stack-based: operands and results are stored on stack (arithmetic operation)
+benefits include simplicity of VM implementation, ease of writing a compiler back-end (most VMs are
+originally designed to host a single language) and code density (i.e., executables for stack
+architectures are invariably smaller than executables for register architectures).
+=====
+register-based: operands and results are stored in register (arithmetic operation)

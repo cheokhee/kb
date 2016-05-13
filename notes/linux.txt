@@ -256,6 +256,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir empty
 #remove leading/trailing spaces from a file (in place)
 sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' <file>
 
+#insert a file after a pattern
+sed '/INCLUDE/ r foo.h' # insert foo.h after 'INCLUDE'
+
 ls options:
 --time-style=
 full-iso
@@ -524,6 +527,7 @@ ps a : show processes owned by others
 ps x : those without tty
 ps u : user-friendly format
 ps -L : show threads (LWP (lightweight process column))
+ps -fHU <username> : show processes of username in hierarchical form
 
 7z a -mhe=on -ppassword important.7z important.txt for-honey.txt
 
@@ -576,6 +580,10 @@ lpstat -d
 cupsctl --remote-admin # update /etc/cups/cupsd.conf
 ===========
 localhost:631 #cups admin
+===========
+check printing error:
+/var/log/cups/error_log
+
 
 UML: user mode linux
 #1: create a .config file
@@ -890,3 +898,85 @@ ethtool
 load: # of processes using or waiting for the CPU.
 load average: the load averaged over 1,5,15 minutes
 /proc/loadavg
+
+parted /dev/sda print
+
+net: Tool for administration of Samba and remote CIFS servers.
+mtr: a network diagnostic tool
+iptables: firewall
+mrtg - multi router traffic grapher
+
+load balancing tool: pen, pound, balance
+
+snort - flexible Network Intrusion Detection System
+
+============
+monitor SMART disk: smartctl and smartd
+smartctl -i /dev/sda #info
+smartctl -a /dev/sda #all info
+smartctl -x /dev/sda #even more info
+smartctl -H /dev/sda #health info
+smartctl -l selftest /dev/sda
+
+#available test: offline, short, long, conveyance
+smartctl -a:
+Pre-fail: if the VALUE column is below the THRESH column, be concerned
+
+#run test
+smartctl -t short /dev/sda
+smartctl -t long /dev/sda
+
+#abort test
+smartctl -X
+
+#show capability:
+smartctl -c /dev/sda
+===================
+
+rootkit: a software package that enables an unauthorized user to obtain
+root privileges
+
+#find processes using files/sockets
+fuser -v -m <filesystem> #filesystem can be specified as directory name or /dev/sda1
+OR:
+lsof /dev/sdc1
+
+gpart: guess partition table. used for recovery
+
+gddrescue: clone bad disk
+
+lost+found: store files whose actual locations cannot be determined
+during a filesystem consistency check.
+details:
+fsck might find data that looks like a complete file but doesn't have a name on the system — an
+inode with no corresponding file name. This data is still using up space, but it isn't accessible by
+any normal means.
+
+recover deleted files:
+unmount the partition (go to single user mode if necessary)
+need to know what you're looking for, do a grep on the device:
+grep -a -B10 -A100 -i <pattern> /dev/sda2 > file.out
+#-a: treat the device as a series of ascii char
+
+shred: overwrite a file with random data, can be used on devices too:
+shred -n 3 -vz /dev/sda
+
+autopsy - graphical interface to SleuthKit
+sleuthkit - tools for forensics analysis on volume and filesystem data
+
+#burn cd/dvd
+growisofs (preferred?)
+example: growisofs -dvd-compat -Z /dev/sr0=isoimage.iso
+wodim
+
+#mounting an ISO image
+mount -t iso9660 -o ro,loop /path/to/file.iso /mount-point
+
+isosize : show the size of an iso9660 filesystem
+
+mountpoint: check whether a directory is a mount point
+
+extended attributes are name/value pairs associated with a file. a form of metadata
+need to configure kernel: FS_XATTR
+need to configure fstab
+applications: attr, getfattr, setfattr
