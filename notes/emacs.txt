@@ -114,3 +114,12 @@ M-x print-region
 Like print-buffer but print only the current region.
 M-x lpr-region
 Like lpr-buffer but print only the current region.
+
+sending email:
+  C-c C-c   send the message and exit the message buffer
+  C-c C-a   add an attachment
+  C-c C-k   cancel the message
+  C-c C-d  postpone the message
+  C-c C-s  send the message but don't exit the message buffer
+  C-c C-b  go to the start of the message
+  C-c C-z  kill text from point until end of buffer

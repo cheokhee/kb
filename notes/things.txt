@@ -142,6 +142,7 @@ at
 nasm
 sysstat (suggested package: isag)
 smartmontools
+removed update-notifier (other removed as well: ubuntu-release-upgrader-gtk update-manager)
 
 =========== end of packages ==============
 

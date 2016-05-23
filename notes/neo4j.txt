@@ -131,6 +131,11 @@ match n-[r]-() return distinct type(r) -- not work?
 
 #create relationship
 match (pg:PortGroup {group_id:'3'}) match (oak:Port {code:'OAK'}) match (lgb:Port {code:'LGB'}) merge (pg)-[:HAS_POD]->(oak) merge (pg)-[:HAS_POD]->(lgb);
+OR
+start a=node(54180), b=node(1682) merge (a)-[r:CONNECTED_TO_LGB {transit_time:322.53}]->(b) return id(r);
+
+#show relationships between two nodes
+match (:VSID{code:'THX-KMI-058-South-HCM07-1'})-[r]->(:VSID{code:'CHL-AXN-007-North-LCB09-1'}) return r;
 
 LOAD CSV WITH HEADERS FROM "file:///a/blah/VS_epoch_revised.csv" AS line FOREACH(ignoreMe IN CASE WHEN trim(line.DERIVEDSTOPID) <> "NULL"  THEN [1] ELSE [] END | MERGE (v:VSID {code: line.DERIVEDSTOPID}) ON MATCH SET v.arrival = toInt(line.ARRIVALEPOCH), v.departure = toInt(line.DEPARTUREEPOCH));
 

@@ -89,3 +89,7 @@ will install or remove packages as necessary to complete the upgrade,
 
 message: The following packages have been kept back:
 resolution: apt-get install <pkg>
+
+use apt command instead of apt-get
+apt list --upgradable
+apt update/upgrade

@@ -64,6 +64,7 @@
  '(w3m-default-coding-system (quote utf-8))
  '(w3m-file-coding-system (quote utf-8))
  '(w3m-file-name-coding-system (quote utf-8))
+ '(w3m-home-page "www.google.com")
  '(w3m-terminal-coding-system (quote utf-8)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -553,3 +554,4 @@ by using nxml's indentation rules."
 (make-frame '((name . "emacs5")))
 (projectile-global-mode)
 (global-set-key (kbd "C-<f8>") 'helm-ag)
+(global-set-key (kbd "C-<f9>") 'helm-ag-this-file)

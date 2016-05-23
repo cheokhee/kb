@@ -173,6 +173,8 @@ make a copy of /etc/default/grub and /boot/grub/grub.cfg
 1. change /etc/default/grub
 GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true
+GRUB_GFXMODE=640x480
+#supported resolution?: 640×480, 800×600, 1024×768, 1280×1024, 1600×1200
 2. run update-grub , this will change /boot/grub/grub.cfg
 output of update-grub:
 Found linux image: /boot/vmlinuz-3.16.0-30-generic
@@ -182,6 +184,25 @@ Found initrd image: /boot/initrd.img-3.16.0-23-generic
 Found memtest86+ image: /boot/memtest86+.elf
 Found memtest86+ image: /boot/memtest86+.bin
 Found Windows 7 (loader) on /dev/sda2
+===================================================
+gfxmode:
+
+If this variable is set, it sets the resolution used on the ‘gfxterm’ graphical terminal. Note that
+you can only use modes which your graphics card supports via VESA BIOS Extensions (VBE), The default
+is ‘auto’, which selects a platform-specific default that should look reasonable.
+====
+The resolution may be specified as a sequence of one or more modes, separated by commas (‘,’) or
+semicolons (‘;’); each will be tried in turn until one is found. Each mode should be either ‘auto’,
+‘widthxheight’, or ‘widthxheightxdepth’.
+
+gfxpayload:
+
+If this variable is set, it controls the video mode in which the Linux kernel starts up, replacing
+the ‘vga=’ boot option. It may be set to ‘text’ to force the Linux kernel to boot in normal text
+mode, ‘keep’ to preserve the graphics mode set using ‘gfxmode’, or any of the permitted values for
+‘gfxmode’ to set a particular graphics mode (see gfxmode).
+
+----------------------------------------------
 
 uninstall a kernel image: apt-get remove linux-image-4.2.0-30-generic
 
@@ -475,6 +496,13 @@ systemctl get-default
 ==============
 /etc/systemd , /etc/systemd/system
 /lib/systemd , /lib/systemd/system
+==============
+journalctl: query the contents of systemd journal
+example:
+journalctl _COMM=crond --since "10:00" --until "11:00"
+journalctl -u lpd.service
+journalctl -k #like dmesg
+timedatectl
 
 xxd: make a hex dump
 
@@ -619,6 +647,8 @@ $ VAR=value ./test.sh
 nmap -p6000 localhost
 #version scan
 nmap -p7474 -sV localhost
+#check web server in use
+nmap -p80 -sV www.google.com
 #TCP SYN scan
 nmap -p7474 -sS localhost
 #
@@ -761,6 +791,15 @@ kernel diff and patch:
 diff -Naur -X linux-2.6.19/Documentation/dontdiff linux-2.6.19/ linux-2.6.19-dirty/ > my_patch
 #2 apply patch
 cd linux-2.6.19; patch -p1 < ../patch-2.6.20
+# -p1 tells the patch command to skip 1 leading slashes from the filenames present in the patch file.
+
+===========================
+creating and applying patches:
+diff -u hello.c hello_new.c > hello.patch
+patch < hello.patch
+patch -b < hello.patch #take a backup before applying patches
+patch --dry-run < hello.patch #dry run
+patch -R < hello.patch #reverse a patch
 
 kernel entry point:
 arch/x86/boot/header.S -> calll main
@@ -867,8 +906,11 @@ interrupt CPU affinity value:
 showkey #show linux key code
 xev #show X11 key code
 
-block device: data move in blocks. support buffering and random access
-character device: data is streamed character by character.
+block device: data move in blocks. support buffering and random access. accessed randomly
+sector: smallest addressable unit on a block device. a physical property of the device
+block: smallest addressable unit in a filesystem
+============
+character device: data is streamed character by character. accessed as a stream of data.
 
 /proc/filesystems
 
@@ -944,6 +986,8 @@ lsof /dev/sdc1
 gpart: guess partition table. used for recovery
 
 gddrescue: clone bad disk
+partimage: clone disks, does not support ext4, don't use
+fsarchiver: support ext4, use this instead of partimage
 
 lost+found: store files whose actual locations cannot be determined
 during a filesystem consistency check.
@@ -980,3 +1024,35 @@ extended attributes are name/value pairs associated with a file. a form of metad
 need to configure kernel: FS_XATTR
 need to configure fstab
 applications: attr, getfattr, setfattr
+
+/etc/default/console-setup
+#change console font:
+dpkg-reconfigure console-setup #this will change /etc/default/console-setup
+then run setupcon in virtual console
+the fonts are in: /usr/share/consolefonts/
+setfont Uni2-TerminusBold24x12
+in /etc/default/console-setup:
+FONTFACE="TerminusBold"
+FONTSIZE="12x24"
+=============
+The font size is specified by 2 numbers in pixels represented as HEIGHT x WIDTH. If the width is 8
+pixels, then only the height is specified. For comparison purposes, the default console font size is
+16 (that is, 16 x 8).
+
+tune2fs : adjust filesystem parameters
+#list content of superblock, etc
+tune2fs -l /dev/sda6
+#similar to
+dumpe2fs -h /dev/sda6
+
+partprobe - inform the OS of partition table changes
+
+DRM (direct rendering manager): a subsystem of the kernel responsible for
+interfacing with GPU of video cards.
+each GPU is a DRM device: /dev/dri/card0
+
+linux framebuffer: fbdev , /dev/fb0
+allow access to graphics hardware through an API
+
+Text mode is a computer display mode in which content is internally represented on a computer screen
+in terms of characters rather than individual pixels.
