@@ -1042,6 +1042,8 @@ pixels, then only the height is specified. For comparison purposes, the default 
 tune2fs : adjust filesystem parameters
 #list content of superblock, etc
 tune2fs -l /dev/sda6
+#set label
+tune2fs -L <label> /dev/sda6
 #similar to
 dumpe2fs -h /dev/sda6
 
@@ -1050,9 +1052,37 @@ partprobe - inform the OS of partition table changes
 DRM (direct rendering manager): a subsystem of the kernel responsible for
 interfacing with GPU of video cards.
 each GPU is a DRM device: /dev/dri/card0
+DRM interface with GPU and graphics RAM
+KMS interface with display controller, which interface with monitor screen
 
 linux framebuffer: fbdev , /dev/fb0
 allow access to graphics hardware through an API
 
 Text mode is a computer display mode in which content is internally represented on a computer screen
 in terms of characters rather than individual pixels.
+
+restart X server:
+#1: crude: kill -USR2 <pid of x server>
+#2: better: systemctl restart lightdm
+
+#length of command line
+
+The limit for the length of a command line is not imposed by the shell, but by the operating
+system. POSIX denotes this limit ARG_MAX and on POSIX conformant systems you can query it with
+$ getconf ARG_MAX
+====
+According to POSIX: http://pubs.opengroup.org/onlinepubs/009695399/basedefs/limits.h.html
+Maximum length of argument to the exec functions. This means: Without calling exec, there is no
+ARG_MAX limitation. So it would explain why shell builtins are not restricted by ARG_MAX.
+
+===== curl post with file =====
+curl -F "data=@post.data"
+the string looks like this:
+--------------------------73e6530ff229c469
+Content-Disposition: form-data; name="data"; filename="post.data"
+Content-Type: application/octet-stream
+
+{"rels": [{"from_vsid": "KTX1-OBU-099-South-HKG01-1", "to_vsid": "PHKG-7JY-057-North-GUX02-1", "rel_type": "TERMINALTRANSFERLEG_HOT"}]}
+
+--------------------------73e6530ff229c469--
+===========================

@@ -8303,6 +8303,8 @@ by a single entry in the page table. It is the smallest unit of data for memory 
 virtual memory operating system.
 
 thread: a path of execution
+threads: execution flows that share a common address space.
+threads: execution contents that can be independently scheduled.
 
 write-through cache: directs write I/O onto cache and through to underlying permanent storage before
 confirming I/O completion to the host.
@@ -8387,3 +8389,54 @@ Kernel preemption is a method used mainly in monolithic and hybrid kernels where
 drivers are run in kernel space, whereby the scheduler is permitted to forcibly perform a context
 switch (i.e. preemptively schedule; on behalf of a runnable and higher priority process) on a driver
 or other part of the kernel during its execution,
+==========
+Linux kernel is preemptive: processes running in kernel mode can be preempted.
+
+backward compatible:
+Compatible with earlier models or versions of the same product. A new version of a program is said
+to be backward compatible if it can use files and data created with an older version of the same
+program. A computer is said to be backward compatible if it can runthe same software as the previous
+model of the computer.
+==============================
+upward compatible:
+Refers to software that runs not only on the computer for which it was designed, but also on newer
+and more powerful models. For example, a program designed to run on an Intel 386 microprocessor,
+which also runs on a Pentium, is upward compatible. Upward compatibility is important because it
+means you can move to a newer, larger, and more sophisticated computer without converting your data.
+
+macros: shorthands for longer constructs
+
+relocatable machine code: meaning it can be loaded starting at any location.
+
+reentrant kernel: several processes may be executing in kernel mode at the same time.
+
+route/routing: bind a function to a URL, map a URL to a function.
+
+autodidact: a self-taught person
+
+Reactive programming is programming with asynchronous data streams
+====
+Reactive programming (RP) is based on data flows and the propagation of change, with the underlying
+execution model of a programming language automatically propagating changes through the data
+flow. With the popularity of event-driven, scalable, and interactive architectures both on the
+server and the client, the concept of “reactiveness” is increasingly gaining attention
+======
+One kind of dataflow programming is reactive programming. When this style of programming is used in
+a functional language, it's called functional reactive programming. ??
+=========
+dataflow programming: example: spreadsheets
+=======
+dataflow programming is the same as reactive programming??
+
+Binary compatibility: can run the same executable code
+-----
+java binary compatibility means that when you change your class, you do not need to recompile classes that use it.
+
+containers: self-contained isolated execution enviroments that share the kernel with the host OS.
+
+memory addressing:
+logical address: consists of a segment and an offset
+linear address: the virtual address
+physical address: points to physical memory
+=========
+logical address-> segmentation unit -> linear address-> paging unit -> physical address

@@ -143,6 +143,9 @@ nasm
 sysstat (suggested package: isag)
 smartmontools
 removed update-notifier (other removed as well: ubuntu-release-upgrader-gtk update-manager)
+fsarchiver
+qemu-kvm
+libvirt-bin (after installation: my user name is added to group libvirtd, new files created: /sys/class/net/virbr0 /sys/class/net/virbr0-nic)
 
 =========== end of packages ==============
 

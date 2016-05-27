@@ -538,7 +538,7 @@ by using nxml's indentation rules."
   (setq p2 (point))
   (kill-ring-save p1 p2))
 (global-set-key (kbd "<f8>") 'my-copy-to-end)
-(global-set-key (kbd "<f9>") 'other-window)
+(global-set-key (kbd "<f10>") 'other-window)
 (defun switch-to-previous-buffer ()
   "Switch to previously open buffer"
   (interactive)
@@ -555,3 +555,7 @@ by using nxml's indentation rules."
 (projectile-global-mode)
 (global-set-key (kbd "C-<f8>") 'helm-ag)
 (global-set-key (kbd "C-<f9>") 'helm-ag-this-file)
+(defun backward-other-window ()
+  (interactive)
+  (other-window -1))
+(global-set-key (kbd "<f9>") 'backward-other-window)
