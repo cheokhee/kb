@@ -121,6 +121,11 @@ MATCH (n:VSID) WHERE n.code STARTS WITH "SCE-HDN" return n limit 5
 Show all VSIDs which have a :HAS relation and name starts with "SCE-HDN"
 MATCH (n:VSID)<-[:HAS]-(f) WHERE n.code STARTS WITH "SCE-HDN" return n, f limit 3
 
+find node without relationship:
+find vsid without incoming HAS relationship:
+match (a:VSID) where not (a)<-[:HAS]-() return a limit 1
+match (a:VSID) where not (a)<-[:HAS]-() and (a)-[:CONNECTED_TO]-() return count(a)
+
 MATCH (n:Facility) RETURN n LIMIT 25
 
 #find all labels
@@ -171,6 +176,8 @@ from CommunityBootstrapper > boot.start()
 export to csv:
 #use this:
 curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:PolPod) return n.code as CODE, n.port_list as PORT_LIST"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv' | tr -d '"'
+
+curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : " match (a)-[r:TRANSHIPMENT]->(b) return a.code as FROM_VSID, b.code as TO_VSID"} ]}' http://hln2078p:7475/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv' | tr -d '"'
 
 #jq -r : raw data so that the quotes are not quoted twice, need to remove double quote
 curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:PolPod) where length(n.code) = 7 return n.code as CODE, n.port_list as PORT_LIST"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv'
@@ -227,3 +234,13 @@ DELETE r
 MATCH (n:OLD_LABEL {id:14})
 REMOVE n:OLD_LABEL
 SET n:NEW_LABEL
+
+neo4j shell dbinfo:
+dbinfo -l #list available beans
+dbinfo -l Kernel #list attributes under the bean
+===================
+#show data store location
+dbinfo -g Kernel StoreDirectory
+{"StoreDirectory": "/home/neo4jsupp/neo4j-7475/data/INM_05252016"}
+#show all attributes
+dbinfo -g Kernel

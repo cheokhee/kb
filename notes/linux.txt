@@ -907,10 +907,18 @@ showkey #show linux key code
 xev #show X11 key code
 
 block device: data move in blocks. support buffering and random access. accessed randomly
-sector: smallest addressable unit on a block device. a physical property of the device
-block: smallest addressable unit in a filesystem
+sector: smallest addressable unit on a block device. a physical property of the device,
+  the smallest unit of transfer for the device.
+block: smallest addressable unit in a filesystem, smallest unit of transfer for a block device driver.
+block size must be a power of two and cannot be larger than a page frame. must be a multiple
+of the sector size.
+each block requires its own buffer, which is a region of RAM used by the kernel to store
+the block's content.
 ============
 character device: data is streamed character by character. accessed as a stream of data.
+
+linux has two disk caches: buffer cache and page cache
+buffer cache and page cache have been combined.
 
 /proc/filesystems
 
@@ -1057,6 +1065,7 @@ KMS interface with display controller, which interface with monitor screen
 
 linux framebuffer: fbdev , /dev/fb0
 allow access to graphics hardware through an API
+The Linux framebuffer (fbdev) is a graphic hardware-independent abstraction layer to show graphics on a computer monitor, typically on the console.
 
 Text mode is a computer display mode in which content is internally represented on a computer screen
 in terms of characters rather than individual pixels.
@@ -1086,3 +1095,49 @@ Content-Type: application/octet-stream
 
 --------------------------73e6530ff229c469--
 ===========================
+
+kvm daemon: libvirt-bin, libvirt-guests
+
+bind mount: remount part of a file hierarchy elsewhere: mount --bind olddir newdir
+after this, the same contents are available in two places.
+===
+if there are mount points under olddir, their contents are not visible under newdir unless use --rbind
+use mount --rbind olddir newdir #replicate mount points under olddir
+===
+A bind mount is an alternate view of a directory tree.
+bind mount provides a view of a directory tree at a different location.
+====
+Classically, mounting creates a view of a storage device as a directory tree. A bind mount instead
+takes an existing directory tree and replicates it under a different point. The directories and
+files in the bind mount are the same as the original. Any modification on one side is immediately
+reflected on the other side, since the two views show the same data.
+=========
+The alternative (classic) way to create a read-only bind mount is to use remount operation, for example:
+mount --bind olddir newdir
+mount -o remount,ro,bind olddir newdir
+========================
+when you mount a filesystem on a directory, this hides what is behind the directory. The files
+in the directory become inaccessible until the directory is unmounted.
+
+Filesystem in Userspace (FUSE) is a software interface for Unix-like computer operating systems that
+lets non-privileged users create their own file systems without editing kernel code. This is
+achieved by running file system code in user space while the FUSE module provides only a "bridge" to
+the actual kernel interfaces.
+
+espeak : software speech synthesizer
+
+segments of a program:
+text segment: contain the executable code
+initialized data segment: contain initialized data
+uninitialized data segment (bss): container uninitialized data
+stack segment
+
+connect android to usb port: use MTP
+mount point: /run/user/<userid>/gvfs
+
+demand load executables: only those parts of a program required for execution are loaded into memory.
+when a new process is created using fork(), memory is not requested, but instead the memory
+for the parent process is used jointly by both processes. if the new process accesses part of the
+memory in write mode, this section is copied before being modified: copy-on-write
+
+/dev/mem is a character device file that is an image of the main memory of the computer.
