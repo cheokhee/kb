@@ -1118,6 +1118,9 @@ mount -o remount,ro,bind olddir newdir
 ========================
 when you mount a filesystem on a directory, this hides what is behind the directory. The files
 in the directory become inaccessible until the directory is unmounted.
+========
+filesystem: a collection of files and directories in a hierarchy.
+mounting: adding a filesystem to the global namespace of files and directories
 
 Filesystem in Userspace (FUSE) is a software interface for Unix-like computer operating systems that
 lets non-privileged users create their own file systems without editing kernel code. This is
@@ -1127,9 +1130,9 @@ the actual kernel interfaces.
 espeak : software speech synthesizer
 
 segments of a program:
-text segment: contain the executable code
+text segment: contain the executable code and read-only data
 initialized data segment: contain initialized data
-uninitialized data segment (bss): container uninitialized data
+uninitialized data segment (bss): contain uninitialized data
 stack segment
 
 connect android to usb port: use MTP
@@ -1141,3 +1144,10 @@ for the parent process is used jointly by both processes. if the new process acc
 memory in write mode, this section is copied before being modified: copy-on-write
 
 /dev/mem is a character device file that is an image of the main memory of the computer.
+
+blockdev --getss #sector size
+blockdev --getbsz #block size
+
+TZ=UTC date # get a date in UTC
+
+getconf PAGESIZE #get page size

@@ -8392,6 +8392,7 @@ Memory mapping : the contents of a file are linked directly into the virtual add
 process.
 This linking of an image into a processes virtual address space is known as memory mapping.
 memory mapping (mmap system call): mapping a file into the virtual address space of a process.
+This means there is a one-to-one correspondence between a memory address and a word in the file.
 
 Kernel preemption is a method used mainly in monolithic and hybrid kernels where all or most device
 drivers are run in kernel space, whereby the scheduler is permitted to forcibly perform a context
@@ -8480,3 +8481,7 @@ blocks, or chunks - leaving a good percentage of your total memory unallocated, 
 most typical scenarios.
 
 virtual memory: the use of hard disk space to simulate additional main memory
+
+leg bones:
+tibia : inner (medial), larger and stronger
+fibula: outer (lateral)
