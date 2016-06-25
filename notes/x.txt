@@ -38,3 +38,9 @@ cat /etc/X11/default-display-manager
 #use xev to display key code and keysym
 key code: corresponds to a physical key. depends on the X server implementation and the physical keyboard.
 keysym: corresponds to the symbol on the key top. have names like Alt_L, Caps_Lock
+
+lightdm configuration:
+/usr/share/lightdm/lightdm.conf.d/*.conf
+/etc/lightdm/lightdm-gtk-greeter.conf.d/*.conf
+/etc/lightdm/lightdm-gtk-greeter.conf
+lightdm-gtk-greeter-settings #program to change setting (need sudo)

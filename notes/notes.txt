@@ -8485,3 +8485,5 @@ virtual memory: the use of hard disk space to simulate additional main memory
 leg bones:
 tibia : inner (medial), larger and stronger
 fibula: outer (lateral)
+
+springing power of attorney (conditional)

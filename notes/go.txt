@@ -74,3 +74,6 @@ for _,arg := range os.Args[1:] {
 }
 
 range produces a pair of values: the index and the value of the element at that index
+
+#update package
+go get -u golang.org/x/tools/cmd/goimports

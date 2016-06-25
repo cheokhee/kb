@@ -1097,6 +1097,16 @@ Content-Type: application/octet-stream
 ===========================
 
 kvm daemon: libvirt-bin, libvirt-guests
+== need to do this:
+sudo systemctl start libvirt-bin
+kvm-ok #sanity check
+virsh -c qemu:///system list
+OR
+virsh -c qemu:///system list --all
+OR
+virsh list
+===
+/var/lib/libvirt/images
 
 bind mount: remount part of a file hierarchy elsewhere: mount --bind olddir newdir
 after this, the same contents are available in two places.
@@ -1151,3 +1161,13 @@ blockdev --getbsz #block size
 TZ=UTC date # get a date in UTC
 
 getconf PAGESIZE #get page size
+
+pcmanfm --desktop-pref
+
+setxkbmap: set keyboard using X extension
+
+lxpanelctl : (menu/run/config/restart)
+
+scrot -cu -d 5
+
+gnome-system-monitor
