@@ -244,3 +244,6 @@ dbinfo -g Kernel StoreDirectory
 {"StoreDirectory": "/home/neo4jsupp/neo4j-7475/data/INM_05252016"}
 #show all attributes
 dbinfo -g Kernel
+
+check lucene index:
+java -cp lib/lucene-core-3.6.2.jar -ea:org.apache.lucene... org.apache.lucene.index.CheckIndex data/INM_02032016/schema/index/lucene/1 -fix

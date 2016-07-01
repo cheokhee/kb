@@ -1,0 +1,16 @@
+In .config/lxsession/Lubuntu/desktop.conf
+windows_manager/command=compiz --replace ccp
+
+.config/compiz-1/compizconfig/Default.ini
+
+packages:
+compiz
+compiz-core
+compiz-gnome
+compiz-plugins:amd64
+compiz-plugins-default:amd64
+compizconfig-settings-manager
+libcompizconfig0:amd64
+python-compizconfig:amd64
+
+program: ccsm

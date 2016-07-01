@@ -204,3 +204,24 @@ define any static members itself.
 
 TimeUnit.MILLISECONDS.toNanos()
 TimeUnit.NANOSECONDS.toMicros()
+
+lambda expression: parameters -> expression
+example:
+(String first, String second) -> Integer.compare(first.length(), second.length())
+(String first, String second) -> { ... ; return something }
+() -> { ...; }
+
+functional interface : an interface with a single abstract method
+you can supply a lambda expression whenever an object of a functional interface is expected.
+example:
+old: Arrays.sort(strings, new SomeComparator())
+new: Arrays.sort(strings, (String first, String second) -> Integer.compare(first.length(), second.length()))
+optional annotation : @FunctionalInterface
+
+method reference:
+System.out::println is equivalent to x -> System.out.println(x)
+Math::pow is equivalent to (x,y) -> Math.pow(x,y)
+
+HashMap: no order
+TreeMap: iterate according to the natural ordering of the keys
+LinkedHashMap: iterate in the order in which the entries were put into the map

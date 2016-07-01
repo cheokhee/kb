@@ -1217,3 +1217,5 @@ ignore files:
 add to .git/info/exclude
 OR
 git config --global core.excludesfile ~/.gitignore_global
+
+repository-level ignore: put in .git/info/exclude file

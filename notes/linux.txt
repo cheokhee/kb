@@ -543,6 +543,7 @@ pmap: show memory map of a process
 /proc/[pid]/maps -> similar to output of pmap
 /proc/[pid]/smaps
 /proc/[pid]/status
+/proc/[pid]/task/[threadid] #tgid is process id, pid is thread id
 /proc/meminfo
 smem program
 
@@ -556,6 +557,7 @@ ps x : those without tty
 ps u : user-friendly format
 ps -L : show threads (LWP (lightweight process column))
 ps -fHU <username> : show processes of username in hierarchical form
+ps -L -o tid,pid,ppid,state,euid,egid,sid,pgid,tpgid,command <pid>
 
 7z a -mhe=on -ppassword important.7z important.txt for-honey.txt
 
@@ -1171,3 +1173,50 @@ lxpanelctl : (menu/run/config/restart)
 scrot -cu -d 5
 
 gnome-system-monitor
+
+
+There are three different kinds of buffering strategies:
+Characters written to or read from an unbuffered stream are transmitted individually to or from the file as soon as possible.
+Characters written to a line buffered stream are transmitted to the file in blocks when a newline character is encountered.
+Characters written to or read from a fully buffered stream are transmitted to or from the file in blocks of arbitrary size.
+===
+Newly opened streams are normally fully buffered, with one exception: a stream connected to an
+interactive device such as a terminal is initially line buffered.
+===
+The use of line buffering for interactive devices implies that output messages ending in a newline
+will appear immediately—which is usually what you want. Output that doesn’t end in a newline might
+or might not show up immediately, so if you want them to appear immediately, you should flush
+buffered output explicitly with fflush.
+===
+stdin : always buffered
+stderr: always unbuffered
+stdout: if terminal, then line-buffered, else unbuffered
+
+stdbuf: modify buffering operations for streams
+example: tail -f file | cut -d ' ' -f1 | uniq
+nothing because the output of cut is buffered
+
+tail -f access.log | stdbuf -oL cut -d ' ' -f1 | uniq
+#use stdbuf -o0 if the data is not line-oriented
+this will disable output buffering for the cut program
+
+logical volume: a filesystem that appears to be a single physical volume,
+but is actually assembled from space that has been allocated on multiple
+physical partitions.
+
+linux process and thread=======
+process descriptor: struct task_struct
+	pid_t pid; // this is the thread id
+	pid_t tgid; // this is the process id
+
+when a new process is created, it appears as a thread where both the PID and TGID are the same (new)
+number.
+When a thread starts another thread, that started thread gets its own PID (so the scheduler can
+schedule it independently) but it inherits the TGID from the original thread.
+====
+getpid() returns tgid
+gettid() returns pid
+==========================
+
+bash testing:
+[ "$VAR" ] is equivalent to [ -n "$VAR" ] # true if not empty

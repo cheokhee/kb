@@ -23,3 +23,10 @@ sudo update-alternatives --config gnome-www-browser
 
 debugging:
 bash -x xdg-settings get default-web-browser
+
+/etc/xdg/user-dirs.conf
+xdg-user-dirs-update
+xdg-user-dir DESKTOP #example
+
+#MIME type database
+/usr/share/mime/packages/freedesktop.org.xml

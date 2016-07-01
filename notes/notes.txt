@@ -7937,6 +7937,7 @@ Summary: KVM is a Hypervisor based on emulating virtual hardware. Containers, on
 based on shared operating systems and is skinnier.
 
 When you run a secondary OS on top of a primary OS, the secondary OS is called a virtual machine.
+each instance of a guest operating system is called a virtual machine.
 
 Paravirtualization is a technique in which the hypervisor provides an API and the OS of the
 guest virtual machine calls that API, requiring OS modifications.
@@ -7980,6 +7981,10 @@ hardware.
 A hypervisor virtualizes the hardware to guest OSes so that each guest OS thinks it has exclusive use
 of the hardware. a mini OS that abstracts the hardware from its guests.
 
+hypervisor: an operating system for other operating systems.
+hypervisors do for operating systems what operating systems do for processes.
+They provide isolated virtual hardware platform for execution that in turn provide the illusion
+of full access to the underlying machine.
 
 --end of virtualization--
 
@@ -8487,3 +8492,72 @@ tibia : inner (medial), larger and stronger
 fibula: outer (lateral)
 
 springing power of attorney (conditional)
+
+blood: blood cells suspended in blood plasma
+blood plasma: It is mostly water (up to 95% by volume), and contains dissolved proteins (6–8%) (i.e.—serum
+albumins, globulins, and fibrinogen), glucose, clotting factors, electrolytes (Na+, Ca2+, Mg2+,
+HCO3−, Cl−, etc.), hormones, and carbon dioxide (plasma being the main medium for excretory product
+transportation).
+======
+serum:
+the blood plasma not including the fibrinogens. Serum includes all proteins not used in blood
+clotting (coagulation) and all the electrolytes, antibodies, antigens, hormones, and any exogenous
+substances (e.g., drugs and microorganisms).
+
+third-spacing:
+In a healthy adult, nearly all fluid is contained in the intracellular, intravascular, or
+interstitial spaces, with the intracellular space holding about two-thirds of total body
+water. Normally, fluid moves freely between these three spaces to maintain fluid balance
+===========
+Third-spacing occurs when too much fluid moves from the intravascular space (blood vessels) into the
+interstitial or "third" space-the nonfunctional area between cells. This can cause potentially
+serious problems such as edema, reduced cardiac output, and hypotension.
+===========
+Third spacing is the unusual accumulation of fluid in a transcellular space.
+
+ascites: An abnormal accumulation of serous fluid in the abdominal cavity.
+
+Interstitial fluid or tissue fluid is a solution that bathes and surrounds the tissue cells of
+multicellular animals. It is the main component of the extracellular fluid, which also includes
+plasma and transcellular fluid.
+
+Interstitial spaces
+Spaces within body tissues that are outside the blood vessels. Interstitial spaces are also known as
+interstitial compartments.
+
+transcellular compartment:
+consists of those spaces in the body where fluid does not normally collect in larger amounts,
+or where any significant fluid collection is physiologically nonfunctional. Examples of
+transcellular spaces include the eye, the central nervous system, the peritoneal and pleural
+cavities, and the joint capsules. A small amount of fluid, called transcellular fluid, does exist
+normally in such spaces. For example, the aqueous humor, the vitreous humor, the cerebrospinal
+fluid, the serous fluid produced by the serous membranes, and the synovial fluid produced by the
+synovial membranes are all transcellular fluids.
+
+extracellular compartments: interstitial, intravascular, transcellular
+
+A blockchain is a public ledger of all Bitcoin transactions that have ever been executed. It is
+constantly growing as 'completed' blocks are added to it with a new set of recordings. The blocks
+are added to the blockchain in a linear, chronological order.
+----------
+A blockchain—originally, block chain—is a distributed database that maintains a
+continuously-growing list of data records hardened against tampering and revision.
+
+PICC (peripherally inserted central catheter) line:
+is a central venous catheter inserted into a vein in the arm rather than a vein in the neck or chest.
+
+central line, aka central venous catheter (CVC): inserted in the neck or chest
+
+technical debt: refer to the eventual consequences of any system design, software architecture or
+software development within a codebase.
+
+string interpolation (or variable interpolation, variable substitution, or variable expansion) is
+the process of evaluating a string literal containing one or more placeholders, yielding a result in
+which the placeholders are replaced with their corresponding values. It is a form of simple template
+processing
+
+Gluconeogenesis (GNG) is a metabolic pathway that results in the generation of glucose from certain
+non-carbohydrate carbon substrates.
+
+OO makes code understandable by encapsulating moving parts, functional programming makes code
+understandable by minimizing moving parts.

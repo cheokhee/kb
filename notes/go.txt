@@ -77,3 +77,6 @@ range produces a pair of values: the index and the value of the element at that 
 
 #update package
 go get -u golang.org/x/tools/cmd/goimports
+
+init function:
+imported packages -> local variables -> init function(s) -> main
