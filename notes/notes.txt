@@ -1281,10 +1281,16 @@ a provision model in which an organization outsources the equipment used to supp
 including storage, hardware, servers and networking components. The service provider owns
 the equipment and is responsible for housing, running and maintaining it. The client typically
  pays on a per-use basis.
+IaaS: computing power, storage, networking
 -- virtual private cloud
 the implementation of a private cloud in a public cloud environment.
 VPC provides secure data transfer between a private enterprise and a public cloud provider, ensuring that each customer's data remains isolated from every other customer's data both in transit and inside the cloud provider's network.
 -- behave as if it is within a corporate firewall.
+===
+cloud deployment model: public, private, virtual private, hybrid
+cloud service model: IaaS, PaaS, SaaS
+public: managed by an external service provider
+private: managed by you, living in your data center
 
 container: a run-time environment for components.
 
@@ -6640,6 +6646,9 @@ first sale doctrine: the purchaser of a copyrighted work can resell or give away
 without the permission of the copyright owner.
 
 currying: converting a function that takes multiple arguments into a chain of functions that take one argument.
+currying: the conversion of a multi-argument function into a chain of single-argument functions.
+partial application: the conversion of a multi-argument function into one that accepts fewer arguments, with values for
+the omitted arguments supplied in advance.
 currying vs partial application
 --> Where partial application takes a function and from it builds a function which takes fewer arguments, currying builds functions which take multiple arguments by composition of functions which each take a single argument.
 
@@ -8348,7 +8357,7 @@ lexical (linear) analysis: stream of characters are grouped into tokens, which a
 characters having a collective meaning.
 ===========
 syntax (hierarchical) analysis (parsing): tokesn are grouped hierarchically into nested
-collections with a collection meaning.
+collections with a collective meaning.
 ============
 semantic analysis: ensure that components of a program fit together meaningfully.
 
@@ -8561,3 +8570,84 @@ non-carbohydrate carbon substrates.
 
 OO makes code understandable by encapsulating moving parts, functional programming makes code
 understandable by minimizing moving parts.
+
+nosocomial: originating in a hospital
+atelectasis: collapse of the lung
+cachexia: wasting of the body
+decubitus ulcer: pressure ulcer
+tracheal intubation
+vena cava: vein carrying deoxygenated blood into the heart
+lidocaine
+code blue
+full code
+DNR: do not resuscitate
+pressor:  is any substance that elevates arterial blood pressure
+decompensation: the inability of an organ/system to maintain adequate physiological functions.
+ACLS: advanced cardiac life support
+tachycardia: abnormal rapid heart rate (>100)
+contracture: a condition of shortening and hardening of muscles, tendons, or other tissue, often
+   leading to deformity and rigidity of joints.
+ARDS: acute respiratory distress syndrome
+adenopathy: enlargement of lymph nodes
+AMS: altered mental status
+====
+Normocephalic (literally translated means 'normal head') is a medical term referring to a person
+whose head and all major organs of the head are in a normal condition and without significant
+abnormalities.
+====
+auscultation: the action of listening to sounds from the heart, lungs, or other organs, typically
+with a stethoscope, as a part of medical diagnosis.
+rale: an abnormal rattling sound heard when examining unhealthy lungs with a stethoscope.
+cyanosis: a bluish discoloration of the skin resulting from poor circulation or inadequate oxygenation of the blood.
+secondary to: due to, resulting from
+
+anode: electrons leave anode
+cathode: electrons enter cathode
+
+lever:
+If the effort arm is longer than the load arm, the effort travels farther than the load and is less than the load.
+====
+first class lever: fulcrum is between load and effort: seesaw, crowbar, balance scale
+second-class lever: load is between fulcrum and effort: wheelbarrow: effort is always less than the load
+third-class lever: effort is between fulcrum and load:  effort is always greater than the load
+===
+A hammer acts as a third-class lever when it is used to drive in a nail: the fulcrum is the wrist,
+the effort is applied through the hand, and the load is the resistance of the wood.  Another example
+of a third-class lever is the human forearm: the fulcrum is the elbow, the effort is applied by the
+biceps muscle, and the load is in the hand.
+
+bubble pump: gas lift
+raise a fluid by introducing bubbles of compressed air, water vapor.
+
+wagon-wheel effect:
+an optical illusion in which a spoked wheel appears to rotate differently from its true rotation.
+=====
+This is due to an effect known as 'aliasing' and is most likely to be observed on TV due to the
+frame rate of the camera filming it. Video cameras work by capturing lots of still images in a very
+short space of time.
+====
+the frame rate is less than the rotational frequency of the wheel
+
+frame rate: the frequency at which consecutive images are displayed.
+
+flicker fusion threshold
+the frequency at which an intermittent light stimulus appears to be completely steady to the average human observer.
+===
+if frame rate < flicker fusion threshold, you have flicker
+
+understand the level below your normal abstraction layer
+abstractions hide messy details from us
+
+ideas over syntax
+
+orthogonality: orthogonal components don't interfere with each other.
+
+covariance: enable you to use a more specific type than originally specified. Base b = new Derived()
+contravariance: enable you to use a less specified type than originally specified. Derived d = new Base()
+invariance: can only use the specified type
+
+locale: has a language code and a country code. eg. en_US
+
+A ferrite bead, or ferrite choke, is a simple hollow cylinder or bead that is made of ferrite
+material and that is used in order to suppress or filter the amount of high frequency
+electromagnetic interference (EMI) noise found in electronic circuits.

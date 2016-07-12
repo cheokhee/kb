@@ -210,6 +210,20 @@ example:
 (String first, String second) -> Integer.compare(first.length(), second.length())
 (String first, String second) -> { ... ; return something }
 () -> { ...; }
+words.filter(w -> w.length() > 12)
+words.map(String::toLowerCase())
+values.reduce((x,y) -> x+y) OR values.reduce(Integer::sum)
+stream.iterator()
+stream.toArray() -> return Object[]
+stream.toArray(String[]::new)
+stream.collect(Collectors.toList())
+stream.collect(Collectors.toSet())
+stream.collect(Collectors.toMap(Person::getId,Person::getName))
+stream.collect(Collectors.toMap(Person::getId,Function.identity())
+stream.collect(Collectors.joining(","))
+stream.collect(Collectors.groupingBy())
+stream.collect(Collectors.partitionBy())
+stream.forEach(System.out::println)
 
 functional interface : an interface with a single abstract method
 you can supply a lambda expression whenever an object of a functional interface is expected.
@@ -217,6 +231,7 @@ example:
 old: Arrays.sort(strings, new SomeComparator())
 new: Arrays.sort(strings, (String first, String second) -> Integer.compare(first.length(), second.length()))
 optional annotation : @FunctionalInterface
+example: Supplier<T>, Consumer<T>
 
 method reference:
 System.out::println is equivalent to x -> System.out.println(x)
@@ -225,3 +240,16 @@ Math::pow is equivalent to (x,y) -> Math.pow(x,y)
 HashMap: no order
 TreeMap: iterate according to the natural ordering of the keys
 LinkedHashMap: iterate in the order in which the entries were put into the map
+
+jjs : Nashorn JavaScript engine in Java 8
+
+Java 8:
+TemporalAdjuster
+DateTimeFormatter
+String.joined()
+Objects.requireNonNull()
+ProcessBuilder -> execute an external command
+Files.copy()
+Files.move()
+Files.readAllBytes()
+Paths
