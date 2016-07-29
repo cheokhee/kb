@@ -246,4 +246,7 @@ dbinfo -g Kernel StoreDirectory
 dbinfo -g Kernel
 
 check lucene index:
+neo4j 2.3:
 java -cp lib/lucene-core-3.6.2.jar -ea:org.apache.lucene... org.apache.lucene.index.CheckIndex data/INM_02032016/schema/index/lucene/1 -fix
+neo4j 3.0:
+java -cp lib/lucene-core-5.5.0.jar:lib/lucene-codecs-5.5.0.jar -ea:org.apache.lucene... org.apache.lucene.index.CheckIndex data/databases/graph.db/schema/index/lucene/1/1

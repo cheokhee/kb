@@ -8325,7 +8325,7 @@ virtual memory operating system.
 
 thread: a path of execution
 threads: execution flows that share a common address space.
-threads: execution contents that can be independently scheduled.
+threads: execution contexts that can be independently scheduled.
 
 write-through cache: directs write I/O onto cache and through to underlying permanent storage before
 confirming I/O completion to the host.
@@ -8651,3 +8651,55 @@ locale: has a language code and a country code. eg. en_US
 A ferrite bead, or ferrite choke, is a simple hollow cylinder or bead that is made of ferrite
 material and that is used in order to suppress or filter the amount of high frequency
 electromagnetic interference (EMI) noise found in electronic circuits.
+
+multi-tenancy: a single instance of software application serves multiple customers
+
+scala traits: similar to an abstract class with partial implementation.
+
+Hives typically appear as raised, itchy bumps. Rashes are primarily an inflammation that changes the
+texture and color of skin.
+
+OKR : Objectives and Key Results.
+The Objective is qualitative, and the KR’s (most often three) are quantitative. They are used to
+focus a group or individual around a bold goal. The objective sets a goal for a set period of time,
+usually a quarter. The key results tell you if the objective has been met by the end of the time.
+
+Your objective is a single sentence that is
+Qualitative and Inspirational
+Time Bound
+Actionable by the Team Independently
+example: Transform Palo Alto’s Coupon-Using habits.
+
+Pwn:  to conquer to gain ownership. An act of dominating an opponent.
+
+machine learning: generic algorithm that can build its own logic based on the input data.
+you need to provide training data.
+--> supervised learning and unsupervised learning
+supervised: you know the answer and work backwards to figure out the logic
+unsupervised: you don't know the answer
+--> figuring out an equation to solve a specific problem based on some example data
+
+Getting to "that is right"
+what should I say when they ask, "what do you guys do?"
+Now, I’m going to summarize what you told me, and I’d like you to let me know if anything is missing or incorrect. OK?”
+
+fragile base class problem is a fundamental architectural problem of object-oriented programming
+systems where base classes (superclasses) are considered "fragile" because seemingly safe
+modifications to a base class, when inherited by the derived classes, may cause the derived classes
+to malfunction.
+
+banana monkey jungle problem:
+You wanted a banana but what you got was a gorilla holding the banana and the entire jungle.
+OOP: about inheritance. you want to reuse one class, but you need its parent, etc.
+
+With White Box programming, we have to look at the implementation of the base class.
+
+the hierarchy problem:
+Do I create a folder called Documents and then create a folder called Company in that?
+Or do I create a folder called Company and then create a folder called Documents in that?
+
+Categorical Hierarchies vs Containment Hierarchies
+
+encapsulation: Object state variables are protected from outside access.
+
+happiness = reality/expectations

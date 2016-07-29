@@ -80,3 +80,9 @@ go get -u golang.org/x/tools/cmd/goimports
 
 init function:
 imported packages -> local variables -> init function(s) -> main
+
+goroutine: an independently executing function
+
+type T struct{}
+var _ I = T{}       // Verify that T implements I.
+var _ I = (*T)(nil) // Verify that *T implements I.

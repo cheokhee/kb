@@ -493,6 +493,9 @@ symbolic link to graphical.target.
 systemctl isolate graphical.target
 systemctl set-default <name of target>.target
 systemctl get-default
+systemctl status
+systemctl --failed
+systemctl list-units
 ==============
 /etc/systemd , /etc/systemd/system
 /lib/systemd , /lib/systemd/system
@@ -558,6 +561,11 @@ ps u : user-friendly format
 ps -L : show threads (LWP (lightweight process column))
 ps -fHU <username> : show processes of username in hierarchical form
 ps -L -o tid,pid,ppid,state,euid,egid,sid,pgid,tpgid,command <pid>
+
+#show top processes sorted by memory usage
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem
+#show top processes sorted by cpu usage
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu
 
 7z a -mhe=on -ppassword important.7z important.txt for-honey.txt
 
