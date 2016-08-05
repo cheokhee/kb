@@ -48,3 +48,7 @@ lightdm-gtk-greeter-settings #program to change setting (need sudo)
 xwininfo #get info about window
 
 xinput #list input devices
+
+xset : user preference utility for X
+
+xbacklight

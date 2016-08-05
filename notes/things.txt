@@ -150,6 +150,7 @@ ffmpeg (convert from wav to mpeg: ffmpeg -i REC001.WAV test1.mpg)
 id3v2 , usage: id3v2 -t wound-care-2016-06-01 -a WoundCare -A WoundCare -c "can jump to 1hr15min" -y 2016 wound-care-2016-06-01.mp3
    note: don't use semicolon in comment
 poc-streamer (mp3cut -o output.mp3 -t 00:00:20-00:00:58 input.mp3)
+cpufrequtils
 
 =========== end of packages ==============
 

@@ -1989,6 +1989,10 @@ or variables reaching to its minimum/maximum state.
 =====
 An edge case is where the program logic meets a boundary condition. A corner case is where
 you meet more than one boundary condition at once.
+======
+Boundary testing or boundary value analysis, is where test cases are generated using the extremes of
+the input domain, e.g. maximum, minimum, just inside/outside boundaries, typical values, and error
+values.
 
 Behavior driven development (or BDD) is an agile software development technique that encourages
  collaboration between developers, QA and non-technical or business participants in a software project.
@@ -6647,8 +6651,12 @@ without the permission of the copyright owner.
 
 currying: converting a function that takes multiple arguments into a chain of functions that take one argument.
 currying: the conversion of a multi-argument function into a chain of single-argument functions.
-partial application: the conversion of a multi-argument function into one that accepts fewer arguments, with values for
-the omitted arguments supplied in advance.
+currying: converting a multi-argument function into a chain of single-argument functions such that each one
+          returns the next function until the last one returns the result.
+example: f(x,y) becomes (f'(x))(y)
+=====
+partial application: the conversion of a multi-argument function into one that accepts fewer arguments by
+        providing fixed values for the omitted arguments.
 currying vs partial application
 --> Where partial application takes a function and from it builds a function which takes fewer arguments, currying builds functions which take multiple arguments by composition of functions which each take a single argument.
 
@@ -8450,8 +8458,9 @@ a functional language, it's called functional reactive programming. ??
 dataflow programming: example: spreadsheets
 =======
 dataflow programming is the same as reactive programming??
+dataflow programming: code executes when the data it depends on becomes available.
 
-Binary compatibility: can run the same executable code
+binary compatibility: can run the same executable code
 -----
 java binary compatibility means that when you change your class, you do not need to recompile classes that use it.
 
@@ -8682,6 +8691,8 @@ unsupervised: you don't know the answer
 Getting to "that is right"
 what should I say when they ask, "what do you guys do?"
 Now, I’m going to summarize what you told me, and I’d like you to let me know if anything is missing or incorrect. OK?”
+---
+how to force a response when emails are ignored: ask a No-oriented question.
 
 fragile base class problem is a fundamental architectural problem of object-oriented programming
 systems where base classes (superclasses) are considered "fragile" because seemingly safe
@@ -8703,3 +8714,69 @@ Categorical Hierarchies vs Containment Hierarchies
 encapsulation: Object state variables are protected from outside access.
 
 happiness = reality/expectations
+
+Provide Options, Don’t Make Lame Excuses
+Instead of excuses, provide options. Don’t say it can’t be done; explain what can be done.
+
+Be a Catalyst for Change
+Eliminate Effects Between Unrelated Things
+
+Put Abstractions in Code, Details in Metadata
+Program for the general case, and put the specifics outside the compiled code base.
+
+Assertions validate your assumptions
+
+exegesis: critical explanation of a text
+
+In computer programming, orthogonality in a programming language means that a relatively small set
+of primitive constructs can be combined in a relatively small number of ways to build the control
+and data structures of the language.
+
+Proper error handling means that servers continue operation after non-fatal errors instead of
+crashing.
+
+regular expression: a pattern matching notation. a notation for describing patterns of text.
+
+concurrent program: has multiple logical threads of control. these threads may or may not run in parallel.
+parallel program: executing different parts simultaneously. may or may not have multiple threads of control.
+concurrency: an aspect of the problem domain
+parallelism: an aspect of the solution domain.
+concurrency: about dealing with lots of things at once.
+parallelism: about doing lots of things at once.
+concurrent programs are often nondeterminisitc. they give different results depending on the timing of events.
+
+prevent deadlock: acquire locks in a fixed, global order
+
+Amdahl's law is that, in a program with parallel processing , a relatively few instructions that
+have to be performed in sequence will have a limiting factor on program speedup such that adding
+more processors may not make the program run faster.
+====
+Amdahl's Law is a law governing the speedup of using parallel processors on a problem, versus using
+only one serial processor
+
+work stealing:
+In parallel computing, work stealing is a scheduling strategy for multithreaded computer programs.
+====
+In a work stealing scheduler, each processor in a computer system has a queue of work items
+(computational tasks, threads) to perform. Each work item consists of a series of instructions, to
+be executed sequentially, but in the course of its execution, a work item may also spawn new work
+items that can feasibly be executed in parallel with its other work. These new items are initially
+put on the queue of the processor executing the work item. When a processor runs out of work, it
+looks at the queues of other processors and "steals" their work items. In effect, work stealing
+distributes the scheduling work over idle processors, and as long as all processors have work to do,
+no scheduling overhead occurs.
+
+ignition coil: a transformer. generate high-voltage current
+distributor: distributes high-voltage current to spark plug. the current jump across the arc
+to create a spark, which ignites the air-fuel mixture.
+camshaft: have the job of opening the valves that let air into and exhaust out of the engine
+The camshaft uses rotating lobes, called cams, that push against the valves to open them. Springs on
+the valves return them to their closed position.
+
+The main benefit of dual overhead cams is that they allow an engine to have four valves per
+cylinder. Each camshaft operates two of the valves, one camshaft handles the intake valves, and one
+handles the exhaust valves.
+
+MVCC: Multiversion concurrency control, is a concurrency control method commonly used by database
+management systems to provide concurrent access to the database and in programming languages to
+implement transactional memory.

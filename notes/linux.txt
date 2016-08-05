@@ -1116,7 +1116,7 @@ virsh -c qemu:///system list --all
 OR
 virsh list
 ===
-/var/lib/libvirt/images
+location of kvm images: /var/lib/libvirt/images
 
 bind mount: remount part of a file hierarchy elsewhere: mount --bind olddir newdir
 after this, the same contents are available in two places.
@@ -1169,6 +1169,11 @@ blockdev --getss #sector size
 blockdev --getbsz #block size
 
 TZ=UTC date # get a date in UTC
+#convert epoch second to a date in UTC
+TZ=UTC date --date='@1452832200'
+#convert epoch second to a date in UTC (ISO format)
+TZ=UTC date --date=@1452832200 +%Y-%m-%dT%H:%M:%S.000Z
+output: 2016-01-15T04:30:00.000Z
 
 getconf PAGESIZE #get page size
 
@@ -1228,3 +1233,7 @@ gettid() returns pid
 
 bash testing:
 [ "$VAR" ] is equivalent to [ -n "$VAR" ] # true if not empty
+
+power management tool: tlp, powertop
+
+cpufrequtils (package): cpufreq-info command

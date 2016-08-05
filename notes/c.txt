@@ -218,3 +218,14 @@ argv[0] is gcc
 argv[1] is -o
 argv[2] is myprog
 argv[3] is myprog.c
+
+x86 assembly
+att syntax:
+movl    $1,%eax
+instr   source,dest
+movl    (%ebx),%eax
+
+intel syntax:
+mov     eax,1
+instr   dest,source
+mov     eax,[ebx]

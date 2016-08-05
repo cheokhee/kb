@@ -224,6 +224,16 @@ stream.collect(Collectors.joining(","))
 stream.collect(Collectors.groupingBy())
 stream.collect(Collectors.partitionBy())
 stream.forEach(System.out::println)
+====
+stream operations: intermediate (return another stream) or terminal
+intermediate: filter, map, flatMap, peek, distinct, sorted, limit, skip
+terminal: forEach, toArray, reduce, collect, min, max, count, anyMatch, allMatch, noneMatch, findFirst, findAny
+intermediate operations are lazy. only a terminal operation will start the processing of stream elements.
+at that point, all the elements are consumed in one pass. stateful operations may require a second pass.
+====
+stream operation:
+stateful: impose some new property on the stream. eg. sorting
+short-circuiting: allows processing to stop without examining all the elements
 
 functional interface : an interface with a single abstract method
 you can supply a lambda expression whenever an object of a functional interface is expected.
@@ -232,6 +242,11 @@ old: Arrays.sort(strings, new SomeComparator())
 new: Arrays.sort(strings, (String first, String second) -> Integer.compare(first.length(), second.length()))
 optional annotation : @FunctionalInterface
 example: Supplier<T>, Consumer<T>
+functional interfaces:
+Function<T,R> : take T as input, return R as output
+Predict<T>: take T as input and return a boolean as output
+Consumer<T>: take T as input, perform some action and don't return anything
+Supplier<T>: return T with nothing as input
 
 method reference:
 System.out::println is equivalent to x -> System.out.println(x)
@@ -253,3 +268,76 @@ Files.copy()
 Files.move()
 Files.readAllBytes()
 Paths
+
+the Java memory model defines when changes made by one thread become visible
+to another thread.
+
+=== condition variable ===
+lock = new ReentrantLock();
+condition = lock.newCondition();
+lock.lock();
+try {
+  while (condition is false)
+    condition.await(); // when await() returns, it means the condition might be true
+                       // that's why we need to check again. this is to handle spurious wakeup
+  <<use shared resource>>
+} finally { lock.unlock() }
+=== condition variable ===
+
+spurious wakeup: Even after a condition variable appears to have been signaled from a waiting
+thread's point of view, the condition that was awaited may still be false.
+?? If a Linux process is signaled its waiting threads will each enjoy a nice, hot spurious wakeup.
+===
+spurious wakeup: due to the fact that there is no guarantee around when a thread that has been
+awakened will become scheduled. Condition variables are not fair. It's possible - and even likely -
+that another thread will acquire the associated lock and make the condition false again before the
+awakened thread has a chance to reacquire the lock and return to the critical region.
+
+fair ReentrantLock: under contention, fair locks favor granting access to the longest-waiting thread.
+
+The ReentrantLock constructor offers a choice of two fairness options: create a non-fair lock or a
+fair lock. With fair locking, threads can acquire locks only in the order in which they were
+requested, whereas an unfair lock allows a lock to acquire it out of its turn. This is called
+barging (breaking the queue and acquiring the lock when it became available).
+
+Fair locking has a significant performance cost because of the overhead of suspending and resuming
+threads. There could be cases where there is a significant delay between when a suspended thread is
+resumed and when it actually runs. Let's see a situation:
+
+A -> holds a lock.
+B -> has requested and is in a suspended state waiting for A to release the lock.
+C -> requests the lock at the same time that A releases the lock, and has not yet gone to a suspended state.
+
+As C has not yet gone to a suspended state, there is a chance that it can acquire the lock released
+by A, use it, and release it before B even finishes waking up. So, in this context, unfair lock has
+a significant performance advantage.
+
+Programs using fair locks accessed by many threads may display lower overall throughput (i.e., are
+slower; often much slower) than those using the default setting, but have smaller variances in times
+to obtain locks and guarantee lack of starvation.
+
+A ReadWriteLock maintains a pair of associated locks, one for read-only operations and one for
+writing. The read lock may be held simultaneously by multiple reader threads, so long as there are
+no writers. The write lock is exclusive.
+
+BlockingQueue:
+A Queue that additionally supports operations that wait for the queue to become non-empty when
+retrieving an element, and wait for space to become available in the queue when storing an element.
+trying to read from an empty queue will block until the queue is non-empty.
+trying to put into a full queue will block until the queue has available space.
+
+Runtime.getRuntime().availableProcessors()
+Executors.newFixedThreadPool(size)
+
+CountDownLatch: A synchronization aid that allows one or more threads to wait until a set of
+operations being performed in other threads completes.
+
+CyclicBarrier: A synchronization aid that allows a set of threads to all wait for each other to
+reach a common barrier point. CyclicBarriers are useful in programs involving a fixed sized party of
+threads that must occasionally wait for each other. The barrier is called cyclic because it can be
+re-used after the waiting threads are released.
+===
+major difference: CountDownLatch-->NumberOfCalls, CyclicBarrier-->NumberOfThreads
+
+Instant instant = Instant.ofEpochSecond(epochsecond);
+ZonedDateTime.ofInstant(instant, ZoneId.of("GMT"));
