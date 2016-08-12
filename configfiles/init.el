@@ -462,6 +462,8 @@ by using nxml's indentation rules."
      (add-hook 'before-save-hook 'gofmt-before-save nil t)
      (flycheck-mode)
      (go-eldoc-setup)
+     (define-key go-mode-map (kbd "C-c C-n") 'flycheck-next-error)
+     (define-key go-mode-map (kbd "C-c C-p") 'flycheck-previous-error)
      (define-key go-mode-map (kbd "M-.") 'godef-jump)
      (define-key go-mode-map (kbd "M-,") 'pop-tag-mark)))
 (progn

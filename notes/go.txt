@@ -86,3 +86,58 @@ goroutine: an independently executing function
 type T struct{}
 var _ I = T{}       // Verify that T implements I.
 var _ I = (*T)(nil) // Verify that *T implements I.
+
+creating a slice from an array:
+slice := array[:]
+
+#remove packages (archives/binaries), source code to be removed manually
+go clean -i -n github.com/motemen/gore
+
+To import a package solely for its side-effects (initialization), use the blank identifier as
+explicit package name:
+import _ "github.com/mattn/go-sqlite3"
+-----
+In the case of go-sqlite3, the underscore import is used for the side-effect of registering the
+sqlite3 driver as a database driver in the init() function, without importing any other functions:
+
+keep unused import and variable:
+var _ = fmt.Printf // For debugging; delete when done.
+_ = fd
+
+Import declaration          Local name of Sin
+=============================================
+import   "lib/math"         math.Sin
+import m "lib/math"         m.Sin
+import . "lib/math"         Sin
+
+#to grow a slice to its capacity:
+s = s[:cap(s)]
+
+cap(slice)
+len(slice)
+
+a string is a slice of bytes
+indexing a string accesses individual bytes
+====
+fmr.Printf("% x\n", aString)  // put a space between hex numbers
+
+formatting directive
+%x : hex
+% x : put a space between hex numbers
+%q : quoted, escape any non-printable byte sequences
++%q : quoted, escape any non-printable byte sequences and non-ascii bytes
+%#U : show Unicode value and its printed representation
+rune: mean code point
+
+raw string: `string`
+
+an e-acute can be represented as a single rune (U+00e9) or
+an e followed by an acute accent U+0301
+--> key takeaway: a character can span multiple runes
+
+(*T)(nil) is a conversion
+Conversions are expressions of the form T(x) where T is a type and x is an expression that can be converted to type T.
+https://golang.org/ref/spec#Conversions
+
+#check to see if a type implements an interface
+var _ anInterface = (*aStruct)(nil)

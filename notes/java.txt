@@ -341,3 +341,24 @@ major difference: CountDownLatch-->NumberOfCalls, CyclicBarrier-->NumberOfThread
 
 Instant instant = Instant.ofEpochSecond(epochsecond);
 ZonedDateTime.ofInstant(instant, ZoneId.of("GMT"));
+
+A Java agent is a Java program that executes just prior to the start of another Java application
+(the “target” application), affording that agent the opportunity to modify the target application,
+or the environment in which it runs
+===
+1. Implement a static premain (as an analogy to main) method, like this:
+import java.lang.instrument.Instrumentation;
+
+class Example {
+    public static void premain(String args, Instrumentation inst) {
+        ...
+    }
+}
+2. Create a manifest file (say, manifest.txt) marking this class for pre-main execution. Its contents are:
+Premain-Class: Example
+3. Compile the class and package this class into a JAR archive:
+javac Example.java
+jar cmf manifest.txt yourAwesomeAgent.jar *.class
+4. Execute your JVM whith -javaagent parameter, like this:
+java -javaagent:yourAwesomeAgent.jar -jar yourApp.jar
+=====

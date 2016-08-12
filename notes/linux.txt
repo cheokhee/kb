@@ -1237,3 +1237,7 @@ bash testing:
 power management tool: tlp, powertop
 
 cpufrequtils (package): cpufreq-info command
+
+core dump setting:
+ulimit -c
+cat /proc/sys/kernel/core_pattern
