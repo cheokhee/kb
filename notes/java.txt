@@ -224,6 +224,7 @@ stream.collect(Collectors.joining(","))
 stream.collect(Collectors.groupingBy())
 stream.collect(Collectors.partitionBy())
 stream.forEach(System.out::println)
+stream.forEach(x -> {System.out.println("string: " + x);});
 ====
 stream operations: intermediate (return another stream) or terminal
 intermediate: filter, map, flatMap, peek, distinct, sorted, limit, skip
@@ -362,3 +363,5 @@ jar cmf manifest.txt yourAwesomeAgent.jar *.class
 4. Execute your JVM whith -javaagent parameter, like this:
 java -javaagent:yourAwesomeAgent.jar -jar yourApp.jar
 =====
+
+The JavaBeans spec defines a java property as a pair of getFoo/setFoo methods.

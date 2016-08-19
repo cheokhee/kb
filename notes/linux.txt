@@ -748,7 +748,7 @@ OR
 sudo perf record -F 99 -a -g -p PID sleep 30
 #2. create method mappings : create a file called /tmp/perf-pid.map
     this file is used to translate memory address into function and variable names (used by perf report/script)
-/home/heech/gitrepo/perf-map-agent/create-java-perf-map.sh <pid>
+/home/heech/gitrepo/perf-map-agent/bin/create-java-perf-map.sh <pid>
 #3. generate flame graph (need perf.data in current directory)
 sudo perf script | ~/gitrepo/FlameGraph/stackcollapse-perf.pl | ~/gitrepo/FlameGraph/flamegraph.pl --color=java --hash > flamegraph.svg
 # text report

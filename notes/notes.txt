@@ -8885,3 +8885,13 @@ data is flowing through the system.
 Memcached (pronunciation: mem-cash-dee) is a general-purpose distributed memory caching system. It
 is often used to speed up dynamic database-driven websites by caching data and objects in RAM to
 reduce the number of times an external data source (such as a database or API) must be read.
+
+an opcode (abbreviated from operation code, also known as instruction syllable or opstrings.) is the
+portion of a machine language instruction that specifies the operation to be performed. Beside the
+opcode itself, most instructions also specify the data they will process, in the form of operands.
+===
+opcode: a number that specifies the operation to be performed.
+a mnemonic is a symbolic name for a single executable machine language instruction (an opcode),
+
+Scala traits (as interfaces). can have both abstract and concrete methods. a class
+can implement multiple traits.
