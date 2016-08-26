@@ -8698,7 +8698,7 @@ ideas over syntax
 orthogonality: orthogonal components don't interfere with each other.
 
 covariance: enable you to use a more specific type than originally specified. Base b = new Derived()
-contravariance: enable you to use a less specified type than originally specified. Derived d = new Base()
+contravariance: enable you to use a less specific type than originally specified. Derived d = new Base()
 invariance: can only use the specified type
 
 locale: has a language code and a country code. eg. en_US
@@ -8895,3 +8895,60 @@ a mnemonic is a symbolic name for a single executable machine language instructi
 
 Scala traits (as interfaces). can have both abstract and concrete methods. a class
 can implement multiple traits.
+
+Continuation-passing style, or CPS more shortly, is a style of programming sometimes employed in
+FunctionalProgramming languages. Its idea is, instead of having a function return a value, let a
+function take as an argument another function (the continuation) to which the result is given as an
+argument.
+====
+example in Scheme:
+ (define myfunc (lambda (x) (do-something-with x)))
+ (define myfunc_CPS (lambda (x k) (k (do-something-with x))))
+
+rolling release or rolling update development model refers to a continually developing software
+system; as opposed to a standard release development model which uses software versions that
+must be reinstalled over the previous version.
+
+In web development, a polyfill is code that implements a feature on web browsers that do not support
+the feature. Most often, it refers to a JavaScript library that implements an HTML5 web standard,
+
+in software engineering, a compatibility layer is an interface that allows binaries for a legacy or
+foreign system to run on a host system. This translates system calls for the foreign system into
+native system calls for the host system. With some libraries for the foreign system, this will often
+be sufficient to run foreign binaries on the host system.
+
+==shim
+In computer programming, a shim is a small library that transparently intercepts API calls and
+changes the arguments passed, handles the operation itself, or redirects the operation
+elsewhere.
+Shims can be used to support an old API in a newer environment, or a new API in an
+older environment. Shims can also be used for running programs on different software platforms than
+they were developed for.
+=====
+Shims for older APIs typically come about when the behavior of an API changes, thereby causing
+compatibility issues for older applications which still rely on the older functionality; in such
+cases, the older API can still be supported by a thin compatibility layer on top of the newer
+code. Shims for newer APIs are defined as: "a shim is a library that brings a new API to an older
+environment, using only the means of that environment."
+
+Step Potential: Voltage between the feet of a person
+Touch Potential: Voltage between energized object and feet of a person (the person's hand is
+in contact with the energized object)
+
+GPL: free refers to freedom
+===
+The GPL does not require you to release your modified version, or any part of it. You are free to
+make modifications and use them privately, without ever releasing them. This applies to
+organizations (including companies), too; an organization can make a modified version and use it
+internally without ever releasing it outside the organization. But if you release the modified
+version to the public in some way, the GPL requires you to make the modified source code available
+to the program's users, under the GPL. Thus, the GPL gives permission to release the modified
+program in certain ways, and not in other ways; but the decision of whether to release it is up to
+you.
+===
+The GPL gives him permission to make and redistribute copies of the program if and when he chooses
+to do so. He also has the right not to redistribute the program, when that is what he chooses.
+===
+Even once a developer has distributed a binary or executable copy of their program, they may not
+need to share their source code unless the person receiving the program specifically asks for a copy
+of the source code.

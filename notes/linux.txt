@@ -547,6 +547,7 @@ pmap: show memory map of a process
 /proc/[pid]/smaps
 /proc/[pid]/status
 /proc/[pid]/task/[threadid] #tgid is process id, pid is thread id
+/proc/[pid]/comm : show program name
 /proc/meminfo
 smem program
 
@@ -1241,3 +1242,43 @@ cpufrequtils (package): cpufreq-info command
 core dump setting:
 ulimit -c
 cat /proc/sys/kernel/core_pattern
+
+useful commands from moreutils:
+combine, errno, ifdata, isutf8, sponge, ts, vidir, vipe, zrun
+
+nice -n 19 <program>
+renice -n 19 <pid>
+ionice -c 3 cp bigfile.mp4 backup.mp4
+
+take a screen shot of a video at 5:12 into the video
+mplayer -vo png -ss 5:12 -frames 1 my-video.mp4
+
+hide your processes from other users:
+after this command, only my processes are under /proc
+$ mount -o remount /proc -o hidepid=2
+
+get location of IP address
+curl ipinfo.io/216.58.192.4
+
+mplayer -vo aa MovieName.avi #black and white
+mplayer -vo caca MovieName.avi #color
+====
+exif image_name.jpg
+====
+mp3info music_file.mp3
+====
+convert original.jpg -resize 50% -quality 95 smaller.jpg #shrink by 50%
+convert original.jpg -resize 200% -quality 95 bigger.jpg #enlarge
+convert ships.jpg -rotate 30 tilt-ships.jpg #rotate
+convert ships.jpg -background none -rotate 90 turn-ships.jpg #rotate
+== make a banner
+convert -background white -fill blue -font Courier -pointsize 32 label:'Happy Birthday' banner.jpg
+== read text from a file
+convert -background white -fill black -font Courier -pointsize 12 label:@message.txt banner.gif
+
+record your desktop session (video)
+# -s : resolution, alternative: -s 1024x768
+ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq ~/my_video.mpg
+
+# print sensors info
+sensors

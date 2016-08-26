@@ -452,7 +452,7 @@ by using nxml's indentation rules."
   '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
 (global-set-key (kbd "M-i") 'helm-swoop)
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-(load-file "~/.emacs.d/cheok/oracle.elc")
+(load-file "~/.emacs.d/cheok/go-guru.elc")
 (add-hook 'go-mode-hook
    (lambda ()
      (setq gofmt-command "goimports")

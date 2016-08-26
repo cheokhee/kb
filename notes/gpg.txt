@@ -43,7 +43,19 @@ OR $ gpg --verify linux-4.4.tar.sign linux-4.4.tar.xz
 gpg: Signature made Sun 10 Jan 2016 03:09:18 PM PST using RSA key ID 00411886
 gpg: Can't check signature: public key not found
 # get the public key
-#2 $ gpg --keyserver pgp.mit.edu --recv-key 00411886
+#2 $ gpg --keyserver pgp.mit.edu --recv-keys 00411886
 #3 $ gpg --import mk_public_key.asc
 #4 optional: gpg --fingerprint EC0FEA84
 #5: verify again
+
+verify pgp signature (2)
+$ gpg --verify sha256sum.txt.gpg sha256sum.txt
+gpg: Signature made Wed 06 Jan 2016 08:06:20 AM PST using DSA key ID 0FF405B2
+gpg: Can't check signature: public key not found
+# get the key
+gpg --keyserver pgp.mit.edu --recv-keys 0FF405B2
+
+sha256sum -c sha256sum.txt
+===
+sha256sum.txt contains a number of lines. sample line:
+46b8a14826a53f4cacf56d1132a5184c2132f274aef8103e5e8e8cae9e1cfde0  linuxmint-17.3-cinnamon-32bit.iso

@@ -365,3 +365,7 @@ java -javaagent:yourAwesomeAgent.jar -jar yourApp.jar
 =====
 
 The JavaBeans spec defines a java property as a pair of getFoo/setFoo methods.
+
+try with resources : resource is automatically closed
+try (OutputStream s = new OutputStream(); ....) {
+}

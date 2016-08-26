@@ -43,3 +43,8 @@ openssl prime 4
 /usr/lib/ssl/openssl.cnf
 /etc/ssl/certs/
 /usr/lib/ssl/misc
+
+encrypting file:
+openssl enc -e -aes256 -in font2.txt -out font2-enc.txt
+--decrypting
+openssl enc -d -aes256 -in font2-enc.txt -out new.txt
