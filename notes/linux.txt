@@ -1175,6 +1175,8 @@ TZ=UTC date --date='@1452832200'
 #convert epoch second to a date in UTC (ISO format)
 TZ=UTC date --date=@1452832200 +%Y-%m-%dT%H:%M:%S.000Z
 output: 2016-01-15T04:30:00.000Z
+#convert date to epoch second
+TZ=UTC date --date="2015-08-31 13:30:15" +%s
 
 getconf PAGESIZE #get page size
 

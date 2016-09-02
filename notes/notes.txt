@@ -4866,6 +4866,8 @@ your code calling it.
 --
 non-IoC: your code is in control
 IoC: your code is not in control
+===
+IoC: the caller controls the execution order, but the program logic is in the called routines.
 
 do a number on
 to damage or ruin something; to destroy something
@@ -6245,6 +6247,7 @@ Interface segregation: a client should not be forced to implement interfaces it 
 Dependency inversion: high-level classes should not depend on low-level classes. both should
 depend on abstractions. For example: Manager class has an inst var of class Worker (bad).
 Should have an inst var of interface IWorker. The Worker class implements IWorker.
+--> BEST: don't ask, let framework give it to you
 
 Reference equality: == (java)
 Value equality: equals() (java)
@@ -8448,7 +8451,7 @@ architectures are invariably smaller than executables for register architectures
 register-based: operands and results are stored in register (arithmetic operation)
 
 things to do when things go negative:
-reframe, rephrase, revist, restat, request, rebalance, reorganize
+reframe, rephrase, revisit, restate, request, rebalance, reorganize
 
 page fault: When a process attempts to access a virtual address that is not currently in memory.
 
@@ -8952,3 +8955,26 @@ to do so. He also has the right not to redistribute the program, when that is wh
 Even once a developer has distributed a binary or executable copy of their program, they may not
 need to share their source code unless the person receiving the program specifically asks for a copy
 of the source code.
+
+interview questions:
+why is this position available? if new position, why was it created?
+how will my success be measured?
+make sure to meet the person to whom I will be reporting
+How is performance determined in this role?
+Why did you choose to interview me?
+What am I expected to accomplish in my first thirty days
+hourly requirements per week
+
+A fire riser room is a room in a building where the fire pump and automatic sprinklers are
+located. The fire riser room also contains the primary water input for the sprinkler system.
+==
+fire riser is a pipe connected to a sprinkler system usually in a commercial building. In the event
+of a fire the fire brigade will connect water to this and operate the fire suppression sprinklers on
+the upper floors
+
+make small talk: FORM
+F-amily: Do you have kids? Where is your family from? How long have you lived around here?
+O-ccupation: What do you do for a living?  What is that like?  Have you always been a circus acrobat?
+R-ecreation: What do you guys do for fun?  How long have you been involved in SCA?  Where do you buy chain-mail or did you make it yourself?
+M-oney: What happened with the price of gas?  Did you see that last school bond issue? How do you
+think the new liquor store laws will shake out?  Anybody you know lose their job lately?
