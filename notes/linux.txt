@@ -1171,7 +1171,7 @@ blockdev --getbsz #block size
 
 TZ=UTC date # get a date in UTC
 #convert epoch second to a date in UTC
-TZ=UTC date --date='@1452832200'
+TZ=UTC date --date=@1452832200
 #convert epoch second to a date in UTC (ISO format)
 TZ=UTC date --date=@1452832200 +%Y-%m-%dT%H:%M:%S.000Z
 output: 2016-01-15T04:30:00.000Z

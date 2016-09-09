@@ -369,6 +369,59 @@ The JavaBeans spec defines a java property as a pair of getFoo/setFoo methods.
 try with resources : resource is automatically closed
 try (OutputStream s = new OutputStream(); ....) {
 }
+try with resource: class must implement AutoCloseable interface
 
 java.nio : Path, Paths, FileSystem, Files, WatchService,
 java.nio: asynchronous I/O
+
+Guice: the reference implementation for dependency injection in Java
+
+classloaders: bootstrap, extension, application, custom classloader
+
+==an alternative to reflection (java 7)
+MethodHandle: in java.lang.invoke: a new way for invoking methods indirectly.
+MethodType: an object that represents the type signature of a method.
+MethodType.methodType(return-type.class, arg0-type.class, arg1-type.class, ...)
+===
+MethodType mtToString = MethodType.methodType(String.class);
+MethodHandles.Lookup lk = MethodHandles.lookup();
+try {
+	mt = lk.findVirtual(MethodHandleTest.class, "toString", mtToString);
+} catch (NoSuchMethodException | IllegalAccessException e) {
+	e.printStackTrace();
+}
+try {
+	String ret = (String) mt.invokeExact(new MethodHandleTest());
+	System.out.println("cheok: " + ret);
+} catch (Throwable e) {
+	e.printStackTrace();
+}
+=====
+
+java timing: most systems have several clocks
+millisecond timings are safe and reliable
+higher-precision timing need careful handling to avoid drift
+
+JVM internal names for types:
+[Ljava.lang.String : [ means array of, L<type name> : reference type
+B: byte
+C: char
+D: double
+F: float
+I: int
+J: long
+S: short
+Z: boolean
+
+JVM switch:
+-X: non-standard, eg. -Xms100m
+-XX: extended, eg. -XX:hashCode=5, -XX:+UseG1GC, -XX:-OmitStackTraceInFastThrow, boolean switch: +/- to turn on/off
+
+GC flags:
+-XX:+PrintGCDetails
+-XX:+PrintGCDateStamps
+-XX:+PrintGCApplicationConcurrentTime
+
+jvisualvm: visualizing memory usage
+
+G1 garbage collector: has a pause goal.

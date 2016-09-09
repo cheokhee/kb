@@ -123,3 +123,6 @@ sending email:
   C-c C-s  send the message but don't exit the message buffer
   C-c C-b  go to the start of the message
   C-c C-z  kill text from point until end of buffer
+
+#calculator
+(calc-eval "1/2")

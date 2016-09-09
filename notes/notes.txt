@@ -6935,6 +6935,9 @@ critical section: when a shared resource is being accessed.
 semaphore: a variable for controlling access to a common resource.
 ====
 synchronization: controlling access to a shared resource.
+-----
+synchronizes-with: means that an action will synchronize its view of an object with main memory
+before continuing
 
 
 je ne sais quoi: a quality that is difficult to express
@@ -8964,6 +8967,31 @@ How is performance determined in this role?
 Why did you choose to interview me?
 What am I expected to accomplish in my first thirty days
 hourly requirements per week
+====
+Based on the job description it isn’t clear what the focus of the job actually is. Would you mind
+giving me a quick overview of the job and some of the key challenges the person hired will be
+expected to handle during the first year? Based on this, I’d like to give you an overview of some of
+my accomplishments that best relate to what you need done.
+===
+What are the measures of success?
+What’s the current status of the project?
+What happened to the person in the role or is it a new position?
+What resources are available?
+Who’s on the team?
+What’s the quality of the team?
+What are the biggest technical or business challenges involved?
+What needs to be done first?
+What’s the timeframe for completing this project?
+===
+SAFW (say a few words): 2 minute summary
+S: make an opening statement
+A: amplify the statement with some clarifying info
+F: provide a few examples with specific details
+W: wrap-up
+===
+“Given what we’ve discussed today, do you think my background fits with your job needs? If so, when
+do you think another meeting will be arranged and who will it be with? If not, is there something in
+my background you don’t feel fits your job needs? Would you mind sharing that with me?”
 
 A fire riser room is a room in a building where the fire pump and automatic sprinklers are
 located. The fire riser room also contains the primary water input for the sprinkler system.
@@ -8978,3 +9006,47 @@ O-ccupation: What do you do for a living?  What is that like?  Have you always b
 R-ecreation: What do you guys do for fun?  How long have you been involved in SCA?  Where do you buy chain-mail or did you make it yourself?
 M-oney: What happened with the price of gas?  Did you see that last school bond issue? How do you
 think the new liquor store laws will shake out?  Anybody you know lose their job lately?
+
+latency: the time needed to process a single work-unit at a given workload (response time)
+throughput: the number of work units that a system can perform in a time period.
+utilization: the percentage of available resources that are used to handle work units
+efficiency: throughput divided by resources used.
+capacity: the number of work units that can be in flight through the system at any time.
+
+hardware time sources:
+RTC (real-time clock), 8254, TSC (time stamp counter), HPET (high precision event timers)
+TSC: counts how many cycles the CPU has run. the source for nanoTime() in java. per CPU
+nanoTime() is not reliable over long periods of time. the thread can get scheduled on a different core.
+
+precision: a measure of the amount of random noise in a given environment. a timing is precise
+if repeated measurements give a narrow spread around the same value.
+---
+accuracy: the ability to obtain a value close to the true value.
+
+Operations transform resource or data inputs into desired goods, services, or results, and create
+and deliver value to the customers.
+===
+Operations: Activities involved in the day to day functions of the business conducted for the purpose of generating profits.
+===
+Operations: all the tasks and activities that an organization undertakes to produce the goods/services.
+
+escape analysis is a method for determining the dynamic scope of pointers - where in the program a
+pointer can be accessed. It is related to pointer analysis and shape analysis.
+===
+If a subroutine allocates an object and returns a pointer to it, the object can be accessed from
+undetermined places in the program — the pointer has "escaped". Pointers can also escape if they are
+stored in global variables or other data structures that, in turn, escape the current procedure.
+Escape analysis determines all the places where a pointer can be stored and whether the lifetime of
+the pointer can be proven to be restricted only to the current procedure and/or thread.
+
+mark-and-sweep: start from a set of known live objects, walk through the tree of references from the live
+objects, and mark as live any objects found en route. everything left is garbage.
+
+BEDMAS: brackets, exponents, division, multiplication, addition, subtraction
+the standard order of operations for arithmetic
+
+string interpolation is the process of evaluating a string literal containing one or more
+placeholders
+
+function literal: a representation of a block of code that can be passed around as a value and manipulated
+like any other value.
