@@ -126,6 +126,11 @@ find vsid without incoming HAS relationship:
 match (a:VSID) where not (a)<-[:HAS]-() return a limit 1
 match (a:VSID) where not (a)<-[:HAS]-() and (a)-[:CONNECTED_TO]-() return count(a)
 
+#return start and end node of relationship
+match ()-[r:ITM_CONNECTED_TO]->() return labels(startNode(r)),labels(endNode(r)) limit 1;
+#compare label
+match ()-[r:ITM_CONNECTED_TO]->() where labels(startNode(r))=["FromITMFacility"] return r limit 1;
+
 MATCH (n:Facility) RETURN n LIMIT 25
 
 #find all labels

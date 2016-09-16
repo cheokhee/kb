@@ -6248,6 +6248,7 @@ Dependency inversion: high-level classes should not depend on low-level classes.
 depend on abstractions. For example: Manager class has an inst var of class Worker (bad).
 Should have an inst var of interface IWorker. The Worker class implements IWorker.
 --> BEST: don't ask, let framework give it to you
+--> another best: don't depend on concrete implementation, depend on interface
 
 Reference equality: == (java)
 Value equality: equals() (java)
@@ -7748,6 +7749,8 @@ Let G be a connected graph. A spanning tree in G is a subgraph of G that include
 and is also a tree. The edges of the tree are called branches.
 minimum spanning tree of a weighted graph:
 the spanning tree of G whose edges sum to minimum weight.
+====
+Tree is a special case/form of graph having no loops, no circuits and no self-loops.
 
 framebuffer: The portion of memory reserved for holding the complete bit-mapped image that is sent to the monitor.
 framebuffer: a part of video memory containing a current video frame,
@@ -8620,6 +8623,7 @@ central line, aka central venous catheter (CVC): inserted in the neck or chest
 
 technical debt: refer to the eventual consequences of any system design, software architecture or
 software development within a codebase.
+technical debt: the cost you pay later when you make a quick-and-dirty design decision now.
 
 string interpolation (or variable interpolation, variable substitution, or variable expansion) is
 the process of evaluating a string literal containing one or more placeholders, yielding a result in
@@ -8704,8 +8708,25 @@ ideas over syntax
 orthogonality: orthogonal components don't interfere with each other.
 
 covariance: enable you to use a more specific type than originally specified. Base b = new Derived()
+in OCaml:
+covariance: list of Cat is a subtype of list of Animal because the list constructor is covariant
+=====
 contravariance: enable you to use a less specific type than originally specified. Derived d = new Base()
 invariance: can only use the specified type
+====
+a typing rule or type constructor is
+covariant if it preserves the ordering of types (eg. list of Cat is a subtype of list of Animal)
+contravariant: it it reverses the ordering
+invariant: if none applies
+====
+read-only data types (sources) can be covariant, write-only date types (sinks) can be contravariant.
+mutable data types which act as both sources and sinks should be invariant.
+====
+function type constructor is contravariant in the input type and covariant in the output type.
+--> be liberal in what you accept and conservative in what you produce
+inheritance: overriding method should return a more specific type (return type covariance), and
+accept a more general argument (argument type contravariance).
+Java, C++, Scala support covariant return type and invariant argument type
 
 locale: has a language code and a country code. eg. en_US
 
@@ -9050,3 +9071,78 @@ placeholders
 
 function literal: a representation of a block of code that can be passed around as a value and manipulated
 like any other value.
+
+index-free adjacency: a node can traverse to its neighbors without using indices.
+
+interpolation is a method of constructing new data points within the range of a discrete set of
+known data points.
+
+Mode (statistics) The mode is the value that appears most often in a set of data.
+mean: the average
+===
+The median is the value separating the higher half of a data sample, a population, or a probability
+distribution, from the lower half. In simple terms, it may be thought of as the "middle" value of a
+data set. For example, in the data set {1, 3, 3, 6, 7, 8, 9}, the median is 6, the fourth number in
+the sample.
+===
+variance is the expectation of the squared deviation of a random variable from its mean,
+===
+standard deviation (SD, also represented by the Greek letter sigma or the Latin letter s) is a
+measure that is used to quantify the amount of variation or dispersion of a set of data values.
+
+"surface area" of a language is the number of keywords and independent language constructs that
+a developer must master to be productive in the language.
+
+TDD: write a test before writing the code, and the refactor the implementation as needed.
+
+levels of TDD testing:
+unit: verify code in a class. eg. test method in BigDecimal class
+integration: verify interaction between classes.
+system: verify a running system.
+system integration: verify a running system, including third-party components
+
+test double:
+1. dummy: an object that is passed around but never used.
+2. stub: an object that always return the same canned response
+3. fake: an actual working implementation (not of production quality) that can replace
+   the real implementation.
+4. mock: an object that represents a series of expectations and provides canned response
+   you tell it the sequence of calls to expect and how it should respond to each one.
+
+tuples (aka value objects): the entire values are used when they are passed (instead of
+passing references). they are like struct in C.
+
+deployment framework: Capistrano, Fabric
+workload management tool: Mesos, Fleet
+
+binary method: a method where the type of the argument is the same as the type
+of the object on which the method is called. eg. compareTo(), equals().
+
+“Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in
+information?” — T.S. Eliot
+
+true learning involves a permanent change in how you see and act in the world. The accumulation of
+information isn’t learning.
+
+“When the student is ready the teacher will appear. When the student is truly ready, the teacher
+will disappear.” — Lao Tzu
+
+Knowledge is only potential power. It becomes power only when, and if, it is organized into definite
+plans of action.
+
+When performance is measured, performance improves. When performance is measured and reported, the
+rate of improvement accelerates.” — Thomas S. Monson
+===
+Clarity is what creates motivation.
+Tracking is what creates awareness.
+Reporting is what creates accountability.
+
+Specifically, self-regulation works in three ways:
+Self-monitoring determines how well you are currently performing.
+Self-evaluation determines how well you are performing comparative to your goals.
+===
+Self-reaction determines how you think and feel comparative to your goals. When you feel
+dissatisfied with your performance, self-reaction pushes you to reallocate your motivation
+resources.
+===
+accountability improves performance.

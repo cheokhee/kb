@@ -162,3 +162,6 @@ $ls /usr/src/app/config # one file
 default-config.json
 ---
 conclusion: data volume shadows original directory
+
+docker swarm: provide clustering capabilities to turn a group of Docker engines into a single,
+virtual Docker engine.

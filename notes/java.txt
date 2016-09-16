@@ -364,6 +364,9 @@ jar cmf manifest.txt yourAwesomeAgent.jar *.class
 java -javaagent:yourAwesomeAgent.jar -jar yourApp.jar
 =====
 
+bytecode manipulation:
+java -cp <ASMstuff> org.objectweb.asm.util.TraceClassVisitor Helloworld.class
+
 The JavaBeans spec defines a java property as a pair of getFoo/setFoo methods.
 
 try with resources : resource is automatically closed
@@ -425,3 +428,56 @@ GC flags:
 jvisualvm: visualizing memory usage
 
 G1 garbage collector: has a pause goal.
+
+is List<String> a subtype of List<Object>? in java, the answer is no.
+how to make it covariant and contravariant:
+===
+		// covariance: can read, but cannot write
+		List<? extends Number> myNums = new ArrayList<Integer>();
+		Number number = myNums.get(0);
+		myNums.add(45); // compiler error
+
+		// contravariance: can write, but cannot read
+		List<? super Number> myNums2 = new ArrayList<Object>();
+		Number n2 = myNums2.get(0); // compiler error
+		myNums2.add(45);
+===
+summary: use covariance when we only intend to take generic values out of a structure. use contravariance
+when we only intend to put generic values into a structure
+
+is Array<String> a subtype of Array<Object>? in java, the answer is yes, because arrays are covariant
+
+reifiable type:
+a reifiable type is one whose runtime representation contains the same information as its compile-time representation
+a non-reifiable type is one whose runtime representation contains less information than its compile-time representation
+=====
+Arrays are reifiable as arrays remains as it is at runtime While generic information attached with List is erased at runtime by erasures
+in other words:
+String[] str = new String[2]
+will remain the same at runtime
+=====
+List is non-reifiable:
+So List<String> list=new ArrayList<String>
+at runtime will be
+List list=new ArrayList();
+===
+all generic information is erased. This is done to support the legacy code that is written without using generics.
+===
+A reifiable type is a type whose type information is fully available at runtime. This includes
+primitives, non-generic types, raw types, and invocations of unbound wildcards.
+===
+Non-reifiable types are types where information has been removed at compile-time by type erasure —
+invocations of generic types that are not defined as unbounded wildcards. A non-reifiable type does
+not have all of its information available at runtime. Examples of non-reifiable types are
+List<String> and List<Number>; the JVM cannot tell the difference between these types at runtime.
+
+Heap pollution occurs when a variable of a parameterized type refers to an object that is not of
+that parameterized type. This situation occurs if the program performed some operation that gives
+rise to an unchecked warning at compile-time.
+
+artifact manager: allow you to share artifact with your team, but not the outside world. used with maven
+
+glob patterns used NIO.2 in java 7:
+* : zero or more characters
+** : matches zero or more characters across directories
+? : matches exactly one character

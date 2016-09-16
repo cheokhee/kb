@@ -277,6 +277,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir empty
 #remove leading/trailing spaces from a file (in place)
 sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' <file>
 
+Replace text on commented lines
+sed -n '/^\s*#/s/test/wow/p' blah.txt
+Replace text, except on commented lines
+sed -n '/^\s*#/!s/test/wow/p' blah.txt
+
 #insert a file after a pattern
 sed '/INCLUDE/ r foo.h' # insert foo.h after 'INCLUDE'
 
@@ -1284,3 +1289,12 @@ ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq ~/my_video.mpg
 
 # print sensors info
 sensors
+
+cgroups (control groups): allow you to set limits on resources for processes and their children.
+
+mount namespace: make it look like you have the entire filesystem namespace
+UTS (unix time sharing) namespace: make it look like you have your own hostname and domain name.
+IPC namespace: you have your own message queues
+PID namespace: you have your own process ID
+network namespace: you have your own network devices
+user namespace: you have your own user id
