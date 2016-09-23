@@ -119,7 +119,11 @@ push to private registry:
 3. docker load < /tmp/mynewimage.tar
 
 data volume container
+=== purpose: to share data between containers
 doc create -v /usr/src/app/logs --name sslog debian:latest
+
+docker volume: directories/files that are not part of the container's union file system.
+they are just normal directories/files that are bind mounted into the container.
 
 #mount a host directory as a data volume
 docker run -P -d --name cntr-name -v /a/log:/usr/src/app/logs -v ${PWD}/target/config:/usr/src/app/config image:0.1.0
@@ -164,4 +168,19 @@ default-config.json
 conclusion: data volume shadows original directory
 
 docker swarm: provide clustering capabilities to turn a group of Docker engines into a single,
-virtual Docker engine.
+virtual Docker engine. allow users to treat a group of hosts as a unified resource.
+===
+docker compose: for building and running applications composed of multiple Docker containers
+(indended for development only)
+===
+docker machine: install and configure docker hosts on local/remote resources. used to provision resources.
+
+ONBUILD: delay execution of certain commands until a child image is built that inherits
+the onbuild image.
+
+container management: Rancher, Clocker, Tutum
+container orchestration: kubenetes, Mesos
+
+resources that are namespaced are mapped to a different value on the host. eg. PID 1 in
+the container is not PID 1 in the host.
+resources that are not namespaced are the same on the host and the container.

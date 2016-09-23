@@ -6031,7 +6031,25 @@ Chinese calendar: 7 intercalary months every 19 years
 
 Network address translation: the process of modifying IP address info in a network packet
  while the packet is in transit.
+==> a way of sharing Internet IP addresses among many computers on a private network.
 Typical: enable multiple hosts on a private network to access the Internet using a single public IP address.
+===
+How NAT works:
+the firewall has a pool of valid public IP addresses.
+when it receives a packet from a computer in a private network, the firewall replaces the original
+source address with one of the IP addresses from the pool, records the original and replacement
+IP addresses in a translation table, then forwards the modified packet to the internet.
+---
+True NAT is one-to-one, meaning each private IP address must be mapped to exactly one public IP address.
+shortcoming: once the pool of public IP addresses is used up, additional users cannot connect to internet.
+---------
+IP Masquerade is a form of (1-to-many) Network Address Translation or NAT which allows internally connected
+computers that do not have one or more registered Internet IP addresses to communicate to the
+Internet via the Linux server's Internet IP address.
+To other machines on the Internet, the outgoing traffic will appear to be from the IP MASQ Linux
+server itself.
+It is 1-to-many NAT because it only uses one public IP address for multiple machines.
+It works by changing the IP address and port number in the network packet.
 
 Port forwarding: a technique for allowing a remote computer to connect to a computer in a private network.
 When configuring port forwarding, the network administrator sets aside one port number on the gateway
@@ -7736,7 +7754,7 @@ template engine: generate HTML from a template file and application data.
 Web templates are simply text files that contain variables and control flow statements
 
 Classless Inter-Domain Routing (CIDR): allocate IP address space on any address bit boundary
-e.g. 192.168.2.0/24 . 24 is the number of bits in the network address or network/routing mask.
+e.g. 192.168.2.0/24 . 24 is the number of bits in the network address or network/routing mask (or netmask).
 
 software-defined networking (SDN): the decoupling of the network control plane from the network forwarding plane (also called data plane)
 data plane: packet switching and forwarding
@@ -8694,6 +8712,7 @@ short space of time.
 the frame rate is less than the rotational frequency of the wheel
 
 frame rate: the frequency at which consecutive images are displayed.
+frame: an electronically coded still image
 
 flicker fusion threshold
 the frequency at which an intermittent light stimulus appears to be completely steady to the average human observer.
@@ -9113,7 +9132,7 @@ tuples (aka value objects): the entire values are used when they are passed (ins
 passing references). they are like struct in C.
 
 deployment framework: Capistrano, Fabric
-workload management tool: Mesos, Fleet
+workload management tool: Apache Mesos, Fleet
 
 binary method: a method where the type of the argument is the same as the type
 of the object on which the method is called. eg. compareTo(), equals().
@@ -9146,3 +9165,23 @@ dissatisfied with your performance, self-reaction pushes you to reallocate your 
 resources.
 ===
 accountability improves performance.
+
+The phi phenomenon is the optical illusion of perceiving a series of still images, when viewed in
+rapid succession, as continuous motion.
+
+service discovery: the process of automatically providing clients of a service with connection
+information for an appropriate instance of that service.
+
+etcd/SkyDNS/Consul: a key-value store for service discovery
+
+A network bridge is a computer networking device that creates a single aggregate network from
+multiple communication networks or network segments. This function is called network bridging.[1]
+Bridging is distinct from routing, which allows multiple different networks to communicate
+independently while remaining separate
+
+clustering: grouping hosts and networking them together. a cluster should feel like a single
+resource rather a collection of disparate machines.
+===
+orchestration: making all the pieces work together.
+===
+management: providing oversight into the system and supporting various administrative tasks.

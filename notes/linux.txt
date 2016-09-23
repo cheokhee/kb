@@ -1129,7 +1129,7 @@ after this, the same contents are available in two places.
 ===
 if there are mount points under olddir, their contents are not visible under newdir unless use --rbind
 use mount --rbind olddir newdir #replicate mount points under olddir
-===
+=== BEST:
 A bind mount is an alternate view of a directory tree.
 bind mount provides a view of a directory tree at a different location.
 ====
@@ -1298,3 +1298,10 @@ IPC namespace: you have your own message queues
 PID namespace: you have your own process ID
 network namespace: you have your own network devices
 user namespace: you have your own user id
+
+apparmor: kernel enhancement to confine programs to a limited set of resources
+program: apparmor_status
+
+#show networking info
+networkctl list
+network-admin

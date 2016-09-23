@@ -256,3 +256,7 @@ java -cp lib/lucene-core-3.6.2.jar -ea:org.apache.lucene... org.apache.lucene.in
 neo4j 3.0:
 java -cp lib/lucene-core-5.5.0.jar:lib/lucene-codecs-5.5.0.jar -ea:org.apache.lucene... org.apache.lucene.index.CheckIndex data/databases/graph.db/schema/index/lucene/1/1
 java -cp lucene-core-5.5.0-SNAPSHOT.jar:lib/lucene-codecs-5.5.0.jar -ea:org.apache.lucene... org.apache.lucene.index.CheckIndex data/databases/graph.db/schema/index/lucene/1/1
+
+transaction log: neostore.transaction.db.X
+
+CREATE INDEX ON :Port(code);
