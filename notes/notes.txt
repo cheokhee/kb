@@ -1042,6 +1042,23 @@ that a reader recognizes as a single element of the writing system.
 ===
 A glyph is an image, usually stored in a font (which is a collection of glyphs), used to represent
 graphemes or parts thereof.
+=====
+A Unicode code unit is a bit size used by a particular Unicode encoding.
+For example UTF-8 has a code unit size of 8 bits and UTF-16 has 16
+and UTF-32 has 32.
+=====
+code point: an integer assigned to a character
+=====
+Java uses UTF-16 and this means the code unit size is 16 bits.
+So to represent code points outside the BMP the UTF-16 encoding specifies surrogate pairs. For this
+two special ranges are defined within the BMP.  In UTF-16 any character outside the BMP is
+represented by two 16 bit code units in this range.  (In fact surrogate characters are defined only
+for UTF-16).
+======
+So counting 16 bit code units will not yield the correct "length of characters".
+String.length() returns the number of code units in the String.
+Since 1.5 you can use codePointCount(int beginIndex, int endIndex) to get the length of the
+characters.  It will count a surrogate pair as one character.
 
 fault-tolerance
 replication:
@@ -9185,3 +9202,35 @@ resource rather a collection of disparate machines.
 orchestration: making all the pieces work together.
 ===
 management: providing oversight into the system and supporting various administrative tasks.
+
+A fluorescein angiography is a medical procedure in which a fluorescent dye is injected into the
+bloodstream. The dye highlights the blood vessels in the back of the eye so they can be
+photographed.
+
+angiography: examination by X-ray of blood or lymph vessels, carried out after introduction of a
+radiopaque substance.
+
+key question: Is that what you think?
+
+software-defined networking (SDN), software-defined storage (SDS), and software-defined data center (SDDC).
+====
+With Software-Defined Everything, the computing infrastructure is virtualized and delivered as a
+service. In a Software-Defined Everything environment, management and control of the networking,
+storage and/or data center infrastructure is automated by intelligent software rather than by the
+hardware components of the infrastructure.
+===
+The movement towards a software-defined infrastructure is about decoupling the bare metal that
+executes the point data transactions from the software layer that orchestrates them. The hope is
+that by separating the smarts from the brawn, the underlying hardware can become cheaper and
+interchangeable (avoiding vendor lock-in) while the overarching software becomes more capable and
+faster-evolving.
+====
+Software defined networking (SDN) is an approach to using open protocols, such as OpenFlow, to apply
+globally aware software control at the edges of the network to access network switches and routers
+that typically would use closed and proprietary firmware.
+===
+Software defined networking offers numerous benefits including on-demand provisioning, automated
+load balancing, streamlined physical infrastructure and the ability to scale network resources in
+lockstep with application and data needs. As noted on Enterprise Networking Planet, coupled with the
+ongoing virtualization of servers and storage, SDN ushers in no less than the completely virtualized
+data center, where end-to-end compute environments will be deployed and decommissioned on a whim.

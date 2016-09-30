@@ -154,6 +154,7 @@ cpufrequtils
 tree
 moreutils
 lm-sensors
+progress
 
 =========== end of packages ==============
 
