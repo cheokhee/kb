@@ -161,6 +161,10 @@ LOAD CSV WITH HEADERS FROM 'file:///a/workspace/roe/NearbyPolMapping.csv' AS lin
 
 LOAD CSV WITH HEADERS FROM 'file:///a/workspace/roe/NearbyPodMapping.csv' AS line CREATE (:NearbyPodMapping { port: line.PORT_CDE, group_id: line.NEARBY_PORT_GRP_ID});
 
+LOAD CSV WITH HEADERS FROM "file:///a/workspace/roe/facility-port-mapping/ob-mapping-combined.csv" AS line MERGE (n:FacilityPortMapping {code: line.CODE}) ON CREATE SET n.ob_ports=line.PORT ON MATCH SET n.ob_ports=line.PORT;
+
+LOAD CSV WITH HEADERS FROM "file:///a/workspace/roe/facility-port-mapping/ib-mapping-combined.csv" AS line MERGE (n:FacilityPortMapping {code: line.CODE}) ON CREATE SET n.ib_ports=line.PORT ON MATCH SET n.ib_ports=line.PORT;
+
 neo4j rest api:
 http://localhost:7474/db/data/propertykeys
 http://localhost:7474/db/data/node/350/

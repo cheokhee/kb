@@ -39,6 +39,7 @@
  '(large-file-warning-threshold 100000000)
  '(lpr-add-switches nil)
  '(lpr-command "lp")
+ '(lpr-switches (quote ("-o sides=two-sided-long-edge")))
  '(menu-bar-mode nil)
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
@@ -61,18 +62,19 @@
  '(user-full-name "Cheok Hee")
  '(user-mail-address "blah@com")
  '(version-control t)
+ '(w3m-bookmark-default-section "stuff")
  '(w3m-coding-system (quote utf-8))
  '(w3m-default-coding-system (quote utf-8))
  '(w3m-file-coding-system (quote utf-8))
  '(w3m-file-name-coding-system (quote utf-8))
- '(w3m-home-page "www.google.com")
+ '(w3m-home-page "about://bookmark/")
  '(w3m-terminal-coding-system (quote utf-8)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 130 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 150 :width normal)))))
 (require 'package)
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))

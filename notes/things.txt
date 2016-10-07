@@ -155,6 +155,7 @@ tree
 moreutils
 lm-sensors
 progress
+recode
 
 =========== end of packages ==============
 

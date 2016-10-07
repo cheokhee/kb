@@ -18,3 +18,6 @@ $ echo -e "hi\nho" | awk '{print array["blah"]++}'
 $ echo -e "hi\nho" | awk '{print ++array["blah"]}'
 1
 2
+
+#count words
+awk '{array[$0]++}END {for(i in array) print i, array[i]}'

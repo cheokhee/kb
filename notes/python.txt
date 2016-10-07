@@ -236,3 +236,9 @@ r=requests.get(url, params=params)
 return a string
 >>> r.json()
 return a dictionary
+
+skip first line of file:
+with open(input_file) as f:
+    next(f)
+    for line in f:
+       # do stuff with line

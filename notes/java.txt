@@ -481,3 +481,14 @@ glob patterns used NIO.2 in java 7:
 * : zero or more characters
 ** : matches zero or more characters across directories
 ? : matches exactly one character
+
+#create new instance from class object
+		Class[] type = { HashMap.class, RelationshipType[].class, RelationshipType[].class,
+				RelationshipType[].class, RelationshipType[].class, RelationshipType[].class,
+				RelationshipType[].class };
+        try {
+			Constructor<T> constructor = Blah.class.getConstructor(type);
+			return constructor.newInstance(input, connectedRelTypes, transhipmentRelTypes,
+					transferRelTypes, connectedFeederRelTypes, transhipmentFeederRelTypes,
+					transferFeederRelTypes);
+====

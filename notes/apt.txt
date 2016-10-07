@@ -93,3 +93,8 @@ resolution: apt-get install <pkg>
 use apt command instead of apt-get
 apt list --upgradable
 apt update/upgrade
+
+#prevent update of a specific package ("pin" a package)
+sudo apt-mark hold package_name
+Remove the hold:
+sudo apt-mark unhold package_name

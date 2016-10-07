@@ -7185,7 +7185,8 @@ management plane: SNMP
 control plane: routing , OSPF (open shortest path first): a router protocol
 data plane:
 
-Switching fabric is the combination of hardware and software that moves data coming in to a network node out by the correct port (door) to the next node in the network.
+Switching fabric is the combination of hardware and software that moves data coming in to a network
+node out by the correct port (door) to the next node in the network.
 
 the primary function of tread on a tire is to divert water from beneath the tire to improve traction and avoid hydroplaning on wet roads
 
@@ -7681,8 +7682,7 @@ top-down
 DP: make a global optimization. pick the best solution from a collection of solutions
 bottom-up
 globally optimal choice
-greedy algorithm
-make the decision that seems most promising at any moment
+greedy algorithm: make the decision that seems most promising at any moment
 
 hysteresis: the dependence of the output of a system not only on its current input, but also on its
 history of past inputs. The dependence arises because the history affects the value of an internal state.
@@ -8549,6 +8549,7 @@ dataflow programming is the same as reactive programming??
 dataflow programming: code executes when the data it depends on becomes available.
 -----
 reactive programming: programs automatically react to the propagation of changes.
+reactive programming: components react to changes in data that are propagated to them rather than use imperative wiring
 
 binary compatibility: can run the same executable code
 -----
@@ -9225,12 +9226,58 @@ that by separating the smarts from the brawn, the underlying hardware can become
 interchangeable (avoiding vendor lock-in) while the overarching software becomes more capable and
 faster-evolving.
 ====
-Software defined networking (SDN) is an approach to using open protocols, such as OpenFlow, to apply
-globally aware software control at the edges of the network to access network switches and routers
-that typically would use closed and proprietary firmware.
-===
 Software defined networking offers numerous benefits including on-demand provisioning, automated
 load balancing, streamlined physical infrastructure and the ability to scale network resources in
 lockstep with application and data needs. As noted on Enterprise Networking Planet, coupled with the
 ongoing virtualization of servers and storage, SDN ushers in no less than the completely virtualized
 data center, where end-to-end compute environments will be deployed and decommissioned on a whim.
+====
+software-defined anything: decouple the hardware from the software that controls the hardware
+===
+In general, SDN most commonly means that networks are controlled by software applications and SDN
+controllers rather than the traditional network management consoles and commands that required a lot
+of administrative overhead and could be tedious to manage on a large scale.
+====
+The basic principle underlying SDN is that it abstracts the
+network to a set of capabilities that are independent of how
+those capabilities are provided.
+As a result, applications that use the network don’t have to include specific details of the network
+equipment, details that change over time.
+====
+SD‐WAN provides a software abstraction to create a network overlay and decouple network software
+services from underlying hardware WAN circuits.
+===
+SDN: creates an abstraction layer between the network hardware and the applications that use the network.
+===
+This network overlay provides a common interface across different physical components to ease the
+overall network administration and enable network owners to develop their own infrastructure‐
+independent applications.
+===
+Software‐Defined WAN (SD‐WAN) is the extension of SDN that is transforming the enterprise branch
+office. With SD‐WAN, no longer are the advantages of SDN limited to the data center.
+===
+SD-WAN: it is SDN technology applied to WAN connections, including branch offices and data centers –
+over large geographic distances.
+===
+Both SDN and SD‐WAN virtualize resources to provide accelerated services delivery, better
+performance and improved availability by automating network deployment and management while reducing
+the total cost of ownership.
+====
+SD‐WAN separates functionality into a control plane layer and a data plane layer. The control plane
+is the part of the network that is responsible for signaling traffic and making packet routing
+decisions. It also includes device system configuration and management. The data plane is part of
+the network that carries application and user data.
+====
+Essential to this concept is that one logical instance of the control plane serves multiple
+instances of the data plane (typically switches and routers). In traditional networks, each instance
+of the data plane contains its own control plane, making programming of the network impossible.
+
+A deed or reconveyance is a document issued by a mortgage holder indicating that the borrower is
+released from the mortgage debt and transfers the property title from the lender, also called the
+beneficiary, to the borrower, also called the trustor.
+
+DevOps: the synergistic integration of development and operations
+
+key questions:
+#1. why do you ask?
+#2. what are your thoughts on that?

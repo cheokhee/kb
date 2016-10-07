@@ -669,6 +669,12 @@ nmap -p80 -sV www.google.com
 nmap -p7474 -sS localhost
 #
 nmap -oA #output in 3 major formats
+#OS detection
+nmap -O <host>
+#output scan in normal
+nmap -oN <file>
+#output scan in XML format
+nmap -oX scandata.xml rigel
 
 #make your script more robust
 set -euo pipefail
@@ -1070,6 +1076,12 @@ tune2fs -l /dev/sda6
 tune2fs -L <label> /dev/sda6
 #similar to
 dumpe2fs -h /dev/sda6
+=====
+tune2fs:  -m reserved-blocks-percentage (defaul: 5)
+#reduces the reserved area to 2% of the filesystem, which may be more
+tune2fs -m 2 /dev/sda1
+#sets the filesystem to have no reserved blocks,
+tune2fs -r 0 /dev/sda1
 
 partprobe - inform the OS of partition table changes
 
@@ -1286,6 +1298,10 @@ convert -background white -fill black -font Courier -pointsize 12 label:@message
 record your desktop session (video)
 # -s : resolution, alternative: -s 1024x768
 ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq ~/my_video.mpg
+## cut video
+ffmpeg -i in.mp4 -ss [start] -t [duration] -c copy out.mp4
+OR
+ffmpeg -i in.mp4 -ss [start] -to [stop] -c copy out.mp4
 
 # print sensors info
 sensors
@@ -1305,3 +1321,43 @@ program: apparmor_status
 #show networking info
 networkctl list
 network-admin
+
+iwconfig : configure wireless network interface
+
+chvt # change virtual console, has to run inside text-based virtual console
+
+#capture screenshot
+import -display :0.0 -window root sshot1.png
+
+alias dos2unix='recode dos/CR-LF..l1'
+alias unix2dos='recode l1..dos/CR-LF'
+alias unix2win='recode l1..windows-1250'
+
+#turn off ping replies
+sysctl -w net.ipv4.icmp_echo_ignore_all=1
+#slow down ping reply rate
+sysctl -w net.ipv4.icmp_echoreply_rate=10
+
+#lxterminal icons
+/usr/share/icons/Lubuntu/apps/22/lxterminal.svg
+/usr/share/icons/Lubuntu/apps/48/lxterminal.svg
+/usr/share/icons/Lubuntu/apps/16/lxterminal.svg
+/usr/share/icons/Lubuntu/apps/24/lxterminal.svg
+
+#silence the beep
+setterm -blength 0
+
+By default, Linux uses the atime option on a disk mount, which means it writes a timestamp (e.g. a
+write to the drive) every time it reads anything. So in this case, reads cause writes – and also
+disk seeks, because a read from a file will then trigger having to write to the directory that
+contains the file. This even occurs if a file is read from the file system’s page cache (reading
+from the machine’s memory rather than the drive).
+====
+you can use the relatime option instead, which only writes a timestamp
+when a file or directory is written to.
+==
+as of kernel 2.6.30, relatime is the default
+
+#temporary filesystem
+mkdir /ramdisk
+mount none -t tmpfs -o size=256M /ramdisk

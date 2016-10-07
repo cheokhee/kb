@@ -2,6 +2,12 @@ under GOPATH: a top-level directory named "pkg", for holding compiled packages t
 
 go list ./...
 the pattern "./..." means start in the current directory ("./") and find all packages below that directory ("..."):
+====
+go list -f '{{ .Name }}'
+go list -f '{{ .Target }}'
+go list -f '{{ .Imports }}'
+go list -f '{{ .Deps }}'
+go list -f '{{ .GoFiles }}'
 
 os.Args , os.Args[0]
 
@@ -141,3 +147,9 @@ https://golang.org/ref/spec#Conversions
 
 #check to see if a type implements an interface
 var _ anInterface = (*aStruct)(nil)
+
+#list all the commands invoked by go build
+go build -x
+
+#list all the flags that can be passed to the compiler
+go tool compile -help
