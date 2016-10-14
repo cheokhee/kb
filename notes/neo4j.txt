@@ -264,3 +264,5 @@ java -cp lucene-core-5.5.0-SNAPSHOT.jar:lib/lucene-codecs-5.5.0.jar -ea:org.apac
 transaction log: neostore.transaction.db.X
 
 CREATE INDEX ON :Port(code);
+
+evaluator is called first on both the starting and ending points.

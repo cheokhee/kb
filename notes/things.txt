@@ -156,6 +156,9 @@ moreutils
 lm-sensors
 progress
 recode
+iperf (removed)
+zsh
+fish
 
 =========== end of packages ==============
 

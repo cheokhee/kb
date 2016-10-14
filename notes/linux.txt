@@ -406,6 +406,19 @@ IP4.DNS[1]:                             209.244.0.3
 IP4.DNS[2]:                             209.244.0.4
 IP6.ADDRESS[1]:                         ip = fe80::226:c7ff:fe3a:5f9c/64, gw = ::
 
+nmcli -f all dev show eth2
+nmcli -f all dev show # show all devices
+nmcli -p dev show eth2 #show DNS info
+nmcli -f all g
+nmcli c ->
+NAME                UUID                                  TYPE             DEVICE
+Wired connection 1  c614de98-714f-3f7a-8632-c47e53590cac  802-3-ethernet   eth2
+
+/etc/NetworkManager/system-connections/Ipoh
+
+#edit existing connection
+nmcli c edit c614de98-714f-3f7a-8632-c47e53590cac
+
 find out my screen resolution:
 #1: xdpyinfo | grep dimensions
 #2: xrandr
@@ -793,7 +806,7 @@ example: 4.2.0-34
 #show kernel drivers handling each device and also kernel modules capable of handling it.
 lspci -kv
 #check graphic driver
-lspci -k |grep -iA2 vga
+lspci -nnk |grep -iA2 vga
 
 if the system hangs:
 Hold down the ‘alt’ and ‘sysrq’ keys on your keyboard and whilst they are held down type the following slowly:
@@ -1264,6 +1277,8 @@ cat /proc/sys/kernel/core_pattern
 
 useful commands from moreutils:
 combine, errno, ifdata, isutf8, sponge, ts, vidir, vipe, zrun
+===
+example: sort myfile.txt | sponge myfile.txt
 
 nice -n 19 <program>
 renice -n 19 <pid>
@@ -1361,3 +1376,17 @@ as of kernel 2.6.30, relatime is the default
 #temporary filesystem
 mkdir /ramdisk
 mount none -t tmpfs -o size=256M /ramdisk
+
+ss : display socket info
+arping: send ARP request to a neighbor: arping -I eth0 192.188.1.1
+ethtool
+
+/sys/class/leds/<name>/trigger
+
+modinfo radeon | grep description
+
+#get module parameters
+/sys/module/<mod_name>/parameters
+
+#sort the output while keeping the header at the top
+df -hP | awk 'NR==1;NR>1{print|"sort -k5rn"}'

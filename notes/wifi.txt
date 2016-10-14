@@ -1,0 +1,82 @@
+ip link
+ip link set wlan0 up/down
+ip addr flush dev wlan0 #do this before disabling the interface
+ip route flush dev wlan0 #do this before disabling the interface
+ip -s link #display stats
+ip addr show wlan0
+
+iw dev
+iw dev wlan0 link
+iw dev wlan0 info
+iw dev wlan0 station dump
+iw dev wlan0 set power_save off
+iw dev wlan0 survey dump
+iw dev wlan0 scan
+iw reg get
+iw phy
+
+nmcli dev wifi list
+nmcli -p dev show wlan0
+nmcli -f all dev show wlan0
+nmcli g permissions
+nmcli c edit type wifi #add new connection profile
+nmcli c edit c614de98-714f-3f7a-8632-c47e53590cac #edit existing connection
+nmcli -f all g
+
+iwconfig wlan0
+iwconfig wlan0 power off
+
+iwlist wlan0 scanning
+
+#rfkill: for enabling/disabling wireless device
+nrfkill list
+rfkill block wifi
+rfkill unblock wifi
+
+wpa_supplicant
+
+/etc/modprobe.d/iwlwifi.conf:
+options iwlwifi power_save=N
+options iwldvm force_cam=N # force continuously aware mode (no power saving at all)
+options iwlwifi wd_disable=0 #??
+options iwlwifi bt_coex_active=0 #??
+options iwlwifi 11n_disable=1 #??
+options iwlwifi led_mode=1 #0 system default, 1 on/off (RF state), 2 blinking (activity), 3 off.
+options iwlwifi 11n_disable=8 #enable antenna aggregation
+options iwlwifi swcrypto=1
+options iwlwifi nohwcrypt=1
+=====
+/sys/module/iwlwifi/parameters/11n_disable 0
+/sys/module/iwlwifi/parameters/amsdu_size_8K 0
+/sys/module/iwlwifi/parameters/antenna_coupling 0
+/sys/module/iwlwifi/parameters/bt_coex_active Y
+/sys/module/iwlwifi/parameters/d0i3_disable Y
+/sys/module/iwlwifi/parameters/fw_monitor N
+/sys/module/iwlwifi/parameters/fw_restart Y
+/sys/module/iwlwifi/parameters/lar_disable N
+/sys/module/iwlwifi/parameters/led_mode 0
+/sys/module/iwlwifi/parameters/nvm_file (null)
+/sys/module/iwlwifi/parameters/power_level 0
+/sys/module/iwlwifi/parameters/power_save N
+/sys/module/iwlwifi/parameters/swcrypto 0
+/sys/module/iwlwifi/parameters/uapsd_disable Y
+
+/lib/firmware/iwlwifi-1000-5.ucode
+
+/sys/module/iwlwifi/parameters
+for p in /sys/module/iwlwifi/parameters/*; do echo $p; cat $p; done
+
+#tracing for debugging
+sudo trace-cmd record -e iwlwifi
+sudo trace-cmd record -e iwlwifi -e mac80211 -e cfg80211 -e iwlwifi_msg
+
+lshw -C network
+
+#regulatory domain
+/etc/default/crda
+
+/etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+NM_SETTING_WIRELESS_POWERSAVE_DEFAULT       = 0,
+NM_SETTING_WIRELESS_POWERSAVE_IGNORE        = 1,
+NM_SETTING_WIRELESS_POWERSAVE_DISABLE       = 2,
+NM_SETTING_WIRELESS_POWERSAVE_ENABLE        = 3,

@@ -179,7 +179,7 @@ ONBUILD: delay execution of certain commands until a child image is built that i
 the onbuild image.
 
 container management: Rancher, Clocker, Tutum
-container orchestration: kubenetes, Mesos
+container orchestration: kubernetes, Mesos
 
 resources that are namespaced are mapped to a different value on the host. eg. PID 1 in
 the container is not PID 1 in the host.

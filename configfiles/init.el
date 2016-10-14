@@ -74,7 +74,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 150 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 170 :width normal)))))
 (require 'package)
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -421,8 +421,8 @@ by using nxml's indentation rules."
   (irony-mode)
   (company-mode)
   (flycheck-mode)
-  (ggtags-mode 1))
-;  (define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark))
+  (ggtags-mode 1)
+  (define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark))
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 (eval-after-load "helm-gtags"
   '(progn

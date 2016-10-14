@@ -5296,6 +5296,8 @@ that data can be served faster.
 
 thrashing: a condition where the computer spends most of the time transferring pages
 between disk and physical memory and little time doing actual work.
+===
+thrashing: it happens the working set of a program is larger than the available physical memory.
 
 WPF:
 is a graphical subsystem for rendering user interfaces in Windows-based applications.
@@ -9271,6 +9273,11 @@ the network that carries application and user data.
 Essential to this concept is that one logical instance of the control plane serves multiple
 instances of the data plane (typically switches and routers). In traditional networks, each instance
 of the data plane contains its own control plane, making programming of the network impossible.
+===
+SD-WAN as a network overlay enables application traffic to be carried independently of the
+underlying physical or transport layer, offering a transport‐independent overlay.  Multiple links,
+even from different service providers, consti- tute a unified pool of resources, often referred to
+as a virtual WAN.
 
 A deed or reconveyance is a document issued by a mortgage holder indicating that the borrower is
 released from the mortgage debt and transfers the property title from the lender, also called the
@@ -9281,3 +9288,9 @@ DevOps: the synergistic integration of development and operations
 key questions:
 #1. why do you ask?
 #2. what are your thoughts on that?
+#3. is that what you think?
+
+In computer networking, a wireless Access Point (AP) is a device that allows wireless devices to
+connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
+(via a wired network) as a standalone device, but it can also be an integral component of the router
+itself.
