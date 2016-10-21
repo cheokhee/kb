@@ -524,6 +524,7 @@ journalctl _COMM=crond --since "10:00" --until "11:00"
 journalctl -u lpd.service
 journalctl -k #like dmesg
 timedatectl
+timedatectl status
 
 xxd: make a hex dump
 
@@ -1140,14 +1141,58 @@ Content-Type: application/octet-stream
 kvm daemon: libvirt-bin, libvirt-guests
 == need to do this:
 sudo systemctl start libvirt-bin
+sudo systemctl start virtlogd.service #may need this when creating VM
 kvm-ok #sanity check
 virsh -c qemu:///system list
 OR
 virsh -c qemu:///system list --all
 OR
 virsh list
+#the name column of virsh list is the domain name
 ===
-location of kvm images: /var/lib/libvirt/images
+default location of kvm images: /var/lib/libvirt/images
+=== customize image location:
+/etc/libvirt/storage/default.xml (use virsh pool-edit default)
+--- storage pool
+virsh pool-dumpxml default
+virsh pool-edit default
+virsh pool-list --all
+virsh pool-info default
+virsh pool-destroy domain
+virsh pool-undefine domain
+-----
+change default location for images:
+1. virsh pool-edit default
+2. systemctl restart libvirt-bin
+3. virsh pool-dumpxml default #to confirm
+====
+GUI : virt-manager
+----
+dump domain info: virsh dumpxml <domain-name>
+----
+virsh list --with-managed-save --all
+virsh list --without-managed-save --all
+virsh start foo
+virsh reboot foo
+virsh shutdown foo
+virsh suspend foo
+virsh resume foo
+virsh console foo
+virsh edit foo
+virsh define foo
+virsh snapshot-list foo
+==== to delete VM
+virsh destroy foo #domain needs to be running
+virsh undefine foo
+#delete the image manually (<domain-name>.qcow2)
+----
+for undefine: You can also specify --managed-save to delete any managed save images and --snapshots-metadata to
+remove snapshots for the specified VM.
+----
+after move images:
+virsh edit domainID
+change: <source file='/mnt/raid/images/rh-5.5.qcow2'/>
+================================
 
 bind mount: remount part of a file hierarchy elsewhere: mount --bind olddir newdir
 after this, the same contents are available in two places.
@@ -1390,3 +1435,6 @@ modinfo radeon | grep description
 
 #sort the output while keeping the header at the top
 df -hP | awk 'NR==1;NR>1{print|"sort -k5rn"}'
+
+nsswitch.conf - Name Service Switch configuration file
+determine the order in which various name resolution services will be tried

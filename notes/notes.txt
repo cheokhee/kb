@@ -6062,6 +6062,11 @@ IP addresses in a translation table, then forwards the modified packet to the in
 True NAT is one-to-one, meaning each private IP address must be mapped to exactly one public IP address.
 shortcoming: once the pool of public IP addresses is used up, additional users cannot connect to internet.
 ---------
+NAT: It enables private IP networks that use unregistered IP addresses to connect to the Internet. NAT
+operates on a router, usually connecting two networks together, and translates the private (not
+globally unique) addresses in the internal network into legal addresses, before packets are
+forwarded to another network.
+======
 IP Masquerade is a form of (1-to-many) Network Address Translation or NAT which allows internally connected
 computers that do not have one or more registered Internet IP addresses to communicate to the
 Internet via the Linux server's Internet IP address.
@@ -9249,7 +9254,7 @@ equipment, details that change over time.
 SD‐WAN provides a software abstraction to create a network overlay and decouple network software
 services from underlying hardware WAN circuits.
 ===
-SDN: creates an abstraction layer between the network hardware and the applications that use the network.
+Sdn: creates an abstraction layer between the network hardware and the applications that use the network.
 ===
 This network overlay provides a common interface across different physical components to ease the
 overall network administration and enable network owners to develop their own infrastructure‐
@@ -9265,7 +9270,7 @@ Both SDN and SD‐WAN virtualize resources to provide accelerated services deliv
 performance and improved availability by automating network deployment and management while reducing
 the total cost of ownership.
 ====
-SD‐WAN separates functionality into a control plane layer and a data plane layer. The control plane
+SD-WAN separates functionality into a control plane layer and a data plane layer. The control plane
 is the part of the network that is responsible for signaling traffic and making packet routing
 decisions. It also includes device system configuration and management. The data plane is part of
 the network that carries application and user data.
@@ -9294,3 +9299,73 @@ In computer networking, a wireless Access Point (AP) is a device that allows wir
 connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
 (via a wired network) as a standalone device, but it can also be an integral component of the router
 itself.
+
+IP passthrough is an option for your DSL modem to turn into a "Bridge" or be just a simple modem -
+whatever comes down the pipe from the internet goes right on through to your network without any
+filtering or routing.
+===
+This would give your computer or anything else connected to your DSL modem a direct, unfiltered,
+unNATed, public IP address. Since this is a serious security threat to any PC - your ISP has turned
+on the NAT features of the DSL modem.
+===
+Why would you ever turn it off then?
+Well, if you have a router or firewall of your own AND (and!) want to be able to connect to it
+remotely from the internet - you can turn this off. This option is used by many businesses who have
+people on the road and need to connect to their office network.
+
+IP Passthrough means the AT&T supported CPE device terminates the DSL, authenticates with the
+network (Receives a WAN IP) and shares that IP address with a single device connected to the AT&T
+supported CPE equipment. This configuration is often times suitable for a business customer desiring
+to connect third party equipment to AT&T supported equipment. The "IP Passthrough configuration
+still allows AT&T support groups to access the AT&T supported equipment while allowing end-users to
+connect third party equipment in a configuration they desire. The "IP Passthrough" configuration
+will only allow one connection to AT&T supported equipment to be "unfiltered" or pingable from the
+WAN or internet side of the AT&T equipment (does not support multiple pingable connections).
+
+A CPE (customer premise equipment) device is telecommunications hardware located at the home or
+business of a customer.
+
+A digital subscriber line (DSL) modem is a device used to connect a computer or router to a
+telephone line which provides the digital subscriber line service
+===
+A cable modem is a type of network bridge and modem that provides bi-directional data communication
+via radio frequency channels on a hybrid fibre-coaxial (HFC) and radio frequency over glass (RFoG)
+infrastructure
+
+When two NAT devices are connected in series (for instance a modem with built-in NAT capabilities is
+connected to a router which is also a NAT device), it is advisable to configure your modem in bridge
+mode to avoid conflicts.
+===
+Bridge mode is the configuration that disables the NAT feature on the modem and allows a router to
+function as a DHCP server without an IP Address conflict.  The modem has to be bridged before
+connecting to a router since applications like VPN, P2P, and remote management require a public IP
+Address on the router WAN port for a successful connection.
+
+== EYE ===
+Eye strain also known as asthenopia is an eye condition that manifests itself through nonspecific
+symptoms such as fatigue, pain in or around the eyes, blurred vision, headache and occasional double
+vision. Symptoms often occur after reading, computer work, or other close activities that involve
+tedious visual tasks.
+
+Eyestrain signs and symptoms include:
+Sore, tired, burning or itching eyes
+Watery or dry eyes
+Blurred or double vision
+Headache
+Sore neck, shoulders or back
+Increased sensitivity to light
+Difficulty concentrating
+Feeling that you cannot keep your eyes open
+
+Dry Eye Symptoms
+Burning sensation
+Itchy eyes
+Aching sensations
+Heavy eyes
+Fatigued eyes
+Sore eyes
+Dryness sensation
+Red eyes
+Photophobia (light sensitivity)
+Blurred vision
+== EYE ===
