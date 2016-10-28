@@ -22,6 +22,9 @@ nmcli g permissions
 nmcli c edit type wifi #add new connection profile
 nmcli c edit c614de98-714f-3f7a-8632-c47e53590cac #edit existing connection
 nmcli -f all g
+nmcli dev wifi connect $ACCESS_POINT password $PASSWORD
+nmcli d disconnect <WifiInterface>
+nmcli d connect <WifiInterface>
 
 iwconfig wlan0
 iwconfig wlan0 power off

@@ -2,6 +2,7 @@ lxpanel:
 
 ~/.config/lxpanel/<profile name>
 ~/.config/lxpanel/LXDE
+~/.config/lxpanel/Lubuntu/panels/panel
 
 if no profile, use /usr/share/lxpanel/profile/<Profile name>
 

@@ -159,6 +159,13 @@ recode
 iperf (removed)
 zsh
 fish
+*after 16.10, chinese characters become small, workaround: create .config/gtk-3.0/gtk.css:
+===contents of file===
+#IBusCandidate *
+{
+    font: IPAPGothic 24;
+}
+===contents of file===
 
 =========== end of packages ==============
 

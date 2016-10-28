@@ -191,6 +191,20 @@ curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POS
 #jq -r : raw data so that the quotes are not quoted twice, need to remove double quote
 curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:PolPod) where length(n.code) = 7 return n.code as CODE, n.port_list as PORT_LIST"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv'
 
+curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:ServiceList) return n.code as CODE, n.direct as DIRECT, n.ts1 as TS1, n.ts2 as TS2, n.ts3 as TS3 limit 1"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r -c '.results[0] | .columns,.data[].row '
+
+create (n:Person {name:split("one,two,three",",")}) return n,id(n);
+
+match (n:ServiceList) where n.code = 'SYD-HKG' return reduce(s="", x in n.ts2 |  s+x+"|");
+output: "AEA2,A3N,AAA2|A3S,EU2|KTX1,EU2,KTX3,CMS,AEA1|"
+issue: need to get rid of trailing |
+match (n:ServiceList) where n.code = 'SYD-HKG' return reduce(s="", x in n.ts2 |  s+"|"+x);
+output: "|AEA2,A3N,AAA2|A3S,EU2|KTX1,EU2,KTX3,CMS,AEA1"
+issue need to get rid of beginning |
+
+#syntax error below:
+match (n:ServiceList) where n.code = 'SYD-HKG' return reduce(s="", x in n.ts2 | if (length(s)=0) x else s+"|"+x);
+
 neo4j startup:
 community/server/src/main/java/org/neo4j/server/database/LifecycleManagingDatabase.java
   print "Successfully started database"
@@ -266,3 +280,6 @@ transaction log: neostore.transaction.db.X
 CREATE INDEX ON :Port(code);
 
 evaluator is called first on both the starting and ending points.
+
+JettyThreadCalculator: calculate jetty server thread pool size
+org.neo4j.server.webserver.maxthreads=4

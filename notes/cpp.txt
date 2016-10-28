@@ -1,0 +1,24 @@
+new stuff:
+3 words to search about:
+C++11
+C++14
+Boost
+==
+3 cool things to know about:
+auto
+lambda functions
+nullptr
+==
+3 pointers to learn about:
+--
+unique_ptr: should be used when ownership of a memory resource does not have to be shared (it
+doesn't have a copy constructor), but it can be transferred to another unique_ptr (move constructor
+exists).
+--
+shared_ptr: should be used when ownership of a memory resource should be shared (hence the name).
+--
+weak_ptr: holds a reference to an object managed by a shared_ptr, but does not contribute to the
+reference count; it is used to break dependency cycles (think of a tree where the parent holds an
+owning reference (shared_ptr) to its children, but the children also must hold a reference to the
+parent; if this second reference was also an owning one, a cycle would be created and no object
+would ever be released).

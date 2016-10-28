@@ -521,8 +521,20 @@ systemctl list-units
 journalctl: query the contents of systemd journal
 example:
 journalctl _COMM=crond --since "10:00" --until "11:00"
+journalctl --since yesterday
+journalctl -PID=<pid>
+journalctl -p err #err log level: all log levels: emerg,alert,crit,err,warning,notice,info,debug
+journalctl --no-pager
+journalctl -o json #json format
+journalctl --disk-usage
+journalctl --vacuum-size=1G
+journalctl --vacuum-time=1years
 journalctl -u lpd.service
 journalctl -k #like dmesg
+journalctl --utc
+journalctl -b #most recent boot
+journalctl -b -1 #with boot it
+journalctl --list-boots
 timedatectl
 timedatectl status
 
@@ -1140,14 +1152,14 @@ Content-Type: application/octet-stream
 
 kvm daemon: libvirt-bin, libvirt-guests
 == need to do this:
-sudo systemctl start libvirt-bin
+sudo systemctl start libvirtd
 sudo systemctl start virtlogd.service #may need this when creating VM
 kvm-ok #sanity check
 virsh -c qemu:///system list
 OR
 virsh -c qemu:///system list --all
 OR
-virsh list
+virsh list --all
 #the name column of virsh list is the domain name
 ===
 default location of kvm images: /var/lib/libvirt/images
@@ -1163,7 +1175,7 @@ virsh pool-undefine domain
 -----
 change default location for images:
 1. virsh pool-edit default
-2. systemctl restart libvirt-bin
+2. systemctl restart libvirtd
 3. virsh pool-dumpxml default #to confirm
 ====
 GUI : virt-manager
@@ -1438,3 +1450,28 @@ df -hP | awk 'NR==1;NR>1{print|"sort -k5rn"}'
 
 nsswitch.conf - Name Service Switch configuration file
 determine the order in which various name resolution services will be tried
+
+GConf: store configuration settings. similar to Windows registry. deprecated.
+GConf: to be replaced by GSettings and dconf
+===
+dconf is a low-level configuration system. Its main purpose is to provide a backend to GSettings on
+platforms that don't already have configuration storage systems.
+---
+Gsettings is a development library used to read and write to a configuration store backend. On
+Linux, it uses Dconf, but on Windows, it uses the registry, and on OS X, it uses a native data
+store.
+-- bottom line: don't use dconf directly. use GSettings
+gsettings list-schemas
+gsettings list-recursively #list all the keys
+#after you find the schema, org.gnome.GWeather is a schema name
+gsettings list-keys org.gnome.GWeather
+#compare to following
+gsettings list-recursively  | grep org.gnome.GWeather
+#get the value of a key
+gsettings get org.gnome.GWeather default-location
+---
+GUI: dconf-editor
+
+#list files that do not match a pattern
+ls !(one)
+ls !(one|two)

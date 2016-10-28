@@ -5360,9 +5360,9 @@ and data in a single unit.
 
 AOP is a new technology for separating crosscutting concerns into single units called aspects.
 join point: an execution point in a program
-point cut: specifies criteria that match join points. a way to specify joint points
+point cut: specifies criteria that match join points. a way to specify join points
   an expression that determines whether an advice should be executed.
-advice: a means to specify code to be run at joint points
+advice: a means to specify code to be run at join points
   action that should be taken at join points.
 --> let you add behavior to your POJO without modifying your code
 ---
@@ -9294,6 +9294,7 @@ key questions:
 #1. why do you ask?
 #2. what are your thoughts on that?
 #3. is that what you think?
+#4. what can go wrong?
 
 In computer networking, a wireless Access Point (AP) is a device that allows wireless devices to
 connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
@@ -9369,3 +9370,52 @@ Red eyes
 Photophobia (light sensitivity)
 Blurred vision
 == EYE ===
+
+A heat map (or heatmap) is a graphical representation of data where the individual values contained
+in a matrix are represented as colors.
+
+=== WIFI
+When an 802.11 client device hears another signal, whether it is a Wi-Fi signal or not, it will
+defer transmission until the signal ceases. Interference that occurs during transmission also causes
+packet loss, which forces Wi-Fi retransmissions. These retransmissions slow throughput and result in
+wildly fluctuating performance for all users sharing a given access point (AP).
+--
+APs and wireless clients on the same channel who are also within range of each other form a single
+broadcast domain, similar to an Ethernet hub. All devices can hear each other's transmissions and if
+any two devices transmit at the same time, their radio signals will collide and become garbled
+resulting in data corruption or complete frame loss. If there is an excessive amount of collisions,
+data would never be transmitted successfully and the wireless network would be unusable. To avoid
+collisions, 802.11 wireless devices use a listen before speaking approach when accessing the
+wireless medium. Specifically, devices perform a Clear Channel Assessment (CCA) by listening to see
+if another device is actively transmitting on the channel before attempting to send its own
+frames. When a device detects another transmission in progress, it will perform a random back-off
+for a short period of time after which it would perform another check before attempting to transmit
+again. If the channel is clear after a check, the device can access the channel and send some
+data. As the number of devices needing to transmit frames increase on the channel, congestion can
+occur to the point where devices spend more time receiving than sending. This results in slower
+speeds because devices have to wait longer to send data.
+
+When two wireless devices transmit at the same time, their radio signals will collide and become
+garbled. 802.11 devices on the same channel use a CCA check to avoid these collisions. However, the
+CCA check may not detect a transmission occurring on a different channel that also has some
+frequency overlap on the channel the check is being performed on. In this case, two 802.11 devices
+on different channels that overlap may transmit at the same time causing a collision and possible
+data corruption or frame loss. This is called interference because one device's transmission
+interferes with another device's transmission. As the number of interfering devices increase, so
+does the potential for frame loss. The 802.11 standard uses a reliable transport mechanism where
+each sent data frame must be ACK'd by the receiver to ensure the frame was not lost in transit or
+corrupted. If a the sender does not receive an ACK, it must re-transmit the same frame until an ACK
+is received. Re-transmissions result slower speeds because it takes longer to successfully send a
+single frame.
+
+=== WIFI
+
+A flash cut, also called a flash cutover, is an immediate change in a complex system, with no
+phase-in period. In the United States, some telephone area codes were split immediately, rather than
+being phased in with a permissive dialing period.
+
+Contrast is the perceived difference between two adjacent colors.
+==
+Because white and black are not really colors, they are said to represent achromatic contrast. Black
+and white also represent the highest level of contrast. Complementary colors from the color wheel
+represent high chromatic contrast.
