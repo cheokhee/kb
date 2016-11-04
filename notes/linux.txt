@@ -175,6 +175,9 @@ GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true
 GRUB_GFXMODE=640x480
 #supported resolution?: 640×480, 800×600, 1024×768, 1280×1024, 1600×1200
+GRUB_CMDLINE_LINUX : Entries on this line are added to the end of the 'linux' command line (GRUB
+legacy's "kernel" line) for both normal and recovery modes. It is used to pass options to the
+kernel.
 2. run update-grub , this will change /boot/grub/grub.cfg
 output of update-grub:
 Found linux image: /boot/vmlinuz-3.16.0-30-generic
@@ -1184,7 +1187,7 @@ dump domain info: virsh dumpxml <domain-name>
 ----
 virsh list --with-managed-save --all
 virsh list --without-managed-save --all
-virsh start foo
+virsh start foo --console
 virsh reboot foo
 virsh shutdown foo
 virsh suspend foo
@@ -1193,6 +1196,7 @@ virsh console foo
 virsh edit foo
 virsh define foo
 virsh snapshot-list foo
+virsh ttyconsole foo
 ==== to delete VM
 virsh destroy foo #domain needs to be running
 virsh undefine foo
@@ -1204,6 +1208,13 @@ remove snapshots for the specified VM.
 after move images:
 virsh edit domainID
 change: <source file='/mnt/raid/images/rh-5.5.qcow2'/>
+===
+arch linux: change KVM config:
+video mode was qxl, change to virtio
+
+in /boot/grub/grub.cfg : add console=ttyS0 in guest VM
+then you can "virsh console foo"
+
 ================================
 
 bind mount: remount part of a file hierarchy elsewhere: mount --bind olddir newdir
@@ -1450,6 +1461,9 @@ df -hP | awk 'NR==1;NR>1{print|"sort -k5rn"}'
 
 nsswitch.conf - Name Service Switch configuration file
 determine the order in which various name resolution services will be tried
+--
+getent : get entries from the name service switch library
+getent hosts
 
 GConf: store configuration settings. similar to Windows registry. deprecated.
 GConf: to be replaced by GSettings and dconf
@@ -1475,3 +1489,53 @@ GUI: dconf-editor
 #list files that do not match a pattern
 ls !(one)
 ls !(one|two)
+
+isoinfo -i <iso-file> -l #list content
+isoinfo -i <iso-file> -x <file> #extract file
+
+time zone:
+ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
+hwclock --systohc #generate the /etc/adjtime file
+
+edit locale info in /etc/locale.gen, then run command locale-gen
+
+hostnamectl status
+hostnamectl set-hostname myhostname
+
+nroff and troff are UNIX commands (and the utilities that support them) for formatting text files
+for printing. nroff is designed for formatting output for line printers and letter-quality
+printers. troff is designed for formatting output for typesetters. troff contains some special
+functions that apply only to typesetters; otherwise, the commands are identical and either can be
+used.
+===
+Groff is the GNU replacement for the troff and nroff text formatters.
+
+kbd_mode : report/set keyboard mode of console
+kbdrate: set keyboard repeat and delay time
+kbdinfo: obtain info about console
+kbdinfo getmode: text/graphics
+kbdinfo gkbmode: unicode
+kbdinfo gkbled: scrolllock, numlock, capslock
+unicode_start : put keyboard and console in unicode mode
+---
+keymap: the mapping between the key pressed and the characer used by the computer
+
+console: console is in utf8 mode, so program output is utf8 (8-bit values)
+a translation table maps 8-bit values to 16-bit unicode values. such translation table
+is called unicode console map. the kernel then uses the 16-bit unicode value to choose
+the right glyph from the font file and display it.
+setfont -m : used to specify a unicode console map
+===
+font file also contains Unicode mapping table, which maps a Unicode value to each glyph
+setfont -u : used to specify a unicode mapping table
+
+localectl status
+localectl list-keymaps
+localectl list-locales
+
+keyboard translation table commands: dumpkeys, loadkeys
+
+brctl show : show ethernet bridge
+
+/etc/securetty

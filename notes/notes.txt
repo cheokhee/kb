@@ -9295,6 +9295,9 @@ key questions:
 #2. what are your thoughts on that?
 #3. is that what you think?
 #4. what can go wrong?
+#5. what do you want the customers/users to walk away with?
+#6. what action should you take?
+#7. how do you want the users/customers to feel?
 
 In computer networking, a wireless Access Point (AP) is a device that allows wireless devices to
 connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
@@ -9419,3 +9422,45 @@ Contrast is the perceived difference between two adjacent colors.
 Because white and black are not really colors, they are said to represent achromatic contrast. Black
 and white also represent the highest level of contrast. Complementary colors from the color wheel
 represent high chromatic contrast.
+
+descriptive, predictive, prescriptive analytics
+
+scientific method:
+make observation
+ask questions
+formulate hypothesis
+develop testable prediction
+gather data to test prediction
+refine, alter, expand, or reject hypothesis
+develop general theories
+---
+data scientific method:
+start with data
+develop intuitions about the data and the questions it can answer
+formulate your questions
+leverage your data to better understand if it is the right questions to ask
+run experiments
+analyze the results to draw insights about the questions
+
+standard deviation: indicate the extent of deviation for a group as a whole.
+a measure of how spread out numbers are.
+is the square root of the Variance.
+Deviation just means how far from the normal
+variance is the average of the squared differences from the Mean
+
+Glyphs are the graphical elements used to visually represent characters.
+glyph: an image that represents a character.
+glyphs are graphic objects that are stored within a font. Basically, they are the shapes for
+displaying characters that you see on a screen or a printer. In a simple sense, then, a font is
+simply a collection of glyphs, usually with common design characteristics.
+--
+bitmap fonts: consist of a matrix of pixels representing the image of each glyph in each face and size.
+outline/vector fonts: use Bezier curves, drawing instructions, and mathematical formulas to
+describe each glyph.
+---
+font file also contains Unicode mapping, giving the Unicode value for each glyph
+
+microcode: The lowest-level instructions that directly control a microprocessor. A single
+machine-language instruction typically translates into several microcode instructions.
+
+UEFI: the interface between the OS and the platform firmware.

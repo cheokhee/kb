@@ -12,6 +12,8 @@ gpg --verify f.tar.gz.asc f.tar.gz #verify detached signature
 gpg --armor --detach-sign gpgtest.txt # generate a separate signature file
 gpg --armor --sign <file> #encrypt and sign a file. the output contains encrypted msg and signature
 gpg --clearsign gpgtest.txt #the output contains plaintext msg and signature. use ASCII armor for signature by default
+#get keys
+wget -q -O - https://www.kali.org/archive-key.asc | gpg --import
 
 ASCII armor: a system for converting binary data into ASCII representation
 format: radix 64, allow each 8-bit char to represent 6 binary bits
@@ -47,6 +49,8 @@ gpg: Can't check signature: public key not found
 #3 $ gpg --import mk_public_key.asc
 #4 optional: gpg --fingerprint EC0FEA84
 #5: verify again
+#another
+gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
 
 verify pgp signature (2)
 $ gpg --verify sha256sum.txt.gpg sha256sum.txt
