@@ -166,6 +166,8 @@ fish
     font: IPAPGothic 24;
 }
 ===contents of file===
+/etc/dhcp/dhclient.conf : comment out every line
+ldnsutils : contains the drill program
 
 =========== end of packages ==============
 

@@ -1,0 +1,54 @@
+Mode (statistics) The mode is the value that appears most often in a set of data.
+
+mean: the average
+
+The median is the value separating the higher half of a data sample, a population, or a probability
+distribution, from the lower half. In simple terms, it may be thought of as the "middle" value of a
+data set. For example, in the data set {1, 3, 3, 6, 7, 8, 9}, the median is 6, the fourth number in
+the sample.
+
+variance is the expectation of the squared deviation of a random variable from its mean,
+
+standard deviation (SD, also represented by the Greek letter sigma or the Latin letter s) is a
+measure that is used to quantify the amount of variation or dispersion of a set of data values.
+population standard deviation vs sample standard deviation
+if the data represents only a sample, use sample standard deviation
+
+random variable: a variable that can take on any value from a set of values.
+--> A Random Variable's set of values is the Sample Space.
+--> a quantity whose value depends on some random events.
+--> A Random Variable is a set of possible values from a random experiment.
+discrete random variable: taking on a countable list of values
+continuous random variable: taking any value in an interval
+example: random variable X = the score on the face of a dice
+X could be 1,2,3,4,5,6
+so the sample space is {1,2,3,4,5,6}
+
+dimension reduction is the process of reducing the number of random variables under consideration,
+via obtaining a set of principal variables. It can be divided into feature selection and feature
+extraction.
+
+independent variable
+dependent variable
+nominal variable: have two or more categories
+Dichotomous variables are nominal variables which have only two categories or levels
+==
+Ordinal variables are variables that have two or more categories just like nominal variables only
+the categories can also be ordered or ranked
+===
+Interval variables are variables for which their central characteristic is that they can be measured
+along a continuum and they have a numerical value (for example, temperature measured in degrees)
+===
+Ratio variables are interval variables, but with the added condition that 0 (zero) of the
+measurement indicates that there is none of that variable. So, temperature measured in degrees
+Celsius or Fahrenheit is not a ratio variable because 0C does not mean there is no temperature.
+
+nominal variable: use mode
+ordinal variable: use median
+interval/ratio (not skewed): use mean
+interval/ratio (skewed): use median
+
+In machine learning, a target is called a label.
+In statistics, a target is called a dependent variable.
+A variable in statistics is called a feature in machine learning.
+A transformation in statistics is called feature creation in machine learning.

@@ -71,6 +71,12 @@ stop tty6 : stop tty6
 /var/log/lightdm/
 
 dig: DNS lookup utility
+#reverse lookup
+dig +short -x <ip addr>
+====
+another DNS utility: drill
+drill www.google.com
+drill www.google.com @8.8.8.8
 
 file copy tool: rsync
 
@@ -421,6 +427,8 @@ Wired connection 1  c614de98-714f-3f7a-8632-c47e53590cac  802-3-ethernet   eth2
 
 #edit existing connection
 nmcli c edit c614de98-714f-3f7a-8632-c47e53590cac
+nmcli c show --active
+nmcli c modify id 'MyCafe' 802-11-wireless.mtu 1350
 
 find out my screen resolution:
 #1: xdpyinfo | grep dimensions
@@ -1155,8 +1163,7 @@ Content-Type: application/octet-stream
 
 kvm daemon: libvirt-bin, libvirt-guests
 == need to do this:
-sudo systemctl start libvirtd
-sudo systemctl start virtlogd.service #may need this when creating VM
+sudo systemctl start libvirtd virtlogd.service
 kvm-ok #sanity check
 virsh -c qemu:///system list
 OR
@@ -1211,6 +1218,9 @@ change: <source file='/mnt/raid/images/rh-5.5.qcow2'/>
 ===
 arch linux: change KVM config:
 video mode was qxl, change to virtio
+===
+virsh net-list --all
+virsh net-dumpxml default
 
 in /boot/grub/grub.cfg : add console=ttyS0 in guest VM
 then you can "virsh console foo"
@@ -1267,7 +1277,7 @@ memory in write mode, this section is copied before being modified: copy-on-writ
 blockdev --getss #sector size
 blockdev --getbsz #block size
 
-TZ=UTC date # get a date in UTC
+TZ=UTC date # get a date in UTC or: date -u
 #convert epoch second to a date in UTC
 TZ=UTC date --date=@1452832200
 #convert epoch second to a date in UTC (ISO format)
@@ -1497,6 +1507,9 @@ time zone:
 ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 hwclock --systohc #generate the /etc/adjtime file
+-- when setting hwclock, need to indicate wheter --utc or --localtime
+hwclock --debug #can show whether hw clock is in local time or UTC
+3rd line of /etc/adjtime: indicate whether hw clock is in local time or UTC
 
 edit locale info in /etc/locale.gen, then run command locale-gen
 
@@ -1539,3 +1552,61 @@ keyboard translation table commands: dumpkeys, loadkeys
 brctl show : show ethernet bridge
 
 /etc/securetty
+
+The configuration file for DNS resolvers is /etc/resolv.conf
+The resolver is a set of routines in the C library that provide access to the Internet Domain Name
+System (DNS).
+
+A Linux system actually has two clocks: One is the battery powered "Real Time Clock" (also known as
+the "RTC", "CMOS clock", or "Hardware clock") which keeps track of time when the system is turned
+off but is not used when the system is running. The other is the "system clock" (sometimes called
+the "kernel clock" or "software clock") which is a software counter based on the timer interrupt. It
+does not exist when the system is not running, so it has to be initialized from the RTC (or some
+other time source) at boot time. References to "the clock" in the ntpd documentation refer to the
+system clock, not the RTC.
+
+ntp -p : show NTP status
+ntptime
+
+network bridge: sw/hw that combines two or more network segments. it behaves like
+a virtual netowkr switch.
+bridge is a way to connect two Ethernet segments in a protocol-independent way. packets are
+forwarded based on Ethernet address, rather than IP address.
+
+/etc/default/rcS: UTC=no/yes #assume real-time clock in UTC or not
+/etc/default/rcS: variables that affect the behavior of boot scripts
+
+tzselect : select time zones interactively
+
+hardware clock (aka real time clock, RTC)
+by default, Windows think RTC is in local time.
+This can be changed in the registry:
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+"RealTimeIsUniversal"=dword:00000001
+== make following changes. did not make changes==
+reasons: windows change time upon shutdown (time service?)
+windows: sc config w32time start=disabled/demand ??
+also:
+ubuntu appears to change the RTC upon shutdown.
+1. write UTC to RTC (hwclock --systohc --utc)
+2. change UTC var in /etc/default/rcS
+3. boot to Windows
+4. change registry
+
+Linux : 11 minute mode: CONFIG_GENERIC_CMOS_UPDATE compiler option
+the kernel copies the system time to the hardware clock every 11 minutes
+this mode is useful when NTP is running
+
+POSIX character classes
+[:upper:]	[A-Z]	uppercase letters
+[:lower:]	[a-z]	lowercase letters
+[:alpha:]	[A-Za-z]	upper- and lowercase letters
+[:digit:]	[0-9]	digits
+[:xdigit:]	[0-9A-Fa-f]	hexadecimal digits
+[:alnum:]	[A-Za-z0-9]	digits, upper- and lowercase letters
+[:punct:]		punctuation (all graphic characters except letters and digits)
+[:blank:]	[ \t]	space and TAB characters only
+[:space:]	[ \t\n\r\f\v]	blank (whitespace) characters
+[:cntrl:]		control characters
+[:graph:]	[^ [:cntrl:]]	graphic characters (all characters which have graphic representation)
+[:print:]	[[:graph] ]	graphic characters and space

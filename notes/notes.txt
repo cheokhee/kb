@@ -9121,19 +9121,6 @@ index-free adjacency: a node can traverse to its neighbors without using indices
 interpolation is a method of constructing new data points within the range of a discrete set of
 known data points.
 
-Mode (statistics) The mode is the value that appears most often in a set of data.
-mean: the average
-===
-The median is the value separating the higher half of a data sample, a population, or a probability
-distribution, from the lower half. In simple terms, it may be thought of as the "middle" value of a
-data set. For example, in the data set {1, 3, 3, 6, 7, 8, 9}, the median is 6, the fourth number in
-the sample.
-===
-variance is the expectation of the squared deviation of a random variable from its mean,
-===
-standard deviation (SD, also represented by the Greek letter sigma or the Latin letter s) is a
-measure that is used to quantify the amount of variation or dispersion of a set of data values.
-
 "surface area" of a language is the number of keywords and independent language constructs that
 a developer must master to be productive in the language.
 
@@ -9464,3 +9451,14 @@ microcode: The lowest-level instructions that directly control a microprocessor.
 machine-language instruction typically translates into several microcode instructions.
 
 UEFI: the interface between the OS and the platform firmware.
+
+SSID is the name assigned by the user to identify the AP. This is the one you see when you search
+for WiFi. Example: Home-WiFi [Name-upto 64 character]
+
+BSSID is usually associated with AP’s MAC address of the AP. This information is sent in the AP
+beacon but can not be seen by user unless he is using some kind of analyser/tools.  Example:
+0000.1111.3333 [hexadecimal- 12 character(0–f) ]
+
+ESSID is associated with multiple AP. All the AP will broadcast same SSID. But the beacon will have
+different BSSID info. It involves roaming. The user gets connected to the AP that has maximum
+strength (RSSI)
