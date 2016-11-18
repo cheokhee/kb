@@ -85,6 +85,9 @@ modinfo: display module info
 modules are in /lib/modules/
 rmmod: remove modules
 modprobe: add or remove modules
+systool -v -m module_name #list options set for a loaded module
+modprobe -c : show config
+modprobe --show-depends module_name
 
 --cron change
 move popularity-contest from /etc/cron.daily to ~root/cron
@@ -194,6 +197,8 @@ Found memtest86+ image: /boot/memtest86+.elf
 Found memtest86+ image: /boot/memtest86+.bin
 Found Windows 7 (loader) on /dev/sda2
 ===================================================
+grub images: /usr/lib/grub/i386-pc
+
 gfxmode:
 
 If this variable is set, it sets the resolution used on the ‘gfxterm’ graphical terminal. Note that
@@ -838,6 +843,14 @@ REISUB
 
 #get SATA/IDE device info
 hdparm /dev/sda
+#show blocks occupied by a file
+sudo hdparm --fibmap <filename>
+example output:
+file.txt:
+ filesystem blocksize 4096, begins at LBA 1404430336; assuming 512 byte sectors.
+ byte_offset  begin_LBA    end_LBA    sectors
+           0 1869805696 1869805703          8
+
 
 badblocks : search a device for bad blocks
 readelf: display info about ELF files
@@ -1583,15 +1596,22 @@ by default, Windows think RTC is in local time.
 This can be changed in the registry:
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
 "RealTimeIsUniversal"=dword:00000001
-== make following changes. did not make changes==
-reasons: windows change time upon shutdown (time service?)
+== make following changes in home laptop:
+1. check BIOS time
+2. Windows: change registry
+3. boot, set BIOS time to UTC
+4. boot into Windows, verify time
+5. reboot, check BIOS time
+6. boot into Windows, verify time again
+7. reboot, check BIOS time again
+8. then reboot from USB/CD (linux)
+9. mount /dev/sdaX, change /etc/default/rcS (UTC=yes) and /etc/adjtime (change LOCAL to UTC)
+10. boot into Linux, verify time
+11. reboot, check BIOS time, go to Linux, verify time again
+=====
+write UTC to RTC (hwclock --systohc --utc)
+== window time service?
 windows: sc config w32time start=disabled/demand ??
-also:
-ubuntu appears to change the RTC upon shutdown.
-1. write UTC to RTC (hwclock --systohc --utc)
-2. change UTC var in /etc/default/rcS
-3. boot to Windows
-4. change registry
 
 Linux : 11 minute mode: CONFIG_GENERIC_CMOS_UPDATE compiler option
 the kernel copies the system time to the hardware clock every 11 minutes
@@ -1610,3 +1630,10 @@ POSIX character classes
 [:cntrl:]		control characters
 [:graph:]	[^ [:cntrl:]]	graphic characters (all characters which have graphic representation)
 [:print:]	[[:graph] ]	graphic characters and space
+
+os-prober
+linux-boot-prober /dev/sda8
+
+rmmod pcspkr #disable PC speaker
+
+setterm : set terminal attribute

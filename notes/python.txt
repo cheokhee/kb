@@ -242,3 +242,6 @@ with open(input_file) as f:
     next(f)
     for line in f:
        # do stuff with line
+
+debugger:
+import pdb; pdb.set_trace()

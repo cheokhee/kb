@@ -1,0 +1,30 @@
+machine learning: generic algorithm that can build its own logic based on the input data.
+you need to provide training data.
+--> the ability to learn without being explicity programmed.
+--> figuring out an equation to solve a specific problem based on some example data
+--> using generic algorithms to tell you something interesting about your data without writing any code
+specific to the problem you are solving.
+--> BEST: about the creation of algorithms that can learn from and make predictions on data.
+Useful when programming explicit algorithms is unfeasible.
+
+--> supervised learning and unsupervised learning
+supervised: you know the answer and work backwards to figure out the logic
+the computer is presented with example inputs and their desired outputs.
+the goal is to learn a general rule that maps inputs to outputs
+
+--> unsupervised: you don't know the answer
+--> figuring out an equation to solve a specific problem based on some example data
+kinda like data mining.
+
+reinforcement learning: the program interacts with a dynamic environment in which it
+must perform a certain goal, without the teacher telling it whether it has come close
+to its goal (e.g. driving a car).
+
+Deep learning (also known as deep structured learning, hierarchical learning or deep machine
+learning) is a branch of machine learning based on a set of algorithms that attempt to model high
+level abstractions in data by using a deep graph with multiple processing layers, composed of
+multiple linear and non-linear transformations
+
+predictive analytics
+
+algorithms: naive Bayes, nearest neighbor, the mean classifier, the Perceptron

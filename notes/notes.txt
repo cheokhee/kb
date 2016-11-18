@@ -8531,6 +8531,7 @@ which also runs on a Pentium, is upward compatible. Upward compatibility is impo
 means you can move to a newer, larger, and more sophisticated computer without converting your data.
 
 macros: shorthands for longer constructs
+macros: shortcuts that perform multiple instructions in a single step.
 
 relocatable machine code: meaning it can be loaded starting at any location.
 
@@ -8797,13 +8798,6 @@ Actionable by the Team Independently
 example: Transform Palo Alto’s Coupon-Using habits.
 
 Pwn:  to conquer to gain ownership. An act of dominating an opponent.
-
-machine learning: generic algorithm that can build its own logic based on the input data.
-you need to provide training data.
---> supervised learning and unsupervised learning
-supervised: you know the answer and work backwards to figure out the logic
-unsupervised: you don't know the answer
---> figuring out an equation to solve a specific problem based on some example data
 
 Getting to "that is right"
 what should I say when they ask, "what do you guys do?"
@@ -9462,3 +9456,45 @@ beacon but can not be seen by user unless he is using some kind of analyser/tool
 ESSID is associated with multiple AP. All the AP will broadcast same SSID. But the beacon will have
 different BSSID info. It involves roaming. The user gets connected to the AP that has maximum
 strength (RSSI)
+
+My expectation is that this position will be paying around $xxx,xxx which, from my research, seems
+to be in line with industry standards for the role and is very close to my compensation now. If this
+is outside of what you or your client were thinking, I'm happy to have a conversation about it and
+regroup if it's a good opportunity.
+===
+"I'd like to partner with you to explore this opportunity, but as it relates to salary, I'm a little
+limited with what I can share due to the NDAs I signed when I first joined my company. The payment
+and bonus structures at my company is considered by them to be private/inside information, and they
+have asked us to keep that confidential. I know that can be a bit difficult on your side, so the
+total number that I would be expecting: $xxx,xxx. If that's not possible for your client, we can
+have a conversation about what they were thinking, but that's close to what I make now and what I
+would consider for the new position. Just let me know if that is not possible."
+
+The Leidenfrost effect is a physical phenomenon in which a liquid, in near contact with a mass
+significantly hotter than the liquid's boiling point, produces an insulating vapor layer keeping
+that liquid from boiling rapidly.
+
+steak doneness: blue rare, rare, medium rare, medium, medium well, well done
+
+CHS addressing: replaced by logical block addressing (LBA): LBA starts at zero
+C: cylinder, the valid range is between 0 and 1023 cylinders
+H: Head (synonymous with side), the valid range is between 0 and 254 heads (formerly 0-15)
+S: Sector, the valid range is between 1 and 63 sectors
+===
+The first sector for a partitioned hard disk (LBA 0 or CHS 0/0/1) contains:
+the Master Boot Record (MBR)
+and the Primary or Master Partition Table (MPT)
+
+desktop environment: a graphical user interface consisting of a collection of software components
+built with a common widget toolkit. a desktop environment bundles together a variety of components
+that have a common look and feel.
+--
+Desktop environments are graphical interfaces for the entire operating system,
+==
+A window manager (WM) is system software that controls the placement and appearance of windows
+within a windowing system in a graphical user interface (GUI). It can be part of a desktop
+environment (DE) or be used standalone.
+===
+A compositing window manager is a window manager that provides applications with an off-screen
+buffer for each window. The window manager composites the window buffers into an image representing
+the screen and writes the result into the display memory.

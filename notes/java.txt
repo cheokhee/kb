@@ -492,3 +492,5 @@ glob patterns used NIO.2 in java 7:
 					transferRelTypes, connectedFeederRelTypes, transhipmentFeederRelTypes,
 					transferFeederRelTypes);
 ====
+
+The result of adding Java chars, shorts, or bytes is an int:
