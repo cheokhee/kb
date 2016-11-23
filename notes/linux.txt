@@ -1637,3 +1637,31 @@ linux-boot-prober /dev/sda8
 rmmod pcspkr #disable PC speaker
 
 setterm : set terminal attribute
+
+127.0.1.1: the purpose is to assign an IP to a host name in the absence of a network
+connection. If the machine has a permanent IP address, use it instead of 127.0.1.1
+
+resize partition:
+checking: e2fsck -f /dev/sda1, dumpe2fs -h /dev/sda1
+enlarge: extend partition, then resize file system
+shrink:
+resize filesystem: resize2fs /dev/sda1 1000s # 1000s specify 1000 sectors
+afterwards, run e2fsck and dumpe2fs to check
+shrink partion: use parted:
+resizepart 1 10547s #1 is partition number and 10547s is the ending sector:
+afterwards:
+/dev/sdb1        2048 10547    8500  4.2M 83 Linux
+==
+afterwards, run blkid to check partition UUID
+
+scrollback buffer: between video adapter and the display device
+change scrollback buffer size: provide fbcon=scrollback:Nk where N is the buffer size
+in kilobytes. default is 32k. (http://www.kernel.org/doc/Documentation/fb/fbcon.txt)
+
+search with locate:
+1. locate --basename '\pkg'
+output: /usr/src/linux-headers-4.8.0-26-generic/include/config/x86/pkg
+2. locate --basename 'pkg'
+output: a lot, such as /var/log/dpkg.log
+conclusion: 'pkg' means '*pkg*'
+upshot: Where \ is a globbing character, it disables the implicit replacement of pkg by *pkg*.

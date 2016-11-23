@@ -168,6 +168,14 @@ fish
 ===contents of file===
 /etc/dhcp/dhclient.conf : comment out every line
 ldnsutils : contains the drill program
+=== python-related
+upgrade pip3: pip3 install --upgrade pip (from 8.1.2 to 9.0.1)
+created ~/.config/pip/pip.conf:
+[list]
+format=columns
+=== python-related
+python3-tk
+sysfsutils
 
 =========== end of packages ==============
 

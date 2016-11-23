@@ -193,6 +193,12 @@ curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POS
 
 curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:ServiceList) return n.code as CODE, n.direct as DIRECT, n.ts1 as TS1, n.ts2 as TS2, n.ts3 as TS3 limit 1"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r -c '.results[0] | .columns,.data[].row '
 
+#look at just 1
+curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:ServiceList) return n.code as CODE, replace(n.direct[0],\",\",\";\") as DIRECT, replace(n.ts3[0],\",\",\";\") as TS3_1, replace(n.ts3[1],\",\",\";\") as TS3_2, replace(n.ts3[2],\",\",\";\") as TS3_3, replace(n.ts3[3],\",\",\";\") as TS3_4 limit 1"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r -c '.results[0] | .columns,.data[].row '
+
+#extract service lists
+curl -s -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"statements" : [ {"statement" : "match (n:ServiceList) where n.direct<>[\"\"] or n.ts3<>[\"\",\"\",\"\",\"\"] return n.code as CODE, replace(n.direct[0],\",\",\";\") as DIRECT, replace(n.ts3[0],\",\",\";\") as TS_1, replace(n.ts3[1],\",\",\";\") as TS_2, replace(n.ts3[2],\",\",\";\") as TS_3, replace(n.ts3[3],\",\",\";\") as TS_4"} ]}' http://localhost:7474/db/data/transaction/commit | jq -r '.results[0] | .columns,.data[].row | @csv'
+
 create (n:Person {name:split("one,two,three",",")}) return n,id(n);
 
 match (n:ServiceList) where n.code = 'SYD-HKG' return reduce(s="", x in n.ts2 |  s+x+"|");

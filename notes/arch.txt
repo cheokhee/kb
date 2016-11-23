@@ -1,0 +1,16 @@
+arch: did not install grub
+
+go to ubuntu, run update-grub (which uses grub-mkconfig)
+uses os-prober to detect arch, added arch to /boot/grub/grub.cfg
+
+During boot, two errors:
+#1. complains about root filesystem not being mounted read-write
+soln: edit /etc/grub.d/30_os-prober to add rw to linux boot option:
+result: linux /boot/vmlinuz-linux root=/dev/sda8 rw
+
+#2. cannot load module crc32c
+workaround: use fallback init ram image during boot:
+initrd /boot/initramfs-linux-fallback.img
+long-term soln: In /etc/mkinitcpio.conf: add crc32c_intel to MODULES
+then do "mkinitcpio -p linux"
+this will add crc32c-intel.ko to /boot/initramfs-linux.img

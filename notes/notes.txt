@@ -7146,6 +7146,10 @@ Predictable Resource Location:
 example, q3 report: http://host/2013q3.html, then guess q4: http://host/2013q4.html
 
 Distilling the Essence of Your Value Proposition
+who distilled the insight down to this
+If one were to distill the work of an entrepreneur down to its simplest description.
+my travel notes were distilled into a book
+the employee report is a distilled version of the main accounts
 
 Manichean
 Of or relating to a dualistic view of the world, dividing things into either good or evil, light or dark, black or white, involving no shades of gray.
@@ -9498,3 +9502,44 @@ environment (DE) or be used standalone.
 A compositing window manager is a window manager that provides applications with an off-screen
 buffer for each window. The window manager composites the window buffers into an image representing
 the screen and writes the result into the display memory.
+
+First lightly read through the chapters, highlighting or underlining the key concepts in each
+chapter that seem the most important. then apply Feynman technique:
+1. Choose the concept you wish to understand (or wish to check whether you understand) and write
+down the name of the concept.
+2. Then try to explain the idea to yourself as if you were teaching it to someone who didn't
+understand it at all. This will help you develop a deeper understanding of what you already
+understand but also will help you pinpoint exactly the things you don't understand.
+3. Once you identify the gaps in your knowledge, go back to the reference material and reread or
+relearn the material until you can explain it in your own words.
+
+=== histogram vs bar chart ===
+Histograms are a special form of bar chart where the data represent continuous rather than discrete
+categories. This means that in a histogram there are no gaps between the columns representing the
+different categories.
+===
+Histogram is a chart representing a frequency distribution
+histogram: Usually, there is no space between adjacent Bars.
+==
+Bar Chart
+The columns are positioned over a label that represents a categorical variable.
+The height of the column indicates the size of the group defined by the categories.
+---
+Histogram
+The columns are positioned over a label that represents a quantitative variable.
+The column label can be a single value or a range of values.
+--
+Here is the main difference between them. With bar charts, each column represents a group defined by
+a categorical variable; and with histograms, each column represents a group defined by a
+quantitative variable.
+===
+histograms are used to show distributions of variables while bar charts are used to compare
+variables
+---
+Histograms plot quantitative data with ranges of the data grouped into bins or intervals while bar
+charts plot categorical data.
+==
+Histograms plot binned quantitative data while bar charts plot categorical data.
+Bars can be reordered in bar charts but not in histograms.
+
+TEOTWAWKI: the end of the world as we know it

@@ -5,12 +5,19 @@ you need to provide training data.
 --> using generic algorithms to tell you something interesting about your data without writing any code
 specific to the problem you are solving.
 --> BEST: about the creation of algorithms that can learn from and make predictions on data.
+--> giving knowledge to computers without hard-coding the knowledge
 Useful when programming explicit algorithms is unfeasible.
 
---> supervised learning and unsupervised learning
+--> supervised learning
 supervised: you know the answer and work backwards to figure out the logic
 the computer is presented with example inputs and their desired outputs.
 the goal is to learn a general rule that maps inputs to outputs
+predictive modeling, learn from past examples
+====
+you already know the answers to existing data.
+you feed the existing data and the corresponding answers to the computer.
+the computer is supposed to come up with a general rule that can provide an answer to future data.
+classic example: spam filtering
 
 --> unsupervised: you don't know the answer
 --> figuring out an equation to solve a specific problem based on some example data

@@ -44,6 +44,7 @@ lightdm configuration:
 /etc/lightdm/lightdm-gtk-greeter.conf.d/*.conf
 /etc/lightdm/lightdm-gtk-greeter.conf
 lightdm-gtk-greeter-settings #program to change setting (need sudo)
+/etc/lightdm/lightdm.conf : autologin settings
 
 xwininfo #get info about window
 
