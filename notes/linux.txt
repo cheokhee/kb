@@ -717,6 +717,8 @@ nmap -O <host>
 nmap -oN <file>
 #output scan in XML format
 nmap -oX scandata.xml rigel
+#discover all hosts in a network
+nmap -sn 146.222.122.128/25
 
 #make your script more robust
 set -euo pipefail
@@ -1298,6 +1300,10 @@ TZ=UTC date --date=@1452832200 +%Y-%m-%dT%H:%M:%S.000Z
 output: 2016-01-15T04:30:00.000Z
 #convert date to epoch second
 TZ=UTC date --date="2015-08-31 13:30:15" +%s
+#past date
+date --date='2 days ago'
+#future date
+date --date='2 days'
 
 getconf PAGESIZE #get page size
 
@@ -1560,7 +1566,11 @@ localectl status
 localectl list-keymaps
 localectl list-locales
 
-keyboard translation table commands: dumpkeys, loadkeys
+for virtual console: keyboard translation table commands: dumpkeys, loadkeys, showkey
+--
+dumpkeys > backup.kmap #save current keymap
+loadkeys backup.kmap #restore keymap
+showkey #check which key code is assigned
 
 brctl show : show ethernet bridge
 
@@ -1665,3 +1675,37 @@ output: /usr/src/linux-headers-4.8.0-26-generic/include/config/x86/pkg
 output: a lot, such as /var/log/dpkg.log
 conclusion: 'pkg' means '*pkg*'
 upshot: Where \ is a globbing character, it disables the implicit replacement of pkg by *pkg*.
+
+import : saves any visible window on an X server and outputs it as an image file. You can capture a
+       single window, the entire screen, or any rectangular portion of the screen.
+example: import -window emacs5 test.jpg
+
+restart frozen system (not tested):
+Press ALT + PrntScrn and then, while holding those, type the following letters in order: REISUB.
+
+/etc/rc.local : executed on reboot
+
+top/htop process states:
+R    running or runnable (on run queue)
+S    interruptible sleep (waiting for an event to complete)
+D    uninterruptible sleep (usually IO)
+Z    defunct ("zombie") process, terminated but not reaped by its parent
+T    stopped by job control signal
+t    stopped by debugger during the tracing
+X    dead (should never be seen)
+===
+memory usage:
+VIRT/VSZ :
+The total amount of virtual memory used by the task. It includes all code, data and shared libraries
+plus pages that have been swapped out and pages that have been mapped but not used.
+If an application requests 1 GB of memory but uses only 1 MB, then VIRT will report 1 GB. not very useful.
+---
+RES/RSS: is the portion of memory occupied by a process that is held in main memory (RAM).
+non-swapped physical memory used by a process. does not include the swapped out memory.
+some of the memory may be shared with other processes.
+If a process uses 1 GB of memory and it calls fork(), the result of forking will be two processes
+whose RES is both 1 GB but only 1 GB will actually be used since Linux uses copy-on-write.
+---
+SHR: The amount of shared memory used by a task.
+---
+MEM% : A task's currently used share of available physical memory.

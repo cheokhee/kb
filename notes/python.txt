@@ -263,3 +263,70 @@ print(data.describe())
 back_door = data[data.Door_Location == 'BACK DOOR'] OR back_door = data[data['Door_Location'] == 'BACK DOOR']
 pandas.to_datetime(back_front_door['Time'], format='%m/%d/%Y %H:%M')
 data[['Time', 'Door_Location']] # get a subset of columns
+====
+pandas series:  a one-dimensional labeled array
+The axis labels are collectively referred to as the index
+data={'name':'cheok','age':10}
+s=pandas.Series(data=data,index=['name','age']) OR pandas.Series(data)
+print(s):
+name    cheok
+age        10
+dtype: object
+====
+OR:
+pandas.Series(['one',2])
+0    one
+1      2
+dtype: object
+
+#data can be python dict, ndarray (from numpy), a scalar value (like 5)
+
+dataframe:
+time_slot_array=[[..],[..],...] # a list of lists
+pandas.DataFrame(data=time_slot_array, columns=['TimeSlot','Count'])
+pandas.DataFrame([['cheok',10],['hee',20]],columns=['name','age'])
+output:
+    name  age
+0  cheok   10
+1    hee   20
+====
+create a sub-dataframe:
+f[f['age'] == 10]
+Out[]:
+    name  age
+0  cheok   10
+======
+
+another way:
+pandas.DataFrame({'name': ['john','mike'],'age':[20,30]}):
+   age  name
+0   20  john
+1   30  mike
+
+type(dataframe['name']) -> pandas.core.series.Series
+each column in a data frame is a Series
+===
+
+for row in dataframe.itertuples():
+  print(row[1]) #first column, zeroth column is the index
+
+numpy.random.randn(5) -> return an ndarray
+
+groupby example:
+df2 = pandas.DataFrame({'X' : ['B', 'B', 'A', 'A'], 'Y' : [1, 2, 3, 4]})
+output:
+   X  Y
+0  B  1
+1  B  2
+2  A  3
+3  A  4
+--
+ df2.groupby('X').sum()
+output:
+   Y
+X
+A  7
+B  3
+
+
+HashMap<String, Object> result = RouteUtil.convertToStandardFormat(combinedRelationships, from, pod, 0);

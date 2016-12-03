@@ -7,6 +7,17 @@ specific to the problem you are solving.
 --> BEST: about the creation of algorithms that can learn from and make predictions on data.
 --> giving knowledge to computers without hard-coding the knowledge
 Useful when programming explicit algorithms is unfeasible.
+--> a machine learning system can improve its performance with experience
+
+machine learning: an algorithm that can learn from data without relying on rules-based programming.
+a subfield of computer science and artificial intelligence which deals with building systems that
+can learn from data, instead of explicitly programmed instructions.
+==
+statistical modeling: formalization of relationships between variables in the form of mathematical equations.
+a subfield of mathematics which deals with finding relationship between variables to predict an outcome
+
+statistics is about drawing valid conclusions.
+machine learning is about make predictions.
 
 --> supervised learning
 supervised: you know the answer and work backwards to figure out the logic

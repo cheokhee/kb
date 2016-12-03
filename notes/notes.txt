@@ -1107,7 +1107,7 @@ types provided as parameters.
 ====
 allow you to write code that operates on objects whose types have not been determined.
 =====
-allow you to write code that operates on unspecified types.
+generics: allow you to write code that operates on unspecified types.
 =====
 called generics in Java and C#, template in C++, parameterized type by gang of four.
 +++
@@ -7279,10 +7279,6 @@ SQL injection: an attack where the attacker inserts an SQL statement into an ent
 cross-site scripting: an attack where the attacker inserts client-side script into a web page.
 The underlying problem is that many Web pages display input that is not validated. If input is not validated, malicious script can be embedded within the input. If a server-side script then displays this non-validated input, the script runs on the browser as though the trusted site generated it.
 
-histogram: used to show distributions of variables while bar charts are used to compare variables
- it does not make sense to rearrange the bars of a histogram.
-Histograms plot binned quantitative data while bar charts plot categorical data.
-
 demand paging:  is a type of swapping in which pages of data are not copied from disk to RAM until they are needed
 
 java: instanceof , isAssignableFrom
@@ -7850,7 +7846,7 @@ mixin is a class that contains a combination of methods from other classes. How 
 is done depends on the language. If a combination contains all methods of combined classes, it is
 equivalent to multiple inheritance.
 ---
-allow you to inject code into a class without using inheritance.
+mixin: allow you to inject code into a class without using inheritance.
 
 thrashing: pages are constantly being written to disk and then read back.
 
@@ -8663,6 +8659,8 @@ are added to the blockchain in a linear, chronological order.
 ----------
 A blockchain—originally, block chain—is a distributed database that maintains a
 continuously-growing list of data records hardened against tampering and revision.
+----
+blockchain: a distributed ledger of immutable records. each record is linked to the previous one.
 
 PICC (peripherally inserted central catheter) line:
 is a central venous catheter inserted into a vein in the arm rather than a vein in the neck or chest.
@@ -9528,6 +9526,7 @@ The height of the column indicates the size of the group defined by the categori
 Histogram
 The columns are positioned over a label that represents a quantitative variable.
 The column label can be a single value or a range of values.
+histogram: display how many data points lie in each of a series of intervals.
 --
 Here is the main difference between them. With bar charts, each column represents a group defined by
 a categorical variable; and with histograms, each column represents a group defined by a
@@ -9541,5 +9540,69 @@ charts plot categorical data.
 ==
 Histograms plot binned quantitative data while bar charts plot categorical data.
 Bars can be reordered in bar charts but not in histograms.
+====
+histogram: display data points over a series of intervals
+bar chart: display data points over categories
 
 TEOTWAWKI: the end of the world as we know it
+
+centralized trust model: uses certificate authorities to issue certificates that
+certify the authenticity of public keys. used by https
+decentralized trust model: web of trust. a user authenticates a public key
+by signing it with his private key. used by PGP.
+
+partitioning: splitting a physical drive into multiple logical drives such
+that the logical drive appears as a physical drive to the OS.
+
+from Bruce Lee:
+absorb what is useful, reject what is useless, add what is your own.
+using no way as way, having no limitation as limitation
+
+Mode setting is a software operation that activates a display mode (screen resolution, color depth,
+and refresh rate) for a computer's display controller.
+===
+In kernel mode-setting (KMS), the display mode is set by the kernel. In user-space mode-setting
+(UMS), the display mode is set by a userland process.
+===
+Kernel mode-setting is more flexible and allows displaying of an error in the case of a fatal error
+in the kernel, even when using a user-space display server.
+===
+User-space mode setting would require superuser privileges for direct hardware access, so
+kernel-based mode setting shuns such requirement for the user-space graphics server.
+
+video card, graphics card, display adapter, video adapter, display controller:
+A Graphics Card is a piece of computer hardware that produces the image you see on a monitor. The
+Graphics Card is responsible for rendering an image to your monitor, it does this by converting data
+into a signal your monitor can understand.
+==
+Video RAM is really a buffer between the computer processor and the display and is often called the
+frame buffer.
+==
+When images are to be sent to the display, they are first read by the processor as data from some
+form of main (non-video) RAM and then written to video RAM. From video RAM (the frame buffer), the
+data is converted by a RAM digital-to-analog converter (RAMDAC) into analog signals that are sent to
+the display presentation mechanism such as a cathode ray tube (CRT).
+==
+Usually, video RAM comes in a 1 or 2 megabyte package and is located on the video adapter card in
+the computer. Most forms of video RAM are dual-ported, which means that while the processor is
+writing a new image to video RAM, the display is reading from video RAM to refresh its current
+display content. The dual-port design is the main difference between main RAM and video RAM.
+
+hash pointer: has a pair of values: pointer and hash value of the thing it points to
+Merkle tree: a tree where the pointer is replaced by a hash pointer. also called hash tree
+is tamper-proof. example: blockchain
+
+agility:
+find out where you are
+take a small step towards your goal
+adjust your understanding based on what you learned
+repeat
+
+Merkle Tree is a data structure where every non-leaf node contains the hash of the labels of its
+child nodes, and the leaves have their own values hashed. Because of this characteristic, Merkle
+Trees are used to verify that two or more parties have the same data without exchanging the entire
+data collection.
+==
+A merkle tree, also known as a binary hash tree, is a data structure used for efficiently
+summarizing and verifying the integrity of large sets of data. Merkle trees are binary trees
+containing cryptographic hashes.

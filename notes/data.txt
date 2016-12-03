@@ -7,6 +7,9 @@ distribution, from the lower half. In simple terms, it may be thought of as the 
 data set. For example, in the data set {1, 3, 3, 6, 7, 8, 9}, the median is 6, the fourth number in
 the sample.
 
+spread: how far from the center the data tend to range
+standard deviation: the standard measure of spread
+
 variance is the expectation of the squared deviation of a random variable from its mean,
 
 standard deviation (SD, also represented by the Greek letter sigma or the Latin letter s) is a
