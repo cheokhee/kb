@@ -5,6 +5,8 @@ The Docker engine sits directly on top of the host operating system. Its contain
 overhead as processes launched directly on the host machine.
 But Docker itself isn’t a container system; it merely piggybacks off the existing container facilities baked into the OS, such as LXC on Linux.
 
+docker: a package management system for deploying code.
+
 docker search
 docker pull
 docker info

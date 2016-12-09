@@ -9606,3 +9606,22 @@ data collection.
 A merkle tree, also known as a binary hash tree, is a data structure used for efficiently
 summarizing and verifying the integrity of large sets of data. Merkle trees are binary trees
 containing cryptographic hashes.
+
+pain
+P: position: where is it?
+Q: quality: is it sharp, dull, throbbing, stabbing, burning, pounding?
+R: radiation: does it go anywhere (down your leg?)
+S: severity: on a scale of 0 to 10
+T: temporal relationship. what is the timing? before/after a meal/activity?
+what makes it better/worse?
+
+A colocation centre, is a type of data centre where equipment, space, and
+bandwidth are available for rental to retail customers.
+
+A/B testing (sometimes called split testing) is comparing two versions of a web page to see which
+one performs better. You compare two web pages by showing the two variants (let's call them A and B)
+to similar visitors at the same time. The one that gives a better conversion rate, wins.
+
+Extended Display Identification Data (EDID) is a data structure provided by a digital display to
+describe its capabilities to a video source (e.g. graphics card or set-top box). It is what enables
+a modern personal computer to know what kinds of monitors are connected to it.

@@ -373,6 +373,7 @@ try with resources : resource is automatically closed
 try (OutputStream s = new OutputStream(); ....) {
 }
 try with resource: class must implement AutoCloseable interface
+try with resource: variables are closed in the reverse order from which they were initialized
 
 java.nio : Path, Paths, FileSystem, Files, WatchService,
 java.nio: asynchronous I/O
@@ -524,3 +525,11 @@ int totalValue(Valuer<? super Vehicle> valuer) {
 
 generic class: bounded type parameters
 example: public class Garage<X extends Vehicle> { }
+
+ExecutorService: allows you to submit jobs, represented either as Runnable
+or Callable objects, to a pool of worker threads.
+===
+ExecutorService es = Executors.newFixedThreadPool(3);
+Future<String> handle = es.submit(new MyJob());
+handle.get();
+===

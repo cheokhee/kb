@@ -176,6 +176,8 @@ format=columns
 === python-related
 python3-tk
 sysfsutils
+read-edid
+hwinfo
 
 =========== end of packages ==============
 
@@ -225,3 +227,4 @@ usage:
 java -jar decompiler.jar java.lang.String
 java -DAnsi=true -jar decompiler.jar java.util.Collections
 java -jar decompiler.jar -jar myJar.jar -o out
+java -jar ~/jar/procyon-decompiler-0.5.30.jar -jar myJar.jar -o out

@@ -8,7 +8,8 @@ data set. For example, in the data set {1, 3, 3, 6, 7, 8, 9}, the median is 6, t
 the sample.
 
 spread: how far from the center the data tend to range
-standard deviation: the standard measure of spread
+standard deviation: the standard measure of spread/dispersion:
+deviation: how much the data deviate from one another.
 
 variance is the expectation of the squared deviation of a random variable from its mean,
 
@@ -55,3 +56,24 @@ In machine learning, a target is called a label.
 In statistics, a target is called a dependent variable.
 A variable in statistics is called a feature in machine learning.
 A transformation in statistics is called feature creation in machine learning.
+
+In directed data mining, you are trying to predict a particular data point. eg. the sales price of a
+house given information about other houses for sale in the neighborhood
+==
+In undirected data mining, you are trying to create groups of data, or find patterns in existing
+data
+
+Regression is a data mining function that predicts a number. Age, weight, distance, temperature,
+income, or sales could all be predicted using regression techniques.
+regression: transforms existing data into a numerical prediction for future data
+
+There are a number of independent variables, which, when taken together, produce a result - a
+dependent variable. The regression model is then used to predict the result of an unknown dependent
+variable, given the values of the independent variables.
+==
+The price of the house (the dependent variable) is the result of many independent variables - the
+square footage of the house, the size of the lot, whether granite is in the kitchen, bathrooms are
+upgraded, etc. So, if you've ever bought a house or sold a house, you've likely created a regression
+model to price the house. You created the model based on other comparable houses in the neighborhood
+and what they sold for (the model), then put the values of your own house into this model to produce
+an expected price.
