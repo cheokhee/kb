@@ -8,6 +8,10 @@ specific to the problem you are solving.
 --> giving knowledge to computers without hard-coding the knowledge
 Useful when programming explicit algorithms is unfeasible.
 --> a machine learning system can improve its performance with experience
+--machine learning: the stufy of algorithms that learn from examples/experience
+
+features: like attributes
+labels: output
 
 machine learning: an algorithm that can learn from data without relying on rules-based programming.
 a subfield of computer science and artificial intelligence which deals with building systems that
@@ -46,3 +50,6 @@ multiple linear and non-linear transformations
 predictive analytics
 
 algorithms: naive Bayes, nearest neighbor, the mean classifier, the Perceptron
+
+Classification (also known as classification trees or decision trees) is a data mining algorithm
+that creates a step-by-step guide for how to determine the output of a new data instance.

@@ -2668,6 +2668,8 @@ An abstraction layer is a way of hiding the implementation details of a particul
 ----
 Abstraction is what we use to manage complexity. We build something of significant complexity, we
 mask its inner workings, and we expose what we think is necessary for interacting with it.
+--
+abstraction: represents something that is not an inherent quality. a way of hiding overwhelming detail.
 
 ----
 omitting certain kinds of detail in order to emphasise others
@@ -7120,6 +7122,7 @@ PrintWriter is better in the sense that it handles multi-byte characters properl
 
 data mining:
 the extraction of implicit, previously unknown, and potentially useful info from data.
+data mining: find valuable info hidden in large volumes data
 
 fork (file system):
 File system forks are associated with Apple's Hierarchical File System (HFS). Apple's HFS, and the original Apple Macintosh file system MFS, allowed a file system object to have several kinds of forks: a data fork, a resource fork, and multiple named forks.
@@ -8661,6 +8664,11 @@ A blockchain—originally, block chain—is a distributed database that maintain
 continuously-growing list of data records hardened against tampering and revision.
 ----
 blockchain: a distributed ledger of immutable records. each record is linked to the previous one.
+blockchain: an ever-increasing chain of blocks of data. each block contains a record of things
+that have happened.
+---
+Mining is a process in which powerful computers create Bitcoins by solving processor-intensive
+equations.
 
 PICC (peripherally inserted central catheter) line:
 is a central venous catheter inserted into a vein in the arm rather than a vein in the neck or chest.
@@ -9194,10 +9202,6 @@ orchestration: making all the pieces work together.
 ===
 management: providing oversight into the system and supporting various administrative tasks.
 
-A fluorescein angiography is a medical procedure in which a fluorescent dye is injected into the
-bloodstream. The dye highlights the blood vessels in the back of the eye so they can be
-photographed.
-
 angiography: examination by X-ray of blood or lymph vessels, carried out after introduction of a
 radiopaque substance.
 
@@ -9355,6 +9359,58 @@ Dryness sensation
 Red eyes
 Photophobia (light sensitivity)
 Blurred vision
+
+fovea: a small depression in the retina of the eye where visual acuity is highest. The center of the
+field of vision is focused in this region, where retinal cones are particularly concentrated.
+
+Charles Bonnet syndrome: Visual release hallucinations, also known as Charles Bonnet syndrome (CBS),
+is the experience of complex visual hallucinations in a person with partial or severe blindness.
+
+A fluorescein angiography is a medical procedure in which a fluorescent dye is injected into the
+bloodstream. The dye highlights the blood vessels in the back of the eye so they can be
+photographed.
+
+optical coherence tomography (OCT) is a non-invasive imaging test that uses light waves to take
+cross-section pictures of your retina, the light-sensitive tissue lining the back of the eye. With
+OCT, each of the retina's distinctive layers can be seen, allowing your ophthalmologist to map and
+measure their thickness.O
+
+Avastin injection: is the brand name for bevacizumab, a drug injected into the eye to slow vision
+loss in people who have “wet” age-related macular degeneration (AMD). Avastin is part of a class of
+drugs that block the growth of abnormal blood vessels, which is the cause of wet age-related macular
+degeneration (AMD).
+
+dry AMD:
+a condition in which layers of the macula (including the photoreceptors and the retinal pigment
+epithelium) get progressively thinner, functioning less and less as they do. This is called
+atrophy. In the early stage of dry AMD, the pigment or color of the macula changes. Tiny drusen
+appear on the retina: these are little piles of waste product of the cells of the eye. Drusen
+themselves may lead to deterioration and atrophy of the retina. Dry AMD often does not progress
+further than pigment discoloration and the presence of drusen. In fact, nearly everyone over 50
+years of age has at least one small drusen. yellowish deposits form underneath the retina.
+==
+Dry AMD is also called non-neovascular AMD and non-exudative AMD because it does not involve the
+exuding – that is, leakage – of fluids from blood vessels. Advanced cases – “late dry” AMD – are
+called geographic atrophy (GA) because large sections of the retina that are well demarcated
+(geographies) stop functioning.
+
+wet AMD:
+Wet AMD is a condition in which new blood vessels grow in the choroid layer behind the retina. This
+condition is called choroidal neovascularization or CNV. The new vessels are weak, and they leak
+fluid, lipids (part of the structure of cells), and blood. The leaking gets into the layers of the
+retina – including the layers of the macula – and can cause scar tissue to form and retinal cells to
+stop functioning.
+==
+Wet AMD is also called neovascular AMD or exudative AMD because it involves the exudation or leakage
+of fluid and blood from new blood vessels.
+
+american foundation for the blind: www.afb.org (VisionAware)
+www.blindness.org
+https://nei.nih.gov/
+
+american maculr degeneration foundation (www.macular.org), https://www.macular.org/amdf-newsletter
+macular degeneration news: www.amd.org
+
 == EYE ===
 
 A heat map (or heatmap) is a graphical representation of data where the individual values contained
@@ -9606,6 +9662,15 @@ data collection.
 A merkle tree, also known as a binary hash tree, is a data structure used for efficiently
 summarizing and verifying the integrity of large sets of data. Merkle trees are binary trees
 containing cryptographic hashes.
+---
+merkle/hash tree allows efficient verification of the contents of large data structures.
+the leaf node contains the hash of a block of data in file(s).
+the non-leaf node contains the hash of the hash of its children.
+example:
+parent has two leaf nodes: hash0 and hash1
+hash0 is the hash of data block #1
+hash1 is the hash of data block #2
+parent has the hash of (hash0+hash1)
 
 pain
 P: position: where is it?
@@ -9625,3 +9690,49 @@ to similar visitors at the same time. The one that gives a better conversion rat
 Extended Display Identification Data (EDID) is a data structure provided by a digital display to
 describe its capabilities to a video source (e.g. graphics card or set-top box). It is what enables
 a modern personal computer to know what kinds of monitors are connected to it.
+
+The OS kernel abstracts away the difference in hardware in the form of an uniform interface.
+
+The NDC, or National Drug Code, is a unique 10-digit, 3-segment number. It is a universal product
+identifier for human drugs in the United States. The code is present on all nonprescription (OTC)
+and prescription medication packages and inserts in the US. The 3 segments of the NDC identify the
+labeler, the the product, and the commercial package size. The first set of numbers in the NDC
+identifies the labeler (manufacturer, repackager, or distributer). The second set of numbers is the
+product code, which identifies the specific strength, dosage form (i.e, capsule, tablet, liquid) and
+formulation of a drug for a specific manufacturer. Finally, the third set is the package code, which
+identifies package sizes and types. The labeler code is assigned by the FDA, while the product and
+package code are assigned by the labeler.
+
+In a computer network, a link-local address is a network address that is valid only for
+communications within the network segment (link) or the broadcast domain that the host is connected
+to.
+--
+Link-local addresses are not guaranteed to be unique beyond a single network segment. Routers
+therefore do not forward packets with link-local addresses.
+--
+Link-local addresses for IPv4 are defined in the address block 169.254.0.0/16, in CIDR notation. In
+IPv6, they are assigned with the prefix fe80::/64, although being defined as the block fe80::/10.
+--
+Media access control (MAC) addresses used in local broadcast networks, such as Ethernet, are
+link-local addresses. Such devices are configured with an address in hardware by the
+manufacturer. However, operating system utilities, such as ifconfig may be used to assign or change
+these addresses. This is essential when an operating system is running in a virtual machine
+environment.
+
+A common technique for remembering the order of operations is the abbreviation "PEMDAS", which is
+turned into the phrase "Please Excuse My Dear Aunt Sally". It stands for "Parentheses, Exponents,
+Multiplication and Division, and Addition and Subtraction".
+
+It does exactly what it says on the tin
+
+You can create logical clusters of your monolith that only handle a certain subset of your
+traffic. For example, inbound API requests, your dashboard front end, and your background jobs
+servers might all share the same codebase, but you don’t need to handle all three subsets of work on
+every box.
+
+In order to allow IoT data to flow from producers (sensors on the field) to consumers (IT backends,
+web apps, etc.), MQTT is an OASIS standard that implements a publish-subscribe communication
+model.
+
+Quantization, in mathematics and digital signal processing, is the process of mapping a large set of
+input values to a (countable) smaller set.

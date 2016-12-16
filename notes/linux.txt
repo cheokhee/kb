@@ -1757,3 +1757,10 @@ EndSection
 
 sudo hwinfo --monitor will list the graphics modes supported by the monitor. also detailed info about monitor
 sudo hwinfo --framebuffer will list the graphics modes supported by the computer.
+
+a Snap app is self-contained package that includes all of the dependencies and libraries that an
+application needs to run. These apps are sandboxed, install to their own directory, and can’t touch,
+see or otherwise 'interface' with the rest of your system without your permission.
+
+find broken symbolic links:
+find . -type l -! -exec test -e {} \; -print

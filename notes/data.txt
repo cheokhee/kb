@@ -62,6 +62,8 @@ house given information about other houses for sale in the neighborhood
 ==
 In undirected data mining, you are trying to create groups of data, or find patterns in existing
 data
+--
+data mining is about applying the right model to your data.
 
 Regression is a data mining function that predicts a number. Age, weight, distance, temperature,
 income, or sales could all be predicted using regression techniques.
@@ -77,3 +79,65 @@ upgraded, etc. So, if you've ever bought a house or sold a house, you've likely 
 model to price the house. You created the model based on other comparable houses in the neighborhood
 and what they sold for (the model), then put the values of your own house into this model to produce
 an expected price.
+
+In statistics, linear regression is an approach for modeling the relationship between a scalar
+dependent variable y and one or more explanatory variables (or independent variable) denoted X. The
+case of one explanatory/independent variable is called simple linear regression.
+
+regression: "How much should we charge for the new BMW M5?"
+--
+Regression models can answer a question with a numerical answer.
+--
+classification: "How likely is person X to buy the newest BMW M5?"
+===
+By creating a classification tree (a decision tree), the data can be mined to determine the
+likelihood of this person to buy a new M5. Possible nodes on the tree would be age, income level,
+current number of cars, marital status, kids, homeowner, or renter. The attributes of this person
+can be used against the decision tree to determine the likelihood of him purchasing the M5.
+===
+Clustering: "What age groups like the silver BMW M5?"
+==
+The data can be mined to compare the age of the purchaser of past cars and the colors bought in the
+past.
+
+Nearest neighbor: "When people purchase the BMW M5, what other options do they tend to buy at the
+same time?" (aka basket analysis: Market Basket Analysis is a modelling technique based upon the
+theory that if you buy a certain group of items, you are more (or less) likely to buy another group
+of items.)
+
+Classification (also known as classification trees or decision trees) is a data mining algorithm
+that creates a step-by-step guide for how to determine the output of a new data instance. The tree
+it creates is exactly that: a tree whereby each node in the tree represents a spot where a decision
+must be made based on the input, and you move to the next node and the next until you reach a leaf
+that tells you the predicted output.
+
+There are four measurement scales (or types of data): nominal, ordinal, interval and ratio.
+--
+Nominal scales are used for labeling variables, without any quantitative value. Nominal scales
+could simply be called "labels". can also be called categories. examples: male/female.
+--
+ordinal: it is the order that matters
+--
+Interval scales are numeric scales in which we know not only the order, but also the exact
+differences between the values: does not have a true zero. can add/subtract. cannot multiply/divide
+--
+ratio: they tell us about the order, they tell us the exact value between units, AND they also have
+an absolute zero
+
+Discrete attributes are those that describe a category, called nominal attributes. Those attributes
+that describe a category that where there is a meaning in the order for the categories are called
+ordinal attributes. The process of converting a real-valued attribute into an ordinal attribute or
+bins is called discretization.
+==
+In statistics and machine learning, discretization refers to the process of converting or
+partitioning continuous attributes, features or variables to discretized or nominal
+attributes/features/variables/intervals.
+--
+Data binning or bucketing is a data pre-processing technique used to reduce the effects of minor
+observation errors. The original data values which fall in a given small interval, a bin, are
+replaced by a value representative of that interval, often the central value. It is a form of
+quantization.
+==
+Statistical data binning is a way to group a number of more or less continuous values into a smaller
+number of "bins". For example, if you have data about a group of people, you might want to arrange
+their ages into a smaller number of age intervals.
