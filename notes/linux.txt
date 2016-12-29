@@ -1086,6 +1086,10 @@ grep -a -B10 -A100 -i <pattern> /dev/sda2 > file.out
 
 shred: overwrite a file with random data, can be used on devices too:
 shred -n 3 -vz /dev/sda
+shred -zvu tecmint.pdf
+# -z: adds a final overwrite with zeros to hide shredding.
+# -u: helps to truncate and remove file after overwriting.
+# -v: verbose
 
 autopsy - graphical interface to SleuthKit
 sleuthkit - tools for forensics analysis on volume and filesystem data
@@ -1310,6 +1314,7 @@ getconf PAGESIZE #get page size
 pcmanfm --desktop-pref
 
 setxkbmap: set keyboard using X extension
+setxkbmap -print -verbose 10
 
 lxpanelctl : (menu/run/config/restart)
 
@@ -1764,3 +1769,6 @@ see or otherwise 'interface' with the rest of your system without your permissio
 
 find broken symbolic links:
 find . -type l -! -exec test -e {} \; -print
+
+dump man pages:
+man man | col -b  > file.txt # col -b: remove backspaces

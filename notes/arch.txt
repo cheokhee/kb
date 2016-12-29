@@ -5,10 +5,12 @@ uses os-prober to detect arch, added arch to /boot/grub/grub.cfg
 
 During boot, two errors:
 #1. complains about root filesystem not being mounted read-write
+#NOTE: office desktop only. home laptop no problem
 soln: edit /etc/grub.d/30_os-prober to add rw to linux boot option:
 result: linux /boot/vmlinuz-linux root=/dev/sda8 rw
 
 #2. cannot load module crc32c
+#NOTE: office desktop only. home laptop no problem
 workaround: use fallback init ram image during boot:
 initrd /boot/initramfs-linux-fallback.img
 long-term soln: In /etc/mkinitcpio.conf: add crc32c_intel to MODULES

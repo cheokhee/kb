@@ -34,7 +34,7 @@ you feed the existing data and the corresponding answers to the computer.
 the computer is supposed to come up with a general rule that can provide an answer to future data.
 classic example: spam filtering
 
---> unsupervised: you don't know the answer
+--> unsupervised: you don't know the answer, find patterns in data
 --> figuring out an equation to solve a specific problem based on some example data
 kinda like data mining.
 
@@ -53,3 +53,175 @@ algorithms: naive Bayes, nearest neighbor, the mean classifier, the Perceptron
 
 Classification (also known as classification trees or decision trees) is a data mining algorithm
 that creates a step-by-step guide for how to determine the output of a new data instance.
+--
+classification: prior knowledge of classes, use case: classify new samples into known classes, algo:
+decision tree, Bayesian classifiers, data: labeled samples from a set of classes
+--
+clustering: no prior knowledge of classes, use case: suggest groups based on patterns in data, also:
+K-means, expectation maximization, data: unlabelled samples
+
+how it works:
+1. split data into training data, validation data, and test data
+2. use the training data to build a model
+3. assess the model with the validation data
+4. tune model
+5. use the model to make prediction on new data
+6. test model with test data
+
+supervised: give the computer a set of known input-ouput relations and get it
+to predict the output given a new, unknown input.
+
+supervised: classification, regression
+unsupervised: clustering
+
+naive Bayes
+Statistical method for classification
+Supervised Learning method
+Assumes an underlying probabilistic model, the Bayes theorem
+Can solve problems involving both categorical and continuous valued attributes
+
+The classification tree literally creates a tree with branches, nodes, and leaves that lets us take
+an unknown data point and move down the tree, applying the attributes of the data point to the tree
+until a leaf is reached and the unknown output of the data point can be determined. We learned that
+in order to create a good classification tree model, we need to have an existing data set with known
+output from which we can build our model.
+--
+classification (also known as classification tree or decision tree), which can be
+used to create an actual branching tree to predict the output value of an unknown data point.
+--
+classification: from data to discrete classes.
+
+clustering algorithm takes a data set and sorts them into groups
+clustering: finding groups of similar instances in a dataset
+
+Nearest Neighbor (also known as Collaborative Filtering or Instance-based Learning)
+
+terminologies
+examples (aka instances)
+features: attributes
+labels: values/categories assigned to example
+training sample
+validation sample: used to tune the parameters of a learning algorithm
+test sample: assess your model
+loss function: a function that measures the difference between a predicted label and a true label
+hypothesis set: a set of functions mapping features to the set of labels
+
+When the output value belongs to a discrete and finite set, we’re talking about a classification.
+--
+When the output value is a continuous number, for example, a probability, then we’re talking about a
+regression problem.
+
+Support Vector Machines: The model tries to build a set of hyperplanes in a high dimensional space
+that tries to separate instances of different classes by getting the largest separation between the
+nearest instances from different classes.
+==
+SVM (support vector machine) is a fancy name for a straight line. The SVM draws a line between data
+points
+===
+Probabilistic Models: these models usually try to predict the correct response by modeling the
+problem with a probability distribution. Perhaps the most popular algorithms in this category are
+Naive Bayes classifiers, that use the Bayes theorem alongside with strong independence assumptions
+between the features. One of their advantages besides being a simple yet powerful model, is that
+they return not only the prediction but also the degree of certainty, which can be very useful.
+===
+Deep Learning: is a new trend in Machine Learning based on the very known Artificial Neural Network
+models.  Neural networks have a connectionist approach, they try to emulate (in a very simplified
+way) the way the brain works. Basically they consist of a huge set of interconnected neurons (the
+basic unit of processing), organized in various layers. Deep learning has, in a few
+
+confusion matrix example:
+
+                Predicted
+              Cat Dog Rabbit
+Actual  Cat   5   3   0
+class   Dog   2   3   1
+       Rabbit 0   2   11
+
+In this confusion matrix, of the 8 actual cats, the system
+predicted that three were dogs, and of the six dogs, it
+predicted that one was a rabbit and two were cats.
+===
+
+Decision trees are also a predictive model and have two types of trees: regression (which take
+continuous values) and classification models (which take finite values) and use a divide and conquer
+strategy that recursively separates the data to generate the tree.
+
+regression algorithms:
+Ordinary Least Squares Regression (OLSR)
+Linear Regression
+Logistic Regression
+Stepwise Regression
+Multivariate Adaptive Regression Splines (MARS)
+Locally Estimated Scatterplot Smoothing (LOESS)
+===
+Instance-based Algorithms:
+k-Nearest Neighbor (kNN)
+Learning Vector Quantization (LVQ)
+Self-Organizing Map (SOM)
+Locally Weighted Learning (LWL)
+===
+Regularization Algorithms:
+Ridge Regression
+Least Absolute Shrinkage and Selection Operator (LASSO)
+Elastic Net
+Least-Angle Regression (LARS)
+---
+Decision Tree Algorithms:
+Classification and Regression Tree (CART)
+Iterative Dichotomiser 3 (ID3)
+C4.5 and C5.0 (different versions of a powerful approach)
+Chi-squared Automatic Interaction Detection (CHAID)
+Decision Stump
+M5
+Conditional Decision Trees
+===
+Bayesian Algorithms:
+Naive Bayes
+Gaussian Naive Bayes
+Multinomial Naive Bayes
+Averaged One-Dependence Estimators (AODE)
+Bayesian Belief Network (BBN)
+Bayesian Network (BN)
+===
+Clustering Algorithms:
+k-Means
+k-Medians
+Expectation Maximisation (EM)
+Hierarchical Clustering
+===
+Association Rule Learning Algorithms:
+Apriori algorithm
+Eclat algorithm
+===
+Artificial Neural Network Algorithms:
+Perceptron
+Back-Propagation
+Hopfield Network
+Radial Basis Function Network (RBFN)
+---
+Deep Learning Algorithms:
+Deep Boltzmann Machine (DBM)
+Deep Belief Networks (DBN)
+Convolutional Neural Network (CNN)
+Stacked Auto-Encoders
+====
+Dimensionality Reduction Algorithms:
+Principal Component Analysis (PCA)
+Principal Component Regression (PCR)
+Partial Least Squares Regression (PLSR)
+Sammon Mapping
+Multidimensional Scaling (MDS)
+Projection Pursuit
+Linear Discriminant Analysis (LDA)
+Mixture Discriminant Analysis (MDA)
+Quadratic Discriminant Analysis (QDA)
+Flexible Discriminant Analysis (FDA)
+====
+Ensemble Algorithms:
+Boosting
+Bootstrapped Aggregation (Bagging)
+AdaBoost
+Stacked Generalization (blending)
+Gradient Boosting Machines (GBM)
+Gradient Boosted Regression Trees (GBRT)
+Random Forest

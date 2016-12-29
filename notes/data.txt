@@ -141,3 +141,77 @@ quantization.
 Statistical data binning is a way to group a number of more or less continuous values into a smaller
 number of "bins". For example, if you have data about a group of people, you might want to arrange
 their ages into a smaller number of age intervals.
+
+null hypothesis: the hypothesis that there is no significant difference between specified
+populations, any observed difference being due to sampling or experimental error.
+===
+The null hypothesis (H0) is a hypothesis which the researcher tries to disprove, reject or nullify.
+==
+The 'null' often refers to the common view of something, while the alternative hypothesis is what
+the researcher really thinks is the cause of a phenomenon.
+===
+A null hypothesis is a type of hypothesis used in statistics that proposes that no statistical
+significance exists in a set of given observations. The null hypothesis attempts to show that no
+variation exists between variables or that a single variable is no different than its mean. It is
+presumed to be true until statistical evidence nullifies it for an alternative hypothesis.
+==
+The null hypothesis, also known as the conjecture, assumes that any kind of difference or
+significance you see in a set of data is due to chance.
+==
+A null hypothesis is a statistical hypothesis that is tested for possible rejection under the
+assumption that it is true (usually that observations are the result of chance).
+==
+The hypothesis contrary to the null hypothesis, usually that the observations are the result of a
+real effect, is known as the alternative hypothesis.
+==
+BEST: The null hypothesis, H0 is the commonly accepted fact; it is the opposite of the alternate
+hypothesis. Researchers work to reject, nullify or disprove the null hypothesis. Researchers come up
+with an alternate hypothesis, one that they think explains a phenomenon, and then work to reject the
+null hypothesis.
+==
+The word null in this context means that it's a commonly accepted fact that researchers work to
+nullify. It doesn't mean that the statement is null itself!
+example: Null hypothesis, H0: The world is flat.
+
+p-value
+Measures the degree of linear relationship between two variables x and y. The correlation
+coefficient assumes a value between −1 and +1.
+==
+A p-value indicates the size of an effect (e.g., strong evidence means big effect). A large p-value
+means the null hypothesis is true, or provides evidence to support the null hypothesis. If the
+p-value is small enough, the null hypothesis must be false.
+==
+The convention in most biological research is to use a significance level of 0.05. This means that
+if the P value is less than 0.05, you reject the null hypothesis; if P is greater than or equal to
+0.05, you don't reject the null hypothesis.
+
+When you perform a hypothesis test in statistics, a p-value helps you determine the significance of
+your results. Hypothesis tests are used to test the validity of a claim that is made about a
+population. This claim that’s on trial, in essence, is called the null hypothesis.
+==
+The alternative hypothesis is the one you would believe if the null hypothesis is concluded to be
+untrue. The evidence in the trial is your data and the statistics that go along with it. All
+hypothesis tests ultimately use a p-value to weigh the strength of the evidence (what the data are
+telling you about the population). The p-value is a number between 0 and 1 and interpreted in the
+following way:
+==
+A small p-value (typically ≤ 0.05) indicates strong evidence against the null hypothesis, so you reject the null hypothesis.
+A large p-value (> 0.05) indicates weak evidence against the null hypothesis, so you fail to reject the null hypothesis.
+p-values very close to the cutoff (0.05) are considered to be marginal (could go either way). Always
+report the p-value so your readers can draw their own conclusions.
+==
+compare the p-value to a significance level (usually 0.05), it acts as a cutoff point.
+if p-value <= significance level, we rule out the null hypothesis and agree that something else is going on.
+
+In general, in classification you have a set of predefined classes and want to know which class a new object belongs to.
+Clustering tries to group a set of objects and find whether there is some relationship between the objects.
+In the context of machine learning, classification is supervised learning and clustering is
+unsupervised learning.
+
+Classifiers in WEKA are the models for predicting nominal or numeric quantities
+
+Association rules are if/then statements that help uncover relationships between seemingly unrelated
+data in a relational database or other information repository. An example of an association rule
+would be "If a customer buys a dozen eggs, he is 80% likely to also purchase milk."
+==
+Association rules analysis is a technique to uncover how items are associated to each other

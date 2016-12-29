@@ -926,6 +926,7 @@ rename: rename multiple files
 rename 'y/A-Z/a-z/' *
 #ename all files matching "*.bak" to strip the extension
 rename 's/\.bak$//' *.bak
+rename -v 's/\.pdf$/\.doc/' *.pdf
 #remove spaces from file names
 option #1: rename 'y/ /_/' *
 option #2: rename 's/ /_/g' *

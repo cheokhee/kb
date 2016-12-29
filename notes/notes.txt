@@ -9736,3 +9736,39 @@ model.
 
 Quantization, in mathematics and digital signal processing, is the process of mapping a large set of
 input values to a (countable) smaller set.
+
+A display manager, or login manager, is typically a graphical user interface that is displayed at
+the end of the boot process in place of the default shell.
+
+TF–IDF, short for term frequency–inverse document frequency, is a numerical statistic that is
+intended to reflect how important a word is to a document in a collection or corpus. It is often
+used as a weighting factor in information retrieval and text mining.
+
+Sensitivity (also called the true positive rate, the recall, or probability of detection in some
+fields) measures the proportion of positives that are correctly identified as such (e.g., the
+percentage of sick people who are correctly identified as having the condition).
+==
+Specificity (also called the true negative rate) measures the proportion of negatives that are
+correctly identified as such (e.g., the percentage of healthy people who are correctly identified as
+not having the condition).
+===
+precision and recall
+==
+precision (also called positive predictive value) is the fraction of retrieved instances that are
+relevant, while recall (also known as sensitivity) is the fraction of relevant instances that are
+retrieved.
+
+In computing, network virtualization is the process of combining hardware and software network
+resources and network functionality into a single, software-based administrative entity, a virtual
+network.
+
+Data virtualization is any approach to data management that allows an application to retrieve and
+manipulate data without requiring technical details about the data, such as how it is formatted at
+source, or where it is physically located.
+
+A virtual database, also called a federated database, is a way to view and query several databases
+as if they were a single entity.
+
+Bimodal IT is the practice of managing two separate, coherent modes of IT delivery, one focused on
+stability and the other on agility. Mode 1 is traditional and sequential, emphasizing safety and
+accuracy. Mode 2 is exploratory and nonlinear, emphasizing agility and speed.
