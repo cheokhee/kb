@@ -9,6 +9,8 @@ specific to the problem you are solving.
 Useful when programming explicit algorithms is unfeasible.
 --> a machine learning system can improve its performance with experience
 --machine learning: the stufy of algorithms that learn from examples/experience
+--> what ML does: find patterns in data. then use those patterns to predict the future
+--> ML -> predictive analytics
 
 features: like attributes
 labels: output
@@ -225,3 +227,44 @@ Stacked Generalization (blending)
 Gradient Boosting Machines (GBM)
 Gradient Boosted Regression Trees (GBRT)
 Random Forest
+
+association rule: basket analysis
+which is finding associations between products bought by customers:
+
+weka: top 5 algorithms for classification
+===
+Logistic Regression (functions.Logistic).
+Naive Bayes (bayes.NaiveBayes).
+k-Nearest Neighbors (lazy.IBk).
+Classification and Regression Trees (trees.REPTree).
+Support Vector Machines (functions.SMO).
+----
+top 5 algorithms for regression
+==
+Linear Regression (functions.LinearRegression).
+Support Vector Regression (functions.SMOReg).
+k-Nearest Neighbors (lazy.IBk).
+Classification and Regression Trees (trees.REPTree).
+Artificial Neural Network (functions.MultilayerPerceptron).
+----
+5 Top ensemble algorithms
+==
+Bagging (meta.Bagging).
+Random Forest (trees.RandomForest).
+AdaBoost (meta.AdaBoost).
+Voting (meta.Voting).
+Stacking (meta.Stacking).
+
+Ensemble methods are learning algorithms that construct a set of classifiers and then classify new
+data points by taking a (weighted) vote of their predictions. The original ensemble method is
+Bayesian averaging, but more recent algorithms include error-correcting output coding, Bagging,
+and boosting.
+->  combine the predictions from multiple models.
+---
+bagging: averaging the prediction over a collection of classifiers
+Boosting : weighted vote with a collection of classifiers
+Stacking : combining a set of heterogeneous classifiers(super learning
+---
+bagging ensembles with the random forest and extra trees algorithms.
+boosting ensembles with the gradient boosting machine and AdaBoost algorithms.
+voting ensembles using by combining the predictions from multiple models together.

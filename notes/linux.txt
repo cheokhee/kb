@@ -1772,3 +1772,5 @@ find . -type l -! -exec test -e {} \; -print
 
 dump man pages:
 man man | col -b  > file.txt # col -b: remove backspaces
+
+blacklisting on kernel command line: modprobe.blacklist=modulename

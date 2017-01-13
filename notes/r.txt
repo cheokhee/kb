@@ -1,0 +1,41 @@
+assignment:
+x <- "hello" (preferred)
+OR
+x = "hello"
+
+f <- function(x) { x + 1 }
+
+vector: a one-dimensional array of homogeneous data types.
+v <- c(1,2,3)
+s <- 1:5
+
+m <- matrix(data=1:6,nrow=2,ncol=3)
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+l <- list(1, "ONE")
+
+install.packages("ggplot2") # in console
+
+read.table(file="name",sep="\t",header=TRUE,quote="\"")
+head(tables) #peek
+names(table) #look at column name
+
+class(name) #show data type
+
+factor: like enum
+factors are variables in R which take on a limited number of different values; such
+variables are often refered to as categorical variables. One of the most important uses of factors
+is in statistical modeling; since categorical variables enter into statistical models differently
+than continuous variables, storing data as factors insures that the modeling functions will treat
+such data correctly.
+
+qualitative variable: categorical value
+quantitative variable: numerical value
+
+location: measure of central tendency
+
+plot(movies$Rating)
+
+?plot : show help with plot

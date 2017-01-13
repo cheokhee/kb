@@ -9599,6 +9599,10 @@ Bars can be reordered in bar charts but not in histograms.
 ====
 histogram: display data points over a series of intervals
 bar chart: display data points over categories
+===
+bar chart: show a measure across multiple categories
+histogram: show the frequency of observations of a numerical variable grouped into bins
+  bin: equal-width partition
 
 TEOTWAWKI: the end of the world as we know it
 
@@ -9772,3 +9776,20 @@ as if they were a single entity.
 Bimodal IT is the practice of managing two separate, coherent modes of IT delivery, one focused on
 stability and the other on agility. Mode 1 is traditional and sequential, emphasizing safety and
 accuracy. Mode 2 is exploratory and nonlinear, emphasizing agility and speed.
+
+Serverless computing (Function as a Service (Faas))
+==
+let you run code without managing servers; your code is stored on a cluster of servers managed for
+you and run only when a triggering event calls it.
+==
+is a cloud computing code execution model in which the cloud provider fully manages starting and
+stopping virtual machines as necessary to serve requests, and requests are billed by an abstract
+measure of the resources required to satisfy the request, rather than per virtual machine, per hour.
+
+weighted average: an average resulting from the multiplication of each component by a factor
+reflecting its importance.
+
+Transactional emails may also be called “triggered” emails because they include any email that is
+triggered by a user's interaction with a web app (think of a purchase receipt).
+
+kurtosis: the sharpness of the peak of a frequency-distribution curve.

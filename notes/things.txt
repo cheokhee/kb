@@ -178,6 +178,7 @@ python3-tk
 sysfsutils
 read-edid
 hwinfo
+r-base (52 packages)
 
 =========== end of packages ==============
 

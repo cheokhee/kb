@@ -321,3 +321,5 @@ in path expander, path is:
 (72574)--[HAS,7185]-->(30351)--[TERMINALTRANSFERLEG_HOT_NSA,13318407]-->(25945)
 next in BestFirstSelectorFactory.next(): TraversalBranch next = current.next( expander, metadata );
 (72574)--[HAS,7185]-->(30351)--[TERMINALTRANSFERLEG_HOT_NSA,13318407]-->(25945)
+
+conclusion: expander is called first, then cost evaluator

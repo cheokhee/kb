@@ -16,3 +16,6 @@ initrd /boot/initramfs-linux-fallback.img
 long-term soln: In /etc/mkinitcpio.conf: add crc32c_intel to MODULES
 then do "mkinitcpio -p linux"
 this will add crc32c-intel.ko to /boot/initramfs-linux.img
+
+/usr/lib/xorg/modules/drivers
+/etc/X11/xinit/xinitrc
