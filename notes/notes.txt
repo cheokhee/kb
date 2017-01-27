@@ -9793,3 +9793,20 @@ Transactional emails may also be called “triggered” emails because they incl
 triggered by a user's interaction with a web app (think of a purchase receipt).
 
 kurtosis: the sharpness of the peak of a frequency-distribution curve.
+
+in fits and starts: if something happens in fits and starts, it often stops and then starts again
+Replies are arriving in fits and starts.
+
+cardinality: the number of elements in a set or other grouping, as a property of that grouping.
+
+NB (latin: nota bene): translated to English as "note well"
+means to take note or pay attention to this, used to draw attention to something
+
+spacing effect: the phenomenon where you remember more of what you study if the studying
+is spread out over time, as opposed to studying the same content in one session.
+
+ontology: explicit formal specifications of the terms in the domain and relations among them
+
+In political theory and theology, to immanentize the eschaton means trying to bring about the
+eschaton (the final, heaven-like stage of history) in the immanent world.
+it means trying to create heaven here on Earth.

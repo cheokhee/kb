@@ -760,6 +760,7 @@ want to display on my-machine (where X server is running)
 remote (where client will be run)
 
 On my-machine: ssh -X user@remote
+OR ssh -Y user@remote
 
 #check for CRLF ending:
 $ file /a/tapasjo/copy-paste.txt
@@ -1411,6 +1412,10 @@ convert ships.jpg -background none -rotate 90 turn-ships.jpg #rotate
 convert -background white -fill blue -font Courier -pointsize 32 label:'Happy Birthday' banner.jpg
 == read text from a file
 convert -background white -fill black -font Courier -pointsize 12 label:@message.txt banner.gif
+== save command output to an image
+ifconfig | convert label:@- myipaddress.png
+== save command output to an existing image and create a new image
+convert -font -misc-fixed-*-*-*-*-*-*-*-*-*-*-*-* -fill black -draw "text 270,260 \" `ip addr` \"" Linux.jpg myipaddress.jpg
 
 record your desktop session (video)
 # -s : resolution, alternative: -s 1024x768
@@ -1774,3 +1779,9 @@ dump man pages:
 man man | col -b  > file.txt # col -b: remove backspaces
 
 blacklisting on kernel command line: modprobe.blacklist=modulename
+
+change sudo timeout session:
+#1. edit file: sudo visudo
+#2. add this line:
+Defaults        env_reset,timestamp_timeout=20 #20 minutes
+#if 0, timeout right away, if -1, disable password prompt

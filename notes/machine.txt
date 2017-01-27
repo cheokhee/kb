@@ -11,6 +11,7 @@ Useful when programming explicit algorithms is unfeasible.
 --machine learning: the stufy of algorithms that learn from examples/experience
 --> what ML does: find patterns in data. then use those patterns to predict the future
 --> ML -> predictive analytics
+--> ML: is defined by the problem being solved.
 
 features: like attributes
 labels: output
@@ -93,7 +94,7 @@ used to create an actual branching tree to predict the output value of an unknow
 --
 classification: from data to discrete classes.
 
-clustering algorithm takes a data set and sorts them into groups
+clustering algorithm takes a data set and sorts them into groups; find groups of similar data
 clustering: finding groups of similar instances in a dataset
 
 Nearest Neighbor (also known as Collaborative Filtering or Instance-based Learning)
@@ -143,6 +144,8 @@ In this confusion matrix, of the 8 actual cats, the system
 predicted that three were dogs, and of the six dogs, it
 predicted that one was a rabbit and two were cats.
 ===
+A confusion matrix is a table that is often used to describe the performance of a classification
+model (or "classifier") on a set of test data for which the true values are known
 
 Decision trees are also a predictive model and have two types of trees: regression (which take
 continuous values) and classification models (which take finite values) and use a divide and conquer
@@ -268,3 +271,63 @@ Stacking : combining a set of heterogeneous classifiers(super learning
 bagging ensembles with the random forest and extra trees algorithms.
 boosting ensembles with the gradient boosting machine and AdaBoost algorithms.
 voting ensembles using by combining the predictions from multiple models together.
+
+workflow:
+ask the right question
+prepare your data
+select the algorithm
+train the model: use specific data to create a specific predictive model
+test the model's accuracy
+
+logistic regression: binary result
+
+imputation: the process of replacing missing data with substituted values
+
+Sensitivity (also called the true positive rate, the recall)
+recall = TP/(TP+FN)
+precision= TP/(TP+FP)
+===
+precision (also called positive predictive value) is the fraction of retrieved instances that are
+relevant, while recall (also known as sensitivity) is the fraction of relevant instances that are
+retrieved.
+
+random forest: fits multiple trees with subsets of data.
+average tree results to improve performance
+
+regularization hyperparameter
+
+k-fold cross validation: split the training data 10-fold.
+use 1-fold as validation data and the rest as training data.
+then use another fold as validation data and the rest as training data, and so on.
+until each fold has been used as validation data.
+===
+In k-fold cross-validation, the original sample is randomly partitioned into k equal sized
+subsamples. Of the k subsamples, a single subsample is retained as the validation data for testing
+the model, and the remaining k − 1 subsamples are used as training data. The cross-validation
+process is then repeated k times (the folds), with each of the k subsamples used exactly once as the
+validation data. The k results from the folds can then be averaged to produce a single
+estimation. The advantage of this method over repeated random sub-sampling (see below) is that all
+observations are used for both training and validation, and each observation is used for validation
+exactly once. 10-fold cross-validation is commonly used, but in general k remains an unfixed
+parameter.
+
+ML problems:
+spam filtering
+credit card fraud detection
+OCR
+speech analysis
+facial recognition
+product recommendatation
+medical diagnosis
+stock trading
+customer segmentation
+shape detection
+
+ML problem categories:
+classification
+clustering
+regression
+rule extraction: data is used as the basis for the extraction of propositional rules
+
+when to use ML:
+when the problem cannot be solved by a predefined sequence of steps.

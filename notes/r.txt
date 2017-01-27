@@ -9,12 +9,29 @@ vector: a one-dimensional array of homogeneous data types.
 v <- c(1,2,3)
 s <- 1:5
 
+vector: all elements must be of the same type
+Matrix is a special kind of vector. A matrix is a vector with two additional attributes: the number
+of rows and the number of columns.
+
 m <- matrix(data=1:6,nrow=2,ncol=3)
      [,1] [,2] [,3]
 [1,]    1    3    5
 [2,]    2    4    6
 
+Similar to matrix, but arrays can have more than two dimensions.
+list can contain elements of different types.
 l <- list(1, "ONE")
+
+data frame: a list of vectors of equal length.
+> name <- c("Mike", "Lucy", "John")
+> age <- c(20, 25, 30)
+> student <- c(TRUE, FALSE, TRUE)
+> df = data.frame(name, age, student)
+> df
+  name age student
+1 Mike  20    TRUE
+2 Lucy  25   FALSE
+3 John  30    TRUE
 
 install.packages("ggplot2") # in console
 
@@ -39,3 +56,8 @@ location: measure of central tendency
 plot(movies$Rating)
 
 ?plot : show help with plot
+
+apply - When you want to apply a function to the rows or columns or both of a matrix and output is a one-dimensional if only row or column is selected else it is a 2D-matrix
+lapply - When you want to apply a function to each element of a list in turn and get a list back.
+sapply - When you want to apply a function to each element of a list in turn, but you want a vector back, rather than a list.
+tapply - When you want to apply a function to subsets of a vector and the subsets are defined by some other vector, usually a factor.

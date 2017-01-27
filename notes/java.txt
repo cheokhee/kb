@@ -533,3 +533,43 @@ ExecutorService es = Executors.newFixedThreadPool(3);
 Future<String> handle = es.submit(new MyJob());
 handle.get();
 ===
+
+HashMap:
+store both key and value as an object of Entry class
+hashing: put data in buckets determined by hash of key object
+equals: compare key objects for equality
+collision: more than one key having the same hash value
+--
+Bucket term used here is actually an index of array, that array is called table in HashMap
+implementation. Thus table[0] is referred as bucket0, table[1] as bucket1 and so on.
+--
+within each bucket, a linked list is used to key-value pair (all keys have the same hash value)
+--
+given a key, get its hash value, which is an index into an array (get the bucket).
+this array entry points to a linked list of key-value pair (Entry objects)
+--
+if key is null, map to bucket zero.
+--
+In Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is
+reached while storing values. This improves the worst case performance from O(n) to O(log n).
+
+G1 GC log:
+[Eden: 12.0M(12.0M)->0.0B(14.0M) Survivors: 0.0B->2048.0K Heap: 12.6M(252.0M)->7848.3K(252.0M)]
+===
+Eden: 12.0M(12.0M)->0.0B(14.0M) – indicates that Eden generation’s capacity was 12mb and all of the
+12mb was occupied. After this GC event, young generation occupied size came down to 0. Target
+Capacity of Eden generation has been increased to 14mb, but not yet committed.  Additional regions
+are added to Eden generation, as demands are made.
+--
+Survivors: 0.0B->2048.0K – indicates that Survivor space was 0 bytes before this GC event. But after
+the even Survivor size increased to 2048kb. It indicates that objects are promoted from Young
+Generation to Survivor space.
+--
+Heap: 12.6M(252.0M)->7848.3K(252.0M) – indicates that capacity of heap size was 252mb, in that
+12.6mb was utilized. After this GC event, heap utilization dropped to 7848.3kb (i.e. 5mb
+(i.e. 12.6mb – 7848.3kb) of objects has been garbage collected in this event). And heap capacity
+remained at 252mb.
+====
+Full GC (Allocation Failure) – indicates that this is a Full GC event, triggered because of
+allocation failure. When the heap is fragmented, direct allocations in the Old generation may fail
+even when there is a lot of free space, this will typically cause Allocation Failure.

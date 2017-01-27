@@ -338,6 +338,7 @@ X
 A  7
 B  3
 
+dataframe.isnull().values.any()
 
 HashMap<String, Object> result = RouteUtil.convertToStandardFormat(combinedRelationships, from, pod, 0);
 
@@ -423,3 +424,24 @@ print(result)
 Pickling is the process whereby a Python object hierarchy is converted into a byte stream, and
 unpickling is the inverse operation, whereby a byte stream is converted back into an object
 hierarchy. pickling: serialization
+
+zip example:
+>>> a=[1,2,3,4,5]
+>>> b=['a','b','c','d','e']
+>>> for x,y in zip(a,b):
+...   print(x,y)
+...
+1 a
+2 b
+3 c
+4 d
+5 e
+=====
+>>> list(zip(a,b))
+[(1, 'a'), (2, 'b'), (3, 'c'), (4, 'd'), (5, 'e')]
+>>> dict(zip(a,b))
+{1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
+>>> tuple(zip(a,b))
+((1, 'a'), (2, 'b'), (3, 'c'), (4, 'd'), (5, 'e'))
+>>> set(zip(a,b))
+{(1, 'a'), (4, 'd'), (3, 'c'), (2, 'b'), (5, 'e')}
