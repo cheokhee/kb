@@ -445,3 +445,5 @@ zip example:
 ((1, 'a'), (2, 'b'), (3, 'c'), (4, 'd'), (5, 'e'))
 >>> set(zip(a,b))
 {(1, 'a'), (4, 'd'), (3, 'c'), (2, 'b'), (5, 'e')}
+
+scikit-learn supervised model functions: fit(), predict(), score()

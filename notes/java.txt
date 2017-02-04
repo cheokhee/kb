@@ -189,7 +189,9 @@ java 8 (reading file):
 #regular expression
 Pattern r = Pattern.compile("([A-Z0-9]+)-([A-Z0-9]+)-([A-Z0-9]+)-([NSEW])");
 Matcher m = r.matcher(string);
-if (m.find()) { // found something }
+if (m.find()) { // found something
+matcher.group() // contains matched string
+}
 
 Nested classes are divided into two categories: static and non-static. Nested classes that are
 declared static are called static nested classes. Non-static nested classes are called inner

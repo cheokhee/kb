@@ -179,6 +179,7 @@ sysfsutils
 read-edid
 hwinfo
 r-base (52 packages)
+pmount
 
 =========== end of packages ==============
 

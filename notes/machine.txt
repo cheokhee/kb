@@ -36,6 +36,8 @@ you already know the answers to existing data.
 you feed the existing data and the corresponding answers to the computer.
 the computer is supposed to come up with a general rule that can provide an answer to future data.
 classic example: spam filtering
+----
+ML algorithm that learns from input/output pairs are called supervised learning.
 
 --> unsupervised: you don't know the answer, find patterns in data
 --> figuring out an equation to solve a specific problem based on some example data
@@ -331,3 +333,32 @@ rule extraction: data is used as the basis for the extraction of propositional r
 
 when to use ML:
 when the problem cannot be solved by a predefined sequence of steps.
+
+scatter plot: put one feature along the x-axis and another along the y-axis, and draw
+a dot for each data point.
+pair plot: look at all possible pairs of features
+
+k-nearest neighbor
+the model consists of storing the training set. to make a prediction for a new data point,
+the algorithm finds the point in the training set that is closest to the new data point. then
+it assigns the label of this training point to the new data point.
+k-nearest means using k number of neighbors and using the majority class among these neighbors
+--> find the closest data point in the training set.
+
+regularization: explicityly restricting a model to avoid overfitting.
+
+alternative to standard linear regression: ridge regression
+alternative to ridge: lasso
+
+binary classification: exactly two classes
+--> can draw a decision boundary between two classes
+multi-class classification
+
+linear classification algorithm: logistic regression, linear support vector machines
+the decision boundary is a linear function of the inputs.
+
+mean squared error: the sum of the squared differences between the predicted values
+and the true values.
+
+naive bayes: learn parameters by looking at each feature individually and collect
+simple per-class statistics from each feature. fast.

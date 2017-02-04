@@ -3982,6 +3982,9 @@ with high solute concentration (low water potential), up a solute concentration 
 It is a physical process in which a solvent moves, without input of energy, across a
 semi-permeable membrane (permeable to the solvent, but not the solute) separating
 two solutions of different concentrations.
+---
+osmosis is the movement of a solvent (in this case water) across semi-permeable membranes (like cell
+walls), from areas of lower solute concentration to areas of higher solute concentration.
 
 hard up: poor
 
@@ -9714,7 +9717,7 @@ to.
 Link-local addresses are not guaranteed to be unique beyond a single network segment. Routers
 therefore do not forward packets with link-local addresses.
 --
-Link-local addresses for IPv4 are defined in the address block 169.254.0.0/16, in CIDR notation. In
+IPv4LL: Link-local addresses for IPv4 are defined in the address block 169.254.0.0/16, in CIDR notation. In
 IPv6, they are assigned with the prefix fe80::/64, although being defined as the block fe80::/10.
 --
 Media access control (MAC) addresses used in local broadcast networks, such as Ethernet, are
@@ -9722,6 +9725,11 @@ link-local addresses. Such devices are configured with an address in hardware by
 manufacturer. However, operating system utilities, such as ifconfig may be used to assign or change
 these addresses. This is essential when an operating system is running in a virtual machine
 environment.
+---
+Zero-configuration networking (zeroconf) is a set of technologies that automatically creates a
+usable computer network based on the Internet Protocol Suite (TCP/IP) when computers or network
+peripherals are interconnected. It does not require manual operator intervention or special
+configuration servers.
 
 A common technique for remembering the order of operations is the abbreviation "PEMDAS", which is
 turned into the phrase "Please Excuse My Dear Aunt Sally". It stands for "Parentheses, Exponents,
@@ -9810,3 +9818,74 @@ ontology: explicit formal specifications of the terms in the domain and relation
 In political theory and theology, to immanentize the eschaton means trying to bring about the
 eschaton (the final, heaven-like stage of history) in the immanent world.
 it means trying to create heaven here on Earth.
+
+"Unthinking respect for authority is the greatest enemy of truth" -- Albert Einstein
+
+hub: like a repeater. every packet is sent to all output ports. operate at layer 1
+bridge: connects two network segments. operate at layer 2. the bridge is aware of
+which MAC addresses are valid on either side of the bridge.
+switch: a bridge with more than 2 ports.
+
+eyeglass prescription
+OD: right eye
+OS: left eye
+SPH (sphere): the amount of lens power, measured in diopters, for nearsightedness/farsightedness
+CYL (cylinder): the amount of lens power for astigmatism
+axis: the meridian that contains no cylinder power to correct astigmatism. btw 1 and 180.
+90 is vertical meridian and 180 is horizontal meridian. the meridian that contains the
+cylinder power is 90 degrees away.
+example: -0.50x180:
+-0.50 for astigmatism. 180: horizontal meridian has no power and the vertical meridian
+has the added -0.50 D power.
+
+responsive design: web site that adjusts to the form factor of the device.
+
+Model–view–view-model (MVVM) is a software architectural pattern.
+--
+MVVM facilitates a separation of development of the graphical user interface – be it via a markup
+language or GUI code – from development of the business logic or back-end logic (the data
+model). The view model of MVVM is a value converter; meaning the view model is responsible for
+exposing (converting) the data objects from the model in such a way that objects are easily managed
+and presented. In this respect, the view model is more model than view, and handles most if not all
+of the view's display logic. The view model may implement a mediator pattern, organizing access
+to the back-end logic around the set of use cases supported by the view.
+--
+Model–view–viewmodel is also referred to as model–view–binder, especially in implementations not
+involving the .NET platform.
+--
+Model refers either to a domain model, which represents real state content (an object-oriented
+approach), or to the data access layer, which represents content (a data-centric approach).
+View -> what a user sees on the screen
+view-model -> The view model is an abstraction of the view exposing public properties and
+commands. Instead of the controller of the MVC pattern, or the presenter of the MVP pattern, MVVM
+has a binder. In the view model, the binder mediates communication between the view and the data
+binder. The view model has been described as a state of the data in the model.
+
+(content delivery network) CDNs deliver improved performance by globally distributing assets as well
+as improved scalability by removing load from your webserver.
+==
+CDN: a globally distributed network of proxy servers deployed in multiple data centers. The goal of a CDN
+is to serve content to end-users with high availability and high performance.
+--
+content delivery network (CDN) is a system of distributed servers (network) that deliver webpages
+and other Web content to a user based on the geographic locations of the user, the origin of the
+webpage and a content delivery server.
+
+Markup languages are designed for the processing, definition and presentation of text. The language
+specifies code for formatting, both the layout and style, within a text file. The code used to
+specify the formatting are called tags. HTMLis a an example of a widely known and used markup
+language.
+===
+A markup language is a type of language used to annotate text and embed tags in documents.
+--
+3 types of markup language: Presentational Markup, Procedural Markup, Descriptive Markup
+--
+A markup language is a system for annotating a document in a way that is syntactically
+distinguishable from the text.
+
+interview questions to company:
+What are the most critical business pain points of the role?
+How does the company reward top performers and what is the criteria for evaluating outstanding performance?
+Is it a newly created position or a replacement position?
+What are the good qualities of the individual currently performing this role? Is there anything you
+  as a leader think should be delivered better in this position?
