@@ -165,6 +165,8 @@ LOAD CSV WITH HEADERS FROM "file:///a/workspace/roe/facility-port-mapping/ob-map
 
 LOAD CSV WITH HEADERS FROM "file:///a/workspace/roe/facility-port-mapping/ib-mapping-combined.csv" AS line MERGE (n:FacilityPortMapping {code: line.CODE}) ON CREATE SET n.ib_ports=line.PORT ON MATCH SET n.ib_ports=line.PORT;
 
+merge (n:VSID{code:"PHKG-4SY-010-North-HUA07-3"}) on match set n.is_first_stop=false, n.is_last_stop=true;
+
 neo4j rest api:
 http://localhost:7474/db/data/propertykeys
 http://localhost:7474/db/data/node/350/

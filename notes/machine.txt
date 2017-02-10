@@ -286,15 +286,17 @@ logistic regression: binary result
 imputation: the process of replacing missing data with substituted values
 
 Sensitivity (also called the true positive rate, the recall)
-recall = TP/(TP+FN)
-precision= TP/(TP+FP)
+recall = TP/(TP+FN), important when the goal is to limit false negative
+precision= TP/(TP+FP) , important when the goal is to limit false positives
 ===
 precision (also called positive predictive value) is the fraction of retrieved instances that are
 relevant, while recall (also known as sensitivity) is the fraction of relevant instances that are
 retrieved.
 
-random forest: fits multiple trees with subsets of data.
+random forest: fits multiple trees with subsets of data. a collection of decision trees.
 average tree results to improve performance
+
+gradient boosted decision trees: an ensemble method that combines multiple decision trees.
 
 regularization hyperparameter
 
@@ -362,3 +364,21 @@ and the true values.
 
 naive bayes: learn parameters by looking at each feature individually and collect
 simple per-class statistics from each feature. fast.
+
+decision tree: a hierarchy of if/else questions.
+main drawback: tend to overfit the training data.
+
+unsupervised transformation: create a new representation of the data. dimensionality reduction.
+
+feature engineering: how to best represent your data for a particular application.
+
+how to represent categorical variable: one-hot-encoding, one-of-N encoding, dummy variable
+--> replace a categorical variable with one or more new features that can have the values 0 and 1.
+let's say a categorical feature has two possible values: public-employee, private-employee
+we introduce two new features: public-employee and private-employee.
+The public-employee feature is 1 if the corresponding categorical variable has a value of public-employee
+
+f-score: 2*(precision*recall)/(precision+recall)
+
+continuous features that describe a quantity
+categorical features that are items from a fixed list.

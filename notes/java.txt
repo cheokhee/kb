@@ -347,7 +347,9 @@ ZonedDateTime.ofInstant(instant, ZoneId.of("GMT"));
 
 A Java agent is a Java program that executes just prior to the start of another Java application
 (the “target” application), affording that agent the opportunity to modify the target application,
-or the environment in which it runs
+or the environment in which it runs.
+java agent is a program for instrumentating a java application.
+The instrumentation API enables Java agents to transform the bytecode of existing classes.
 ===
 1. Implement a static premain (as an analogy to main) method, like this:
 import java.lang.instrument.Instrumentation;
@@ -575,3 +577,10 @@ remained at 252mb.
 Full GC (Allocation Failure) – indicates that this is a Full GC event, triggered because of
 allocation failure. When the heap is fragmented, direct allocations in the Old generation may fail
 even when there is a lot of free space, this will typically cause Allocation Failure.
+
+HotSpot Serviceability Agent
+provides a low-level view of a Java process from a VM perspective. It knows every- thing about Java
+HotSpot VM internal structures, including the heap layout, the system dictionaries, the compiled
+code, the threads, and the stacks.
+--
+{JAVA_HOME} /lib/sa-jdi.jar

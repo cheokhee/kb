@@ -280,6 +280,9 @@ dry heaves: repeated involuntary retching unaccompanied by vomit
 PBX: A Private Branch eXchange (PBX) is a telephone exchange that serves a
 particular business or office, as opposed to one that a common carrier
  or telephone company operates for many businesses or for the general public.
+--
+PBX: a telecommunications switching system used by businesses to process calls
+between employees within the organization and with parties outside the organization.
 
 a telephone exchange or telephone switch is a system of electronic components that
 connects telephone calls.
@@ -8139,6 +8142,10 @@ intended to reflect how important a word is to a document in a collection. It is
 weighting factor in information retrieval and text mining. The tf-idf value increases proportionally
 to the number of times a word appears in the document, but is offset by the frequency of the word in
 the corpus, which helps to adjust for the fact that some words appear more frequently in general.
+---
+tf-idf: the idea is to give high weight to a term that appears frequently in one document, but
+not in many documents in the corpus. If a word appears frequently in one document, but not in many
+documents, it is likely to hightly descriptive of the contents of that document.
 
 private IP addresses:
 10.0.0.0 - 10.255.255.255
@@ -8465,7 +8472,7 @@ sequence: fetch instruction, decode instruction, execute instruction, memory acc
 lexical (linear) analysis: stream of characters are grouped into tokens, which are sequences of
 characters having a collective meaning.
 ===========
-syntax (hierarchical) analysis (parsing): tokesn are grouped hierarchically into nested
+syntax (hierarchical) analysis (parsing): tokens are grouped hierarchically into nested
 collections with a collective meaning.
 ============
 semantic analysis: ensure that components of a program fit together meaningfully.
@@ -9889,3 +9896,45 @@ How does the company reward top performers and what is the criteria for evaluati
 Is it a newly created position or a replacement position?
 What are the good qualities of the individual currently performing this role? Is there anything you
   as a leader think should be delivered better in this position?
+
+Reactive applications consists of components that send messages or events to each other.
+
+concurrency model:
+parallel worker model: Incoming jobs are assigned to different workers
+====
+In the parallel worker concurrency model a delegator distributes the incoming jobs to different
+workers. Each worker completes the full job. The workers work in parallel, running in different
+threads, and possibly on different CPUs.
+If the parallel worker model was implemented in a car factory, each car would be produced by one
+worker. The worker would get the specification of the car to build, and would build everything from
+start to end.
+-----
+assembly line model (reactive/event-driven system):
+The workers are organized like workers at an assembly line in a factory. Each worker only performs a
+part of the full job. When that part is finished the worker forwards the job to the next worker.
+Each worker is running in its own thread, and shares no state with other workers. This is also
+sometimes referred to as a shared nothing concurrency model.
+--
+Systems using the assembly line concurrency model are usually designed to use non-blocking
+IO. Non-blocking IO means that when a worker starts an IO operation (e.g. reading a file or data
+from a network connection) the worker does not wait for the IO call to finish.
+--
+With non-blocking IO, the IO operations determine the boundary between workers. A worker does as
+much as it can until it has to start an IO operation. Then it gives up control over the job. When
+the IO operation finishes, the next worker in the assembly line continues working on the job, until
+that too has to start an IO operation etc.
+
+actors vs channels
+actors: send messages directly to each other
+channels: workers do not communicate directly with each other. they publish messages on different
+channels.
+
+Java EE uses the parallel worker model. Vert.x on the other hand, uses the assembly line model with
+channels.
+
+Same-threading is a concurrency model where a single-threaded systems are scaled out to N
+single-threaded systems. The result is N single-threaded systems running in parallel.
+
+triangulation: comparing the relative signal strength between three cellular towers
+
+A reentrant lock is one where a thread can claim the lock multiple times without blocking on itself.
