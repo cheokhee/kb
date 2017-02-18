@@ -584,3 +584,8 @@ HotSpot VM internal structures, including the heap layout, the system dictionari
 code, the threads, and the stacks.
 --
 {JAVA_HOME} /lib/sa-jdi.jar
+
+Thread.join():
+The join method allows one thread to wait for the completion of another. If t is a Thread object
+whose thread is currently executing, t.join(); causes the current thread to pause execution until
+t's thread terminates.

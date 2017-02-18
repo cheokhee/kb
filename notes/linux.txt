@@ -1785,3 +1785,5 @@ change sudo timeout session:
 #2. add this line:
 Defaults        env_reset,timestamp_timeout=20 #20 minutes
 #if 0, timeout right away, if -1, disable password prompt
+
+kill: If sig is 0, then no signal is sent, but error checking is still performed.
