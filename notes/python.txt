@@ -447,3 +447,8 @@ zip example:
 {(1, 'a'), (4, 'd'), (3, 'c'), (2, 'b'), (5, 'e')}
 
 scikit-learn supervised model functions: fit(), predict(), score()
+
+String literals may optionally be prefixed with a letter `r' or `R'; such strings are called raw
+strings and use different rules for backslash escape sequences. A prefix of 'u' or 'U' makes the
+string a Unicode string. Unicode strings use the Unicode character set as defined by the Unicode
+Consortium and ISO 10646.

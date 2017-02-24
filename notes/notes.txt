@@ -9948,3 +9948,10 @@ connections. In other words, handling many requests per second is concerned with
 handling requests, whereas a system capable of handling high number of concurrent connections does
 not necessarily have to be a fast system, only one where each request will deterministically return
 a response within a (not necessarily fixed) finite amount of time.
+
+agile: creating small, cross-functional, self-contained teams that deliver solutions in
+quick increments.
+
+Per stirpes ("by branch") is a legal term in Latin. An estate of a decedent is distributed per
+stirpes if each branch of the family is to receive an equal share of an estate.
+alternative: per capita by generation

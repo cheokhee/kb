@@ -1787,3 +1787,19 @@ Defaults        env_reset,timestamp_timeout=20 #20 minutes
 #if 0, timeout right away, if -1, disable password prompt
 
 kill: If sig is 0, then no signal is sent, but error checking is still performed.
+
+#system info tool
+inxi --recommends #check system
+inxi #without argument
+inxi -S #system
+inxi -M #machine
+inxi -C #cpu
+inxi -G #graphics
+inxi -A #audio
+inxi -N #network
+inxi -D #hard disk
+inxi -b #summary
+inxi -p #partition
+inxi -F #full info
+
+bash -n #check syntax without running

@@ -180,6 +180,8 @@ read-edid
 hwinfo
 r-base (52 packages)
 pmount
+inxi
+hddtemp
 
 =========== end of packages ==============
 
