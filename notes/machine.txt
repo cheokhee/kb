@@ -382,3 +382,7 @@ f-score: 2*(precision*recall)/(precision+recall)
 
 continuous features that describe a quantity
 categorical features that are items from a fixed list.
+
+Density-based spatial clustering of applications with noise (DBSCAN) is a data clustering algorithm
+
+data munging

@@ -6363,6 +6363,20 @@ Maintaining strict consistency in a distributed system requires a synchronous co
 
 Dropping strict consistency, on the other hand, solves the availability problem and eliminates the increased response time. The basic idea is to reestablish the global consistency after completing the write operation on a subset of the nodes. This approach leaves just one problem unsolved: it is impossible to prevent conflicts if two nodes accept contradictory changes. Consistency is eventually reached by handling conflicts, not by preventing them. In that context, consistency means that all nodes have the same data, it is not necessarily the correct or best data.
 
+The PACELC theorem is an extension to the CAP theorem. It states that in case of network
+partitioning (P) in a distributed computer system, one has to choose between availability (A) and
+consistency (C) (as per the CAP theorem), but else (E), even when the system is running normally in
+the absence of partitions, one has to choose between latency (L) and consistency (C).
+--
+Both theorems describe how distributed databases have limitations and tradeoffs regarding
+consistency, availability, and partition tolerance. PACELC however goes further and states that a
+trade-off also exists, this time between latency and consistency, even in absence of partitions,
+thus providing a more complete portrayal of the potential consistency tradeoffs for distributed
+systems.
+--
+A high availability requirement implies that the system must replicate data. As soon as a
+distributed system replicates data, a tradeoff between consistency and latency arises.
+
 Opposite of ACID:
 BASE: Basically Available Soft-state wht Eventual consistency
 
@@ -8993,6 +9007,9 @@ example in Scheme:
 rolling release or rolling update development model refers to a continually developing software
 system; as opposed to a standard release development model which uses software versions that
 must be reinstalled over the previous version.
+--
+rolling release: the concept of frequently delivering updates to applications, as opposed to
+the standard point release.
 
 In web development, a polyfill is code that implements a feature on web browsers that do not support
 the feature. Most often, it refers to a JavaScript library that implements an HTML5 web standard,
@@ -9955,3 +9972,109 @@ quick increments.
 Per stirpes ("by branch") is a legal term in Latin. An estate of a decedent is distributed per
 stirpes if each branch of the family is to receive an equal share of an estate.
 alternative: per capita by generation
+
+The SIP URI scheme is a Uniform Resource Identifier (URI) scheme for the Session Initiation Protocol
+(SIP) multimedia communications protocol. A SIP address is a URI that addresses a specific telephone
+extension on a voice over IP system. Such a number could be a private branch exchange or an E.164
+telephone number dialled through a specific gateway.
+==
+A SIP address is written in user@domain.tld format in a similar fashion to an email address. An address like:
+==
+sip:1-999-123-4567@voip-provider.example.net instructs a SIP client to make a (usually UDP)
+connection to voip-provider.example.net:5060 (which may be a gateway) and ask to be connected to the
+destination user at 1-999-123-4567. The gateway may require the user REGISTER using SIP before
+placing this call. The default Internet port address for SIP is 5060 unless explicitly specified in
+the URI.
+===
+The Session Initiation Protocol (SIP) is a communications protocol for signaling and controlling
+multimedia communication sessions. The most common applications of SIP are in Internet telephony for
+voice and video calls, as well as instant messaging, over Internet Protocol (IP) networks.
+--
+SIP Phones are also called VoIP Phones or Softphones. These are telephones that use VoIP
+technologies for making calls over both an IP Network or the traditional PSTN networks. There are
+two types of SIP Phones.
+--
+There are two types of SIP Phones. The first type is the hardware SIP phone. It resembles the
+typical telephone, but uses purpose-built hardware to receive and makes calls using the Internet,
+instead of the traditional PSTN system. The second type is software-based. These allow any computer
+to be used as a telephone by means of a headset with a microphone and/or a sound card. A broadband
+connection and connection to a VoIP provider or a SIP Server are also required. Software SIP Phones
+can also run on mobile devices such as Android and iOS.
+--
+A SIP server is the main component of an IP PBX, and mainly deals with the setup of all SIP calls in
+the network. A SIP server is also referred to as a SIP Proxy or a Registrar. Although the SIP server
+is the most important part of the SIP based phone system, it only handles call setup and call tear
+down.
+
+In trigonometry and geometry, triangulation is the process of determining the location of a point by
+forming triangles to it from known points.
+--
+Mobile phone tracking is the ascertaining of the position or location of a mobile phone, whether
+stationary or moving. Localization may occur either via multilateration of radio signals between
+(several) cell towers of the network and the phone, or simply via GPS. To locate a mobile phone
+using multilateration of radio signals, it must emit at least the roaming signal to contact the next
+nearby antenna tower, but the process does not require an active call.
+--
+Multilateration (MLAT) is a navigation technique based on the measurement of the difference in
+distance to two stations at known locations by broadcast signals at known times. Unlike measurements
+of absolute distance or angle, measuring the difference in distance between two stations results in
+an infinite number of locations that satisfy the measurement. When these possible locations are
+plotted, they form a hyperbolic curve. To locate the exact location along that curve,
+multilateration relies on multiple measurements: a second measurement taken to a different pair of
+stations will produce a second curve, which intersects with the first. When the two curves are
+compared, a small number of possible locations are revealed, producing a "fix".
+
+omni-channel:
+denoting or relating to a type of retail that integrates the different methods of shopping available
+to consumers (e.g., online, in a physical store, or by phone).
+
+blue-green deployment
+is a release technique that reduces downtime and risk by running two identical production
+environments called Blue and Green. At any time, only one of the environments is live, with the live
+environment serving all production traffic.
+--
+Canary Tests are minimal tests to quickly and automatically verify that the everything you depend on
+is ready. You run Canary tests before other time-consuming tests, and before wasting time
+investigating in your code when the other tests are red.
+--
+Dark launching is the practice of deploying the very first version of a service into its production
+environment, well before release, so that you can soak test it and find any bugs before you make its
+functionality available to users.
+--
+Rolling deployments are a pattern whereby, instead of deploying a package to all servers at once, we
+slowly roll out the release by deploying it to each server one-by-one. In load balanced scenarios,
+this allows us to reduce overall downtime.
+--
+Canary release is a technique to reduce the risk of introducing a new software version in production
+by slowly rolling out the change to a small subset of users before rolling it out to the entire
+infrastructure and making it available to everybody.
+
+(EXIF) Exchangeable image file format is a standard that specifies the formats for images, sound, and
+ancillary tags used by digital cameras.
+
+ID3 is a metadata container most often used in conjunction with the MP3 audio file format. It allows
+information such as the title, artist, album, track number, and other information about the file to
+be stored in the file itself.
+
+Peter principle:
+a concept in management theory formulated by Laurence J. Peter and published in 1969. It states that
+the selection of a candidate for a position is based on the candidate's performance in their current
+role, rather than on abilities relevant to the intended role. Thus, employees only stop being
+promoted once they can no longer perform effectively, and "managers rise to the level of their
+incompetence."
+
+application performance management (APM) is the monitoring and management of performance and
+availability of software applications. APM strives to detect and diagnose complex application
+performance problems to maintain an expected level of service.
+
+Aggregate functions return a single result row based on groups of rows, rather than on single rows.
+
+In cryptography, a commitment scheme allows one to commit to a chosen value (or chosen statement)
+while keeping it hidden to others, with the ability to reveal the committed value later.[1]
+Commitment schemes are designed so that a party cannot change the value or statement after they have
+committed to it: that is, commitment schemes are binding. Commitment schemes have important
+applications in a number of cryptographic protocols including secure coin flipping, zero-knowledge
+proofs, and secure computation.
+
+Typography is the art and technique of arranging type to make written language legible, readable,
+and appealing when displayed

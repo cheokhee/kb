@@ -99,6 +99,9 @@ MATCH ()-[r:TRANSHIPMENT]->() where  has (r.transit_time) RETURN count(r);
 MATCH ()-[r:CONNECTED_TO]->() where  has (r.transit_time) RETURN count(r);
 MATCH ()-[r:TERMINALTRANSFERLEG]->() where  has (r.transit_time) RETURN count(r);
 
+check relationship between two nodes:
+match (a:VSID{code:'VTS-NHS-143-West-PKG05-1'})-[r:TRANSHIPMENT]->(b:VSID{code:'EMX-ZOP-049-East-PKG05-1'}) return r;
+
 #total # of voyage leg
 start r=relationship(*) match ()-[r]->() where type(r)='CONNECTED_TO' return count(r)
 OR (next one is faster)

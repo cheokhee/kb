@@ -182,6 +182,7 @@ r-base (52 packages)
 pmount
 inxi
 hddtemp
+mongodb-org-shell
 
 =========== end of packages ==============
 

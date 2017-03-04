@@ -609,6 +609,7 @@ ps u : user-friendly format
 ps -L : show threads (LWP (lightweight process column))
 ps -fHU <username> : show processes of username in hierarchical form
 ps -L -o tid,pid,ppid,state,euid,egid,sid,pgid,tpgid,command <pid>
+ps -o nlwp <pid> #show number of lightweight processes
 
 #show top processes sorted by memory usage
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem
@@ -1803,3 +1804,10 @@ inxi -p #partition
 inxi -F #full info
 
 bash -n #check syntax without running
+
+laptop battery checking: acpi
+
+curl ifconfig.me #get your IP address from the viewpoint of others on the internet
+
+getopts
+example: ${OPTIND} is equal to 1 , ${!OPTIND} is equal to the value of the first argument

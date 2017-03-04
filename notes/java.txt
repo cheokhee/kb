@@ -589,3 +589,19 @@ Thread.join():
 The join method allows one thread to wait for the completion of another. If t is a Thread object
 whose thread is currently executing, t.join(); causes the current thread to pause execution until
 t's thread terminates.
+
+create and run a new thread:
+new Thread(){
+            public void run(){
+                try{
+                    Thread.sleep(1000);
+                    t1.setStop(true);
+                }catch(Exception e){}
+            }}.start();
+
+finally block:
+finally block is executed if you return from a try/catch block
+finally block is NOT executed if you call System.exit() from a try/catch block
+
+Arrays.asList(anArray)
+aList.toArray(new TypeName[0])

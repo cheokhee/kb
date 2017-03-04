@@ -104,6 +104,14 @@ calls the next() method (__next__() method in Python 3.x) of the iterator until 
 a StopIteration exception. Once the exception is raised, the for loop ends.
 ===
 A list is iterable, but a list is not its own iterator.
+===
+to see what the iterator returns: example:
+a={1:'hi'}
+In: iter(a).__next__()
+Out: 1
+--
+In: iter(a.items()).__next__()
+Out: (1, 'hi')
 
 ============= elpy ==============
 C-c C-v         elpy-check
@@ -200,6 +208,8 @@ M = [x for x in S if x % 2 == 0]
 convert string to datetime:
 format='%Y%m%d%H%M%S' # date string: 20160126224023
 datetime.datetime.strptime(date_str, format)
+format='%Y-%m-%dT%H:%M:%SZ'
+datetime.datetime.strptime('2015-10-01T13:29:58Z',format)
 ===
 convert datetime to string:
 datetime.strftime("%Y%m%d%H%M")
@@ -259,6 +269,7 @@ print(data.head(2)) # print the first two rows
 print(data.shape) # print the number of rows and columns
 print(data.dtypes) #print column name and data type
 print(data.column.head(2)) # print column of first two rows
+print(df[['BERTH_ARR_STR','LT_BERTH_ARR_STR']].head(2)) #print specified columns of first two rows
 print(data.describe())
 back_door = data[data.Door_Location == 'BACK DOOR'] OR back_door = data[data['Door_Location'] == 'BACK DOOR']
 pandas.to_datetime(back_front_door['Time'], format='%m/%d/%Y %H:%M')
@@ -314,6 +325,27 @@ pandas.DataFrame({'name': ['john','mike'],'age':[20,30]}):
 type(dataframe['name']) -> pandas.core.series.Series
 each column in a data frame is a Series
 ===
+add a new column to an existing dataframe: df['diff_A_B'] = df['A'] - df['B']
+
+another way:
+data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'year': [2012, 2012, 2013, 2014, 2014],
+        'reports': [4, 24, 31, 2, 3]}
+df = pd.DataFrame(data, index = ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'])
+df:
+             name  reports  year
+Cochice     Jason        4  2012
+Pima        Molly       24  2012
+Santa Cruz   Tina       31  2013
+Maricopa     Jake        2  2014
+Yuma          Amy        3  2014
+
+pandas.DataFrame:
+0 or ‘index’: apply function to each column
+1 or ‘columns’: apply function to each row
+
+== list unique/distinct values
+df.name.unique()
 
 for row in dataframe.itertuples():
   print(row[1]) #first column, zeroth column is the index
@@ -452,3 +484,40 @@ String literals may optionally be prefixed with a letter `r' or `R'; such string
 strings and use different rules for backslash escape sequences. A prefix of 'u' or 'U' makes the
 string a Unicode string. Unicode strings use the Unicode character set as defined by the Unicode
 Consortium and ISO 10646.
+
+useful built-inmodules:
+import itertools #stuff like Cartesian product and permutation
+import functools #lots of decorators, for example a decorator that stores the last output in a cage and uses it again if possible
+import sys, os #do system level stuff
+import subprocess, multithreading, multiprocessing #various multithreading strategies
+import curses #mess with the terminal
+import tkinter #make fancy GUIs
+import pickle #serialize objects
+import urllib, ftplib, httplib, poplib #communicate with the internet
+import md5, zlib, gzip, csv, xml, json #common file formats
+
+useful modules:
+import twisted #asyncronious network programming
+import pygame #graphics programming
+import crypto #user friendly cryptography
+import httplib2 #more standards-compliant http
+import numpy #advanced math and statistics
+import django #python HTTP server framework
+
+b'\xcf\x84o\xcf\x81\xce\xbdo\xcf\x82'.decode('utf-16') #decode a byte string
+'cheok'.encode('utf-16') # convert to a byte string
+'\u8a31'.encode('utf-8')
+--
+a byte string is a sequence of bytes, not human-readable
+a string is a sequence of characters
+--
+Bytes literals are always prefixed with 'b' or 'B'; they produce an instance of the bytes type
+instead of the str type. They may only contain ASCII characters; bytes with a numeric value of 128
+or greater must be expressed with escapes.
+
+str :  a sequence of Unicode characters
+bytes : a sequence of bytes
+
+memory usage:
+import resource
+print( 'Memory usage: %s (MB)' % (resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000.0))
