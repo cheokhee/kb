@@ -102,7 +102,7 @@ the platform MBean server is also called the JMX agent
 =============
 Runnable vs Callable
 Runnable does not return a result and cannot throw a checked exception.
-Cannot returns a result and can throw a checked exception.
+Callable returns a result and can throw a checked exception.
 
 Implementing Runnable vs Extending Thread
 by extending Thread, each of your threads has a unique object associated with it, whereas
@@ -605,3 +605,71 @@ finally block is NOT executed if you call System.exit() from a try/catch block
 
 Arrays.asList(anArray)
 aList.toArray(new TypeName[0])
+
+executable jar: In manifest: Main-Class:
+
+java built-in thread pool:
+java.util.concurrent.ExecutorService interface represents an asynchronous execution mechanism which
+is capable of executing tasks in the background.
+===
+create an ExecutorService:
+		ExecutorService executorService = Executors.newFixedThreadPool(10);
+or: Executors.newSingleThreadExecutor();
+===
+executorService.execute(Runnable): cannot obtain result of Runnable
+executorService.submit(Runnable): returns a Future object. This Future object can be used to check
+if the Runnable as finished executing.
+executorService.submit(Callable):
+--
+executorService.shutdown();
+
+in J2EE application, modules are packaged as EAR, JAR and WAR based on their functionality
+JAR: EJB modules which contain enterprise java beans (class files) and EJB deployment descriptor are
+packed as JAR files with .jar extenstion
+WAR: Web modules which contain Servlet class files, JSP Files, supporting files, GIF and HTML files
+are packaged as JAR file with .war (web archive) extension
+EAR: All above files (.jar and .war) are packaged as JAR file with .ear (enterprise archive)
+extension and deployed into Application Server.
+--
+WAR (Web Archive) is a module that goes into web container of Java EE application server. A JavaEE
+application server has two containers (runtime environments) - one is a web container and the other
+is a EJB container.
+--
+Web container requires the web module to be packaged in WAR file that is a special JAR file with a
+web.xml file in the WEB-INF folder.
+--
+Jetty and Tomcat: web server and servlet container. not full-fledged application server (no EJB)
+Jetty and Tomcat: do not support EAR files. only WAR files
+--
+In application servers - EAR file contains configuration such as application security role mapping,
+EJB reference mapping and context root url mapping of web modules.
+Apart from Web modules and EJB modules EAR files can also contain connector modules packaged as RAR files and Client modules packaged as JAR files.
+
+XSLT processing: javax.xml.transform.Transformer
+
+StringReader class enables you to turn an ordinary String into a Reader
+Java.io.Reader class is a abstract class for reading character streams
+
+reader vs input stream: character-oriented vs byte-oriented
+
+The context path is the prefix of a URL path that is used to select the web application to which an
+incoming request is routed. Typically a URL in a Java servlet server is of the format
+http://hostname.com/contextPath/servletPath/pathInfo, where each of the path elements may be zero or
+more / separated elements. If there is no context path, the context is referred to as the root
+context.
+
+Sessions are a concept within the Servlet api which allow requests to store and retrieve information
+across the time a user spends in an application.
+--
+Session Provides a way to identify a user across more than one page request or visit to a Web site and to
+store information about that user.
+---
+ways to maintain sessions:
+1. cookies
+2. hidden form fields
+3. URL rewriting
+---
+A web session is a sequence of network HTTP request and response transactions associated to the same
+user.
+
+getClass().getResource() vs getClass().getClassLoader().getResource()

@@ -457,6 +457,7 @@ Pickling is the process whereby a Python object hierarchy is converted into a by
 unpickling is the inverse operation, whereby a byte stream is converted back into an object
 hierarchy. pickling: serialization
 
+zip: create an iterator that aggregates elements from a collection of iterables
 zip example:
 >>> a=[1,2,3,4,5]
 >>> b=['a','b','c','d','e']

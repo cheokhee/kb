@@ -7138,6 +7138,7 @@ java array: array.getClass().getName() -> [Ljava.lang.String;
 
 PrintStream vs PrintWriter:
 PrintStream converts objects to string.
+PrintStream: provides methods to write data to another stream.
 PrintWriter is better in the sense that it handles multi-byte characters properly.
 
 data mining:
@@ -7352,6 +7353,9 @@ in web pages without first validating the data.
 
 MVC: a design pattern for implementing user interfaces. the controller accepts user input
 and instructs the model/view to act according to that input.
+---
+MVC: a design pattern that separates an application's logic and data from the user interface's
+presentation and interaction, maintaining a loose coupling between the separate components.
 
 REST: an architectural style where requests and responses represent the current state of
 the system's resources.
@@ -10078,3 +10082,87 @@ proofs, and secure computation.
 
 Typography is the art and technique of arranging type to make written language legible, readable,
 and appealing when displayed
+
+A blocking queue is a queue that blocks when you try to dequeue from it and the queue is empty, or
+if you try to enqueue items to it and the queue is already full.
+
+A web container (also known as a servlet container; and compare "webtainer") is the component of a
+web server that interacts with Java servlets. A web container is responsible for managing the
+lifecycle of servlets, mapping a URL to a particular servlet and ensuring that the URL requester has
+the correct access-rights.
+--
+Servlets are Java programming language classes that dynamically process requests and construct
+responses.
+==
+A servlet is simply a class which responds to a particular type of network request - most commonly
+an HTTP request.
+
+Emmetropia is a state in which the eye is relaxed and focused on an object more than 6 meters or 20
+feet away. The light rays coming from that object are essentially parallel, and the rays are focused
+on the retina without effort.
+
+Play framework:
+controller: handle incoming http requests and use the model and view to build and return a response
+model: business logic
+view: combine model data with view templates
+
+internationalization: removing locale-specifc code from the application.
+localization: making a locale-specifc version of an application
+
+translation lookaside buffer (TLB) is a memory cache that stores recent translations of virtual
+memory to physical addresses for faster retrieval.
+===
+TLB: a cache of recent virtual-to-physical address mappings.
+
+ILP (instruction-level parallelism): a measure of how many of the instructions in a computer program
+can be executed simultaneously.
+
+--False sharing
+Memory is stored within the cache system in units known as cache lines.  Cache lines are a power of 2
+of contiguous bytes which are typically 32-256 in size.  The most common cache line size is 64
+bytes.  False sharing is a term which applies when threads unwittingly impact the performance of
+each other while modifying independent variables sharing the same cache line.  Write contention on
+cache lines is the single most limiting factor on achieving scalability for parallel threads of
+execution in an SMP system.
+--
+where threads use different objects but those objects happen to be close enough in memory that they
+fall on the same cache line, and the cache system treats them as a single lump that is effectively
+protected by a hardware write lock that only one core can hold at a time
+
+cache is smaller, faster memory that stores recently accessed data so that future requests
+for that data can be served faster.
+--
+Data is transferred between memory and cache in blocks of fixed size, called cache lines or cache
+blocks. When a cache line is copied from memory into the cache, a cache entry is created. The cache
+entry will include the copied data as well as the requested memory location (called a tag).
+
+commutative: changing the order does not change the result
+associative: does not matter how we group the numbers
+distributive:  a × (b + c) = a × b + a × c
+
+nothing ventured, nothing gained
+
+serverless architecture: is an approach that replaces long-running virtual machines with ephemeral
+compute power that comes into existence on request and disappears immediately after use.
+--
+Serverless architectures refer to applications that significantly depend on third-party services
+(knows as Backend as a Service or "BaaS") or on custom code that's run in ephemeral containers
+(Function as a Service or "FaaS"), the best known vendor host of which currently is AWS Lambda.
+
+maintain a healthy dose of skepticism
+
+html: provide the structure
+css: provide the visual layout
+
+non-blocking concurrency: reactive programming
+
+the fundamental unit of reactive reasoning is the stream of events. Events can come in the form of
+objects, data feeds, mouse movements, or even exceptions.
+everything is a stream.
+
+ReactiveX is a library for composing asynchronous and event-based programs by using observable
+sequences.
+--
+RxJava is the open-source implementation of ReactiveX in Java. The two main classes are Observable
+and Subscriber. In RxJava, an Observable is a class that emits a stream of data or events, and a
+Subscriber is a class that acts upon the emitted items.

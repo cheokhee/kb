@@ -706,6 +706,8 @@ $ VAR=value ./test.sh
 nmap -p6000 localhost
 #version scan
 nmap -p7474 -sV localhost
+#version scan and more, use this one
+nmap -p7474 -A localhost
 #check web server in use
 nmap -p80 -sV www.google.com
 #TCP SYN scan
@@ -818,6 +820,7 @@ sudo script
 ===
 #cpu counter stats
 perf stat -a sleep 10
+perf stat -ad sleep 3 #more details
 
 Ctrl-x, Ctrl-e : will bring up an $EDITOR containing whatever is currently entered into the prompt.
   "\C-x\C-e": edit-and-execute-command

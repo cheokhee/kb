@@ -344,3 +344,5 @@ Read locks: they are "shared". If one transaction reads data from node, then oth
 Write locks: they are "exclusive". When write lock is taken, all transactions will wait until this
 lock will be released and only then proceed further. If another transaction has Read lock on node,
 then write lock will wait until this node will be "free".
+
+localhost:7474 maps to org.neo4j.server.rest.discovery.DiscoveryService
