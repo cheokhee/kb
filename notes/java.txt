@@ -203,6 +203,8 @@ methods defined in its enclosing class: it can use them only through an object r
 an inner class is associated with an instance of its enclosing class and has direct access to that
 object's methods and fields. Also, because an inner class is associated with an instance, it cannot
 define any static members itself.
+--
+nested classes: allow logical groupings of related classes, provide increased encapsulation.
 
 TimeUnit.MILLISECONDS.toNanos()
 TimeUnit.NANOSECONDS.toMicros()
@@ -638,8 +640,11 @@ is a EJB container.
 Web container requires the web module to be packaged in WAR file that is a special JAR file with a
 web.xml file in the WEB-INF folder.
 --
-Jetty and Tomcat: web server and servlet container. not full-fledged application server (no EJB)
+Jetty and Tomcat: web server and servlet container. not full-fledged application server (no EJB):
+   only servlet and JSP specs.
 Jetty and Tomcat: do not support EAR files. only WAR files
+Glassfish and JBoss: full-fledged Java EE servers.
+JBoss Application Server comes with Tomcat as the default web container.
 --
 In application servers - EAR file contains configuration such as application security role mapping,
 EJB reference mapping and context root url mapping of web modules.
@@ -673,3 +678,16 @@ A web session is a sequence of network HTTP request and response transactions as
 user.
 
 getClass().getResource() vs getClass().getClassLoader().getResource()
+
+PushbackInputStream: allow you to look ahead to see what the next char is.
+
+Serializable: uses the default runtime mechanism to serialize the object
+Externalizable: the class must handle its own serialization.
+
+Enumerations: a fixed set of constants
+
+RetentionPolicy.SOURCE: visible to compiler, not visible in .class file
+RetentionPolicy.CLASS: visible in .class file
+RetentionPolicy.RUNTIME: available to the runtime in the VM.
+
+Objects.requireNonNull(object)

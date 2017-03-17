@@ -2048,6 +2048,8 @@ you meet more than one boundary condition at once.
 Boundary testing or boundary value analysis, is where test cases are generated using the extremes of
 the input domain, e.g. maximum, minimum, just inside/outside boundaries, typical values, and error
 values.
+----
+boundary values usually contain mininum, maximum, and just inside the outside boundaries.
 
 Behavior driven development (or BDD) is an agile software development technique that encourages
  collaboration between developers, QA and non-technical or business participants in a software project.
@@ -2084,6 +2086,12 @@ hence N+1
 solution: use joins
 select person_table.name, address_table.address
     from person_table left join address_table on (person_table.name = address_table.person_name);
+----
+Most ORMs have lazy-loading enabled by default, so queries are issued for the parent record, and
+then one query for EACH child record.
+---
+N+1 select problem: it means issuing one query for the parent record and N queries to get each of the
+child record.
 
 You're falling asleep, then suddenly snap awake. There's a term for that: hypnagogic startle or hypnic jerk.
 
@@ -9316,6 +9324,8 @@ key questions:
 #5. what do you want the customers/users to walk away with?
 #6. what action should you take?
 #7. how do you want the users/customers to feel?
+#8. what makes you say that?
+#9. what problem are you trying to solve?
 
 In computer networking, a wireless Access Point (AP) is a device that allows wireless devices to
 connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
@@ -9859,7 +9869,7 @@ OD: right eye
 OS: left eye
 SPH (sphere): the amount of lens power, measured in diopters, for nearsightedness/farsightedness
 CYL (cylinder): the amount of lens power for astigmatism
-axis: the meridian that contains no cylinder power to correct astigmatism. btw 1 and 180.
+axis: the meridian that contains no cylinder power to correct astigmatism. btw 0 and 180.
 90 is vertical meridian and 180 is horizontal meridian. the meridian that contains the
 cylinder power is 90 degrees away.
 example: -0.50x180:
@@ -10166,3 +10176,24 @@ sequences.
 RxJava is the open-source implementation of ReactiveX in Java. The two main classes are Observable
 and Subscriber. In RxJava, an Observable is a class that emits a stream of data or events, and a
 Subscriber is a class that acts upon the emitted items.
+
+WebAssembly or wasm is a low-level programming language for in-browser client-side scripting, which
+is currently in development. Its initial aim is to support compilation from C and C++
+
+Configuration management tools are used to repeatably and consistently manage the configuration of
+systems and the services that they provide entirely through code.
+
+when a variable declared within a certain scope has the same name as a variable declared in
+an outer scope, we say that the outer variable is shadowed.
+
+Kadane's algorithm: solve Maximum subarray problem
+the task of finding the contiguous subarray within a one-dimensional array of numbers which has the
+largest sum. For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; the contiguous
+subarray with the largest sum is 4, −1, 2, 1, with sum 6.
+
+Config Management is part of provisioning. Basically, that’s using a tool like Chef, Puppet or
+Ansible to configure your server. “Provisioning” often implies it’s the first time you do it. Config
+management usually happens repeatedly.
+Provisioning: making something ready for use.
+
+exclusive-or swap: swap two variables without a temporary variable

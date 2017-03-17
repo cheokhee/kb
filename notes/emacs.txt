@@ -47,6 +47,7 @@ C-x C-f /sudo::/etc/hosts
 C-x C-f /remotehost:filename  RET (or /method:user@remotehost:filename)
         example: /ssh:webapp@sjdvir32:/home/webapp/ifm-port-list/config/config.json
         example: /webapp@sjdvir32:/home/webapp/ifm-port-list/config/config.json
+TRAMP slowness: caused by projectile. turn it off OR (setq projectile-mode-line nil)
 
 C-x ESC ESC redo last command
 M-x list-command-history

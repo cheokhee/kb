@@ -346,3 +346,5 @@ lock will be released and only then proceed further. If another transaction has 
 then write lock will wait until this node will be "free".
 
 localhost:7474 maps to org.neo4j.server.rest.discovery.DiscoveryService
+
+set -t boolean -p is_discharge_allowed true

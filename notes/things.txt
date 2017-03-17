@@ -183,6 +183,7 @@ pmount
 inxi
 hddtemp
 mongodb-org-shell
+pidgin-sipe
 
 =========== end of packages ==============
 
