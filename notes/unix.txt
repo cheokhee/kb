@@ -588,6 +588,10 @@ $ cat > f2
 $ paste -d" " f1 f2
 cheok 20
 christine 10
+---
+$ paste -d" " -s f1 f2
+cheok christine
+20 10
 
 #join two files on a common field, first field is default join field. must be sorted on join field
 $ cat > f1

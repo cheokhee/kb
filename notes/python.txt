@@ -344,6 +344,25 @@ pandas.DataFrame:
 0 or ‘index’: apply function to each column
 1 or ‘columns’: apply function to each row
 
+dataframe to dict
+csv:
+SERVICE_LOOP_CDE,ROUND_TRIP_SCHEDULE_LENGTH_IN_HOUR
+PMAL,685
+---
+df=pandas.read_csv("its-proforma.csv")
+d=df.set_index('SERVICE_LOOP_CDE')['ROUND_TRIP_SCHEDULE_LENGTH_IN_HOUR'].to_dict()
+
+get value from a single cell
+df.iat[row,col] -> df.iat[0,0] # first row and first column
+df.iat[1,0] -> second row, first column
+---
+df.at[row_num, column_name] -> df.at[0, 'SERVICE_LOOP_CDE']
+same as
+df.get_value(0,'SERVICE_LOOP_CDE')
+
+Series.item() -> return the first element (if there is only one row)
+example: df.head(1)['TRADE'].item()
+
 == list unique/distinct values
 df.name.unique()
 
@@ -522,3 +541,36 @@ bytes : a sequence of bytes
 memory usage:
 import resource
 print( 'Memory usage: %s (MB)' % (resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000.0))
+
+#check syntax: (can also use flake8, pyflakes)
+python -m py_compile script.py
+
+pass : do no-op
+
+matplotlib customization: ~/.config/matplotlib/matplotlibrc
+matplotlib backend:
+#1: put in file: backend:TkAgg
+#2: MPLBACKEND="Agg" python3 script.py
+
+import matplotlib.pyplot as plt
+plt.get_backend()
+
+in IPython: do %matplotlib first
+
+in python script: dataframe.plot() : make it show the plot
+import matplotlib.pyplot as plt
+...
+plt.show()
+
+
+Python lists have a built-in sort() method that modifies the list in-place and a sorted() built-in
+function that builds a new sorted list from an iterable.
+-- sort in reverse [].sort(reverse=True)
+
+>>> a=("this is" " a string")
+>>> a
+'this is a string'
+
+convert a byte string into a regular string:
+str(byte-string, 'utf-8')
+eg: str(b'abc','utf-8')

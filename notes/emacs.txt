@@ -127,3 +127,24 @@ sending email:
 
 #calculator
 (calc-eval "1/2")
+
+If your instance hangs and won't respond to C-g, you can use `pkill -SIGUSR2 emacs` to force emacs
+to stop whatever it's doing.
+
+ename-uniquely. Great if you want to hold on to a *Help* buffer whilst looking at the help for other
+things.
+
+M-s _ : isearch-forward-symbol
+
+C-S-backspace : kill-whole-line
+
+C-x <C-right> : next-buffer
+C-x <C-left> : previous-buffer
+
+C-x * : calculator
+
+C-x r w : window-configuration-to-register
+
+C-M-w : append-next-kill &optional
+
+C-x a g: add-global-abbrev

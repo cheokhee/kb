@@ -239,6 +239,8 @@ at that point, all the elements are consumed in one pass. stateful operations ma
 stream operation:
 stateful: impose some new property on the stream. eg. sorting
 short-circuiting: allows processing to stop without examining all the elements
+--
+java.util.stream.StreamSupport
 
 functional interface : an interface with a single abstract method
 you can supply a lambda expression whenever an object of a functional interface is expected.
@@ -691,3 +693,51 @@ RetentionPolicy.CLASS: visible in .class file
 RetentionPolicy.RUNTIME: available to the runtime in the VM.
 
 Objects.requireNonNull(object)
+
+String formatting:
+System.out.println(String.format("name is %s, age is %d", "cheok", 44));
+System.out.println(java.text.MessageFormat.format("my name is {0}, my age is {1}", "hee", 49));
+
+java.util.Scanner
+			Scanner scanner = new Scanner(stream);
+			while (scanner.hasNextLine()) {
+				System.out.println("line: " + scanner.nextLine());
+			}
+			scanner.close();
+
+Collections.synchronizedCollection()
+
+The Spliterator can ‘split’ the Collection, partitioning off some of its elements as another
+Spliterator. This does allow parallel processing of different parts of a Collection but note that
+the Spliterator itself does not provide the parallel processing behaviour. Instead, the Spliterator
+is there to support parallel traversal of the suitably partitioned parts of a Collection. This
+solves the problem of dividing the data, as held in a Collection such as an ArrayList, into suitably
+sized sub-units that can be processed in parallel.
+--
+Spliterator can be used to split given element set into multiple sets so that we can perform some
+kind of operations/calculations on each set in different threads independently, possibly taking
+advantage of parallelism. It is designed as parallel analogue of Iterator.
+
+String.join(", ", list-of-strings);
+
+ChronoUnit.DAYS.between()
+
+#convert an integer to hex
+Integer.toHexString(32)
+
+convert ascii string to hex string:
+Convert String to char array
+Cast it to Integer
+Use Integer.toHexString() to convert it to Hex
+---
+convert hex to ascii:
+Cut the Hex value in 2 chars groups
+Convert it to base 16 Integer using Integer.parseInt(hex, 16) and cast to char
+Append all chars in StringBuilder
+
+char is a 16-bit unsigned value and int is a 32-bit signed value. You can assign a char to an int.
+
+results.sort(Comparator.comparing(Schedule::getOceanHours));
+---
+results.sort(COMPARATOR);
+Comparator<HashMap> COMPARATOR = (first, second) -> Double.compare(first,second);

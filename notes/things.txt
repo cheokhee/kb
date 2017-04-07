@@ -184,6 +184,8 @@ inxi
 hddtemp
 mongodb-org-shell
 pidgin-sipe
+code (visual studio code)
+iotop
 
 =========== end of packages ==============
 

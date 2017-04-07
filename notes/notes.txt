@@ -2319,6 +2319,21 @@ parseResponse({"Name": "Foo", "Id" : 1234, "Rank": 7})
 cross-domain requests: allow a web page to request data from a server in a different domain
 #1. JSONP
 #2: CORS (cross-origin resource sharing) additional header: Access-Control-Allow-Origin:
+CORS: allowing Javascript on a web page to consume a REST API served from a different origin.
+--
+In the simplest scenario, cross-origin communications starts with a client making a GET, POST, or
+HEAD request against a resource on the server. In this scenario, the content type of a POST request
+is limited to application/x-www-form-urlencoded, multipart/form-data, or text/plain. The request
+includes an Origin header that indicates the origin of the client code.
+--
+The server will consider the request's Origin and either allow or disallow the request. If the
+server allows the request, then it will respond with the requested resource and an
+Access-Control-Allow-Origin header in the response. This header will indicate to the client which
+client origins will be allowed to access the resource. Assuming that the Access-Control-Allow-Origin
+header matches the request's Origin, the browser will allow the request.
+--
+On the other hand, if Access-Control-Allow-Origin is missing in the response or if it doesn't match
+the request's Origin, the browser will disallow the request.
 
 In computer graphics, a sprite  is a two-dimensional image or animation that is integrated
 into a larger scene.
@@ -5929,6 +5944,13 @@ properties of a document from another origin.
 ---
 same origin policy says that the content loaded from one site is not allowed to interact
 with the content loaded from other sites.
+--
+The same-origin policy is an important security concept implemented by web browsers to prevent
+Javascript code from making requests against a different origin (e.g., different domain) than the
+one from which it was served.
+---
+same origin policy: javascript code can only make request to the domain from which it is loaded.
+enforced by the browser
 
 federated network identity
 A network identity scheme involving multiple repositories of identities instead of a
@@ -6366,6 +6388,13 @@ partition tolerant: distributed
 if a node is disconnected from the rest of the system and it receives a query, it has two options:
 (1) answer the query (available) even though the answer may not be consistent with the rest of the system
 (2) not answer the query (consistent) because the answer may not be consistent
+===
+
+Consistency - Every read receives the most recent write or an error
+Availability - Every request receives a response, without guarantee that it contains the most recent
+version of the information
+Partition Tolerance - The system continues to operate despite arbitrary partitioning due to network
+failures
 
 Maintaining strict consistency in a distributed system requires a synchronous coordination of all write operations between the nodes. This principle has two unpleasant side effects: (1) it adds latencies and increases response times; (2) it reduces the overall availability because multiple members must be available at the same time to complete a write operation.
 
@@ -9908,6 +9937,17 @@ is to serve content to end-users with high availability and high performance.
 content delivery network (CDN) is a system of distributed servers (network) that deliver webpages
 and other Web content to a user based on the geographic locations of the user, the origin of the
 webpage and a content delivery server.
+--
+--
+cdn : url rewrite:
+Normally your URL paths would be something similar to:
+href="http://domain.com/wp-content/uploads/image.jpg
+With a CDN enabled, they become:
+http://<cdnzonename>.wpengine.netdna-cdn.com/wp-content/uploads/image.jpg
+---
+push vs pull CDN:
+pull CDN: the first time you access the CDN, the CDN pulls from original host.
+pushd CDN: you push the static content to the CDN beforehand
 
 Markup languages are designed for the processing, definition and presentation of text. The language
 specifies code for formatting, both the layout and style, within a text file. The code used to
@@ -10197,3 +10237,65 @@ management usually happens repeatedly.
 Provisioning: making something ready for use.
 
 exclusive-or swap: swap two variables without a temporary variable
+
+A Tree is an undirected, connected, acyclic graph
+
+trie/prefix tree
+radix tree/patricia tree
+
+collision resolution: separate chaining vs open addressing
+
+system design questions:
+Who is going to use it?
+How are they going to use it?
+How many users are there?
+What does the system do?
+What are the inputs and outputs of the system?
+How much data do we expect to handle?
+How many requests per second do we expect?
+What is the expected read to write ratio?
+
+scaling: load balancer, horizontal scaling, caching, database sharding
+
+high availability: fail-over or replication
+
+Federation (or functional partitioning) splits up databases by function. For example, instead of a
+single, monolithic database, you could have three databases: forums, users, and products
+
+Denormalization attempts to improve read performance at the expense of some write
+performance. Redundant copies of the data are written in multiple tables to avoid expensive joins.
+
+benchmarking: simulate high-load situations
+
+A wide column store's basic unit of data is a column (name/value pair). A column can be grouped in
+column families (analogous to a SQL table). Super column families further group column families. You
+can access each column independently with a row key, and columns with the same row key form a
+row. Each value contains a timestamp for versioning and for conflict resolution.
+
+HTTP redirect:
+301 tells the browser that the resource at the uri has been changed permanently to the new location,
+typically to the value of the ‘Location’ response header. The browser makes a new request and
+subsequently, the browser will NOT make another request to the original link (even if manually typed
+in the address bar by the user)
+--
+302 tells the browser that the resource at the uri has been changed temporarily. The browser will
+redirect to the new location this time ONLY. The next time a request comes to the original uri, the
+browser will in fact hit the original uri.
+--
+303 is almost as the same as 302, the only difference being that it tells the browser to make the
+second request using the GET verb. so even a POST will be converted to a GET
+--
+307: This is the same as 302 except it tells the browser that the next request should be made with the
+same verb as the original, in this case GET. In other words, even a POST to the original link,
+should redirected by a POST to the new link.
+
+<link rel="canonical" href="your link"/>
+A canonical link element is an HTML element that helps webmasters prevent duplicate content issues
+by specifying the "canonical" or "preferred" version of a web page as part of search engine
+optimization.
+
+Too much of anything becomes its opposite
+
+YAML:
+Values can span multiple lines using | or >. Spanning multiple lines using a | will include the
+newlines. Using a > will ignore newlines
