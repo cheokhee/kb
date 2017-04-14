@@ -27,3 +27,8 @@ B-->(encrypted)C-->(plaintext)A
 
 On C: ssh user@B -R B_port:A:A_port
 users on B: ssh -p B_port localhost uname -a
+
+execute remote command:
+ssh user@host "tail -f file"
+
+ssh user@remote_host "cat remote_file.txt" | diff - local_file.txt

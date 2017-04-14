@@ -241,6 +241,7 @@ stateful: impose some new property on the stream. eg. sorting
 short-circuiting: allows processing to stop without examining all the elements
 --
 java.util.stream.StreamSupport
+Stream.of(anArray)
 
 functional interface : an interface with a single abstract method
 you can supply a lambda expression whenever an object of a functional interface is expected.
@@ -741,3 +742,19 @@ results.sort(Comparator.comparing(Schedule::getOceanHours));
 ---
 results.sort(COMPARATOR);
 Comparator<HashMap> COMPARATOR = (first, second) -> Double.compare(first,second);
+
+SimpleDateFormat: not thread-safe
+use java.time.format.DateTimeFormatter instead
+===
+ZonedDateTime dt = ZonedDateTime.of(2017, 4, 10, 13, 40, 57, 0, ZoneId.of("UTC"));
+		System.out.println("basic: " + DateTimeFormatter.BASIC_ISO_DATE.format(dt));
+		System.out.println("iso date: " + DateTimeFormatter.ISO_DATE.format(dt));
+		System.out.println("iso datetime: " + DateTimeFormatter.ISO_DATE_TIME.format(dt));
+		System.out.println("iso local date: " + DateTimeFormatter.ISO_LOCAL_DATE.format(dt));
+		System.out.println("iso local datetime: " + DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(dt));
+output:
+basic: 20170410Z
+iso date: 2017-04-10Z
+iso datetime: 2017-04-10T13:40:57Z[UTC]
+iso local date: 2017-04-10
+iso local datetime: 2017-04-10T13:40:57

@@ -325,3 +325,5 @@ LD_LIBRARY_PATH=~/instantclient_11_2 node app.js
 
 #add an array of objects to another array
 Array.prototype.push.apply(targetArray, sourceArray);
+
+document.getElementsByTagName('head')[0]

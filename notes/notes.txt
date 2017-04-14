@@ -2315,11 +2315,15 @@ example return value: functionCall({"Name": "Foo", "Id" : 1234, "Rank": 7});
  </script>
 == return payload:
 parseResponse({"Name": "Foo", "Id" : 1234, "Rank": 7})
+---
+JSONP uses the <script> tag exemption from the same origin policy to request JSON from
+servers without the same origin.
 
 cross-domain requests: allow a web page to request data from a server in a different domain
 #1. JSONP
 #2: CORS (cross-origin resource sharing) additional header: Access-Control-Allow-Origin:
 CORS: allowing Javascript on a web page to consume a REST API served from a different origin.
+servers can implement CORS
 --
 In the simplest scenario, cross-origin communications starts with a client making a GET, POST, or
 HEAD request against a resource on the server. In this scenario, the content type of a POST request
@@ -9355,6 +9359,7 @@ key questions:
 #7. how do you want the users/customers to feel?
 #8. what makes you say that?
 #9. what problem are you trying to solve?
+#10. Can you give me an example?
 
 In computer networking, a wireless Access Point (AP) is a device that allows wireless devices to
 connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
@@ -10299,3 +10304,51 @@ Too much of anything becomes its opposite
 YAML:
 Values can span multiple lines using | or >. Spanning multiple lines using a | will include the
 newlines. Using a > will ignore newlines
+
+In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the
+graphic elements of a document or visual presentation.
+
+short sale: the owner is selling a house for less than the mortgage owed on the house
+--
+A pre-foreclosure is a property in the process of foreclosure but is still legally owned by the
+owner. It may or may not be a short sale.
+Pre-foreclosure means an owner is greater than 90 days late on payments and lender has started the
+foreclosure process with a notice of trustee sale.
+--
+Foreclosures are bank owned properties.
+
+an isomorphic application is one whose code (in this case, JavaScript) can run both in the server
+and the client. Isomorphic JavaScript.
+--
+Isomorphism is the functional aspect of seamlessly switching between client- and server-side
+rendering without losing state. Universal is a term used to emphasize the fact that a particular
+piece of JavaScript code is able to run in multiple environments.
+--
+With client-side rendering, your initial request loads the page layout, CSS and JavaScript. It's all
+common except that some or all of the content isn't included. Instead, the JavaScript makes another
+request, gets a response (likely in JSON), and generates the appropriate HTML (likely using a
+templating library).
+--
+With server-side rendering, your initial request loads the page, layout, CSS, JavaScript and
+content.
+---
+client-side rendering requires a heavier initial load with a 2nd request, not being able to cache
+the final output and greater dependency on slower CPUs and rendering engines.
+
+IPP (internet printing protocol):
+new protocol that allows personal computers and mobile devices to find and print to networked and
+USB printers without using vendor-specific software.
+--
+Most of the printers sold these days already support IPP protocol. This means that you don’t need to
+install drivers for printer from XYZ manufacturer. You can search for it on the network and use it
+for printing.
+
+responsive web design:
+fluid grids: percentage-based widths rather than fixed-pixel dimensions
+flexible images:
+change page layout based on the size of the screen
+
+Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions
+on a web application in which they're currently authenticated. CSRF attacks specifically target
+state-changing requests, not theft of data, since the attacker has no way to see the response to the
+forged request.

@@ -504,6 +504,9 @@ String literals may optionally be prefixed with a letter `r' or `R'; such string
 strings and use different rules for backslash escape sequences. A prefix of 'u' or 'U' makes the
 string a Unicode string. Unicode strings use the Unicode character set as defined by the Unicode
 Consortium and ISO 10646.
+---
+Without the r, backslashes are treated as escape characters. With the r, backslashes are treated as
+literal.
 
 useful built-inmodules:
 import itertools #stuff like Cartesian product and permutation
