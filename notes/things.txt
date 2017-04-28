@@ -184,7 +184,7 @@ inxi
 hddtemp
 mongodb-org-shell
 pidgin-sipe
-code (visual studio code)
+code (visual studio code), aka vscode
 iotop
 
 =========== end of packages ==============
@@ -236,3 +236,8 @@ java -jar decompiler.jar java.lang.String
 java -DAnsi=true -jar decompiler.jar java.util.Collections
 java -jar decompiler.jar -jar myJar.jar -o out
 java -jar ~/jar/procyon-decompiler-0.5.30.jar -jar myJar.jar -o out
+
+===
+vscode extensions:
+abusaidm.html-snippets-0.1.0/         dbaeumer.jshint-0.10.15/    msjsdiag.debugger-for-chrome-2.7.2/
+coderfee.open-html-in-browser-0.0.6/  donjayamanne.python-0.6.0/

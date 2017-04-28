@@ -164,3 +164,12 @@ HAVING totalPop >= (10*1000*1000)
 db.collection.aggregate([{$match: { numberOfResults: { $gt: 0 }}}, {$group: {_id: null, avgElapsedTimeInMs: {$avg: "$elapsedTimeInMs"}}}])
 
 db.routeSearchStats.aggregate({$group: {_id: "$inCache", avgElapsedTimeInMs: {$avg: "$elapsedTimeInMs"}}})
+
+db.collection.find().pretty()
+
+#show all the keys of a document
+Object.keys(db.loadPlanOptimizationScenarios.findOne())
+
+#get field value: use dot notation
+document.field
+eg. db.loadPlanOptimizationScenarios.findOne({scenarioId:'58f0180da1942f488c54b9ba'}).processingLogs[0].inputs

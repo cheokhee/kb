@@ -244,6 +244,14 @@ java.util.stream.StreamSupport
 Stream.of(anArray)
 
 functional interface : an interface with a single abstract method
+--
+If an interface declares an abstract method overriding one of the public methods of
+java.lang.Object, that also does not count toward the interface's abstract method count since any
+implementation of the interface will have an implementation from java.lang.Object or elsewhere.
+--
+instances of functional interfaces can be created with lambda expressions, method references, or
+constructor references.
+--
 you can supply a lambda expression whenever an object of a functional interface is expected.
 example:
 old: Arrays.sort(strings, new SomeComparator())
@@ -758,3 +766,7 @@ iso date: 2017-04-10Z
 iso datetime: 2017-04-10T13:40:57Z[UTC]
 iso local date: 2017-04-10
 iso local datetime: 2017-04-10T13:40:57
+
+all parallel streams use the common fork-join thread pool
+
+Runtime.getRuntime().availableProcessors()

@@ -2835,6 +2835,9 @@ include availability (uptime), bandwidth (throughput), latency (delay), and erro
 QoS involves prioritization of network traffic.
 QoS: provides guaranteed timely delivery of specific application data or resources
  to a particular destination or destinations.
+--
+QoS level is the agreement between the publisher and the receiver of a message about the guarantees
+for delivering the message.
 
 Bandwidth in computer networking refers to the data rate supported by a network connection or interface.
 Bandwidth represents the capacity of the connection
@@ -5425,6 +5428,8 @@ uses this specification to generate code that the application can use to create,
 and delete database entries, effectively treating the template as a "scaffold" on which to build
 a more powerful application.
 --> Scafolding is usually some type of code generation where you point it at a database, and the technology creates basic CRUD (create, read, update, delete) screens.
+--
+scaffolding generally refers to quickly seting up a skeleton for an app.
 
 Metaprogramming is the writing of computer programs that write or manipulate other programs
 (or themselves) as their data, or that do part of the work at compile time that would otherwise
@@ -10352,3 +10357,58 @@ Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execut
 on a web application in which they're currently authenticated. CSRF attacks specifically target
 state-changing requests, not theft of data, since the attacker has no way to see the response to the
 forged request.
+
+IRA Rollover: Taking receipt of the assets for up to 60 days before reinvesting in a new retirement plan.
+IRA Transfer: Moving the assets directly from one custodian to another custodian without taking receipt of the funds.
+
+Asymptotic Notations are languages that allow us to analyze an algorithm's running time by
+identifying its behavior as the input size for the algorithm increases. This is also known as an
+algorithm's growth rate.
+
+An asymptotic behavior is the tendency of the independent variable (e.g. x) of a function (f(x)) to
+increase or decrease without bound. If such a function approaches a number, then the function is
+said to have an asymptote at that number.
+
+In mathematical analysis, asymptotic analysis is a method of describing limiting behavior.
+in computer science in the analysis of algorithms, considering the performance of algorithms when
+applied to very very big input datasets.
+
+Punycode is a special encoding used to convert Unicode characters to ASCII, which is a smaller,
+restricted character set.
+
+digital twin is a virtual model of a process, product or service.
+--
+This pairing of the virtual and physical worlds allows analysis of data and monitoring of systems to
+head off problems before they even occur, prevent downtime, develop new opportunities and even plan
+for the future by using simulations.
+--
+Think of a digital twin as a bridge between the physical and digital world.
+--
+Digital twins refer to computerized companions of physical assets that can be used for various
+purposes. Digital twins use data from sensors installed on physical objects to represent their near
+real-time status, working condition or position.
+
+polynomial time complexity: An algorithm is said to be solvable in polynomial time if the number of
+steps required to complete the algorithm for a given input is O(n^k), where n is the complexity of
+the input and k is a non-negative integer. Polynomial-time algorithms are said to be "fast"
+--
+NP (which stands for nondeterministic polynomial time) is the set of problems whose solutions can be
+verified in polynomial time. But as far as anyone can tell, many of those problems take exponential
+time to solve.
+--
+P versus NP problem:
+Informally speaking, it asks whether every problem whose solution can be quickly verified by a
+computer can also be quickly solved by a computer.
+
+The genetic algorithm is a method for solving both constrained and unconstrained optimization
+problems that is based on natural selection, the process that drives biological evolution. The
+genetic algorithm repeatedly modifies a population of individual solutions.
+
+linear programming: a mathematical technique for maximizing or minimizing a linear function of
+several variables, such as output or cost.
+
+Mixed-integer linear programming (MILP) is a very general framework for capturing problems with both
+discrete decisions and continuous variables.
+
+The Northwest Corner Method (or upper left-hand corner) is a heuristic that is applied to a special
+type of Linear Programming problem structure called the Transportation Model,

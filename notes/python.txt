@@ -119,6 +119,7 @@ C-c C-z         elpy-shell-switch-to-shell
 C-c C-c         elpy-shell-send-region-or-buffer
 C-c C-n         elpy-flymake-next-error
 C-c C-p         elpy-flymake-previous-error
+C-c C-s         elpy-rgrep-symbol (browse references)
 ============= elpy ==============
 
 print without newline:
@@ -577,3 +578,7 @@ function that builds a new sorted list from an iterable.
 convert a byte string into a regular string:
 str(byte-string, 'utf-8')
 eg: str(b'abc','utf-8')
+
+pep8: style checker
+pyflakes: syntax checker
+flake8: wrapper around pep8 and pyflakes
