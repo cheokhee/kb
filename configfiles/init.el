@@ -43,8 +43,9 @@
  '(menu-bar-mode nil)
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
+ '(projectile-mode-line nil)
  '(python-python-command "python3")
- '(python-shell-interpreter "ipython3")
+ '(python-shell-interpreter "python3")
  '(read-file-name-completion-ignore-case t)
  '(recentf-max-menu-items 25)
  '(recentf-save-file "~/.emacs.d/.recentf")
@@ -201,7 +202,7 @@
 (set-register ?t '(file . "~/d/cheok/tasks/cheok_notes.txt"))
 (set-register ?g '(file . "/home/heech/gitrepo/kb/notes/things.txt"))
 (set-register ?n '(file . "/home/heech/gitrepo/kb/notes/notes.txt"))
-(set-register ?o '(file . "/home/heech/office-notes/office-notes-2016.org"))
+(set-register ?o '(file . "/home/heech/office-notes/office-notes-2017.org"))
 (defun put-buffer-name ()
   "Put current buffer name at point"
   (interactive)
@@ -355,11 +356,11 @@ by using nxml's indentation rules."
 ;;variable: split-width-threshold: I want my pop-up window to split
 ;;horizontally even on wide-screen monitor
 ;;variable: split-height-threshold
-(require 'yasnippet)
-(yas-global-mode 1)
-(define-key yas-minor-mode-map (kbd "<tab>") nil)
-(define-key yas-minor-mode-map (kbd "TAB") nil)
-(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
+;(require 'yasnippet)
+;(yas-global-mode 1)
+;(define-key yas-minor-mode-map (kbd "<tab>") nil)
+;(define-key yas-minor-mode-map (kbd "TAB") nil)
+;(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
 ;(ac-config-default)
 (setq smtpmail-default-smtp-server "blah.com")
 
@@ -454,7 +455,7 @@ by using nxml's indentation rules."
   '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
 (global-set-key (kbd "M-i") 'helm-swoop)
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-(load-file "~/.emacs.d/cheok/go-guru.elc")
+;(load-file "~/.emacs.d/cheok/go-guru.elc")
 (add-hook 'go-mode-hook
    (lambda ()
      (setq gofmt-command "goimports")
@@ -557,7 +558,7 @@ by using nxml's indentation rules."
 (make-frame '((name . "emacs3")))
 (make-frame '((name . "emacs4")))
 (make-frame '((name . "emacs5")))
-(projectile-global-mode)
+;(projectile-global-mode)
 (global-set-key (kbd "C-<f8>") 'helm-ag)
 (global-set-key (kbd "C-<f9>") 'helm-ag-this-file)
 (defun backward-other-window ()
@@ -567,3 +568,5 @@ by using nxml's indentation rules."
 (defun my-java-mode-hook ()
   (ggtags-mode 1))
 (add-hook 'java-mode-hook 'my-java-mode-hook)
+(put 'downcase-region 'disabled nil)
+(add-hook 'c++-mode-hook 'my-c-mode-hook)

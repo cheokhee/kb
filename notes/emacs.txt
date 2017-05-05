@@ -148,3 +148,13 @@ C-x r w : window-configuration-to-register
 C-M-w : append-next-kill &optional
 
 C-x a g: add-global-abbrev
+
+ggtags:
+M-.             jump to definition/reference
+M-<             first-error
+M->             ggtags-navigation-last-error
+M-n             next-error
+M-p             previous-error
+RET             end
+---
+during navigation, Ggtags-Navigation minor mode is on

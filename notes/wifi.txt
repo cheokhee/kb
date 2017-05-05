@@ -32,7 +32,7 @@ iwconfig wlan0 power off
 iwlist wlan0 scanning
 
 #rfkill: for enabling/disabling wireless device
-nrfkill list
+rfkill list
 rfkill block wifi
 rfkill unblock wifi
 

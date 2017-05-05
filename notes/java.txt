@@ -242,6 +242,11 @@ short-circuiting: allows processing to stop without examining all the elements
 --
 java.util.stream.StreamSupport
 Stream.of(anArray)
+Arrays.stream()
+--
+peek is a method in the Java 8 Stream API that allows you to use but not consume the data of an stream.
+--
+BiConsumer: Represents an operation that accepts two input arguments and returns no result.
 
 functional interface : an interface with a single abstract method
 --
@@ -442,6 +447,15 @@ GC flags:
 -XX:+PrintGCDetails
 -XX:+PrintGCDateStamps
 -XX:+PrintGCApplicationConcurrentTime
+-XX:+DisableExplicitGC
+-XX:+PrintGCTimeStamps
+-XX:+PrintGCDetails
+-XX:+PrintTenuringDistribution
+-XX:+PrintCommandLineFlags
+-Xloggc:[path/to/gc.log]
+-verbose:gc
+-XX:+UseConcMarkSweepGC
+-XX:CMSInitiatingOccupancyFraction=80
 
 jvisualvm: visualizing memory usage
 
@@ -454,6 +468,8 @@ how to make it covariant and contravariant:
 		List<? extends Number> myNums = new ArrayList<Integer>();
 		Number number = myNums.get(0);
 		myNums.add(45); // compiler error
+        // myNums is a collection of anything that is assignment-compatible with Number
+        // i.e., anything that extends Number (including Number)
 
 		// contravariance: can write, but cannot read
 		List<? super Number> myNums2 = new ArrayList<Object>();
@@ -462,6 +478,36 @@ how to make it covariant and contravariant:
 ===
 summary: use covariance when we only intend to take generic values out of a structure. use contravariance
 when we only intend to put generic values into a structure
+List<Number> and List<Integer> are not assignment-compatible:
+
+        Number n1 = new Integer(1) // ok
+
+		List<Number> n1 = null;
+		List<Integer> n2 = null;
+		n1 = n2; // compiler error
+
+		List<? extends Number> n1 = null;
+		List<Integer> n2 = null;
+		n1 = n2; // okay
+
+        Object a = new String()
+        String b = (String) new Object()
+
+List<Dog> is not a valid substitute for a List<Animal>
+there's something you can do with List<Animal> that isn't properly supported by List<Dog>.
+That operation is the addition of an Animal: List<Dog> cannot contain an Animal or Cat.
+You want to iterate over List<Dog> and safely extracting things from it while knowing
+they are assignment-compatible with Animal, meaning they extends Animal
+
+List<? extends Animal> : a collection of things that is assignment-compatible with Animal
+
+if X is assignment-compatible with Y, X must be further down the inheritance hierarchy than Y: X
+extends Y
+
+if X is assignment-compatible with Y, it means you can assign an instance of type X to a variable of type Y
+e.g. Integer is assignment-compatible with Number, can assign an instance of Integer to a variable of Number
+Derived class is assignment-compatible with Base class: Base b = new Derived()
+=======
 
 is Array<String> a subtype of Array<Object>? in java, the answer is yes, because arrays are covariant
 
@@ -769,4 +815,147 @@ iso local datetime: 2017-04-10T13:40:57
 
 all parallel streams use the common fork-join thread pool
 
+== do calculation in my own for join pool
+ForkJoinPool forkJoinPool = new ForkJoinPool(2);
+
+forkJoinPool.submit(() ->
+    range(1, 1_000_000).parallel().filter(PrimesPrint::isPrime)
+        .collect(toList())
+).get();
+
 Runtime.getRuntime().availableProcessors()
+
+Apache Lucene is a high-performance, full-featured text search engine library written entirely in
+Java.
+Elasticsearch is a search engine based on Lucene. is a distributed, RESTful search and analytics
+engine
+
+IntStream is a stream of primitive int values.
+IntStream.range(1, 3);
+// > 1, 2
+IntStream.rangeClosed(1, 3);
+// > 1, 2, 3
+IntStream.iterate(0, i -> i + 2).limit(3); // the first element is 0
+// > 0, 2, 4
+IntStream.generate(() -> ThreadLocalRandom.current().nextInt(10)).limit(3);
+// > 4, 1, 7
+IntStream.range(1, 5).map(i -> i * i);
+// > 1, 4, 9, 16
+Stream<Color> stream = IntStream.range(1, 5).mapToObj(i -> getColor(i));
+
+Arrays.toString
+
+-- rounding a number:
+DecimalFormat df = new DecimalFormat("#.##");
+df.setRoundingMode(RoundingMode.HALF_UP);
+df.format(number)
+---
+BigDecimal bd = new BigDecimal(Double.toString(d));
+bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
+return bd.doubleValue();
+
+private static ThreadLocal<SimpleDateFormat> DATETIME_DOM_FORMATER = new ThreadLocal<SimpleDateFormat>() {
+  @Override
+  protected SimpleDateFormat initialValue() {
+    return new SimpleDateFormat("yyyyMMddHHmmss.SSS");
+  }
+};
+--
+java 8:
+private static ThreadLocal<NumberFormat> numberFormatter =
+   ThreadLocal.withInitial(() -> new DecimalFormat("00000"));
+
+# the following two lines are the same
+System.out.printf("my name is: %s%n", "joe"); // %n -> new line
+System.out.format("my name is: %s%n", "joe"); // %n -> new line
+
+format specifiers: %s, %f, etc
+
+when to use parallel stream:
+1. number of elements multiplied by cost per element should be large (the time required to
+   execute a sequential version exceeds a minimum threshold)
+2. source collection must be efficiently splittable. e.g. ArrayList, HashMap, arrays
+3. per-element function is independent
+4. have more than 1 cpu
+
+factors to consider: cache locality, GC rates, JIT compilation, memory contention, data layout,
+OS scheduling policies can have impact.
+
+parallel stream: use ConcurrentHashMap rather than HashMap as the target, reduce overhead.
+
+Java 8 has new concept called "Effectively final" variable. It means that a non-final local variable
+whose value never changes after initialization is called "Effectively Final"
+
+final variable: the reference to the object is final, not the value
+
+assignment compatibility:
+  • Every type is assignment-compatible with itself.
+
+  • The boolean type is not assignment-compatible with any other type.
+
+  • A value of any integer type can be assigned to a variable of any other
+    integer type if the variable is of a type that allows it to contain the
+    value without any loss of information.
+
+  • A value of any integer type can be assigned to a variable of any
+    floating-point type, but a value of any floating-point type cannot be
+    assigned to a variable of any integer type.
+
+  • A float value can be assigned to a double variable, but a double value
+    cannot be assigned to a float variable.
+
+  • With a type cast, a value of any arithmetic type can be assigned to a
+    variable of any other arithmetic type.
+
+  • Any reference can be assigned to a variable that is declared of type
+    Object.
+
+  • A reference to an object can be assigned to a class-type reference
+    variable if the class of the variable is the same class or a superclass of
+    the class of the object.
+
+  • A reference to an object can be assigned to an interface-type reference
+    variable if the class of the object implements the interface.
+
+  • A reference to an array can be assigned to an array variable if either of
+    the following conditions is true:
+
+      -> Both array types contain elements of the same type.
+
+      -> Both array types contain object references and the type of reference
+        contained in the elements of the array reference can be assigned to
+        the type of reference contained in the elements of the variable.
+
+flatten example (flatmap):
+final List<CoreResult> list = new LinkedList<>(SOME_DATA);
+1.
+final List<Double> A = list.stream()
+      .map(CoreResult::getField)
+      .collect(ArrayList::new, ArrayList::addAll, ArrayList::addAll);
+2.
+final List<Double> B = list.stream()
+      .map(CoreResult::getField)
+      .flatMap(Collection::stream)
+      .collect(Collectors.toList());
+3.
+final List<Double> C = list.stream()
+      .flatMap(x -> x.getField().stream())
+      .collect(Collectors.toList());
+
+Note: 2 and 3 are essentially the same
+
+List<Double> list = doubleList.stream()
+             .flatMap(List::stream)
+             .collect(Collectors.toList());
+
+flatmap example:
+List<Schedule> results;
+#1.
+		Stream<List<ScheduleLeg>> map1 = results.stream().map(Schedule::getLegs);
+		Stream<ScheduleLeg> flatmap = map1.flatMap(List::stream);
+		flatmap.collect(Collectors.toList());
+#2.
+		Stream<ScheduleLeg> flatMap2 = results.stream().flatMap(x -> x.getLegs().stream());
+		flatMap2.collect(Collectors.toList());
+
+Note: #1 and #2 are equivalent

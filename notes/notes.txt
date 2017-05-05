@@ -8971,6 +8971,10 @@ put on the queue of the processor executing the work item. When a processor runs
 looks at the queues of other processors and "steals" their work items. In effect, work stealing
 distributes the scheduling work over idle processors, and as long as all processors have work to do,
 no scheduling overhead occurs.
+--
+let's say you have multiple queues of work items and a thread is assigned to each queue.
+When one thread finishes its work items and has nothing to do, it steals work items from
+other queues.
 
 ignition coil: a transformer. generate high-voltage current
 distributor: distributes high-voltage current to spark plug. the current jump across the arc
@@ -10412,3 +10416,72 @@ discrete decisions and continuous variables.
 
 The Northwest Corner Method (or upper left-hand corner) is a heuristic that is applied to a special
 type of Linear Programming problem structure called the Transportation Model,
+
+viewport is the user's visible area of a web page.
+
+a reference to a local object can "escape" from a method:
+1. the method returns the object
+2. the method stores the object into a variable that has greater visibility and lifetime,
+such as static variable or collection.
+3. the method can pass the object as a method argument.
+
+parallelization:
+1. you have a pool of threads
+2. divide the task into subtasks
+3. distribute subtasks to threads
+4. collate the results
+
+Management by exception is the practice of examining the financial and operational results of a
+business, and only bringing issues to the attention of management if results represent substantial
+differences from the budgeted or expected amount.
+
+The retailer can define any number of normal conditions for the system to compare against incoming
+data. When POS data feeds into the exception reporting system, it's compared against this defined
+range of typical daily transactions. Transactions that fall outside of this range are flagged as
+suspicious.
+
+http://www.example.com/robots.txt
+
+A degree is the amount I, an observer, need to tilt my head to see you, the mover.
+radian: mover's viewpoint
+Degrees measure angles by how far we tilted our heads. Radians measure angles by distance traveled.
+radian = distance travelled / radius
+
+variable: an alias to a memory location.
+pointer: a variable that contains the memory address of another variable
+
+Benchmarking is comparing one's business processes and performance metrics to industry bests and
+best practices from other companies.
+
+In computing, a benchmark is the act of running a computer program, a set of programs, or other
+operations, in order to assess the relative performance of an object, normally by running a number
+of standard tests and trials against it.
+--
+A benchmark is a test used to compare performance between multiple things, either against each other
+or against an accepted standard. In the computer world, benchmarks are often used to compare the
+speeds or performances of hardware components, software programs, and even internet connections.
+--
+Benchmarking compares it to competitors or peers.  Baselining compares it to your own historical
+performance.
+--
+benchmark: a test used to compare the performance of a system against some standard.
+
+Load testing is the process of putting demand on a system or device and measuring its response. When
+the load placed on the system is raised beyond normal usage patterns, in order to test the system's
+response at unusually high or peak loads, it is known as stress testing.
+
+Matchback and street-turn are used interchangeable and refer to the matching of import and export
+containers to minimize the miles driven, increase container velocity and reduce emissions.
+
+HTTP pipelining is a technique in which multiple HTTP requests are sent on a single TCP connection
+without waiting for the corresponding responses.
+
+HTTP persistent connection, also called HTTP keep-alive, or HTTP connection reuse, is the idea of
+using a single TCP connection to send and receive multiple HTTP requests/responses, as opposed to
+opening a new connection for every single request/response pair. The newer HTTP/2 protocol uses the
+same idea and takes it further to allow multiple concurrent requests/responses to be multiplexed
+over a single connection.
+--
+In HTTP 1.1, all connections are considered persistent unless declared otherwise. The HTTP
+persistent connections do not use separate keepalive messages, they just allow multiple requests to
+use a single connection.
