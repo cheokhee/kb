@@ -28,7 +28,8 @@ ArrayList<String> list = new ArrayList<String>() {{
 }};
 
 Arrays.asList("one", "two", "three")
-
+Arrays.asList() returns a private static class inside Arrays.
+its size is fixed. cannot add to the result ArrayList.
 
     public static <T> List<T> asList(T... a) {
     return new ArrayList<T>(a);
@@ -243,6 +244,14 @@ short-circuiting: allows processing to stop without examining all the elements
 java.util.stream.StreamSupport
 Stream.of(anArray)
 Arrays.stream()
+IntStream.range(int, int)
+Stream.iterate(Object, UnaryOperator);
+The lines of a file can be obtained from BufferedReader.lines();
+Streams of file paths can be obtained from methods in Files;
+Streams of random numbers can be obtained from Random.ints();
+Numerous other stream-bearing methods in the JDK, including BitSet.stream(),
+Pattern.splitAsStream(java.lang.CharSequence), and JarFile.stream().
+
 --
 peek is a method in the Java 8 Stream API that allows you to use but not consume the data of an stream.
 --
@@ -268,6 +277,36 @@ Function<T,R> : take T as input, return R as output
 Predict<T>: take T as input and return a boolean as output
 Consumer<T>: take T as input, perform some action and don't return anything
 Supplier<T>: return T with nothing as input
+---
+
+mutable reduction: accumulates input elements into a mutable result container.
+
+In its more general form, a reduce operation on elements of type <T> yielding a result of type <U>
+requires three parameters:
+ <U> U reduce(U identity,
+              BiFunction<U, ? super T, U> accumulator,
+              BinaryOperator<U> combiner);
+
+example: collect():
+<R> R collect(Supplier<R> supplier,
+               BiConsumer<R, ? super T> accumulator,
+               BiConsumer<R, R> combiner);
+example (with loop):
+ArrayList<String> strings = new ArrayList<>();
+     for (T element : stream) {
+         strings.add(element.toString());
+     }
+convert to:
+#1.
+ArrayList<String> strings = stream.collect(() -> new ArrayList<>(),
+                                                (c, e) -> c.add(e.toString()),
+                                                (c1, c2) -> c1.addAll(c2));
+#2.
+List<String> strings = stream.map(Object::toString)
+                                  .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+#3.
+List<String> strings = stream.map(Object::toString)
+                                  .collect(Collectors.toList());
 
 method reference:
 System.out::println is equivalent to x -> System.out.println(x)
@@ -760,6 +799,15 @@ java.util.Scanner
 			}
 			scanner.close();
 
+--
+Scanner sc = new Scanner(System.in);
+int i = sc.nextInt();
+--
+System.out.println("Enter your username: ");
+Scanner scanner = new Scanner(System.in);
+String username = scanner.nextLine();
+System.out.println("Your username is " + username);
+
 Collections.synchronizedCollection()
 
 The Spliterator can ‘split’ the Collection, partitioning off some of its elements as another
@@ -959,3 +1007,29 @@ List<Schedule> results;
 		flatMap2.collect(Collectors.toList());
 
 Note: #1 and #2 are equivalent
+
+java enum API:
+name() : Returns the name of this enum constant, exactly as declared in its enum declaration.
+ordinal(): Returns the ordinal of this enumeration constant (its position in its enum declaration,
+where the initial constant is assigned an ordinal of zero).
+valueOf() :
+
+The Java compiler automatically inserts a call to super() at the first line in the constructor.
+The first statement of every constructor must be a call to either this() (an overloaded constructor) or super()
+if there is no constructor, the compiler inserts a default no-argument constructor.
+
+use iterator if you want to delete elements inside a loop.
+must call iter.next() before calling iter.remove()
+
+generics:
+upper-bounded wildcards: restricts the unknown type to be a specific type or a subtype of that type
+example: ? extends Number
+---
+lower-bounded wildcards: restricts the unknown type to be a specific type or a super type of that type.
+example: ? super A
+--- this method works on anything that can hold integer values
+public static void addNumbers(List<? super Integer> list) {
+    for (int i = 1; i <= 10; i++) {
+        list.add(i);
+    }
+}

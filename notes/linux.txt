@@ -554,6 +554,10 @@ journalctl --list-boots
 timedatectl
 timedatectl status
 
+coredumpctl from systemd-coredump
+bootctl - Control the firmware and boot manager settings
+systemd-cgtop
+
 xxd: make a hex dump
 
 manipulate or dump object files: objcopy and objdump
@@ -1077,11 +1081,16 @@ partimage: clone disks, does not support ext4, don't use
 fsarchiver: support ext4, use this instead of partimage
 
 lost+found: store files whose actual locations cannot be determined
+lost+found: store recovered bits of corrupted files.
 during a filesystem consistency check.
 details:
 fsck might find data that looks like a complete file but doesn't have a name on the system — an
 inode with no corresponding file name. This data is still using up space, but it isn't accessible by
 any normal means.
+--
+For example, if you abruptly shut your computer down while it’s running and files are being written
+to the hard drive, the fsck tool may automatically examine your file system the next time you boot
+your computer. If it finds any corrupted data, it places it in the file system’s lost+found folder.
 
 recover deleted files:
 unmount the partition (go to single user mode if necessary)
@@ -1381,6 +1390,11 @@ cpufrequtils (package): cpufreq-info command
 core dump setting:
 ulimit -c
 cat /proc/sys/kernel/core_pattern
+---
+sysctl:
+kernel.core_pattern = |/usr/lib/corekeeper/dump %d %u %p-%u-%g-%s-%t-%h-%E.core
+kernel.core_pipe_limit = 0
+kernel.core_uses_pid = 1
 
 useful commands from moreutils:
 combine, errno, ifdata, isutf8, sponge, ts, vidir, vipe, zrun
@@ -1829,3 +1843,37 @@ sysctl net.ipv4.tcp_available_congestion_control
 /etc/security/limits.conf:
 theusername		hard nofile	40000
 theusername		soft nofile	40000
+
+/etc/securetty : specify where root user can log on
+chage: change password expiry info (password aging)
+
+Tripwire: Intrusion Detection
+
+httpie example:
+#1. send json data
+http POST URL name=blah
+#2. see the request being sent: -v
+http -v POST URL name=blah
+#3. send header
+http -v POST URL name=blah appcontext:cheok
+#
+http POST :2525 #assume localhost
+
+sed : extended regexp
+--
+The only difference between basic and extended regular expressions is in the behavior of a few
+characters: ?, +, parentheses, and braces ({}). While basic regular expressions require these to be
+escaped if you want them to behave as special characters, when using extended regular expressions
+you must escape them if you want them to match a literal character.
+
+#search only file that match a pattern
+grep -r --include "*.py" <pattern>
+
+wrk: a HTTP benchmarking tool
+wrk -t3 -c1000 -d10s http://127.0.0.1:8080
+#  3 threads and 1000 connections
+
+/proc/modules                 displays a list of kernel loaded modules.
+/proc/cmdline                   displays the parameters passed to the kernel when the system started.
+
+/proc/sys/fs/file-max this entry specifies the maximum number of open files that Linux can support at any one time.

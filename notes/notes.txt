@@ -1346,6 +1346,9 @@ cloud deployment model: public, private, virtual private, hybrid
 cloud service model: IaaS, PaaS, SaaS
 public: managed by an external service provider
 private: managed by you, living in your data center
+---
+3 categories of cloud computing services: Iaas, Paas, SaaS
+IaaS: a form of cloud computing service that provides virtualized computer resources.
 
 container: a run-time environment for components.
 
@@ -6486,6 +6489,16 @@ web page is designed for a particular browser version and would remain presentab
 older versions of browsers are used.
 =====
 start with modern browsers and provide workaround for older browsers.
+--
+graceful degradation: get your website working in all modern browsers and provide workaround
+for older browsers.
+---
+progress enhancement: start with a baseline of features supported by all browsers and then
+add more features for the modern browsers that support them.
+does not assume JavaScript is enabled and offer the user an alternative way of accessing the content.
+
+graceful degradation and progress enhancement: strategies for dealing with new features in
+modern browsers and older unsupported browsers while offering the best user experience.
 
 progressive enhancement:
 the opposite of graceful degradation.
@@ -6692,6 +6705,7 @@ a block can reference the variables that were in scope when it was defined,
 even if those variables later go out of scope.
 ---
 closure: an anonymous function that references variables defined outside the scope of the function
+has access to its outer scope even after the outer scope has returned.
 
 jumbo loan: a loan above the conforming loan limit.
 the conforming loan limit is set by Fannie Mae and Freddie Mac, which are
@@ -7402,6 +7416,8 @@ and instructs the model/view to act according to that input.
 ---
 MVC: a design pattern that separates an application's logic and data from the user interface's
 presentation and interaction, maintaining a loose coupling between the separate components.
+---
+MVC: model updates view (seen by user), the user uses controller to manipulate model.
 
 REST: an architectural style where requests and responses represent the current state of
 the system's resources.
@@ -9038,6 +9054,12 @@ data is flowing through the system.
 Memcached (pronunciation: mem-cash-dee) is a general-purpose distributed memory caching system. It
 is often used to speed up dynamic database-driven websites by caching data and objects in RAM to
 reduce the number of times an external data source (such as a database or API) must be read.
+--
+Memcached is a volatile in-memory key/value store. Redis can act like one (and do that job as well
+as memcached), but it is a data structure server.
+--
+Both Memcached and Redis serve as in-memory, key-value data stores, although Redis is more
+accurately described as a data structure store
 
 an opcode (abbreviated from operation code, also known as instruction syllable or opstrings.) is the
 portion of a machine language instruction that specifies the operation to be performed. Beside the
@@ -9941,6 +9963,12 @@ view-model -> The view model is an abstraction of the view exposing public prope
 commands. Instead of the controller of the MVC pattern, or the presenter of the MVP pattern, MVVM
 has a binder. In the view model, the binder mediates communication between the view and the data
 binder. The view model has been described as a state of the data in the model.
+--
+MVVM: designed to separate development of the view layer (HTML) from the business logic (JavaScript)
+and data layers (JSON).
+--
+MVVM: the model represents the app data, the view is the presentation of the data. the ViewModel exposes
+the data from the model to the view and maintains the application's state.
 
 (content delivery network) CDNs deliver improved performance by globally distributing assets as well
 as improved scalability by removing load from your webserver.
@@ -10485,3 +10513,69 @@ over a single connection.
 In HTTP 1.1, all connections are considered persistent unless declared otherwise. The HTTP
 persistent connections do not use separate keepalive messages, they just allow multiple requests to
 use a single connection.
+
+core dump: a dump of the contents of main memory
+
+The Point-to-Point Tunneling Protocol (PPTP) is an obsolete method for implementing virtual private
+networks, with many known security issues. PPTP uses a TCP control channel and a GRE tunnel to
+encapsulate PPP packets.
+
+A red–black tree is a kind of self-balancing binary search tree. Each node of the binary tree has an
+extra bit, and that bit is often interpreted as the color (red or black) of the node. These color
+bits are used to ensure the tree remains approximately balanced during insertions and deletions
+
+Hybrid Mobile Applications. Hybrid development combines the best (or worst) of both the native and
+HTML5 worlds. We define hybrid as a web app, primarily built using HTML5 and JavaScript, that is
+then wrapped inside a thin native container that provides access to native platform features.
+-- combine characteristics of both native and web applications.
+
+Apache Cordova provides a group of APIs that enable you to develop an application with HTML, CSS and
+JavaScript that is packaged as a native mobile application. The application runs on the mobile
+device and can access the native functions of the device such as the GPS or camera.
+
+Wide column stores, also called extensible record stores, store data in records with an ability to
+hold very large numbers of dynamic columns. Since the column names as well as the record keys are
+not fixed, and since a record can have billions of columns, wide column stores can be seen as
+two-dimensional key-value stores.
+--
+Wide column stores share the chracteristic of being schema-free with document stores, however the
+implementation is very different.
+--example: Cassandra, HBase
+
+MVVM vs MVC
+One difference that people miss is in MVC,the controller chooses the view(ex. web server). After the
+view is chosen, the view's state isn't connected to the controller. MVVM, the state of the view is
+continuously connected to the ViewModel(has some features similar to the controller).
+
+token-based authentication: uses a signed token that the client must send on every request.
+
+Electron (formerly known as Atom Shell) is an open-source framework developed by GitHub. It allows
+for the development of desktop GUI applications using front and back end components originally
+developed for web applications: Node.js runtime for the backend and Chromium for the
+frontend. Electron is the main GUI framework behind several notable open-source projects including
+GitHub's Atom and Microsoft's Visual Studio Code source code editors and the Light Table IDE.
+A basic Electron app consists of three files: package.json (metadata), main.js (code) and index.html
+
+divide your work into bite-sized chunks organized by importance and urgency.
+
+reduction (folding): takes a sequence of input elements and combines them into a single
+summary result.
+
+interview answer/question:
+1. Nail down the requirements
+2. Describe the algorithm before you code
+3. Be aware of portability issues.
+4. Handle your corner cases
+
+Sass is an extension of CSS. a preprocessor.
+input: .sass/.scss , output: .css files
+.sass: indented syntax
+.scss: CSS-like syntax (Sassy CSS)
+
+SYN cookie is a technique used to resist SYN flood attacks.The technique's primary inventor Daniel
+J. Bernstein defines SYN cookies as "particular choices of initial TCP sequence numbers by TCP
+servers." In particular, the use of SYN cookies allows a server to avoid dropping connections when
+the SYN queue fills up.
+
+A uses B -> A depends on B
+A is the dependant, B is the dependency

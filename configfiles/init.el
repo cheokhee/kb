@@ -11,10 +11,6 @@
  '(calendar-longitude -121.9)
  '(column-number-mode t)
  '(company-idle-delay 1)
- '(cua-delete-selection t)
- '(cua-enable-cua-keys nil)
- '(cua-mode t nil (cua-base))
- '(cua-remap-control-v nil)
  '(delete-old-versions t)
  '(dired-listing-switches "-Al")
  '(electric-indent-mode nil)
@@ -41,6 +37,9 @@
  '(lpr-command "lp")
  '(lpr-switches (quote ("-o sides=two-sided-long-edge")))
  '(menu-bar-mode nil)
+ '(package-selected-packages
+   (quote
+    (markdown-mode realgud zygospore ws-butler w3m tablist restclient pallet js3-mode iedit helm-swoop helm-projectile helm-gtags helm-google helm-flycheck helm-ag groovy-mode go-scratch go-eldoc ggtags enh-ruby-mode elpy company-tern company-irony company-go auto-complete anzu ace-window)))
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
  '(projectile-mode-line nil)
@@ -55,6 +54,7 @@
  '(scroll-bar-mode nil)
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
+ '(shr-color-visible-luminance-min 100)
  '(smex-save-file "~/.emacs.d/.smex-items")
  '(split-width-threshold 9999)
  '(tab-width 4)
@@ -70,12 +70,18 @@
  '(w3m-file-name-coding-system (quote utf-8))
  '(w3m-home-page "about://bookmark/")
  '(w3m-terminal-coding-system (quote utf-8)))
+;; custom-set-faces does not work in Emacs 25
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 170 :width normal)))))
+ )
+; '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 170 :width normal)))))
+; use set-face-attribute for Emacs 25
+;(set-face-attribute 'default nil :family "DejaVu Sans Mono" :foundry "unknown" :slant 'normal :weight 'normal :height 170 :width 'normal)
+; set-face-attribute sets the fonts in new frames, but not in the starting frame
+; therefore, use -fn "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-23-*-*-*-m-0-iso10646-1" at command line
 (require 'package)
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -134,6 +140,7 @@
 ;(setq ido-file-extensions-order '(".txt" ".py" ".emacs" ".xml" ".el" ".ini" ".cfg" ".cnf"))
 (setq bookmark-default-file "~/.emacs.d/.emacs.bmk")
 (require 'saveplace)
+(save-place-mode t)
 (setq-default save-place t)
 (setq save-place-file "~/.emacs.d/.emacs-places")
 ;(setq make-backup-files nil)
@@ -223,10 +230,10 @@
 ;;; example: (prin1-to-string (car (buffer-list)))
 ;; flet is obsolete since 24.3, use cl-flet
 ;; cl-flet does not work
-(require 'cl)
-(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (flet ((process-list ())) ad-do-it))
+;; (require 'cl)
+;; (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+;;   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+;;   (flet ((process-list ())) ad-do-it))
 (setq-default abbrev-mode t)
 (quietly-read-abbrev-file)
 (global-set-key (kbd "C-x s") (lambda () (interactive) (save-some-buffers 1)))
@@ -356,11 +363,11 @@ by using nxml's indentation rules."
 ;;variable: split-width-threshold: I want my pop-up window to split
 ;;horizontally even on wide-screen monitor
 ;;variable: split-height-threshold
-;(require 'yasnippet)
-;(yas-global-mode 1)
-;(define-key yas-minor-mode-map (kbd "<tab>") nil)
-;(define-key yas-minor-mode-map (kbd "TAB") nil)
-;(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
+(require 'yasnippet)
+(yas-global-mode 1)
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
 ;(ac-config-default)
 (setq smtpmail-default-smtp-server "blah.com")
 
@@ -398,7 +405,7 @@ by using nxml's indentation rules."
      (define-key term-mode-map (kbd "C-c C-j") 'term-toggle-mode)
      (define-key term-raw-map (kbd "C-c C-j") 'term-toggle-mode)))
 
-(setq browse-url-browser-function 'w3m-goto-url-new-session)
+(setq browse-url-browser-function 'eww-browse-url)
 ;(global-set-key (kbd "C-c b") 'browse-url-at-point)
 ;(autoload 'idomenu "idomenu" nil t)
 (global-set-key (kbd "C-c i") 'helm-imenu)
@@ -570,3 +577,15 @@ by using nxml's indentation rules."
 (add-hook 'java-mode-hook 'my-java-mode-hook)
 (put 'downcase-region 'disabled nil)
 (add-hook 'c++-mode-hook 'my-c-mode-hook)
+(setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+(defun my-elpy-mode-hook ()
+  (flycheck-mode)
+  (define-key elpy-mode-map (kbd "C-c C-n") 'flycheck-next-error)
+  (define-key elpy-mode-map (kbd "C-c C-p") 'flycheck-previous-error))
+(add-hook 'elpy-mode-hook 'my-elpy-mode-hook)
+(defun eww-new ()
+  (interactive)
+  (let ((url (read-from-minibuffer "Enter URL or keywords: ")))
+    (switch-to-buffer (generate-new-buffer "eww"))
+    (eww-mode)
+    (eww url)))

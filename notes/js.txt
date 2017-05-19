@@ -337,3 +337,100 @@ man pages are linked to {prefix}/share/man
 
 put this in ~/.npmrc:
 prefix=/usr/local
+
+Script tags inside the head element will be loaded and interpreted before any HTML is rendered, this
+blocks HTML/CSS rendering. Script tags at the bottom of the body tag, will not block HTML/CSS and
+since you can only play around with the DOM on DomReady, this is the best position to put your
+JavaScript.
+--
+The best place for it is just before you need it and no sooner.
+--
+the browser must go into single-threaded mode while the JS loads and then executes. If the script is
+in the head or in the midst of the content, the browser will "pause" while it deals with the JS. By
+placing the JS at the bottom, the content will be loaded and generally visible so the user can start
+reading it while the browser is still dealing with the JS.
+--
+in general, put script tag at the bottom, just before </body>. jQuery should be in head
+put css tag in the <head>
+
+node.js:
+every file gets a module.exports object it can use to expose an object to others.
+
+node:
+blanket: code coverage
+mocha, jasmine: testing framework
+webdriver, selenium
+
+WebDriver is a tool for automating web application testing, and in particular to verify that they
+work as expected. It aims to provide a friendly API that's easy to explore and understand, easier to
+use than the Selenium-RC (1.0) API, which will help to make your tests easier to read and maintain.
+--
+Selenium RC injects javascript function into browsers when the web page is loaded. Selenium
+WebDriver drives the browser using browser's built-in support. WebDriver is a tool for testing web
+applications across different browsers using different programming languages
+--
+Selenium is a portable software-testing framework for web applications. Selenium provides a
+record/playback tool for authoring tests without the need to learn a test scripting language
+(Selenium IDE).
+--
+Selenium WebDriver drives the browser using browser's built-in support. WebDriver is a tool for
+testing web applications across different browsers using different programming languages. WebDriver
+directly talks to the browser while Selenium RC needs the help of the RC Server in order to do so.
+--
+WebDriver is a web automation framework that allows you to execute your tests against different
+browsers, not just Firefox (unlike Selenium IDE). WebDriver also enables you to use a programming
+language in creating your test scripts (not possible in Selenium IDE)
+--
+Selenium uses JavaScript to automate web pages. This lets it interact very tightly with web content,
+and was one of the first automation tools to support Ajax and other heavily dynamic pages. However,
+this also means Selenium runs inside the JavaScript sandbox. This means you need to run the
+Selenium-RC server to get around the same-origin policy, which can sometimes cause issues with
+browser setup.
+--
+WebDriver on the other hand uses native automation from each language. While this means it takes
+longer to support new browsers/languages, it does offer a much closer 'feel' to the browser. If
+you're happy with WebDriver, stick with it, it's the future. There are limitations and bugs right
+now, but if they're not stopping you, go for it.
+
+Selenium Benefits over WebDriver
+Supports many browsers and many languages, WebDriver needs native implementations for each new language/browser combo.
+Very mature and complete API
+Currently (Sept 2010) supports JavaScript alerts and confirms better
+---
+Benefits of WebDriver Compared to Selenium
+Native automation faster and a little less prone to error and browser configuration
+Does not require Selenium-RC Server to be running
+Access to headless HTMLUnit can allow tests to run very fast
+Great API
+
+JWT (JSON web token): for authentication
+
+hoisting
+
+Immediately Invoked Function Expression
+
+module bundler:
+asynchronously loading modules and running them when they have finished loading, or by combining
+all of the necessary files into a single JavaScript file that would be loaded via a <script> tag in
+the HTML.
+
+== start jquery
+Basic syntax is: $(selector).action()
+
+A $ sign to define/access jQuery
+A (selector) to "query (or find)" HTML elements
+A jQuery action() to be performed on the element(s)
+Examples:
+
+$(this).hide() - hides the current element.
+$("p").hide() - hides all <p> elements.
+$(".test").hide() - hides all elements with class="test".
+$("#test").hide() - hides the element with id="test".
+
+$(document).ready(function(){
+
+   // jQuery methods go here...
+
+});
+
+=== end jquery

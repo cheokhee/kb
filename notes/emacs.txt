@@ -131,7 +131,7 @@ sending email:
 If your instance hangs and won't respond to C-g, you can use `pkill -SIGUSR2 emacs` to force emacs
 to stop whatever it's doing.
 
-ename-uniquely. Great if you want to hold on to a *Help* buffer whilst looking at the help for other
+rename-uniquely. Great if you want to hold on to a *Help* buffer whilst looking at the help for other
 things.
 
 M-s _ : isearch-forward-symbol
@@ -158,3 +158,36 @@ M-p             previous-error
 RET             end
 ---
 during navigation, Ggtags-Navigation minor mode is on
+
+rectangle mode:
+rectangle-mark-mode : C-x SPC
+open-rectangle (insert whitespace, shift right)
+kill-rectangle (save a copy), to be followed by yank-rectangle
+delete-rectangle (delete without saving a copy)
+string-insert-rectangle (shift right)
+replace-rectangle same as string-rectangle. (replace)
+clear-rectangle : replace with space
+
+An association list , or alist , is a data structure used very frequently in Scheme. An alist is a
+list of pairs, each of which is called an association .
+
+markdown mode:
+C-c C-c m: markdown-command > *markdown-output* buffer.
+C-c C-c p: markdown-command > temporary file > browser.
+C-c C-c e: markdown-command > basename.html.
+C-c C-c v: markdown-command > basename.html > browser.
+C-c C-c w: markdown-command > kill ring.
+C-c C-c o: markdown-open-command.
+C-c C-c l: markdown-live-preview-mode > *eww* buffer. (USE THIS)
+
+M-x load-library -> realgud
+M-x realgud:pdb -> python
+
+realgud:pdb command:
+n : next (step over)
+s : step into
+f : finish (step out) (in pdb, use return)
+b : set breakpoint
+D : clear breakpoint (by number)
+c : continue
+clear : clear all breakpoints
