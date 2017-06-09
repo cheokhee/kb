@@ -98,3 +98,6 @@ apt update/upgrade
 sudo apt-mark hold package_name
 Remove the hold:
 sudo apt-mark unhold package_name
+
+#upgrade selected package
+apt-get install --only-upgrade <pkg name>

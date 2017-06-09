@@ -509,6 +509,9 @@ how to make it covariant and contravariant:
 		myNums.add(45); // compiler error
         // myNums is a collection of anything that is assignment-compatible with Number
         // i.e., anything that extends Number (including Number)
+        // at runtime, we don't know the actual type of a generic structure (type erasure)
+        // i.e., we don't know that we have a list of integers at runtime.
+        // so we stop it at compile-time
 
 		// contravariance: can write, but cannot read
 		List<? super Number> myNums2 = new ArrayList<Object>();
@@ -1033,3 +1036,6 @@ public static void addNumbers(List<? super Integer> list) {
         list.add(i);
     }
 }
+
+convert Iterable to List
+List<T> rels = Lists.newArrayList(anIterable);

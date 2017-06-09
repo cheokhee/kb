@@ -5438,7 +5438,7 @@ Metaprogramming is the writing of computer programs that write or manipulate oth
 (or themselves) as their data, or that do part of the work at compile time that would otherwise
  be done at runtime.
 
-active record pattern
+active record pattern: used in ORM tools
 an approach to accessing data in a database. A database table or view is wrapped into a class.
  Thus, an object  instance is tied to a single row in the table. After creation of an object,
  a new row is added to the table upon save. Any object loaded gets its information from the
@@ -6517,6 +6517,9 @@ such as <em> (emphasis); the CSS stylesheet should then specify whether emphasis
 font, a bold font, underlining, slower or louder audible speech etc. This is because italics are used for
 purposes other than emphasis,
 --> should not use presentational HTML markup such as <i>, <font>, etc
+--
+semantic html: use html tags to indicate the intent/meaning of content, not how the content should be
+presented.
 
 race condition
 multiple threads access a resource at the same time, leading to unpredictable results.
@@ -6647,6 +6650,23 @@ backtracking: a general algorithm for finding all (or some) solutions to some co
 incrementally builds candidates to the solutions, and abandons each partial candidate c ("backtracks")
 as soon as it determines that c cannot possibly be completed to a valid solution
 --> an attempt to re-satisfy the last satisfied goal when the next goal fails.
+---
+A backtracking algorithm tries to build a solution to a computational problem incrementally.
+Whenever the algorithm needs to decide between multiple alternatives to the next component of
+the solution, it simply tries all possible options recursively
+---
+backtracking: an algorithm that builds a solution incrementally. when it is clear that the current
+path does not lead to a solution, you go back to the previous decision point and take the next choice.
+==
+in backtracking ,We start with one possible move out of many available moves and try to solve the
+problem if we are able to solve the problem with the selected move then we will print the
+solution else we will back­track and select some other move and try to solve it. If none if the
+moves work out we will claim that there is no solution for the problem.
+---
+backtracking: recursive. works by incrementally building candidates to the final solution.
+at each step, you choose a candidate.
+as soon as you realize that this path cannot lead to the final solution, you abandon
+this candidate, go back one level up, and choose another candidate.
 
 --> Securitization is the financial practice of pooling various types of contractual debt such as residential mortgages, commercial mortgages, auto loans or credit card debt obligations and selling said consolidated debt as bonds, pass-through securities, or Collateralized mortgage obligation (CMOs), to various investors. The principal and interest on the debt, underlying the security, is paid back to the various investors regularly.
 --> An asset-backed security is a security whose value and income payments are derived from and collateralized (or "backed") by a specified pool of underlying assets. The pool of assets is typically a group of small and illiquid assets that are unable to be sold individually. Pooling the assets into financial instruments allows them to be sold to general investors, a process called securitization, and allows the risk of investing in the underlying assets to be diversified because each security will represent a fraction of the total value of the diverse pool of underlying assets.
@@ -7869,9 +7889,15 @@ Web templates are simply text files that contain variables and control flow stat
 Classless Inter-Domain Routing (CIDR): allocate IP address space on any address bit boundary
 e.g. 192.168.2.0/24 . 24 is the number of bits in the network address or network/routing mask (or netmask).
 
-software-defined networking (SDN): the decoupling of the network control plane from the network forwarding plane (also called data plane)
+software-defined networking (SDN): the decoupling of the network control plane
+(telling the network what goes where) from the network forwarding plane (also called data plane)
+(sending packets to specific destinations)
 data plane: packet switching and forwarding
 control plane: traffic shaping, routing, policy control.
+---
+SDN : allows you to control network devices from a centralized software platform (using
+a standard protocol, such as OpenFlow).
+network virtualization: create virtual replicas of hardware that are indistinguishable to servers.
 
 connected graph: we can reach any vertex from any other vertex by following edges in either direction.
 a tree is a connected graph with no cycles
@@ -9391,6 +9417,7 @@ key questions:
 #8. what makes you say that?
 #9. what problem are you trying to solve?
 #10. Can you give me an example?
+#11. what degree/level of detail do you need?
 
 In computer networking, a wireless Access Point (AP) is a device that allows wireless devices to
 connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
@@ -10571,6 +10598,8 @@ Sass is an extension of CSS. a preprocessor.
 input: .sass/.scss , output: .css files
 .sass: indented syntax
 .scss: CSS-like syntax (Sassy CSS)
+===
+LESS: it is a basic CSS preprocessor, a CSS extension
 
 SYN cookie is a technique used to resist SYN flood attacks.The technique's primary inventor Daniel
 J. Bernstein defines SYN cookies as "particular choices of initial TCP sequence numbers by TCP
@@ -10579,3 +10608,130 @@ the SYN queue fills up.
 
 A uses B -> A depends on B
 A is the dependant, B is the dependency
+
+stack trace (aka stack backtrace or stack traceback)
+is a report of the active stack frames at a certain point in time during the execution of a program.
+---
+A traceback is a stack trace from the point of an exception handler down the call chain to the point
+where the exception was raised. You can also work with the current call stack up from the point of a
+call (and without the context of an error), which is useful for finding out the paths being followed
+into a function.
+--
+A backtrace is a list of the function calls that are currently active in a thread
+
+Edge computing pushes applications, data and computing power (services) away from centralized points
+to the logical extremes of a network
+==
+data processing power at the edge of a network instead of holding that processing power in a cloud
+or a central data warehouse.
+--
+An edge device is a device which provides an entry point into enterprise or service provider core
+networks. Examples include routers, routing switches, integrated access devices (IADs),
+multiplexers, and a variety of metropolitan area network (MAN) and wide area network (WAN) access
+devices.
+--
+move computation that's currently centralized inside the cloud back to the edge in a distributed manner.
+
+portable hotspot taps into 3G and/or 4G cellular networks, just like a smartphone does, and then
+wirelessly shares its data connection with other nearby (within 30 feet or so) Wi-Fi-enabled
+gadgets—typically, between three and 8 or more at a time, depending on the device and the carrier.
+
+cross-browser testing:
+https://crossbrowsertesting.com/
+http://saucelabs.com/
+http://www.browsera.com/
+https://www.browserling.com/
+http://mogotest.com/
+https://www.userreplay.com/
+
+DOM (Document Object Model): a way to represent and work with XML and HTML data.
+XPath is a way to navigate an XML document.
+
+entropy: the measure of energy dispersal. measure how much energy is spread out or how
+spread out the initial energy of a system becomes
+---
+key concept: energy spontaneously disperses if not hindered from doing so
+
+The eight queens puzzle is the problem of placing eight chess queens on an 8×8 chessboard so that no
+two queens threaten each other. Thus, a solution requires that no two queens share the same row,
+column, or diagonal. has 92 distinct solutions
+
+how to ensure consistency in the cloud:
+1.
+bounded staleness, gives you a point at which reads and writes are in sync. Before it, there’s no
+guarantee, after it, you’re always accessing the latest version (at least until the next time that
+item updates). You define the boundary as either a number of versions or a time interval. Outside
+the boundary, everything is consistent, inside it, there’s no guarantee of a read returning the
+latest data. The result is a store that has an element of strong consistency, while still giving you
+low latency and the option of global distribution and high reliability. You use this model if you
+want to be sure that all reads are consistent, wherever they are, and that all writes are fast. You
+also get data that’s correct if you read it in the region where it’s written.
+2.
+session consistency, works well when you drive reads and writes from a client app. The client gets
+to read its own writes, while data replicates across the rest of the network. This way, you have low
+latency access to the data you need, along with knowing that you’ll fail over in the event of any
+downtime—and that your application will run in any Azure region.
+3.
+consistent prefix, in Cosmos DB. Consistent prefix adds predictability to the speed of eventual
+consistency. You might not see the latest write when you read the data, but your reads will never
+be out of order. That’s a useful feature, because it’s both fast and predictable. Write A, then B,
+and then C, and your client will see A, or A and B, but never just A and C. Eventually all the
+Cosmos DB regions will converge on A, B, and C, giving you speed and reliability.
+
+Constraint satisfaction problems (CSPs) are mathematical problems defined as a set of objects whose
+state must satisfy a number of constraints or limitations.
+--
+In artificial intelligence and operations research, constraint satisfaction is the process of
+finding a solution to a set of constraints that impose conditions that the variables must satisfy.
+--
+In mathematics, a constraint is a condition of an optimization problem that the solution must satisfy.
+
+A core is usually the basic computation unit of the CPU - it can run a single program context (or
+multiple ones if it supports hardware threads such as hyperthreading on Intel CPUs), maintaining the
+correct program state, registers, and correct execution order, and performing the operations through
+ALUs.
+A CPU/processor is a chip that fits into a socket. A CPU/processor may have multiple cores.
+
+pro forma: Assumed, forecasted, or informal information presented in advance of the actual or formal
+information. The common objective of a pro forma document is to give a fair idea of the cash outlay
+for a shipment or an anticipated occurrence. Pro forma financial statements give an idea of how the
+actual statement will look if the underlying assumptions hold true.
+
+Inflammation is the activation of the immune system in response to infection, irritation, or injury.
+Inflammation is a protective mechanism in the body.
+
+In computer science, the count-distinct problem (also known in applied mathematics as the
+cardinality estimation problem) is the problem of finding the number of distinct elements in a data
+stream with repeated elements. HyperLogLog: an algorithm for the cardinality estimation problem)
+
+In computer science, streaming algorithms are algorithms for processing data streams in which the
+input is presented as a sequence of items and can be examined in only a few passes (typically just
+one). These algorithms have limited memory available to them (much less than the input size) and
+also limited processing time per item.  These constraints may mean that an algorithm produces an
+approximate answer based on a summary or "sketch" of the data stream in memory.
+
+CQRS stands for Command Query Responsibility Segregation.
+
+Command–query separation (CQS) is a principle of imperative computer programming.  It states that
+every method should either be a command that performs an action, or a query that returns data to the
+caller, but not both. In other words, Asking a question should not change the answer. More formally,
+methods should return a value only if they are referentially transparent and hence possess no side
+effects.
+
+traditional approach to distributed transaction: requires 2-phase commit.  alternative: event
+sourcing: Rather than store the current state of an entity, the application stores a sequence of
+state-changing events. The application reconstructs an entity’s current state by replaying the
+events. Since saving an event is a single operation, it is inherently atomic.
+event sourcing: Capture all changes to an application state as a sequence of events.
+--
+event sourcing: persist the state of the application by storing a history of events rather
+than as a single snapshot. get an audit trail automatically.
+
+aggregate (from DDD): define consistency boundaries for groups of related entities. a group
+of related objects that are treated as a unit for the purpose of data changes.
+
+questions to ask in response to coding questions:
+What’s the operating environment?
+How fast does it have to be?
+What does the input look like?
+What are you going to do with the result?

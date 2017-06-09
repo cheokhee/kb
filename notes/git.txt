@@ -552,6 +552,10 @@ Cheok Hee (13):
       Add Vikings
       Added HerPicks.txt
       Removed HerPicks.txt
+---
+git shortlog -sn
+   173  xxx
+    33  Cheok Hee
 
 #create archive
 git archive --format=tar --output=/d/temp/blah.tar HEAD
@@ -1118,6 +1122,16 @@ newref = 7b808d73e5ccd3fa23b5220405e1899f0abfd1b4
 refname = refs/heads/master
 
 =====
+eg #0: show the most recent commit by someone in each remote branch
+git for-each-ref --sort='-committerdate' --shell --format="echo %(refname:short) && git log -1 --author=cheok --format=format:\" %%h, %%an, %%cd%%n %%s%%n\" %(refname)" refs/remotes | sh
+output:
+origin/roe-dropwizard
+ 10d6965b, Cheok Hee, Wed Jun 7 16:14:18 2017 -0700
+ Add Protect TS Port
+origin/RouteEngine_UI_Unified
+ 013e7b4d, Cheok Hee, Thu Jan 28 09:38:19 2016 -0800
+ ROE: case stuff
+-----
 eg #1 and #2: you want to know which are the last branches you was working on
 eg #1: git for-each-ref --count=3 --sort='-authordate' \
   --format="%(refname) | %(subject) | %(authordate)" \
@@ -1126,7 +1140,7 @@ output:
 refs/heads/afpacket-100-full | af-packet: fix reconnection on netdown error. | Wed Nov 9 18:30:01 2011 +0100
 refs/heads/bug296-v1.0 | tls app layer: add missing free | Wed Nov 9 15:55:43 2011 +0100
 refs/heads/bug296 | tls app layer: add missing free | Wed Nov 9 15:45:49 2011 +0100
-eg #2: $ git for-each-ref --count=3 --sort='-committerdate' \
+eg #2: $ git for-each-ref --count=3 --sort='-committerdate'\
   --format="%(refname) | %(subject) | %(committerdate)" \
   refs/heads
 eg #3: list  the last commit timestamp for each  branch
@@ -1219,3 +1233,14 @@ OR
 git config --global core.excludesfile ~/.gitignore_global
 
 repository-level ignore: put in .git/info/exclude file
+
+today's work:
+git log --since=00:00:00 --all --no-merges --oneline --author=<your email address>
+
+complex log:
+git log --graph --all --decorate --stat --date=iso
+
+formatted log output: (see man git-log)
+git log -1 --format=format:"%h, %an, %cd, %n%s"
+10d6965b, Cheok Hee, Wed Jun 7 16:14:18 2017 -0700,
+Add Protect TS Port

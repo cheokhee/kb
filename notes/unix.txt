@@ -1129,3 +1129,8 @@ how sleep works
  1. Suspend execution of the process and mark it as not runnable.
  2. Set a timer for the given wait time. Systems provide hardware timers that let the kernel register to receive an interrupt at a given point in the future.
  3. When the timer hits, mark the process as runnable.
+
+nested command substition:
+echo $(readlink -e $(which rename))
+OR
+echo `readlink -e \`which rename\``

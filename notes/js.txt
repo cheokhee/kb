@@ -434,3 +434,19 @@ $(document).ready(function(){
 });
 
 === end jquery
+
+execute JS code on web:
+http://jsbin.com/
+https://jsfiddle.net/
+
+HTML5 does not need type attribute in the following:
+<link rel="stylesheet" href="css/style.css"/>
+<script src="js/main.js"></script>
+
+event handling:
+1. window.onload = function() { }
+2. window.addEventHandler('load', function() {}, false);
+
+browser global object: window, document
+
+find page elements in JavaScript: CSS selectors

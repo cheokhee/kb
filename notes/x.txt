@@ -53,3 +53,5 @@ xinput #list input devices
 xset : user preference utility for X
 
 xbacklight
+
+Xlib (libX11) is an X Window System protocol client library. It contains functions for interacting with an X server.

@@ -183,11 +183,45 @@ C-c C-c l: markdown-live-preview-mode > *eww* buffer. (USE THIS)
 M-x load-library -> realgud
 M-x realgud:pdb -> python
 
-realgud:pdb command:
+realgud:pdb command
 n : next (step over)
 s : step into
 f : finish (step out) (in pdb, use return)
 b : set breakpoint
 D : clear breakpoint (by number)
 c : continue
-clear : clear all breakpoints
+clear : clear all breakpoints (cmd: X)
+
+realgud command in source window)
+C-c             Prefix Command
+RET             realgud:cmd-repeat-last
+C-x             Prefix Command
+SPC             realgud:cmd-step
+!               realgud:cmd-shell
++               realgud:cmd-enable
+-               realgud:cmd-disable
+<               realgud:cmd-newer-frame
+>               realgud:cmd-older-frame
+C               realgud-window-cmd-undisturb-src
+D               realgud:cmd-delete
+F               realgud:window-bt
+I               realgud:cmdbuf-info-describe
+Q               realgud:cmd-terminate
+R               realgud:cmd-restart
+S               realgud-window-src-undisturb-cmd
+T               realgud:cmd-backtrace
+U               realgud:cmd-until
+X               realgud:cmd-clear
+b               realgud:cmd-break
+c               realgud:cmd-continue
+d               realgud:cmd-newer-frame
+e               realgud:cmd-eval-dwim
+f               realgud:cmd-finish
+j               realgud:cmd-jump
+k               realgud:cmd-kill
+l               realgud-recenter-arrow
+n               realgud:cmd-next
+q               realgud:cmd-quit
+r               realgud:cmd-restart
+s               realgud:cmd-step
+u               realgud:cmd-older-frame

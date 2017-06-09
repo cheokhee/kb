@@ -288,8 +288,9 @@ rsync /path/without/slash host:/path/to/new/directory
 #fast way to delete large number of files
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir empty
 
-#remove leading/trailing spaces from a file (in place)
+#sed: remove leading/trailing spaces from a file (in place)
 sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' <file>
+sed -i 's/\x0d//' <file> #remove carriage return from a file (in place)
 
 Replace text on commented lines
 sed -n '/^\s*#/s/test/wow/p' blah.txt
@@ -1877,3 +1878,23 @@ wrk -t3 -c1000 -d10s http://127.0.0.1:8080
 /proc/cmdline                   displays the parameters passed to the kernel when the system started.
 
 /proc/sys/fs/file-max this entry specifies the maximum number of open files that Linux can support at any one time.
+
+nproc #show number of processors
+other commands: cpuid, hwinfo
+
+samba: implements SMB/CIFS protocol and allows non-Windows machines to network with Windows machines.
+SMB: a network file sharing protocol.
+
+show routes:
+ip r
+route -n
+routel
+
+monitoring tool: glances
+
+tar cfv dv.tar.gz --exclude="*pycache*" dataVerification/
+
+find out x org version:
+xdpyinfo | grep "X.Org version"
+OR
+X -version
