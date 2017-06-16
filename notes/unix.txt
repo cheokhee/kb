@@ -448,6 +448,7 @@ LESS=-X less thoughts.txt
 #trace system calls
 strace -p <pid>
 strace -e open uptime # trace only the open system call in uptime command
+strace -f -s 4096 -p <pid>
 
 BASHOPTS var: shopt setting
 SHELLOPTS var: set -o setting

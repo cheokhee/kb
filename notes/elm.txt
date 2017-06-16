@@ -1,0 +1,50 @@
+string in double quotes, not single quotes
+
+"hello" ++ "world"
+
+/= : not equal to
+// : integer division
+
+functionName: Float -> Float
+functionName arg =
+  body
+
+functionName: Float -> Float -> String
+
+
+Note: spaces are significant
+
+import Html exposing (..)
+
+import Html exposing (text)
+main =
+ text "hello world"
+
+piping operation: |> , <|
+
+list (all elements must have the same type): [1,2]
+
+tuple: (True, 42)
+
+record: { x = 3, y = 14}
+
+type alias Point =
+  { x: Float,
+  , y: Float
+  }
+
+virtual DOM
+
+elm architecture:
+model: contains application state
+view: visual representation of state
+message: request from user to alter state
+update: interpret message to update model
+
+elm-make: build elm apps for production
+elm-package: package manager for elm
+elm-reactor : test server for developing elm apps
+elm-repl
+
+elm-package install #create a new workspace
+elm-make hello.elm

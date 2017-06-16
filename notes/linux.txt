@@ -78,6 +78,9 @@ another DNS utility: drill
 drill www.google.com
 drill www.google.com @8.8.8.8
 
+#dns resolution:
+systemd-resolve <hostname>
+
 file copy tool: rsync
 
 lsmod: list kernel module
@@ -1859,6 +1862,10 @@ http -v POST URL name=blah
 http -v POST URL name=blah appcontext:cheok
 #
 http POST :2525 #assume localhost
+#4. post from file
+http POST url < file.json
+-- curl equivalent:
+curl -s -X POST --data '@/path/to/filename.json' URL
 
 sed : extended regexp
 --
@@ -1898,3 +1905,12 @@ find out x org version:
 xdpyinfo | grep "X.Org version"
 OR
 X -version
+
+=== use telnet to connect to web server
+$ telnet www.google.com 80
+Trying 216.58.221.100...
+Connected to www.google.com.
+Escape character is '^]'.
+
+GET / HTTP/1.1 #press return twice
+===

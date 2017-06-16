@@ -1039,3 +1039,7 @@ public static void addNumbers(List<? super Integer> list) {
 
 convert Iterable to List
 List<T> rels = Lists.newArrayList(anIterable);
+
+In the Java programming language, a method signature is the method name and the number and type of
+its parameters. Return types and thrown exceptions are not considered to be a part of the method
+signature.

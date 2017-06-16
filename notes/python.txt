@@ -120,6 +120,7 @@ C-c C-c         elpy-shell-send-region-or-buffer
 C-c C-n         elpy-flymake-next-error
 C-c C-p         elpy-flymake-previous-error
 C-c C-s         elpy-rgrep-symbol (browse references)
+elpy-rpc-restart
 ============= elpy ==============
 
 print without newline:

@@ -1934,6 +1934,11 @@ the material view is manifested as a real table.
 a view is a virtual table representing the result of a database query. Whenever an ordinary view's
  table is queried or updated, the DBMS converts these into queries or updates against the underlying
  base tables
+--
+A materialized view takes a different approach: the query result is cached as a concrete
+("materialized") table (rather than a view as such) that may be updated from the original base
+tables from time to time. This enables much more efficient access, at the cost of extra storage and
+of some data being potentially out-of-date.
 
 xpath: a language for referencing particular parts of XML document.
 
@@ -6493,11 +6498,11 @@ start with modern browsers and provide workaround for older browsers.
 graceful degradation: get your website working in all modern browsers and provide workaround
 for older browsers.
 ---
-progress enhancement: start with a baseline of features supported by all browsers and then
+progressive enhancement: start with a baseline of features supported by all browsers and then
 add more features for the modern browsers that support them.
 does not assume JavaScript is enabled and offer the user an alternative way of accessing the content.
 
-graceful degradation and progress enhancement: strategies for dealing with new features in
+graceful degradation and progressive enhancement: strategies for dealing with new features in
 modern browsers and older unsupported browsers while offering the best user experience.
 
 progressive enhancement:
@@ -10717,6 +10722,10 @@ every method should either be a command that performs an action, or a query that
 caller, but not both. In other words, Asking a question should not change the answer. More formally,
 methods should return a value only if they are referentially transparent and hence possess no side
 effects.
+---
+traditional: read and update commands are executed against the same set of entities.
+CQRS: read commands and update commands are executed against different models: read model and write model.
+CQRS can be paired with event sourcing. need to deal with eventual consistency.
 
 traditional approach to distributed transaction: requires 2-phase commit.  alternative: event
 sourcing: Rather than store the current state of an entity, the application stores a sequence of
@@ -10735,3 +10744,11 @@ What’s the operating environment?
 How fast does it have to be?
 What does the input look like?
 What are you going to do with the result?
+
+UUID/GUID: 128-bit (16-byte) number.
+textual representation: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (8-4-4-4-12)
+time-based and/or MAC-address-based
+
+OAuth (Open Authorization) is an open standard for token-based authentication and authorization on
+the Internet. OAuth, which is pronounced "oh-auth," allows an end user's account information to be
+used by third-party services, such as Facebook, without exposing the user's password.
