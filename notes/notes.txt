@@ -10605,6 +10605,7 @@ input: .sass/.scss , output: .css files
 .scss: CSS-like syntax (Sassy CSS)
 ===
 LESS: it is a basic CSS preprocessor, a CSS extension
+SASS/LESS: compile to CSS
 
 SYN cookie is a technique used to resist SYN flood attacks.The technique's primary inventor Daniel
 J. Bernstein defines SYN cookies as "particular choices of initial TCP sequence numbers by TCP
@@ -10752,3 +10753,36 @@ time-based and/or MAC-address-based
 OAuth (Open Authorization) is an open standard for token-based authentication and authorization on
 the Internet. OAuth, which is pronounced "oh-auth," allows an end user's account information to be
 used by third-party services, such as Facebook, without exposing the user's password.
+
+GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a
+server to a client. GraphQL has three main characteristics: It lets the client specify exactly what
+data it needs.  It makes it easier to aggregate data from multiple sources.  It uses a type system
+to describe data.
+--
+instead of having multiple “dumb” endpoints, have a single “smart” endpoint that can take in complex
+queries, and then massage the data output into whatever shape the client requires.
+
+variable: an alias for a memory location.
+pointer: store the memory location of a variable
+
+board of directors (B of D) is a group of individuals that are elected as, or elected to act as,
+representatives of the stockholders to establish corporate management related policies and to make
+decisions on major company issues.
+
+Using an identifier before its declaration is called a forward reference, and results in an error
+
+sans-serif font: usually used for heading (in print)
+serif font: usually used for body text.
+
+resume: heading: Arial (sans-serif), body text: Times New Roman (serif)
+
+factory vs builder patterns:
+Consider a restaurant. The creation of "today's meal" is a factory pattern, because you tell the
+kitchen "get me today's meal" and the kitchen (factory) decides what object to generate, based on
+hidden criteria.
+--
+The builder appears if you order a custom pizza. In this case, the waiter tells the chef (builder)
+"I need a pizza; add cheese, onions and bacon to it!" Thus, the builder exposes the attributes the
+generated object should have, but hides how to set them.
+
+consider builder pattern if the constructor requires a lot of parameters.

@@ -1043,3 +1043,37 @@ List<T> rels = Lists.newArrayList(anIterable);
 In the Java programming language, a method signature is the method name and the number and type of
 its parameters. Return types and thrown exceptions are not considered to be a part of the method
 signature.
+
+Collections.max(aCollection)
+
+java assertion: an be activated at run-time by way of the -ea option on the java command, but are
+not turned on by default.
+
+synchronized method acquires a lock on the whole object. This means no other thread can use any
+synchronized method in the whole object while the method is being run by one thread. synchronized
+blocks acquires a lock on the object between parentheses after the synchronized keyword.  At run
+time every class has an instance of a Class object. That is the object that is locked on by static
+synchronized methods.
+
+#array assignment does not make a copy
+String[] array1 = {"hi", "cheok"};
+String[] array2 = array1; // array2 and array1 are pointing to the same array in memory
+
+The builder pattern is a good choice when designing classes whose constructors or static factories
+would have more than a handful of parameters.
+
+Telescoping Constructor Pattern:
+Pizza(int size) { ... }
+Pizza(int size, boolean cheese) { ... }
+Pizza(int size, boolean cheese, boolean pepperoni) { ... }
+Pizza(int size, boolean cheese, boolean pepperoni, boolean bacon) { ... }
+--
+alternative: JavaBean Pattern:
+Pizza pizza = new Pizza(12);
+pizza.setCheese(true);
+pizza.setPepperoni(true);
+pizza.setBacon(true);
+--
+The problem here is that because the object is created over several calls it may be in an
+inconsistent state partway through its construction. This also requires a lot of extra effort to
+ensure thread safety.

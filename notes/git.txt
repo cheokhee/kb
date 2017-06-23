@@ -1124,6 +1124,8 @@ refname = refs/heads/master
 =====
 eg #0: show the most recent commit by someone in each remote branch
 git for-each-ref --sort='-committerdate' --shell --format="echo %(refname:short) && git log -1 --author=cheok --format=format:\" %%h, %%an, %%cd%%n %%s%%n\" %(refname)" refs/remotes | sh
+eg #0.b: show the most recent commit by anyone in each remote branch
+git for-each-ref --sort='-committerdate' --shell --format="echo %(refname:short) && git log -1 --format=format:\" %%h, %%an, %%cd%%n %%s%%n\" %(refname)" refs/remotes | sh
 output:
 origin/roe-dropwizard
  10d6965b, Cheok Hee, Wed Jun 7 16:14:18 2017 -0700

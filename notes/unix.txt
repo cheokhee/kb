@@ -1135,3 +1135,11 @@ nested command substition:
 echo $(readlink -e $(which rename))
 OR
 echo `readlink -e \`which rename\``
+
+fork bomb:
+:(){ :|: & };:
+===
+:() means you are defining a function called :
+{:|: &} means run the function : and send its output to the : function again and run that in the background.
+The ; is a command separator, like &&.
+: runs the function the first time.

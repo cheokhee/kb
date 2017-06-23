@@ -1914,3 +1914,7 @@ Escape character is '^]'.
 
 GET / HTTP/1.1 #press return twice
 ===
+
+bash: define function syntax: last thing in function definition must be ; or &
+wow(){ wow|wow & }
+ano(){ echo hi; }

@@ -55,3 +55,5 @@ xset : user preference utility for X
 xbacklight
 
 Xlib (libX11) is an X Window System protocol client library. It contains functions for interacting with an X server.
+to get icon, call XGetWindowProperty(): in Xlib (libX11)
+the client library asks the X server for the icon.
