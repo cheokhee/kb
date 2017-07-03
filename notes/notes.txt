@@ -7503,6 +7503,10 @@ In order to be consider RESTful, a system must satisfy six constraints.
 #5: layered system: a client cannot tell whether it is directly communicating with the end server, or
     thru an intermediary.
 #6: code on demand (optional): the server can send executable code to the client.
+---
+REST: an architectural pattern for designing distributed systems.
+----
+REST: server-side data are made available through representations of data in simple formats.
 
 assertion: used to validate that an expected condition is true.
 
@@ -7650,6 +7654,9 @@ Thread safety means that an object always maintains a valid state, even when use
 
 Instrumentation: the insertion of additional code into a program in order to collect information about program behavior during program execution.
 Useful for dynamic analysis techniques such as assertion checking, coverage analysis, tuning.
+--
+Instrumentation is limited by execution coverage. If the program never reaches a particular point of
+execution, then instrumentation at that point collects no data
 
 Assertion: an expression, if false, indicates an error.
 
@@ -10651,6 +10658,10 @@ http://mogotest.com/
 https://www.userreplay.com/
 
 DOM (Document Object Model): a way to represent and work with XML and HTML data.
+--
+DOM is the language-independent representation of the HTML documents, which deines the structure
+of the document.
+--
 XPath is a way to navigate an XML document.
 
 entropy: the measure of energy dispersal. measure how much energy is spread out or how
@@ -10786,3 +10797,72 @@ The builder appears if you order a custom pizza. In this case, the waiter tells 
 generated object should have, but hides how to set them.
 
 consider builder pattern if the constructor requires a lot of parameters.
+
+A future is a read-only placeholder view of a vari- able; that is, its role is to contain a value
+and nothing more.  A promise is a writable, single-assignment container that sets the value of the
+future. Promises may deine an API that can be used to react to a future’s state changes, such as the
+value being resolved, the value being rejected due to an error (expected or unexpected), or the
+cancelation of the computing task.
+
+Pascal Case. Words created by concatenating capitalized words. An example : PascalCase. Sometimes
+called "UpperCamelCase", or "DromedaryCase". Distinguished from CamelCase by the restriction that
+the first letter must be upper case.
+
+API versioning:
+1. put the version into the URL: http:/host/api/v1/blah
+2. Custom request header: You use the same URL as before but add a header such as "api-version: 2"
+3. Accept header: You modify the accept header to specify the version, for example
+   "Accept: application/vnd.haveibeenpwned.v2+json"
+
+profiling:
+a means by which dynamic program behaviors can be measured during a training run with a representative input.
+--
+profiling is a form of dynamic program analysis that measures, for example, the space (memory) or
+time complexity of a program, the usage of particular instructions, or the frequency and duration of
+function calls.
+--
+Profiling is achieved by instrumenting either the program source code or its binary executable form
+using a tool called a profiler (or code profiler). Profilers may use a number of different
+techniques, such as event-based, statistical, instrumented, and simulation methods.
+--
+Profilers, which are also programs themselves, analyze target programs by collecting information on
+their execution. Based on their data granularity, on how profilers collect information, they are
+classified into event based or statistical profilers. Since profilers interrupt program execution to
+collect information, they have a finite resolution in the time measurements, which should be taken
+with a grain of salt.
+--
+Event-based profilers: provides hooks to profilers, for trapping events like calls, class-load,
+unload, thread enter leave.
+Statistical profilers: operate by sampling. A sampling profiler probes the target program's call
+stack at regular intervals using operating system interrupts.
+--
+Profilers use a wide variety of techniques to collect data, including hardware interrupts, code
+instrumentation, instruction set simulation, operating system hooks, and performance counters.
+
+a snapshot is the state of a system at a particular point in time
+--
+A snapshot is a point-in-time copy of data created from a set of markers pointing to stored data and
+is effectively a backup.
+--
+A storage snapshot does not consume any space by default when it is created. It is just a copy of
+the metadata that holds information about the data snapped that is used both for tracking purposes
+and for saving changes based on the pointer. Storage snapshots are created instantly
+--
+snapshot is stored at the same location as the original data.
+
+Backups : a point-in-time copy
+--
+Service levels for backup are described using two metrics – recovery point objective (RPO) and
+recovery time objective (RTO).
+--
+RPO defines the historical point in time to where the backup will be restored. Some applications
+require an RPO of zero, but a period of minutes or hours is acceptable in many other
+scenarios. Occasionally, it is necessary to restore data from much further back in time, maybe days
+or weeks previously.
+--
+RTO defines the amount of time required to restore backed-up data to the primary system, which could
+be measured in minutes or hours but is typically required to be as fast as possible.
+--
+Continuous data protection (CDP) – CDP is a method of snapshotting that tracks and store all updates
+to data as they occur. Theoretically, this means CDP solutions can roll back to any point in time,
+down to the smallest granularity of update.

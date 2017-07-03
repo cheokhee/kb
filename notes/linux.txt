@@ -1866,6 +1866,7 @@ http POST :2525 #assume localhost
 http POST url < file.json
 -- curl equivalent:
 curl -s -X POST --data '@/path/to/filename.json' URL
+curl -s -X POST --data-binary '@/path/to/filename.json' URL
 
 sed : extended regexp
 --
@@ -1918,3 +1919,10 @@ GET / HTTP/1.1 #press return twice
 bash: define function syntax: last thing in function definition must be ; or &
 wow(){ wow|wow & }
 ano(){ echo hi; }
+
+On Unix and Unix-like computer operating systems, a zombie process or defunct process is a process
+that has completed execution (via the exit system call) but still has an entry in the process table:
+it is a process in the "Terminated state". This occurs for child processes, where the entry is still
+needed to allow the parent process to read its child's exit status: once the exit status is read via
+the wait system call, the zombie's entry is removed from the process table and it is said to be
+"reaped".

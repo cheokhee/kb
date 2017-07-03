@@ -1077,3 +1077,27 @@ pizza.setBacon(true);
 The problem here is that because the object is created over several calls it may be in an
 inconsistent state partway through its construction. This also requires a lot of extra effort to
 ensure thread safety.
+
+object histogram: a listing of how much memory is used by different types of objects.
+
+memory analysis tool:
+jps, jvisualvm (can do heap dump, jmap (object histogram and heap dump)
+--
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=/path/to/file
+===
+heap dump analyzer: eclipse MAT http://eclipse.org/mat
+   (get the heap dump from jvisualvm: e.g. heapdump-1498767598154.hprof)
+memory profiler: jvisualvm, java mission control (more accurate)
+---
+objects with increasing generational counts are leak candidates.
+
+-XX:MaxDirectMemorySize=1g
+
+off heap memory: java.nio.ByteBuffer
+sun.misc.Unsafe.allocateMemory()
+sun.misc.Unsafe.freeMemory()
+
+TLAB: thread local allocation buffers
+
+BufferedReader.lines().skip(n)
