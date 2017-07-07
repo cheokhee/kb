@@ -1101,3 +1101,25 @@ sun.misc.Unsafe.freeMemory()
 TLAB: thread local allocation buffers
 
 BufferedReader.lines().skip(n)
+
+classpath hell:
+My application uses libraries "B" and "C", both of which use library "D".
+But "B" and "C" require different versions of "D".
+There's no version of "D" I can put on the CLASSPATH that will satisfy both "B" and "C".
+
+Class loader priority: Parent First vs Parent Last
+Some class loaders delegate requests immediately to the parent class loader, without searching first
+in their own known set of directories for the class file. A class loader operating on this mode is
+said to be in Parent First mode.
+==
+If a class loader first looks for a class locally before querying the parent, then that class loader
+is said to be working in Parent Last mode.
+--
+tool: jHades: classpath trouble-shooting tool
+
+A class is identified in the JVM not only by its fully qualified class name, but also by its class
+loader.
+
+The serialVersionUID have to match during the serialization and deserialization process.
+
+hashcode: an integer returned by an object that is used by certain data structures (hashmap) when storing the object.

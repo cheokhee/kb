@@ -357,3 +357,8 @@ starting points or criteria in the next.
 match (a:VSID)-[r:CONNECTED_TO]->() with a, count(r) as rel_cnt where rel_cnt > 1 return id(a);
 #find # of such nodes
 match (a:VSID)-[r:CONNECTED_TO]->() with a, count(r) as rel_cnt where rel_cnt > 1 return count(a);
+
+match (n:PolPod) return count(distinct n.code);
+
+#find duplicate
+match (n:PolPod) with count(n.code) as cnt, n.code as code where cnt > 1 return code, cnt;
