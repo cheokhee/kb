@@ -225,3 +225,9 @@ q               realgud:cmd-quit
 r               realgud:cmd-restart
 s               realgud:cmd-step
 u               realgud:cmd-older-frame
+
+#put a string in the kill ring
+(kill-new "wow great")
+
+#Return the contents of the current buffer as a string.
+(buffer-string)

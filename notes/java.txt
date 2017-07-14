@@ -1123,3 +1123,7 @@ loader.
 The serialVersionUID have to match during the serialization and deserialization process.
 
 hashcode: an integer returned by an object that is used by certain data structures (hashmap) when storing the object.
+
+LinkedHashMap: extends HashMap and maintains a linked list of the entries in the map, in the order
+in which they were inserted. This allows insertion-order iteration over the map. That is, when
+iterating a LinkedHashMap, the elements will be returned in the order in which they were inserted.

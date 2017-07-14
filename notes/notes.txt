@@ -1337,6 +1337,7 @@ including storage, hardware, servers and networking components. The service prov
 the equipment and is responsible for housing, running and maintaining it. The client typically
  pays on a per-use basis.
 IaaS: computing power, storage, networking
+IaaS public cloud providers offer storage and compute services on a pay-per-use basis.
 -- virtual private cloud
 the implementation of a private cloud in a public cloud environment.
 VPC provides secure data transfer between a private enterprise and a public cloud provider, ensuring that each customer's data remains isolated from every other customer's data both in transit and inside the cloud provider's network.
@@ -10446,6 +10447,8 @@ applied to very very big input datasets.
 
 Punycode is a special encoding used to convert Unicode characters to ASCII, which is a smaller,
 restricted character set.
+---
+Punycode is used to encode internationalized domain names (IDN)
 
 digital twin is a virtual model of a process, product or service.
 --
@@ -10594,6 +10597,8 @@ developed for web applications: Node.js runtime for the backend and Chromium for
 frontend. Electron is the main GUI framework behind several notable open-source projects including
 GitHub's Atom and Microsoft's Visual Studio Code source code editors and the Light Table IDE.
 A basic Electron app consists of three files: package.json (metadata), main.js (code) and index.html
+--
+Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS
 
 divide your work into bite-sized chunks organized by importance and urgency.
 
@@ -10866,3 +10871,87 @@ be measured in minutes or hours but is typically required to be as fast as possi
 Continuous data protection (CDP) – CDP is a method of snapshotting that tracks and store all updates
 to data as they occur. Theoretically, this means CDP solutions can roll back to any point in time,
 down to the smallest granularity of update.
+
+we don't work ten years out
+
+a computer program or subroutine is called reentrant if it can be interrupted in the middle of its
+execution, and then be safely called again ("re-entered") before its previous invocations complete
+execution. The interruption could be caused by an internal action such as a jump or call, or by an
+external action such as an interrupt or signal. Once the reentered invocation completes, the
+previous invocations will resume correct execution.
+--
+a computer program or subroutine is called reentrant if it can be interrupted in the middle of its
+execution, and then be safely resumed again.
+
+response to request for salary history:
+I am sorry, but that's confidential.
+that's not something I discuss with anyone.
+--
+reasons:
+the value of the work I am going to do for your company cannot be determined by what someone else paid me.
+previous salary is a bad indicator of potential future value.
+your previous compensation may not be all salary.
+I could have been underpaid/overpaid at my last job.
+---
+rules outside my control prevent me from saying.
+---
+my salary history is confidential. Based on my understanding of the position, the current job
+market, and experience and talents. I am expecting that a salary between X and Y per year will
+be appropriate.
+--
+discuss salary expectations, not salary history.
+===
+interview questions:
+tell me about yourself.
+what do you know about our company?
+what is your greatest strenght/weakness?
+why do you want to work for us?
+why should we hire you?
+where do you see yourself in five years/
+
+maximum subarray problem: given an array, find a contiguous subarray that has the largest sum.
+the array can contain a mix of positive/negative numbers.
+maximum subarray problem: Kadane's algorithm. O(n)
+dynamic programming approach:
+MS(i) = maximum sum ending at index i
+for any index:
+EITHER add to the solution found up to "i-1"th index
+OR start a new sum from the index "i".
+--> MS(i) = Max[MS(i-1) + A[i] , A[i]]
+--> set initial maximum to be the first element
+==
+at each index, key question: should I add to the previous sum? or should I start a new sum?
+when do I start a new sum? when the (previous sum + element) < element
+at each index: two questions:
+1. what is the maximum sum at index i?
+2. what is the starting index for this sum?
+at beginning, the maximum sum is the first element,
+starting index for this sum is index 0
+==
+we start traversing from the second element. from i=1
+add the element to the sum.
+if (element+sum) < element,
+   set starting index to i, set sum = element
+else sum=element+sum
+==
+at the end, we have several sums. take the biggest one
+http://algorithms.tutorialhorizon.com/dynamic-programming-maximum-subarray-problem/
+
+CMS (content management system): a web-based application that allows the user to store content
+in a database and display the content as a web page. the user doesn't have to know html, css, javascript.
+
+An embedded system is some combination of computer hardware and software, either fixed in capability
+or programmable, that is designed for a specific function or for specific functions within a larger
+system.
+
+A subquery is a query that is nested inside a SELECT, INSERT, UPDATE, or DELETE statement, or inside
+another subquery. A subquery can be used anywhere an expression is allowed.
+==
+correlated subquery (also known as a synchronized subquery) is a subquery (a query nested inside
+another query) that uses values from the outer query. Because the subquery may be evaluated once for
+each row processed by the outer query, it can be inefficient.
+---
+exists (subquery): the subquery is executed for every row processed by the outer query
+
+Key Performance Indicator (KPI) is a measurable value that demonstrates how effectively a company is
+achieving key business objectives.

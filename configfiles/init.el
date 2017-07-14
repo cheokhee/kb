@@ -39,7 +39,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode realgud zygospore ws-butler w3m tablist restclient pallet js3-mode iedit helm-swoop helm-projectile helm-gtags helm-google helm-flycheck helm-ag groovy-mode go-scratch go-eldoc ggtags enh-ruby-mode elpy company-tern company-irony company-go auto-complete anzu ace-window)))
+    (markdown-mode realgud zygospore ws-butler w3m tablist restclient pallet js3-mode iedit helm-swoop helm-projectile helm-gtags helm-google helm-flycheck helm-ag groovy-mode go-scratch go-eldoc ggtags enh-ruby-mode company-tern company-irony company-go auto-complete anzu ace-window)))
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
  '(projectile-mode-line nil)
@@ -613,3 +613,11 @@ by using nxml's indentation rules."
 	  (set-window-buffer (next-window) next-win-buffer)
 	  (select-window first-win)
 	  (if this-win-2nd (other-window 1))))))
+(defun copy-path-name ()
+  "Copy current path name into the kill ring"
+  (interactive)
+  (let (buffer)
+	(setq buffer (if (window-minibuffer-p)
+					 (window-buffer (minibuffer-selected-window))
+				     (current-buffer)))
+	(kill-new (buffer-file-name buffer))))
