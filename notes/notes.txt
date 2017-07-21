@@ -4751,8 +4751,10 @@ java.util.Map interface: a dictionary
 	Hashtable is one of the original collection classes in Java. HashMap is
 	 part of the new Collections Framework, added with Java 2, v1.2.
 	Hashtable is synchronized, HashMap is not.
-	iterator in the HashMap is fail-safe while the enumerator for the Hashtable isn't.
 	HashMap permits null values in it, while Hashtable doesn't. conclusion: use HashMap
+==
+Fail-fast: Fail asap by making checks aggressively. HashMap's iterator is fail-fast because it
+throws a ConcurrentModificationException as soon as it detects change in underlying structure.
 
 Properties: a subclass of HashTable: Properties.load(inputStream): load properties file
 properties.keySet() : return a set of keys
@@ -6530,7 +6532,10 @@ presented.
 race condition
 multiple threads access a resource at the same time, leading to unpredictable results.
 ===
-The situation where multiple threads compete for the same resource, where the sequence in which the resource is accessed is significant,
+The situation where multiple threads compete for the same resource, and the end result
+depends on the order in which the resource is accessed.
+====
+race condition: incorrect behavior caused by threads interleaving and executing code in unintended order.
 
 imperative programming: you tell the computer exactly how to do a job.
 
@@ -7082,7 +7087,7 @@ synchronized method: acquire the monitor for the method's object.
 static synchronized method: acquire the monitor for the Class object.
 ---
 mutual exclusion: means only one thread is in the critical section at any one time.
-critical section: when a shared resource is being accessed.
+critical section: when a shared resource is being accessed. cannot be executed by more than one thread at a time.
 semaphore: a variable for controlling access to a common resource.
 ====
 synchronization: controlling access to a shared resource.
@@ -9014,6 +9019,12 @@ more processors may not make the program run faster.
 ====
 Amdahl's Law is a law governing the speedup of using parallel processors on a problem, versus using
 only one serial processor
+===
+Amdahl's law is often used in parallel computing to predict the theoretical speedup when using
+multiple processors.
+===
+Amdahl's law: the more often, or the longer, that threads have to wait for one another, the less
+the system is able to benefit from adding more hardware to it.
 
 work stealing:
 In parallel computing, work stealing is a scheduling strategy for multithreaded computer programs.
@@ -10908,6 +10919,23 @@ what is your greatest strenght/weakness?
 why do you want to work for us?
 why should we hire you?
 where do you see yourself in five years/
+what is expected of me day to day?
+what is a typical day like?
+what are the hours like?
+how often are you working overtime? weekends?
+what sort of projects will I be working on?
+what do you see me working on my first week/month/year?
+is this a new position, or is it replacing someone?
+ --> how much growth is planned?
+ --> tell me about the person being replaced. what did he bring to the company?
+tell me about the team I'd be joining
+what has turnover been like in the department/company?
+what are the future plans for the department/company?
+how many positions are you hiring for?
+how long have you been here? tell me about your time at the company.
+what are the challenges?
+how do you do performance reviews?
+who do I report to? who does my boss report to? what's the org chart look like?
 
 maximum subarray problem: given an array, find a contiguous subarray that has the largest sum.
 the array can contain a mix of positive/negative numbers.
@@ -10955,3 +10983,97 @@ exists (subquery): the subquery is executed for every row processed by the outer
 
 Key Performance Indicator (KPI) is a measurable value that demonstrates how effectively a company is
 achieving key business objectives.
+
+concurrency: when a task is broken down into smaller pieces and run simultaneously.
+can be achieved via: (a) multitasking (running multiple processes on the same machine)
+(b) multithreading (multiple threads in one process) (c) distribute the work across a grid/cloud
+does not require parallelism. time slicing allows threads/processes to run simultaneously.
+
+L1, L2 cache: usually local to the core
+L3: shared by multiple cores
+
+cache coherence: when a memory resource is stored in multiple local processor caches, cache
+coherence ensures that changes in the value of the shared resource are propagated throughout the system.
+cache coherence is the uniformity of shared data that ends up in multiple local caches.
+different threads accessing the same data can have private copies of the data in their local caches.
+cache coherence protocol: MESI protocol (modified, exclusive, shared, invalid)
+coherence mechanism; snooping or directory-based
+cache coherence: shared data in multiple local caches have the same value
+
+Changes in contraction of the ciliary muscles alter the focal distance of the eye, causing nearer or
+farther images to come into focus on the retina; this process is known as accommodation
+--
+the far point is the point at which an object must be placed along the optical axis of the eye for
+its image to be focused on the retina when the eye is not accommodating. It is sometimes described
+as the farthest point from the eye at which images are clear.
+--
+For an unaccommodated emmetropic eye, the far point is at infinity, but for the sake of
+practicality, infinity is considered to be 6 m because the accommodation change from 6 m to infinity
+is negligible.
+--
+For an unaccommodated myopic eye, the far point is closer than 6 m.
+--
+Emmetropia is the state of vision where a faraway object at infinity is in sharp focus with the eye
+lens in a neutral or relaxed state.
+
+Anisometropia is the condition in which the two eyes have unequal refractive power. Each eye can be
+nearsighted (myopia), farsighted (hyperopia) or a combination of both, which is called
+antimetropia. Generally a difference in power of two diopters or more is the accepted threshold to
+label the condition anisometropia.
+
+In parallel computing, a barrier is a type of synchronization method. A barrier for a group of
+threads or processes in the source code means any thread/process must stop at this point and cannot
+proceed until all other threads/processes reach this barrier.
+
+When a modern computer reads from or writes to a memory address, it will do this in word sized
+chunks (e.g. 4 byte chunks on a 32-bit system) or larger. Data alignment means putting the data at a
+memory address equal to some multiple of the word size, which increases the system's performance due
+to the way the CPU handles memory. To align the data, it may be necessary to insert some meaningless
+bytes between the end of the last data structure and the start of the next, which is data structure
+padding.
+
+Memory barriers, or fences, are a set of processor instructions used to apply ordering limitations
+on memory operations.
+memory fence/barrier: a type of barrier definition that causes a CPU or compiler to enforce an ordering
+constraint on memory operations issued before and after the barrier instruction.
+--
+Absent memory fences or serializing instructions, the processor is free to reorder memory accesses.
+--
+memory fence: which is an instruction (explicit or implicit) to synchronize memory access between multiple threads.
+memory fence: make the memory state within a processor visible to other processors
+==
+Memory barriers provide two properties.  Firstly, they preserve externally visible program order by
+ensuring all instructions either side of the barrier appear in the correct program order if observed
+from another CPU and, secondly, they make the memory visible by ensuring the data is propagated to
+the cache sub-system.
+==
+A store barrier, “sfence” instruction on x86, forces all store instructions prior to the barrier to
+happen before the barrier and have the store buffers flushed to cache for the CPU on which it is
+issued.  This will make the program state visible to other CPUs so they can act on it if necessary.
+==
+A load barrier, “lfence” instruction on x86, forces all load instructions after the barrier to
+happen after the barrier and then wait on the load buffer to drain for that CPU.  This makes program
+state exposed from other CPUs visible to this CPU before making further progress.
+==
+A full barrier, "mfence" instruction on x86, is a composite of both load and store barriers
+happening on a CPU.
+==
+In the Java Memory Model a volatile field has a store barrier inserted after a write to it and a
+load barrier inserted before a read of it.  Qualified final fields of a class have a store barrier
+inserted after their initialisation to ensure these fields are visible once the constructor
+completes when a reference to the object is available.
+---
+a core has load/store buffers between its registers and L1 cache
+
+data race occurs when: two or more threads in a single process access the same memory location
+concurrently, and. at least one of the accesses is for writing, and. the threads are not using any
+exclusive locks to control their accesses to that memory.
+==
+A race condition is a flaw that occurs when the timing or ordering of events affects a program’s
+correctness.
+race condition: incorrect behavior caused by threads executing code in an unintended order.
+===
+data race:
+two or more threads concurrently accessing the same memory location
+one of them is a write
+one of them is unsynchronized

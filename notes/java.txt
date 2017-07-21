@@ -47,6 +47,9 @@ how you call: method(new String[] {"123", "456"}) or method("123", "456")
 
 #print various flags about JVM
 java -XX:+PrintFlagsFinal -version
+#print even more JVM flags
+java -XX:+UnlockDiagnosticVMOptions -XX:+PrintFlagsFinal -version
+---
 OR
 java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
 
@@ -396,8 +399,11 @@ CyclicBarrier: A synchronization aid that allows a set of threads to all wait fo
 reach a common barrier point. CyclicBarriers are useful in programs involving a fixed sized party of
 threads that must occasionally wait for each other. The barrier is called cyclic because it can be
 re-used after the waiting threads are released.
+CyclicBarrier: like a reusable CountDownLatch
 ===
 major difference: CountDownLatch-->NumberOfCalls, CyclicBarrier-->NumberOfThreads
+===
+Phaser: like a CyclicBarrier with multiple phases
 
 Instant instant = Instant.ofEpochSecond(epochsecond);
 ZonedDateTime.ofInstant(instant, ZoneId.of("GMT"));
@@ -1127,3 +1133,80 @@ hashcode: an integer returned by an object that is used by certain data structur
 LinkedHashMap: extends HashMap and maintains a linked list of the entries in the map, in the order
 in which they were inserted. This allows insertion-order iteration over the map. That is, when
 iterating a LinkedHashMap, the elements will be returned in the order in which they were inserted.
+
+variable declaration penetrates inside nested blocks:
+{ int x = 100;
+{int x = 20;} // compilation error
+}
+
+standard threads persist until run() exits (exception: daemon threads)
+
+Thread.currentThread()
+Thread: must call start(), not run()
+Thread.sleep()
+Thread.setDaemon()
+Thread.join(): wait for the thread to die
+java.util.concurrent.TimeUnit
+deprecated: Thread. yield/stop/suspend/resume
+
+program will not exit until all non-daemon threads exit.
+
+$JAVA_HOME/jre/lib/logging.properties
+
+junit Rules are used to add extra functionality that can applied to all test methods in a test
+class. Rules can be used as an alternative to @Before/@After and @BeforeClass/@AfterClass.  Rules
+provide a possibility to intercept test method calls similar as an AOP framework would do.
+---
+for how it works: JUnit wraps your test method in a Statement object so statement.Execute()
+runs your test. Then instead of calling statement.Execute() directly to run your test, JUnit passes
+the Statement to a TestRule with the @Rule annotation.
+---
+interface TestRule (annotation type Rule):
+TestRules can do everything that could be done previously with methods annotated with Before, After,
+BeforeClass, or AfterClass, but they are more powerful, and more easily shared between projects and
+classes
+--
+The Statement passed to the TestRule will run any Before methods, then the Test method, and finally any After methods,
+--
+If there are multiple annotated Rules on a class, they will be applied in order of fields first,
+then methods
+
+java memory model defines how threads in the java language interact through memory.
+
+volatile: threads will see the latest value
+
+compiler/JVM can reorder code
+
+final applied to array/collection: make the reference final, not the contents
+
+long/double not thread-safe (unless volatile): maybe split into 2 32-bit operations
+use AtomicLong, Long/Double wrapper
+
+install memory fences to limit reordering
+java: no word tearing?
+
+Some processors do not provide the ability to write to a single byte. It would be illegal to
+implement byte array updates on such a processor by simply reading an entire word, updating the
+appropriate byte, and then writing the entire word back to memory. This problem is sometimes known
+as word tearing,
+--
+If a variable crosses the boundary between memory units, which can happen if the machine supports
+unaligned memory access, the computer may have to send the data in two bus transactions. An
+unaligned 32-bit value, for example, may be sent by writing the two adjacent 32-bit memory units. If
+either memory unit involved in the transaction is simultaneously written from another processor,
+half of the value may be lost. This is called word tearing.
+
+====
+		int i = 1;
+		for (int i = 0;i<10;i++) { // compile error
+		}
+===
+		for (int i = 0;i<10;i++) {
+		}
+        // the previous i goes out of scope here
+		int i = 1; // compile ok
+
+CopyOnWriteArrayList:
+use it when many threads need concurrent read access. it is rare to modify the data.
+
+AtomicBoolean: for test-and-set. method: compareAndSet()
