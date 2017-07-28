@@ -6694,6 +6694,7 @@ change with regard to one another, none progressing
 Deadlock describes a situation where two or more threads are blocked forever, waiting for each other.
 --
 Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress.
+starvation: when threads are not getting enough execution time to carry out their tasks.
 
 programming languages by year of creation:
 1957: Fortran
@@ -9012,6 +9013,8 @@ into subtasks that can execute in parallel and managing the risks that arise whe
 program executes more than one task at the same time.
 
 prevent deadlock: acquire locks in a fixed, global order
+prevent deadlock: replace two or mutexes with a single one
+another strategy: if we fail to acquire the mutex, release mutexes we already have, try-lock
 
 Amdahl's law is that, in a program with parallel processing , a relatively few instructions that
 have to be performed in sequence will have a limiting factor on program speedup such that adding
@@ -10271,6 +10274,9 @@ execution in an SMP system.
 where threads use different objects but those objects happen to be close enough in memory that they
 fall on the same cache line, and the cache system treats them as a single lump that is effectively
 protected by a hardware write lock that only one core can hold at a time
+---
+CPU cache is effectively unchained hash map where each bucket is typically 64 bytes.
+cache line: the effective unit of cache memory transfer.
 
 cache is smaller, faster memory that stores recently accessed data so that future requests
 for that data can be served faster.
@@ -10936,6 +10942,18 @@ how long have you been here? tell me about your time at the company.
 what are the challenges?
 how do you do performance reviews?
 who do I report to? who does my boss report to? what's the org chart look like?
+===
+Prepare answers for these:
+what project are you currently working on?
+What is the most challenging aspect of your current project?
+What was the most difficult bug that you fixed in the past 6 months?
+====
+three answers better than no:
+1. discuss something you have done similar
+2. show that you are at least familiar with the name.
+3. ask what it is and how it is used
+====
+don't say "I am a quick learner"
 
 maximum subarray problem: given an array, find a contiguous subarray that has the largest sum.
 the array can contain a mix of positive/negative numbers.
@@ -11036,11 +11054,16 @@ Memory barriers, or fences, are a set of processor instructions used to apply or
 on memory operations.
 memory fence/barrier: a type of barrier definition that causes a CPU or compiler to enforce an ordering
 constraint on memory operations issued before and after the barrier instruction.
+This means that operations issued before the barrier and guaranteed to be performed before operations
+issued after the barrier.
+memory barriers are necessary because CPUs employ performance optimizations that can result in
+out-of-order execution. addresses reordering effects at the hardware level.
 --
 Absent memory fences or serializing instructions, the processor is free to reorder memory accesses.
 --
 memory fence: which is an instruction (explicit or implicit) to synchronize memory access between multiple threads.
 memory fence: make the memory state within a processor visible to other processors
+memory fence/barrier: an instruction to synchronize the cache lines on multi-processor
 ==
 Memory barriers provide two properties.  Firstly, they preserve externally visible program order by
 ensuring all instructions either side of the barrier appear in the correct program order if observed
@@ -11077,3 +11100,72 @@ data race:
 two or more threads concurrently accessing the same memory location
 one of them is a write
 one of them is unsynchronized
+===
+can have data race without race condition
+can have race condition without data race
+
+infinite-retry livelock
+resource try-lock livelock
+dealing with livelock: use arbitration
+
+The subsolar point on a planet is where its sun is perceived to be directly overhead (in zenith),
+that is where the sun's rays are hitting the planet exactly perpendicular to its surface.  The
+December solstice occurs when the subsolar point is on the Tropic of Capricorn and the June solstice
+is at the instant when the subsolar point is on the Tropic of Cancer. The March and September
+equinoxes occur when the subsolar point crosses the equator.
+
+system design interview: high-level only:
+Draw a big box that represents the system.
+Zoom-in and break that big box into 5–6 components.
+Briefly discuss the role of each component e.g. compute, storage, front-end, back-end,
+caching, queueing, networking, load-balancing, etc.
+===
+Gather requirements.
+Ask Questions.
+Evaluate multiple solutions, discuss pros and cons and see where the discussion takes you.
+===
+Don’t rush to a solution. Gather requirements, suggest multiple solutions and evaluate them. It is
+meant to be an open-ended discussion.
+
+goes over her allotted time.
+
+Write combining (WC) is a computer bus technique for allowing data to be combined and temporarily
+stored in a buffer — the write combine buffer (WCB) — to be released together later in burst mode
+instead of writing (immediately) as single bits or small chunks.
+
+double-checked locking is a software design pattern used to reduce the overhead of acquiring a lock
+by first testing the locking criterion (the "lock hint") without actually acquiring the lock. Only
+if the locking criterion check indicates that locking is required does the actual locking logic
+proceed.
+==
+it is typically used to reduce locking overhead when implementing "lazy initialization" in a
+multi-threaded environment, especially as part of the Singleton pattern.
+once the initialization has been completed, acquiring and releasing the locks would appear
+unnecessary.
+===
+intent: Allow atomic lazy initialization, regardless of initialization order, and eliminates subsequent locking overhead.
+
+In software engineering, the initialization-on-demand holder (design pattern) idiom is a lazy-loaded
+singleton. In all versions of Java, the idiom enables a safe, highly concurrent lazy initialization
+with good performance
+
+writing long/double is not atomic because it's a multiple-step operation at the machine code level.
+should be atomic on 64-bit JVM?
+
+The Turing test is a test of a machine's ability to exhibit intelligent behavior equivalent to, or
+indistinguishable from, that of a human.
+
+Partitioning is the database process where very large tables are divided into multiple smaller
+parts. By splitting a large table into smaller, individual tables, queries that access only a
+fraction of the data can run faster because there is less data to scan.
+==
+Partitioning allows a table, index, or index-organized table to be subdivided into smaller pieces,
+where each piece of such a database object is called a partition.
+==
+Partitioning is more a generic term for dividing data across tables or databases. Sharding is one
+specific type of partitioning, namely horizontal partitioning. Horizontal partitioning splits one or
+more tables by row, usually within a single instance of a schema and a database server.
+==
+PARTITIONING has two flavors:
+   # HORIZONTAL PARTITIONING  == SHARDING
+   # VERTICAL PARTITIONING
