@@ -1,2 +1,11 @@
 dpkg -l "*guest-add*" | cut -c1-$COLUMNS
 
+#get list of installed packages
+dpkg --get-selections
+
+#transfer a list of installed packages
+dpkg --get-selections > package-list
+sudo apt install dselect
+sudo dselect update
+sudo dpkg --set-selections < package-list
+sudo apt-get dselect-upgrade

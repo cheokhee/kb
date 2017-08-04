@@ -103,6 +103,25 @@ example, JDK comes with JConsole through which you can connect to any local or r
 
 the platform MBean server is also called the JMX agent
 
+A Java Management Extensions (JMX) agent is a management entity that runs in a Java Virtual Machine
+(Java VM) and acts as the liaison between the MBeans and the management application.
+components of JMX agent:
+#1. MBean server
+The MBean server is the core component of a JMX agent. It is a registry for objects that are exposed
+to management operations in an agent. Any object registered with the MBean server becomes visible to
+management applications. However, the MBean server only exposes the management interface of an
+MBean, never its direct object reference.  Any resource that you want to manage from outside the
+agent’s Java VM must be registered as an MBean in the server.
+==
+#2. Agent Services
+Agent services are objects that can perform management operations on the MBeans registered in the
+MBean server. By including management intelligence into the agent, JMX helps you build more powerful
+management solutions.
+==
+#3. Protocol Adaptors and Connectors
+Protocol adaptors and connectors make the agent accessible from remote management applications.
+The Java SE platform includes the standard RMI connecto
+
 =============
 Runnable vs Callable
 Runnable does not return a result and cannot throw a checked exception.
@@ -355,6 +374,9 @@ spurious wakeup: due to the fact that there is no guarantee around when a thread
 awakened will become scheduled. Condition variables are not fair. It's possible - and even likely -
 that another thread will acquire the associated lock and make the condition false again before the
 awakened thread has a chance to reacquire the lock and return to the critical region.
+===
+spurious wakeup: a situation where a thread appears to be woken up by a condition variable whose
+value is false.
 
 fair ReentrantLock: under contention, fair locks favor granting access to the longest-waiting thread.
 
@@ -1299,3 +1321,7 @@ non-concurrent, no further synchronization is required in the static getInstance
 loading and initialization. And since the initialization phase writes the static variable INSTANCE
 in a serial operation, all subsequent concurrent invocations of the getInstance will return the same
 correctly initialized INSTANCE without incurring any additional synchronization overhead.
+
+JMX:
+MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
+memoryMXBean.getHeapMemoryUsage().getMax();

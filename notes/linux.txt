@@ -1917,6 +1917,7 @@ GET / HTTP/1.1 #press return twice
 ===
 
 bash: define function syntax: last thing in function definition must be ; or &
+* must have a space between { and command
 wow(){ wow|wow & }
 ano(){ echo hi; }
 
@@ -1926,3 +1927,52 @@ it is a process in the "Terminated state". This occurs for child processes, wher
 needed to allow the parent process to read its child's exit status: once the exit status is read via
 the wait system call, the zombie's entry is removed from the process table and it is said to be
 "reaped".
+
+A semaphore is an integer whose value is never allowed to fall below zero. Two operations
+can be performed on semaphores: increment the semaphore value by one (sem_post()); and decrement
+the semaphore value by one (sem_wait()). If the value of a semaphore is currently zero, then a
+sem_wait() operation will block until the value becomes greater than zero.
+POSIX semaphores come in two forms: named semaphores and unnamed semaphores.
+
+from: include/linux/semaphore.h:
+===
+struct semaphore {
+        raw_spinlock_t          lock;
+        unsigned int            count;
+        struct list_head        wait_list;
+};
+
+from: include/linux/mutex.h:
+struct mutex {
+        /* 1: unlocked, 0: locked, negative: locked, possible waiters */
+        atomic_t                count;
+        spinlock_t              wait_lock;
+        struct list_head        wait_list;
+        struct task_struct      *owner;
+        struct optimistic_spin_queue osq; /* Spinner MCS lock */
+        void                    *magic;
+        struct lockdep_map      dep_map;
+};
+
+from: include/linux/spinlock_types.h:
+typedef struct raw_spinlock {
+	arch_spinlock_t raw_lock;
+	unsigned int break_lock;
+	unsigned int magic, owner_cpu;
+	void *owner;
+	struct lockdep_map dep_map;
+} raw_spinlock_t
+
+ptrace: process trace
+The ptrace() system call provides a means by which one process (the "tracer") may observe and
+control the execution of another process (the "tracee"), and examine and change the tracee's memory
+and registers.  It is primarily used to implement breakpoint debugging and system call tracing.
+--
+error: Can't attach to the process: ptrace(PTRACE_ATTACH, ..)
+solution: echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+default value of /proc/sys/kernel/yama/ptrace_scope is 1
+put a value of zero in /proc/sys/kernel/yama/ptrace_scope
+
+#list files opened by a process
+#1. ls /proc/<pid>/fd
+#2. lsof -a -p <pid>

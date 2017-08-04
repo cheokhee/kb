@@ -10276,6 +10276,7 @@ fall on the same cache line, and the cache system treats them as a single lump t
 protected by a hardware write lock that only one core can hold at a time
 ---
 CPU cache is effectively unchained hash map where each bucket is typically 64 bytes.
+These caches can be thought of as simple hardware hash tables with fixed size buckets and no chaining
 cache line: the effective unit of cache memory transfer.
 
 cache is smaller, faster memory that stores recently accessed data so that future requests
@@ -11169,3 +11170,83 @@ more tables by row, usually within a single instance of a schema and a database 
 PARTITIONING has two flavors:
    # HORIZONTAL PARTITIONING  == SHARDING
    # VERTICAL PARTITIONING
+
+the producer–consumer problem (also known as the bounded-buffer problem) is a classic example of a
+multi-process synchronization problem. The problem describes two processes, the producer and the
+consumer, who share a common, fixed-size buffer used as a queue. The producer's job is to generate
+data, put it into the buffer, and start again. At the same time, the consumer is consuming the data
+(i.e., removing it from the buffer), one piece at a time. The problem is to make sure that the
+producer won't try to add data into the buffer if it's full and that the consumer won't try to
+remove data from an empty buffer.
+==
+The solution for the producer is to either go to sleep or discard data if the buffer is full. The
+next time the consumer removes an item from the buffer, it notifies the producer, who starts to fill
+the buffer again. In the same way, the consumer can go to sleep if it finds the buffer to be
+empty. The next time the producer puts data into the buffer, it wakes up the sleeping consumer.
+
+Write combining (WC) is a computer bus technique for allowing data to be combined and temporarily
+stored in a buffer — the write combine buffer (WCB) — to be released together later in burst mode
+instead of writing (immediately) as single bits or small chunks.
+==
+If memory has the capability of being write combined, this means that when you are writing to memory
+it combines all the writes in a cache line, and then evicts it across the system bus as a block.
+Any reads that occur during this write are not guaranteed to occur in the correct sequence in
+respect to the writes.  This is called weak ordering, as the ordering isn't guaranteed between the
+read and the write. Great for graphics?
+
+mutex vs semaphore: Their synchronization semantics are very different:
+===
+a mutex is locking mechanism used to synchronize access to a resource. Only one task (can be a
+thread or process based on OS abstraction) can acquire the mutex. It means there is ownership
+associated with mutex, and only the owner can release the lock (mutex).
+--> mutexes allow serialization of access to a given resource i.e. multiple threads wait for a lock, one
+at a time and as previously said, the thread owns the lock until it is done: only this particular
+thread can unlock it.
+===
+mutex: a lock. ownership concept. can only be released by the thread that had acquired it.
+semaphore: a counter whose value represents the number of shared resources. use parking spaces analogy.
+different purposes. mutex for locking (mutual exclusion), semaphore for signaling
+mutex and binary semaphore are functionally the same.
+==
+Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal).
+a binary semaphore is a counter with value 0 and 1: a task blocking on it until any task does a
+sem_post. The semaphore advertises that a resource is available, and it provides the mechanism to
+wait until it is signaled as being available.
+you can signal semaphore from any other thread?
+semaphore is a counter: binary semaphore and counting semaphore
+===
+a binary semaphore acts like a mutex? functionally the same
+a mutex can only be used to maintain atomicity whereas a semaphore can be used for both ordering and
+atomicity.
+
+synchronization primitive: spinlock,
+==
+The spinlock is a low-level synchronization mechanism which in simple words, represents a variable
+which can be in two states: acquired or released.
+==
+The main idea behind spinlock concept is a lock which will be acquired for a very short time.
+==
+spinlock is a lock which causes a thread trying to acquire it to simply wait in a loop ("spin")
+while repeatedly checking if the lock is available. Since the thread remains active but is not
+performing a useful task, the use of such a lock is a kind of busy waiting. Once acquired, spinlocks
+will usually be held until they are explicitly released, although in some implementations they may
+be automatically released if the thread being waited on (that which holds the lock) blocks, or "goes
+to sleep".
+==
+Because they avoid overhead from operating system process rescheduling or context switching,
+spinlocks are efficient if threads are likely to be blocked for only short periods. However,
+spinlocks become wasteful if held for longer durations, as they may prevent other threads from
+running and require rescheduling. The longer a thread holds a lock, the greater the risk that the
+thread will be interrupted by the OS scheduler while holding the lock. If this happens, other
+threads will be left "spinning" (repeatedly trying to acquire the lock), while the thread holding
+the lock is not making progress towards releasing it. The result is an indefinite postponement until
+the thread holding the lock can finish and release it.
+
+Data governance (DG) refers to the overall management of the availability, usability, integrity, and
+security of the data employed in an enterprise.
+
+SOA governance is a concept used for activities related to exercising control over services in a
+service-oriented architecture (SOA)
+
+synchronization: to occur at the same time. synchronization between tasks is where one task
+waits to be notified by another task before it can continue execution.
