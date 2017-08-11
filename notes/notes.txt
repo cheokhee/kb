@@ -1163,6 +1163,9 @@ a common language for interacting with the db.
 ODBC client applications do not interact with db directly. Instead, they interact with
 ODBC data sources. a data source is logical db that includes the driver (each db type
 has its own driver) and info on how to connect to the db.
+==
+Open Database Connectivity (ODBC) is an open standard application programming interface (API) for
+accessing a database.
 
 true to form: exactly as expected;
 
@@ -10429,6 +10432,9 @@ content.
 ---
 client-side rendering requires a heavier initial load with a 2nd request, not being able to cache
 the final output and greater dependency on slower CPUs and rendering engines.
+==
+isomorphic rendering: render everything on the backend when loading the page first time, but everything after that is
+rendered on the frontend. rendering pages on both the server and client side.
 
 IPP (internet printing protocol):
 new protocol that allows personal computers and mobile devices to find and print to networked and
@@ -10805,8 +10811,8 @@ decisions on major company issues.
 
 Using an identifier before its declaration is called a forward reference, and results in an error
 
-sans-serif font: usually used for heading (in print)
-serif font: usually used for body text.
+sans-serif font: usually used for heading (in print), (Arial), heading > 12pt
+serif font: usually used for body text. (Times New Roman), body: btw 9 & 12 pt
 
 resume: heading: Arial (sans-serif), body text: Times New Roman (serif)
 
@@ -10955,6 +10961,24 @@ three answers better than no:
 3. ask what it is and how it is used
 ====
 don't say "I am a quick learner"
+===
+after getting an offer:
+I am glad we are at this stage. I need some time to examine the offer.
+---
+questions:
+what are the expected work hours? is there a set minimum of hours you must work?
+what are the details of the benefits?
+what is the dress code like?
+any expected days you must work/travel? trade show?
+---
+is there something you can do to help make this work out?
+can we do something to make this work for both of us?
+==
+is there any wiggle room on the policy?
+--
+do not explain the logic for your requirements.
+your reasons for your requirements are yours alone.
+I don't see us as a long-term match.
 
 maximum subarray problem: given an array, find a contiguous subarray that has the largest sum.
 the array can contain a mix of positive/negative numbers.
@@ -11130,10 +11154,6 @@ meant to be an open-ended discussion.
 
 goes over her allotted time.
 
-Write combining (WC) is a computer bus technique for allowing data to be combined and temporarily
-stored in a buffer — the write combine buffer (WCB) — to be released together later in burst mode
-instead of writing (immediately) as single bits or small chunks.
-
 double-checked locking is a software design pattern used to reduce the overhead of acquiring a lock
 by first testing the locking criterion (the "lock hint") without actually acquiring the lock. Only
 if the locking criterion check indicates that locking is required does the actual locking logic
@@ -11250,3 +11270,35 @@ service-oriented architecture (SOA)
 
 synchronization: to occur at the same time. synchronization between tasks is where one task
 waits to be notified by another task before it can continue execution.
+
+Micro-segmentation is a security technique that enables fine-grained security policies to be
+assigned to data center applications, down to the workload level.
+
+Multi-tenancy is an architecture in which a single instance of a software application serves
+multiple customers. Each customer is called a tenant. A software-as-a-service (SaaS) provider,
+for example, can run one instance of its application on one instance of a database and provide web
+access to multiple customers.
+Each customer shares the software application and also shares a single database. The data is tagged
+in the database as belonging to one customer or another, and the software is smart e1nough to know
+who the data belongs to.
+==
+single tenancy
+A single instance of the software and all of the supporting infrastructure serves a single
+customer. With single tenancy, each customer has their own independent database and instance of the
+software. With this option, there’s essentially no sharing going on. Everyone has their own,
+separate from everyone else.
+==
+A tenant is any application -- either inside or outside the enterprise -- that needs its own secure
+and exclusive virtual computing environment. This environment can encompass all or some select
+layers of enterprise architecture, from storage to user interface.
+
+In software development, a leaky abstraction is an abstraction that exposes details and limitations
+of its underlying implementation to its users that should ideally be hidden away.
+
+priority inversion is a problematic scenario in scheduling in which a high priority task is
+indirectly preempted by a lower priority task effectively "inverting" the relative priorities of the
+two tasks.
+==
+The basic idea of the priority inheritance protocol is that when a job blocks one or more
+high-priority jobs, it ignores its original priority assignment and executes its critical section at
+an elevated priority level.

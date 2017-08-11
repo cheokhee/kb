@@ -181,8 +181,13 @@ ONBUILD: delay execution of certain commands until a child image is built that i
 the onbuild image.
 
 container management: Rancher, Clocker, Tutum
-container orchestration: kubernetes, Mesos
+container orchestration: kubernetes
+Apache Mesos: a cluster manager
+container orchestration: coordinate containers across multiple machines
 
-resources that are namespaced are mapped to a different value on the host. eg. PID 1 in
-the container is not PID 1 in the host.
-resources that are not namespaced are the same on the host and the container.
+So when people compare Docker and Kubernetes to Mesos, they are actually comparing Kubernetes and
+Docker Swarm to Marathon running on Mesos.
+
+resources that are namespaced are mapped to a different value on the host. eg. PID 1 in the
+container is not PID 1 in the host.  resources that are not namespaced are the same on the host and
+the container.
