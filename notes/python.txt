@@ -598,3 +598,12 @@ exception was thrown then p(retty)p(rint) the locals().
 #extract tabular data from a web page
 tables = pandas.read_html("http://apps.sandiego.gov/sdfiredispatch/")
 print(tables[0])
+
+standard tuple uses numerical indexes to access its members.
+===
+namedtuple assigns names, as well as the numerical index, to each member.
+--
+from collections import namedtuple
+Person = namedtuple('Person', 'name age gender')
+bob = Person(name='Bob', age=30, gender='male')
+jane = Person('jane',25,'female')

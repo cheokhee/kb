@@ -13,6 +13,7 @@ e.g. jstack <process id of java process>
 
 --format string
 System.out.format("my name is %s, age is %03d", "cheok", 42);
+String.format("%s %s", code, proformaId);
 
 double brace initialization:
 original:
@@ -754,6 +755,9 @@ if the Runnable as finished executing.
 executorService.submit(Callable):
 --
 executorService.shutdown();
+executorService.shutdownNow();
+executorService.awaitTermination();
+Executors.newCachedThreadPool() -> create threads on demand (better performance)
 
 in J2EE application, modules are packaged as EAR, JAR and WAR based on their functionality
 JAR: EJB modules which contain enterprise java beans (class files) and EJB deployment descriptor are
@@ -1273,6 +1277,10 @@ can also use ScheduledThreadPoolExecutor
 		t1.start();
 =====
 
+Runnable is a functional interface
+Runnable task = () -> System.out.println("hello");
+Thread thread = new Thread(task);
+
 Threads that want a signal call wait(), sleep until another thread calls notify()/notifyAll()
 wait() : release the monitor. when it wakes up, reacquires the monitor
 can wake up without notify() being called? spurious wakeup
@@ -1325,3 +1333,47 @@ correctly initialized INSTANCE without incurring any additional synchronization 
 JMX:
 MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
 memoryMXBean.getHeapMemoryUsage().getMax();
+
+Condition notFull = aReentrantLock.newCondition()
+a condition object is used to park and awake threads
+notFull.await() : blocking, can be interrupted
+notFull.signal()
+
+semaphore: has a number of permits, can be acquired and released
+
+use explicit locking because of interruptbility, fairness, and time outs.
+
+CyclicBarrier: to have several tasks wait for each other.
+to synchronize several threads and let them continue when they reach a common point.
+closes again once opened, allowing for cyclic computation (can be reused), can also be reset.
+the barrier is closed at the beginning. it opens when all threads reach a common point.
+example: split a task among multiple threads, then merge the result.
+call barrier.await(), wait for the barrier to open
+useful for parallel computation
+like a reusable CountDownLatch
+===
+CountDownLatch: to count down operations and let a task start. once opened, cannot be closed
+useful for starting an application upon completion of different initializations.
+
+org.apache.commons.lang3.SerializationUtils class
+Assists with the serialization process and performs additional functionality based on serialization.
+==
+Deep clone using serialization
+Serialize managing finally and IOException
+Deserialize managing finally and IOException
+
+LongAdder, LongAccumulator
+AtomicReference: reference assignment is atomic. use this class for compareAndSet(), getAndSet()
+
+Deque: double-end queue
+A linear collection that supports element insertion and removal at both ends.
+can be both a queue and stack
+
+HashMap: built on an array
+given a key, calculate its hashcode, use it as an index into the backing array.
+each cell in the array is called a bucket.
+
+ConcurrentHashMap: built on a set of subarrays
+default concurrency level: 16
+
+ConcurrentSkipListMap: can be used to implement a linked list and a map

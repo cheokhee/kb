@@ -1,0 +1,55 @@
+? -> zero or one
++ -> one or more
+* -> zero or more
+
+{n} : match n times exactly
+{n,} : match n or more
+{m,n} : match m to n times
+
+\b : word boundary (or \< and \>)
+\d : digit
+\D : non-digit
+\s : space character. equivalent to [ \t\n\r]
+\w : word character
+\W : non-word character
+\0 : null character
+\xxx : hex character
+\uxxxx : unicode character
+
+(?i) : case-insensitive
+
+() : capturing groups: when a pattern groups its contents into a pair of parentheses, it
+     captures the content and store it temporarily in memory.
+\1 : backreference
+
+(?:) : non-capturing group
+(?>) : atomic group: turn off backtracking for the specified non-capturing group
+
+POSIX character classes
+[[:alnum:]]
+[[:alpha:]]
+[[:ascii:]]
+[[:^alpha::]] : negated character class
+[[:blank:]]
+[[:print:]]
+[[:space:]]
+[[:word:]]
+[[:digit:]]
+
+?? : lazy zero or one
++? : lazy one or more
+*? : lazy zero or more
+
+possessive quantifier: like greedy quantifier, but does not backtrack
+
+positive lookahead: (?=pattern)
+/one(?=two)/ -> matches "one" followed by "two", without including "two" in $&
+
+negative lookahead: (?!pattern)
+/one(?!two)/ -> matches "one" not followed by "two", without including "two" in $&
+
+positive lookbehind: (?<=pattern)
+/(?<=one)two/ -> matches "two" preceded by "one", without including "one" in $&
+
+negative lookbehind: (?<!pattern)
+/(?<=one)two/ -> matches "two" not preceded by "one", without including "one" in $&

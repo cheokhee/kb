@@ -26,3 +26,7 @@ how to resolve conflicting properties for an element?
 3. The more specific a selector is, the more precedence it will get.
 4. sort the rules by the order they were defined. Rules that are defined later in the document
    tree have higher precedence than those defined earlier. And rules from an imported style sheet are considered before rules directly in the style sheet.
+
+Margin is outer space of an element, while Padding is inner space of an element. Margin is the space
+outside the border of an element, while Padding is the space that is inside the border of it. Margin
+can be value auto: margin: auto , but you can't give Padding the value of auto.

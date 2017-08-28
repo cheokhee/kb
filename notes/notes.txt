@@ -1353,6 +1353,9 @@ private: managed by you, living in your data center
 ---
 3 categories of cloud computing services: Iaas, Paas, SaaS
 IaaS: a form of cloud computing service that provides virtualized computer resources.
+--
+cloud computing: delivering computing resources over the network. the computing resources
+include servers, networking, storage, application, and services
 
 container: a run-time environment for components.
 
@@ -6192,6 +6195,11 @@ future/promise: an object that represents the result of an asynchronous function
 future/promise: a placeholder for future results
 future: a read-only placeholder for a future result
 promise: can be written
+----
+The result of the future will be set by "someone else" - by the result of an asynchronous computation
+===
+On the other hand, the result of a promise can be set by "you" (or in fact by anybody) anytime
+because it has a public setter method.
 
 coroutine: a coroutine is a subroutine or function that can pause in the middle and return a value. When you
 call it again it picks up right where it was when you paused, environment intact, and keeps on going.
@@ -6799,6 +6807,9 @@ Big Omega: lower bound, best case
 Big Theta: when best and worst case are the same, can use Big Theta
 these are called asymptotic functions: because they capture the growth of a function
 as its argument asymptotically approaches infinity.
+===
+O(n): say it like "Big O of N"
+O(logN): say it like "Big O of log N"
 
 in-place algorithm: uses a small constant amount of extra space, usually overwrites the input space.
 
@@ -8599,11 +8610,16 @@ sequence: fetch instruction, decode instruction, execute instruction, memory acc
 
 lexical (linear) analysis: stream of characters are grouped into tokens, which are sequences of
 characters having a collective meaning.
+lexer: converts a string of characters to a string of words.
 ===========
 syntax (hierarchical) analysis (parsing): tokens are grouped hierarchically into nested
 collections with a collective meaning.
+Parser determines whether or not the stream of words consists of valid sentences in the source language.
+outputs an abstract syntax tree (AST)
 ============
 semantic analysis: ensure that components of a program fit together meaningfully.
+Semantic Analyzer traverses the AST, determining if code sentences have valid meaning. This phase
+checks for type errors.
 
 ssh tunnel: a mapping between local and remote ports so that all traffic to a specified
 port on a remote machine is forwarded via SSH to a port on your local machine.
@@ -10288,6 +10304,8 @@ for that data can be served faster.
 Data is transferred between memory and cache in blocks of fixed size, called cache lines or cache
 blocks. When a cache line is copied from memory into the cache, a cache entry is created. The cache
 entry will include the copied data as well as the requested memory location (called a tag).
+===
+cache line: the smallest unit of data transferred between memory and CPU cache.
 
 commutative: changing the order does not change the result
 associative: does not matter how we group the numbers
@@ -11042,6 +11060,11 @@ different threads accessing the same data can have private copies of the data in
 cache coherence protocol: MESI protocol (modified, exclusive, shared, invalid)
 coherence mechanism; snooping or directory-based
 cache coherence: shared data in multiple local caches have the same value
+cache coherence: make sure CPUs agree on the value of each memory location.
+==
+When using a multi-core processor, hardware-based cache coherency management can cause cache lines
+to migrate transparently between cores. This can potentially cause different cores to see updates to
+cached memory locations in different order.
 
 Changes in contraction of the ciliary muscles alter the focal distance of the eye, causing nearer or
 farther images to come into focus on the retina; this process is known as accommodation
@@ -11079,6 +11102,7 @@ Memory barriers, or fences, are a set of processor instructions used to apply or
 on memory operations.
 memory fence/barrier: a type of barrier definition that causes a CPU or compiler to enforce an ordering
 constraint on memory operations issued before and after the barrier instruction.
+--> enforce ordering on memory accesses
 This means that operations issued before the barrier and guaranteed to be performed before operations
 issued after the barrier.
 memory barriers are necessary because CPUs employ performance optimizations that can result in
@@ -11112,6 +11136,12 @@ inserted after their initialisation to ensure these fields are visible once the 
 completes when a reference to the object is available.
 ---
 a core has load/store buffers between its registers and L1 cache
+===
+load means transmitting a value from memory (or cache) to a CPU register.
+save means transmitting a value from a CPU register to memory (or cache).
+==
+unless the CPUs share the cache (or have no cache at all), it is possible for their cache systems to
+be momentarily our of sync.
 
 data race occurs when: two or more threads in a single process access the same memory location
 concurrently, and. at least one of the accesses is for writing, and. the threads are not using any
@@ -11213,6 +11243,8 @@ it combines all the writes in a cache line, and then evicts it across the system
 Any reads that occur during this write are not guaranteed to occur in the correct sequence in
 respect to the writes.  This is called weak ordering, as the ordering isn't guaranteed between the
 read and the write. Great for graphics?
+==
+write combining: multiple writes are combined into one bus transaction.
 
 mutex vs semaphore: Their synchronization semantics are very different:
 ===
@@ -11302,3 +11334,81 @@ two tasks.
 The basic idea of the priority inheritance protocol is that when a job blocks one or more
 high-priority jobs, it ignores its original priority assignment and executes its critical section at
 an elevated priority level.
+
+compiler:
+source code -> frontend -> IR (intermediate representation) -> optimizer -> IR -> backend -> machine code
+clang is LLVM's frontend for C family of languages
+opt is LLVM optimizer tool
+11c is LLVM backend tool
+
+memory-mapped devices: they appear to the CPU as if they are just a set of memory locations.
+
+the compiler may rearrange the order of the statements.
+the processor may rearrange the execution order of machine instructions
+the memory system may rearrange the order in which writes are commited to memory cells.
+
+atomicity: when instructions have indivisible effects.
+
+Speculation can be described simply as the core executing, or beginning to execute, an instruction
+before it knows whether that particular instruction should be executed or not. This means that the
+result will be available sooner if conditions resolve such that the speculation was correct.
+
+HTML5 Shiv is a JavaScript workaround to enable styling of HTML5 elements in versions of Internet
+Explorer prior to version 9, which do not allow unknown elements to be styled without JavaScript.
+
+Leet (or "1337"), also known as eleet or leetspeak, is an alternative alphabet for many languages
+that is used primarily on the Internet. It uses some characters to replace others in ways that play
+on the similarity of their glyphs via reflection or other resemblance. For example, leet spellings
+of the word leet include 1337 and l33t; eleet may be spelled 31337 or 3l33t.
+
+In computer science, compare-and-swap (CASing) is an atomic instruction used in multithreading to
+achieve synchronization. It compares the contents of a memory location with a given value and, only
+if they are the same, modifies the contents of that memory location to a new given value.
+CASing: an atomic instruction used as an alternative to locking.
+
+Progressive Web App (PWA) is a term used to denote web apps that use the latest web
+technologies. Progressive web apps are technically regular web pages (or websites) but can appear to
+the user like traditional applications or (native) mobile applications.
+
+impostor syndrome (also known as impostor phenomenon or fraud syndrome or the impostor experience)
+is a concept describing individuals who are marked by an inability to internalize their
+accomplishments and a persistent fear of being exposed as a "fraud".
+
+Bootstrap is the most popular HTML, CSS, and JavaScript framework for developing responsive,
+mobile-first web sites
+
+bounded queue: having a fixed size
+
+In computer science, a skip list is a data structure that allows fast search within an ordered
+sequence of elements. Fast search is made possible by maintaining a linked hierarchy of
+subsequences, with each successive subsequence skipping over fewer elements than the previous one.
+
+SSL (Secure Sockets Layer) is a standard security protocol for establishing encrypted links between
+a web server and a browser in an online communication.
+
+ABA problem occurs during synchronization, when a location is read twice, has the same value for
+both reads, and "value is the same" is used to indicate "nothing has changed". However, another
+thread can execute between the two reads and change the value, do other work, then change the value
+back, thus fooling the first thread into thinking "nothing has changed" even though the second
+thread did work that violates that assumption.
+
+The ABA problem occurs when multiple threads (or processes) accessing shared data interleave. Below
+is the sequence of events that will result in the ABA problem:
+==
+Process P1 reads value A from shared memory
+P1 is preempted, allowing process P2 to run
+P2 modifies the shared memory value A to value B and back to A before preemption
+P1 begins execution again, sees that the shared memory value has not changed and continues.
+
+lock-free programming: threads don't block one another
+
+read-modify-write is a class of atomic operations (such as test-and-set, fetch-and-add, and
+compare-and-swap) that both read a memory location and write a new value into it simultaneously,
+either with a completely new value or some function of the previous value.
+
+Sequential consistency means that all threads agree on the order in which memory operations
+occurred, and that order is consistent with the order of operations in the program source code.
+
+A Commissioner for Oaths is a person who is authorised to verify affidavits, which are statements in
+writing and on oath, and other legal documents. A Commissioner for Oaths is appointed by the Chief
+Justice and is usually, though not always, a solicitor.

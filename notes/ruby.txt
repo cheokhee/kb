@@ -238,3 +238,32 @@ if object is not a Proc, it first calls #to_proc on the object and then converts
 
 gem which jekyll -> /var/lib/gems/2.1.0/gems/jekyll-2.5.3/lib/jekyll.rb
 gem env
+
+--need to run bundle in a directory that has a file called Gemfile
+bundle show jekyll -> /var/lib/gems/2.3.0/gems/jekyll-2.4.0
+bundle info jekyll ->
+ * jekyll (2.4.0)
+        Summary: A simple, blog aware, static site generator.
+        Homepage: https://github.com/jekyll/jekyll
+        Path: /var/lib/gems/2.3.0/gems/jekyll-2.4.0
+
+bundler: manage all the gems and their versions for an application,
+so that you can install the exact same versions on every machine.
+during runtime, load the specified gem versions
+bundle install:
+==
+Read the Gemfile (and lock, if it's there)
+Ask RubyGems.org for a list of every version of every gem we want
+If needed, find gem versions allowed by the Gemfile that work together
+If found, write down those versions in the lock for future installs
+Install gems as needed until every gem in the lock is installed
+After finding the versions that work together, Bundler records the exact versions of every gem into
+another file, named Gemfile.lock
+-----
+bundle exec:
+==
+Read the Gemfile (and lock, if it's there)
+If needed, find gem versions allowed by the Gemfile that work together
+If found, write down those versions in the lock for future installs
+Remove any existing gems from the $LOAD_PATH array
+Add each gem version listed in the lock file to the $LOAD_PATH

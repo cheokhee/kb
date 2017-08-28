@@ -567,6 +567,14 @@ xxd: make a hex dump
 manipulate or dump object files: objcopy and objdump
 objdump : display info from object file
 nm: list symbols from object file
+disassemble a binary: objdump -d /bin/ls #att syntax is the default
+objdump -Mintel -d /bin/ls #intel syntax
+objdump -d -S <binary> #disassemble and display corresponding source code
+alternative for disassemble:
+gdb -q <binary>
+-> info functions #show all functions
+-> disassemble <function name>
+-> disassemble /m <function name> #display source code as well (if available)
 
 readlink: follow symbolic link
 readlink -e `which google-chrome`

@@ -231,3 +231,17 @@ u               realgud:cmd-older-frame
 
 #Return the contents of the current buffer as a string.
 (buffer-string)
+
+single prefix: C-u (equivalent to 4 times)
+double prefix: C-u C-u (equivalent to 16 times)
+to do it programatically: (set-mark-command '(16))
+
+The advice feature lets you add to the existing definition of a function, by advising the function.
+
+(describe-text-properties 1) ;;1 is the first position of a buffer
+(get-text-property 1 'face) ;;1 is the first position of a buffer, 'face is the property
+
+local binding: let vs let*
+let* is like let, but it binds each variable right after computing its local value, before computing
+the local value for the next variable. Therefore, an expression in bindings can refer to the
+preceding symbols bound in this let* form.
