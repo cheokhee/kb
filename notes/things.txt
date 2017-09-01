@@ -187,6 +187,7 @@ pidgin-sipe
 code (visual studio code), aka vscode
 iotop
 markdown
+docker-ce
 
 =========== end of packages ==============
 

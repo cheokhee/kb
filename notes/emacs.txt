@@ -245,3 +245,7 @@ local binding: let vs let*
 let* is like let, but it binds each variable right after computing its local value, before computing
 the local value for the next variable. Therefore, an expression in bindings can refer to the
 preceding symbols bound in this let* form.
+
+indent by n spaces: use indent-rigidly (C-x TAB), need to mark region first
+-> C-u 10 C-x TAB ; indent by 10 spaces
+-> C-u -999 C-x TAB ; remove all indent

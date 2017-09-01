@@ -101,3 +101,17 @@ sudo apt-mark unhold package_name
 
 #upgrade selected package
 apt-get install --only-upgrade <pkg name>
+
+apt-key list #list all keys
+apt-key export 36A1D7869245C8950F966E92D8576A8BA88D21E9
+
+GPG error: https://get.docker.com/ubuntu docker Release: The following signatures were invalid:
+36A1D7869245C8950F966E92D8576A8BA88D21E9
+-- solution --
+1. remove old key
+apt-key del 36A1D7869245C8950F966E92D8576A8BA88D21E9
+2. add new key
+wget -qO- https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+# prints out detailed information about the priority selection of the named package
+apt-cache policy docker-ce

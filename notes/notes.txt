@@ -8296,7 +8296,7 @@ first gear: 4/1. four revolutions of engine to produce one revolution of wheel.
 torque: ft-lbs or Newton-Meter. same as Joule (energy)
 higher torque -> lower top speed
 ----
-piston -> crankshaft -> flywheel -> clutch disc -> pressure place
+piston -> crankshaft -> flywheel -> clutch disc -> pressure plate
 
 IP forwarding should be enabled when you want the system to act as a router, that is transfer IP
 packets from one network to another.
@@ -11412,3 +11412,40 @@ occurred, and that order is consistent with the order of operations in the progr
 A Commissioner for Oaths is a person who is authorised to verify affidavits, which are statements in
 writing and on oath, and other legal documents. A Commissioner for Oaths is appointed by the Chief
 Justice and is usually, though not always, a solicitor.
+
+virtual appliance: an image containing an OS and pre-configured software than can be run on
+a hypervisor.
+
+NAS (network-attached storage): is a file-level computer data storage server connected to a computer
+network providing data access to a heterogeneous group of clients.
+==
+NAS provides both storage and a file system. This is often contrasted with SAN (Storage Area
+Network), which provides only block-based storage and leaves file system concerns on the "client"
+side.
+==
+One way to loosely conceptualize the difference between a NAS and a SAN is that NAS appears to the
+client OS (operating system) as a file server (the client can map network drives to shares on that
+server) whereas a disk available through a SAN still appears to the client OS as a disk
+==
+Storage Area Networks (SANs) and Network Attached Storage (NAS) both provide networked storage
+solutions. A NAS is a single storage device that operates on data files, while a SAN is a local
+network of multiple devices that operate on disk blocks
+===
+A SAN accesses data as blocks, while a NAS accesses data as files.
+
+body copy: Main text part of an advertisement or any printed matter (as distinct from the logo,
+headline, subheadings, and graphics) that provides the 'meat' of the communication.
+
+A vergence is the simultaneous movement of both eyes in opposite directions to obtain or maintain
+single binocular vision.
+
+closure: a function that retains access to the scope that it was created in.
+
+ document database is essentially a key-value database with more features.
+Document databases organize documents into groups called collections, which are analogous to the
+tables in relational databases. By contrast, key-value databases store all key-value pairs together
+in a single namespace, which is analogous to a relational schema.
+
+here document is a file literal or input stream literal
+
+microservices: creating a system from very small, simple services

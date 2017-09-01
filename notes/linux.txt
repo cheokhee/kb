@@ -1984,3 +1984,23 @@ put a value of zero in /proc/sys/kernel/yama/ptrace_scope
 #list files opened by a process
 #1. ls /proc/<pid>/fd
 #2. lsof -a -p <pid>
+
+Aliases are not expanded when the shell is not interactive, unless the expand_aliases shell option
+is set using shopt: shopt -s expand_aliases
+
+Aliases are deprecated in favor of shell functions.
+function xoo(){ xdg-open; }
+export -f xoo #make function visible to script
+
+cannot use external aliases in bash shell script, use functions instead
+=== script ==
+#!/bin/bash
+ls
+====
+then do:
+function ls(){ echo "hi cheok"; }
+export -f ls
+===
+the script will execute the ls function
+lesson: script will execute function first. attackers can make scripts do something else.
+script should use absolute path to commands.

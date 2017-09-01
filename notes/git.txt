@@ -403,10 +403,10 @@ git update-ref refs/heads/mytest 1bb144f
 #low-level way to remove a branch
 git update-ref -d refs/heads/blah
 
-git config --system receive.denyNonFastForwards true
-git config --system receive.denyDeletes true
-
-git repo-config receive.denyNonFastForwards true
+== disable/prevent force push for individual repo
+git config --local receive.denyNonFastForwards true
+== disable/prevent branch deletion for individual repo
+git config --local receive.denyDeletes true
 
 C:\Program Files\Git\etc\git-completion.bash
 	display prompt like this: HEECH@HEECH-W7 /d/gitvob/iris4_gsp ( IR4_Phase2_PRS )
@@ -1246,3 +1246,13 @@ formatted log output: (see man git-log)
 git log -1 --format=format:"%h, %an, %cd, %n%s"
 10d6965b, Cheok Hee, Wed Jun 7 16:14:18 2017 -0700,
 Add Protect TS Port
+
+diff-so-fancy: https://github.com/so-fancy/diff-so-fancy
+--- additional commands:
+git config --global core.pager "/a/diff-so-fancy-master/diff-so-fancy | less --tabs=4 -RFX"
+git config --global color.diff-highlight.oldNormal "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
+git config --global color.diff.commit "227 bold"
+git config --global color.diff.whitespace "red reverse"

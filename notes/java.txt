@@ -1377,3 +1377,80 @@ ConcurrentHashMap: built on a set of subarrays
 default concurrency level: 16
 
 ConcurrentSkipListMap: can be used to implement a linked list and a map
+
+this.compareTo(other):
+if this < other, return -1
+if this == other, return 0
+if this > other, return 1
+
+Collectinos.unmodifiableList()
+
+Java 9:
+1. Factory methods for collections:
+List<Point> list = List.of(new Point(1, 1), new Point(2, 2));
+Set<String> set = Set.of("Hello", "World", "from", "Java");
+Map<String, Integer> nameToAge = Map.of("Richard", 49, "Raoul", 47);
+===
+
+anonymous class: a class without a name.
+example:
+return new java.util.Enumeration() {
+    Linkable current; = head;
+    { current = head; }  // Replace constructor with an instance initializer
+    public boolean hasMoreElements() {  return (current != null); }
+    public Object nextElement() {
+      if (current == null) throw new java.util.NoSuchElementException();
+      Object value = current;
+      current = current.getNext();
+      return value;
+    }
+  };  // Note the required semicolon: it terminates the return statement
+
+
+== RxJava ==
+RxJava is a Java VM implementation of ReactiveX (Reactive Extensions): a API for composing
+asynchronous and event-based programs by using observable streams.
+--> you can decouple your services from one another.
+reactive: event-driven, scalable, resilient (graceful error handling, manage failure), responsive
+
+RxJava : single-threaded by default: your subscribe calls and all observer
+event calls will be executed on the same thread that calls the subscribe method.
+Observable, observer pattern, Observers subscribe to Observable
+Observable: data stream
+Observer: consume the data streams emitted by the Observable.
+ -> Observers subscribe to the observable using subscribeOn() method to receive the data emitted by the observable.
+--
+Whenever the observable emits the data all the registered observer receives the data in onNext()
+callback. If there is an error thrown from observable, the observer will receive it in onError().
+--
+Scheduler
+Observer: onNext(), onCompleted(), onError()
+Observable: non-blocking, blocking
+Observable: subscribeOn(Scheduler): the scheduler determines
+the thread your code will run on when you call the subscribe method.
+==
+Scheduler: allow you to specify what thread your code will execute on
+BehaviorSubject: an Observable
+marble diagrams
+connectable observable: events are not emitted until connect() is called
+Subject interface: a subscriber and an observable: PublishSubject, BehaviorSubject, AsyncSubject
+==
+Schedulers are the component in Rx that tells observable and observers, on which thread they should
+run. You can use observeOn() method to tell observers, on which thread you should observe. Also, you
+can use subscribeOn() to tell the observable, on which thread you should run.
+you call observeOn() and subscribeOn() on the Observable
+scheduler: thread management
+Schedulers.newThread()
+Schedulers.io()
+==
+use RxJava2
+<dependency>
+    <groupId>io.reactivex.rxjava2</groupId>
+    <artifactId>rxjava</artifactId>
+    <version>1.1.6</version>
+</dependency>
+===
+example:
+database.subscribeOn(Schedulers.newThread())          //Observable runs on new background thread.
+        .observeOn(AndroidSchedulers.mainThread())    //Observer will run on main UI thread.
+        .subscribe(observer);                         //Subscribe the observer

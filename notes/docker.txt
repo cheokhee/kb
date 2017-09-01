@@ -74,6 +74,11 @@ wget -qO- https://get.docker.io/gpg | apt-key add -
 echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
 install lxc-docker
 
+"new location for key, added on 2017-08-30
+wget -qO- https://download.docker.com/linux/ubuntu/gpg
+new location:
+deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
+
 #add user to docker group
 sudo usermod -aG docker your-user
 
