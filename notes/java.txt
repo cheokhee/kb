@@ -274,6 +274,9 @@ Streams of file paths can be obtained from methods in Files;
 Streams of random numbers can be obtained from Random.ints();
 Numerous other stream-bearing methods in the JDK, including BitSet.stream(),
 Pattern.splitAsStream(java.lang.CharSequence), and JarFile.stream().
+---
+zip combines the elements of the source stream with the elements of a supplied stream, using a
+pairwise zip transformation mapping that you can supply in the form of a lambda.
 
 --
 peek is a method in the Java 8 Stream API that allows you to use but not consume the data of an stream.
@@ -527,6 +530,20 @@ GC flags:
 -verbose:gc
 -XX:+UseConcMarkSweepGC
 -XX:CMSInitiatingOccupancyFraction=80
+-XX:GCTimeLimit : sets an upper limit on the amount of time that GCs can spend in percent of the total time.
+   Its default value is 98%. Decreasing this value reduces the amount of time
+   allowed that can be spent in the garbage collections.
+-XX:GCHeapFreeLimit
+sets a lower limit on the amount of space that should be free after the garbage collections,
+represented as percent of the maximum heap. It’s default value is 2%. Increasing this value means
+that more heap space should get reclaimed by the GCs. An OutOfMemoryError is thrown after a Full GC
+if the previous 5 consecutive GCs (could be minor or full) were not able to keep the GC cost below
+GCTimeLimit and were not able to free up GCHeapFreeLimit space.
+
+For example, setting GCHeapFreeLimit to 8 percent can help the garbage collector not get stuck in a
+loop of invoking back-to-back Full GCs when it is not able to reclaim at least 8% of the heap and is
+exceeding GCTimeLimit for 5 consecutive GCs.
+
 
 jvisualvm: visualizing memory usage
 
@@ -939,6 +956,8 @@ df.format(number)
 BigDecimal bd = new BigDecimal(Double.toString(d));
 bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
 return bd.doubleValue();
+---
+Math.round(xx)
 
 private static ThreadLocal<SimpleDateFormat> DATETIME_DOM_FORMATER = new ThreadLocal<SimpleDateFormat>() {
   @Override
@@ -1045,6 +1064,10 @@ List<Schedule> results;
 		flatMap2.collect(Collectors.toList());
 
 Note: #1 and #2 are equivalent
+
+flatmap:
+map is used to apply a function to each element. the function could return a new sequence,
+in which case we go from one to many sequences. flatmap merges/flattens those sequences into one. (map + merge)
 
 java enum API:
 name() : Returns the name of this enum constant, exactly as declared in its enum declaration.
@@ -1412,6 +1435,10 @@ RxJava is a Java VM implementation of ReactiveX (Reactive Extensions): a API for
 asynchronous and event-based programs by using observable streams.
 --> you can decouple your services from one another.
 reactive: event-driven, scalable, resilient (graceful error handling, manage failure), responsive
+event-driven: react to events
+scalable: react to load
+resilient: react to failure
+responsive: react to user
 
 RxJava : single-threaded by default: your subscribe calls and all observer
 event calls will be executed on the same thread that calls the subscribe method.
@@ -1431,7 +1458,7 @@ the thread your code will run on when you call the subscribe method.
 ==
 Scheduler: allow you to specify what thread your code will execute on
 BehaviorSubject: an Observable
-marble diagrams
+marble diagrams: provide an interactive canvas for visualizing reactive constructs.
 connectable observable: events are not emitted until connect() is called
 Subject interface: a subscriber and an observable: PublishSubject, BehaviorSubject, AsyncSubject
 ==
@@ -1454,3 +1481,19 @@ example:
 database.subscribeOn(Schedulers.newThread())          //Observable runs on new background thread.
         .observeOn(AndroidSchedulers.mainThread())    //Observer will run on main UI thread.
         .subscribe(observer);                         //Subscribe the observer
+
+VertX is a server framework for asynchronous servers while RxJava is a framework for asynchronous
+computations.
+
+#to trigger a Full thread dump
+kill -QUIT <pid>
+
+heap dump:
+cmd <process id/main class> GC.heap_dump filename=heapdump.dmp
+jmap -dump:format=b,file=snapshot.jmap pid
+-XX:+HeapDumpOnOutOfMemoryError
+
+heap histogram:
+-XX:+PrintClassHistogram and Control+Break
+jcmd <process id/main class> GC.class_histogram filename=Myheaphistogram
+jmap -histo pid

@@ -188,6 +188,7 @@ code (visual studio code), aka vscode
 iotop
 markdown
 docker-ce
+npm install blockchain-cli -g
 
 =========== end of packages ==============
 

@@ -4503,6 +4503,19 @@ VPN follows a client and server approach. VPN clients authenticate users, encryp
 a private network that uses a public network to connect remote site/users together.
 ----
 provides secure data transfer over the public Internet,
+---
+VPN: allow you to create secure connections to other networks over the internet
+==
+When you connect your computer to a VPN, the computer acts as if it’s on the same local network as
+the VPN. All your network traffic is sent over a secure connection to the VPN. Because your computer
+behaves as if it’s on the network, this allows you to securely access local network resources even
+when you’re on the other side of the world. You’ll also be able to use the Internet as if you were
+present at the VPN’s location, which has some benefits if you’re using pubic Wi-Fi or want to access
+geo-blocked websites.
+---
+VPN is used to create a secure, encrypted connection between your computer and a server operated by
+the VPN service. In a professional setting, this tunnel makes you part of the company's network, as
+if you were physically sitting in the office.
 
 leased line
 A leased line connects two locations for private voice and/or data telecommunication service.
@@ -7598,11 +7611,18 @@ throw: the number of connections that can be made by a pole
    SPST: two terminals
    SPDT: three terminals
 
-Semantic Versioning
+Semantic Versioning: giving meaning to version numbers
 Given a version number MAJOR.MINOR.PATCH, increment the:
 MAJOR version when you make incompatible API changes,
 MINOR version when you add functionality in a backwards-compatible manner, and
 PATCH version when you make backwards-compatible bug fixes.
+---
+major: breaking changes
+minor: new features, non-breaking change
+patch: bug fixes
+---
+A breaking change happens whenever you as a developer and consumer of a library, have to step in and
+adjust your code after a version upgrade
 
 fruit: the ripened ovary of flowering plant. fruits have seeds.
 fruit: the mature ovary of a flower, containing the seed
@@ -8485,6 +8505,9 @@ shipped directly to the customer. As a result, the merchant never sees or handle
 
 watchpoint: set on variables. when a variable is read/written, the watchpoint is triggered
 and program execution stops.
+---
+watch expression: set on an expression. when it changes or equals a particular value,
+program execution stops. also display value of watch expression when program execution stops.
 
 POSIX is a group of IEEE standards that define the API, shell, and utility interfaces for an
 operating system.
@@ -8715,6 +8738,10 @@ dataflow programming: code executes when the data it depends on becomes availabl
 -----
 reactive programming: programs automatically react to the propagation of changes.
 reactive programming: components react to changes in data that are propagated to them rather than use imperative wiring
+reactive programming: non-blocking, event-driven architecture
+---
+contract for interop between non-blocking components: reactive streams spec
+API for composing asynchronous programs: ReactiveX
 
 binary compatibility: can run the same executable code
 -----
@@ -9043,7 +9070,7 @@ Amdahl's Law is a law governing the speedup of using parallel processors on a pr
 only one serial processor
 ===
 Amdahl's law is often used in parallel computing to predict the theoretical speedup when using
-multiple processors.
+multiple processors. the speedup is limited by the time needed for sequential processing.
 ===
 Amdahl's law: the more often, or the longer, that threads have to wait for one another, the less
 the system is able to benefit from adding more hardware to it.
@@ -10845,7 +10872,7 @@ generated object should have, but hides how to set them.
 
 consider builder pattern if the constructor requires a lot of parameters.
 
-A future is a read-only placeholder view of a vari- able; that is, its role is to contain a value
+A future is a read-only placeholder view of a variable; that is, its role is to contain a value
 and nothing more.  A promise is a writable, single-assignment container that sets the value of the
 future. Promises may deine an API that can be used to react to a future’s state changes, such as the
 value being resolved, the value being rejected due to an error (expected or unexpected), or the
@@ -11355,6 +11382,9 @@ result will be available sooner if conditions resolve such that the speculation 
 
 HTML5 Shiv is a JavaScript workaround to enable styling of HTML5 elements in versions of Internet
 Explorer prior to version 9, which do not allow unknown elements to be styled without JavaScript.
+--
+HTML5 shiv: allow older browsers to recognize certain html5 tags. without the shiv, you can still
+use them, however, any CSS styling will be lost in non-supportive browsers.
 
 Leet (or "1337"), also known as eleet or leetspeak, is an alternative alphabet for many languages
 that is used primarily on the Internet. It uses some characters to replace others in ways that play
@@ -11449,3 +11479,59 @@ in a single namespace, which is analogous to a relational schema.
 here document is a file literal or input stream literal
 
 microservices: creating a system from very small, simple services
+
+exception handling strategy:
+1. handle error at the local level, retry or recover
+2. else propagate to the higher level (propagate as is or translate exception)
+
+DNS cache poisoning
+Injecting false information into the caches of the DNS system so that future requests are diverted
+to another site.
+
+man-in-the-middle attack
+==
+An unauthorized interception of network traffic. The packets are viewed or modified by the
+perpetrator and sent on to the recipient, who is unaware of the intrusion. A man-in-the-middle
+attack can be used to intercept an encrypted message exchange and spoof the recipient into thinking
+the message is intact from a legitimate sender. In such a case, the attackers replace the public key
+from the original sender with their own public key in order to decrypt the message that will be sent
+back from the unsuspecting recipient.
+
+diode test
+1. A good forward-based diode displays a voltage drop ranging from 0.5 to 0.8 volts for the most
+commonly used silicon diodes.
+2. The multimeter displays OL when a good diode is reverse-biased. The OL reading indicates the diode
+is functioning as an open switch.
+3. A bad (opened) diode does not allow current to flow in either direction. A multimeter will display
+OL in both directions when the diode is opened.
+4. A shorted diode has the same voltage drop reading (approximately 0.4 V) in both directions.
+5. The forward-biased resistance of a good diode should range from 1000 Ω to 10 MΩ.
+6. The resistance measurement is high when the diode is forward-biased because current from the
+multimeter flows through the diode, causing the high-resistance measurement required for testing.
+7. The reverse-biased resistance of a good diode displays OL on a multimeter. The diode is bad if
+readings are the same in both directions.
+
+unit of processing logic, unit of reasoning:
+OOP: object
+reactive programming: the stream of events
+functional programming: function
+
+augmented reality: computer-generated images are superimposed on top of live images
+
+back-pressure: the feedback from a component under stress to its upstream component
+so that the upstream component can reduce its load.
+
+In web development, a polyfill is code that implements a feature on web browsers that do not support
+the feature. Most often, it refers to a JavaScript library that implements an HTML5 web standard,
+either an established standard (supported by some browsers) on older browsers, or a proposed
+standard (not supported by any browsers) on existing browsers. Formally, "a polyfill is a shim for a
+browser API".
+===
+Polyfills allow web developers to use an API regardless of whether it is supported by a browser or
+not, and usually with minimal overhead. Typically they first check if a browser supports an API, and
+use it if available, otherwise using their own implementation.
+
+location transparency is the use of names to identify network resources, rather than their actual
+location. For example, files are accessed by a unique file name, but the actual data is stored in
+physical sectors scattered around a disk in either the local computer or in a network. In a location
+transparency system, the actual location where the file is stored doesn't matter to the user.

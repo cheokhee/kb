@@ -1872,6 +1872,8 @@ http -v POST URL name=blah appcontext:cheok
 http POST :2525 #assume localhost
 #4. post from file
 http POST url < file.json
+#5. http -h #print only response header
+#6. http -b #print only response body
 -- curl equivalent:
 curl -s -X POST --data '@/path/to/filename.json' URL
 curl -s -X POST --data-binary '@/path/to/filename.json' URL
@@ -2004,3 +2006,43 @@ export -f ls
 the script will execute the ls function
 lesson: script will execute function first. attackers can make scripts do something else.
 script should use absolute path to commands.
+
+== class test command ==
+-a <FILE>	True if <FILE> exists. (not recommended, may collide with -a for AND, see below)
+-e <FILE>	True if <FILE> exists.
+-f <FILE>	True, if <FILE> exists and is a regular file.
+-d <FILE>	True, if <FILE> exists and is a directory.
+-c <FILE>	True, if <FILE> exists and is a character special file.
+-b <FILE>	True, if <FILE> exists and is a block special file.
+-p <FILE>	True, if <FILE> exists and is a named pipe (FIFO).
+-S <FILE>	True, if <FILE> exists and is a socket file.
+-L <FILE>	True, if <FILE> exists and is a symbolic link.
+-h <FILE>	True, if <FILE> exists and is a symbolic link.
+-g <FILE>	True, if <FILE> exists and has sgid bit set.
+-u <FILE>	True, if <FILE> exists and has suid bit set.
+-r <FILE>	True, if <FILE> exists and is readable.
+-w <FILE>	True, if <FILE> exists and is writable.
+-x <FILE>	True, if <FILE> exists and is executable.
+-s <FILE>	True, if <FILE> exists and has size bigger than 0 (not empty).
+-t <fd>	True, if file descriptor <fd> is open and refers to a terminal.
+<FILE1> -nt <FILE2>	True, if <FILE1> is newer than <FILE2> (mtime).
+<FILE1> -ot <FILE2>	True, if <FILE1> is older than <FILE2> (mtime).
+<FILE1> -ef <FILE2>	True, if <FILE1> and <FILE2> refer to the same device and inode numbers.
+===
+-z <STRING>	True, if <STRING> is empty.
+-n <STRING>	True, if <STRING> is not empty (this is the default operation).
+<STRING1> = <STRING2>	True, if the strings are equal.
+<STRING1> != <STRING2>	True, if the strings are not equal.
+<STRING1> < <STRING2>	True if <STRING1> sorts before <STRING2> lexicographically (pure ASCII, not current locale!).
+                        Remember to escape! Use \<
+<STRING1> > <STRING2>	True if <STRING1> sorts after <STRING2> lexicographically (pure ASCII, not current locale!).
+                        Remember to escape! Use \>
+==
+<INTEGER1> -eq <INTEGER2>	True, if the integers are equal.
+<INTEGER1> -ne <INTEGER2>	True, if the integers are NOT equal.
+<INTEGER1> -le <INTEGER2>	True, if the first integer is less than or equal second one.
+<INTEGER1> -ge <INTEGER2>	True, if the first integer is greater than or equal second one.
+<INTEGER1> -lt <INTEGER2>	True, if the first integer is less than second one.
+<INTEGER1> -gt <INTEGER2>	True, if the first integer is greater than second one.
+
+sysdig: monitor user activity in real-time

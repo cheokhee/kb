@@ -450,3 +450,21 @@ event handling:
 browser global object: window, document
 
 find page elements in JavaScript: CSS selectors
+
+reason for javascript template: avoid putting markup in your JS.
+
+the browser triggers reflows every time you change the page.
+reflows occur whenever the browser has to adjust the other content on the page
+to accommodate a geometry change in the DOM.
+
+javascript template: (1) with embedded JS (2) logic-less (allow you to pass variables)
+
+javascript templates: the best way to generate long strings of markup in JS.
+instead of doing it piece by piece, you build a template that generates an entire
+chunk of markup at once. templates eliminate the need to mix markup into your JS.
+templates are compiled according to the variables you pass into them.
+so your JS drive the content of the templates.
+--
+best practices: (1) put the template in the script tag
+<script> type="text/template"> ....
+(2) external templates: store it in a separate file. mean an extra HTTP request.

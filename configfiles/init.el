@@ -39,7 +39,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode realgud zygospore ws-butler w3m tablist restclient pallet js3-mode iedit helm-swoop helm-projectile helm-gtags helm-google helm-flycheck helm-ag groovy-mode go-scratch go-eldoc ggtags enh-ruby-mode company-tern company-irony company-go auto-complete anzu ace-window)))
+    (markdown-mode zygospore ws-butler w3m tablist restclient pallet js3-mode iedit helm-swoop helm-projectile helm-gtags helm-google helm-flycheck helm-ag groovy-mode go-scratch go-eldoc ggtags enh-ruby-mode company-tern company-irony company-go auto-complete anzu ace-window)))
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
  '(projectile-mode-line nil)
@@ -206,7 +206,7 @@
      (add-to-list 'ibuffer-never-show-predicates "*GNU Emacs*")))
 (set-register ?i '(file . "~/.emacs.d/init.el"))
 (set-register ?q '(file . "~/d/cheok/IRIS4/sql/qa_DnD.sql"))
-(set-register ?t '(file . "~/d/cheok/tasks/cheok_notes.txt"))
+(set-register ?t '(file . "/home/heech/office-notes/cheok_notes.txt"))
 (set-register ?g '(file . "/home/heech/gitrepo/kb/notes/things.txt"))
 (set-register ?n '(file . "/home/heech/gitrepo/kb/notes/notes.txt"))
 (set-register ?o '(file . "/home/heech/office-notes/office-notes-2017.org"))
@@ -393,7 +393,7 @@ by using nxml's indentation rules."
   (delete-process "Tern"))
 (setenv "ORACLE_HOME" "/home/heech/sql-client")
 (setenv "SQLPATH" "/home/heech/sql-client/sqlplus")
-
+(setenv "LD_LIBRARY_PATH" "/home/heech/instantclient_11_2")
 (defun term-toggle-mode ()
   "Toggles term between line mode and char mode"
   (interactive)

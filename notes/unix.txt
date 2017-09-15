@@ -474,6 +474,8 @@ let b=b+10
 
 #create temp files
 mktemp --tmpdir=. tmp.XXX
+mktemp --tmpdir=.
+tempfile -d .
 
 /dev/random and /dev/urandom : random number generator from the kernel
 /dev/random blocks if there is not enough noise in the entropy pool
@@ -1085,6 +1087,8 @@ exiftool
 lsof -i:7474 -sTCP:LISTEN -t
 #-i: show only network-related files, -P: show port numbers instead of names
 lsof -i -P
+#-n: don't convert IP address, -P: don't convert port number
+lsof -nPi tcp:2525
 
 dstat output:
 cpu: user, sys, idle, wai, hiq, siq
