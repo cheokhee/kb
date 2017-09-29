@@ -4953,6 +4953,8 @@ non-IoC: your code is in control
 IoC: your code is not in control
 ===
 IoC: the caller controls the execution order, but the program logic is in the called routines.
+===
+IoC container: an runtime execution environment
 
 do a number on
 to damage or ruin something; to destroy something
@@ -7075,6 +7077,9 @@ a guarantee that state changes made by one thread is visible to all threads.
 happened-before relationship  is a guarantee that memory written to by statement A is visible to statement B,
 that is, that statement A completes its write before statement B starts its read
 ---
+happens-before relationship: a guarantee that state changes made by one thread is visible to another thread.
+happens-before relationship: it relates only to visibilities of an effect. does not mandate execution order.
+
 In concurrent programming, a monitor is a synchronization construct that allows threads to have both mutual exclusion and the ability to wait (block) for a certain condition to become true. Monitors also have a mechanism for signalling other threads that their condition has been met.
 --
 monitor : a construct that allows threads to gain exclusive access to an object. it also allows threads to wait (block) for a certain
@@ -7741,7 +7746,8 @@ H.264 and AAC in MP4 container
 
 continuous integration: every check-in is verified by an automated build.
 continuous delivery: every check-in is delivered to a staging area or non-production environment (proven to be deployable)
-continuous deployment: every check-in is deployed to production.
+continuous deployment: every check-in is deployed to production. a process in which every incremental software
+change is automatically tested and deployed to production.
 
 fork-join paradigm:
 In parallel computing, the fork–join model is a way of setting up and executing parallel programs,
@@ -7994,6 +8000,10 @@ function completes, its frame is popped off the stack and all local variables di
 call stack: the chain of active functions that are currently executing.
 ----
 stack frame: a data structure created on the stack to hold the data required for a function call.
+--
+The main function of the call stack is to keep track of the caller of a given routine, execute the
+invoked routine while blocking the caller in the process, and returning control to the caller with a
+return value (or nothing at all).
 
 Union file systems allow files and directories of separate file systems, known as branches, to be
 transparently overlaid, forming a single coherent file system.
@@ -9074,6 +9084,9 @@ multiple processors. the speedup is limited by the time needed for sequential pr
 ===
 Amdahl's law: the more often, or the longer, that threads have to wait for one another, the less
 the system is able to benefit from adding more hardware to it.
+===
+Amdahl's law: shows that the theoretical speedup of a system is limited by the serial parts, which
+means that the system can experience diminishing returns as new resources are added.
 
 work stealing:
 In parallel computing, work stealing is a scheduling strategy for multithreaded computer programs.
@@ -10364,9 +10377,13 @@ sequences.
 RxJava is the open-source implementation of ReactiveX in Java. The two main classes are Observable
 and Subscriber. In RxJava, an Observable is a class that emits a stream of data or events, and a
 Subscriber is a class that acts upon the emitted items.
+---
+reactive streams: a standard for asynchronous stream processing with non-blocking back pressure
 
 WebAssembly or wasm is a low-level programming language for in-browser client-side scripting, which
 is currently in development. Its initial aim is to support compilation from C and C++
+---
+WebAssembly: a binary compilation target for the browser.
 
 Configuration management tools are used to repeatably and consistently manage the configuration of
 systems and the services that they provide entirely through code.
@@ -10737,6 +10754,19 @@ DOM is the language-independent representation of the HTML documents, which dein
 of the document.
 --
 XPath is a way to navigate an XML document.
+
+DOM stands for Document Object Model and is an abstraction of a structured text. For web developers,
+this text is an HTML code, and the DOM is simply called HTML DOM. Elements of HTML become nodes in
+the DOM. So, while HTML is a text, the DOM is an in-memory representation of this text.
+==
+The HTML DOM provides an API to traverse and modify the nodes. It contains methods like
+getElementById or removeChild.
+whenever we want to dynamicly change the content of the web page, we modify the DOM
+HTML DOM is always tree-structured
+==
+Virtual DOM is an abstraction of the HTML DOM. It is lightweight and detached from the
+browser-specific implementation details. Since the DOM itself was already an abstraction, the
+virtual DOM is, in fact, an abstraction of an abstraction.
 
 entropy: the measure of energy dispersal. measure how much energy is spread out or how
 spread out the initial energy of a system becomes
@@ -11518,8 +11548,44 @@ functional programming: function
 
 augmented reality: computer-generated images are superimposed on top of live images
 
-back-pressure: the feedback from a component under stress to its upstream component
-so that the upstream component can reduce its load.
+back-pressure: the feedback from a subscriber under stress to its publisher
+so that the publisher can reduce its load.
+--
+Back pressure describes the build-up of data, when the incoming task rate is higher than the
+system’s ability to process them -- resulting in a buffer of unhandled data.
+--
+consider fast publisher vs slow subscriber
+fast publisher will send at-most 3 elements. this is pull-based back pressure.
+---
+the idea behind backpressure is the ability to say "hey slow down!"
+---
+backpressure is signaled up to the source when the buffer becomes full
+==
+When an asynchronous consumer subscribes to receive messages from a producer, it will typically
+provide some form of callback method to be invoked whenever a new message becomes available. If the
+producer emits messages at a higher rate than the consumer can handle, the consumer could be forced
+to seize an increasing amount of resources and potentially crash. In order to prevent this, a
+mechanism is needed by which consumers can notify producers that the message rate needs to be
+reduced. Producers can then adopt one of multiple strategies to achieve this. This mechanism is
+called back pressure.
+==
+The way to achieve non-blocking back pressure is to move from a push strategy, where the producer
+sends messages to the consumer as soon as these are available, to a pull strategy, where the
+consumer requests a number of messages to the producer and this sends only up to this amount,
+waiting for further requests before sending any more.
+--
+subscriber can establish 'reactive pull' backpressure
+---
+back pressure: a mechanism by which a consumer notifies the producer to reduce its message rate.
+--
+back pressure is a way to ensure a fast publisher doesn’t overwhelm a slow subscriber
+--
+Back pressure provides resilience by ensuring that all participants in a stream-based system
+participate in flow control to ensure steady state of operation and graceful degradation.
+--
+Reactive Streams is effectively push-based. It has a single mode of operation, which works like a
+pull-based system when the subscriber is slower and a push-based system when the subscriber is
+faster.
 
 In web development, a polyfill is code that implements a feature on web browsers that do not support
 the feature. Most often, it refers to a JavaScript library that implements an HTML5 web standard,
@@ -11535,3 +11601,112 @@ location transparency is the use of names to identify network resources, rather 
 location. For example, files are accessed by a unique file name, but the actual data is stored in
 physical sectors scattered around a disk in either the local computer or in a network. In a location
 transparency system, the actual location where the file is stored doesn't matter to the user.
+
+The triboelectric effect (also known as triboelectric charging) is a type of contact electrification
+in which certain materials become electrically charged after they come into frictional contact with
+a different material.
+
+Neil Günter’s Universal Scalability Law is an essential tool in understanding the effects of
+contention and coordination in concurrent and distributed systems, and shows that the cost of
+coherency in a system can lead to negative results, as new resources are added to the system.
+
+A namespace is a declarative region that provides a scope to the identifiers (the names of types,
+functions, variables, etc) inside it. Namespaces are used to organize code into logical groups and
+to prevent name collisions.
+==
+A namespace in computer science (sometimes also called a name scope), is an abstract container or
+environment created to hold a logical grouping of unique identifiers or symbols (i.e. names). An
+identifier defined in a namespace is associated only with that namespace.
+
+All the sectors on a disk platter that can be read without moving the head constitute a track. Disks
+usually have more than one platter. The collection of tracks on the various platters that can be
+read without moving the head is called a cylinder. The geometry of a hard drive is expressed in
+cylinders, tracks (or heads) per cylinder, and sectors/track.
+
+configuration management: the process for establishing and maintaining the consistency
+of a system
+
+In a brownfield project the structure would need to be demolished or renovated. Today, the term
+brownfield project is used in many industries, including software development, to mean to start a
+project based on prior work or to rebuild (engineer) a product from an existing one.
+greenfield project: a project not constrained by prior work.
+
+Bandwidth throttling is the intentional slowing of Internet service by an Internet service provider.
+
+In software, a throttling process, or a throttling controller as it is sometimes called, is a
+process responsible for regulating the rate at which application processing is conducted, either
+statically or dynamically.
+
+Streams are a series of elements emitted over time.
+
+reactive systems: a set of architectural design principles.
+reactive manifesto: responsive, resilient, elastic, message-driven
+A responsive application is both elastic and resilient.
+A responsive system is quick to react to all users
+--
+message-driven application may be event-driven, actor-based, or a combination of the two.
+--
+An event-driven system is based on events which are monitored by zero or more observers. This is
+different than imperative programming because the caller doesn’t need to block waiting for a
+response from the invoked routine. Events are not directed to a specific address, but rather watched
+(or listened) for
+--
+Actor-based concurrency is an extension of the message-passing architecture, where messages are
+directed to a recipient, which happens to be an actor. Messages may cross thread boundaries or be
+passed to another actor’s mailbox on a different physical server.
+--
+The main difference between messages and events is that messages are directed while events
+happen. Messages have a clear destination while events may be observed by zero or more (0-N)
+observers
+--
+The big difference between event-driven and imperative style is that the caller does not block and
+hold onto a thread while waiting for a response.
+==
+A message is an item of data that is sent to a specific destination. An event is a signal emitted by
+a component upon reaching a given state. In a message-driven system addressable recipients await the
+arrival of messages and react to them, otherwise lying dormant. In an event-driven system
+notification listeners are attached to the sources of events such that they are invoked when the
+event is emitted. This means that an event-driven system focuses on addressable event sources while
+a message-driven system concentrates on addressable recipients.
+==
+message has a clear destination. events are just facts for others to observe.
+
+decoupling in time allows for concurrency.
+decoupling in space allows for distribution and mobility.
+
+Callback hell occurs because the recipients of messages are anonymous callbacks instead of
+addressable recipients. Common solutions to callback hell focus purely on the syntactic
+aspect — aka, the Pyramid of Doom
+--
+the pyramid of doom is a common problem that arises when a program uses many levels of nested
+indentation to control access to a function. It is commonly seen when checking for null pointers or
+handling callbacks
+
+Actor-based applications revolve around asynchronous message passing between multiple actors.
+--
+An actor is a construct with the following properties:
+A mailbox for receiving messages.
+The actor’s logic, which relies on pattern matching to determine how to handle each type of message it receives.
+Isolated state — rather than shared state — for storing context between requests.
+
+HTML5 canvas
+
+CSS preprocessor: allow you to script your CSS with custom variables and functions
+LESS: JavaScript-based
+SASS: Ruby-based
+
+Web Components consists of several separate technologies. You can think of Web Components as
+reusable user interface widgets that are created using open Web technology.
+--
+Web Components are a set of features currently being added by the W3C to the HTML and DOM
+specifications that allow for the creation of reusable widgets or components in web documents and
+web applications. The intention behind them is to bring component-based software engineering to the
+World Wide Web. The components model allows for encapsulation and interoperability
+of individual HTML elements.
+--
+Web Components consist of 4 main features which can be used separately or all together:
+--
+Custom Elements - APIs to define new HTML elements
+Shadow DOM - Encapsulated DOM and styling, with composition
+HTML Imports - Declarative methods of importing HTML documents into other documents
+HTML Templates - The <template> element, which allows documents to contain inert chunks of DOM

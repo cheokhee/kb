@@ -273,6 +273,10 @@ diff -r max tmp/max #identical
 ---
 #2 Copy contents of one directory to another:
 rsync -r /path/to/directory/* host:/path/to/directory/
+OR
+# src will then match /media/heech/CHEOK/java/Playground/src
+rsync -av src/* /media/heech/CHEOK/java/Playground/src
+alternative: rsync -av src /media/heech/CHEOK/java/Playground
 ----
 #2a. dest does not or does exist (dest dir is created if necessary)
 eg rsync -av max/* tmp/ # same as rsync -av max/* tmp
@@ -557,10 +561,32 @@ journalctl -b -1 #with boot it
 journalctl --list-boots
 timedatectl
 timedatectl status
+====
+/lib/systemd/system/multi-user.target.wants/
+/lib/systemd/system/reboot.target.wants/
+/etc/systemd/system/multi-user.target.wants/
 
 coredumpctl from systemd-coredump
 bootctl - Control the firmware and boot manager settings
 systemd-cgtop
+
+== execute shell script at startup boot using systemd ==
+https://linuxconfig.org/how-to-automatically-execute-shell-script-at-startup-boot-on-systemd-linux
+1. create a file disk-space-check.service in /etc/systemd/system/
+=== file
+[Unit]
+After=mysql.service
+
+[Service]
+ExecStart=/usr/local/bin/disk-space-check.sh
+
+[Install]
+WantedBy=default.target
+===
+note: After: means run our script after mysql has been started
+2.
+systemctl daemon-reload
+systemctl enable my_systemd_script.service
 
 xxd: make a hex dump
 
@@ -2046,3 +2072,48 @@ script should use absolute path to commands.
 <INTEGER1> -gt <INTEGER2>	True, if the first integer is greater than second one.
 
 sysdig: monitor user activity in real-time
+
+copy with relative path
+after operation, we have ~/wow/org/apache/maven/plugins/maven-install-plugin/2.4
+#1. rsync -R
+rsync -avR org/apache/maven/plugins/maven-install-plugin/2.4/* ~/wow
+#2. cp --parents
+cp --parents org/apache/maven/plugins/maven-install-plugin/2.4/* ~/wow
+#3. tar
+tar cf - org/apache/maven/plugins/maven-install-plugin/2.4 | tar xf - -C ~/wow
+
+expr command:
+expr length "cheok" #length of string
+expr 6 / 4 #quotient
+expr 6 % 4 #remainder
+===
+expr string : regexp
+regexp has to match entire string
+example:
+#1. expr linux : lin    #return # of chars matched
+return 3, exit status: 0
+#2. expr linux : '\(lin\)' #print matched chars
+return lin
+
+#implement dirname as a function
+function dirname(){ echo $1 | sed 's:\(.*\)/.*:\1:'; }
+
+#current directory only
+find . -maxdepth 1
+find . -mindepth 1 #don't show current directory (.)
+-mindepth 1 means process all files except the starting-points.
+
+lslogins - display information about known users in the system
+lastlog
+
+LVM (logical volume manager) is a method of allocating hard drive space into logical volumes that
+can be easily resized instead of partitions
+
+# number the columns
+head -1 ??.csv | tr "," "\n" | nl
+
+#make column lists , or make a table
+(printf "PERM LINKS OWNER GROUP SIZE MONTH DAY HH:MM/YEAR NAME\n" ; ls -l | sed 1d) | column -t
+
+#replace the 2nd occurrence of a pattern
+echo "this,is,just,a,test" | sed 's/,/ /2'

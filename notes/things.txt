@@ -192,21 +192,22 @@ npm install blockchain-cli -g
 
 =========== end of packages ==============
 
-ace-window-0.9.0/               epl-20150517.433/            helm-gtags-20160123.2129/      pyvenv-1.9/
-anzu-20150802.2203/             f-20160426.527/              helm-projectile-20150826.321/  realgud-20170218.740/
-archives/                       find-file-in-project-3.3/    helm-swoop-20150704.839/       restclient-20151128.1512/
-async-20150529.529/             flycheck-20150821.47/        highlight-indentation-0.6.0/   s-20140910.334/
-auto-complete-20150225.715/     ggtags-20151214.1344/        iedit-20150415.1804/           shut-up-20150423.522/
-avy-0.3.0/                      gnupg/                       irony-20160203.1207/           tablist-20150618.2218/
-cask-20151123.528/              go-eldoc-0.26/               js3-mode-20140805.1529/        tern-20150302.211/
-company-20150706.347/           go-mode-20160503.7/          let-alist-1.0.4/               test-simple-20170117.411/
-company-go-20150824.214/        google-20140416.1048/        load-relative-20160716.438/    w3m-20150513.1/
-company-irony-20150810.239/     go-scratch-20150809.2140/    loc-changes-20160801.1008/     ws-butler-20150126.759/
-company-tern-20150525.216/      groovy-mode-201203310931/    package-build-20160430.1701/   yasnippet-20150415.244/
-dash-20150717.1321/             helm-20150604.831/           pallet-20150512.2/             zygospore-20140703.152/
-dash-functional-20150311.2358/  helm-ag-20160126.2147/       pkg-info-20150517.443/
-elpy-20170414.319/              helm-flycheck-20140915.752/  popup-20150315.612/
-enh-ruby-mode-20150215.136/     helm-google-20160620.1149/   projectile-20150728.2141/
+ace-window-0.9.0/               enh-ruby-mode-20150215.136/      helm-google-20160620.1149/     popup-20150315.612/
+anzu-20150802.2203/             epl-20150517.433/                helm-gtags-20160123.2129/      projectile-20150728.2141/
+archives/                       f-20160426.527/                  helm-projectile-20150826.321/  pyvenv-1.9/
+async-20150529.529/             find-file-in-project-3.3/        helm-swoop-20150704.839/       realgud-20170907.916/
+auto-complete-20150225.715/     flycheck-20150821.47/            highlight-indentation-0.6.0/   restclient-20151128.1512/
+avy-0.3.0/                      ggtags-20151214.1344/            iedit-20150415.1804/           s-20140910.334/
+cask-20151123.528/              gnupg/                           irony-20160203.1207/           shut-up-20150423.522/
+company-20150706.347/           go-eldoc-0.26/                   js3-mode-20140805.1529/        sqlplus-20170710.150/
+company-go-20150824.214/        go-mode-20160503.7/              let-alist-1.0.4/               tablist-20150618.2218/
+company-irony-20150810.239/     google-20140416.1048/            load-relative-20160716.438/    tern-20150302.211/
+company-tern-20150525.216/      go-scratch-20150809.2140/        loc-changes-20160801.1008/     test-simple-20170117.411/
+csv-mode-1.6/                   goto-last-change-20150109.1023/  markdown-mode-20170516.1824/   w3m-20150513.1/
+dash-20150717.1321/             groovy-mode-201203310931/        package-build-20160430.1701/   ws-butler-20150126.759/
+dash-functional-20150311.2358/  helm-20150604.831/               pallet-20150512.2/             yasnippet-20150415.244/
+dired+-20170818.1411/           helm-ag-20160126.2147/           pkg-info-20150517.443/         zygospore-20140703.152/
+elpy-20170903.143/              helm-flycheck-20140915.752/      point-undo-20100504.129/
 
 my changes to yasnippet-20150415.244:
 in snippets directory: add a symbolic link from js3-mode -> js-mode

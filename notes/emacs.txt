@@ -249,3 +249,15 @@ preceding symbols bound in this let* form.
 indent by n spaces: use indent-rigidly (C-x TAB), need to mark region first
 -> C-u 10 C-x TAB ; indent by 10 spaces
 -> C-u -999 C-x TAB ; remove all indent
+
+toggle-truncate-lines
+
+csv-mode: only align visible lines
+
+(add-hook 'csv-mode-hook
+  (lambda ()
+    (define-key csv-mode-map (kbd "C-c C-c")
+    (defun csv-align-visible (&optional arg)
+      "Align visible fields"
+      (interactive "P")
+      (csv-align-fields nil (window-start) (window-end))))))

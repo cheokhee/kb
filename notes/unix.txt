@@ -605,6 +605,10 @@ cheok hee
 wow damn
 $ join f1 f2
 cheok 10 hee
+--join example
+join -t "|" in-vj-only.txt in-mine-only.txt
+#show only in file 1
+join -v 1 -t "|" in-vj-only.txt in-mine-only.txt
 
 various programs:
 colrm : remove columns
@@ -612,6 +616,19 @@ fmt: formatting
 look:  display lines beginning with a given string
 nl: number lines
 rev: reverse chars in a line
+
+colrm example:
+file:
+1234567890
+abcdefghij
+===
+$ cat file | colrm 2 3
+14567890
+adefghij
+===
+$ cat file | colrm 1 1
+234567890
+bcdefghij
 
 #test redirection
 #corresponding C function: isatty

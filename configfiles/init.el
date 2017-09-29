@@ -39,7 +39,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode zygospore ws-butler w3m tablist restclient pallet js3-mode iedit helm-swoop helm-projectile helm-gtags helm-google helm-flycheck helm-ag groovy-mode go-scratch go-eldoc ggtags enh-ruby-mode company-tern company-irony company-go auto-complete anzu ace-window)))
+    (dired+ goto-last-change point-undo sqlplus csv-mode markdown-mode zygospore ws-butler w3m tablist restclient pallet js3-mode iedit helm-swoop helm-projectile helm-gtags helm-google helm-flycheck helm-ag groovy-mode go-scratch go-eldoc ggtags enh-ruby-mode company-tern company-irony company-go auto-complete anzu ace-window)))
  '(pcomplete-ignore-case t)
  '(projectile-completion-system (quote helm))
  '(projectile-mode-line nil)
@@ -57,6 +57,8 @@
  '(shr-color-visible-luminance-min 100)
  '(smex-save-file "~/.emacs.d/.smex-items")
  '(split-width-threshold 9999)
+ '(sqlplus-multi-output-tables-default-flag nil)
+ '(sqlplus-pagesize 50)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(tramp-default-method "ssh")

@@ -456,6 +456,8 @@ reason for javascript template: avoid putting markup in your JS.
 the browser triggers reflows every time you change the page.
 reflows occur whenever the browser has to adjust the other content on the page
 to accommodate a geometry change in the DOM.
+--
+to minimize reflow, batch DOM changes and insert them all at once.
 
 javascript template: (1) with embedded JS (2) logic-less (allow you to pass variables)
 

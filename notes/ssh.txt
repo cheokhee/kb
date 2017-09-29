@@ -37,3 +37,7 @@ ssh tunnel:
 Basically, it makes a port on your laptop that gets sent over SSH to a port on the server. You then
 connect to the localhost port (in this case, 5901):
 ssh -L 5901:localhost:5901 -i ~/mykeyfile.pem ubuntu@myec2hostname
+
+windows workaround:
+copy the key files under %userprofile%/.ssh to C:\Program Files (x86)\Git\.ssh or
+D:\Git\.ssh (wherever git is installed)

@@ -355,9 +355,6 @@ Files.move()
 Files.readAllBytes()
 Paths
 
-the Java memory model defines when changes made by one thread become visible
-to another thread.
-
 === condition variable ===
 lock = new ReentrantLock();
 condition = lock.newCondition();
@@ -473,6 +470,10 @@ try with resource: variables are closed in the reverse order from which they wer
 
 java.nio : Path, Paths, FileSystem, Files, WatchService,
 java.nio: asynchronous I/O
+java.nio.file.Path -> register(aWatchService) : detect changes in a directory
+java.nio.file.Files
+java.nio.file.Paths
+get a WatchService from java.nio.file.FileSystem.newWatchService()
 
 Guice: the reference implementation for dependency injection in Java
 
@@ -945,6 +946,10 @@ IntStream.generate(() -> ThreadLocalRandom.current().nextInt(10)).limit(3);
 IntStream.range(1, 5).map(i -> i * i);
 // > 1, 4, 9, 16
 Stream<Color> stream = IntStream.range(1, 5).mapToObj(i -> getColor(i));
+===
+IntStream.rangeClosed(0, 2).boxed().map(x -> String.valueOf(x)).collect(Collectors.joining(","));
+SAME AS
+IntStream.rangeClosed(0, 2).mapToObj(x -> String.valueOf(x)).collect(Collectors.joining(","));
 
 Arrays.toString
 
@@ -1224,6 +1229,11 @@ If there are multiple annotated Rules on a class, they will be applied in order 
 then methods
 
 java memory model defines how threads in the java language interact through memory.
+==
+The Java memory model specifies how and when different threads can see values written to shared
+variables by other threads, and how to synchronize access to shared variables when necessary.
+==
+the Java memory model defines when changes made by one thread become visible to another thread.
 
 volatile: threads will see the latest value
 
@@ -1431,14 +1441,18 @@ return new java.util.Enumeration() {
 
 
 == RxJava ==
-RxJava is a Java VM implementation of ReactiveX (Reactive Extensions): a API for composing
+RxJava 1 is a Java VM implementation of ReactiveX (Reactive Extensions): a API for composing
 asynchronous and event-based programs by using observable streams.
+RxJava 2 implements Reactive Streams
 --> you can decouple your services from one another.
 reactive: event-driven, scalable, resilient (graceful error handling, manage failure), responsive
 event-driven: react to events
 scalable: react to load
-resilient: react to failure
+resilient: react to failure, Resilience is about responsiveness under failure
 responsive: react to user
+elastic: responsiveness under load
+meaning that the throughput of a system scales up or down (as well as in or out) automatically to
+meet varying demand as resources are proportionally added or removed.
 
 RxJava : single-threaded by default: your subscribe calls and all observer
 event calls will be executed on the same thread that calls the subscribe method.
@@ -1481,6 +1495,17 @@ example:
 database.subscribeOn(Schedulers.newThread())          //Observable runs on new background thread.
         .observeOn(AndroidSchedulers.mainThread())    //Observer will run on main UI thread.
         .subscribe(observer);                         //Subscribe the observer
+====
+subscriber can establish 'reactive pull" backpressure
+by calling Subscriber.request(n) in the Subscriber’s onStart() method
+https://github.com/ReactiveX/RxJava/wiki/Backpressure
+--
+cold Observables : they only pump when there is a subscriber, and all subscribers receive the exact
+set of historical data, regardless when they subscribe.
+Hot Observables: pump regardless of the number of subscribers and generally pump just the latest data
+to all subscribers (unless some caching strategy is applied).
+--
+Flowable class: implements flow control
 
 VertX is a server framework for asynchronous servers while RxJava is a framework for asynchronous
 computations.
@@ -1497,3 +1522,47 @@ heap histogram:
 -XX:+PrintClassHistogram and Control+Break
 jcmd <process id/main class> GC.class_histogram filename=Myheaphistogram
 jmap -histo pid
+
+you must create a happens-before relationship between the write in one thread and the read
+in another thread.
+
+lambda expression stuff:
+1. If a lambda expression references a local variable, it must be final or effectively final.
+2. lambda expression can reference a non-final static variable.
+
+An object's member variables are stored on the heap along with the object itself.
+Static class variables are also stored on the heap along with the class definition.
+A local variable may be of a primitive type, in which case it is totally kept on the thread stack.
+==
+A local variable may also be a reference to an object. In that case the reference (the local
+variable) is stored on the thread stack, but the object itself is stored on the heap.
+==
+An object may contain methods and these methods may contain local variables. These local variables
+are also stored on the thread stack, even if the object the method belongs to is stored on the heap.
+==
+Objects on the heap can be accessed by all threads that have a reference to the object. When a
+thread has access to an object, it can also get access to that object's member variables. If two
+threads call a method on the same object at the same time, they will both have access to the
+object's member variables, but each thread will have its own copy of the local variables.
+
+arrays are objects and are allocated on the heap
+
+Java 7: final rethrow
+
+java.nio.channels.AsynchronousFileChannel
+1. use Future paradigm if you want your main thread to initiate I/O and then poll the results of
+that I/O. AsynchronousFileChannel is associated with a thread pool.
+===
+AsynchronousFileChannel channel = AsynchronousFileChannel.open(aPath)
+ByteBuffer buffer = ByteBuffer.allocate(...)
+Future<Integer> result = channel.read(buffer, 0)
+while (!result.isDone()) { // do stuff }
+Integer bytesRead = result.get()
+
+signature: <R> Stream<R> map(Function<? super T, ? extends R> mapper)
+T is the input, R is the result
+Function interface has: R apply(T t);
+java.util.function.Function<String, Integer> f = (String x) -> x.length();
+
+A Technology Compatibility Kit (TCK) is a suite of tests that at least nominally checks a particular
+alleged implementation of a Java Specification Request (JSR) for compliance.
