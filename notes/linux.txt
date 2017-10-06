@@ -1903,6 +1903,8 @@ http POST url < file.json
 -- curl equivalent:
 curl -s -X POST --data '@/path/to/filename.json' URL
 curl -s -X POST --data-binary '@/path/to/filename.json' URL
+===
+--timeout SECONDS, default is 30 sec
 
 sed : extended regexp
 --
@@ -2117,3 +2119,17 @@ head -1 ??.csv | tr "," "\n" | nl
 
 #replace the 2nd occurrence of a pattern
 echo "this,is,just,a,test" | sed 's/,/ /2'
+
+
+#this does not work, syntax error
+while ...; do command &; done
+#this works
+while ...; do command & done
+#another solution
+while ...; do coproc command ; done
+
+coproc: a shell built-in
+Create a coprocess, Execute COMMAND asynchronously
+
+#delete last character from each line
+cat file | rev | colrm 1 1 | rev

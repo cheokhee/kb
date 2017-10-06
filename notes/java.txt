@@ -337,6 +337,7 @@ List<String> strings = stream.map(Object::toString)
 method reference:
 System.out::println is equivalent to x -> System.out.println(x)
 Math::pow is equivalent to (x,y) -> Math.pow(x,y)
+Comparator<Integer> normal = Integer::compare
 
 HashMap: no order
 TreeMap: iterate according to the natural ordering of the keys
@@ -523,7 +524,7 @@ GC flags:
 -XX:+PrintGCDateStamps
 -XX:+PrintGCApplicationConcurrentTime
 -XX:+DisableExplicitGC
--XX:+PrintGCTimeStamps
+-XX:+PrintGCTimeStamps #prepend relative timestamp since application starts
 -XX:+PrintGCDetails
 -XX:+PrintTenuringDistribution
 -XX:+PrintCommandLineFlags
@@ -545,6 +546,8 @@ For example, setting GCHeapFreeLimit to 8 percent can help the garbage collector
 loop of invoking back-to-back Full GCs when it is not able to reclaim at least 8% of the heap and is
 exceeding GCTimeLimit for 5 consecutive GCs.
 
+== JVM diagnostic flags ==
+get them from HotSpotDiagnostic MBean, attribute: DiagnosticOptions
 
 jvisualvm: visualizing memory usage
 
@@ -1566,3 +1569,113 @@ java.util.function.Function<String, Integer> f = (String x) -> x.length();
 
 A Technology Compatibility Kit (TCK) is a suite of tests that at least nominally checks a particular
 alleged implementation of a Java Specification Request (JSR) for compliance.
+
+java -verbose:class
+
+Thread.currentThread().getContextClassLoader()
+
+== jinfo ==
+jinfo <pid>
+
+if error: Can't attach to the process: ptrace(PTRACE_ATTACH, ..)
+solution: echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+== jinfo ==
+
+initial heap size : -Xms256m
+  1/64 of physical memory up to 1 GB
+max heap size: -Xmx1024m
+  1/4 of physical memory up to 1 GB
+
+https://github.com/chewiebug/GCViewer
+usage:
+java -jar gcviewer.jar log/gc.log.0.current summary.csv
+java -jar gcviewer.jar log/gc.log.0.current summary.csv chart.png
+# default: SUMMARY
+java -jar gcviewer.jar gc.log.0;gc.log.1;gc.log.2;gc.log.current summary.csv [chart.png] [-t PLAIN|CSV|CSV_TS|SIMPLE|SUMMARY]
+
+java 9:
+Reactive Streams API (in the form of the java.util.concurrent.Flow class).
+Process API has been updated, greatly improving Java’s ability to interact with the OS.
+Java Platform Module System, which modularizes the JDK, allowing administrators to only deploy the
+  necessary features of the JDK for the applications that are being run.
+Compact strings, where internally strings are stored as a byte array and an encoding, instead of a
+  char array of 2-byte Unicode characters.
+The Stack Walking API, allowing quick filtering and lazy traversal of a stack trace, via the
+java.lang.Stackwalker class.
+Unicode 8.0 support.
+
+Java 8 has 4 garbage collectors: Serial, Parallel (default), CMS, G1
+Java 8 garbage collector:
+Serial: do not use it
+---
+Parallel collector. This is the JVM’s default collector. its biggest advantage is that is uses
+multiple threads to scan through and compact the heap. The downside to the parallel collector is
+that it will stop application threads when performing either a minor or full GC collection. The
+parallel collector is best suited for apps that can tolerate application pauses and are trying to
+optimize for lower CPU overhead caused by the collector.
+  tuning: -XX:MaxGCPauseMillis=<N> in ms, it means pause time of N or less is desired
+  -XX:GCTimeRatio=<N>, which sets the ratio of garbage collection time to application time to 1 / (1 + <N>).
+==
+CMS collector (“concurrent-mark-sweep”). This algorithm uses multiple threads (“concurrent”) to scan
+through the heap (“mark”) for unused objects that can be recycled (“sweep”).
+This collector is for applications that prefer shorter garbage collection pauses and can afford to
+share processor resources with the garbage collection.
+===
+Garbage first collector (G1) introduced in JDK 7 update 4 was designed to better support heaps
+larger than 4GB. The G1 collector utilizes multiple background threads to scan through the heap that
+it divides into regions, spanning from 1MB to 32MB (depending on the size of your heap). G1
+collector is geared towards scanning those regions that contain the most garbage objects first,
+giving it its name (Garbage first). This collector is turned on using the -XX:+UseG1GC flag.
+  -XX:MaxGCPauseMillis
+---
+  -XX:+UseStringDeduplication : requires the G1 Garbage Collector and is turned off by default.
+  comes with Java 8 update 20. there is overhead.
+  -XX:+PrintStringDeduplicationStatistics
+====
+G1 collector is for multiprocessor machines with large memories. It meets garbage collection pause
+time goals with high probability while achieving high throughput.
+===
+CMS and G1 collectors will cause less frequent GC pauses. But when a pause do comes, its duration
+will most likely be longer than the one caused by the Parallel collector. On the other hand, the
+Parallel collector usually achieves higher throughput for the same size of heap.
+==
+CMS and G1 are mostly concurrent collector: perform its work concurrently while the app is still
+running to keep GC pauses short
+===
+If response time is more important than overall throughput and garbage collection pauses must be
+kept shorter than approximately 1 second, then select the concurrent collector with
+-XX:+UseConcMarkSweepGC or -XX:+UseG1GC.
+===
+
+profiler:
+#1. standard: connect directly to JVM: VisualVM, JProfiler, YourKit and Java Mission Control.
+#2. lightweight transaction profiler: XRebel and Stackify Prefix.
+a. Aspect Profilers use aspect-oriented programming (AOP) to inject code into the start and end of
+specified methods. The injected code can start a timer and then report the elapsed time when the
+method finishes.
+b. Java Agent profilers use the Java Instrumentation API to inject code into your application. This
+method has greater access to your application since the code is being rewritten at the bytecode
+level. This allows for any code running in your application to be instrumented
+#3. profiling in production (APM)
+New Relic, AppDynamics, Stackify Retrace, Dynatrace.
+use the Java Agent profiler method but with different instrumentation rules to allow them to run
+without affecting production performance.
+
+Neo4j VM flags:
+-XX:+DisableExplicitGC -XX:+FlightRecorder -XX:InitialHeapSize=8589934592 -XX:+ManagementServer
+-XX:MaxHeapSize=8589934592 -XX:-OmitStackTraceInFastThrow -XX:+PreserveFramePointer -XX:+PrintGC
+-XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps
+-XX:+PrintPromotionFailure -XX:+PrintTenuringDistribution -XX:+UnlockCommercialFeatures
+-XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseG1GC -XX:hashCode=5
+
+--serial
+Map<Person.Sex, List<Person>> byGender =
+    roster
+        .stream()
+        .collect(Collectors.groupingBy(Person::getGender));
+
+--parellel
+ConcurrentMap<Person.Sex, List<Person>> byGender =
+    roster
+        .parallelStream()
+        .collect(Collectors.groupingByConcurrent(Person::getGender));

@@ -11710,3 +11710,22 @@ Custom Elements - APIs to define new HTML elements
 Shadow DOM - Encapsulated DOM and styling, with composition
 HTML Imports - Declarative methods of importing HTML documents into other documents
 HTML Templates - The <template> element, which allows documents to contain inert chunks of DOM
+
+In computer programming, a rope, or cord, is a data structure composed of smaller strings that is
+used to efficiently store and manipulate a very long string. For example, a text editing program may
+use a rope to represent the text being edited, so that operations such as insertion, deletion, and
+random access can be done efficiently.
+
+Photopsia is the presence of perceived flashes of light
+
+Developers focused on nothing more than code and operations focused on taking that code and making
+sure it stayed running.
+
+Smalltalk, like Lisp, runs in the same context it’s written in.
+Lisp is powerful because all Lisp programs are also Lisp data–everything that can be run can be
+written (and read) as an s-expression.
+
+how to catch a liar:
+After they tell their story, go over it with them again in the form of questions (e.g., “And what
+did you do when you got out of the car?”) but do it backwards from the end of the story to the
+beginning.

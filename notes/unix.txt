@@ -476,6 +476,8 @@ let b=b+10
 mktemp --tmpdir=. tmp.XXX
 mktemp --tmpdir=.
 tempfile -d .
+===
+cat post-data.txt | while read line; do echo $line >> $(tempfile -d .);done
 
 /dev/random and /dev/urandom : random number generator from the kernel
 /dev/random blocks if there is not enough noise in the entropy pool
@@ -1100,12 +1102,14 @@ the expect package contains multixterm
 #EXIF: (exchangeable image format) , digital phone metadata
 exiftool
 
+#list process id listening on port 2525
+#this output has more data (preferred)
+#-n: don't convert IP address, -P: don't convert port number
+lsof -nPi tcp:2525
 #list process id listening on port 7474
 lsof -i:7474 -sTCP:LISTEN -t
 #-i: show only network-related files, -P: show port numbers instead of names
 lsof -i -P
-#-n: don't convert IP address, -P: don't convert port number
-lsof -nPi tcp:2525
 
 dstat output:
 cpu: user, sys, idle, wai, hiq, siq

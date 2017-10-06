@@ -172,18 +172,21 @@ null hypothesis.
 The word null in this context means that it's a commonly accepted fact that researchers work to
 nullify. It doesn't mean that the statement is null itself!
 example: Null hypothesis, H0: The world is flat.
+===
+Rejecting the null is kind of like the “innocent until proven guilty” principle in court cases,
+==
+A p of .05 means there’s a less than 5 percent chance that in the world where the null hypothesis is
+true, the results you’re seeing would be due to random chance.
 
-p-value
-Measures the degree of linear relationship between two variables x and y. The correlation
-coefficient assumes a value between −1 and +1.
-==
-A p-value indicates the size of an effect (e.g., strong evidence means big effect). A large p-value
-means the null hypothesis is true, or provides evidence to support the null hypothesis. If the
-p-value is small enough, the null hypothesis must be false.
-==
-The convention in most biological research is to use a significance level of 0.05. This means that
-if the P value is less than 0.05, you reject the null hypothesis; if P is greater than or equal to
-0.05, you don't reject the null hypothesis.
+p-value Measures the degree of
+linear relationship between two variables x and y. The correlation coefficient assumes a value
+between −1 and +1.  == A p-value indicates the size of an effect (e.g., strong evidence means big
+effect). A large p-value means the null hypothesis is true, or provides evidence to support the null
+hypothesis. If the p-value is small enough, the null hypothesis must be false.  == The convention in
+most biological research is to use a significance level of 0.05. This means that if the P value is
+less than 0.05, you reject the null hypothesis; if P is greater than or equal to 0.05, you don't
+reject the null hypothesis.  === p-value: means statistical significance. if p-value is less 0.05,
+you have a statistically significant result.
 
 When you perform a hypothesis test in statistics, a p-value helps you determine the significance of
 your results. Hypothesis tests are used to test the validity of a claim that is made about a
