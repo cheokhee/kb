@@ -189,6 +189,7 @@ iotop
 markdown
 docker-ce
 npm install blockchain-cli -g
+pv : pipe viewer
 
 =========== end of packages ==============
 
@@ -207,7 +208,6 @@ csv-mode-1.6/                   goto-last-change-20150109.1023/  markdown-mode-2
 dash-20150717.1321/             groovy-mode-201203310931/        package-build-20160430.1701/   ws-butler-20150126.759/
 dash-functional-20150311.2358/  helm-20150604.831/               pallet-20150512.2/             yasnippet-20150415.244/
 dired+-20170818.1411/           helm-ag-20160126.2147/           pkg-info-20150517.443/         zygospore-20140703.152/
-elpy-20170903.143/              helm-flycheck-20140915.752/      point-undo-20100504.129/
 
 my changes to yasnippet-20150415.244:
 in snippets directory: add a symbolic link from js3-mode -> js-mode

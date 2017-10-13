@@ -7079,6 +7079,12 @@ that is, that statement A completes its write before statement B starts its read
 ---
 happens-before relationship: a guarantee that state changes made by one thread is visible to another thread.
 happens-before relationship: it relates only to visibilities of an effect. does not mandate execution order.
+==
+The results of a write by one thread are guaranteed to be visible to a read by another thread only
+if the write operation happens-before the read operation. The synchronized and volatile constructs,
+as well as the Thread.start() and Thread.join() methods, can form happens-before relationships.
+==
+https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility
 
 In concurrent programming, a monitor is a synchronization construct that allows threads to have both mutual exclusion and the ability to wait (block) for a certain condition to become true. Monitors also have a mechanism for signalling other threads that their condition has been met.
 --
@@ -9103,6 +9109,8 @@ no scheduling overhead occurs.
 let's say you have multiple queues of work items and a thread is assigned to each queue.
 When one thread finishes its work items and has nothing to do, it steals work items from
 other queues.
+===
+work-stealing: reassigning task from a busy thread to an idle thread.
 
 ignition coil: a transformer. generate high-voltage current
 distributor: distributes high-voltage current to spark plug. the current jump across the arc
@@ -11327,6 +11335,8 @@ semaphore is a counter: binary semaphore and counting semaphore
 a binary semaphore acts like a mutex? functionally the same
 a mutex can only be used to maintain atomicity whereas a semaphore can be used for both ordering and
 atomicity.
+==
+fair semaphore: permits are allocated in a first-come, first-serve manner. no cutting in line.
 
 synchronization primitive: spinlock,
 ==
@@ -11729,3 +11739,13 @@ how to catch a liar:
 After they tell their story, go over it with them again in the form of questions (e.g., “And what
 did you do when you got out of the car?”) but do it backwards from the end of the story to the
 beginning.
+
+buffering strategies:
+Characters written to or read from an unbuffered stream are transmitted individually to or from the file as soon as possible.
+Characters written to a line buffered stream are transmitted to the file in blocks when a newline character is encountered.
+Characters written to or read from a fully buffered stream are transmitted to or from the file in blocks of arbitrary size.
+==
+Characters that are written to a stream are normally accumulated and transmitted asynchronously to
+the file in a block, instead of appearing as soon as they are output by the application
+program. Similarly, streams often retrieve input from the host environment in blocks rather than on
+a character-by-character basis. This is called buffering.

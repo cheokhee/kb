@@ -527,7 +527,6 @@ GC flags:
 -XX:+PrintGCTimeStamps #prepend relative timestamp since application starts
 -XX:+PrintGCDetails
 -XX:+PrintTenuringDistribution
--XX:+PrintCommandLineFlags
 -Xloggc:[path/to/gc.log]
 -verbose:gc
 -XX:+UseConcMarkSweepGC
@@ -1679,3 +1678,19 @@ ConcurrentMap<Person.Sex, List<Person>> byGender =
     roster
         .parallelStream()
         .collect(Collectors.groupingByConcurrent(Person::getGender));
+
+java -XshowSettings
+java -XX:+PrintCommandLineFlags 2>/dev/null
+
+synchronized: why this keyword?
+the memory representation of the locked object in different threads is what is being synchronized.
+after the synchronized block is completed, all changes made to the locked object are flushed
+to main memory before the lock is released.
+when a synchronized block is entered, all changes to the locked object are read from main memory
+before the synchronized block is executed.
+===
+synchronized: means that it will synchronize its view of an object with main memory.
+
+Java Reflection makes it possible to inspect classes, interfaces, fields and methods at runtime,
+without knowing the names of the classes, methods etc. at compile time. It is also possible to
+instantiate new objects, invoke methods and get/set field values using reflection.

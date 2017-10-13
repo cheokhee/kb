@@ -1360,6 +1360,8 @@ TZ=UTC date --date="2015-08-31 13:30:15" +%s
 date --date='2 days ago'
 #future date
 date --date='2 days'
+== get time in milliseconds
+date +%s%3N
 
 getconf PAGESIZE #get page size
 
