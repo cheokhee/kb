@@ -2135,3 +2135,16 @@ Create a coprocess, Execute COMMAND asynchronously
 
 #delete last character from each line
 cat file | rev | colrm 1 1 | rev
+
+PPID shell variable
+
+echo $0 # from cmdline
+output: bash
+
+sudo -E #preserve environment variables
+sudo -E does not work if /etc/sudoers has secure_path set
+workaround: sudo env "PATH=$PATH" <command...>
+
+lspci | egrep -i 'wifi|wlan|wireless'
+lspci -s [[[[<domain>]:]<bus>]:][<slot>][.[<func>]]
+lspci -vv -s 00:19.0

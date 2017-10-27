@@ -26,3 +26,26 @@ awk print array: for (key in array)  print key, array[key]
 
 #remove duplicate lines:
 awk '!array[$0]++' < file
+
+#print last field
+awk '{print $NF}'
+
+#print second last field
+awk '{print $(NF-1)}'
+
+#Regular expressions based input field separator
+echo 'Sample123string54with908numbers' | awk -F'[0-9]+' '{print $2}'
+--> string
+
+#use -v to set variable
+awk -v FS=":"
+
+# changing a field will re-build contents of $0
+# $1=$1 is an idiomatic way to re-build when there is nothing else to change
+$ echo 'foo:123:bar:789' | awk -F: -v OFS='-' '{$1=$1; print $0}'
+foo-123-bar-789
+
+Idiomatic print usage
+print statement with no arguments will print contents of $0
+if condition is specified without corresponding statements, contents of $0 is printed if condition evaluates to true
+1 is typically used to represent always true condition and thus print contents of $0

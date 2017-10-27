@@ -470,3 +470,6 @@ so your JS drive the content of the templates.
 best practices: (1) put the template in the script tag
 <script> type="text/template"> ....
 (2) external templates: store it in a separate file. mean an extra HTTP request.
+
+bracket notation for accessing property: obj['cat']
+can use variables

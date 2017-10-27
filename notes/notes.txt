@@ -7321,6 +7321,8 @@ latency: the elapsed time taken to process a work unit
 utilization: the % of available resources that are used to handle work units.
 efficiency: throughput divided by the resources used.
 capacity: the number of work units that can be in flight through the system at any time.
+  i.e., the amount of simultaneous processing available at specified latency or throughput.
+throughput: the number of work units that a system can perform
 
 chrestomathy: A selection of literary passages
 
@@ -9902,6 +9904,8 @@ parent has two leaf nodes: hash0 and hash1
 hash0 is the hash of data block #1
 hash1 is the hash of data block #2
 parent has the hash of (hash0+hash1)
+---
+Merkle tree: a binary tree where the nodes store hashes of data rather than the data itself.
 
 pain
 P: position: where is it?
@@ -11611,6 +11615,9 @@ location transparency is the use of names to identify network resources, rather 
 location. For example, files are accessed by a unique file name, but the actual data is stored in
 physical sectors scattered around a disk in either the local computer or in a network. In a location
 transparency system, the actual location where the file is stored doesn't matter to the user.
+---
+location transparency: the ability to communicate with a resource regardless of its location
+(local, remote, networked)
 
 The triboelectric effect (also known as triboelectric charging) is a type of contact electrification
 in which certain materials become electrically charged after they come into frictional contact with
@@ -11749,3 +11756,37 @@ Characters that are written to a stream are normally accumulated and transmitted
 the file in a block, instead of appearing as soon as they are output by the application
 program. Similarly, streams often retrieve input from the host environment in blocks rather than on
 a character-by-character basis. This is called buffering.
+
+Clock drift means the clock does not run at exactly the same rate as a reference clock.
+
+TDD:
+unit: test method in a class
+integration: test interaction between classes
+system: test a running system
+system integration: test interaction between systems
+
+RAII : Resource acquisition is initialization (C++)
+is a programming idiom used in several object-oriented languages. In RAII, holding a resource is
+a class invariant, and is tied to object lifetime: resource allocation (or acquisition) is done
+during object creation (specifically initialization), by the constructor, while resource
+deallocation (release) is done during object destruction (specifically finalization), by the
+destructor.
+==
+They should be acquired on construction and released on destruction
+
+isolate the blocking behavior onto a different thread pool that is dedicated for such blocking
+operations. We refer to this technique as sandboxing or bulkheading.
+
+Acrophony is the naming of letters of an alphabetic writing system so that a letter's name begins
+with the letter itself. For example, Greek letter names are acrophonic.
+
+In linguistics, a grapheme is the smallest unit of a writing system of any given language.
+Graphemes include alphabetic letters, typographic ligatures, Chinese characters, numerical digits,
+punctuation marks, and other individual symbols.
+
+A LEFT OUTER JOIN is one of the JOIN operations that allow you to specify a join clause. It
+preserves the unmatched rows from the first (left) table, joining them with a NULL row in the shape
+of the second (right) table.
+Example:
+select author_last_name, book_key from author left outer join book_author using (author_key)
+#author is on the left, that means we get all the rows in the author table

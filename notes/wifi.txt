@@ -83,3 +83,7 @@ NM_SETTING_WIRELESS_POWERSAVE_DEFAULT       = 0,
 NM_SETTING_WIRELESS_POWERSAVE_IGNORE        = 1,
 NM_SETTING_WIRELESS_POWERSAVE_DISABLE       = 2,
 NM_SETTING_WIRELESS_POWERSAVE_ENABLE        = 3,
+
+lspci | egrep -i 'wifi|wlan|wireless'
+
+cat /proc/net/wireless

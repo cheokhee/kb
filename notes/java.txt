@@ -307,6 +307,10 @@ Supplier<T>: return T with nothing as input
 
 mutable reduction: accumulates input elements into a mutable result container.
 
+reduce(identity, accumulator):
+identity: the initial value of the reduction and the default result if there are no elements in the stream.
+accumulator: take a partial result and the next element.
+
 In its more general form, a reduce operation on elements of type <T> yielding a result of type <U>
 requires three parameters:
  <U> U reduce(U identity,
@@ -1524,6 +1528,11 @@ heap histogram:
 -XX:+PrintClassHistogram and Control+Break
 jcmd <process id/main class> GC.class_histogram filename=Myheaphistogram
 jmap -histo pid
+--
+example:
+jcmd <pid> GC.class_histogram | grep "java.lang.String$"
+same as
+jmap -histo <pid> | grep "java.lang.String$"
 
 you must create a happens-before relationship between the write in one thread and the read
 in another thread.
@@ -1630,6 +1639,7 @@ giving it its name (Garbage first). This collector is turned on using the -XX:+U
   -XX:+UseStringDeduplication : requires the G1 Garbage Collector and is turned off by default.
   comes with Java 8 update 20. there is overhead.
   -XX:+PrintStringDeduplicationStatistics
+  -XX:GCPauseIntervalMillis
 ====
 G1 collector is for multiprocessor machines with large memories. It meets garbage collection pause
 time goals with high probability while achieving high throughput.
@@ -1694,3 +1704,76 @@ synchronized: means that it will synchronize its view of an object with main mem
 Java Reflection makes it possible to inspect classes, interfaces, fields and methods at runtime,
 without knowing the names of the classes, methods etc. at compile time. It is also possible to
 instantiate new objects, invoke methods and get/set field values using reflection.
+
+type descriptors:
+B: byte
+C: char
+D: double
+F: float
+I: int
+J: long
+L<typename> : eg Ljava/lang/String, reference type
+S: short
+Z: boolean
+[: array of
+
+how to GC log:
+[collector-name: <occupancy at start>-><occupancy at end>(<total size>)] \
+<full heap occupancy at start>-><full heap occupancy at end>(<total heap size>) \
+pause time
+
+-XX:+PrintGCApplicationStoppedTime:
+show how long threads were stopped during an operation that was started at a safepoint. not just
+GC, there are other safepoint operations, such as biased lock operations
+
+G1 collector: the central idea is to control the pause goal.
+G1: divide the heap into equal-sized regions that aren't distinguished between young and old regions.
+
+-XX:+PrintCompilation
+
+CompletableFuture:
+==
+Combine several asynchronous operation
+Wait for task completion
+Listen to Future completion and react to it success or error completion
+Chaining results of dependent futures
+default: use the common thread pool
+==
+It can be explicitly completed by calling the complete() method without any synchronous wait. It
+allows values of any type to be available in the future with default return values, even if the
+computation didn’t complete, using default / intermediate results.
+==
+CompletableFuture.runAsync()
+CompletableFuture.supplyAsync()
+---
+CompletableFuture: allow you to express the flow of information from different tasks using
+a callback-driven style.
+
+java 9:
+jhsdb
+jmod describe jmods/java.base.jmod
+jmod list jmods/java.base.jmod
+
+java 9:
+List<String> list = List.of("cheok","is","here")
+Set<String> set = Set.of("cheok","is","here")
+Map<String,Integer> nameToAge = Map.of("cheok",49,"hee",48)
+Map<String,Integer> nameToAge = Map.ofEntries(Map.entry("cheok",49),Map.entry("hee",48))
+
+Stream.ofNullable
+--
+Stream.takeWhile() : stop as soon as it finds an element that fails the test
+Stream.of("cheok","is","here").takeWhile(x -> x.length() > 3).collect(Collectors.toList())
+==> [cheok]
+--
+Stream.dropWhile() : drop element while the predicate is true, as soon as it finds one that
+                     is false, return the remaining.
+Stream.of("cheok","is","here").dropWhile(x -> x.length() > 3).collect(Collectors.toList())
+==> [is, here]
+
+java 9: reactive streams: java.util.concurrent.Flow
+==
+Flow.Processor<T,R> A component that acts as both a Subscriber and Publisher.
+Flow.Publisher<T>   A producer of items (and related control messages) received by Subscribers.
+Flow.Subscriber<T>	A receiver of messages.
+Flow.Subscription	Message control linking a Flow.Publisher and Flow.Subscriber.
