@@ -49,3 +49,17 @@ Idiomatic print usage
 print statement with no arguments will print contents of $0
 if condition is specified without corresponding statements, contents of $0 is printed if condition evaluates to true
 1 is typically used to represent always true condition and thus print contents of $0
+
+#equivalent to grep -F
+awk 'index($0,"a+b")' eqns.txt
+
+#ignore case
+awk -v IGNORECASE=1
+
+#in-place edit
+awk -i inplace '{gsub("e", "E")} 1' greeting.txt
+
+#shell var
+$ f='apple'
+$ awk -v word="$f" '$1==word' fruits.txt
+apple   42

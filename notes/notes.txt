@@ -6764,6 +6764,12 @@ even if those variables later go out of scope.
 ---
 closure: an anonymous function that references variables defined outside the scope of the function
 has access to its outer scope even after the outer scope has returned.
+---
+Formally, a closure is a technique for implementing lexically scoped named binding. It is a way of
+storing a function with an environment.
+--
+A closure is a scope which captures local variables of a function for access even after the
+execution has moved out of the block in which it is defined
 
 jumbo loan: a loan above the conforming loan limit.
 the conforming loan limit is set by Fannie Mae and Freddie Mac, which are
@@ -6890,6 +6896,9 @@ benefits of currying: easier to reuse?
 =====
 partial application: the conversion of a multi-argument function into one that accepts fewer arguments by
         providing fixed values for the omitted arguments.
+partial application: Partially applying a function means creating a new function by pre-filling some
+of the arguments to the original function.
+---
 currying vs partial application
 --> Where partial application takes a function and from it builds a function which takes fewer arguments, currying builds functions which take multiple arguments by composition of functions which each take a single argument.
 
@@ -11439,6 +11448,7 @@ In computer science, compare-and-swap (CASing) is an atomic instruction used in 
 achieve synchronization. It compares the contents of a memory location with a given value and, only
 if they are the same, modifies the contents of that memory location to a new given value.
 CASing: an atomic instruction used as an alternative to locking.
+CASing: exchange a value if the previous value matches some expected one.
 
 Progressive Web App (PWA) is a term used to denote web apps that use the latest web
 technologies. Progressive web apps are technically regular web pages (or websites) but can appear to
@@ -11790,3 +11800,54 @@ of the second (right) table.
 Example:
 select author_last_name, book_key from author left outer join book_author using (author_key)
 #author is on the left, that means we get all the rows in the author table
+
+Pulse-code modulation (PCM) is a method used to digitally represent sampled analog signals.
+
+Fundamental Attribution Error: People’s tendency to overemphasize internal explanations for the
+behavior of others, while failing to take into account the power of the situation.
+==
+When we are trying to understand and explain what happens in social settings, we tend to view
+behavior as a particularly significant factor. We then tend to explain behavior in terms of internal
+disposition, such as personality traits, abilities, motives, etc. as opposed to external situational
+factors.
+
+A function is idempotent if reapplying it does not produce a different result.
+
+Point-Free Style: Writing functions where the definition does not explicitly identify the arguments
+used.
+
+A contract specifies the obligations and guarantees of the behavior from a function or expression at
+runtime. This acts as a set of rules that are expected from the input and output of a function or
+expression, and errors are generally reported whenever a contract is violated.
+
+LL/SC: load-link and store-conditional: load-link reads a value from a given address.
+store-conditional: write the value only if no other stores were made to that address since
+the corresponding load-link.
+
+Sequential consistency : the result of any execution is the same as if the operations of all the
+processors were executed in some sequential order, and the operations of each individual processor
+appear in this sequence in the order specified by its program.
+==
+To understand this statement, it is essential to understand one key property of sequential
+consistency: execution order of program in the same processor (or thread) is the same as the program
+order, while execution order of program between processors (or threads) is undefined. In an example
+like this:
+==
+Sequential consistency requires that a shared memory multiprocessor appear to be a multiprogramming
+uniprocessor system to any program running on it.
+
+compiler/hardware optimization:
+reorder code: to avoid pipeline stalls,
+to improve locality (put variables on the same cache line).
+variable can be assigned to the same memory location.
+instructions can be executed speculatively before a branch is taken, then undone if guessed incorrectly.
+
+acquire and release semantics
+all read and write operations can not be moved before an acquire operation, all read and write
+operations can not be move behind a release operation.
+
+Hybrid cloud is a cloud computing environment which uses a mix of on-premises, private cloud and
+third-party, public cloud services with orchestration between the two platforms.
+==
+A hybrid cloud is an integrated cloud service utilising both private and public clouds to perform
+distinct functions within the same organisation.
