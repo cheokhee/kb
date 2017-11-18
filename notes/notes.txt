@@ -11851,3 +11851,10 @@ third-party, public cloud services with orchestration between the two platforms.
 ==
 A hybrid cloud is an integrated cloud service utilising both private and public clouds to perform
 distinct functions within the same organisation.
+
+cloud migration strategies:
+lift-and-shift approach :replicating in-house apps in the cloud without re-design.
+cloud native
+
+Elon Musk interview question:
+Tell me about some of the most difficult problems you worked on and how you solved them.

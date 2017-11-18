@@ -684,6 +684,27 @@ int totalValue(Valuer<? super Vehicle> valuer) {
     return total;
 }
 
+// extends vs super explanation //
+List<? extends Number> foo3 = new ArrayList<Integer>();
+
+Given any of the above, you can only read a Number object
+
+You can't add any object to List<? extends T> because you can't guarantee what kind of List it is
+really pointing to, so you can't guarantee that the object is allowed in that List. The only
+"guarantee" is that you can only read from it and you'll get a T or subclass of T.
+
+-------------
+List<? super Integer> foo3 = new ArrayList<Object>();
+
+Given the above, you can only read Object object.
+You aren't guaranteed an Integer because foo3 could be pointing at a List<Number> or List<Object>.
+You aren't guaranteed a Number because foo3 could be pointing at a List<Object>.
+You can add an integer
+You can add an instance of a subclass of Integer because an instance of a subclass of Integer is
+allowed in any of the above lists.
+
+// extends vs super explanation //
+
 generic class: bounded type parameters
 example: public class Garage<X extends Vehicle> { }
 
