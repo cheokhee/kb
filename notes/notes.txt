@@ -10580,6 +10580,7 @@ time to solve.
 P versus NP problem:
 Informally speaking, it asks whether every problem whose solution can be quickly verified by a
 computer can also be quickly solved by a computer.
+P vs NP: If the solution to a problem can be verified in polynomial time, can it be found in polynomial time?
 
 The genetic algorithm is a method for solving both constrained and unconstrained optimization
 problems that is based on natural selection, the process that drives biological evolution. The
@@ -11858,3 +11859,26 @@ cloud native
 
 Elon Musk interview question:
 Tell me about some of the most difficult problems you worked on and how you solved them.
+
+Big O: how long does it take to execute a given algorightm?
+computer scientists don’t give the answer in minutes or milliseconds; they give it relative to the
+number of elements the algorithm has to manipulate.
+
+A mathematical expression that involves N’s and N^2s and N’s raised to other powers is called a
+polynomial, and that’s what the “P” in “P = NP” stands for. P is the set of problems whose solution
+times are proportional to polynomials involving N's.
+
+Network Function Virtualization (NFV): NFV decouples the network functions, such as router,
+firewall, IPS and WAN optimizer, from proprietary hardware appliances so that the network functions
+become hardware agnostic and can be deployed, changed and upgraded quickly.
+==
+NFV is about virtualizing IT resources in software so that virtual implementations may be used to
+provide important network functions, rather than requiring the presence of one or more specialized
+physical devices.
+
+SDN: Separating Network Control Logic from Network Hardware
+The guiding principle behind SDN remains the separation of network control logic from the physical
+routers and switches that forward traffic from individual network nodes
+==
+this means SDN control software sits atop a physical infrastructure layer composed of networking
+devices, with which it communicates via a control plane interface such as OpenFlow

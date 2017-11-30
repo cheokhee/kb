@@ -486,3 +486,11 @@ parents.item(0).removeChild(childs.item(0));
 var parents = document.getElementsByClassName("inside clearfix");
 var childs = document.getElementsByClassName("panel-pane pane-views-panes pane-more-breaking-news-panel-pane-2");
 parents.item(0).removeChild(childs.item(0));
+
+this keyword:
+this is the object that "owns" the JavaScript code. The value of this, when used in a function, is the
+object that "owns" the function (or the object that a function is a method of)
+The value of this, when used in an object, is the object
+itself. The this keyword in an object constructor does not have a value.
+
+in a page, the global object is the window object

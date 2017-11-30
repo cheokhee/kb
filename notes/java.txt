@@ -1182,6 +1182,8 @@ memory profiler: jvisualvm, java mission control (more accurate)
 ---
 objects with increasing generational counts are leak candidates.
 
+A heap dump is a snapshot of all the objects in the Java Virtual Machine (JVM) heap at a certain point in time.
+
 -XX:MaxDirectMemorySize=1g
 
 off heap memory: java.nio.ByteBuffer
@@ -1541,7 +1543,7 @@ computations.
 kill -QUIT <pid>
 
 heap dump:
-cmd <process id/main class> GC.heap_dump filename=heapdump.dmp
+jcmd <process id/main class> GC.heap_dump filename=heapdump.dmp #put in home directory
 jmap -dump:format=b,file=snapshot.jmap pid
 -XX:+HeapDumpOnOutOfMemoryError
 

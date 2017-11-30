@@ -63,3 +63,10 @@ awk -i inplace '{gsub("e", "E")} 1' greeting.txt
 $ f='apple'
 $ awk -v word="$f" '$1==word' fruits.txt
 apple   42
+
+#match lines that have either Antwerp or Chicago
+awk '/Antwerp|Chicago/' r1.txt
+#match lines that have neither Antwerp or Chicago
+awk '!/Antwerp|Chicago/' r1.txt
+#match lines that have both Antwerp and Chicago
+awk '/Antwerp/ && /Chicago/' r1.txt

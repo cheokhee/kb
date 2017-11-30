@@ -27,3 +27,10 @@ aBC
 <dependency><groupId>thirdparty_tools</groupId><artifactId>ant-contrib</artifactId><version>1.0b3</version><type>pom
 
 sed 's%\(<dependency>.*<artifactId>\)\([^<]\+\)\(</ar.*$\)%\2%'
+
+#match lines that have either Antwerp or Chicago
+sed -nr '/Antwerp|Chicago/p' r1.txt
+#match lines that have neither Antwerp or Chicago
+sed -nr '/Antwerp|Chicago/!p' r1.txt
+#match lines that have both Antwerp and Chicago
+sed '/Chicago/!d; /Antwerp/!d' r1.txt

@@ -2148,3 +2148,11 @@ workaround: sudo env "PATH=$PATH" <command...>
 lspci | egrep -i 'wifi|wlan|wireless'
 lspci -s [[[[<domain>]:]<bus>]:][<slot>][.[<func>]]
 lspci -vv -s 00:19.0
+
+#match any of multiple patterns:
+$ grep "PATTERN1\|PATTERN2" FILE
+$ grep -E "PATTERN1|PATTERN2" FILE
+$ grep -e PATTERN1 -e PATTERN2 FILE
+$ egrep "PATTERN1|PATTERN2" FILE
+$ awk '/PATTERN1|PATTERN2/' FILE
+$ sed -n -e '/PATTERN1/p' -e '/PATTERN2/p' FILE
