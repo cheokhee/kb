@@ -657,6 +657,8 @@ ps -o nlwp <pid> #show number of lightweight processes
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem
 #show top processes sorted by cpu usage
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu
+#list process in a hierarchy
+ps -e -o pid,args --forest
 
 7z a -mhe=on -ppassword important.7z important.txt for-honey.txt
 

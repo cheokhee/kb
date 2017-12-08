@@ -261,3 +261,5 @@ csv-mode: only align visible lines
       "Align visible fields"
       (interactive "P")
       (csv-align-fields nil (window-start) (window-end))))))
+
+C-x = : (what-cursor-position &optional DETAIL)

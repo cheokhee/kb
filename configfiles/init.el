@@ -18,6 +18,7 @@
  '(elpy-rpc-timeout 5)
  '(enable-recursive-minibuffers t)
  '(fill-column 100)
+ '(flycheck-checker-error-threshold 10000)
  '(helm-for-files-preferred-list
    (quote
     (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
@@ -623,3 +624,11 @@ by using nxml's indentation rules."
 					 (window-buffer (minibuffer-selected-window))
 				     (current-buffer)))
 	(kill-new (buffer-file-name buffer))))
+(defun copy-buffer-name ()
+  "Copy current buffer name into the kill ring"
+  (interactive)
+  (let (buffer)
+	(setq buffer (if (window-minibuffer-p)
+					 (window-buffer (minibuffer-selected-window))
+				     (current-buffer)))
+	(kill-new (buffer-name buffer))))

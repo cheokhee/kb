@@ -6806,6 +6806,8 @@ include in a collection so that the total weight is less than or equal to a give
 total value is as large as possible.
 example: given a set of boxes with a weight and an amount of money, which boxes should be chosen to
 maximize the amount of money while still keeping the overall weight under or equal to 15 kg?
+===
+knapsack problem can be written as an integer linear programming problem.
 
 clojure: persistent data structure: means that the data structure is immutable, yet has efficient
 non-destructive operations that correspond to the operations on the classical hash table. The word
@@ -10589,6 +10591,11 @@ genetic algorithm repeatedly modifies a population of individual solutions.
 linear programming: a mathematical technique for maximizing or minimizing a linear function of
 several variables, such as output or cost.
 
+A linear function is any function that graphs to a straight line. What this means mathematically is
+that the function has either one or two variables with no exponents or powers. If the function has
+more variables, the variables must be constants or known variables for the function to remain a
+linear function.
+
 Mixed-integer linear programming (MILP) is a very general framework for capturing problems with both
 discrete decisions and continuous variables.
 
@@ -11882,3 +11889,107 @@ routers and switches that forward traffic from individual network nodes
 ==
 this means SDN control software sits atop a physical infrastructure layer composed of networking
 devices, with which it communicates via a control plane interface such as OpenFlow
+
+============ P/NP/NP-complete/NP-hard==========
+decision problem: a problem with a yes/no answer
+--
+P is a complexity class that represents the set of all decision problems that can be solved in
+polynomial time.
+--
+NP is a complexity class that represents the set of all decision problems whose solutions that can
+be verified in polynomial time.
+====
+NP-Complete is a complexity class which represents the set of all problems X in NP for which it is
+possible to reduce any other NP problem Y to X in polynomial time.
+
+Intuitively this means that we can solve Y quickly if we know how to solve X quickly. Precisely, Y
+is reducible to X, if there is a polynomial time algorithm f to transform instances y of Y to
+instances x = f(y) of X in polynomial time, with the property that the answer to y is yes, if and
+only if the answer to f(y) is yes.
+
+3-SAT. This is the problem wherein we are given a conjunction (ANDs) of 3-clause disjunctions (ORs),
+statements of the form
+
+(x_v11 OR x_v21 OR x_v31) AND
+(x_v12 OR x_v22 OR x_v32) AND
+...                       AND
+(x_v1n OR x_v2n OR x_v3n)
+where each x_vij is a boolean variable or the negation of a variable from a finite predefined list (x_1, x_2, ... x_n).
+
+It can be shown that every NP problem can be reduced to 3-SAT. The proof of this is technical and
+requires use of the technical definition of NP (based on non-deterministic Turing machines). This is
+known as Cook's theorem.
+
+What makes NP-complete problems important is that if a deterministic polynomial time algorithm can
+be found to solve one of them, every NP problem is solvable in polynomial time (one problem to rule
+them all).
+====
+NP-hard
+
+Intuitively, these are the problems that are at least as hard as the NP-complete problems. Note that
+NP-hard problems do not have to be in NP, and they do not have to be decision problems.
+
+The precise definition here is that a problem X is NP-hard, if there is an NP-complete problem Y,
+such that Y is reducible to X in polynomial time.
+
+But since any NP-complete problem can be reduced to any other NP-complete problem in polynomial
+time, all NP-complete problems can be reduced to any NP-hard problem in polynomial time. Then, if
+there is a solution to one NP-hard problem in polynomial time, there is a solution to all NP
+problems in polynomial time.
+
+The halting problem is an NP-hard problem. This is the problem that given a program P and input I,
+will it halt? This is a decision problem but it is not in NP. It is clear that any NP-complete
+problem can be reduced to this one. As another example, any NP-complete problem is NP-hard.
+====
+
+____________________________________________________________
+| Problem Type | Verifiable in P time | Solvable in P time | Increasing Difficulty
+___________________________________________________________|           |
+| P            |        Yes           |        Yes         |           |
+| NP           |        Yes           |     Yes or No *    |           |
+| NP-Complete  |        Yes           |      Unknown       |           |
+| NP-Hard      |     Yes or No **     |      Unknown ***   |           |
+____________________________________________________________           V
+
+Notes on Yes or No entries:
+
+* An NP problem that is also P is solvable in P time.
+** An NP-Hard problem that is also NP-Complete is verifiable in P time.
+*** NP-Complete problems (all of which form a subset of NP-hard) might be. The rest of NP hard is not.
+===========
+https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+
+============ P/NP/NP-complete/NP-hard==========
+
+polynomial: an expression consisting of variables (also called indeterminates) and coefficients,
+that involves only the operations of addition, subtraction, multiplication, and non-negative integer
+exponents of variables. example: x^2 - 4x + 7
+
+f(x1,x2,...xn) = b + a1x1 + a2x2 +... anxn : the graph is a hyperplane of dimension n
+
+Responsive Web Design is an emerging trend that involves designing websites and applications for
+optimal viewing across multiple devices and screen sizes using a single code base.
+
+data structures for text sequences: array, rope, gap buffer, piece table
+item: the basic component of a sequence
+sequence: an ordered set of items
+buffer: contiguous space in memory/disk
+span: one or more items that are logically contiguous in the sequence and are also physically
+contiguous in the buffer
+
+linear equation: an algebraic equation in which each term is either a constant or the product of a
+constant and (the first power of) a single variable (however, different variables may occur in
+different terms).
+==
+An example of a linear equation with three variables, x, y, and z, is given by: ax + by + cz + d =
+0, where a, b, c, and d are constants and a, b, and c are non-zero.
+
+capacitor: a device that stores energy temporarily in the form of an electric field and resist
+sudden changes in voltage
+inductor: a device that stores energy temporarily in the form of a magnetic field and resist
+sudden changes in current
+
+IMDG (in-memory data grid) is a distributed object store similar in interface to a typical
+concurrent hash map.
+-- scalable Data Partitioning across cluster
+-- Transactional ACID support

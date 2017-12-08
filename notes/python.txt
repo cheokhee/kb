@@ -121,6 +121,10 @@ C-c C-n         elpy-flymake-next-error
 C-c C-p         elpy-flymake-previous-error
 C-c C-s         elpy-rgrep-symbol (browse references)
 elpy-rpc-restart
+
+var: flycheck-checker-error-threshold
+Warning (flycheck): Syntax checker python-flake8 reported too many errors (710) and is disabled.
+
 ============= elpy ==============
 
 print without newline:
@@ -607,3 +611,16 @@ from collections import namedtuple
 Person = namedtuple('Person', 'name age gender')
 bob = Person(name='Bob', age=30, gender='male')
 jane = Person('jane',25,'female')
+
+debugging:
+https://stackoverflow.com/questions/3442920/how-do-i-step-through-debug-a-python-web-application
+#1.
+import pdb
+pdb.set_trace()
+#2. drop you to the interpreter. ctrl-d exits
+import code
+code.interact(local=locals())
+#3. drop you to a IPython session
+import IPython.Shell
+ipshell = IPython.Shell.IPShellEmbed()
+ipshell(local_ns=locals())
