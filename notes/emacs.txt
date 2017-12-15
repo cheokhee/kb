@@ -263,3 +263,8 @@ csv-mode: only align visible lines
       (csv-align-fields nil (window-start) (window-end))))))
 
 C-x = : (what-cursor-position &optional DETAIL)
+
+== emacs sqlplus ==
+C-RET execute command under point
+C-S-RET execute command under point and show result table in HTML buffer
+M-RET explain execution plan for command under point

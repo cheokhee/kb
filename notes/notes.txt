@@ -9843,6 +9843,9 @@ bar chart: display data points over categories
 bar chart: show a measure across multiple categories
 histogram: show the frequency of observations of a numerical variable grouped into bins
   bin: equal-width partition
+---
+histogram: represent frequency distributions. display data points over a series of intervals.
+bar chart: represent category comparison. display data points over categories.
 
 TEOTWAWKI: the end of the world as we know it
 
@@ -11993,3 +11996,17 @@ IMDG (in-memory data grid) is a distributed object store similar in interface to
 concurrent hash map.
 -- scalable Data Partitioning across cluster
 -- Transactional ACID support
+
+HTTP/2 Push allows a web server to send resources to a web browser before the browser gets to
+request them.
+
+progressive lens: an eyeglass lens having a smooth transition between parts with different focal
+lengths, correcting for vision at all distances.
+
+Mesentery: In general, a fold of tissue that attaches organs to the body wall. The word mesentery
+usually refers to the small bowel mesentery, which anchors the small intestines to the back of the
+abdominal wall. Blood vessels, nerves, and lymphatics branch through the mesentery to supply the
+intestine.
+
+chyme: pulpy acidic fluid that passes from the stomach to the small intestine, consisting of gastric
+juices and partly digested food.

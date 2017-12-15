@@ -173,3 +173,6 @@ Object.keys(db.loadPlanOptimizationScenarios.findOne())
 #get field value: use dot notation
 document.field
 eg. db.loadPlanOptimizationScenarios.findOne({scenarioId:'58f0180da1942f488c54b9ba'}).processingLogs[0].inputs
+
+#pass script to mongo shell:
+mongo --quiet sjstoas7:27252/noe --eval "db.loadPlanOptimizationScenarios.findOne({scenarioId:'5a2f1dd26924a3078340274b'}).processingLogs[0].inputs"

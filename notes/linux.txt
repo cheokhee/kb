@@ -2158,3 +2158,19 @@ $ grep -e PATTERN1 -e PATTERN2 FILE
 $ egrep "PATTERN1|PATTERN2" FILE
 $ awk '/PATTERN1|PATTERN2/' FILE
 $ sed -n -e '/PATTERN1/p' -e '/PATTERN2/p' FILE
+
+log rotation:
+#1. logrotate (use copytruncate option with stdout), need a cron job
+    there is a window for data loss
+#2. ./start.sh | rotatelogs -n 3 log/mylog.log 1M (from apache2-utils package)
+   shortcoming: the current log is then mylog.log.1, not mylog.log
+   also: ./start.sh | /home/myprog/myproglog.%Y-%m-%d-%H_%M_%S 2M
+#3. https://superuser.com/questions/291368/log-rotation-of-stdout/291397
+    https://askubuntu.com/questions/623038/rotate-nohup-output
+#4. multilog : ./start.sh | multilog s1048576 n2 ./log
+    s1048576: rotate the log file when it grows to 1MiB
+    n2 : 2 rotated files
+    shortcoming: the current file is called current (cannot change)
+    rotated file is called @<tai64n timestamp>.s
+    old log file is automatically removed at restart
+    not a good choise

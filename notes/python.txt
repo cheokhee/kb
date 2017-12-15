@@ -624,3 +624,14 @@ code.interact(local=locals())
 import IPython.Shell
 ipshell = IPython.Shell.IPShellEmbed()
 ipshell(local_ns=locals())
+
+pip3 list --user
+pip3 list --user --outdated
+pip3 list --user --uptodate
+pip3 install --user --upgrade <pkg> #upgrade pkg
+
+== debugging weirdness ===
+app = Flask(__name__)
+app.run(debug=True, port=8888)
+if debug=True, then debugger does not stop in web service breakpoint.
+if debug=False, then debugger stops in web service breakpoint.

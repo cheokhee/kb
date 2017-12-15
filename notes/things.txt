@@ -191,6 +191,7 @@ docker-ce
 npm install blockchain-cli -g
 pv : pipe viewer
 faketime : eg. faketime '00:30:00' man
+daemontools
 
 =========== end of packages ==============
 
