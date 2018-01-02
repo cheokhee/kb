@@ -635,3 +635,7 @@ app = Flask(__name__)
 app.run(debug=True, port=8888)
 if debug=True, then debugger does not stop in web service breakpoint.
 if debug=False, then debugger stops in web service breakpoint.
+
+if a: #if a is None, '', 0, then false, else true
+
+defaultdict

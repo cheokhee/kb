@@ -2174,3 +2174,12 @@ log rotation:
     rotated file is called @<tai64n timestamp>.s
     old log file is automatically removed at restart
     not a good choise
+#5. tinylog:
+    ./start.sh | ~/workspace/perp-2.07/perp/tinylog -k 5 -s 100000 log &>/dev/null
+    current file is called current
+    old logs: _20171215T235831.267856.s, _20171215T235836.718277.s, etc
+    s suffix: safely written to disk
+    _20171216T000053.423569.u : u means not safely written, this happens
+    when we kill the process that pipes to tinylog. Upon restart, tinylog
+    immediately rotate current and use the u suffix
+    verdict: seems like a good choice

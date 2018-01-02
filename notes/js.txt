@@ -494,3 +494,8 @@ The value of this, when used in an object, is the object
 itself. The this keyword in an object constructor does not have a value.
 
 in a page, the global object is the window object
+
+Material Design is a specification that ensures a consistent experience across multiple devices
+regardless of form factor or input method.
+
+array length: anArray.length

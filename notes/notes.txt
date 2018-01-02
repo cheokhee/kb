@@ -11464,6 +11464,9 @@ CASing: exchange a value if the previous value matches some expected one.
 Progressive Web App (PWA) is a term used to denote web apps that use the latest web
 technologies. Progressive web apps are technically regular web pages (or websites) but can appear to
 the user like traditional applications or (native) mobile applications.
+--
+Progressive Web Apps (PWA) are Web Pages or Web Apps that looks like a mobile app, with similar
+interactions and navigations.
 
 impostor syndrome (also known as impostor phenomenon or fraud syndrome or the impostor experience)
 is a concept describing individuals who are marked by an inability to internalize their
@@ -12010,3 +12013,31 @@ intestine.
 
 chyme: pulpy acidic fluid that passes from the stomach to the small intestine, consisting of gastric
 juices and partly digested food.
+
+CPU profilers: sampling and tracing profilers.
+Tracing profilers record every function call your program makes and then print out a report at the
+end. Sampling profilers take a more statistical approach – they record your program’s stack every
+few milliseconds and then report the results.
+
+A time series is a series of data points indexed in time order. Most commonly, a time series is a
+sequence taken at successive equally spaced points in time. Thus it is a sequence of discrete-time
+data
+
+value object is a small object that represents a simple entity whose equality is not based on
+identity: i.e. two value objects are equal when they have the same value, not necessarily being the
+same object.
+
+data transfer object (DTO) is an object that carries data between processes.
+
+AMP (accelerated mobile pages)
+is a project from Google and Twitter designed to make really fast mobile pages. At its essence, it's
+basically a stripped-down form of HTML designed for fast loading.
+like Facebook Instant Articles and Apple News
+
+In number theory, two integers a and b are said to be relatively prime, mutually prime, or coprime
+(also written co-prime) if the only positive integer (factor) that divides both of them is 1.
+
+&nbsp: non-breaking space, no-break space,
+a space character that prevents an automatic line break at its position.
+In some formats, including HTML, it also prevents consecutive whitespace characters from collapsing into a single space.
+html: &nbsp; &#160; (160 is decimal), unicode: U+00A0

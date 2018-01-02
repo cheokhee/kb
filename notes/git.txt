@@ -1256,3 +1256,10 @@ git config --global color.diff-highlight.newNormal "green bold"
 git config --global color.diff-highlight.newHighlight "green bold 22"
 git config --global color.diff.commit "227 bold"
 git config --global color.diff.whitespace "red reverse"
+
+git status --porcelain : Give the output in an easy-to-parse format for scripts
+
+--porcelain: Produce machine-readable output.
+
+low-level commands are generally referred to as Git’s “plumbing” commands, while the more
+user-friendly commands are called “porcelain” commands.
