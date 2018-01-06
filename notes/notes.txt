@@ -11906,7 +11906,8 @@ NP is a complexity class that represents the set of all decision problems whose 
 be verified in polynomial time.
 ====
 NP-Complete is a complexity class which represents the set of all problems X in NP for which it is
-possible to reduce any other NP problem Y to X in polynomial time.
+possible to reduce any other NP problem Y to X in polynomial time. NP-complete is the hardest NP
+problems.
 
 Intuitively this means that we can solve Y quickly if we know how to solve X quickly. Precisely, Y
 is reducible to X, if there is a polynomial time algorithm f to transform instances y of Y to
@@ -12041,3 +12042,161 @@ In number theory, two integers a and b are said to be relatively prime, mutually
 a space character that prevents an automatic line break at its position.
 In some formats, including HTML, it also prevents consecutive whitespace characters from collapsing into a single space.
 html: &nbsp; &#160; (160 is decimal), unicode: U+00A0
+
+In automotive engineering, the master cylinder is a control device that converts non-hydraulic
+pressure (commonly from a driver's foot) into hydraulic pressure. This device controls slave
+cylinders located at the other end of the hydraulic system.
+
+slave cylinder works together with the clutch master cylinder to disengage the clutch when the pedal
+is pressed so that the transmission can be safely shifted. The clutch slave cylinder receives
+pressure from the master cylinder and extends a rod, which will push against a fork or lever to
+disengage the clutch.
+
+The UTF-8 BOM is a sequence of bytes (EF BB BF) that allows the reader to identify a file as being
+encoded in UTF-8.  Normally, the BOM is used to signal the endianness of an encoding, but since
+endianness is irrelevant to UTF-8, the BOM is unnecessary.
+
+Each gear has an effective operating range of speeds which depend on the rev range of the
+engine. The faster the engine rotates, the quicker you can go up to the point when you need to
+change up a gear. Within the operational rotational speeds of the engine, there is a range of
+optimum efficiency known as the ‘power band’, and this is where the fastest acceleration can be
+obtained.
+--
+Most gearboxes are designed so that when you change up a gear when accelerating, the next gear will
+be at or near the start of the engine’s power band. This design provides maximum acceleration all
+the way up to the top speed of the car.
+--
+Lower gears provide greater acceleration due to the mechanical advantage of the gearing and the
+higher engine speeds.
+--
+When approaching a corner, you need to select a gear which will provide maximum acceleration at the
+exit, and this gear needs to be engaged before entering the corner. This means braking to the speed
+where you can safely turn into the bend, then shifting before turning in. Ideally you’ll need to
+select a gear which will cause the engine speed to increase to a sensible point within the power
+band so that plenty of power is available when accelerating out of the turn for that quick exit.
+--
+However if you select the correct gear and let out the clutch swiftly, three things will happen:
+--
+Significant levels of engine braking will occur.
+In extreme cases, the wheels can lock up (image selecting second gear at 80 mph
+and dumping the clutch).
+A forward weight transfer will occur
+--
+Rev matching is used when down-shifting to smooth the transition between gears, and prevent shock
+loads through the transmission.
+
+A rev limiter is a device fitted in modern vehicles that have internal combustion engines. They are
+intended to protect an engine by restricting it's maximum rotational speed, measured in revolutions
+per minute (RPM).
+
+Double clutching is technically what is done to speed up a transmission that is not synchronized so
+that it's possible to shift gears. Accelerate, clutch, move to neutral, release clutch, trans gears
+spin up, clutch, move to next gear.
+
+So, solving an (minimization) optimization problem amounts to meet two conditions:
+1. Find x in P
+2. Such that for all y in P, f(x) <= f(y)
+--
+In such case we say that x is a solution to the problem.  If x only meets condition 1 then x is
+called a feasible solution.
+--
+Depending on P and f, condition 2 can be much harder than condition 1.  We call it proving
+optimality.
+--
+if you find a lower bound on all possible values of the objective function, i.e. a number L such
+that for all y in P, L <= f(y)
+--
+then you can evaluate how good is your x.  You compute the gap as follow: gap = (f(x) - L)/ f(x)
+==
+If gap = 0, then you know that condition 2 above is true, hence your x is the solution you are
+looking for.  If the gap is non zero, then you know you may get a better x by working longer on your
+problem.  You also know that if there is a better x it cannot be better by more than the gap.
+Hence, the smaller the gap, the better.  Note that gap may be computed slightly differently in
+practice, if only to deal with the case where f(x) = 0.  But the two properties stay:
+==
+If the gap is zero then you have solved the problem, i.e. both condition 1 and 2 above are true.  If
+the gap is larger than 0, the smaller the gap the better x is
+
+A slack or surplus value is reported for each of the constraints. The term "slack" applies to less
+than or equal constraints, and the term "surplus" applies to greater than or equal constraints. If a
+constraint is binding, then the corresponding slack or surplus value will equal zero.
+A constraint is binding if the constraint becomes an equality when the solution values are substituted.
+==
+Constraints exist because certain limitations restrict the range of a variable's possible values. A
+constraint is considered to be binding if changing it also changes the optimal solution. Less severe
+constraints that do not affect the optimal solution are non-binding.
+==
+Graphically, binding constraints are constraints where the optimal solution lies exactly on the line
+representing that constraint.
+
+In an optimization problem, a slack variable is a variable that is added to an inequality constraint
+to transform it into an equality. Introducing a slack variable replaces an inequality constraint
+with an equality constraint and a non-negativity constraint on the slack variable.  As with the
+other variables in the augmented constraints, the slack variable cannot take on negative values.
+example, Ax <= b can be converted to Ax+y=b (y>=0)
+
+original: x+4y<=6, standard form: x+4y+s1=6 (s1: slack variable, s1>=0)
+original: 4x+2y>=20, standard form: 4x+2y-s1=20 (s1: surplus variable, s1>=0)
+slack variable: apply to <= constraint
+surplus variable: apply to >= constraint
+
+If all of the unknown variables are required to be integers, then the problem is called an integer
+programming (IP) or integer linear programming (ILP) problem. In contrast to linear programming,
+which can be solved efficiently in the worst case, integer programming problems are in many
+practical situations (those with bounded variables) NP-hard. 0-1 integer programming or binary
+integer programming (BIP) is the special case of integer programming where variables are required to
+be 0 or 1 (rather than arbitrary integers).
+--
+If only some of the unknown variables are required to be integers, then the problem is called a
+mixed integer programming (MIP) problem.
+
+the feasible region of an LP is the region delimited by the constraints, and it represents all
+feasible solutions.
+
+Operations research is a discipline that deals with the application of advanced analytical methods
+to help make better decisions
+
+combinatorial optimization is a topic that consists of finding an optimal object from a finite set
+of objects. Integer programming nowadays is often called combinatorial optimisation
+==
+An optimization problem with discrete variables is known as a combinatorial optimization problem. In
+a combinatorial optimization problem, we are looking for an object such as an integer, permutation
+or graph from a finite (or possibly countably infinite) set. Problems with continuous variables
+include constrained problems and multimodal problems.
+==
+optimization problem is the problem of finding the best solution from all feasible solutions.
+
+For any IP we can generate an LP (called the LP relaxation) from the IP by taking the same objective
+function and same constraints but with the requirement that variables are integer replaced by
+appropriate continuous constraints.
+e.g. xi = 0 or 1 can be replaced by the two continuous constraints xi >= 0 and xi <= 1
+
+An algorithm is typically deterministic and proven to yield an optimal result
+A heuristic has no proof of correctness, often involves random elements, and may not yield optimal results.
+Heuristic, in a nutshell is an "Educated guess"
+--
+a heuristic is a procedure that tries to produce good or approximate solutions to a problem quickly
+but which lacks theoretical guarantees.
+
+side-channel attack is any attack based on information gained from the physical implementation of a
+cryptosystem, rather than brute force or theoretical weaknesses in the algorithms (compare
+cryptanalysis). For example, timing information, power consumption, electromagnetic leaks or even
+sound can provide an extra source of information, which can be exploited to break the system.
+
+Branch and cut is a method of combinatorial optimization for solving integer linear programs (ILPs),
+that is, linear programming (LP) problems where some or all the unknowns are restricted to integer
+values. Branch and cut involves running a branch and bound algorithm and using cutting planes to
+tighten the linear programming relaxations. Note that if cuts are only used to tighten the initial
+LP relaxation, the algorithm is called cut and branch.
+
+branch and bound: solve the LP relaxation of the problem first.
+create a tree where the root node is the LP relaxation of the original problem
+and the nodes represent subproblems.
+create an enumeration tree. at each node, we branch on an integer variable,
+where on each branch, the integer variable is restricted to a certain value.
+==
+an enumeration tree of all possible variable settings is partially traversed, computing local upper
+bounds and global lower bounds, which are used to avoid parts of the tree that cannot produce the
+optimal value.
+==
+incumbent solution: best known solution so far
