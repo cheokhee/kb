@@ -9141,6 +9141,9 @@ management systems to provide concurrent access to the database and in programmi
 implement transactional memory.
 
 An affordance is the possibility of an action on an object or environment.
+--
+Affordances are clues about how an object should be used, typically provided by the object itself or
+its context. For example, even if you've never seen a coffee mug before, its use is fairly natural.
 
 separating identity from state:
 identity: fuel level in your car
@@ -12200,3 +12203,11 @@ bounds and global lower bounds, which are used to avoid parts of the tree that c
 optimal value.
 ==
 incumbent solution: best known solution so far
+
+Interrupt coalescing, also known as interrupt moderation, is a technique in which events which would
+normally trigger a hardware interrupt are held back, either until a certain amount of work is
+pending, or a timeout timer triggers.
+
+Rent abatement is a provision that may be included in a commercial or residential property lease. It
+entitles the tenant to suspend rent payments or pay only a portion of the rent until a landlord
+completes property repairs.

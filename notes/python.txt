@@ -639,3 +639,6 @@ if debug=False, then debugger stops in web service breakpoint.
 if a: #if a is None, '', 0, then false, else true
 
 defaultdict
+
+PYTHONPATH: search path for module files
+PYTHONHOME: the location of the standard Python libraries
