@@ -34,3 +34,29 @@ sed -nr '/Antwerp|Chicago/p' r1.txt
 sed -nr '/Antwerp|Chicago/!p' r1.txt
 #match lines that have both Antwerp and Chicago
 sed '/Chicago/!d; /Antwerp/!d' r1.txt
+
+#from pattern to end of file
+sed -n '/Generals/,$p' original1.lp
+
+#print lines between two patterns, excluding patterns
+#a: if the patterns occur multiple times
+#1. sed -n '/begin/,/end/{ /begin/d; /end/d; p; }' <file>
+#2. sed '/begin/,/end/{//!b};d' <file>
+//!b reads if the current line does not match the pattern, then branch to the end of the script
+otherwise, delete it
+#3. sed '/begin/,/end/!d;//d' <file>
+    equivalent to sed '/begin/,/end/!d;/begin/d;/end/d' <file>
+The empty forward slashes // mean: "reuse the last regular expression used".
+==
+If an RE is empty (that is, no pattern is specified) sed shall behave as if the last RE used in the
+last command applied (either as an address or as part of a substitute command) was specified.
+
+---
+#b: if the pattern occurs only once
+sed '1,/begin/d;/end/,$d' <file>
+
+#print lines between two patterns, including patterns
+sed -n '/begin/,/end/p' <file>
+
+#print lines outside two patterns
+sed -n '/begin/,/end/!p' <file>

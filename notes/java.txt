@@ -1800,3 +1800,8 @@ Flow.Processor<T,R> A component that acts as both a Subscriber and Publisher.
 Flow.Publisher<T>   A producer of items (and related control messages) received by Subscribers.
 Flow.Subscriber<T>	A receiver of messages.
 Flow.Subscription	Message control linking a Flow.Publisher and Flow.Subscriber.
+
+All arithmetic is performed using at least int-sized values and, therefore, the result of the add
+operation is an int- sized value
+
+use Iterator.remove() to remove elements while iterating over it.

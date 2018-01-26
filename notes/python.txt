@@ -594,6 +594,12 @@ pyflakes: syntax checker
 flake8: wrapper around pep8 and pyflakes
 
 python3 debugger: trepan3k (also install xdis), gdb-like python debugger
+trepan3k command:
+b <line#>
+pr <variable name> OR <variable name>
+info lo
+list . #list source code around where we stop
+list <line#> <# of lines>
 
 post-mortem debugger:! After an exception is thrown, the stack frame with all of the locals is
 contained within sys.last_traceback. You can do pdb.pm() to go to the stack frame where the
@@ -642,3 +648,21 @@ defaultdict
 
 PYTHONPATH: search path for module files
 PYTHONHOME: the location of the standard Python libraries
+
+python3 -m zeep http://host/wls_dom_sps/CmtxCostWebService?wsdl
+
+when iterating over a dict, each element is the key
+to get the value, use dict.values()
+
+#to exit: sys.exit(1)
+
+falsy: 0, "", empty list, None
+
+import platform
+platform.system()
+
+sys.version
+sys.version_info
+
+python3 setup.py --help
+python3 setup.py --help install

@@ -12211,3 +12211,66 @@ pending, or a timeout timer triggers.
 Rent abatement is a provision that may be included in a commercial or residential property lease. It
 entitles the tenant to suspend rent payments or pay only a portion of the rent until a landlord
 completes property repairs.
+
+Each SIM is internationally identified by its integrated circuit card identifier (ICCID). ICCIDs are
+stored in the SIM cards and are also engraved or printed on the SIM card body during a process
+called personalisation. The ICCID is defined by the ITU-T recommendation E.118 as the Primary
+Account Number
+
+The International Mobile Equipment Identity or IMEI is a number, usually unique, to identify 3GPP
+and iDEN mobile phones, as well as some satellite phones
+
+reponsive web design:
+media queries: is used to define different style rules for different media types/devices.
+CSS media queries example:
+@media screen and (min-width: 480px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+viewport: allow you to define the size and scaling factor of a web page. example:
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+machine precision (espilon): represent the accuracy of the computer calculation
+
+semantic element: element with a meaning
+
+reflow: browser process for re-calculating the positions and geometries of elements.
+
+linear programming:
+all equality constraints are binding at any feasible point.
+inequality constraints are binding if f(x) = 0 for a feasible point,
+non-binding if f(x) > 0 or f(x) < 0
+canonical form:
+minimize: constraints are >=0 and variables are >=0
+maximize: constraints are <=0 and variables are >=0
+===
+duality: every LP problem has a dual problem:
+for every variable in the primal/original LP problem, there is a constraint
+in the dual problem. for every constraint in the original problem, there is
+a variable in the dual problem.
+
+marginal cost: the cost added by producing one additional unit of a product or service.
+
+Multi-objective optimization: involving more than one objective function to be optimized simultaneously.
+==
+For a nontrivial multi-objective optimization problem, no single solution exists that simultaneously
+optimizes each objective. In that case, the objective functions are said to be conflicting, and
+there exists a (possibly infinite) number of Pareto optimal solutions.
+A solution is called nondominated, Pareto optimal, Pareto efficient or noninferior, if none of the
+objective functions can be improved in value without degrading some of the other objective values.
+
+goal programming:
+each objective is given a target value to be achieved.
+Achieve target levels of each objective rather than maximized or minimized levels
+
+preemptive method:
+Perform the optimization by considering one objective at a time, based on priorities.
+the optimal objective value of an objective is then used as a constraint in subsequent objective.
+Each LP is optimized one at a time such that the optimum value of a higher priority objective is not
+degraded by a lower priority objective. This can be achieved by either adding the previous objective
+as a constraint to the successive model or looking at the reduced cost for each solved model.
+each successive model would thereby consist of an extra constraint and avoid degradation of the
+previous solution.
+
+ML (meta language) family: standard ML (SML), OCaml, F#

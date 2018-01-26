@@ -49,6 +49,9 @@ Idiomatic print usage
 print statement with no arguments will print contents of $0
 if condition is specified without corresponding statements, contents of $0 is printed if condition evaluates to true
 1 is typically used to represent always true condition and thus print contents of $0
+===
+echo hi | awk '1' -> print hi
+echo hi | awk '0' -> do nothing
 
 #equivalent to grep -F
 awk 'index($0,"a+b")' eqns.txt
@@ -70,3 +73,30 @@ awk '/Antwerp|Chicago/' r1.txt
 awk '!/Antwerp|Chicago/' r1.txt
 #match lines that have both Antwerp and Chicago
 awk '/Antwerp/ && /Chicago/' r1.txt
+
+#from pattern to end of file
+awk '/Generals/,0' original1.lp
+
+#print lines between two patterns, excluding patterns
+awk '/begin/{flag=1;next}/end/{flag=0}flag' <file>
+#explanation:
+/begin/{flag=1;next} sets the flag when the text begin is found. Then, it skips the line.
+The final flag is a pattern with the default action, which is to print $0.
+if flag is equal to 1 the line is printed.
+
+#print lines between two patterns, including patterns
+awk '/begin/,/end/' <file>
+
+#Print lines between PAT1 and PAT2 - including PAT1
+awk '/PAT1/{flag=1} /PAT2/{flag=0} flag' file
+
+#Print lines between PAT1 and PAT2 - including PAT2
+awk 'flag; /PAT1/{flag=1} /PAT2/{flag=0}' file
+# By placing flag at the very beginning, it triggers the action that was set previously and hence
+print the closing pattern but not the starting one.
+
+https://stackoverflow.com/questions/38972736/how-to-select-lines-between-two-patterns/38972737
+
+The next statement forces awk to immediately stop processing the current record and go on to the
+next record. This means that no further rules are executed for the current record. The rest of the
+current rule's action is not executed either.
