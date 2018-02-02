@@ -2189,3 +2189,5 @@ log rotation:
     when we kill the process that pipes to tinylog. Upon restart, tinylog
     immediately rotate current and use the u suffix
     verdict: seems like a good choice
+
+<program> 1</dev/null # runs program with a read-only stdout

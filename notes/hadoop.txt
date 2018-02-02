@@ -9,6 +9,7 @@ HDFS: name node and data node
 
 Apache Pig: a scripting languauge for MapReduce
 Apache Hive: an SQL-like interface to MapReduce. Also data warehousing.
+Apache Hive: a data warehouse software
 Pig/Hive: turn queries into jobs that run on MapReduce.
 Apache Samza: used by linkedin
 Apache Storm: used by Twitter. real-time
@@ -28,6 +29,12 @@ Sqoop: transfer data between HDFS and relational database
 Kafka: distributed messaging system
 Apache Drill: MapR. interactive analysis of large data sets
 Impala: Cloudera. real-time processing of big data.
+Apache Impala is a modern, open source, distributed SQL query engine for Apache Hadoop.
+Apache Impala : an open source massively parallel processing (MPP) SQL query engine for hadoop
+HUE: hadoop user experience
+
+Hadoop: an Open Source framework for writing applications which processes structured and
+unstructured data that are stored in HDFS.
 
 Hadoop streaming: allows you to create and run Map/Reduce jobs with any executable or script as the mapper and/or the reducer. For example:
 $HADOOP_HOME/bin/hadoop  jar $HADOOP_HOME/hadoop-streaming.jar \

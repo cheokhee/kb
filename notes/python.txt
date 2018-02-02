@@ -612,11 +612,19 @@ print(tables[0])
 standard tuple uses numerical indexes to access its members.
 ===
 namedtuple assigns names, as well as the numerical index, to each member.
+namedtuple creates a new subclass of tuple with named fields.
 --
 from collections import namedtuple
 Person = namedtuple('Person', 'name age gender')
 bob = Person(name='Bob', age=30, gender='male')
 jane = Person('jane',25,'female')
+also: Food = namedtuple("Food", ["name", "unit_cost", "qmin", "qmax"])
+===
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(11, y=22)
+d = p._asdict()                 # convert to a dictionary
+Point(**d)                      # convert from a dictionary
+Point(*t) # convert from a tuple
 
 debugging:
 https://stackoverflow.com/questions/3442920/how-do-i-step-through-debug-a-python-web-application
@@ -644,7 +652,10 @@ if debug=False, then debugger stops in web service breakpoint.
 
 if a: #if a is None, '', 0, then false, else true
 
-defaultdict
+defaultdict: similar to ifAbsent:Put:
+a=defaultdict(lambda: [])
+b=a["one"] # return an empty list because the key does not exist
+a["two"].append(1) # put the key in the dict
 
 PYTHONPATH: search path for module files
 PYTHONHOME: the location of the standard Python libraries
@@ -666,3 +677,34 @@ sys.version_info
 
 python3 setup.py --help
 python3 setup.py --help install
+
+PYTHONHOME: the location of the standard Python libraries
+PYTHONPATH: Augment the default search path for module files. -> sys.path
+
+sys.prefix
+
+a="one","two"
+>>> a
+('one', 'two')
+>>> type(a)
+<class 'tuple'>
+
+"%s is name" % "cheok"
+--> 'cheok is name'
+
+def foo(param1, *param2):
+# The *args will give you all function parameters as a tuple
+
+def bar(param1, **param2):
+# **kwargs will give you all keyword arguments except for those corresponding to a formal parameter as a dictionary
+
+_single_leading_underscore: weak "internal use" indicator. E.g. from M import * does not import
+objects whose name starts with an underscore.
+
+Any identifier of the form __spam (at least two leading underscores, at most one trailing
+underscore) is textually replaced with _classname__spam, where classname is the current class name
+with leading underscore(s) stripped.
+==
+example: in Model class:
+  self.__allcts = []
+-> do this: mdl._Model__allcts

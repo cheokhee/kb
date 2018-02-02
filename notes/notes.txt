@@ -5972,6 +5972,14 @@ in the reduce phase, the answers from the map phase are collected and merged int
 map: data transformation
 reduce: aggregation
 
+MapReduce: a framework for processing parallelizable problems across large datasets using a large
+number of computers (nodes), collectively referred to as a cluster (if all nodes are on the same
+local network and use similar hardware) or a grid (if the nodes are shared across geographically and
+administratively distributed systems, and use more heterogenous hardware). Processing can occur on
+data stored either in a filesystem (unstructured) or in a database (structured). MapReduce can take
+advantage of the locality of data, processing it near the place it is stored in order to minimize
+communication overhead.
+
 Hadoop: a framework for distributed processing
 
 same-origin policy
@@ -9382,6 +9390,11 @@ test double:
    the real implementation.
 4. mock: an object that represents a series of expectations and provides canned response
    you tell it the sequence of calls to expect and how it should respond to each one.
+--
+Mock objects are a special type of objects used to replace real objects for testing. They belong to
+the well-known testing objects called "test doubles," Mocks are what we are talking about here:
+objects pre-programmed with expectations which form a specification of the calls they are expected
+to receive.
 
 tuples (aka value objects): the entire values are used when they are passed (instead of
 passing references). they are like struct in C.
@@ -11470,6 +11483,13 @@ the user like traditional applications or (native) mobile applications.
 --
 Progressive Web Apps (PWA) are Web Pages or Web Apps that looks like a mobile app, with similar
 interactions and navigations.
+--
+PWAs are web applications that take advantage of the latest technologies to combine the best of web
+and native mobile applications. Using a set of open standard technologies such as, service workers,
+the app manifest, and cache and push APIs, we can create applications that are platform independent
+and deliver app-like user experiences
+--
+Think of PWAs as websites that act and feel like native apps.
 
 impostor syndrome (also known as impostor phenomenon or fraud syndrome or the impostor experience)
 is a concept describing individuals who are marked by an inability to internalize their
@@ -12264,7 +12284,7 @@ goal programming:
 each objective is given a target value to be achieved.
 Achieve target levels of each objective rather than maximized or minimized levels
 
-preemptive method:
+preemptive/lexicographic method:
 Perform the optimization by considering one objective at a time, based on priorities.
 the optimal objective value of an objective is then used as a constraint in subsequent objective.
 Each LP is optimized one at a time such that the optimum value of a higher priority objective is not
@@ -12272,5 +12292,85 @@ degraded by a lower priority objective. This can be achieved by either adding th
 as a constraint to the successive model or looking at the reduced cost for each solved model.
 each successive model would thereby consist of an extra constraint and avoid degradation of the
 previous solution.
+==
+In this method, the objectives are ranked in order of importance by the decision maker (from best to
+worst). The optimal value f(i) (i = 1, . . . , k) is then obtained by minimizing the objective
+functions sequentially, starting with the most important one and proceeding according to the order
+of importance of the objectives. Additionally, the optimal value found of each objective is added as
+a constraint for subsequent optimizations.
+==
+1. min f1(x),
+2. min f2(x), s.t. f1(x) <= y1
+3. min f3(x), s.t. f1(x) <= y1, f2(x) <= y2
+
 
 ML (meta language) family: standard ML (SML), OCaml, F#
+
+constraint programming is a programming paradigm wherein relations between variables are stated in
+the form of constraints.
+
+A constraint programming optimization model has the same structure as a mathematical programming
+model: a set of decision variables, an objective function to maximize or minimize, and a set of
+constraints.
+
+CSS reset: remove browser defaults
+
+Iaas vs Paas vs SaaS
+IaaS: vendor manages networking, storage, virtualization, servers
+PaaS: IaaS + OS + middleware, runtime
+SaaS: IaaS + PaaS + data + application
+
+output of design: a description of a desired end state
+
+In operations research, the makespan of a project is the total time that elapses from the beginning
+to the end. The term commonly appears in the context of scheduling. makespan is the total length of
+the schedule (that is, when all the jobs have finished processing)
+
+A linear program consists of minimizing/maximizing a linear objective function subject to a set of
+linear constraints over real variables constrained to be nonnegative.
+
+Strict evaluation is where all arguments to a function are evaluated before the body of the function
+is evaluated; and the arguments are never re-evaluated. In other words, each argument is evaluated
+exactly once.
+
+ML (meta language):
+dialects: OCaml, Standard ML, F#
+
+Home VPN: a way to ensure privacy while using the internet. VPN provider always knows your IP.
+Example setup without VPN: Home PC -> ISP -> Internet
+Example setup with VPN: Home PC => ISP => VPN server -> Internet
+home VPN: can be used to stream geo-restricted media content, to circumvent firewalls,
+to provide a secure connection over public Wi-Fi
+--
+Business VPN: allow employees to connect their home PC to the company's intranet.
+Example incoming business VPN setup: Laptop => Employee’s ISP => VPN server -> Company WAN and resources
+Example outgoing business VPN: Company WAN and resources -> Laptop ==> VPN server -> Businesses ISP -> Internet
+
+cloud characteristics: on-deman self-service, elasticity
+
+A data dictionary: metadata repository
+
+software architecture is the set of structures needed to reason about the system, which comprise
+software elements, relations among them, and properties of both.
+
+analysis: the process of breaking a complex entity into its constituent parts as a means of
+understanding it.
+
+framework: a reusable software element that provides generic functionality addressing
+recurring dmain and quality attirubte concerns.
+
+first level: architectural design: the activity of making decisions to translate ideas from
+the world of needs (architectural drivers) to the world of solutions, in terms of structures.
+focus on the primary functionality of the system.
+--
+second level: element interaction design: the identification of the modules and their
+associated interfaces to support the non-primary use cases.
+--
+third level: element internals design: the internal design of the elements identified
+as part of element interaction design.
+--
+architectural drivers: the design purpose, requirements, and architectural concerns that serve as an
+input to the design process.
+--
+architectural decision: a design is architectural if it has non-local consequences and
+those consequences matter to the achievement of an architectural driver.

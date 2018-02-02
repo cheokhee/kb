@@ -514,6 +514,8 @@ sort IP address with gnu sort
 sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4
 
 sort -k 4.10,4.13n ->  sort by chars 10-13 of the fourth field (numerically)
+#sort from position 9 to 12
+sort -k1.9,1.12
 
 #sort numerically, reverse, csv file, third field
 #-t: separator
