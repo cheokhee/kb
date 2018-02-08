@@ -61,3 +61,25 @@ xbacklight
 Xlib (libX11) is an X Window System protocol client library. It contains functions for interacting with an X server.
 to get icon, call XGetWindowProperty(): in Xlib (libX11)
 the client library asks the X server for the icon.
+
+#find my window manager
+#1. environment variables:
+DESKTOP_SESSION=Lubuntu
+XDG_SESSION_DESKTOP=Lubuntu
+XDG_CURRENT_DESKTOP=LXDE
+GDMSESSION=Lubuntu
+#2. wmctrl -m
+Name: Compiz
+Class: N/A
+PID: N/A
+Window manager's "showing the desktop" mode: OFF
+#3.
+xprop -root -notype | grep _NET_SUPPORTING_WM_CHECK
+--> _NET_SUPPORTING_WM_CHECK: window id # 0x1200005
+then take the window id:
+$ xprop -id 0x1200005
+PRIMARY(STRING) =
+_NET_WM_ALLOWED_ACTIONS(ATOM) = _NET_WM_ACTION_ABOVE, _NET_WM_ACTION_BELOW
+_NET_WM_STATE(ATOM) = _NET_WM_STATE_SKIP_TASKBAR, _NET_WM_STATE_SKIP_PAGER, _NET_WM_STATE_HIDDEN
+_NET_WM_NAME(UTF8_STRING) = "Compiz"
+_NET_SUPPORTING_WM_CHECK(WINDOW): window id # 0x1200005
