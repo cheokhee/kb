@@ -241,6 +241,9 @@ call/apply: execute the function immediately.
 apply: takes an array as an argument. use it to call functions with different number of arguments,
    use it to call variadic functions with a computed array of arguments.
 bind: return a new function to be executed later.
+---
+function.call(thisArg, arg1, arg2, ...)
+func.apply(thisArg, [argsArray])
 
 node.js: non-blocking functions are executed by the event loop thread, blocking functions
 are executed by a background thread. Node.js maintains a thread pool in the background.

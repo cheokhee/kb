@@ -708,3 +708,7 @@ with leading underscore(s) stripped.
 example: in Model class:
   self.__allcts = []
 -> do this: mdl._Model__allcts
+
+locals()
+globals()
+vars()

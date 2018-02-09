@@ -9395,6 +9395,12 @@ Mock objects are a special type of objects used to replace real objects for test
 the well-known testing objects called "test doubles," Mocks are what we are talking about here:
 objects pre-programmed with expectations which form a specification of the calls they are expected
 to receive.
+--
+One core aspect in unit testing is the fact that you want to isolate your "class under test" from
+anything else in the world. In order to do that, you very often have to create "test doubles" that
+you provide to an object of your "class under test". You could create all those "test doubles"
+manually; or you use a mocking framework that generates object of a certain class for you using
+reflection techniques.
 
 tuples (aka value objects): the entire values are used when they are passed (instead of
 passing references). they are like struct in C.
