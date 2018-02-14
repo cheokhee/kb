@@ -1817,6 +1817,7 @@ or next-day delivery. QoS is what the delivery company does to ensure your packa
 on time (such as package tracking, air transport, door-to-door pickup and drop-off).
 
 coupling: the degree to which a module depends on another module.
+cohesion: the degree to which elements of a module belong together.
 cohesion: a measure of how strongly-related or focused the responsibilities of a single module are
 --> cohesion: the degree to which a component's responsibilities form a meaningful unit;
 --> Cohesion refers to the relatedness of the data and methods within a class.
@@ -7970,7 +7971,11 @@ as opposed to opening a new connection for every single request/response pair. T
 further to allow multiple concurrent requests/responses to be multiplexed over a single connection.
 
 template engine: generate HTML from a template file and application data.
-Web templates are simply text files that contain variables and control flow statements
+Web templates are simply text files that contain variables and control flow statements.
+use static template files. at run time, the engine replaces variables in the
+template with actual values.
+--
+templating language: the language is embedded within some other master document.
 
 Classless Inter-Domain Routing (CIDR): allocate IP address space on any address bit boundary
 e.g. 192.168.2.0/24 . 24 is the number of bits in the network address or network/routing mask (or netmask).
