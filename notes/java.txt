@@ -1805,3 +1805,11 @@ All arithmetic is performed using at least int-sized values and, therefore, the 
 operation is an int- sized value
 
 use Iterator.remove() to remove elements while iterating over it.
+
+==
+List<String> list = Arrays.asList("foo", "bar", "baz");
+String joined = String.join(" and ", list); // "foo and bar and baz"
+--
+String joinedFirstNames = list.stream()
+  .map(Person::getFirstName)
+  .collect(Collectors.joining(", ")); // "John, Anna, Paul"

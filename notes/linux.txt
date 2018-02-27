@@ -714,7 +714,12 @@ localhost:631 #cups admin
 ===========
 check printing error:
 /var/log/cups/error_log
-
+===
+/etc/cups/ppd/ISD18.ppd
+/etc/cups/printers.conf
+====
+AppSocket protocol: socket://host:9100
+Internet printing protocol: port 631
 
 UML: user mode linux
 #1: create a .config file
@@ -2191,3 +2196,7 @@ log rotation:
     verdict: seems like a good choice
 
 <program> 1</dev/null # runs program with a read-only stdout
+
+mDNS: multicast DNS with service discovery, zeroconf
+avahi:open-source implementation of zeroconf
+avahi-browse -av

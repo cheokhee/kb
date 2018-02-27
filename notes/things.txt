@@ -192,6 +192,7 @@ npm install blockchain-cli -g
 pv : pipe viewer
 faketime : eg. faketime '00:30:00' man
 daemontools
+fortune
 
 =========== end of packages ==============
 

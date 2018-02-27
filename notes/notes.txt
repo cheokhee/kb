@@ -1753,6 +1753,8 @@ Preparation of input data and setup/creation of fake or mock objects
 Loading a database with a specific, known set of data
 Copying a specific known set of files creating a test fixture will create a set of objects initialized to certain states.
 
+test fixture: represents the preparation need to perform a test, and any cleanup actions.
+
 test harness
 a test harness or automated test framework is a collection of software and test data configured
  to test a program unit by running it under varying conditions and monitoring its behavior and outputs.

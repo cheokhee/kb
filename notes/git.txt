@@ -1263,3 +1263,9 @@ git status --porcelain : Give the output in an easy-to-parse format for scripts
 
 low-level commands are generally referred to as Git’s “plumbing” commands, while the more
 user-friendly commands are called “porcelain” commands.
+
+#use a different SSH key file
+#permission on private key must be 400
+GIT_SSH_COMMAND="ssh -i /home/cheok/n2c3/id_rsa" git clone repourl
+#after cloning, do the following in the repo
+git config core.sshCommand "ssh -i /home/cheok/n2c3/id_rsa"
