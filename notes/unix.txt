@@ -991,7 +991,7 @@ $ cat dmesg.log >> b.txt
 $ echo $_
 dmesg.log
 
-trimming with variable substition:
+trimming with variable substitution:
 called variable slicing
 $ var=foo.pdf
 $ echo ${var%.pdf} #trim suffix
@@ -1173,3 +1173,14 @@ fork bomb:
 {:|: &} means run the function : and send its output to the : function again and run that in the background.
 The ; is a command separator, like &&.
 : runs the function the first time.
+
+regex
+Greedy means match longest possible string.
+Lazy means match shortest possible string.
+For example, the greedy h.+l matches 'hell' in 'hello', but the lazy h.+?l matches 'hel'.
+echo hello | grep -P -o "h.+?l" -> hel
+echo hello | grep -E -o "h.+l" -> hell
+===
+grep: use -P to do non-greedy (lazy) match
+sed does not support non-greedy search
+perl: non-greedy search

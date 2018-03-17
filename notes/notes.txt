@@ -10570,6 +10570,17 @@ Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execut
 on a web application in which they're currently authenticated. CSRF attacks specifically target
 state-changing requests, not theft of data, since the attacker has no way to see the response to the
 forged request.
+--
+CSRF: an attack vector that tricks a web browser into executing an unwanted action in a web
+application where a user is already logged in.
+--
+CSRFs are typically conducted using malicious social engineering, such as an email or link that
+tricks the victim into sending a forged request to a server.
+--
+CSRF: an attack that tricks a victim into executing an unwanted action in a web
+application where a user is already logged in.
+==
+CSRF: also called session riding
 
 IRA Rollover: Taking receipt of the assets for up to 60 days before reinvesting in a new retirement plan.
 IRA Transfer: Moving the assets directly from one custodian to another custodian without taking receipt of the funds.
@@ -10682,6 +10693,9 @@ Benchmarking compares it to competitors or peers.  Baselining compares it to you
 performance.
 --
 benchmark: a test used to compare the performance of a system against some standard.
+--
+microbenchmarking: measuring the performance of something "small", like a system call to the kernel
+of an operating system.
 
 Load testing is the process of putting demand on a system or device and measuring its response. When
 the load placed on the system is raised beyond normal usage patterns, in order to test the system's
@@ -12387,3 +12401,42 @@ input to the design process.
 --
 architectural decision: a design is architectural if it has non-local consequences and
 those consequences matter to the achievement of an architectural driver.
+
+web of trust: a concept used in PGP, GnuPG, and other OpenPGP-compatible systems to establish the
+authenticity of the binding between a public key and its owner.
+
+message broker is an intermediary program module that translates a message from the formal messaging
+protocol of the sender to the formal messaging protocol of the receiver.
+
+Snackbars provide brief feedback about an operation through a message at the bottom of the screen.
+Snackbars contain a single line of text directly related to the operation performed. They may
+contain a text action, but no icons. Snackbars automatically time out from the screen.
+==
+Toasts (Android only) are primarily used for system messaging. They also display at the bottom of
+the screen, but may not be swiped off-screen. and they do not contain actions. disappears on
+its own after a timeout.
+===
+toast: no action, disappears on its own. snackbar: like a toast, but container action.
+toast: a message that provides feedback about an operation.
+snackbar: like a toast, but can have action
+
+Affordances are clues about how an object should be used, typically provided by the object itself or
+its context. For example, even if you've never seen a coffee mug before, its use is fairly
+natural. The handle is shaped for easy grasping and the vessel has a large opening at the top with
+an empty well inside.
+
+BCO: beneficial cargo owner: an importer that takes control of their cargo at the point of entry and
+does not utilize a third party source like like an NVOCC or Freight Forwarder. Typically, BCOs are
+large companies that import products regularly, thus, they have an in-house department for import
+procedures. The easiest examples of BCO’s are your large retailers like Walmart, Target, Best Buy.
+
+A Non Vessel Operating Common Carrier is a cargo consolidator who does not own any vessel, but acts
+as a carrier legally by accepting required responsibilities of a carrier who issues his own bill of
+lading (or airway bill), which is called House bill of lading under sea shipment and House airway
+bill under air shipment.  Activities between a NVOCC and a Freight Forwarder are similar to each
+other except some differences. An NVOCC need not be an agent or partner of a Freight Forwarding
+company, whereas a Freight Forwarding company can act as a partner or agent for an NVOCC.
+NVOCC acts a carrier to shipper and shipper to carrier.
+An NVOCC acts as the carrier while a Freight Forwarder does not
+An NVOCC issues a bill of lading while a Freight Forwarder does not
+An NVOCC is responsible for loss or damage while a Freight Forwarder is not

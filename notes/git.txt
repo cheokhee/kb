@@ -1162,6 +1162,10 @@ git for-each-ref --sort=-committerdate --format='%(refname:short) %(committerdat
 eg #5:
 git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d
 
+eg #6: sort all refs by last committer date
+git for-each-ref --sort=-committerdate  --format="%(refname) | %(subject) | %(authorname) | %(committerdate)" refs/remotes
+git for-each-ref --sort=-committerdate  --format="%(refname) | %(subject) | %(authorname) | %(committerdate)" refs/heads
+
 #my listref:
 git for-each-ref --sort='-committerdate' --format="%(refname:short) | %(authorname) | %(committerdate)" refs/heads
 
