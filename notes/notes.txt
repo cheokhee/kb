@@ -5432,6 +5432,12 @@ OOP: a paradigm where real world problems are decomposed into objects that abstr
 and data in a single unit.
 
 AOP is a new technology for separating crosscutting concerns into single units called aspects.
+==
+An aspect is a common feature that's typically scattered across methods, classes, object
+hierarchies, or even entire object models. It is behavior that looks and smells like it should have
+structure, but you can't find a way to express this structure in code with traditional
+object-oriented techniques.
+==
 join point: an execution point in a program
 point cut: specifies criteria that match join points. a way to specify join points
   an expression that determines whether an advice should be executed.
@@ -9408,6 +9414,8 @@ anything else in the world. In order to do that, you very often have to create "
 you provide to an object of your "class under test". You could create all those "test doubles"
 manually; or you use a mocking framework that generates object of a certain class for you using
 reflection techniques.
+---
+mocks are objects that are used in place real objects for the purpose of testing
 
 tuples (aka value objects): the entire values are used when they are passed (instead of
 passing references). they are like struct in C.
@@ -10552,6 +10560,10 @@ the final output and greater dependency on slower CPUs and rendering engines.
 ==
 isomorphic rendering: render everything on the backend when loading the page first time, but everything after that is
 rendered on the frontend. rendering pages on both the server and client side.
+----
+isomorphism: the web application can be rendered on multiple platforms (browser or server). not specific
+to JavaScript.
+universal JavaScript: can run anywhere
 
 IPP (internet printing protocol):
 new protocol that allows personal computers and mobile devices to find and print to networked and
@@ -12440,3 +12452,34 @@ NVOCC acts a carrier to shipper and shipper to carrier.
 An NVOCC acts as the carrier while a Freight Forwarder does not
 An NVOCC issues a bill of lading while a Freight Forwarder does not
 An NVOCC is responsible for loss or damage while a Freight Forwarder is not
+
+WebDriver is a remote control interface that enables introspection and control of user agents. It
+provides a platform- and language-neutral wire protocol as a way for out-of-process programs to
+remotely instruct the behavior of web browsers.
+==
+ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium.
+==
+The ChromeDriver consists of three separate pieces. There is the browser itself ("chrome"), the
+language bindings provided by the Selenium project ("the driver") and an executable downloaded from
+the Chromium project which acts as a bridge between "chrome" and the "driver". This executable is
+called "chromedriver"
+==
+Selenium is a portable software-testing framework for web applications.
+
+An out-of-process component is an .exe file that runs in its own process, with its own thread of
+execution. Communication between a client and an out-of-process component is therefore called
+cross-process or out-of-process communication.
+==
+An in-process component, such as a .dll or .ocx file, runs in the same process as the client. It
+provides the fastest way of accessing objects, because property and method calls don’t have to be
+marshaled across process boundaries. However, an in-process component must use the client’s thread
+of execution.
+
+In computer programming, a thunk is a subroutine used to inject an additional calculation into
+another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or
+to insert operations at the beginning or end of the other subroutine.
+
+endpoint is the URL where your service can be accessed by a client application.
+
+Web services are for program-to-program interaction, while web pages are for program-to-human
+interaction.

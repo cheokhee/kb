@@ -502,3 +502,51 @@ Material Design is a specification that ensures a consistent experience across m
 regardless of form factor or input method.
 
 array length: anArray.length
+
+[...Array(5).keys()] (same as [...(Array(5).keys())] )
+=> [0, 1, 2, 3, 4]
+#The keys() method returns a new Array Iterator object that contains the index for each element in the
+array.
+==
+var array1 = ['a', 'b', 'c'];
+var iterator = array1.keys();
+for (let key of iterator) {
+  console.log(key); // expected output: 0 1 2
+}
+// iterator
+var a = Array(2).keys() #a is an iterator
+> a.next()
+{ value: 0, done: false }
+> a.next()
+{ value: 1, done: false }
+> a.next()
+{ value: undefined, done: true }
+==
+Object.keys(['a','b'])
+=> [ '0', '1' ]
+
+function getAllPropertyNames( obj ) {
+    var props = [];
+
+    do {
+        Object.getOwnPropertyNames( obj ).forEach(function ( prop ) {
+            if ( props.indexOf( prop ) === -1 ) {
+                props.push( prop );
+            }
+        });
+    } while ( obj = Object.getPrototypeOf( obj ) );
+
+    return props;
+}
+
+== promise ==
+// the executor function is executed right away
+var p = new Promise(function(resolve,reject) {
+  console.log("inside promise, before resolve");
+  resolve("p_answer");
+  console.log("inside promise, after resolve");
+});
+// get the resolved value of a promise
+p.then(function(response) { console.log("get result:", response) });
+//
+var p = Promise.resolve("my_answer");

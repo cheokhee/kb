@@ -28,7 +28,17 @@ openssl dgst -sha1 -verify pubkey.pem -signature gpgtest.txt.sha gpgtest.txt
 #show cert info
 openssl x509 -in server.pem -text
 #download SSL cert
-openssl s_client -connect <host>:443 -showcerts
+openssl s_client -connect <host>:443 -showcerts #show cert chain
+#extract CA cert
+openssl s_client -connect track-dev.cargosmart.com:443 | tee certfile
+#after previous command, type QUIT , then return
+The certfile will have the info.
+openssl x509 -inform PEM -in certfile -out
+#extract cert from certfile
+openssl x509 -inform PEM -in certfile
+#show cert info
+openssl x509 -inform PEM -in certfile -text
+
 
 #generate pub key
 openssl rsa -in key.pem -pubout -out pubkey.pem
