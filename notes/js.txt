@@ -71,6 +71,7 @@ append to array: anArray.push(object)
 [ "name", "addr" ]
 another way:
 for (var m in a) { console.log("prop: " + m) }
+==note: for-in loop: include inherited properties
 
 anObject.constructor.name -> return "class" name
 anObject.constructor -> is a function
@@ -525,6 +526,11 @@ var a = Array(2).keys() #a is an iterator
 Object.keys(['a','b'])
 => [ '0', '1' ]
 
+iterable: has a @@iterator function (Symbol.iterator)
+a="hi"
+a[Symbol.iterator] ==> [Function: [Symbol.iterator]]
+
+
 function getAllPropertyNames( obj ) {
     var props = [];
 
@@ -550,3 +556,28 @@ var p = new Promise(function(resolve,reject) {
 p.then(function(response) { console.log("get result:", response) });
 //
 var p = Promise.resolve("my_answer");
+
+spread operator does not perform a deep copy of object properties to the target object.
+
+===
+Object.assign() method is used to copy the values of all enumerable own properties from one or more
+source objects to a target object. It will return the target object.
+const object1 = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+const object2 = Object.assign({c: 4, d: 5}, object1);
+console.log(object2.c, object2.d);
+// expected output: 3 5
+
+Object.assign(target, ...sources)
+
+Properties in the target object will be overwritten by properties in the sources if they have the
+same key.  The Object.assign() method only copies enumerable and own properties from a source object
+to a target object.  Object.assign() copies property values. If the source value is a reference to
+an object, it only copies that reference value. does not do deep cloning
+
+To create a non-enumerable property we have to use Object.defineProperty(). A special method for
+creating properties on an object.
+Object.defineProperty() is also how you create read-only properties.

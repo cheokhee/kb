@@ -61,6 +61,19 @@ awk -v IGNORECASE=1
 
 #in-place edit
 awk -i inplace '{gsub("e", "E")} 1' greeting.txt
+#gsub: changes the original string and return the number of substitution
+{ gsub(/Britain/, "United Kingdom"); print }
+{ gsub(/Britain/, "United Kingdom", $1); print }
+===
+#return a new string
+gensub(regexp, replacement, how [, target]) #need gawk
+===compare:
+$ echo hi | gawk '{print gensub("hi","ho","g")}'
+ho
+$ echo hi | awk '{print gsub("hi","ho")}'
+1
+=====
+gawk '{printf("find . -type f -exec sed -i \x27s/%s/%s/g\x27 {} \\+\n",$1,gensub("n2c3","n2c4","g",$1))}'
 
 #shell var
 $ f='apple'

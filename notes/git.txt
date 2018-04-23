@@ -426,6 +426,7 @@ git cat-file -p 008215b51cdb18d083d05c39b7054faf584f528a
 
 git ls-tree master or git ls-tree master .
 git ls-files
+git ls-tree -dr --name-only HEAD
 
 #if the history looks like this:
 eb5ceff change to chief
@@ -1273,3 +1274,7 @@ user-friendly commands are called “porcelain” commands.
 GIT_SSH_COMMAND="ssh -i /home/cheok/n2c3/id_rsa" git clone repourl
 #after cloning, do the following in the repo
 git config core.sshCommand "ssh -i /home/cheok/n2c3/id_rsa"
+
+--reuse-message is same as -C
+git commit --reuse-message=1e11f5ab6 --reset-author
+git commit -C HEAD --date="`date`" #change author date

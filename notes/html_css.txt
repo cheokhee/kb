@@ -30,3 +30,36 @@ how to resolve conflicting properties for an element?
 Margin is outer space of an element, while Padding is inner space of an element. Margin is the space
 outside the border of an element, while Padding is the space that is inside the border of it. Margin
 can be value auto: margin: auto , but you can't give Padding the value of auto.
+
+CSS
+em:	Relative to the font-size of the element (2em means 2 times the size of the current font)
+
+CSS resets: every browser has its own default styles for different elements. CSS resets
+take every common HTML element with a predefined style and provide one unified style for
+all browsers.
+
+CSS selectors: type, class, ID
+
+block element: start on a new line and occupy available width.
+inline element: determined by the display property, cannot have a fixed size.
+display:
+  block: make the element a block-level element
+  inline: make the element an inline-level element
+  inline-block: behave as a block element, but displayed inline with other elements.
+  none: hide the element
+
+box model: every element is a rectangular box: width, height, padding, border, margin
+width, height: apply to block element only
+
+inline element: margins only work horizontally (left and right)
+paddings work on four sides. but the top and bottom may bleed into the lines
+above/below the element.
+
+position: relative (relative to its original position)
+used with top: push an element down
+used with left: push an element to the right
+===
+position: absolute -> relative to the closest relatively positioned parent.
+if not exist, relative to the body element
+
+CSS animation: transforms, transitions, keyframes

@@ -523,6 +523,8 @@ sort -rn -t , -k 3,3 svc-port-list.csv
 
 #sort on first 3 fields
 sort -rn -t , -k 1,3 svc-port-list.csv
+#sort by second column
+sort -t"," -k2,2 file.csv
 
 #sort human-readable fils sizes
 $ echo -e "1G\n1M" | sort -h
@@ -613,6 +615,11 @@ cheok 10 hee
 join -t "|" in-vj-only.txt in-mine-only.txt
 #show only in file 1
 join -v 1 -t "|" in-vj-only.txt in-mine-only.txt
+#join the first file (-1) by the second column and second file (-2) by the first
+join -t"," -1 2 -2 1 first.txt second.txt
+#outer join, replace blanks with NULL in columns 1 and 2
+#-o: which field to substitue: 0 is key 1.1 first column, etc
+join -t"," -1 2 -a 1 -a 2 -e ' NULL' -o '0,1.1,2.2' first.txt second.txt
 
 various programs:
 colrm : remove columns
@@ -976,6 +983,8 @@ enca -L none newrelic.js #require enca package, which includes enconv
 
 #show supported encodings
 iconv -l
+== encoding conversion
+iconv -f ISO_8859-1 -t UTF-8 < input.txt > output.txt
 
 $$ : the process number of the current shell.
 $! : The process number of the last background command

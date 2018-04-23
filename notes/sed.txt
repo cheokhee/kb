@@ -60,3 +60,8 @@ sed -n '/begin/,/end/p' <file>
 
 #print lines outside two patterns
 sed -n '/begin/,/end/!p' <file>
+
+trim whitespace
+sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
+
+sed -i[suffix]: edit file in place, make a backup if suffix is supplied

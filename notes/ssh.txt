@@ -41,3 +41,5 @@ ssh -L 5901:localhost:5901 -i ~/mykeyfile.pem ubuntu@myec2hostname
 windows workaround:
 copy the key files under %userprofile%/.ssh to C:\Program Files (x86)\Git\.ssh or
 D:\Git\.ssh (wherever git is installed)
+
+sshpass -p "n2c3" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no n2c3@IPaddress:/home/n2c3/snapshot/data.tar.gz .

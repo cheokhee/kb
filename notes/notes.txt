@@ -6953,6 +6953,9 @@ sticky bit: set on a directory.
 if it is set, the only user who can rename or remove any file is the file's owner, the directory's owner,
 or superuser.
 --> Normally, if you have write permssion for a directory, you can rename or remove files not owned by you.
+==
+real user id: identify the user who owns the process
+effective user id: used by the OS to decide whether the process is allowed to do something.
 
 federated database:
 a system in which several databases appear to function as a single entity. Each component database in the system is completely self-sustained and functional. When an application queries the federated database, the system figures out which of its component databases contains the data being requested and passes the request to it. Federated databases can be thought of as database virtualization in much the same way that storage virtualization makes several drives appear as one.
@@ -7784,6 +7787,9 @@ continuous integration: every check-in is verified by an automated build.
 continuous delivery: every check-in is delivered to a staging area or non-production environment (proven to be deployable)
 continuous deployment: every check-in is deployed to production. a process in which every incremental software
 change is automatically tested and deployed to production.
+===
+continuous delivery: pipeline: an automated process that delivers software to a production
+environment
 
 fork-join paradigm:
 In parallel computing, the fork–join model is a way of setting up and executing parallel programs,
@@ -9957,6 +9963,8 @@ hash1 is the hash of data block #2
 parent has the hash of (hash0+hash1)
 ---
 Merkle tree: a binary tree where the nodes store hashes of data rather than the data itself.
+merkle tree: node is labelled with the hash value of its contents, which include
+the hash of its children
 
 pain
 P: position: where is it?
@@ -11176,6 +11184,8 @@ in a database and display the content as a web page. the user doesn't have to kn
 An embedded system is some combination of computer hardware and software, either fixed in capability
 or programmable, that is designed for a specific function or for specific functions within a larger
 system.
+===
+embedded system: a computerized system purpose-built for its application.
 
 A subquery is a query that is nested inside a SELECT, INSERT, UPDATE, or DELETE statement, or inside
 another subquery. A subquery can be used anywhere an expression is allowed.
@@ -12483,3 +12493,18 @@ endpoint is the URL where your service can be accessed by a client application.
 
 Web services are for program-to-program interaction, while web pages are for program-to-human
 interaction.
+
+snowflakes: variability across the software delivery lifecycle.
+#1. difference in environments
+#2. difference in the artifacts being deployed
+
+Docker: a packaging tool that allows you to describe and build an execution
+environment for your application as a Linux container.
+Linux container: it thinks it is a VM, when it is actually a filesystem
+that shares a linux kernel.
+
+cloud foundry
+Buildpacks provide framework and runtime support for apps. Buildpacks typically examine your apps to
+determine what dependencies to download and how to configure the apps to communicate with bound
+services. When you push an app, Cloud Foundry automatically detects an appropriate buildpack for
+it. This buildpack is used to compile or prepare your app for launch.
