@@ -268,3 +268,7 @@ C-x = : (what-cursor-position &optional DETAIL)
 C-RET execute command under point
 C-S-RET execute command under point and show result table in HTML buffer
 M-RET explain execution plan for command under point
+
+equivalent of vim's yy10p:
+to eval: M-: (eval-expression)
+(dotimes '10 (yank))

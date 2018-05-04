@@ -6009,6 +6009,13 @@ one from which it was served.
 ---
 same origin policy: javascript code can only make request to the domain from which it is loaded.
 enforced by the browser
+---
+to bypass same origin policy: CORS (cross-origin resource sharing)
+the request is sent with an extra header called Origin.
+If the server decides that the request should be allowed, it sends a Access-Control-Allow-Origin
+header echoing back the same origin that was sent or * if it’s a public resource
+If this header is missing, or the origins don’t match, then the browser disallows the request. If
+all is well, then the browser processes the request.
 
 federated network identity
 A network identity scheme involving multiple repositories of identities instead of a
@@ -11619,6 +11626,8 @@ in a single namespace, which is analogous to a relational schema.
 here document is a file literal or input stream literal
 
 microservices: creating a system from very small, simple services
+microservice architecture - is an architectural style that structures an application as a collection
+of loosely coupled services, which implement business capabilities.
 
 exception handling strategy:
 1. handle error at the local level, retry or recover
@@ -12508,3 +12517,15 @@ Buildpacks provide framework and runtime support for apps. Buildpacks typically 
 determine what dependencies to download and how to configure the apps to communicate with bound
 services. When you push an app, Cloud Foundry automatically detects an appropriate buildpack for
 it. This buildpack is used to compile or prepare your app for launch.
+===
+buildpack: define how to set up the stack for your application. specifically, it downloads
+everything that is needed to run your application.
+===
+A buildpack will check what is installed inside the container and install anything additional that
+is needed. If the buildpack is designed to run Ruby applications under Ruby 2.0 and only Ruby 1.9.3
+is installed, then it will download the newer Ruby, compile it and install it.
+can even compile your code.
+
+bosh: used to set up cloud foundry.
+
+blockchain: proof-of-work, proof-of-stake, proof-of-authority

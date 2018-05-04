@@ -193,6 +193,7 @@ pv : pipe viewer
 faketime : eg. faketime '00:30:00' man
 daemontools
 fortune
+toilet
 
 =========== end of packages ==============
 

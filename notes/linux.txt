@@ -1189,6 +1189,8 @@ FONTSIZE="12x24"
 The font size is specified by 2 numbers in pixels represented as HEIGHT x WIDTH. If the width is 8
 pixels, then only the height is specified. For comparison purposes, the default console font size is
 16 (that is, 16 x 8).
+-----
+showconsolefont
 
 tune2fs : adjust filesystem parameters
 #list content of superblock, etc
@@ -2209,3 +2211,7 @@ if [ $? -ne 0 ]; then
 else
     echo "Got data"
 fi
+
+VGA: 640x480
+SVGA: 800x600
+XGA: 1024x768

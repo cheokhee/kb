@@ -63,5 +63,6 @@ sed -n '/begin/,/end/!p' <file>
 
 trim whitespace
 sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
+sed -r -e 's/^\s+//' -e 's/\s+$//'
 
 sed -i[suffix]: edit file in place, make a backup if suffix is supplied

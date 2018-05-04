@@ -1813,3 +1813,11 @@ String joined = String.join(" and ", list); // "foo and bar and baz"
 String joinedFirstNames = list.stream()
   .map(Person::getFirstName)
   .collect(Collectors.joining(", ")); // "John, Anna, Paul"
+
+Spring has the concept of proiles. Proiles are essentially labels, or tags, for Spring beans. Beans
+in a given proile don’t exist unless that proile is activated. The easiest way to activate a proile
+is to use a command-line argument when you run the java command. For example, if you want to
+activate all the beans under the profile1 and profile2 proiles, you’d use a command line like this:
+java -Dspring.profiles.active=profile1,profile2 -jar ...
+
+gradle commands: help, projects, properties
