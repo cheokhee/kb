@@ -2202,6 +2202,8 @@ log rotation:
 mDNS: multicast DNS with service discovery, zeroconf
 avahi:open-source implementation of zeroconf
 avahi-browse -av
+avahi-browse -atr
+avahi-resolve -4 -n name.local
 
 # test to see if any data on stdin
 read -t 0
@@ -2215,3 +2217,5 @@ fi
 VGA: 640x480
 SVGA: 800x600
 XGA: 1024x768
+
+fbset: show/modify frame buffer device settings.

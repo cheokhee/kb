@@ -581,3 +581,42 @@ an object, it only copies that reference value. does not do deep cloning
 To create a non-enumerable property we have to use Object.defineProperty(). A special method for
 creating properties on an object.
 Object.defineProperty() is also how you create read-only properties.
+
+arrow function does not create a new scope.
+this, arguments, and super point to the containing scope
+example:
+function puzzle() {
+  return function() {
+    console.log(arguments) }}
+puzzle('a','b','c')(1,2,3)
+-->
+{ '0': 1, '1': 2, '2': 3 }
+VS
+function puzzle() {
+  return () => console.log(arguments) }
+puzzle('a','b','c')(1,2,3)
+-->
+{ '0': 'a', '1': 'b', '2': 'c' }
+
+function join(...list) {
+  return list.join(",") }
+join("a","b","c")
+-->
+'a,b,c'
+
+Symbol: a unique value type, do not have literal representation
+Symbol() === Symbol()
+--> false
+Symbol('blah')
+purpose: to implement protocols, to use as property keys
+===
+> obj = { name: 'cheok', [Symbol('blah')]: "wow"}
+{ name: 'cheok', [Symbol(blah)]: 'wow' }
+==> does not show up in Object.keys(obj) and Object.getOwnPropertyNames(obj)
+use: Object.getOwnPropertySymbols(a)
+[ Symbol(blah) ]
+== global symbols: Symbol.for(key) , Symbol.keyFor(symbol)
+well-known symbols:
+Symbol.toPrimitive
+Symbol.iterator
+Symbol.match

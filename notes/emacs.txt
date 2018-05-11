@@ -272,3 +272,6 @@ M-RET explain execution plan for command under point
 equivalent of vim's yy10p:
 to eval: M-: (eval-expression)
 (dotimes '10 (yank))
+
+C-u : prefix argument
+C-x : prefix key,  prefix key is a key sequence whose binding is a keymap

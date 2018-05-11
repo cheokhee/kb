@@ -6323,6 +6323,8 @@ within that region (including procedures declared within it).
 dynamic scope: the scope depends on the nesting of functions at run time.
 Perl and common lisp allow you to choose between static and dynamic scoping.
 Most languages use static scoping
+===
+lexical scope: a variable can only be accessed within the block in which it is defined.
 
 form follows function
 the shape of an object should be based on its intended function or purpose.
@@ -12529,3 +12531,72 @@ can even compile your code.
 bosh: used to set up cloud foundry.
 
 blockchain: proof-of-work, proof-of-stake, proof-of-authority
+
+A database link is a connection between two physical database servers that allows a client to access
+them as one logical database.
+
+Oracle Data Guard ensures high availability, data protection, and disaster recovery for enterprise
+data. Data Guard provides a comprehensive set of services that create, maintain, manage, and monitor
+one or more standby databases to enable production Oracle databases to survive disasters and data
+corruptions.
+
+in computer networking, the multicast Domain Name System (mDNS) protocol resolves host names to IP
+addresses within small networks that do not include a local name server. It is a zero-configuration
+service
+Multicast DNS provides name-to-address translation and other DNS-like operations in the absence of a
+conventional DNS server
+
+The zero-conf specification covers three broad goals:
+Allow devices to obtain an IP address even in the absence of a DHCP server.
+Allow devices to obtain a hostname, even in the absence of a DNS server.
+Allow devices to advertise and search for (discover) services on the local link.
+1. if no DHCP server, use link-local addressing to obtain an IP address
+The address assigned by link-local addressing is in the 169.254.0.0/16 block, which is only useful
+within the link (because routers won’t forward packets from devices in this address space[
+--
+To obtain an address the device sends ARP requests to establish whether its desired IP address
+(chosen at random from the 169.254 range) is available. This is a two-step process:
+--
+First, an ARP probe is sent asking for the MAC address of the machine with a given IP. This probe is
+sent a number of times to confirm that the given IP address is not in use (there will be no response
+if it isn’t).  If no reply is received, the device sends out an ARP announcement saying that it is
+now the machine with the given IP.
+===
+2. Assigning as hostname is simple if you have a DNS server, but, if you don’t, zero-conf can assign
+hostnames using Multicast DNS.
+To claim a local hostname with mDNS, a device sends DNS messages to probe for the uniqueness of the
+hostname. Three queries are sent in 250ms intervals, and if no device reports using this hostname,
+the requesting device then sends an announce message to claim ownership.
+==
+3. DNS Service Discovery (also known as DNS-SD) can be used to search for services available on the
+local link. service:
+ServiceType.Domain
+InstanceName.ServiceType.Domain
+example: jose._ipp._tcp.local #jose is the name of the printer
+==
+DNS-SD uses mDNS to announce the presence of services. To achieve this, it uses DNS PTR and SRV
+records.
+===
+Zeroconf (zero configuration networking) refers to several protocols and techniques that are used
+together to create an IP (Internet Protocol) network with no special configuration servers or manual
+operator intervention. These networks allow novices to connect computers, network devices, scanners,
+and printers to create a functioning network without requiring manual configuration. Zeroconf does
+not require the user to set up Domain Name System services (DNS), Dynamic Host Configuration
+Protocol (DHCP), or manually configure the computer’s network settings.
+==
+The three primary technologies that comprise a zeroconf network are automatic resolution and
+distribution of computer host names (referred to as multicast DNS), numeric network addresses
+assigned to networked devices (link-local address auto-configuration), and automatic location of
+network services.
+==
+Zerconf uses a number of underlying technologies. For address selection, link-local addressing
+replaces the DHCP server. This capability is built into Ipv6 addresses. However, traditional Ipv4 is
+used as a last resort except in a zeroconf context. The multicast name service is used for name
+resolution in zeroconf in order to allow a network device to select a domain name in the local name
+space and then announce it using a designated multicast IP address. Zeroconf uses multicast DNS for
+service discovery. In this model, every computer on the local network stores an individual listing
+of DNS resource records and then joins the respective DNS multicast group supporting the zeroconf
+network.
+
+categorical data: enums, enumerated. can take on only a specific set of values representing
+a set of possible categories
