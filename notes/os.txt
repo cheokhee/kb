@@ -1,6 +1,6 @@
 free : display amout of memory in system
 
-uname -m : 
+uname -m :
 x86_64 ==> 64-bit hw/OS ?
 i686   ==> 32-bit hw/OS ?
 
@@ -9,7 +9,6 @@ grep flags /proc/cpuinfo -> if lm, 64-bit hw
 getconf LONG_BIT
 
 #commands:
-lscpu
+lscpu or nproc
 lshw
 dmidecode
-

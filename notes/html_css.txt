@@ -68,6 +68,9 @@ descendant combinator: A B
 child combinator: A > B (immediate child only)
 adjacent sibling combinator: A + B (A is immediately followed by B)
 general sibling combinator: A ~ B (A is followed by B, may or may not be adjacent)
+negation selector: :not()
+example: p:not(.classy) -> all paragraphs except classy paragraph
 
 The <iframe> tag specifies an inline frame.
 An inline frame is used to embed another document within the current HTML document.
+An iframe is used to display a web page within a web page

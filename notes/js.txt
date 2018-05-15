@@ -209,6 +209,8 @@ Object.getPrototypeOf(d) === Date.prototype #true, preferred
 Array.prototype.slice(start, end): select elements from an array
 start	Required. An integer that specifies where to start the selection (The first element has an index of 0). Use negative numbers to select from the end of an array
 end	Optional. An integer that specifies where to end the selection. If omitted, all elements from the start position and to the end of the array will be selected. Use negative numbers to select from the end of an array
+Array.prototype.slice(start, end): return a shallow copy of a portion of an array
+
 
 String slice(): extract parts of a string
 
@@ -572,6 +574,7 @@ console.log(object2.c, object2.d);
 // expected output: 3 5
 
 Object.assign(target, ...sources)
+Object.assign({}, defaults, options): mutate first argument
 
 Properties in the target object will be overwritten by properties in the sources if they have the
 same key.  The Object.assign() method only copies enumerable and own properties from a source object
@@ -620,3 +623,5 @@ well-known symbols:
 Symbol.toPrimitive
 Symbol.iterator
 Symbol.match
+
+--use destructuring to swap: [left,right] = [right,left]

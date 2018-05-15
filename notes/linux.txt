@@ -442,6 +442,8 @@ Wired connection 1  c614de98-714f-3f7a-8632-c47e53590cac  802-3-ethernet   eth2
 nmcli c edit c614de98-714f-3f7a-8632-c47e53590cac
 nmcli c show --active
 nmcli c modify id 'MyCafe' 802-11-wireless.mtu 1350
+===
+nmtui
 
 find out my screen resolution:
 #1: xdpyinfo | grep dimensions
@@ -652,6 +654,7 @@ ps -L : show threads (LWP (lightweight process column))
 ps -fHU <username> : show processes of username in hierarchical form
 ps -L -o tid,pid,ppid,state,euid,egid,sid,pgid,tpgid,command <pid>
 ps -o nlwp <pid> #show number of lightweight processes
+ps auxww : wide output
 
 #show top processes sorted by memory usage
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem
@@ -2219,3 +2222,5 @@ SVGA: 800x600
 XGA: 1024x768
 
 fbset: show/modify frame buffer device settings.
+
+env -i: run program in an empty environment

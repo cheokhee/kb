@@ -1,5 +1,5 @@
 xdg-open index.html
-
+alternative to xdg-open: gvfs-open
 
 mimeopen index.html
 

@@ -342,6 +342,9 @@ GNU history:
 !# : the entire command line typed so far
 $ cheok hee !#
 cheok hee cheok hee
+---
+echo cheokthonghee !#:$.txt
+--> echo cheokthonghee cheokthonghee.txt
 
 !!:2 : 2nd arg of previous cmd
 !!:0 : the 0th word (the cmd word)
@@ -1193,3 +1196,10 @@ echo hello | grep -E -o "h.+l" -> hell
 grep: use -P to do non-greedy (lazy) match
 sed does not support non-greedy search
 perl: non-greedy search
+
+#get public IP address
+curl inet-ip.info
+curl inet-ip.info/json/indent
+curl inet-ip.info/json
+curl inet-ip.info/yaml
+curl inet-ip.info/toml
