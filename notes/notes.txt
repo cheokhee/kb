@@ -11630,6 +11630,8 @@ here document is a file literal or input stream literal
 microservices: creating a system from very small, simple services
 microservice architecture - is an architectural style that structures an application as a collection
 of loosely coupled services, which implement business capabilities.
+===
+Microservices are small, autonomous services that work together.
 
 exception handling strategy:
 1. handle error at the local level, retry or recover
@@ -12600,3 +12602,8 @@ network.
 
 categorical data: enums, enumerated. can take on only a specific set of values representing
 a set of possible categories
+
+Cairo: a 2D graphics library
+
+language binding: the glue that connects a library in one language to another language.
+it allows a library written in one language to be used in another language.

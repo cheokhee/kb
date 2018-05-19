@@ -444,6 +444,8 @@ nmcli c show --active
 nmcli c modify id 'MyCafe' 802-11-wireless.mtu 1350
 ===
 nmtui
+===
+/var/lib/NetworkManager/dhclient-eth1.conf : contain hostname
 
 find out my screen resolution:
 #1: xdpyinfo | grep dimensions
@@ -2224,3 +2226,7 @@ XGA: 1024x768
 fbset: show/modify frame buffer device settings.
 
 env -i: run program in an empty environment
+
+Udev is the device manager that creates/removes device nodes in the /dev directory dynamically. It
+is the successor of devfs and hotplug.
+udev replaces the functionality of both hotplug and hwdetect.

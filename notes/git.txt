@@ -1278,3 +1278,6 @@ git config core.sshCommand "ssh -i /home/cheok/n2c3/id_rsa"
 --reuse-message is same as -C
 git commit --reuse-message=1e11f5ab6 --reset-author
 git commit -C HEAD --date="`date`" #change author date
+
+#show debug info
+GIT_TRACE=1 git <command>

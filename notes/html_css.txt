@@ -70,6 +70,18 @@ adjacent sibling combinator: A + B (A is immediately followed by B)
 general sibling combinator: A ~ B (A is followed by B, may or may not be adjacent)
 negation selector: :not()
 example: p:not(.classy) -> all paragraphs except classy paragraph
+===
+pseudo-classes, pseudo-elements:
+a:link, a:visited, a:hover, a:active
+:focus
+:before, :after -> add content before/after
+::selection
+===
+attribute selector:
+img[title]: select img tag with title attribute
+a[href="http://www.google.com"]
+a[href^="http://"] => begin with
+a[href$=".pdf"] => end with
 
 The <iframe> tag specifies an inline frame.
 An inline frame is used to embed another document within the current HTML document.
