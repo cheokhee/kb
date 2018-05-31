@@ -2856,6 +2856,9 @@ QoS: provides guaranteed timely delivery of specific application data or resourc
 --
 QoS level is the agreement between the publisher and the receiver of a message about the guarantees
 for delivering the message.
+---
+QoS: the measurable end-to-end performance properties of a network service (quantifying
+network performance). common properties: throughput, delay, packet jitter, error rate,
 
 Bandwidth in computer networking refers to the data rate supported by a network connection or interface.
 Bandwidth represents the capacity of the connection
@@ -11980,6 +11983,14 @@ routers and switches that forward traffic from individual network nodes
 ==
 this means SDN control software sits atop a physical infrastructure layer composed of networking
 devices, with which it communicates via a control plane interface such as OpenFlow
+===
+traditional switch: control and data functions are integrated on the device.
+control function (aka control plane): refers to packet-forwarding rules.
+data function (aka data plane): forwards packets
+SDN approach: control functions are moved out of the switches and into SDN controllers.
+switches are just packet-forwarding devices. SDN controller defines the data flows that occur
+in the data plane. each switch must implement a model of packet forwarding and present
+an API to SDN controllers. example: OpenFlow
 
 ============ P/NP/NP-complete/NP-hard==========
 decision problem: a problem with a yes/no answer
@@ -12607,3 +12618,17 @@ Cairo: a 2D graphics library
 
 language binding: the glue that connects a library in one language to another language.
 it allows a library written in one language to be used in another language.
+
+A reverse shell is a type of shell in which the target machine communicates back to the attacking
+machine. The attacking machine has a listener port on which it receives the connection. victim
+connects to attacker on listening port.
+===
+bind shell: is a type of shell in which the target machine opens up a communication port or a
+listener on the victim machine and waits for an incoming connection. The attacker then connects to
+the victim machine’s listener which then leads to code or command execution on the server. attacker
+connects victim on listening port.
+==
+Reverse TCP Meterpreter, C99 PHP web shell, JSP web shell, Netcat
+
+buffering: reading ahead and storing the data in a buffer so that the user can have
+a smooth playback experience

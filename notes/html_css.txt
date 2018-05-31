@@ -86,3 +86,6 @@ a[href$=".pdf"] => end with
 The <iframe> tag specifies an inline frame.
 An inline frame is used to embed another document within the current HTML document.
 An iframe is used to display a web page within a web page
+
+CSS @font-face rule: allow you to use fonts that are not installed on the
+user's computers.

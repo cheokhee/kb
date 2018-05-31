@@ -433,6 +433,14 @@ eb5ceff change to chief
 d259773 Merge branch 'mergeTest'
 26f22bf change to ravens
 
+#get and apply patches
+git format-patch <commit range> #will write to files
+example (current commit): git format-patch HEAD^..HEAD
+#use am to apply, will create commit
+git am 0001-add-patriots.patch
+#if get whitespace error,
+git am --whitespace=fix 0001-add-patriots.patch
+
 git format-patch d259773 # produces: for use with git apply
 0001-change-to-chief.patch
 

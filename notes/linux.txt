@@ -522,9 +522,6 @@ c : show absolute path of process
 
 run with an empty environment: env -i
 
-port scanning:
-nmap -sT -p- -Pn <hostname or IP>
-
 === systemd ====
 systemctl list-unit-files --type=service #equivalent to ls /etc/systemd/system/*.service and /lib/systemd/system/*.service
 systemctl start/stop/enable/disable/restart/status virtualbox
@@ -776,6 +773,10 @@ nmap -oN <file>
 nmap -oX scandata.xml rigel
 #discover all hosts in a network
 nmap -sn 146.222.122.128/25
+--
+nmap -sT -p- -Pn <hostname or IP>
+====
+nmap --top-ports 1000 -T4 -sC www.google.com
 
 #make your script more robust
 set -euo pipefail
@@ -827,12 +828,33 @@ $ grep -c  $'\r' /a/tapasjo/copy-paste.txt
 27
 
 braces:
-trimming with variable substition:
+trimming with variable substitution:
 $ var=foo.pdf
 $ echo ${var%.pdf} #trim suffix
 foo
+${var%pattern}: remove shortest part of pattern
+${var%%pattern}: remove longest part of pattern
+==========================
 $ echo ${var#foo} #trim prefix
 .pdf
+${var#Pattern}: remove shortest part of pattern
+${var##Pattern} : remove longest part of pattern
+example:
+_url=http://dns.measurement-factory.com/tools/dnstop/src/dnstop-20090128.tar.gz
+echo "${_url#*/}"
+=> /dns.measurement-factory.com/tools/dnstop/src/dnstop-20090128.tar.gz
+echo "${_url##*/}"
+=> dnstop-20090128.tar.gz
+
+variable substitution: substring
+${parameter:offset}
+${parameter:offset:length}
+${variable:position}
+var=${string:position}
+
+variable substitution: find and replace
+${varName/Pattern/Replacement}
+${varName/word1/word2}
 ====
 #parameter substitution:
 IP=1.2.3.4
@@ -842,6 +864,7 @@ echo ${IP//./ }
 1 2 3 4
 #an extra / means global substitution
 ====
+curly brace expansion
 $ echo {00..8..2}
 00 02 04 06 08
 $ echo {00..8}
@@ -1957,6 +1980,7 @@ show routes:
 ip r
 route -n
 routel
+route -nee
 
 monitoring tool: glances
 
@@ -2230,3 +2254,8 @@ env -i: run program in an empty environment
 Udev is the device manager that creates/removes device nodes in the /dev directory dynamically. It
 is the successor of devfs and hotplug.
 udev replaces the functionality of both hotplug and hwdetect.
+
+#apply ed script: use diff -e old new
+(cat diff.txt && echo w) | ed - <oldfile>
+
+/etc/networks: link-local stuff
