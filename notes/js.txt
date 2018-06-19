@@ -625,3 +625,10 @@ Symbol.iterator
 Symbol.match
 
 --use destructuring to swap: [left,right] = [right,left]
+
+ES6: Map (any object can be used as keys)
+
+generator: a special kind of iterator that can suspend execution while retaining
+its context. conform with both iterable and iterator protocols.
+iterable protocol: has a Symbol.iterator function
+iterator protocol: has a next() function

@@ -1203,3 +1203,5 @@ curl inet-ip.info/json/indent
 curl inet-ip.info/json
 curl inet-ip.info/yaml
 curl inet-ip.info/toml
+
+find . ! -readable -prune -o ...

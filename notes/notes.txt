@@ -12632,3 +12632,12 @@ Reverse TCP Meterpreter, C99 PHP web shell, JSP web shell, Netcat
 
 buffering: reading ahead and storing the data in a buffer so that the user can have
 a smooth playback experience
+
+web shell: a script uploaded to a web server to enable remote administration of the machine.
+
+responsive web design:
+fluid grids: percentage-based widths rather than fixed pixel dimensions
+flexible images:
+media queries
+
+Sybil attack: a security threat where a node assumes multiple identifies within a network.

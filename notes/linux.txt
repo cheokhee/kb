@@ -450,6 +450,7 @@ nmtui
 find out my screen resolution:
 #1: xdpyinfo | grep dimensions
 #2: xrandr
+show X db: xrdb -query
 
 #change screen resolution
 type xrandr to show available name for output and resolution:
@@ -2259,3 +2260,8 @@ udev replaces the functionality of both hotplug and hwdetect.
 (cat diff.txt && echo w) | ed - <oldfile>
 
 /etc/networks: link-local stuff
+
+less: while paging, -i triggers smart-casing
+smart-casing: ignore case when the pattern does not contain uppercase
+
+column -t: create a table
