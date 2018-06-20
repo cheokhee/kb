@@ -12641,3 +12641,18 @@ flexible images:
 media queries
 
 Sybil attack: a security threat where a node assumes multiple identifies within a network.
+
+An autorefractor or automated refractor is a computer-controlled machine used during an eye
+examination to provide an objective measurement of a person's refractive error and prescription for
+glasses or contact lenses. This is achieved by measuring how light is changed as it enters a
+person's eye.
+==
+Phoropter is a common name for an ophthalmic testing device, also called a refractor. It is commonly
+used by eye care professionals during an eye examination, and contains different lenses used for
+refraction of the eye during sight testing, to measure an individual's refractive error and
+determine his or her eyeglass prescription.[1] It also is used to measure the patients' phorias and
+ductions, which are characteristics of binocularity.
+==
+A keratometer, also known as a ophthalmometer, is a diagnostic instrument for measuring the
+curvature of the anterior surface of the cornea, particularly for assessing the extent and axis of
+astigmatism.
