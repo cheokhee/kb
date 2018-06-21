@@ -42,6 +42,11 @@ service docker stop/start/restart
 #4:
 invoke-rc.d docker status
 
+#list all startup processes
+initctl list
+systemctl list-unit-files --state=enabled
+service --status-all
+
 ==================================
 
 /etc/init/ttyN.conf : start a getty process for ttyN

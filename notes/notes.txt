@@ -1761,6 +1761,9 @@ a test harness or automated test framework is a collection of software and test 
 ====
 The software, tools, samples of data input and output, and configurations are all referred
 to collectively as a test harness.
+==
+Software which is used to run reproducible tests systematically on a piece of software under test is
+known as a test harness; part of its job is to set up suitable test fixtures
 --
 test scaffold
 to test a component in isolation, it is usually necessary to create some kind of framework
@@ -5668,6 +5671,8 @@ The model is not a database: the 'model' in MVC is both the data and the busines
 he view renders the model into a form suitable for interaction
 A controller accepts input from the user and instructs the model and viewport to perform actions based on that input.
 User uses controller to manipulate model, which updates the view.
+Model manages the data and business logic. view renders the user interface. controller receives user input
+and instruct the model and view to perform certain actions
 
 General average
 The law of general average is a legal principle of maritime law according to which all parties
@@ -6158,6 +6163,8 @@ Network address translation: the process of modifying IP address info in a netwo
  while the packet is in transit.
 ==> a way of sharing Internet IP addresses among many computers on a private network.
 Typical: enable multiple hosts on a private network to access the Internet using a single public IP address.
+---
+NAT: allow machines with non-routable IP address to communicate across the internet.
 ===
 How NAT works:
 the firewall has a pool of valid public IP addresses.

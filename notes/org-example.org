@@ -36,3 +36,7 @@ C-c RET: insert line below current row and add a new blank row
 | cheok | m      |   3 |
 | hee   | m      |   4 |
 |-------+--------+-----|
+
+Type |name|age|gender C-c RET
+
+C-c | : create an empty table OR convert a region to a table
