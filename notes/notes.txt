@@ -12663,3 +12663,7 @@ ductions, which are characteristics of binocularity.
 A keratometer, also known as a ophthalmometer, is a diagnostic instrument for measuring the
 curvature of the anterior surface of the cornea, particularly for assessing the extent and axis of
 astigmatism.
+
+blockchain:
+distributed hash table
+consensus mechanism: proof-of-work, proof-of-stake, proof-of-authority, delegated proof-of-stake
