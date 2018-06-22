@@ -3,3 +3,8 @@ perl -e "print join(\"\n\", @INC);"
 perldoc perlrun
 
 perl -i.bak -p -e 's/hee/cheok/' file1.txt
+
+print matched string example
+$ echo -e "1234cheok\ncheo4566kie" | perl -n -e '/(\d+)/ && print "$1\n"'
+1234
+4566
