@@ -779,6 +779,10 @@ nmap -oN <file>
 nmap -oX scandata.xml rigel
 #discover all hosts in a network
 nmap -sn 146.222.122.128/25
+#get a list of hostname without pinging
+nmap -sL 146.222.122.128/25
+#typical usage: -T: speed template
+nmap -T4 -A <ip>
 --
 nmap -sT -p- -Pn <hostname or IP>
 ====
@@ -2268,6 +2272,9 @@ udev replaces the functionality of both hotplug and hwdetect.
 
 less: while paging, -i triggers smart-casing
 smart-casing: ignore case when the pattern does not contain uppercase
+===
+less +F blah : follow, like tail -f, C-c to leave follow mode
+less: while paging: F triggers follow mode, C-c to leave follow mode
 
 column -t: create a table
 
@@ -2281,3 +2288,5 @@ example: client connection sends "ls", "ls" will be redirected to FIFO.
 "ls" will come out the other end and be piped to /bin/sh. /bin/sh will execute
 "ls and the output of "ls" will be piped to the same netcat process.
 Any input to the server netcat process will be sent to the client connection.
+
+mtr: my traceroute

@@ -12667,3 +12667,15 @@ astigmatism.
 blockchain:
 distributed hash table
 consensus mechanism: proof-of-work, proof-of-stake, proof-of-authority, delegated proof-of-stake
+==
+proof-of-work: solve crypto-puzzles using dedicated hardware.
+==
+proof-of-stake: In this system we have validators instead of miners. The way it works is that as a
+validator, you will first have to lock up some of your ether as stake. After doing that you will
+then start validating blocks which basically means that if you see any blocks that you think can be
+appended to the blockchain, you can validate it by placing a bet on it. When and if, the block gets
+appended, you will get a reward proportional to the stake you have invested. If, however, you bet on
+the wrong or the malicious block, the stake that you have invested will be taken away from you.
+
+smart contracts: set of conditions recorded on a blockchain triggering automated, self-executing
+actions when the predefined conditions are met. example: insurance claim payout
