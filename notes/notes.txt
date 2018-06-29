@@ -2632,7 +2632,8 @@ types of polymorphism:
 (2) type coercion
 (3) parametric polymorphism: java generics, C++ templates, a method that can accept any type.
      used a lot in functional programming.
-(4) subtype/inclusion polymorphism
+(4) subtype/inclusion polymorphism: when a name represents instances of many different classes
+    that share a common superclass
 
 An objects class defines how the object is implemented.
 In contrast, an objects type only refers to its interface.
@@ -12679,3 +12680,24 @@ the wrong or the malicious block, the stake that you have invested will be taken
 
 smart contracts: set of conditions recorded on a blockchain triggering automated, self-executing
 actions when the predefined conditions are met. example: insurance claim payout
+
+cloud: virtualized data center
+cloud attributes: (1) on-demand self-service (2) ubiquitous network access
+(3) pay per use (4) elasticity (5) location-independent resource pooling
+===
+IaaS: cloud is a data center. customer is renting hardware
+PaaS: cloud is a development environment and service library
+SaaS: cloud is an application
+
+elasticity: the ability to spin up computing resources quickly for a short time and
+then spin down the resources when they are no longer needed.
+
+LEFT OUTER JOIN. This type of join returns all rows from the LEFT-hand table specified in the ON
+condition and only those rows from the other table where the joined fields are equal (join condition
+is met).
+example:
+SELECT columns
+FROM table1
+LEFT [OUTER] JOIN table2
+ON table1.column = table2.column;
+--> table1 is the left-hand table

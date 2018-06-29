@@ -2290,3 +2290,12 @@ example: client connection sends "ls", "ls" will be redirected to FIFO.
 Any input to the server netcat process will be sent to the client connection.
 
 mtr: my traceroute
+
+sensible-editor, sensible-pager, sensible-browser
+select-editor -> ~/.selected_editor
+choices:
+  1. /bin/ed
+  2. /bin/nano        <---- easiest
+  3. /usr/bin/emacs24
+  4. /usr/bin/vim.basic
+  5. /usr/bin/vim.tiny

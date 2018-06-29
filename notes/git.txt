@@ -1011,6 +1011,7 @@ start at line 20, display 11 lines from new file.
 #show current branch
 git rev-parse --abbrev-ref HEAD -> master
 git symbolic-ref HEAD -> refs/heads/master
+git symbolic-ref --short HEAD -> master
 
 #commit history of a deleted file
 git log -- <pathname>
