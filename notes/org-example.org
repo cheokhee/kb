@@ -40,3 +40,6 @@ C-c RET: insert line below current row and add a new blank row
 Type |name|age|gender C-c RET
 
 C-c | : create an empty table OR convert a region to a table
+
+* TODO get up
+Use C-c C-t to change TODO state

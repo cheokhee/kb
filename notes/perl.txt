@@ -8,3 +8,7 @@ print matched string example
 $ echo -e "1234cheok\ncheo4566kie" | perl -n -e '/(\d+)/ && print "$1\n"'
 1234
 4566
+
+#with negative lookahead
+$ echo "https://dummy.com/api/admin/dummy" | perl -ne 'm|(^.*?//.*?/)| && print "$1\n"'
+https://dummy.com/

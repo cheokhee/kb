@@ -1127,6 +1127,8 @@ lsof -i -P
 ====
 #list all files opened by a process
 lsof -nP -p <pid>
+#list open ports
+lsof -Pnli
 
 dstat output:
 cpu: user, sys, idle, wai, hiq, siq
