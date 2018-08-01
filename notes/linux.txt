@@ -1489,6 +1489,8 @@ kernel.core_pattern = |/usr/lib/corekeeper/dump %d %u %p-%u-%g-%s-%t-%h-%E.core
 kernel.core_pipe_limit = 0
 kernel.core_uses_pid = 1
 
+gcore - Generate a core file of a running program
+
 useful commands from moreutils:
 combine, errno, ifdata, isutf8, sponge, ts, vidir, vipe, zrun
 ===

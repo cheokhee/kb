@@ -37,3 +37,41 @@ ReactDOM.render(
 react-detector: chrome extension
 show-me-the-react: for firefox and chrome
 react developer tools: for firefox and chrome
+
+redux:
+global store: single source of truth
+
+the only way to change the global state is to dispatch action.
+--> store.dispatch(action)
+
+action: just a simple object
+example action: {type: types.LOADING_STARTED}
+minimum: the action must have a type
+
+then you change the global state by writing reducer functions.
+
+example:
+getGlobalStore().dispatch({type: types.LOADING_STARTED})
+
+        getGlobalStore().dispatch({type: types.SHOW_TOAST, payload: {
+            severity: SEVERITY_INFO,
+            message: 'File has been uploaded'
+          }})
+
+action: a simple object
+action creator: return an action object
+
+we use thunk middleware: allow us to write action creator that returns a function.
+
+redux selector:
+how to access redux state?
+option1 is to reference the state directly, e.g., state.container.summary.data
+but this requires the component to know the exact shape of the global store. tight coupling.
+another option is to use a selector:
+function mapStateToProps(state) {
+  return {
+    containers: getContainersSummary(state),
+  }
+}
+
+getContainersSummary(state) is a selector function
