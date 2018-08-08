@@ -38,3 +38,27 @@ input:
   "BELONGS_TO",
 ]
  | jq '. | length'
+
+example 4, get length
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq 'length'
+2
+
+example 5, return all the elements
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[]'
+{
+  "name": "cheok"
+}
+{
+  "name": "hee"
+}
+
+example 6, get all the names
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[] | .name'
+"cheok"
+"hee"
+
+example 7, get all the elements with a matching property value
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[] | select(.name=="cheok")'
+{
+  "name": "cheok"
+}
