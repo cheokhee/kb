@@ -6025,6 +6025,9 @@ If the server decides that the request should be allowed, it sends a Access-Cont
 header echoing back the same origin that was sent or * if it’s a public resource
 If this header is missing, or the origins don’t match, then the browser disallows the request. If
 all is well, then the browser processes the request.
+---
+same origin policy: the JS code running in a web page can only access data from the same
+origin/domain.
 
 federated network identity
 A network identity scheme involving multiple repositories of identities instead of a

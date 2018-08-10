@@ -1,0 +1,6 @@
+multiline edit:
+
+C-v: visual block
+I: to insert
+A: to append
+example: to insert "hello" at the end of all two lines: C-v j $ A hello ESC
