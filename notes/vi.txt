@@ -4,3 +4,12 @@ C-v: visual block
 I: to insert
 A: to append
 example: to insert "hello" at the end of all two lines: C-v j $ A hello ESC
+
+#search for lines with che pattern, then add blah at the end of each line
+:g/che/norm A blah
+
+#command history
+q:
+
+#search history
+q/
