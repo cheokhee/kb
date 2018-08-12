@@ -6744,6 +6744,9 @@ backtracking: recursive. works by incrementally building candidates to the final
 at each step, you choose a candidate.
 as soon as you realize that this path cannot lead to the final solution, you abandon
 this candidate, go back one level up, and choose another candidate.
+---
+backtracking: let's say you have a problem that is solved by making a series of choices.
+when you reach a dead end, you go back to the previous decision point and take the next choice.
 
 --> Securitization is the financial practice of pooling various types of contractual debt such as residential mortgages, commercial mortgages, auto loans or credit card debt obligations and selling said consolidated debt as bonds, pass-through securities, or Collateralized mortgage obligation (CMOs), to various investors. The principal and interest on the debt, underlying the security, is paid back to the various investors regularly.
 --> An asset-backed security is a security whose value and income payments are derived from and collateralized (or "backed") by a specified pool of underlying assets. The pool of assets is typically a group of small and illiquid assets that are unable to be sold individually. Pooling the assets into financial instruments allows them to be sold to general investors, a process called securitization, and allows the risk of investing in the underlying assets to be diversified because each security will represent a fraction of the total value of the diverse pool of underlying assets.

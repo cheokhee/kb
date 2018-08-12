@@ -30,7 +30,7 @@ openssl x509 -in server.pem -text
 #download SSL cert
 openssl s_client -connect <host>:443 -showcerts #show cert chain
 #extract CA cert
-openssl s_client -connect track-dev.cargosmart.com:443 | tee certfile
+openssl s_client -connect www.google.com:443 | tee certfile
 #after previous command, type QUIT , then return
 The certfile will have the info.
 openssl x509 -inform PEM -in certfile -out
