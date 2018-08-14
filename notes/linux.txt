@@ -2321,3 +2321,11 @@ $ curl time.nist.gov:13
 exec 3<>/dev/tcp/www.google.com/80
 echo -e "GET / HTTP/1.1\r\nhost: http://www.google.com\r\nConnection: close\r\n\r\n" >&3
 cat <&3
+
+xargs example
+find Pictures/tecmint/ -name *.png -type f -print0 | xargs -0 tar -cvzf images.tar.gz
+# convert multi-line output into single line
+ls -1 | xargs
+# "{}" does not seem necessary
+find Downloads -name "DomTerm" -type d -print0 | xargs -0 /bin/rm -v -rf "{}"
+find . -name "net_stats" -type f -print0 | xargs -0 /bin/rm -v -rf "{}"
