@@ -1637,6 +1637,18 @@ gsettings list-recursively  | grep org.gnome.GWeather
 gsettings get org.gnome.GWeather default-location
 ---
 GUI: dconf-editor
+---
+default: use $XDG_CONFIG_HOME/dconf/user
+#use a different file: /tmp/dconf/user
+XDG_CONFIG_HOME=/tmp dconf dump /
+dconf dump /
+dconf load / < file
+------
+get certain settings from some dconf/user to another dconf/user
+1. put the file in /tmp/dconf/user
+2. XDG_CONFIG_HOME=/tmp dconf dump / > old.txt
+3. edit old.txt
+3. dconf load / < old.txt
 
 #list files that do not match a pattern
 ls !(one)
@@ -2329,3 +2341,17 @@ ls -1 | xargs
 # "{}" does not seem necessary
 find Downloads -name "DomTerm" -type d -print0 | xargs -0 /bin/rm -v -rf "{}"
 find . -name "net_stats" -type f -print0 | xargs -0 /bin/rm -v -rf "{}"
+
+dconf write /org/gnome/desktop/interface/cursor-size 48
+gsettings set com.ubuntu.user-interface.desktop cursor-size 48
+
+ufw: uncomplicated firewall
+
+#trace a specific system call
+strace -e open ls
+#trace multiple system calls
+strace -e trace=open,read ls /home
+#generate statistical report
+strace -c ls /home
+#write to file
+strace -o dconf-trace.txt -e open dconf-editor
