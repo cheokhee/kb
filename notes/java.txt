@@ -210,6 +210,8 @@ java 8 (reading file):
     int count = lines.stream().map( l -> l.toLowerCase() ).filter( l -> l.contains
     (“secret”)).count();
 
+read file into a string: new String(Files.readAllBytes(Paths.get("/home/file.txt")))
+
 #regular expression
 Pattern r = Pattern.compile("([A-Z0-9]+)-([A-Z0-9]+)-([A-Z0-9]+)-([NSEW])");
 Matcher m = r.matcher(string);
