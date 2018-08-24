@@ -1823,3 +1823,5 @@ activate all the beans under the profile1 and profile2 proiles, you’d use a co
 java -Dspring.profiles.active=profile1,profile2 -jar ...
 
 gradle commands: help, projects, properties
+
+CollectionUtils.addIgnoreNull(aColl, anObj)

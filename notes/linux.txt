@@ -1628,13 +1628,38 @@ Linux, it uses Dconf, but on Windows, it uses the registry, and on OS X, it uses
 store.
 -- bottom line: don't use dconf directly. use GSettings
 gsettings list-schemas
-gsettings list-recursively #list all the keys
+#show all keys and values
+gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys
 #after you find the schema, org.gnome.GWeather is a schema name
 gsettings list-keys org.gnome.GWeather
 #compare to following
 gsettings list-recursively  | grep org.gnome.GWeather
 #get the value of a key
 gsettings get org.gnome.GWeather default-location
+---
+relocatable schemas need an aditional path before we can list and manipulate the keys. Other than
+the path we treat the the two types of schemas the same way from the command line.
+$ gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/
+-->
+org.gnome.settings-daemon.plugins.media-keys.custom-keybinding binding ''
+org.gnome.settings-daemon.plugins.media-keys.custom-keybinding command ''
+org.gnome.settings-daemon.plugins.media-keys.custom-keybinding name ''
+===========
+$ gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/
+-->
+org.gnome.settings-daemon.plugins.media-keys.custom-keybinding binding '<Primary><Super>m'
+org.gnome.settings-daemon.plugins.media-keys.custom-keybinding command 'wmctrl -a chrome'
+org.gnome.settings-daemon.plugins.media-keys.custom-keybinding name 'Raise chrome'
+==
+$ gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
+-> ['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']
+===
+$ gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']"
+===
+#checking
+ubuntu 18.04, gnome shell load kb shortcut:
+1. dconf load / < <file>
+2. gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']"
 ---
 GUI: dconf-editor
 ---
@@ -2355,3 +2380,7 @@ strace -e trace=open,read ls /home
 strace -c ls /home
 #write to file
 strace -o dconf-trace.txt -e open dconf-editor
+
+gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
+
+gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
