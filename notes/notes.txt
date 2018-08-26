@@ -12724,3 +12724,7 @@ bounded context: define a boundary between sub-domains.
 aggregate: a root object and its children that are manipulated as a single unit.
 
 backing service: any service consumed by an app is called a backing service.
+
+lexically scoped: the variable does not exist outside the scope in which it is defined.
+
+web service: program-to-program interaction via HTTP

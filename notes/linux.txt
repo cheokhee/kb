@@ -2384,3 +2384,6 @@ strace -o dconf-trace.txt -e open dconf-editor
 gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
 
 gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
+
+xargs: -p, --interactive #implies -t, print command and prompt
+xargs: -t, --verbose #print command
