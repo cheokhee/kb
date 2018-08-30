@@ -12,3 +12,20 @@ $ echo -e "1234cheok\ncheo4566kie" | perl -n -e '/(\d+)/ && print "$1\n"'
 #with negative lookahead
 $ echo "https://dummy.com/api/admin/dummy" | perl -ne 'm|(^.*?//.*?/)| && print "$1\n"'
 https://dummy.com/
+
+echo "abbadde" | perl -ne "/(.)\1/ && print"
+-> abbadde
+echo "abbadde" | perl -ne 's/(.)\1/HA/ && print'
+-> aHAadde
+
+# $1 is the outer group, $2 is the inner group
+$ echo '!abc123!' | perl -ne '/!((abc|123)+)!/ && print "$1\n"'
+-> abc123
+$ echo '!abc123!' | perl -ne '/!((abc|123)+)!/ && print "$2\n"'
+-> 123
+$ echo '!abc123!' | perl -ne '/!((?:abc|123)+)!/ && print "$1\n"'
+-> abc123
+$ echo '!abc123!' | perl -ne '/!((?:abc|123)+)!/ && print "$2\n"'
+-> <null>
+
+\g{N}: back reference, e.g. \g{1} same as \1

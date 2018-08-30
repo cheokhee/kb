@@ -1422,6 +1422,11 @@ pcmanfm --desktop-pref
 
 setxkbmap: set keyboard using X extension
 setxkbmap -print -verbose 10
+setxkbmap -option keypad:pointerkeys
+setxkbmap -query
+
+gsettings set org.gnome.desktop.a11y.keyboard mousekeys-enable false
+gsettings get org.gnome.desktop.a11y.keyboard mousekeys-enable
 
 lxpanelctl : (menu/run/config/restart)
 
