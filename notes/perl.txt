@@ -4,10 +4,27 @@ perldoc perlrun
 
 perl -i.bak -p -e 's/hee/cheok/' file1.txt
 
+#print string matched by the pattern
+perl -ne '/(.)\1/ && print "match: $&\n"'
+--another way:
 print matched string example
 $ echo -e "1234cheok\ncheo4566kie" | perl -n -e '/(\d+)/ && print "$1\n"'
 1234
 4566
+
+#print string before the matched string
+perl -ne '/(.)\1/ && print "before match: $`\n"'
+
+$': the string after the matched string
+
+// is short for m//, can use other delimiter. e.g. m!pattern!
+s///: can use other delimiter. e.g. s#pattern#replacement#
+
+m//{modifier}: i (ignore case), s (match any char including newline)
+x: ignore whitespace in pattern
+
+string =~ /pattern/
+
 
 #with negative lookahead
 $ echo "https://dummy.com/api/admin/dummy" | perl -ne 'm|(^.*?//.*?/)| && print "$1\n"'
@@ -29,3 +46,24 @@ $ echo '!abc123!' | perl -ne '/!((?:abc|123)+)!/ && print "$2\n"'
 -> <null>
 
 \g{N}: back reference, e.g. \g{1} same as \1
+
+$scalar var
+@array var
+
+a list is a collection of scalars
+an array is a var holding a list
+
+#case shifting: \U,\L: affect the rest of the string \u,\l: affect only the next char
+echo "this is jUsT a test" | perl -pe 's/(\w+)/\U\1/g'
+THIS IS JUST A TEST
+echo "this is jUsT a test" | perl -pe 's/(\w+)/\u\1/g'
+This Is JUsT A Test
+
+echo "this is jUsT a test" | perl -pe 's/(\w+)/\l\1/g'
+this is jUsT a test
+echo "this is jUsT a test" | perl -pe 's/(\w+)/\L\1/g'
+this is just a test
+
+#capitalize each word: perl -pe 's/(\w+)/\u\L\1/g'
+echo "tHIS IS jUsT a test" | perl -pe 's/(\w+)/\u\L\1/g'
+This Is Just A Test

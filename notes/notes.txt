@@ -10992,6 +10992,10 @@ time-based and/or MAC-address-based
 OAuth (Open Authorization) is an open standard for token-based authentication and authorization on
 the Internet. OAuth, which is pronounced "oh-auth," allows an end user's account information to be
 used by third-party services, such as Facebook, without exposing the user's password.
+====
+OAuth: a delegation protocol. a 3rd-party app requests authorization from the resource
+owner, the 3rd-party app then requests a token from the authorization server. the
+3rd-party app then uses the token to access the resource.
 
 GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a
 server to a client. GraphQL has three main characteristics: It lets the client specify exactly what
@@ -12728,3 +12732,5 @@ backing service: any service consumed by an app is called a backing service.
 lexically scoped: the variable does not exist outside the scope in which it is defined.
 
 web service: program-to-program interaction via HTTP
+
+template language: the language is embedded within some other master document

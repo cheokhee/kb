@@ -1825,3 +1825,12 @@ java -Dspring.profiles.active=profile1,profile2 -jar ...
 gradle commands: help, projects, properties
 
 CollectionUtils.addIgnoreNull(aColl, anObj)
+
+Function.identity() same as x -> x
+
+method references:
+static: Integer::parseInt
+bound: Instant.now()::isAfter
+unbound: String::toLowerCase
+class constructor: String::new
+Array constructor: int[]:new
