@@ -1290,3 +1290,9 @@ git commit -C HEAD --date="`date`" #change author date
 
 #show debug info
 GIT_TRACE=1 git <command>
+
+#show stash as patch (diff)
+git stash show -p stash@{0}
+
+git apply --stat file.patch
+git apply --check file.patch

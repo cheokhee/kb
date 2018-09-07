@@ -1997,6 +1997,7 @@ http -v POST URL name=blah appcontext:cheok
 http POST :2525 #assume localhost
 #4. post from file
 http POST url < file.json
+http POST url <<< '{"name" : 9310238}'
 #5. http -h #print only response header
 #6. http -b #print only response body
 -- curl equivalent:
