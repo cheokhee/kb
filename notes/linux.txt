@@ -2398,3 +2398,9 @@ gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings
 
 xargs: -p, --interactive #implies -t, print command and prompt
 xargs: -t, --verbose #print command
+
+udevadm info --query=all --name=/dev/sda
+udevadm info -a -n /dev/sda
+udevadm monitor --property
+
+SATA disk appear as SCSI device by means of a translation layer in libata
