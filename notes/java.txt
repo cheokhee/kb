@@ -1834,3 +1834,7 @@ bound: Instant.now()::isAfter
 unbound: String::toLowerCase
 class constructor: String::new
 Array constructor: int[]:new
+
+activities.stream().map(x -> x.getLocalDate()).min(String::compareTo).get();
+vs
+routePoints.sort(Comparator.comparing(RoutePoint::getEarliestLocalEventDate));

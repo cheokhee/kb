@@ -12706,6 +12706,7 @@ SaaS: cloud is an application
 
 elasticity: the ability to spin up computing resources quickly for a short time and
 then spin down the resources when they are no longer needed.
+elasticity: the ability to scale up/down to meet varying demands.
 
 LEFT OUTER JOIN. This type of join returns all rows from the LEFT-hand table specified in the ON
 condition and only those rows from the other table where the joined fields are equal (join condition
