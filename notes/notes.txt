@@ -12725,6 +12725,23 @@ OAuth: open authorization: a process through which an application can access pri
 from another website.
 
 bounded context: define a boundary between sub-domains.
+==
+Bounded contexts enclose the meanings and responsibilities of some part of the domain. A specific
+domain entity contained in a bounded context could be a customer, for example. The boundaries,
+responsibilities, and possible overlaps of bounded contexts are defined in a context map of the
+system.  In the model of microservices, a bounded context would typically result in a single deploy-
+able application.
+
+Value objects are business domain types that do not represent identifiable types but rather spe-
+cific values. For these domain objects, it doesn’t matter which instance will be used inside the
+business process. Examples of value objects are addresses, money values, or Java enums. Value
+objects ideally are immutable and, therefore, reusable.
+
+Services are responsible for performing domain business logic that is not naturally part of an
+entity or value object. They are entry points of the business use cases that manage and orches-
+trate domain entities, and they hold together the separate steps of the business process.  In a Java
+EE world, services are implemented as managed beans—either Contexts and Dependency Injection (CDI)
+beans or EJB beans.
 
 aggregate: a root object and its children that are manipulated as a single unit.
 

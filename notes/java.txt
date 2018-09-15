@@ -209,6 +209,9 @@ java 8 (reading file):
     List lines = Files.readAllLines(myFile)
     int count = lines.stream().map( l -> l.toLowerCase() ).filter( l -> l.contains
     (“secret”)).count();
+OR
+try (Stream<String> lines = Files.lines(path)){
+... }
 
 read file into a string: new String(Files.readAllBytes(Paths.get("/home/file.txt")))
 
@@ -1838,3 +1841,22 @@ Array constructor: int[]:new
 activities.stream().map(x -> x.getLocalDate()).min(String::compareTo).get();
 vs
 routePoints.sort(Comparator.comparing(RoutePoint::getEarliestLocalEventDate));
+
+Java 10: type inference
+Map<User, List<String>> userChannels = new HashMap<>();
+becomes: var userChannels = new HashMap<User, List<String>>();
+
+java has several nondenotable types—that is, types that can exist within your program, but for which
+there’s no way to explicitly write out the name for the types. A good example of a nonde- notable
+type is an anonymous class—you can add fields and methods to it, but you won’t be able to write the
+name of the anonymous class in your Java code.
+
+var productInfo = new Object() {
+String name = "Apple";
+int total = 30;
+};
+System.out.println(
+"name = " + productInfo.name + ", total = " + productInfo.total);
+
+There’s a better approach that you can take with var : using an anonymous class as a store for
+intermediate values.
