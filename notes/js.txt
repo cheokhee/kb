@@ -632,3 +632,11 @@ generator: a special kind of iterator that can suspend execution while retaining
 its context. conform with both iterable and iterator protocols.
 iterable protocol: has a Symbol.iterator function
 iterator protocol: has a next() function
+
+debounce function: call the function only after a specific amount of time has passed.
+  in essence, group multiple calls into a single one
+  debouncing event waits before triggering the function execution, until the events stop happening
+  so rapidly.
+  example: scrolling resizing
+throttle function: call a function every X amount of time.
+  don't allow to our function to execute more than once every X milliseconds.
