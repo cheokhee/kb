@@ -638,5 +638,11 @@ debounce function: call the function only after a specific amount of time has pa
   debouncing event waits before triggering the function execution, until the events stop happening
   so rapidly.
   example: scrolling resizing
+  debounced function: limits the rate at which a function can fire
+  The debounce function delays the processing of the keyup event until the user has stopped typing for
+  a predetermined amount of time.
 throttle function: call a function every X amount of time.
   don't allow to our function to execute more than once every X milliseconds.
+
+== when the tab is about to be closed, or reloaded
+window.onbeforeunload = function (event) { console.log("unload"); event.returnValue = ''}
