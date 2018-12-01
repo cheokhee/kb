@@ -12695,6 +12695,7 @@ smart contracts: set of conditions recorded on a blockchain triggering automated
 actions when the predefined conditions are met. example: insurance claim payout
 smart contracts: written contracts that have been translated into code. they can self-execute
 when certain conditions are met.
+Smart contracts are computer programs stored in a blockchain.
 
 cloud: virtualized data center
 cloud attributes: (1) on-demand self-service (2) ubiquitous network access
