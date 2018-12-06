@@ -1296,3 +1296,6 @@ git stash show -p stash@{0}
 
 git apply --stat file.patch
 git apply --check file.patch
+
+git check-ignore -v <pathname>
+#if the pathname is output, it is ignored

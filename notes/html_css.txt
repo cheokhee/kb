@@ -99,3 +99,7 @@ CSS transition: you define the start state, end state, and duration
 flex model:
 justify-content: apply to the main axis
 align-items: apply to the cross axis
+
+<meta http-equiv=“Pragma” content=”no-cache”>
+<meta http-equiv=“Expires” content=”-1″>
+<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>

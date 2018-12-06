@@ -275,3 +275,7 @@ to eval: M-: (eval-expression)
 
 C-u : prefix argument
 C-x : prefix key,  prefix key is a key sequence whose binding is a keymap
+
+render HTML:
+(load-library "shr.el")
+(shr-render-buffer)
