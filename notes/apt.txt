@@ -115,3 +115,5 @@ wget -qO- https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 # prints out detailed information about the priority selection of the named package
 apt-cache policy docker-ce
+
+apt-get download google-chrome-stable=70.0.3538.110-1
