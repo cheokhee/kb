@@ -70,6 +70,12 @@ adjacent sibling combinator: A + B (A is immediately followed by B)
 general sibling combinator: A ~ B (A is followed by B, may or may not be adjacent)
 negation selector: :not()
 example: p:not(.classy) -> all paragraphs except classy paragraph
+---
+.class > * + * {
+  margin-left: 4px;
+}
+apply the style starting from the second child
+---
 ===
 pseudo-classes, pseudo-elements:
 a:link, a:visited, a:hover, a:active
