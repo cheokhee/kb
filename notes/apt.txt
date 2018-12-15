@@ -117,3 +117,9 @@ wget -qO- https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-cache policy docker-ce
 
 apt-get download google-chrome-stable=70.0.3538.110-1
+apt-get --download-only source vsftpd
+
+list all available package names:
+apt-cache pkgnames
+apt-cache showpkg <pkg name>
+apt-cache stats
