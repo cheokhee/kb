@@ -2370,6 +2370,11 @@ To reduce the number of requests the browser makes to the server, some web desig
 in the page. If a page has 10 1 kB images, they can be combined into one 10 kB image,
  downloaded with a single HTTP request, and then positioned with CSS. Reducing the number
  of HTTP requests can make a Web page load much faster.
+===
+CSS image sprite: a way of combining multiple images into a single image.
+The idea was that the computer could fetch a graphic into memory, and then only display parts of
+that image at a time, which was faster than having to continually fetch new images. The sprite was
+the big combined graphic.
 
 HTML div tag
 The <div> tag defines a division or a section in an HTML document.

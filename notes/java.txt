@@ -1860,3 +1860,9 @@ System.out.println(
 
 There’s a better approach that you can take with var : using an anonymous class as a store for
 intermediate values.
+
+Function interface:
+    default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
+        Objects.requireNonNull(before);
+        return (V v) -> apply(before.apply(v));
+    }

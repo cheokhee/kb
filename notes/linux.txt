@@ -2407,3 +2407,12 @@ SATA disk appear as SCSI device by means of a translation layer in libata
 
 bash special variable: TMOUT, SECONDS, LINENO, REPLY, RANDOM
 REPLY: use read without specifying a variable
+
+LVM:
+vgdisplay
+lvdisplay
+vgchange
+vgscan
+lvscan
+lvs
+vgs
