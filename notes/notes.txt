@@ -12768,3 +12768,6 @@ which copies a reference to the object but not the object itself.
 
 geo-fence: a virtual perimeter around a geographical location. when a mobile device crosses
 the geo-fence, actions can be taken by an application.
+
+caching strategies:
+Cache-Aside , Read-Through , Write-Through , Write-Around , Write-Back

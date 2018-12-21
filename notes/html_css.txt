@@ -109,3 +109,8 @@ align-items: apply to the cross axis
 <meta http-equiv=“Pragma” content=”no-cache”>
 <meta http-equiv=“Expires” content=”-1″>
 <meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+
+Block-element-modifier naming convention: .block__element--modifier
+.search__label
+.search__submit--inverse
+.search--inverse
