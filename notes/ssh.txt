@@ -43,3 +43,8 @@ copy the key files under %userprofile%/.ssh to C:\Program Files (x86)\Git\.ssh o
 D:\Git\.ssh (wherever git is installed)
 
 sshpass -p "n2c3" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no n2c3@IPaddress:/home/n2c3/snapshot/data.tar.gz .
+
+after changing ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub:
+may have to do: ssh-add
+this will add SSh key to the agent
+do "ssh-add -l" to list all the keys
