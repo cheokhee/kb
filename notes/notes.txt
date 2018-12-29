@@ -11631,6 +11631,9 @@ NAS provides both storage and a file system. This is often contrasted with SAN (
 Network), which provides only block-based storage and leaves file system concerns on the "client"
 side.
 ==
+NAS: appears a network drive to the client OS (single device)
+SAN: multiple devices (fault-tolerant): clien OS see it as a local disk
+==
 One way to loosely conceptualize the difference between a NAS and a SAN is that NAS appears to the
 client OS (operating system) as a file server (the client can map network drives to shares on that
 server) whereas a disk available through a SAN still appears to the client OS as a disk
@@ -12771,3 +12774,9 @@ the geo-fence, actions can be taken by an application.
 
 caching strategies:
 Cache-Aside , Read-Through , Write-Through , Write-Around , Write-Back
+
+RAID 0 (disk striping) is the process of dividing a body of data into blocks and spreading the data
+blocks across multiple storage devices, such as hard disks or solid-state drives (SSDs), in a
+redundant array of independent disks (RAID) group. A stripe consists of the data divided across the
+set of hard disks or SSDs, and a striped unit refers to the data slice on an individual drive.
+--> dividing a file in half, storing one half in one disk and the other half in another disk.
