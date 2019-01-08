@@ -2416,3 +2416,72 @@ vgscan
 lvscan
 lvs
 vgs
+
+1. create a physical volume for each hard disk or hard disk partition
+2. create volume group from one or more physical volume
+3. create one or more logical volume from a volume group
+4. create filesystem on logical volume
+
+sudo pvs
+  PV             VG        Fmt  Attr PSize   PFree
+  /dev/sda1      vg01      lvm2 a--    1.82t     0
+
+sudo pvdisplay
+  --- Physical volume ---
+  PV Name               /dev/sda1
+  VG Name               vg01
+  PV Size               1.82 TiB / not usable 4.00 MiB
+  Allocatable           yes (but full)
+  PE Size               4.00 MiB
+  Total PE              476931
+  Free PE               0
+  Allocated PE          476931
+  PV UUID               5r25ZB-qEzP-IoBc-Lts3-VhoN-tGWo-RYQsEP
+
+sudo vgs
+  VG        #PV #LV #SN Attr   VSize   VFree
+  vg01        1   1   0 wz--n-   1.82t     0
+
+sudo vgdisplay
+  --- Volume group ---
+  VG Name               vg01
+  System ID
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  4
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                256
+  Cur LV                1
+  Open LV               1
+  Max PV                256
+  Cur PV                1
+  Act PV                1
+  VG Size               1.82 TiB
+  PE Size               4.00 MiB
+  Total PE              476931
+  Alloc PE / Size       476931 / 1.82 TiB
+  Free  PE / Size       0 / 0
+  VG UUID               cWCVMr-4pUQ-vWHV-y5ho-Imid-Md4N-00hirS
+
+sudo lvs
+  LV     VG        Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  space  vg01      -wi-ao----   1.82t
+
+$ sudo lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/vg01/space
+  LV Name                space
+  VG Name                vg01
+  LV UUID                MLryys-VnKI-xRzG-2yGc-05qs-kFw1-Qjrlg1
+  LV Write Access        read/write
+  LV Creation host, time memphis, 2017-12-13 19:19:05 -0800
+  LV Status              available
+  # open                 1
+  LV Size                1.82 TiB
+  Current LE             476931
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           253:1
