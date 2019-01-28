@@ -1312,6 +1312,7 @@ and the second 32-bits from another write.
 
 CopyOnWriteArrayList:
 use it when many threads need concurrent read access. it is rare to modify the data.
+CopyOnWriteArraySet is a thread-safe variant of HashSet which uses a underlying CopyOnWriteArrayList for all of its operations.
 
 AtomicBoolean: for test-and-set. method: compareAndSet()
 
