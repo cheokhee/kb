@@ -12780,3 +12780,11 @@ blocks across multiple storage devices, such as hard disks or solid-state drives
 redundant array of independent disks (RAID) group. A stripe consists of the data divided across the
 set of hard disks or SSDs, and a striped unit refers to the data slice on an individual drive.
 --> dividing a file in half, storing one half in one disk and the other half in another disk.
+
+A programming language or programming-language construct is type-safe if it forbids operations that
+are incorrect for the types on which they operate.
+
+A static type system is sound if it guarantees that operations that are incorrect for a type will
+not be performed; otherwise it is unsound.  Haskell has a sound type system. The type system of C
+(and thus C++) is unsound, since there is always a way of treating a value of one type as if it has
+a different type.
