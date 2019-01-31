@@ -1773,6 +1773,9 @@ a cluster is a group of computers that work together to form what appears to
 the users as a single system.
 
 RAC (real application cluster): a cluster of computers with access to a common db.
+oracle instance: a collection of processes.
+non-RAC: one instance accesses one db
+RAC: multiple instances access one db
 
 load balancing: a technique for minimizing response time and maximing throughput
 by spreading requests among multiple resources.
@@ -12788,3 +12791,12 @@ A static type system is sound if it guarantees that operations that are incorrec
 not be performed; otherwise it is unsound.  Haskell has a sound type system. The type system of C
 (and thus C++) is unsound, since there is always a way of treating a value of one type as if it has
 a different type.
+
+post/redirect/get pattern: prevents some duplicate form submissions.  When a web form is submitted
+to a server through an HTTP POST request, a web user that attempts to refresh the server response in
+certain user agents can cause the contents of the original POST request to be resubmitted, possibly
+causing undesired results, such as a duplicate web purchase.  To avoid this problem, instead of
+returning a web page directly, the POST operation returns a redirection command. The HTTP 1.1
+specification introduced the HTTP 303 ("See other") response code to ensure that in this situation,
+the web user's browser can safely refresh the server response without causing the initial POST
+request to be resubmitted.
