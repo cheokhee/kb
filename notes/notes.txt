@@ -4973,6 +4973,9 @@ IoC: your code is not in control
 IoC: the caller controls the execution order, but the program logic is in the called routines.
 ===
 IoC container: an runtime execution environment
+===
+IoC: a processs in which an object defines its dependencies without creating them. This object
+delegates the job of constructing dependencies to an IoC container.
 
 do a number on
 to damage or ruin something; to destroy something

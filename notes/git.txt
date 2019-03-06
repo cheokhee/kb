@@ -1299,3 +1299,12 @@ git apply --check file.patch
 
 git check-ignore -v <pathname>
 #if the pathname is output, it is ignored
+
+git log --no-color --format='Commit: %h%nAuthor: %aN <%aE>%nMessage: %s%nRefs: %d' -1
+--> output:
+Commit: 8114f26
+Author: Cheok Hee and Peter Arumainathan <pair+cheok+peter@oocl.com>
+Message: [#163659324] test git hook
+Refs:  (HEAD -> master)
+
+git show-ref
