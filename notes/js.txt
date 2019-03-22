@@ -646,3 +646,10 @@ throttle function: call a function every X amount of time.
 
 == when the tab is about to be closed, or reloaded
 window.onbeforeunload = function (event) { console.log("unload"); event.returnValue = ''}
+
+React Portal: provide a first-class way to render children into a DOM node that exists
+outside the DOM hierarchy of the parent component.
+==
+React Fragments let you group a list of children without adding extra nodes to the DOM.
+
+"d".localeCompare("d")
