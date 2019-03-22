@@ -653,3 +653,5 @@ outside the DOM hierarchy of the parent component.
 React Fragments let you group a list of children without adding extra nodes to the DOM.
 
 "d".localeCompare("d")
+
+React Refs provide a way to access DOM nodes or React elements created in the render method.
