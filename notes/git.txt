@@ -1303,7 +1303,7 @@ git check-ignore -v <pathname>
 git log --no-color --format='Commit: %h%nAuthor: %aN <%aE>%nMessage: %s%nRefs: %d' -1
 --> output:
 Commit: 8114f26
-Author: Cheok Hee and Peter Arumainathan <pair+cheok+peter@oocl.com>
+Author: blah
 Message: [#163659324] test git hook
 Refs:  (HEAD -> master)
 

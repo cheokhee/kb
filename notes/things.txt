@@ -194,6 +194,10 @@ faketime : eg. faketime '00:30:00' man
 daemontools
 fortune
 toilet
+chafa
+boxes : echo "hi cheok" | boxes -d boy
+
+other command: wikit, googler, browsh, lolcat, toilet
 
 =========== end of packages ==============
 

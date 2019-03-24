@@ -211,6 +211,10 @@ start	Required. An integer that specifies where to start the selection (The firs
 end	Optional. An integer that specifies where to end the selection. If omitted, all elements from the start position and to the end of the array will be selected. Use negative numbers to select from the end of an array
 Array.prototype.slice(start, end): return a shallow copy of a portion of an array
 
+splice(index, howmany, item1, ....., itemX): add and/or remove items
+index: An integer that specifies at what position to add/remove items
+howmany: The number of items to be removed. If set to 0, no items will be removed
+item1...: items to be added
 
 String slice(): extract parts of a string
 
@@ -560,6 +564,14 @@ p.then(function(response) { console.log("get result:", response) });
 var p = Promise.resolve("my_answer");
 
 spread operator does not perform a deep copy of object properties to the target object.
+spread operator: expand an iterable into a list of elements. used to pass an array to functions
+that require a list of arguments.
+
+rest operator: used to create functions that accept variable number of arguments.
+when used in the formal parameter of function definition: gather remaining arguments into an array
+function sum(...args) {
+for (let arg of args) ... }
+
 
 ===
 Object.assign() method is used to copy the values of all enumerable own properties from one or more
@@ -655,3 +667,14 @@ React Fragments let you group a list of children without adding extra nodes to t
 "d".localeCompare("d")
 
 React Refs provide a way to access DOM nodes or React elements created in the render method.
+this.textInput = React.createRef();
+this.textInput.current.value
+<input type="text" ref={this.textInput} />
+OR
+this.textInput = React.createRef();
+this.textInput.value
+<input type="text" ref={element => this.textInput = element} />
+===
+legacy:
+<input type="text" ref="textInput" />
+this.refs.textInput.value
