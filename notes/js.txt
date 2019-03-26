@@ -678,3 +678,5 @@ this.textInput.value
 legacy:
 <input type="text" ref="textInput" />
 this.refs.textInput.value
+
+Object.freeze()
