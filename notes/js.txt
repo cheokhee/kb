@@ -680,3 +680,32 @@ legacy:
 this.refs.textInput.value
 
 Object.freeze()
+
+what this.props.children does is that it is used to display whatever you include between the opening
+and closing tags when invoking a component.
+==
+const Picture = (props) => {
+  return (
+    <div>
+      <img src={props.src}/>
+      {props.children}
+    </div>
+  )
+}
+
+Whenever this component is invoked {props.children} will also be displayed and this is just a
+reference to what is between the opening and closing tags of the component.
+
+render () {
+  return (
+    <div className='container'>
+      <Picture key={picture.id} src={picture.src}>
+          //what is placed here is passed as props.children
+      </Picture>
+    </div>
+  )
+}
+===
+
+A render prop is where a component's prop is assigned a function and this is called in the render
+method of the component. Calling the function can return a React element or component to render.
