@@ -2866,6 +2866,8 @@ QoS involves prioritization of network traffic.
 QoS: provides guaranteed timely delivery of specific application data or resources
  to a particular destination or destinations.
 --
+Class of service: classifying network traffic into groups.
+--
 QoS level is the agreement between the publisher and the receiver of a message about the guarantees
 for delivering the message.
 ---
@@ -12803,3 +12805,10 @@ returning a web page directly, the POST operation returns a redirection command.
 specification introduced the HTTP 303 ("See other") response code to ensure that in this situation,
 the web user's browser can safely refresh the server response without causing the initial POST
 request to be resubmitted.
+
+point of presence: the interface point between communicating entities
+
+end point: the interface exposed by communicating entities.
+
+webhook: the end point URL provided by a client-side application to a server-side application.
+the server will call the webhook URL when an event occurs on the server.
