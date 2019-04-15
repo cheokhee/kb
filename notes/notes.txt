@@ -12812,3 +12812,13 @@ end point: the interface exposed by communicating entities.
 
 webhook: the end point URL provided by a client-side application to a server-side application.
 the server will call the webhook URL when an event occurs on the server.
+
+hot potato routing: a technique that immediately routes data packets without storing them in
+buffers. it continuously transfers packets until they reach the final destination. in contrast
+to store-and-forward. commonly used in optical networks where messages cannot be stored in
+any medium.
+ISP: hands off to downstream ISP ASAP. minimize work to be done.
+---
+cold potato routing: opposite of hot potato. ISP: carry the traffic on its own network for
+as far as possible before handing it off to downstream ISP. maximum control on the end-to-end
+quality of service.
