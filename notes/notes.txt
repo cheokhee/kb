@@ -12822,3 +12822,13 @@ ISP: hands off to downstream ISP ASAP. minimize work to be done.
 cold potato routing: opposite of hot potato. ISP: carry the traffic on its own network for
 as far as possible before handing it off to downstream ISP. maximum control on the end-to-end
 quality of service.
+
+To have "skin in the game" is to have incurred risk (monetary or otherwise) by being involved in
+achieving a goal. In the phrase, "skin" is a synecdoche for the person involved, and "game" is the
+metaphor for actions on the field of play under discussion.
+
+synecdoche: a figure of speech in which a part is made to represent the whole or vice versa, as in
+Cleveland won by six runs (meaning “Cleveland's baseball team”).
+
+columnar db: store data in column-major order, as opposed to row-major order.
+allow a single column to be kept in a contiguous piece of memory. can sort and aggregate very fast.
