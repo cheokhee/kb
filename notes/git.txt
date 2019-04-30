@@ -1308,3 +1308,11 @@ Message: [#163659324] test git hook
 Refs:  (HEAD -> master)
 
 git show-ref
+
+.gitattributes :
+*.js crlf=input
+*.txt crlf=input
+===
+output:
+warning: CRLF will be replaced by LF in windows.txt.
+The file will have its original line endings in your working directory
