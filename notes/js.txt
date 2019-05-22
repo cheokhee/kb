@@ -563,6 +563,39 @@ p.then(function(response) { console.log("get result:", response) });
 //
 var p = Promise.resolve("my_answer");
 
+let promise = new Promise(function(resolve, reject) {
+  // executor (the producing code)
+});
+The function passed to new Promise is called the executor. When the promise is created, this
+executor function runs automatically. It contains the producing code, that should eventually produce
+a result.
+
+The resulting promise object has internal properties:
+state — initially “pending”, then changes to either “fulfilled” or “rejected”,
+result — an arbitrary value of your choosing, initially undefined.
+
+When the executor finishes the job, it should call one of the functions that it gets as arguments:
+resolve(value) — to indicate that the job finished successfully:
+sets state to "fulfilled",
+sets result to value.
+reject(error) — to indicate that an error occurred:
+sets state to "rejected",
+sets result to error.
+
+To summarize, the executor should do a job (something that takes time usually) and then call resolve
+or reject to change the state of the corresponding Promise object.
+The Promise that is either resolved or rejected is called “settled”, as opposed to a “pending”
+Promise.
+
+The first argument of .then is a function that:
+runs when the Promise is resolved, and
+receives the result.
+The second argument of .then is a function that:
+runs when the Promise is rejected, and
+receives the error.
+
+===== promise ====
+
 spread operator does not perform a deep copy of object properties to the target object.
 spread operator: expand an iterable into a list of elements. used to pass an array to functions
 that require a list of arguments.
@@ -709,3 +742,51 @@ render () {
 
 A render prop is where a component's prop is assigned a function and this is called in the render
 method of the component. Calling the function can return a React element or component to render.
+
+using Form in React:
+uncontrolled component: the form data is handled by the DOM. you use a ref to get values from the DOM.
+controlled component: the form gets its value from the state of a React component. attach an
+event handler to the form. every time the user presses a key, the event handler fires and update
+the component's state, the form will then update with the latest state of the component.
+the form data is managed by the React component.
+
+React context: allow you to pass data thru the component tree without having to pass props down
+manually at every level.
+
+async/await:
+async: means the function always return a promise. even if the function does not return a promise,
+JS will wrap the value in a resolved promise
+await <promise>
+
+a = ["hi","ho"]
+[ 'hi', 'ho' ]
+> a.filter((b) => b === "ho")
+[ 'ho' ]
+> a.find((b) => b === "ho")
+'ho'
+
+regex
+a = /[ab]c/
+> a.exec("ac")
+[ 'ac', index: 0, input: 'ac', groups: undefined ]
+> a.exec("dd")
+null
+> a.test("dd")
+false
+> a.test("ac")
+true
+
+jest AtAGlanceCountBoxes.test.js
+jest AtAGlanceCountBoxes.test.js -t renders
+--> change test from it() to it.only(), use it along with file name, run only those tests in the file
+
+data binding: the process that connects the UI to data.
+parent -> child: props
+child -> parent: callback
+one-way data flow: props are passed from parent to children, children cannot change state of parent.
+
+#fake REST API server
+npm install json-server
+
+React synthetic event:
+https://reactjs.org/docs/events.html

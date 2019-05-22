@@ -7560,6 +7560,9 @@ MVC: a design pattern that separates an application's logic and data from the us
 presentation and interaction, maintaining a loose coupling between the separate components.
 ---
 MVC: model updates view (seen by user), the user uses controller to manipulate model.
+---
+MVC: model (the data), view (representation of the model), controller: the glue that binds
+the model and the view.
 
 REST: an architectural style where requests and responses represent the current state of
 the system's resources.
@@ -8812,7 +8815,7 @@ relocatable machine code: meaning it can be loaded starting at any location.
 
 reentrant kernel: several processes may be executing in kernel mode at the same time.
 
-route/routing: bind a function to a URL, map a URL to a function.
+route/routing: bind a function to a URL, map a URL to a function, map a URL to an action.
 
 autodidact: a self-taught person
 
@@ -12549,6 +12552,8 @@ of execution.
 In computer programming, a thunk is a subroutine used to inject an additional calculation into
 another subroutine. Thunks are primarily used to delay a calculation until its result is needed, or
 to insert operations at the beginning or end of the other subroutine.
+---
+thunk: a function returned by another function.
 
 endpoint is the URL where your service can be accessed by a client application.
 
@@ -12832,3 +12837,143 @@ Cleveland won by six runs (meaning “Cleveland's baseball team”).
 
 columnar db: store data in column-major order, as opposed to row-major order.
 allow a single column to be kept in a contiguous piece of memory. can sort and aggregate very fast.
+
+HTTP:
+HEAD method: get the headers only (use curl -I)
+OPTIONS method: discover which HTTP methods the resource responds to
+
+Infrastructure as code, also referred to as IaC, refers to the process of
+automatically manage and provision the technology stack for an application through
+software, rather than using a manual process to configure discrete hardware devices and operating
+systems. Infrastructure as code is sometimes referred to as programmable or software-defined
+infrastructure.
+---
+Infrastructure as code uses higher-level or descriptive language to code more versatile and adaptive
+provisioning and deployment processes. For example, infrastructure-as-code capabilities included
+with Ansible, an IT management and configuration tool, can install MySQL server, verify that MySQL
+is running properly, create a user account and password, set up a new database, and remove unneeded
+databases.
+
+iPaas: integration platform as a service: a cloud service for application and data integration.
+connects various systems and applications.
+it is a multi-tenant platform that supports cloud-to-cloud, cloud-to-on-premise,
+on-premise-to-on-premise and B2B integration.
+
+UFS: union filesystem
+different UFS implementations: AUFS, Overlay, devicemapper, BTRFS, ZFS
+docker storage driver: refer to an implementation of UFS
+docker layer: each layer is a read-only filesystem. a layer is created for each
+instruction in a dockerfile
+docker volume: directory/file mounted from the host into the container.
+allow sharing of files.
+containers share resources with the host OS (kernel is shared)
+union filesystem: allow multiple filesystems to be overlaid, appearing as a single filesystem
+docker swarm: clustering
+docker compose: orchestration
+docker machine: create servers, install docker
+
+thin provisioning: allocate resources on demand
+thick provisioning: allocate resources right away
+
+passing secret:
+1. env var (show up in shell history, output of ps)
+2. use a file
+3. pass via docker volume
+4. use a key-value store
+
+service discovery: provide clients of a service w/ connection info for an instance of that service.
+
+docker networking mode: bridge:
+veth: s/w equivalent of a ethernet cable connection eth0 in the container
+to the bridge
+
+clustering: grouping hosts so that they work together and appear as a single resource.
+
+orchestration: make all the pieces work together
+
+namespaced resources: they are mapped to different values on the hosts.
+PID 1 in the container is not the same as PID 1 on the host.
+non-namespaced resources: are the same in the container and on the host.
+
+non-namespaced resources: user id, kernel keyring, devices, system time
+
+progressive disclosure: a UI design concept that says we should present to the user
+the info they need when they need it.
+
+RESTful:
+application state: which page you are on (client)
+resource state: on the server
+
+URI: identify a resource, no guarantee it has a representation
+URL: an URI that can be dereferenced, you can get a representation for a resource
+
+statelessness: the server does not care what state the client is in.
+
+You have to take the good with the bad, smile with the sad. love what you got, and remember what you
+had. Always forgive, but never forget, learn from your mistakes but never regret. People change,
+things go wrong, but just remember life goes on.
+
+== BaaS ==
+backend as a service providers: CloudBoost, Firebase, Azure, Oracle Cloud, Parse, Red Hat
+
+Backend-as-a-Service (BaaS) is a cloud service model in which developers outsource all the
+behind-the-scenes aspects of a web or mobile application so that they only have to write and
+maintain the frontend. BaaS vendors provide pre-written software for activities that take place on
+servers, such as user authentication, database management, remote updating, and push notifications
+(for mobile apps), as well as cloud storage and hosting.
+
+BaaS features: user login and authentication, data persistence, cloud storage, msg and
+custom business logic, push notifications, remote updating, hosting.
+
+BaaS vs serverless
+The backends of serverless applications are broken up into functions, each of which responds to
+events and performs one action only. BaaS server-side functionalities, meanwhile, are constructed
+however the provider wants, and developers don't have to concern themselves with coding anything
+other than the frontend of the application.
+===
+Serverless architectures are event-driven, meaning they run in response to events. Each function
+only runs when it is triggered by a certain event, and it does not run otherwise. Applications built
+with BaaS are usually not event-driven, meaning that they require more server resources.
+===
+Scalability is one of the biggest differentiators separating serverless architectures from other
+kinds of architecture. In serverless computing, the application automatically scales up as usage
+increases. The cloud vendor's infrastructure starts up ephemeral instances of each function as
+necessary. BaaS applications are not set up to scale in this way unless the BaaS provider also
+offers serverless computing and the developer builds this into their application.
+
+Function as a service (FaaS) is a serverless way to execute modular pieces of code on the edge. FaaS
+lets developers write and update a piece of code on the fly, which can then be executed in response
+to an event, such as a user clicking on an element in a web application. This makes it easy to scale
+code and is a cost-efficient way to implement microservices.
+
+Edge computing means bringing computing closer to the source of the data, such as on a user's
+computer, an IoT device, or an edge server (instead of in the cloud). This minimizes the need for
+long distance communications between client and server, which reduces latency and bandwidth usage.
+
+A CDN edge server is a computer that exists at the logical extreme or edge of a network. An edge
+server often serves as the connection between separate networks. A primary purpose of a CDN edge
+server is to store content as close as possible to a requesting client machine, thereby reducing
+latency and improving page load times.
+
+An edge server is a type of edge device that provides an entry point into a network. Other edges
+devices include routers and routing switches. Edge devices are often placed inside Internet exchange
+points (IxPs) to allow different networks to connect and share transit.
+
+If a network wants to connect to another network or the larger Internet, it must have some form of
+bridge in order for traffic to flow from one location to another. Hardware devices that creates
+this bridge on the edge of a network are called edge devices.
+
+An Internet exchange point (IXP) is a physical location through which Internet infrastructure
+companies such as Internet Service Providers (ISPs) and CDNs connect with each other. These
+locations exist on the “edge” of different networks, and allow network providers to share transit
+outside their own network. By having a presence inside of an IXP location, companies are able to
+shorten their path to the transit coming from other participating networks, thereby reducing
+latency, improving round-trip time, and potentially reducing costs.
+
+CDN will place servers at the exchange points between different networks.
+
+protocol buffers: a data interchange format for faster network transfer and serialization.
+
+Packet filtering is a firewall technique used to control network access by monitoring outgoing and
+incoming packets and allowing them to pass or halt based on the source and destination Internet
+Protocol (IP) addresses, protocols and ports.

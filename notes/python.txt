@@ -716,3 +716,8 @@ vars()
 create an object with arbitrary attributes:
 anObj = type('', (), {})()
 anObj.name = 'blah'
+
+python: any(elem in events for elem in milestone_names)
+java:   milestone_names.stream().anyMatch(events::contains)
+
+python: "hi" in events return a boolean

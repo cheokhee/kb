@@ -2490,3 +2490,45 @@ $ sudo lvdisplay
 find my DNS server: nmcli dev show | grep DNS
 --> use dnsmasq
 others: /etc/resolv.conf, nslookup/dig commands show 127.0.1.1
+
+special bash variables:
+LINENO
+PROMPT_COMMAND
+HISTTIMEFORMAT
+SHLVL
+REPLY (used with read)
+TMOUT
+
+/etc/systemd/logind.conf :
+NAutoVTs #number of virtual console
+
+/etc/default/console-setup :
+ACTIVE_CONSOLES="/dev/tty[1-6]"
+
+setupcon : sets up the font and the keyboard on the console
+
+Physical console: - A physical terminal device connected with Linux system on serial port via serial cable physically.
+
+Virtual console: - An application that simulates a physical terminal device in software and connects
+it with Linux system on serial port through software configuration virtually.
+
+Physical terminal device: - A physical device that consisted of nothing more than a monitor and
+keyboard attached to it. It uses all resources such as CPU, RAM and Hard disk from server system.
+
+Virtual terminal application: - An application that provides a text based environment to access the
+shell. Since physical terminals are no longer used, it became common practice to use the word
+terminal to refer the virtual terminal application.
+
+The word virtual console refers to an application that simulates a physical terminal while the word
+terminal refers to an application that allows us to access and use the shell.
+
+virtual console: from Gui: Ctrl-Alt-F1, from virtual console: Alt-(left/right arrow), Alt-F2
+
+chvt: change virtual console
+
+dm-tool : interact with lightdm
+
+https://askubuntu.com/questions/910108/why-is-my-gdm-at-a-different-tty-than-my-desktop-environment
+
+dpkg-reconfigure : reconfigure an already installed package
+debconf-show : show existing configuration of an installed package

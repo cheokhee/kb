@@ -49,6 +49,7 @@ example action: {type: types.LOADING_STARTED}
 minimum: the action must have a type
 
 then you change the global state by writing reducer functions.
+reducer: functions used to create a new state based on an action.
 
 example:
 getGlobalStore().dispatch({type: types.LOADING_STARTED})
@@ -75,3 +76,7 @@ function mapStateToProps(state) {
 }
 
 getContainersSummary(state) is a selector function
+
+react-test-renderer
+
+middleware: allow u to inject custom behavior into redux state management process.

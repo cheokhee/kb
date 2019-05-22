@@ -66,3 +66,10 @@ sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
 sed -r -e 's/^\s+//' -e 's/\s+$//'
 
 sed -i[suffix]: edit file in place, make a backup if suffix is supplied
+
+#add to end of lines that contain a pattern
+sed '/type/s/$/,/'
+#append line after match
+sed '/type/a "required": true'
+#insert line before match
+sed '/description/i before line'
