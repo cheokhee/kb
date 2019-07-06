@@ -9601,6 +9601,17 @@ beneficiary, to the borrower, also called the trustor.
 
 DevOps: the synergistic integration of development and operations
 
+Site Reliability Engineering (SRE) is a discipline that incorporates aspects of software engineering
+and applies them to infrastructure and operations problems.
+
+The primary role of the Reliability Engineer is to identify and manage asset reliability risks that
+could adversely affect plant or business operations.
+
+Dev teams want to release awesome new features to the masses, and see them take off in a big
+way. Ops teams want to make sure those features don’t break things. Historically, that’s caused a
+big power struggle, with Ops trying to put the brakes on as many releases as possible, and Dev
+looking for clever new ways to sneak around the processes that hold them back.
+
 key questions:
 #1. why do you ask?
 #2. what are your thoughts on that?
@@ -12810,6 +12821,8 @@ returning a web page directly, the POST operation returns a redirection command.
 specification introduced the HTTP 303 ("See other") response code to ensure that in this situation,
 the web user's browser can safely refresh the server response without causing the initial POST
 request to be resubmitted.
+double submission problem can still happen if the user refreshes the page before the initial
+submission has completed.
 
 point of presence: the interface point between communicating entities
 
@@ -12973,7 +12986,33 @@ latency, improving round-trip time, and potentially reducing costs.
 CDN will place servers at the exchange points between different networks.
 
 protocol buffers: a data interchange format for faster network transfer and serialization.
+protocol buffers: a language-neutral way of serializing structured data.
 
 Packet filtering is a firewall technique used to control network access by monitoring outgoing and
 incoming packets and allowing them to pass or halt based on the source and destination Internet
 Protocol (IP) addresses, protocols and ports.
+
+blockchain: an immutable ledger for recording transactions, maintained within a distributed network
+of mutually untrusting peers. every peer maintains a copy of the ledger. the peers execute a
+consensus protocol to validate transactions, group them into blocks, and build a hash chain over the
+blocks. public/permissionless blockchain: anyone can participate. permissioned: known participants.
+
+runbook: a compilation of procedures and operations that the operator carries out.
+
+how can we leverage the experience of others and existing solutions to simplify
+our implementations?
+
+AKF scale cube:
+X-Axis: Horizontal Duplication and Cloning of services and data
+Y-Axis: Functional Decomposition and Segmentation - Microservices (or micro-services)
+Z-Axis: Service and Data Partitioning along Customer Boundaries - Shards/Pods
+
+check all the boxes tick all the boxes:
+An allusion to making checkmarks beside each of the items in a checklist.
+
+A storage engine is a software module that a database management system uses to create, read, update
+data from a database.
+
+ISAM (an acronym for indexed sequential access method) is a method for creating, maintaining, and
+manipulating indexes of key-fields extracted from random data file records to achieve fast retrieval
+of required file records.

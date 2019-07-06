@@ -62,3 +62,43 @@ $ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[] | select(.name=="cheok")'
 {
   "name": "cheok"
 }
+
+example 8, get first element
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq -M '.[0]'
+{
+  "name": "cheok"
+}
+
+example 9, get last element
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq -M '.[-1]'
+{
+  "name": "hee"
+}
+
+example 10, get a range of elements
+$ echo '[{"name":"cheok"},{"name":"hee"},{"name":"thong"}]' | jq -M '.[0:2]'
+[
+  {
+    "name": "cheok"
+  },
+  {
+    "name": "hee"
+  }
+]
+
+example 11: get properties name from json schema
+jq -M '.properties | keys[]' json-schema.json
+
+example 12:
+echo '{"example1" : 1, "example2" : 2, "example3" : 3}' | jq 'keys'
+[
+  "example1",
+  "example2",
+  "example3"
+]
+
+example3 13:
+echo '{"example1" : 1, "example2" : 2, "example3" : 3}' | jq 'keys[]'
+"example1"
+"example2"
+"example3"

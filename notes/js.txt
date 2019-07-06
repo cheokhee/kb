@@ -790,3 +790,14 @@ npm install json-server
 
 React synthetic event:
 https://reactjs.org/docs/events.html
+
+jsonschema.net
+jsonvalidate.com
+
+JSON schema:
+additonalProperties: false
+# dependent properties:
+"dependencies": {
+  "field1": ["field2",..]
+}
+--> if field1 is present, field2 must be present also

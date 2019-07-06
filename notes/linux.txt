@@ -1118,6 +1118,7 @@ ip
 ethtool
 
 load: # of processes using or waiting for the CPU.
+load: # of processes waiting to be served by CPU.
 load average: the load averaged over 1,5,15 minutes
 /proc/loadavg
 
@@ -2532,3 +2533,19 @@ https://askubuntu.com/questions/910108/why-is-my-gdm-at-a-different-tty-than-my-
 
 dpkg-reconfigure : reconfigure an already installed package
 debconf-show : show existing configuration of an installed package
+
+snap find teams-for-linux
+snap install teams-for-linux
+snap list
+snap changes
+snap refresh <package>
+snap refresh --list
+snap remove <package>
+
+sudo update-alternatives --config editor
+/etc/alternatives/ : contain symbolic links to default commands
+e.g. /etc/alternatives/editor
+#change default browser
+sudo update-alternatives --config x-www-browser
+update-alternatives --list editor
+update-alternatives --get-selections
