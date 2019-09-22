@@ -296,6 +296,10 @@ rsync /path/without/slash host:/path/to/new/directory
 #cp
 #1: dest is a directory -> make a copy with the same name in directory
 #2: dest is not a directory -> make a copy with the specified path name.
+===
+rsync -avu a b/    #a and b are existing directory, same result as cp -r a b
+rsync -avu a c     #a is a directory and c does not exist, will create c directory
+
 
 #fast way to delete large number of files
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir empty
@@ -2549,3 +2553,9 @@ e.g. /etc/alternatives/editor
 sudo update-alternatives --config x-www-browser
 update-alternatives --list editor
 update-alternatives --get-selections
+
+namespace is an abstraction over resources in the OS.
+there are 7 namespaces: Cgroup, IPC, network, Mount, PID, User, UTS
+show namespaces of a process: /proc/<pid>/ns
+lsns
+unshare: run programs with difference namespaces

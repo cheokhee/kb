@@ -1112,6 +1112,9 @@ allow you to write code that operates on objects whose types have not been deter
 =====
 generics: allow you to write code that operates on unspecified types.
 =====
+generic type: a generic class/interface that is parameterized over types. allow you
+to write a generic class/interface that works with different types.
+===
 called generics in Java and C#, template in C++, parameterized type by gang of four.
 +++
 type erasure:
@@ -11023,6 +11026,10 @@ used by third-party services, such as Facebook, without exposing the user's pass
 OAuth: a delegation protocol. a 3rd-party app requests authorization from the resource
 owner, the 3rd-party app then requests a token from the authorization server. the
 3rd-party app then uses the token to access the resource.
+====
+OAuth2: a token-based security framework that allows a user to authenticate themselves with a
+third-party authentication service. If the user successfully authenticates, they will be
+presented a token that must be sent with every request.
 
 GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a
 server to a client. GraphQL has three main characteristics: It lets the client specify exactly what
@@ -12728,6 +12735,10 @@ actions when the predefined conditions are met. example: insurance claim payout
 smart contracts: written contracts that have been translated into code. they can self-execute
 when certain conditions are met.
 Smart contracts are computer programs stored in a blockchain.
+==
+Smart contracts are contracts written as software, rather than written as legal text. Because you
+can encode them directly on the blockchain, they can involve the transfer of value based directly on
+the cryptographic consent of the parties involved — in other words, they are self-executing.
 
 cloud: virtualized data center
 cloud attributes: (1) on-demand self-service (2) ubiquitous network access
@@ -13016,3 +13027,21 @@ data from a database.
 ISAM (an acronym for indexed sequential access method) is a method for creating, maintaining, and
 manipulating indexes of key-fields extracted from random data file records to achieve fast retrieval
 of required file records.
+
+Staff and line are names given to different types of functions in organizations. A "line function"
+is one that directly advances an organization in its core work. This always includes production and
+sales, and sometimes also marketing. A "staff function" supports the organization with specialized
+advisory and support functions. For example, human resources, accounting, public relations and the
+legal department are generally considered to be staff functions. Both terms originated in the
+military.
+
+A nostro account refers to an account that a bank holds in a foreign currency in another
+bank. Nostros are frequently used to facilitate foreign exchange and trade transactions.  The
+opposite term "vostro accounts", is how a bank refers to the accounts that other banks have on its
+books in its home currency.
+===
+A nostro account and a vostro account actually refer to the same entity but from a different
+perspective. For example, Bank X has an account with Bank Y in Bank Y's home currency. To Bank X,
+that is a nostro, meaning "our account on your books," while to Bank Y, it is a vostro, meaning
+"your account on our books." These accounts are used to facilitate international transactions and to
+settle transactions that hedge exchange rate risk.

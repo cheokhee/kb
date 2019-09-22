@@ -584,6 +584,12 @@ when we only intend to put generic values into a structure
 List<Number> and List<Integer> are not assignment-compatible:
 
         Number n1 = new Integer(1) // ok
+        List<Number> a = new ArrayList<Integer>(); // compile error
+        List<? extends Number> a = new ArrayList<Integer>(); // ok, covariance
+
+        Number a = new Object() // compile error
+        List<Number> a = new ArrayList<Object>() // compile error
+        List<? super Number> a = new ArrayList<Object>() // ok
 
 		List<Number> n1 = null;
 		List<Integer> n2 = null;
@@ -707,6 +713,22 @@ You aren't guaranteed a Number because foo3 could be pointing at a List<Object>.
 You can add an integer
 You can add an instance of a subclass of Integer because an instance of a subclass of Integer is
 allowed in any of the above lists.
+
+variance: refers to how subtyping between more complex types relates to subtyping between their components.
+covariance: means that if S is a subtype of T, the C<S> is a subtype of C<T>, where C is a generic type
+  implications: u can use a more specific type than originally specified, u can pass C<S> to a method
+                that accepts C<T>,
+                the generic structure is read-only
+                use extends
+contravariance: means that if T is a subtype of S, the C<S> is a subtype of C<T>, where C is a generic type
+  implications: u can use a less specific type than originally specified, u can pass C<T> to a method
+                that accepts C<S>
+                the generic structure is write-only
+                use super
+mnemonic: producer extends, consumer super (read from producer, write to consumer)
+
+definition-site (declaration-site) variance: Scala,C#,Kotlin
+use-site variance: Java (where wildcards in the type usages make the types covariant/contravariant)
 
 // extends vs super explanation //
 

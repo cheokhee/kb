@@ -40,7 +40,13 @@ POSIX character classes
 +? : lazy one or more
 *? : lazy zero or more
 
+greedy quantifier: give back when needed.
+lazy quantifier: expand when needed
+
 possessive quantifier: like greedy quantifier, but does not backtrack
+?+: possessive zero or one
+++: possessive one or more
+*+: possessive zero or more
 
 positive lookahead: (?=pattern)
 /one(?=two)/ -> matches "one" followed by "two", without including "two" in $&
