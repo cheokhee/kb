@@ -666,9 +666,13 @@ ps -o nlwp <pid> #show number of lightweight processes
 ps auxww : wide output
 
 #show top processes sorted by memory usage
+#ps: cmd show long form
+#ps: comm show name only
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem
 #show top processes sorted by cpu usage
 ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu
+#show top 10 processes sorted by cpu, then mem, refresh every 1 second
+watch -n1 'ps -eo pid,ppid,comm,%mem,%cpu --sort="-%cpu,-%mem" | head'
 #list process in a hierarchy
 ps -e -o pid,args --forest
 
@@ -891,6 +895,22 @@ single: POSIX
 double: non-POSIX, only in bash, zsh, ksh
 [ is a shell builtin and a program (/usr/bin/[
 [[ is a keyword
+=====
+No WordSplitting or glob expansion will be done for [[ (and therefore many arguments need not be quoted):
+eg.
+ file="file name"
+ [[ -f $file ]] && echo "$file is a regular file"
+will work even though $file is not quoted and contains whitespace. With [ the variable needs to be quoted:
+eg.
+ file="file name"
+ [ -f "$file" ] && echo "$file is a regular file"
+This makes [[ easier to use and less error-prone.
+------
+Parentheses in [[ do not need to be escaped:
+eg.
+ [[ -f $file1 && ( -d $dir1 || -d $dir2 ) ]]
+ [ -f "$file1" -a \( -d "$dir1" -o -d "$dir2" \) ]
+
 
 profiling java program with perf:
 #1. profiling: generate a file called perf.data
@@ -2559,3 +2579,58 @@ there are 7 namespaces: Cgroup, IPC, network, Mount, PID, User, UTS
 show namespaces of a process: /proc/<pid>/ns
 lsns
 unshare: run programs with difference namespaces
+nsenter - run program with namespaces of other processes
+
+A Unix domain socket or IPC socket (inter-process communication socket) is a data communications
+endpoint for exchanging data between processes executing on the same host operating system.
+
+socat -v UNIX-LISTEN:/tmp/dockerapi.sock UNIX-CONNECT:/var/run/docker.sock
+
+"nc www.google.com 80" same as "socat - TCP:www.google.com:80"
+
+XDG base directory specification: specify where files should be looked for.
+==
+data files:
+XDG_DATA_HOME : default:$HOME/.local/share , more important than XDG_DATA_DIRS
+XDG_DATA_DIRS : example: /usr/local/share:/usr/share
+==
+config files:
+XDG_CONFIG_HOME : default:$HOME/.config
+XDG_CONFIG_DIRS : example: /etc/xdg/xdg-Lubuntu:/etc/xdg:/etc:/usr/share
+==
+XDG_CACHE_HOME : default:$HOME/.cache
+===
+where runtime files should be stored:
+XDG_RUNTIME_DIR=/run/user/1000
+
+Cgroups provide a way to limit the amount of resources like CPU and memory that each container can
+use.
+
+reptyr - Reparent a running program to a new terminal. take an existing running program and
+attaching it to a new terminal.
+
+disown -a && exit
+
+$OSTYPE : "linux-gnu"
+
+/sys/firmware/efi
+
+whereis <command_name>
+
+capabilities:
+capsh --print
+getpcaps <pid> #show process capabilities
+getcap <filename>
+sudo setcap cap_net_raw,cap_net_admin+ep "$HOME/.cargo/bin/bandwhich"
+----
+the “+ep” means you’re adding the capability (“-” would remove it) as Effective and Permitted.
+e: Effective
+This means the capability is “activated”.
+p: Permitted
+This means the capability can be used/is allowed.
+i: Inherited
+The capability is kept by child/subprocesses upon execve() for example.
+
+test microphone:
+1. arecord -d 5 test-mic.wav #record something
+2. aplay test-mic.wav #play

@@ -196,6 +196,9 @@ fortune
 toilet
 chafa
 boxes : echo "hi cheok" | boxes -d boy
+fzf
+fd-find
+gron
 
 other command: wikit, googler, browsh, lolcat, toilet
 

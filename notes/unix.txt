@@ -467,6 +467,10 @@ for debugging: BASH_SOURCE, FUNCNAME, BASH_LINENO arrays
 use : FUNCNAME[0],
 see current setting: shopt , set -o
 see current setting for set: echo $-
+$-: The current set of options in your current shell.
+output of $- : himBHs
+which means that the -h, -m, -B and -H options are enabled, that the shell is interactive (-i) and
+reading from standard input (-s).
 
 #enable timestamp in bash history
 export HISTTIMEFORMAT="%F %T "

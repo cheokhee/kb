@@ -38,6 +38,38 @@ Basically, it makes a port on your laptop that gets sent over SSH to a port on t
 connect to the localhost port (in this case, 5901):
 ssh -L 5901:localhost:5901 -i ~/mykeyfile.pem ubuntu@myec2hostname
 
+=== SSH tunnel ===
+=== SSH local port forwarding ===
+when creating SSH tunnel, optionally use -N since we don't need to get a prompt.
+#1. A can ssh to B, but not C. B can connect to C
+create a SSH tunnel from A to B so that A can connec to C
+On A, do: ssh -L localport:IP-of-C:port-of-C userAtB@IP-of-B
+
+general: ssh -L <localport>:<remotehost>:<remoteport> <gateway>
+remotehost: the final target
+
+example:
+A : 146.222.122.39
+B : 146.222.122.95
+C : 146.222.122.20
+
+example: ssh -N -L 8080:146.222.122.20:9999 oracle@146.222.122.95
+
+now you can open a brower on A and do http://localhost:8080
+and be directed to 146.222.122.20:9999
+
+#2. A can ssh to B but cannot connect to port 9999 on B (due to firewall)
+example:
+A : 146.222.122.39
+B : 146.222.122.95
+
+example: ssh -N -L 8080:146.222.122.95:9999 oracle@146.222.122.95
+
+now you can open a brower on A and do http://localhost:8080
+and be directed to 146.222.122.20:9999
+
+=== END SSH tunnel ===
+
 windows workaround:
 copy the key files under %userprofile%/.ssh to C:\Program Files (x86)\Git\.ssh or
 D:\Git\.ssh (wherever git is installed)

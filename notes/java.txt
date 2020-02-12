@@ -643,6 +643,10 @@ Non-reifiable types are types where information has been removed at compile-time
 invocations of generic types that are not defined as unbounded wildcards. A non-reifiable type does
 not have all of its information available at runtime. Examples of non-reifiable types are
 List<String> and List<Number>; the JVM cannot tell the difference between these types at runtime.
+===
+A reifiable type is a type whose runtime representation contains the same info as its compile-time
+representation. A non-reifiable type is a type whose runtime representation contains less info than
+its compile-time representation
 
 Heap pollution occurs when a variable of a parameterized type refers to an object that is not of
 that parameterized type. This situation occurs if the program performed some operation that gives
@@ -1626,6 +1630,17 @@ T is the input, R is the result
 Function interface has: R apply(T t);
 java.util.function.Function<String, Integer> f = (String x) -> x.length();
 
+Java: Map.merge(K key, V value,
+            BiFunction<? super V, ? super V, ? extends V> remappingFunction):
+either puts new value under the given key (if absent) or updates existing key with a given value (UPSERT).
+example:
+map.merge(key, 1, (prev, one) -> prev + one)
+BiFunction: accept two argumensts and returns a result
+====
+BiFunction<? super V, ? super V, ? extends V>:
+covariant return type: use extends
+contravariant argument type: use super
+
 A Technology Compatibility Kit (TCK) is a suite of tests that at least nominally checks a particular
 alleged implementation of a Java Specification Request (JSR) for compliance.
 
@@ -1892,3 +1907,53 @@ Function interface:
 
 marker interface: an empty interface (no field or methods). Examples of marker interface are
 Serializable, Clonnable and Remote interface. All these interfaces are empty interfaces.
+
+Map<Integer, List<String>> map = Stream.of("Fred", "Jim", "Sheila", "Chris",
+        "Steve", "Hermann", "Andy", "Sophie")
+        .collect(Collectors.groupingBy(n -> n.length()));
+map : {3=[Jim], 4=[Fred, Andy], 5=[Chris, Steve], 6=[Sheila, Sophie], 7=[Hermann]}
+===
+Map<Integer, Long> map2 = Stream.of("Fred", "Jim", "Sheila", "Chris",
+        "Steve", "Hermann", "Andy", "Sophie")
+        .collect(Collectors.groupingBy(n -> n.length(), Collectors.counting()));
+map2: {3=1, 4=2, 5=2, 6=2, 7=1}
+===
+Map<Boolean, List<String>> map3 = Stream.of("Fred", "Jim", "Sheila", "Chris",
+        "Steve", "Hermann", "Andy", "Sophie")
+        .collect(Collectors.partitioningBy(a -> a.length() == 4));
+map3: false=[Jim, Sheila, Chris, Steve, Hermann, Sophie], true=[Fred, Andy]}
+===
+Map<Boolean, Long> map3 = Stream.of("Fred", "Jim", "Sheila", "Chris",
+        "Steve", "Hermann", "Andy", "Sophie")
+        .collect(Collectors.partitioningBy(a -> a.length() == 4, Collectors.counting()));
+map3: {false=6, true=2}
+
+A Predicate takes one object argument and returns a Boolean value where as a Function takes an
+object argument and returns an object. Predicate contains a method test() for testing if the object
+matches its condition
+
+Collectors:
+    Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,
+                                    Function<? super T, ? extends U> valueMapper)
+example:
+    Collector<BookingRequest, ?, Map<String, BookingRequest>> a = toMap(
+        BookingRequest::getBkgRequestRefNum, Function.identity());
+OR:
+    Collector<BookingRequest, ?, Map<String, BookingRequestStatus>> a = toMap(
+        BookingRequest::getBkgRequestRefNum, BookingRequest::getBkgRequestStatus);
+
+a.compareTo(b): return a negative number if a is less than b, positive number if a is more than b
+
+Java Class Data Sharing (CDS) - Sharing common classes among multiple JVM processes.
+CDS is designed to reduce the startup time and footprint of Java applications. The basic idea of CDS is to:
+    Select a set of system classes that are commonly used by Java applications.
+    Load the selected classes into memory.
+    Dump the loaded classes to a file called a "shared archive".
+    When a subsequent Java application is launched, JVM will restore the shared archive file into memory.
+    When multiple Java applications are launched on the machine, a portion of the shared archive will be shared by multiple JVM processes.
+The startup time is reduced because of restoring shared archive is much faster than loading classes.
+The footprint is reduced because of some data is shared by multiple JVM processes.
+"java" command options related to CDS are:
+"-Xshare:dump" - Regenerating the shared archive file
+"-Xshare:on" - Forcing JVM to restore the shared archive file
+"-Xshare:off" - Forcing JVM to not use the shared archive file

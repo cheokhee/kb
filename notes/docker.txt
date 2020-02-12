@@ -197,3 +197,16 @@ Docker Swarm to Marathon running on Mesos.
 resources that are namespaced are mapped to a different value on the host. eg. PID 1 in the
 container is not PID 1 in the host.  resources that are not namespaced are the same on the host and
 the container.
+
+docker storage driver: used to write to container's writable layer.
+https://docs.docker.com/storage/storagedriver/select-storage-driver/
+==
+a docker image is made up of a series of layers. each layer represents an instruction in the
+dockerfile. when you create a new container, a new writeable layer is created on top of the
+underlying layers.
+
+copy-on-write : a strategy of sharing and copying files for maximum efficiency. if a file exists in
+a lower layer and another layer needs it, it just access the file. the first time another layer
+needs to modify the file, the file is copied into that layer and modified.
+
+/var/lib/docker/<storage-driver> : where layers are stored

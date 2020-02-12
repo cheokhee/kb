@@ -121,3 +121,8 @@ selected element(s).example: ::before
 A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected
 element(s). For example, :hover can be used to change a button's color when the user's pointer
 hovers over it. e.g., :active
+
+html { scroll-behavior: smooth; }
+
+new window: window.open("https://www.google.com", "_blank", "width=1100,height=800")
+new tab: window.open("https://www.google.com", "_blank")

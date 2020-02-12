@@ -102,3 +102,6 @@ echo '{"example1" : 1, "example2" : 2, "example3" : 3}' | jq 'keys[]'
 "example1"
 "example2"
 "example3"
+
+#sort keys
+jq -S

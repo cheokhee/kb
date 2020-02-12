@@ -36,7 +36,7 @@ certifying a key means signing a key with your own secret key
 signing is sometimes known as "encrypting to the private key."
 The recipient will decrypt the file with our public key and verify the signature
 
-verifying pgp signature
+verifying pgp signature ** OLD
 example: downloaded linux-4.4.tar.sign and linux-4.4.tar.xz
 #1 $ gpg linux-4.4.tar.sign
 Detached signature.
@@ -51,8 +51,8 @@ gpg: Can't check signature: public key not found
 #5: verify again
 #another
 gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
-
-verify pgp signature (2)
+---
+verify pgp signature (2) ** OLD
 $ gpg --verify sha256sum.txt.gpg sha256sum.txt
 gpg: Signature made Wed 06 Jan 2016 08:06:20 AM PST using DSA key ID 0FF405B2
 gpg: Can't check signature: public key not found
@@ -63,3 +63,30 @@ sha256sum -c sha256sum.txt
 ===
 sha256sum.txt contains a number of lines. sample line:
 46b8a14826a53f4cacf56d1132a5184c2132f274aef8103e5e8e8cae9e1cfde0  linuxmint-17.3-cinnamon-32bit.iso
+===================================
+verifying pgp signature ** NEW
+get PGP key:
+http://pgp.mit.edu/
+===
+1. get the key (put in file mysql_pubkey.asc), then import into keyring: gpg --import mysql_pubkey.asc
+OR
+1. gpg --recv-keys 5072E1F5 #mysql, this is easier
+   then gpg -k #to show
+2. get signature file, typically (make sure both files are in same directory):
+   mysql-standard-8.0.20-linux-i686.tar.gz
+   mysql-standard-8.0.20-linux-i686.tar.gz.asc
+3. gpg --verify mysql-standard-8.0.20-linux-i686.tar.gz.asc
+
+gpg: no ultimately trusted keys found: This means that the specific key is not "ultimately trusted"
+by you or your web of trust, which is okay for the purposes of verifying file signatures.
+
+WARNING: This key is not certified with a trusted signature! There is no indication that the
+signature belongs to the owner.: This refers to your level of trust in your belief that you possess
+our real public key. This is a personal decision. Ideally, a MySQL developer would hand you the key
+in person, but more commonly, you downloaded it. Was the download tampered with? Probably not, but
+this decision is up to you. Setting up a web of trust is one method for trusting them.
+
+web of trust is a concept used in PGP, GnuPG, and other OpenPGP-compatible systems to establish the
+authenticity of the binding between a public key and its owner.  Its decentralized trust model is an
+alternative to the centralized trust model of a public key infrastructure (PKI), which relies
+exclusively on a certificate authority (or a hierarchy of such).

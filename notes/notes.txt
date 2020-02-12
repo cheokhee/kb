@@ -989,6 +989,11 @@ let's say sometime around noon and subtracting one hour if you are observing day
  saving time, you would notice that the sun takes a rather strange path.
 +++
 
+character: an abstract minimal unit of text.
+character set: a collection of characters.
+coded character set: a character set where each character has been assigned a unique number (code point):
+character encoding scheme: a mapping from code points to sequences of one or more fixed-width code units.
+code unit: the smallest unit of data in a character encoding scheme.
 coded character set (character code)
 a mapping between a set of characters and a set of integers.
 ++++
@@ -10876,6 +10881,12 @@ call (and without the context of an error), which is useful for finding out the 
 into a function.
 --
 A backtrace is a list of the function calls that are currently active in a thread
+--
+A Stack Trace is a list of method calls from the point when the application was started to the
+current location of execution within the program.
+--
+stack trace: a list of method calls from the exception handler to the point where the exception was
+raised.
 
 Edge computing pushes applications, data and computing power (services) away from centralized points
 to the logical extremes of a network
@@ -12762,6 +12773,19 @@ LEFT [OUTER] JOIN table2
 ON table1.column = table2.column;
 --> table1 is the left-hand table
 
+Join: inner join is the intersection between 2 tables. It returns one row for each pair of matching
+rows in the tables being joined. Outer join: a join operation in which all source records are
+included in the result, even those that don’t satisfy the join condition.  Outer join: extends the
+result of an inner join by including rows from one table that don’t have corresponding rows in
+another table. Cross join (cartesian product): combine every row in table A with every row in table
+B. Cross join: always M*N rows. Full outer join: from max(M,N) to (M+N) rows.
+
+Referential integrity in a relational database is consistency between coupled tables. Referential
+integrity is usually enforced by the combination of a primary key and a foreign key. Columns in a
+table that refer to the primary keys of another table are known as foreign keys. One-to-many
+relationship: place a foreign key in the table representing the many, pointing to the primary key of
+the table representing the one.
+
 Quality of experience: delivering the level of service the customers believe they
 should receive
 
@@ -12877,6 +12901,18 @@ provisioning and deployment processes. For example, infrastructure-as-code capab
 with Ansible, an IT management and configuration tool, can install MySQL server, verify that MySQL
 is running properly, create a user account and password, set up a new database, and remove unneeded
 databases.
+---
+Infrastructure as Code (IaC) is a method to provision and manage IT infrastructure through the use
+of software, rather than through standard operating procedures and manual processes.
+---
+Configuration orchestration tools, which include Terraform and AWS CloudFormation, are designed to
+automate the deployment of servers and other infrastructure.
+--
+Configuration management tools like Chef, Puppet, help configure the software and systems on this
+infrastructure that has already been provisioned.
+--
+configuration orchestration and configuration management tools, both of which are considered IaC tools
+https://www.thorntech.com/2018/04/15-infrastructure-as-code-tools/
 
 iPaas: integration platform as a service: a cloud service for application and data integration.
 connects various systems and applications.
@@ -13045,3 +13081,71 @@ perspective. For example, Bank X has an account with Bank Y in Bank Y's home cur
 that is a nostro, meaning "our account on your books," while to Bank Y, it is a vostro, meaning
 "your account on our books." These accounts are used to facilitate international transactions and to
 settle transactions that hedge exchange rate risk.
+
+runtime: the specific implementation of a language that supports its execution. An example might be
+the Java HotSpot runtime. A container runtime is responsible for all the parts of running a
+container that isn't actually running the program itself.
+container runtime example: runc, lxc, lmctfy, Docker (containerd), rkt, cri-o.
+
+JWT is a token format. OAuth is an authorization protocol that can use JWT as a token.
+
+parallel execution model: fork/join vs mapreduce
+===
+fork/join: single node, multicore parallelism. partition a task into several subtasks, in a
+recursive-looking fashion. allows workers to steal subtasks from each others' queues.
+===
+mapreduce: computer cluster, distributed parallelism.  does one big split, with the mapped splits
+not talking between each other at all, and then reduces everything together.
+
+ineffable: incapable of being expressed or described in words
+
+yak shaving: all that stuff that you need to do to solve some problem.
+refers to a task, that leads you to perform another related task and so on, and so on — all
+distracting you from your original goal.
+--
+1. Any apparently useless activity which, by allowing you to overcome intermediate difficulties,
+allows you to solve a larger problem.
+e.g. I was doing a bit of yak shaving this morning, and it looks
+like it might have paid off.
+--
+2. A less useful activity done consciously or subconsciously to
+procrastinate about a larger but more useful task.
+e.g. I looked at a reference manual for my car just
+to answer one question, but I spent the whole afternoon with my nose buried in it, just yak shaving,
+and got no work done on the car itself.
+
+Capacity: The number of transactions that can be processed on the network.
+Scalability: ability of the network to handle a growing amount of work.
+
+Capacity Testing measures how many users the application can handle. It is a subset of scalability
+testing, in that when testing scalability, you will get a measure of application capacity.
+==
+Scalability Testing measures how well the application handles increasing numbers of users. If you
+test scalability until the application fails, you will have a measure of how many users (capacity)
+the application can handle.
+
+route: mapping from URL to a handler
+
+authentication: the process of verifying the identity of a user
+authorization: the process of verifying what the user is allowed to do.
+
+API versioning:
+1. URI versioning: e.g. http://api/v1/xxxx
+2. using custom request header. Accept-version: v1
+3. using Accept header. Accept: application/json;version=1.0
+
+have skin in the game, have a dog in the fight
+
+synecdoche: a figure of speech
+
+An income share agreement (or ISA) is a financial structure in which an individual or organization
+provides something of value (often a fixed amount of money) to a recipient who, in exchange, agrees
+to pay back a percentage of their income for a fixed number of years.
+
+JOSE (JavaScript Object Signing and Encryption) is a framework intended to provide a method to
+securely transfer claims (such as authorization information) between parties. The JOSE framework
+provides a collection of specifications to serve this purpose. A JSON Web Token (JWT) contains
+claims that can be used to allow a system to apply access control to resources it owns. One
+potential use case of the JWT is as the means of authentication and authorization for a system that
+exposes resources through an OAuth 2.0 model.
+https://jose.readthedocs.io/en/latest/

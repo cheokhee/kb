@@ -279,3 +279,10 @@ C-x : prefix key,  prefix key is a key sequence whose binding is a keymap
 render HTML:
 (load-library "shr.el")
 (shr-render-buffer)
+
+M-x replace-regexp:
+Replace regexp: \(\w+\)
+replace with:
+\,(upcase \1)
+\,(capitalize \1)
+\,(downcase \1)

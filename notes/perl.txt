@@ -3,6 +3,7 @@ perl -e "print join(\"\n\", @INC);"
 perldoc perlrun
 
 perl -i.bak -p -e 's/hee/cheok/' file1.txt
+perl -p -i.bkp -e 's/to replace/new text/g' **/*
 
 #print string matched by the pattern
 perl -ne '/(.)\1/ && print "match: $&\n"'
