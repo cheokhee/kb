@@ -286,3 +286,14 @@ replace with:
 \,(upcase \1)
 \,(capitalize \1)
 \,(downcase \1)
+
+mode-line-frame-identification:
+on windowing system, return "  "
+on a terminal, return "-%F " (the frame name)
+
+mode-line-format
+
+http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
+
+M-x customize-face , mode-line-buffer-id
+(custom-set-faces '(mode-line-buffer-id ((t (:foreground "brightred" :weight extra-bold)))))
