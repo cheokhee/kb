@@ -105,3 +105,10 @@ echo '{"example1" : 1, "example2" : 2, "example3" : 3}' | jq 'keys[]'
 
 #sort keys
 jq -S
+
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.|tojson'
+"[{\"name\":\"cheok\"},{\"name\":\"hee\"}]"
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.|tojson|fromjson'
+[{"name":"cheok"},{"name":"hee"}]
+
+to_entries, from_entries
