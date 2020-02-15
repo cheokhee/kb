@@ -13149,3 +13149,18 @@ claims that can be used to allow a system to apply access control to resources i
 potential use case of the JWT is as the means of authentication and authorization for a system that
 exposes resources through an OAuth 2.0 model.
 https://jose.readthedocs.io/en/latest/
+
+semantic versioning: major.minor.patch
+^ : install the latest minor version
+~ : install the latest patch version
+
+data mart: a subset of data warehouse and is usually oriented to a specific business line or team.
+
+separating compute and storage: designing database systems such that all persistent data is stored
+on remote, network attached storage.  In this architecture, local storage is only used for transient
+data, which can always be rebuilt (if necessary) from the data on persistent storage
+
+Semi-structured data is a form of structured data that does not obey the formal structure of data
+models associated with relational databases or other forms of data tables, but nonetheless contains
+tags or other markers to separate semantic elements and enforce hierarchies of records and fields
+within the data. example: json, xml, csv, tab-delimited files

@@ -271,3 +271,6 @@ icons: used by alt-tab switcher
 /usr/share/icons/hicolor/48x48/apps/emacs24.png
 /usr/share/icons/hicolor/32x32/apps/emacs24.png
 /usr/share/icons/hicolor/16x16/apps/emacs24.png
+
+changes to /etc/systemd/system.conf:
+DefaultTimeoutStopSec=5s
