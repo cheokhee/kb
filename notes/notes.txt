@@ -11683,6 +11683,11 @@ solutions. A NAS is a single storage device that operates on data files, while a
 network of multiple devices that operate on disk blocks
 ===
 A SAN accesses data as blocks, while a NAS accesses data as files.
+===
+BEST: about who owns the filesystem
+SAN: appear as a collection of storage block to client OS, which put a filesystem on it.
+NAS: appear as a filesystem to client OS. NAS owns the filesystem.
+
 
 body copy: Main text part of an advertisement or any printed matter (as distinct from the logo,
 headline, subheadings, and graphics) that provides the 'meat' of the communication.
@@ -13180,3 +13185,6 @@ the software-defined elements are implemented within the context of the hypervis
 all resources can be federated (shared) across all instances of a hyper-converged infrastructure.
 
 https://searchconvergedinfrastructure.techtarget.com/definition/converged-infrastructure
+
+value-added reseller (VAR) is a company that adds features or services to an existing product, then
+resells it (usually to end-users) as an integrated product or complete "turn-key" solution.
