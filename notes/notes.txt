@@ -13164,3 +13164,19 @@ Semi-structured data is a form of structured data that does not obey the formal 
 models associated with relational databases or other forms of data tables, but nonetheless contains
 tags or other markers to separate semantic elements and enforce hierarchies of records and fields
 within the data. example: json, xml, csv, tab-delimited files
+
+Converged infrastructure:
+an approach to data center management that packages compute, networking, servers, storage and
+virtualization tools on a prequalified turnkey appliance. known as infrastructure in a box.
+
+Hyper-converged infrastructure (HCI) is a software-defined IT infrastructure that virtualizes all of
+the elements of conventional "hardware-defined" systems. HCI includes, at a minimum, virtualized
+computing (a hypervisor), a virtual SAN (VSAN) (software-defined storage) and virtualized networking
+(software-defined networking). HCI typically runs on commercial off-the-shelf (COTS) servers.  The
+primary difference between converged infrastructure (CI) and hyper-converged infrastructure is that
+in HCI, both the storage area network and the underlying storage abstractions are implemented
+virtually in software (at or via the hypervisor) rather than physically, in hardware. Because all of
+the software-defined elements are implemented within the context of the hypervisor, management of
+all resources can be federated (shared) across all instances of a hyper-converged infrastructure.
+
+https://searchconvergedinfrastructure.techtarget.com/definition/converged-infrastructure
