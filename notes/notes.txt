@@ -10174,8 +10174,19 @@ it means trying to create heaven here on Earth.
 
 hub: like a repeater. every packet is sent to all output ports. operate at layer 1
 bridge: connects two network segments. operate at layer 2. the bridge is aware of
-which MAC addresses are valid on either side of the bridge.
+which MAC addresses are valid on either side of the bridge. replaced by switches
 switch: a bridge with more than 2 ports.
+A Layer 3 switch is basically a switch that can perform routing functions in addition to switching
+==
+main difference between layer 3 switches and routers lies in the hardware. If you were to take a
+peek into a layer 3 switch’s hardware, you’ll see a mix of traditional switches and routers, except
+that the routers’ software logic is replaced with integrated circuit hardware to improve
+performance.
+Also, a layer 3 switch’s router will not have WAN ports and other WAN features you’ll typically see
+in a traditional router.
+Support routing between virtual LANs.
+Layer 3 switches are most applicable only for large intranet environments with many device subnets
+and traffic.
 
 eyeglass prescription
 OD: right eye
@@ -13188,3 +13199,56 @@ https://searchconvergedinfrastructure.techtarget.com/definition/converged-infras
 
 value-added reseller (VAR) is a company that adds features or services to an existing product, then
 resells it (usually to end-users) as an integrated product or complete "turn-key" solution.
+
+East-West Traffic refers to traffic flow within a data center.
+North-South traffic refer to data flow that either enters/leaves the data center from/to a
+system physically residing outside the data center
+
+fat tree network: The basic idea behind fat-trees is to alleviate the bandwidth bottleneck closer to
+the root with additional links.
+
+service mesh: managing communications between microservices
+an API gateway stands between a group of microservices and the outside world, routing service
+requests as necessary so that the requester doesn’t need to know that it’s dealing with a
+microservices-based application. A service mesh, on the other hand, mediates requests “inside” the
+microservices app, with the various components being fully aware of their environment.
+==
+another way to look at it: a service mesh is for east-west traffic within a cluster and an API
+gateway is for north-south traffic going into and out of the cluster.
+==
+service mesh (**): an infrastructure layer that enables all the microservices in an application to talk
+to each other. Just like physical networks, a service mesh has a data plane that moves all the data
+around, and a control plane that enables you to configure and monitor the service mesh.
+service mesh: an infrastructure layer for handling service-to-service communications and global
+cross-cutting functionalities to make these communications more reliable, secure, observable
+and manageable.
+====
+Why have a service mesh? Without one, microservices applications need to handle a lot of common
+tasks themselves: how to find service endpoints, where the service is currently running, how to
+authenticate services, deciding who has access to what services encryption key management, etc.
+service mesh: also provide load balancing
+===
+control plane: Istio, Consul, Linkerd
+data plane: Envoy
+----
+service mesh implementation options: (1) in a library that each microservice import (2) n a node
+agent that provides services to all the containers on a particular node (3) In a sidecar container
+that runs alongside your application container
+===
+The service mesh is usually implemented by providing a proxy instance, called a sidecar, for each
+service instance. Sidecars handle interservice communications, monitoring, and security‑related
+concerns – indeed, anything that can be abstracted away from the individual services.
+===
+A sidecar proxy runs alongside a single instance or pod. The purpose of the sidecar proxy is to
+route, or proxy, traffic to and from the container it runs alongside. The sidecar communicates with
+other sidecar proxies and is managed by the orchestration framework. Many service mesh
+implementations use a sidecar proxy to intercept and manage all ingress and egress traffic to the
+instance or pod. every microservices container in a service mesh of this type has another proxy
+container corresponding to it. All of the logic required for service-to-service communication is
+abstracted out of the microservice and put into the sidecar.
+==
+https://www.nginx.com/blog/what-is-a-service-mesh/
+https://developer.ibm.com/apiconnect/2018/11/13/service-mesh-vs-api-management/
+
+Rate limiting is used to control the amount of incoming and outgoing traffic to or from a
+network. and is used to prevent DoS attacks.

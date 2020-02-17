@@ -1957,3 +1957,10 @@ The footprint is reduced because of some data is shared by multiple JVM processe
 "-Xshare:dump" - Regenerating the shared archive file
 "-Xshare:on" - Forcing JVM to restore the shared archive file
 "-Xshare:off" - Forcing JVM to not use the shared archive file
+
+https://blogs.oracle.com/darcy/kinds-of-compatibility:-source,-binary,-and-behavioral
+compatibility:
+Source: Source compatibility concerns translating Java source code into class files.
+binary: preserving the ability to link without error. means that when you change your class, you do
+  not need to recompile classes that use it.
+Behavioral compatibility includes the semantics of the code that is executed at runtime.

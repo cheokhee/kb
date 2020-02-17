@@ -78,6 +78,8 @@ stop tty6 : stop tty6
 dig: DNS lookup utility
 #reverse lookup
 dig +short -x <ip addr>
+dig @8.8.8.8 networkworld.com
+dig networkworld.com +noall +answer
 ====
 another DNS utility: drill
 drill www.google.com
