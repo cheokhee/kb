@@ -13219,6 +13219,7 @@ gateway is for north-south traffic going into and out of the cluster.
 service mesh (**): an infrastructure layer that enables all the microservices in an application to talk
 to each other. Just like physical networks, a service mesh has a data plane that moves all the data
 around, and a control plane that enables you to configure and monitor the service mesh.
+control plane: the job is to define behavior for the data plane
 service mesh: an infrastructure layer for handling service-to-service communications and global
 cross-cutting functionalities to make these communications more reliable, secure, observable
 and manageable.
@@ -13228,10 +13229,10 @@ tasks themselves: how to find service endpoints, where the service is currently 
 authenticate services, deciding who has access to what services encryption key management, etc.
 service mesh: also provide load balancing
 ===
-control plane: Istio, Consul, Linkerd
+control plane: Istio, Consul, Linkerd, Kong
 data plane: Envoy
 ----
-service mesh implementation options: (1) in a library that each microservice import (2) n a node
+service mesh implementation options: (1) in a library that each microservice import (2) in a node
 agent that provides services to all the containers on a particular node (3) In a sidecar container
 that runs alongside your application container
 ===
@@ -13249,6 +13250,16 @@ abstracted out of the microservice and put into the sidecar.
 ==
 https://www.nginx.com/blog/what-is-a-service-mesh/
 https://developer.ibm.com/apiconnect/2018/11/13/service-mesh-vs-api-management/
+===
+API gateway vs service mesh
+service mesh: primary focus is service-to-service communication
+API gateway: offer a single entry point for external clients such as mobile app or web app
+===
+API gateway: (1) handle north-south traffic (2) expose external services (3) map external
+traffic to internal resources (4) expose API or edge services to service a specific business function
+service mesh: (1) handle east-west traffic (2) manage and control service inside your network
+(3) focus on brokering internal resources (4) sits between the network and application, no real
+business notion
 
 Rate limiting is used to control the amount of incoming and outgoing traffic to or from a
 network. and is used to prevent DoS attacks.
