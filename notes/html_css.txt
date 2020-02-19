@@ -126,3 +126,6 @@ html { scroll-behavior: smooth; }
 
 new window: window.open("https://www.google.com", "_blank", "width=1100,height=800")
 new tab: window.open("https://www.google.com", "_blank")
+
+display:none removes the element from the normal flow of the page, allowing other elements to fill in.
+visibility:hidden leaves the element in the normal flow of the page such that is still occupies space.
