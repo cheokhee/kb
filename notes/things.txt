@@ -199,6 +199,7 @@ boxes : echo "hi cheok" | boxes -d boy
 fzf
 fd-find
 gron
+procinfo (lsdev, procinfo, socklist)
 
 other command: wikit, googler, browsh, lolcat, toilet
 
