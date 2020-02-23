@@ -7182,6 +7182,7 @@ after the synchronized block is completed, all changes made to the locked object
 to main memory before the lock is released.
 before the synchronized block is entered, all changes to the locked object are read in from main
 memory.
+--> synchronize access to memory
 --> volatile keyword:
 the value seen by a thread is always re-read from main memory before use.
 any changed value is flushed to main memory before the instruction is completed.
@@ -11052,6 +11053,9 @@ owner, the 3rd-party app then requests a token from the authorization server. th
 OAuth2: a token-based security framework that allows a user to authenticate themselves with a
 third-party authentication service. If the user successfully authenticates, they will be
 presented a token that must be sent with every request.
+===
+OAuth2: a delegation-based authorization framework that allows a third-party application to obtain
+limited access to a resource on behalf of the resource owner
 
 GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a
 server to a client. GraphQL has three main characteristics: It lets the client specify exactly what
@@ -13223,6 +13227,8 @@ control plane: the job is to define behavior for the data plane
 service mesh: an infrastructure layer for handling service-to-service communications and global
 cross-cutting functionalities to make these communications more reliable, secure, observable
 and manageable.
+service mesh (**): an infrastructure layer for facilitating service-to-service communications
+between microservices, often using a sidecar proxy.
 ====
 Why have a service mesh? Without one, microservices applications need to handle a lot of common
 tasks themselves: how to find service endpoints, where the service is currently running, how to
@@ -13263,3 +13269,9 @@ business notion
 
 Rate limiting is used to control the amount of incoming and outgoing traffic to or from a
 network. and is used to prevent DoS attacks.
+rate limiting: constraining the number of times a resource is accessed to some finite
+number per unit time.
+
+OAuth roles: resource owner, resource server, client application, authorization server
+
+destructuring: the process of binding a set of values to a corresponding set of variables.
