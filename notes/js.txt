@@ -815,3 +815,46 @@ Spread syntax allows an iterable such as an array expression or string to be exp
 where zero or more arguments (for function calls) or elements (for array literals) are expected, or
 an object expression to be expanded in places where zero or more key-value pairs (for object
 literals) are expected.
+
+=== open window with post ===
+== define a function:
+== same window:
+function openWindowWithPost(url, data) {
+    var form = document.createElement("form");
+    form.target = "_blank";
+    form.method = "POST";
+    form.action = url;
+    for (var key in data) {
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = data[key];
+        form.appendChild(input);
+    }
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+}
+new window:
+function openWindowWithPost(url, data) {
+    var form = document.createElement("form");
+    form.target = "Map";
+    form.method = "POST";
+    form.action = url;
+    for (var key in data) {
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = data[key];
+        form.appendChild(input);
+    }
+    document.body.appendChild(form);
+    window.open("", "Map");
+    form.submit();
+}
+-- call the function
+openWindowWithPost("http://localhost:8080/home/open-link", {
+  userId:"7CrcwRyX8zuEW3Uf8x5TkA==",
+  searchKey:"CMAU455839",
+  searchType:"CNTR",
+  viewType:"NT"});
