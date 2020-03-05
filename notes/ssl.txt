@@ -38,7 +38,8 @@ openssl x509 -inform PEM -in certfile -out
 openssl x509 -inform PEM -in certfile
 #show cert info
 openssl x509 -inform PEM -in certfile -text
-
+#download certificate and save in x509 format (USE THIS)
+openssl x509 -in <(openssl s_client -connect host:8443 -prexit 2>/dev/null) -out example.crt
 
 #generate pub key
 openssl rsa -in key.pem -pubout -out pubkey.pem
