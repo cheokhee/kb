@@ -106,47 +106,44 @@ openssl enc -d -aes256 -in font2-enc.txt -out new.txt
 
 examples from:
 https://stackoverflow.com/questions/23601989/client-certificate-validation-on-server-side-depth-zero-self-signed-cert-error
-====
-openssl genrsa -out ca.key 4096  #generate private key
-openssl req -x509 -new -nodes -key ca.key -days 999 -out ca.pem #generate self-signed certificate
 
-openssl genrsa -out server1.key 1024
-openssl req -new -key server1.key -out server1.csr
-openssl x509 -req -days 999 -in server1.csr -CA ca.pem -CAkey ca.key -set_serial 01 -out server1.pem
-
-openssl genrsa -out client1.key 1024
-openssl req -new -key client1.key  -out client1.csr
-openssl x509 -req -days 999 -in client1.csr -CA ca.pem -CAkey ca.key -set_serial 01 -out client1.pem
-
-openssl genrsa -out server2.key 1024
-openssl req -new -key server2.key  -out server2.csr
-openssl x509 -req -days 999 -in server2.csr -CA server1.pem -CAkey server1.key -set_serial 02 -out server2.pem
-
-openssl genrsa -out client2.key 1024
-openssl req -new -key client2.key -out client2.csr
-openssl x509 -req -days 999 -in client2.csr -CA client1.pem -CAkey client1.key -set_serial 02 -out client2.pem
-====
+==============================
+err_cert_authority_invalid: using self-signed certificate
 
 create SSL certificate signed by my own CA
 ===
 (A) create my own CA:
 1. create my own CA private key
-openssl genrsa -out ca.key 4096
+openssl genrsa -des3 -out myCA.key 2048
 2. create self-signed certificate for my own CA
-openssl req -x509 -new -nodes -key ca.key -days 3650 -out ca.pem
+openssl req -x509 -new -nodes -key myCA.key -sha256 -days 730 -out myCA.pem
 ===
-Now ca.pem represent my own CA
+Now myCA.pem represent my own CA
 ====
 (B) create SSL certificate for my server
 B1. create private key
-openssl genrsa -out server1.key 2048
-B2. create certificate signing request
-openssl req -new -key server1.key -out server1.csr
-B3. sign the CSR
-openssl x509 -req -days 3650 -in server1.csr -CA ca.pem -CAkey ca.key -set_serial 01 -out server1.pem
+openssl genrsa -des3 -out server.key 2048
+B2. create certificate signing request (set common name to localhost)
+openssl req -new -key server.key -out server.csr
+B3. sign the CSR with my CA
+#a file myCA.srl will also be generated, it contains the serial number assigned to server.pem
+openssl x509 -req -in server.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial -out server.pem -days 730 -sha256
+
+#put CA cert in pkcs12 file
+openssl pkcs12 -export -in myCA.pem -inkey myCA.key -name selfsigned_CA -out myCA.p12
+#put server cert in pkcs12 file
+openssl pkcs12 -export -in server.pem -inkey server.key -name cheok -out cheok.p12
+
+import myCA.pem into Chrome certificate authority
+
+ERR_CERT_COMMON_NAME_INVALID: common name does not match domain name
+
+#show content of keystore
+openssl pkcs12 -info -in cheok.p12
+keytool -list -v -storetype pkcs12 -keystore myCA.p12
 
 verify a certificate is signed by a particular CA
-openssl verify -CAfile ca.pem server1.pem
+openssl verify -CAfile myCA.pem server.pem
 
 #print all certs in a bundle
 keytool -printcert -v -file /etc/ssl/certs/ca-certificates.crt
