@@ -1216,6 +1216,7 @@ a copy-on-write technique for avoiding in-place updates of pages. when a page is
 be modified, a shadow page is allocated. The shadow page is then modified (the
 original page is unchanged). when the shadow page is ready to become persistent,
 all pages that refer to the original are updated to refer to the new replacement page.
+--> a page is a unit of physical storage
 
 suit your fancy
 tickle your fancy
@@ -1353,6 +1354,7 @@ IaaS public cloud providers offer storage and compute services on a pay-per-use 
 the implementation of a private cloud in a public cloud environment.
 VPC provides secure data transfer between a private enterprise and a public cloud provider, ensuring that each customer's data remains isolated from every other customer's data both in transit and inside the cloud provider's network.
 -- behave as if it is within a corporate firewall.
+VPC: make the cloud look like a data center.
 ===
 cloud deployment model: public, private, virtual private, hybrid
 cloud service model: IaaS, PaaS, SaaS
@@ -6281,6 +6283,9 @@ Coroutines are almost always closures,
 --> coroutines are symmetric units that explicitly activate each other; they do not return, but
 resume each other.
 --> coroutines are threads that are cooperatively scheduled. they yield to each other.
+Coroutines are able to perform long-running and intensive tasks by suspending execution without
+blocking the thread and then resuming the execution at some later time. It allows the creation of
+non-blocking asynchronous code that appears to be synchronous.
 
 Java: take a threading approach to concurrency.
 A process consists of one or more threads. Threads have their own execution path but share
@@ -10905,6 +10910,9 @@ to the logical extremes of a network
 ==
 data processing power at the edge of a network instead of holding that processing power in a cloud
 or a central data warehouse.
+==
+edge computing: bring computation and data storage closer to the location where it is needed,
+to improve response time. enable analytics and data gathering to occur at the source of the data.
 --
 An edge device is a device which provides an entry point into enterprise or service provider core
 networks. Examples include routers, routing switches, integrated access devices (IADs),
@@ -11056,6 +11064,43 @@ presented a token that must be sent with every request.
 ===
 OAuth2: a delegation-based authorization framework that allows a third-party application to obtain
 limited access to a resource on behalf of the resource owner
+Oauth flow: a resource owner wants to allow a third-party application to have limited access to
+a resource without revealing their credentials.
+==
+OAuth2: an application like Yelp (a Client Application) can request an Access Token from a service
+like Google (an Authorization Server). You (the Resource Owner) log into Google with your
+credentials and give your Consent to Yelp to access your contacts (and only your contacts). Access
+Token in hand, Yelp makes a request of the Google Contacts API (the Resource Server) and gets your
+contacts. Yelp never sees your password and never has access to anything more than you’ve consented
+to. And, you can withdraw your consent at any time.
+===
+OpenID Connect. OIDC is a thin layer on top of OAuth 2.0 that introduces a new type of token: the
+Identity Token.
+===
+OAuth2: Authorization code flow:
+1. Yelp wants access to your contacts. It presents a button to link your Google Contacts.
+2. When you click the button, you’re redirected to Google where you login with your username and password (if you’re not already logged in).
+3. Google shows you a screen telling you that Yelp would like read-only access to your contacts.
+4. Once you give your consent, Google redirects back to Yelp, via your browser, with a temporary code (called an authorization code)
+5. Using this code, Yelp contacts Google to trade it for an Access Token
+6. Google validates the code and if all checks out, issues an Access Token with limited capabilities (read-only access to your contacts) to Yelp
+7. Yelp then presents the Access Token to the Google Contacts API
+8. Google Contacts API validates the token and, if the request matches the capabilities identified by the token, returns your contact list to Yelp
+===
+https://developer.okta.com/blog/2019/03/05/spring-boot-migration
+===
+OpenID: A user must obtain an OpenID account through an OpenID identity provider (for example,
+Google). The user will then use that account to sign into any website (the relying party) that
+accepts OpenID authentication (think YouTube that accepts a Google account as a login)
+==
+OpenID is technically a URL that a user owns (e.g. alice2016.openid.com), so some websites offer the
+option to manually enter an OpenID.  The latest version of OpenID is OpenID Connect, which combines
+OpenID authentication and OAuth2 authorization
+===
+When a client applications wants access to the resources of a resource owner, hosted on a resource
+server, the client application must first obtain an authorization grant.
+authorization grant types: (1) authorization code (2) implicit (3) resource owner
+password credentials (4) client credentials
 
 GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a
 server to a client. GraphQL has three main characteristics: It lets the client specify exactly what
@@ -13025,6 +13070,9 @@ Function as a service (FaaS) is a serverless way to execute modular pieces of co
 lets developers write and update a piece of code on the fly, which can then be executed in response
 to an event, such as a user clicking on an element in a web application. This makes it easy to scale
 code and is a cost-efficient way to implement microservices.
+===
+serverless computing is a technique for deploying applications without an addressable server.
+developer does not have access to the server in the traditional sense. does not deal with IP address.
 
 Edge computing means bringing computing closer to the source of the data, such as on a user's
 computer, an IoT device, or an edge server (instead of in the cloud). This minimizes the need for
@@ -13184,6 +13232,7 @@ Semi-structured data is a form of structured data that does not obey the formal 
 models associated with relational databases or other forms of data tables, but nonetheless contains
 tags or other markers to separate semantic elements and enforce hierarchies of records and fields
 within the data. example: json, xml, csv, tab-delimited files
+-> semi-structured data: has organizational properties such as semantic tags.
 
 Converged infrastructure:
 an approach to data center management that packages compute, networking, servers, storage and
@@ -13229,6 +13278,14 @@ cross-cutting functionalities to make these communications more reliable, secure
 and manageable.
 service mesh (**): an infrastructure layer for facilitating service-to-service communications
 between microservices, often using a sidecar proxy.
+---
+A service mesh is an abstraction that provides traffic routing, policy management, and telemetry for
+a distributed application.
+==
+A service mesh consists of a data plane and a control plane. In the data plane, a proxy runs
+alongside each service, with every request from a service being routed through the proxy. In the
+control plane, an application owner can control the behavior of the proxies distributed throughout
+the application.
 ====
 Why have a service mesh? Without one, microservices applications need to handle a lot of common
 tasks themselves: how to find service endpoints, where the service is currently running, how to
@@ -13275,3 +13332,132 @@ number per unit time.
 OAuth roles: resource owner, resource server, client application, authorization server
 
 destructuring: the process of binding a set of values to a corresponding set of variables.
+
+ChatOps is the use of chat clients, chatbots and real-time communication tools to facilitate how
+software development and operation tasks are communicated and executed. conversation-driven
+development
+
+Shift Left is a practice intended to find and prevent defects early in the software delivery
+process. The idea is to improve quality by moving tasks to the left as early in the lifecycle as
+possible. Shift Left testing means testing earlier in the software development process
+
+Server Name Indication (SNI) is an extension to the Transport Layer Security (TLS) computer
+networking protocol by which a client indicates which hostname it is attempting to connect to at the
+start of the handshaking process.
+
+the X-Forwarded-For header is a standard header for identifying the originating IP address of a
+client connecting to a web server through an HTTP proxy or a load balancer. When traffic is
+intercepted between clients and servers, server access logs contain the IP address of the proxy or
+load balancer only. To see the original IP address of the client, the X-Forwarded-For request header
+is used. X-Forwarded-For: <client>, <proxy1>, <proxy2>
+
+write-ahead log: changes are first recorded in the log, which must be written to stable storage,
+before the changes are written to the database. allow database updates to be done in-place.  another
+way to implement atomic updates is shadow paging. The main advantage of doing updates in-place is
+that it reduces the need to modify indexes and block lists.
+
+Apache Parquet is a free and open-source column-oriented data storage format of the Apache Hadoop
+ecosystem.
+
+horizontal write scalability: can write to multiple nodes at a time.
+
+Pattern Matching in functional programming: is a dispatch mechanism: choosing which variant of a
+function is the correct one to call.
+==
+Pattern matching is a mechanism for checking a value against a pattern. A successful match can also
+deconstruct a value into its constituent parts. It is a more powerful version of the switch
+statement in Java and it can likewise be used in place of a series of if/else statements.
+==
+Pattern guards are simply boolean expressions which are used to make cases more specific.
+
+SLO (service level objective): express the reliability expectations of a service. what does
+it mean to be healthy? not to be healthy.
+
+Mutual authentication or two-way authentication refers to two parties authenticating each other at
+the same time. By default the TLS protocol only proves the identity of the server to the client
+using X.509 certificate. the TLS standard allows specifying the client certificate as well, so the
+server can accept connections only for clients with certificates registered with the server
+certificate authority, or provide additional security checks based on the information stored in the
+client certificate. This is what we call "Mutual TLS" - when both sides of the connection verify
+certificates.
+
+Oauth dance:
+GET http://localhost:8080/oauth2/authorization/github
+redirect to:
+https://github.com/login/oauth/authorize?response_type=code&client_id=584f3b1e8e5794699198&scope=read:user&state=jztRTael412a-qd_ij4XrmwB53ZOpFE6j39RxJUpObc%3D&redirect_uri=http://localhost:8080/login/oauth2/code/github
+redirect to (login form):
+https://github.com/login?client_id=584f3b1e8e5794699198&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3D584f3b1e8e5794699198%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252Flogin%252Foauth2%252Fcode%252Fgithub%26response_type%3Dcode%26scope%3Dread%253Auser%26state%3D8YhW8Lyrt1GEfRaUoUv2eZ5Qtvm558GkJYiedv5pK-w%253D
+after login:
+https://github.com/login/oauth/authorize?client_id=584f3b1e8e5794699198&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Flogin%2Foauth2%2Fcode%2Fgithub&response_type=code&scope=read%3Auser&state=8YhW8Lyrt1GEfRaUoUv2eZ5Qtvm558GkJYiedv5pK-w%3D
+http://localhost:8080/login/oauth2/code/github?code=8419b9146c703ccc0396&state=8YhW8Lyrt1GEfRaUoUv2eZ5Qtvm558GkJYiedv5pK-w%3D
+redirect to: localhost:8080
+-----
+Oauth2 flow:
+1. direct user to authorization server page, with parameters: response_type=code, client_id, redirect_uri
+   client_id and redirect_uri requires previous registration.
+2. after user authenticates, authorization server generates a short-lived authorization code, call the redirect_uri with this code.
+3. client application exchanges this short-lived authorization code for a long-lived access token (cannot be seen in browser)
+
+federation: a relationship maintained between organizations.
+
+federated identity vs SSO:
+SSO allows a single authentication credential to access different systems within a single organization.
+===
+federated identity management system provides single access to multiple systems across different enterprises.
+users provide credentials directly to the FIM system itself.
+
+Generative adversarial networks (GANs) are algorithmic architectures that use two neural networks,
+pitting one against the other (thus the “adversarial”) in order to generate new, synthetic instances
+of data that can pass for real data. They are used widely in image generation, video generation and
+voice generation.
+
+A Hamiltonian circuit is a circuit that visits every vertex once with no repeats. Being a circuit,
+it must start and end at the same vertex. A Hamiltonian path starts and ends at different vertex.
+similar to traveling salesman problem, traveling salesman requires shortest path.
+===
+An Euler circuit is a circuit that uses every edge of a graph exactly once. An Euler path starts
+and ends at different vertices. An Euler circuit starts and ends at the same vertex.
+
+Telematics is a method of monitoring a vehicle. By combining a GPS system with on-board diagnostics
+it's possible to record – and map – exactly where a car is and how fast it's traveling, and cross
+reference that with how a car is behaving internally.
+-==
+vehicle telematics is based on the idea of gathering, storing, and transmitting information about
+the vehicle for tracking purposes. This information can be used to analyse vehicle performance,
+vehicle conditions, driver performance, and more.
+
+language runtime: any library,framework,platform that your code runs on.
+
+Flutter,React Native: framework for creating apps for ANdroid and iOs using a single codebase
+
+HTTP Strict Transport Security (HSTS) is a web security policy mechanism that helps to protect
+websites against protocol downgrade attacks and cookie hijacking. It allows web servers to declare
+that web browsers should interact with it using only HTTPS connections
+
+HTTP Public Key Pinning (HPKP) is a now-deprecated Internet security mechanism delivered via an HTTP
+header which allows HTTPS websites to resist impersonation by attackers using misissued or otherwise
+fraudulent digital certificates. Server uses it to deliver to the client (e.g. web browser) a set
+of hashes of public keys which must appear in the certificate chain of future connections to the
+same domain name.
+
+
+Automatic Certificate Management Environment (ACME) protocol:
+Public Key Infrastructure using X.509 (PKIX) certificates are used for a number of purposes, the
+most significant of which is the authentication of domain names.  Thus, certification authorities
+(CAs) in the Web PKI are trusted to verify that an applicant for a certificate legitimately
+represents the domain name(s) in the certificate.  As of this writing, this verification is done
+through a collection of ad hoc mechanisms.  This document describes a protocol that a CA and an
+applicant can use to automate the process of verification and certificate issuance.  The protocol
+also provides facilities for other certificate management functions, such as certificate revocation.
+
+A certificate authority or certification authority (CA) is an entity that issues digital
+certificates. also sign certificates.
+
+data platform is a collection of different technologies that move data into different storage
+foramts and applications.
+
+Man-in-the-browser is a form of man-in-the-middle attack where an attacker is able to insert himself
+into the communications channel between two trusting parties by compromising a Web browser used by
+one of the parties, for the purpose of eavesdropping, data theft and/or session tampering.
+Man-in-the-browser is often used by attackers to carry out various forms of financial fraud,
+typically by manipulating Internet Banking Services.

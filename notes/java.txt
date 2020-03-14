@@ -1964,3 +1964,19 @@ Source: Source compatibility concerns translating Java source code into class fi
 binary: preserving the ability to link without error. means that when you change your class, you do
   not need to recompile classes that use it.
 Behavioral compatibility includes the semantics of the code that is executed at runtime.
+
+empty stream gotchas:
+Stream.empty().allMatch(e -> false); --> true
+Stream.empty().noneMatch(e -> true); --> true
+Stream.empty().anyMatch(e -> true); --> false
+
+Java 14: record class, similar to kotlin data class. represent a data carrier. the type
+only represents data. like a DTO.
+example:
+public record Person(
+    String firstName,
+    String lastName,
+    int age,
+    String address,
+    Date birthday
+){}
