@@ -2636,3 +2636,10 @@ The capability is kept by child/subprocesses upon execve() for example.
 test microphone:
 1. arecord -d 5 test-mic.wav #record something
 2. aplay test-mic.wav #play
+
+date -d today
+-> Fri 13 Mar 2020 02:46:51 PM PDT
+date -d "today + 10 days"
+-> Mon 23 Mar 2020 02:47:04 PM PDT
+date -d "today - 10 days"
+-> Tue 03 Mar 2020 01:47:15 PM PST
