@@ -13468,3 +13468,8 @@ data structure that directs you from a word to a document or a web page
 in contrast to a forward index, which maps from documents to content.
 
 HVM is an open-source virtual machine designed for executing programs written in Hack, a dialect of PHP.
+
+data platform contains all the data that a company has accumulated over the years. there is a variety
+of data sources: databases, data lake, data warehouse, distributed queue. Presto allow users to
+query a data platform with a SQL statement. the query is executed across the data platform to read
+from heterogeneous data sources. distributed SQL query engine for big data.
