@@ -22,6 +22,14 @@ Abc
 $ echo "ABC" | sed 's/[A-Z]/\l&/'
 aBC
 
+#capitalize each word
+$ echo 'this is just test' | sed -re 's/(\w+)/\u\1/g'
+This Is Just Test
+
+$ echo 'this is just test' | sed -re 's/(\w+)/\U\1/g'
+THIS IS JUST TEST
+
+
 +++ extract artifact id from this:
 
 <dependency><groupId>thirdparty_tools</groupId><artifactId>ant-contrib</artifactId><version>1.0b3</version><type>pom

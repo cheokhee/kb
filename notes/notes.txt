@@ -6486,6 +6486,8 @@ It is impossible for a distributed computer system to simultaneously provide all
 Consistency (all nodes see the same data at the same time)
 Availability (all nodes can return data at any time): A guarantee that every request to the system receives a response about whether it was successful or not.
 Partition tolerance (the system continues to operate as a whole even if individual nodes cannot be reached.)
+===
+The CAP theorem states that any networked shared-data system can have at most two of three desirable properties.
 
 According to the theorem, a distributed system can satisfy any two of these guarantees at the
 same time, but not all three
@@ -8971,6 +8973,7 @@ central line, aka central venous catheter (CVC): inserted in the neck or chest
 technical debt: refer to the eventual consequences of any system design, software architecture or
 software development within a codebase.
 technical debt: the cost you pay later when you make a quick-and-dirty design decision now.
+technical debt: deficiencies in internal quality that make software systems harder to modify and extend.
 
 string interpolation (or variable interpolation, variable substitution, or variable expansion) is
 the process of evaluating a string literal containing one or more placeholders, yielding a result in
@@ -11066,6 +11069,10 @@ OAuth2: a delegation-based authorization framework that allows a third-party app
 limited access to a resource on behalf of the resource owner
 Oauth flow: a resource owner wants to allow a third-party application to have limited access to
 a resource without revealing their credentials.
+===
+OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a
+user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource
+identifier, or Application ID URI.
 ==
 OAuth2: an application like Yelp (a Client Application) can request an Access Token from a service
 like Google (an Authorization Server). You (the Resource Owner) log into Google with your
@@ -13330,6 +13337,8 @@ rate limiting: constraining the number of times a resource is accessed to some f
 number per unit time.
 
 OAuth roles: resource owner, resource server, client application, authorization server
+OAuth refresh token: used to request a new access token.
+OAuth scope: represent a set of rights
 
 destructuring: the process of binding a set of values to a corresponding set of variables.
 
@@ -13397,6 +13406,11 @@ Oauth2 flow:
    client_id and redirect_uri requires previous registration.
 2. after user authenticates, authorization server generates a short-lived authorization code, call the redirect_uri with this code.
 3. client application exchanges this short-lived authorization code for a long-lived access token (cannot be seen in browser)
+--> in this flow, the authorization grant type is authorization code
+===
+OAuth authorization grant: the mechanism by which the user delegates authority.
+OAuth: back-channel communication: direct http connections between components, browser is not involved.
+front-channel communication: indirect connections, browser is involved
 
 federation: a relationship maintained between organizations.
 
@@ -13469,7 +13483,44 @@ in contrast to a forward index, which maps from documents to content.
 
 HVM is an open-source virtual machine designed for executing programs written in Hack, a dialect of PHP.
 
+A signed URL is a URL that provides limited permission and time to make a request. Signed URLs
+contain authentication information in their query string, allowing users without credentials to
+perform specific actions on a resource.
+URL Signing allows you to protect your files from unauthorized access with a key.
+The url signing key is similar to a password and can contain a minimum of 6 to a maximum of 32
+characters. A signed URL looks like http://example.com/filename?hash=DMF1ucDxtqgxwYQ==
+
+Spring: ApplicationContext. This is the object that stores all these dependencies so they
+can be wired into the application where they are needed. Spring refers to these dependencies as
+Beans.
+
+@Value annotation : fetch data from the Spring properties file.
+example: @Value("${customer.default-image}")
+
+Alias analysis is a technique in compiler theory, used to determine if a storage location may be
+accessed in more than one way. Two pointers are said to be aliased if they point to the same
+location.
+
+KPI: An acronym for key performance indicator, KPIs are used to evaluate performance over time for
+an organization, individual, program, project, action, etc.
+OKR is a strategic framework, whereas KPIs are measurements that exist within a framework.
+
 data platform contains all the data that a company has accumulated over the years. there is a variety
 of data sources: databases, data lake, data warehouse, distributed queue. Presto allow users to
 query a data platform with a SQL statement. the query is executed across the data platform to read
 from heterogeneous data sources. distributed SQL query engine for big data.
+
+checkpoint: a process that writes current in-memory dirty pages and transaction log records to
+physical disk. used to reduce the time required for recovery in the event of system failure.
+a checkpoint is a point in time to which the database engine can recover after a crash as a baseline
+point from which transaction log records can be used to recover all committed data up to the point
+of the crash.
+
+Optimized Row Columnar (ORC) file format provides a highly efficient way to store Hive data.
+Parquet, a file format for Hadoop. Parquet stores nested data structures in a flat columnar
+format. Compared to a traditional approach where data is stored in row-oriented approach, parquet is
+more efficient in terms of storage and performance.
+
+data catalog: a collection of metadata.
+
+kubernetes pod: a collection of containers co-located on a single machine. deployed as a unit.

@@ -1,0 +1,7 @@
+In ~/.config/lxqt/session.conf:
+default browser:
+
+BROWSER=firefox
+#this is used by sensible-browser script
+
+lxqt-config

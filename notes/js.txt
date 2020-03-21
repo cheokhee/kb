@@ -858,3 +858,7 @@ openWindowWithPost("http://localhost:8080/home/open-link", {
   searchKey:"CMAU455839",
   searchType:"CNTR",
   viewType:"NT"});
+
+> name = "hi"
+> a = {[name]: "cheok"}
+{ hi: 'cheok' }

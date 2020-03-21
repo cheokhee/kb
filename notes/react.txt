@@ -85,3 +85,8 @@ React Fragments let you group a list of children without adding extra nodes to t
 ---
 React Portals provide a first-class way to render children into a DOM node that exists outside the
 DOM hierarchy of the parent component.
+
+react hooks: allow functional component to have states
+--> useState(), useEffect()
+useEffect(): perform side effects after every render
+can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined
