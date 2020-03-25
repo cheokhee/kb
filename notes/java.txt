@@ -1980,3 +1980,5 @@ public record Person(
     String address,
     Date birthday
 ){}
+
+map.computeIfAbsent(key, unused -> new ArrayList<>())

@@ -13408,7 +13408,7 @@ Oauth2 flow:
 3. client application exchanges this short-lived authorization code for a long-lived access token (cannot be seen in browser)
 --> in this flow, the authorization grant type is authorization code
 ===
-OAuth authorization grant: the mechanism by which the user delegates authority.
+OAuth authorization grant: the mechanism by which the user delegates authority. aka OAuth Flow
 OAuth: back-channel communication: direct http connections between components, browser is not involved.
 front-channel communication: indirect connections, browser is involved
 
@@ -13524,3 +13524,33 @@ more efficient in terms of storage and performance.
 data catalog: a collection of metadata.
 
 kubernetes pod: a collection of containers co-located on a single machine. deployed as a unit.
+
+bitcoin: a protocol for value transfer by consensus that is decentralized.
+
+The second-system effect (also known as second-system syndrome) is the tendency of small, elegant,
+and successful systems to be succeeded by over-engineered, bloated systems, due to inflated
+expectations and overconfidence.
+
+Connascence is a software quality metric invented by Meilir Page-Jones to allow reasoning about the
+complexity caused by dependency relationships in object oriented design much like coupling did for
+structured design.
+
+Delta Lake is an open source storage layer that brings reliability to data lakes. Delta Lake
+provides ACID transactions, scalable metadata handling, and unifies streaming and batch data
+processing. Delta Lake runs on top of your existing data lake and is fully compatible with Apache
+Spark APIs.
+
+What is an architecture that enables separate applications to work together, but in a decoupled
+fashion such that applications can be easily added or removed without affecting the others?
+-> Structure the connecting middleware between these applications as a Message Bus that enables them
+   to work together using messaging.
+==
+A Message Bus is a combination of a common data model, a common command set, and a messaging
+infrastructure to allow different systems to communicate through a shared set of interfaces.
+
+Serverless means we only worry about our application code and business logic and nothing else.
+allows us to focus on building products, not managing infrastructure.  cloud provider fully manages
+server infrastructure all the way up to the application layer. get auto-scaling. pay only
+for what you use.
+
+three types of message delivery semantics: at-most-once, at-least-once, and exactly-once.
