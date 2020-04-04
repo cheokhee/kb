@@ -7848,6 +7848,8 @@ change is automatically tested and deployed to production.
 ===
 continuous delivery: pipeline: an automated process that delivers software to a production
 environment
+==
+Continuous Delivery is the process of readying a package for deployment at the end of the CI chain.
 
 fork-join paradigm:
 In parallel computing, the fork–join model is a way of setting up and executing parallel programs,
@@ -13382,6 +13384,9 @@ Pattern guards are simply boolean expressions which are used to make cases more 
 SLO (service level objective): express the reliability expectations of a service. what does
 it mean to be healthy? not to be healthy.
 
+SLI (Service level indicator): anything that can be measured. e.g., the # of chats per minute, etc
+SLO (service level objective): what is achievable. the target of your SLI.
+
 Mutual authentication or two-way authentication refers to two parties authenticating each other at
 the same time. By default the TLS protocol only proves the identity of the server to the client
 using X.509 certificate. the TLS standard allows specifying the client certificate as well, so the
@@ -13411,6 +13416,8 @@ Oauth2 flow:
 OAuth authorization grant: the mechanism by which the user delegates authority. aka OAuth Flow
 OAuth: back-channel communication: direct http connections between components, browser is not involved.
 front-channel communication: indirect connections, browser is involved
+--
+OAuth token introspection endpoint
 
 federation: a relationship maintained between organizations.
 
@@ -13554,3 +13561,134 @@ server infrastructure all the way up to the application layer. get auto-scaling.
 for what you use.
 
 three types of message delivery semantics: at-most-once, at-least-once, and exactly-once.
+
+In a Spring application, the application context is the network of objects (or “beans”) that makes
+up the application. It contains our web controllers, services, repositories and whatever (usually
+stateless) objects we might need for our application to work.
+==
+A class annotated with the @Configuration annotation serves as a factory for beans that are added to
+the application context. It may contain factory methods annotated with @Bean whose return values are
+automatically added to the application context by Spring.
+
+COUNT(*) counts all the tuples in a group
+COUNT(<expr>) counts all the tuples in a group for which <expr> evaluates to something that IS NOT NULL
+--> count(CASE WHEN first_name LIKE 'A%' THEN 1 END),
+
+Causal consistency is one of the consistency models for distributed databases.
+Distributed database provides causal consistency if read and write operations that are causally
+related are seen by every node of the distributed system in the same order. Concurrent writes may be
+seen in different order in diffrent nodes.  Causal consistency is weaker than sequential consistency
+but stronger than eventual consistency.
+===
+When a transaction performs a read operation followed later by a write operation, even on different
+object, the first read is said to be causally ordered before the write. This is because the value
+created by the write may have been dependent upon the result of the read operation.
+---
+https://mariadb.org/causal-consistency/
+https://blog.mariadb.org/eventually-consistent-databases-state-of-the-art/
+
+The algorithm of Lamport timestamps is a simple algorithm used to determine the order of events in a
+distributed computer system. As different nodes or processes will typically not be perfectly
+synchronized, this algorithm is used to provide a partial ordering of events with minimal overhead,
+and conceptually provide a starting point for the more advanced vector clock method
+
+data pipeline is a set of data processing elements connected in series, where the output of one
+element is the input of the next one.
+
+instruction pipelines: allow overlapping execution of multiple instructions with the same
+circuitry. The circuitry is usually divided up into stages and each stage processes a specific part
+of one instruction at a time, passing the partial results to the next stage. Examples of stages are
+instruction decode, arithmetic/logic and register fetch.
+
+JWT (JSON web token): header.payload.signature (base64url encoded)
+JOSE: JSON Object Signing and Encryption: for signing JWT.
+
+kubernetes service: take one or more pods and expose them through a single endpoint URL.
+
+Secure Access Service Edge (SASE): combines network security functions (such as SWG, CASB, FWaaS and
+ZTNA), with WAN capabilities (i.e., SDWAN) to support the dynamic secure access needs of
+organizations.
+
+Why do we use two’s complement?  The algorithms/hardware needed to do arithmetic, like addition,
+subtraction and multiplication are identical for signed numbers in this format and for unsigned
+numbers. two's complement:  a method of signed number representation.
+
+A release candidate (RC), also known as "going silver", is a beta version with potential to be a
+stable product, which is ready to release unless significant bugs emerge.
+
+An identity provider (abbreviated IdP or IDP) is a system entity that creates, maintains, and
+manages identity information for principals while providing authentication services to relying
+applications within a federation or distributed network. Identity providers offer user
+authentication as a service. Relying party applications, such as web applications, outsource the
+user authentication step to a trusted identity provider. Such a relying party application is said to
+be federated, that is, it consumes federated identity.
+==
+Relying party (RP) is a service, site, or entity that depends on a 3rd party identity provider to
+identify and authenticate a user who is requesting access to a digital resource.
+
+OpenID Connect (OIDC): a standard for authentication and identity on top of OAuth 2.0
+
+Claims-based identity is a means of authenticating an end user, application or device to another
+system in a way that abstracts the entity's specific information while providing data that
+authorizes it for appropriate and relevant interactions. This authentication method provides user
+information automatically so applications do not need to request it of the user and the user doesn't
+have to provide that information separately for different applications.
+
+Identity is a set of attributes that describe a user, or some other entity, in a system that you
+want to secure. Think of a claim as a piece of identity information (for example, name, e-mail
+address, age). These are called "claims" rather than "attributes," as is commonly used in describing
+enterprise directories, because of the delivery method. In this model, your application does not
+look up user attributes in a directory. Instead, the user delivers claims to your application, and
+your application examines them. Each claim is made by an issuer.
+==
+Claims are not what the subject can and cannot do. They are what the subject is or is not.
+--
+A security token service (STS) is the plumbing that builds, signs, and issues security tokens
+according to the interoperable protocols
+--
+When you build an application that relies on claims, you are building a relying party
+application. Synonyms for an relying party include "claims-aware application" and "claims-based
+application". Web applications and Web services can both be relying parties.
+--
+A relying party application consumes tokens issued by a STS and extracts claims from tokens to use
+them for identity related tasks.
+
+Virtual desktop infrastructure (VDI) is defined as the hosting of desktop environments on a central
+server. It is a form of desktop virtualization, as the specific desktop images run within virtual
+machines (VMs) and are delivered to end clients over a network. Those endpoints may be PCs or other
+devices, like tablets or thin client terminals. normally operated and maintained by your in-house IT staff
+--
+Desktop as a service (DaaS) is a form of virtual desktop infrastructure (VDI) in which the
+infrastructure is outsourced and deployed by a third party. hosted by a cloud provider
+--
+VDI and DaaS: virtual desktops. (VDI: in-house, DaaS: cloud provider)
+
+A clickstream is a record of a user's activity on the Internet, including every Web site and every
+page of every Web site that the user visits, how long the user was on a page or site, in what order
+the pages were visited, any newsgroups that the user participates in and even the e-mail addresses
+of mail that the user sends and receives. Both ISPs and individual Web sites are capable of tracking
+a user's clickstream.
+
+STIR (Secure Telephone Identity Revisited) and SHAKEN (Signature-based Handling of Asserted
+information using toKENs are Telecom industry standards designed to enable service providers to
+cryptographically sign calls in the SIP (Session Initiation Protocol) header.  protect against
+caller ID spoofing
+--
+VOIP calls: It works by adding a digital certificate to the Session Initiation Protocol information
+used to initiate and route calls in VOIP systems.
+--
+STIR is based on SIP and is designed to work with calls being routed through a VOIP network.
+SHAKEN for non-VOIP: SHAKEN includes systems to pass STIR information through the SS7 network
+
+A service worker (Web API): is a script that your browser runs in the background, separate from a
+web page, opening the door to features that don't need a web page or user interaction. Today, they
+already include features like push notifications and background sync.
+
+Polymer project (from google): introduce web components, new HTML tag
+--
+Web Components are a set of features that provide a standard component model for the Web allowing
+for encapsulation and interoperability of individual HTML elements.
+--
+Custom Elements: APIs to define new HTML elements
+Shadow DOM: encapsulated DOM and styling, with composition
+HTML Templates: HTML fragments that are not rendered, but stored until instantiated via JavaScript

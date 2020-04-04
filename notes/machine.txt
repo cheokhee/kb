@@ -46,6 +46,9 @@ kinda like data mining.
 reinforcement learning: the program interacts with a dynamic environment in which it
 must perform a certain goal, without the teacher telling it whether it has come close
 to its goal (e.g. driving a car).
+===
+Reinforcement learning involves an agent interacting with its environment. As the model interacts
+with the environment, it learns to make better decisions over time based on a reward function.
 
 Deep learning (also known as deep structured learning, hierarchical learning or deep machine
 learning) is a branch of machine learning based on a set of algorithms that attempt to model high

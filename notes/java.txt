@@ -1982,3 +1982,12 @@ public record Person(
 ){}
 
 map.computeIfAbsent(key, unused -> new ArrayList<>())
+
+JSON processing with Java: Jakarta JSON Binding (JSON-B), JSON Processing (JSON-P)
+https://rieckpil.de/whatis-json-binding-json-b/
+https://rieckpil.de/whatis-json-processing-json-p/
+
+https://advancedweb.hu/working-with-structured-data-in-java/
+JSON parser: Jackson
+calculate diff of maps: Guava
+calculate diff of objects: commons-lang3

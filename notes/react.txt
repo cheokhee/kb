@@ -98,3 +98,7 @@ example:
 <DataProvider render={data => (
   <h1>Hello {data.target}</h1>
 )}/>
+
+A controlled component is a react component that controls the values of input elements in a form
+using setState(). In a controlled component, form data is handled by a React component. The
+alternative is uncontrolled components, where form data is handled by the DOM itself.
