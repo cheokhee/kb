@@ -1,0 +1,10 @@
+declaring dependencies:
+https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_configurations_graph
+dependencies:
+  api: transitively exported to consumers
+  implementation: not exposed to consumers
+  compileOnly
+  runtimeOnly
+  testImplementation
+  testCompileOnly
+  testRuntimeOnly
