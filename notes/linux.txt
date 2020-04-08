@@ -551,6 +551,8 @@ systemctl get-default
 systemctl status
 systemctl --failed
 systemctl list-units
+systemctl list-dependencies --reverse man-db.timer
+systemctl list-timers
 ==============
 /etc/systemd , /etc/systemd/system
 /lib/systemd , /lib/systemd/system
@@ -2607,6 +2609,9 @@ XDG_RUNTIME_DIR=/run/user/1000
 
 Cgroups provide a way to limit the amount of resources like CPU and memory that each container can
 use.
+---
+cgroups (control groups) is a Linux kernel feature that limits, accounts for, and isolates the
+resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
 
 reptyr - Reparent a running program to a new terminal. take an existing running program and
 attaching it to a new terminal.
@@ -2643,3 +2648,23 @@ date -d "today + 10 days"
 -> Mon 23 Mar 2020 02:47:04 PM PDT
 date -d "today - 10 days"
 -> Tue 03 Mar 2020 01:47:15 PM PST
+
+--conntrack and iptables
+1. sudo conntrack -L #no output initially
+2. add iptable rule:
+sudo iptables -A INPUT -m conntrack --ctstate NEW,RELATED,ESTABLISHED -j ACCEPT
+--
+$ sudo iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+ACCEPT     all  --  anywhere             anywhere             ctstate NEW,RELATED,ESTABLISHED
+4. sudo conntrack -L #show:
+tcp      6 431983 ESTABLISHED src=192.168.1.71 dst=172.217.12.46 sport=60774 dport=80 src=172.217.12.46 dst=192.168.1.71 sport=80 dport=60774 [ASSURED] mark=0 use=1
+5. delete iptable rule:
+sudo iptables -D INPUT -m conntrack --ctstate NEW,RELATED,ESTABLISHED -j ACCEPT
+
+systemd-analyze blame
+systemd-analyze time
+systemd-analyze plot #generate svg file
+systemd-analyze critical-chain
+systemd-analyze dump

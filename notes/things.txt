@@ -200,6 +200,7 @@ fzf
 fd-find
 gron
 procinfo (lsdev, procinfo, socklist)
+conntrack
 
 other command: wikit, googler, browsh, lolcat, toilet
 

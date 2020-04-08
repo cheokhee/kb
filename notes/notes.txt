@@ -6214,6 +6214,8 @@ To other machines on the Internet, the outgoing traffic will appear to be from t
 server itself.
 It is 1-to-many NAT because it only uses one public IP address for multiple machines.
 It works by changing the IP address and port number in the network packet.
+--
+NAT: rewriting the source and destination IP address of a packet while it moves through a router.
 
 Port forwarding: a technique for allowing a remote computer to connect to a computer in a private network.
 When configuring port forwarding, the network administrator sets aside one port number on the gateway
@@ -6747,6 +6749,7 @@ Invoking C in F will force execution of the program to jump to the point where c
 The argument to C is the return value of call/cc.
 ---
 continuation: allow you to save the execution state of your program and later return to the same point.
+A continuation object is used to store the state required by a function during the period when it is suspended.
 
 --> call-with-current-continuation allows you to save the state of a computation, package it up as a data structure, and go off and do something else. Whenever you want, you can restore the old saved state, abandoning the current computation and and picking up where the saved computation left off.
 --> allows you to implement advanced control structures such as backtracking, cooperative multitasking, and custom exception-handling.
@@ -13692,3 +13695,38 @@ for encapsulation and interoperability of individual HTML elements.
 Custom Elements: APIs to define new HTML elements
 Shadow DOM: encapsulated DOM and styling, with composition
 HTML Templates: HTML fragments that are not rendered, but stored until instantiated via JavaScript
+
+curl: @odata : Open Data Protocol
+Open Data Protocol (OData) is an open protocol which allows the creation and consumption of
+queryable and interoperable RESTful APIs in a simple and standard way.
+
+A DTO is a server-side value object which stores data using the presentation layer representation.
+
+In medicine, comorbidity is the presence of one or more additional conditions co-occurring with a
+primary condition;
+
+Rook is an open source cloud-native storage orchestrator for Kubernetes, providing the platform,
+framework, and support for a diverse set of storage solutions to natively integrate with
+cloud-native environments. Rook turns storage software into self-managing, self-scaling, and
+self-healing storage services.
+
+An overlay network is a telecommunications network that is built on top of another network and is
+supported by its infrastructure. An overlay network decouples network services from the underlying
+infrastructure by encapsulating one packet inside of another packet. a software-defined network.
+provide a higher-level abstraction over a physical network.
+
+dual write describes the situation when you change data in 2 systems, e.g., a database and Apache
+Kafka, without an additional layer that ensures data consistency over both services. let's say
+I want to write to DB and publish an event to Kafka. if the db transaction is successfully committed,
+and the event publishing fails, then you have a problem. cannot use distributed transaction
+transactional messaging: publishing message as part of a transaction.
+==
+solution: use the transactional outbox pattern: use db table as a temporary message queue.
+https://thoughts-on-java.org/dual-writes/
+https://microservices.io/patterns/data/transactional-outbox.html
+
+Change data capture refers to the process of identifying and capturing changes made to a
+database. Those changes can then be applied to another data repository or made available in a format
+consumable by ETL, EAI, or other types of data integration tools.
+
+message delivery semantics: at-most-once delivery, at-least-once delivery, exactly-once delivery
