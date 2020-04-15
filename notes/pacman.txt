@@ -1,7 +1,37 @@
 https://devhints.io/pacman
 
+pacman <operation> [options] [target]
+
+operation:
+-D, --database
+-Q, --query
+-R, --remove
+-S, --sync
+-U, --upgrade
+
+databases: core, extra, community, multilib
+
+database of locally installed software: /var/lib/pacman/local
+sync database: /var/lib/pacman/sync
+cache: /var/cache/pacman
+paccache -r #clean up pacman cache
+
 pacman -Qe	#List explictly-installed packages
 pacman -Ql <pkg>	#What files does this package have?
-pacman -Qii <pkg>	#List information on package
+pacman -Qii <pkg>	#List information on installed package
 pacman -Qo <file>	#Who owns this file?
 pacman -Qs <query>	#Search installed packages for keywords
+
+pacman -Sy #populate sync database , like apt update
+pacman -Syu #update all packages, like apt update and upgrade
+pacman -Syup #show packages that need upgrading
+pacman -S <pkg> #install package
+pacman -Sw <pkg> #download package without installing
+pacman -Ss <pkg> #search sync database for keywords
+pacman -Sii <pkg>	#List information on package in sync database
+
+pacman -Rs <pkg> #remove package and its unneeded dependencies
+
+pacman -Fy #refresh file database
+
+pactree <pkg> #show dependency tree
