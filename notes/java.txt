@@ -888,6 +888,11 @@ A web session is a sequence of network HTTP request and response transactions as
 user.
 
 getClass().getResource() vs getClass().getClassLoader().getResource()
+getClass().getClassLoader().getResourceAsStream(file);
+file: src/test/resources/test1.txt
+InputStream stream = this.getClass().getResourceAsStream("/test1.txt");
+import org.apache.commons.io.IOUtils;
+String str = IOUtils.toString(stream, "UTF-8");
 
 PushbackInputStream: allow you to look ahead to see what the next char is.
 

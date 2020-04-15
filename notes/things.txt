@@ -201,6 +201,7 @@ fd-find
 gron
 procinfo (lsdev, procinfo, socklist)
 conntrack
+apt install uptimed: uprecords
 
 other command: wikit, googler, browsh, lolcat, toilet
 
@@ -276,3 +277,23 @@ icons: used by alt-tab switcher
 
 changes to /etc/systemd/system.conf:
 DefaultTimeoutStopSec=5s
+
+man-db.service started at boot up, take lots of time:
+systemd-analyze blame:
+         24.946s man-db.service
+changes to /lib/systemd/system/logrotate.timer and /lib/systemd/system/man-db.timer
+1. change from
+AccuracySec=12h
+to
+AccuracySec=1us
+2. add
+RandomizedDelaySec=6h
+
+systemctl disable postfix.service
+
+== need regular housekeeping --
+sudo journalctl --vacuum-time=2d
+journalctl --disk-usage
+
+===
+systemctl disable NetworkManager-wait-online.service

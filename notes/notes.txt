@@ -13730,3 +13730,57 @@ database. Those changes can then be applied to another data repository or made a
 consumable by ETL, EAI, or other types of data integration tools.
 
 message delivery semantics: at-most-once delivery, at-least-once delivery, exactly-once delivery
+
+microservices tenancy: single tenancy means a microservice instance is only used by one application
+architecture. If its purpose can be used elsewhere, a new copy is made and run for that application
+setup. multi-tenancy means a microservice instance is shared by multiple application architecture.
+https://medium.com/@dale.bingham_30375/microservice-architectures-single-tenant-or-multi-tenant-97f34e807f92
+
+Peering is a process by which two Internet networks connect and exchange traffic. It allows them to
+directly hand off traffic between each other's customers, without having to pay a third party to
+carry that traffic across the Internet for them.
+
+kubernetes operator: a method of packaging, deploying, and managing a Kubernetes application.
+
+rubric: an evaluation tool/approach. a guide used to evaulate something.
+
+Enterprise resource planning (ERP) is business process management software that allows an
+organization to use a system of integrated applications to manage the business and automate many
+back office functions related to technology, services and human resources.
+
+Access control systems: Discretionary Access Control (DAC), Mandatory Access Control (MAC), Role
+Based Access Control (RBAC), Rule-Based Access Control, and Attribute-Based Access Control
+--
+An access-control list (ACL) is a list of permissions attached to an object. An ACL specifies which
+users or system processes are granted access to objects, as well as what operations are allowed on
+given objects
+==
+Role-based access control (RBAC) restricts access based on a person's role within an
+organization. example: You can designate whether the user is an administrator, a specialist user, or
+an end-user.  aka Non discretionary Access Control
+--
+Mandatory Access Control (MAC) is a type of access control in which only the administrator manages
+the access controls (the strictest of all levels of control).
+--
+Discretionary Access Control (DAC) which is determined by the user with permission. allows each user
+to control access to their own data.
+--
+Rules Based Access Control: access is allowed or denied to resource objects based on a set of rules
+defined by a system administrator.  As with Discretionary Access Control, access properties are
+stored in Access Control Lists (ACL) associated with each resource object. When a particular account
+or group attempts to access a resource, the operating system checks the rules contained in the ACL
+for that object.
+Examples of Rules Based Access Control include situations such as permitting access for an account
+or group to a network connection at certain hours of the day or days of the week.
+===
+Attribute-Based Access Control (aka policy-based access control):
+-> ABAC can control access based on three different attribute types: user attributes, attributes
+associated with the application or system to be accessed, and current environmental conditions.
+-> An example of ABAC would be allowing only users who are type=employees and have department=HR to
+access the HR/Payroll system and only during business hours within the same timezone as the company.
+ABAC is not only the most flexible and powerful of the four access control models, but is also the
+most complex. In fact, technically ABAC is capable of enforcing DAC, MAC, and RBAC.
+ABAC enables fine-grained access control
+
+Open Policy Agent (OPA) is a policy engine that can be used to implement fine-grained access control
+for your application.

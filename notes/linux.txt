@@ -541,6 +541,33 @@ systemctl start/stop/enable/disable/restart/status virtualbox
 systemctl mask foo  #Prevent a service from starting dynamically or even manually unless unmasked:
 systemctl is-enabled foo
 =============
+
+A unit configuration file whose name ends in ".service" encodes information about a process
+controlled and supervised by systemd.
+
+a unit configuration file whose name ends in ".socket" encodes information about an IPC or network
+socket or a file system FIFO controlled and supervised by systemd, for socket-based activation.
+
+A unit configuration file whose name ends in ".target" encodes information about a target unit of
+systemd, which is used for grouping units and as well-known synchronization points during start-up.
+
+In SysVinit, functionalities (services, processes, etc.) were organized in seven run-levels. Each
+run-level was associated with a level of functionality. In systemd, target-units provide the same
+functionality which the run-levels used to provide in the SysVinit.
+--
+#to see runlevel to target mapping
+ls -l /lib/systemd/system/runlevel?.target
+===
+runlevel vs systemd target
+0	Shutdown all services and power off the system	poweroff.target
+1	Single user mode for maintenance and recovery. Only the root account is allowed to log in. Networking is not available in this mode.	rescue.target
+2	Multiuser mode without networking.	multi-user.target
+3	Multiuser mode with networking. All users can login and access CLI prompt. No Graphical user interface is available.	multi-user.target
+4	User-defined mode. Users can customize this run-level. Both command line and GUI (graphic user interface) are available for customization.	multi-user.target
+5	X11 GUI with networking. All users can login into the system	graphical.target
+6	Shutdown all services and reboot the system.	reboot.target
+===
+
 Run level 3 is emulated by multi-user.target. Run level 5 is emulated by
 graphical.target. runlevel3.target is a symbolic link to multi-user.target and runlevel5.target is a
 symbolic link to graphical.target.
@@ -552,7 +579,22 @@ systemctl status
 systemctl --failed
 systemctl list-units
 systemctl list-dependencies --reverse man-db.timer
+===
+$ systemctl list-dependencies --reverse NetworkManager.service
+NetworkManager.service
+● ├─NetworkManager-wait-online.service
+● └─multi-user.target
+●   └─graphical.target
+== means NetworkManager-wait-online.service waits for NetworkManager.service
+===
+#list services that wait for plymouth-quit-wait.service
+systemctl list-dependencies --reverse plymouth-quit-wait.service
+==
+#list services that plymouth-quit-wait.service waits for
+systemctl list-dependencies plymouth-quit-wait.service
+
 systemctl list-timers
+systemctl list-jobs
 ==============
 /etc/systemd , /etc/systemd/system
 /lib/systemd , /lib/systemd/system
@@ -568,12 +610,15 @@ journalctl -o json #json format
 journalctl --disk-usage
 journalctl --vacuum-size=1G
 journalctl --vacuum-time=1years
+journalctl --vacuum-time=2d
+journalctl --rotate
 journalctl -u lpd.service
 journalctl -k #like dmesg
 journalctl --utc
 journalctl -b #most recent boot
 journalctl -b -1 #with boot it
 journalctl --list-boots
+journalctl -b --unit systemd-journald
 timedatectl
 timedatectl status
 ====
@@ -2668,3 +2713,7 @@ systemd-analyze time
 systemd-analyze plot #generate svg file
 systemd-analyze critical-chain
 systemd-analyze dump
+
+/etc/systemd/timesyncd.conf
+
+Plymouth is responsible for the boot-up splash screen
