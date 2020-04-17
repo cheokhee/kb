@@ -202,6 +202,7 @@ gron
 procinfo (lsdev, procinfo, socklist)
 conntrack
 apt install uptimed: uprecords
+libblockdev-mdraid2 #for udisks2.service
 
 other command: wikit, googler, browsh, lolcat, toilet
 

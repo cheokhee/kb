@@ -80,3 +80,6 @@ after changing ~/.ssh/id_rsa and ~/.ssh/id_rsa.pub:
 may have to do: ssh-add
 this will add SSh key to the agent
 do "ssh-add -l" to list all the keys
+
+#verify fingerprint
+ssh-keygen -l -f ~/.ssh/id_rsa.pub

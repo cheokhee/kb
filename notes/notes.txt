@@ -13784,3 +13784,7 @@ ABAC enables fine-grained access control
 
 Open Policy Agent (OPA) is a policy engine that can be used to implement fine-grained access control
 for your application.
+
+Stereotype threat refers to the risk of confirming negative stereotypes about an individual’s
+racial, ethnic, gender, or cultural group.  Stereotype boost: when people perform better than they
+otherwise would have, because of exposure to positive stereotypes about their social group

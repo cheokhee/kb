@@ -2707,6 +2707,18 @@ ACCEPT     all  --  anywhere             anywhere             ctstate NEW,RELATE
 tcp      6 431983 ESTABLISHED src=192.168.1.71 dst=172.217.12.46 sport=60774 dport=80 src=172.217.12.46 dst=192.168.1.71 sport=80 dport=60774 [ASSURED] mark=0 use=1
 5. delete iptable rule:
 sudo iptables -D INPUT -m conntrack --ctstate NEW,RELATED,ESTABLISHED -j ACCEPT
+===
+iptables matching rule: order is important. iptables will run a request past each of its rules, it
+will stop when it gets a match
+--
+#allow outgoing TCP traffic to bigmart.com
+iptables -A OUTPUT -p tcp -d bigmart.com -j ACCEPT
+#drop outgoing tcp traffic to destination port 80
+iptables -A OUTPUT -p tcp --dport 80 -j DROP
+#allow incoming tcp traffic to port 22 (ssh) from host 10.0.3.1
+iptables -A INPUT -p tcp -s 10.0.3.1 --dport 22 -j ACCEPT
+#disallow incoming tcp traffic to port 22 (ssh) from host any other host
+iptables -A INPUT -p tcp -s 0.0.0.0/0 --dport 22 -j DROP
 
 systemd-analyze blame
 systemd-analyze time
@@ -2717,3 +2729,5 @@ systemd-analyze dump
 /etc/systemd/timesyncd.conf
 
 Plymouth is responsible for the boot-up splash screen
+
+/var/log/boot.log
