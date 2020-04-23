@@ -862,3 +862,7 @@ openWindowWithPost("http://localhost:8080/home/open-link", {
 > name = "hi"
 > a = {[name]: "cheok"}
 { hi: 'cheok' }
+
+JS: document.cookie
+
+JavaScript: "this" points to an object based on the execution context of where a function is called.

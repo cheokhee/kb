@@ -6401,6 +6401,9 @@ reverse proxy: takes requests from the internet and forwards them to servers in 
 ---
 Forward Proxy: Acting on behalf of a requestor (or service consumer), acts as an intermediary for its associated clients to contact any server.
 Reverse Proxy: Acting on behalf of service/content producer, acts as an intermediary for its associated servers to be contacted by any client.
+--
+forward proxy: internet-facing proxy used to retrieve data from the internet
+reverse proxy: internal-facing proxy used as a front end to control and protect access to a server on a private network.
 
 static binding: the function call is mapped to the function definition at compile time.
 Dynamic binding: the function call is mapped to the function definition at run time.
@@ -6486,7 +6489,7 @@ Wi-fi
 CAP theorem
 It is impossible for a distributed computer system to simultaneously provide all three of the following guarantees:
 Consistency (all nodes see the same data at the same time)
-Availability (all nodes can return data at any time): A guarantee that every request to the system receives a response about whether it was successful or not.
+Availability (all nodes can return data at any time): A guarantee that every request to the system receives a response about whether it was successful or not. every request to a non-failed node must succeed
 Partition tolerance (the system continues to operate as a whole even if individual nodes cannot be reached.)
 ===
 The CAP theorem states that any networked shared-data system can have at most two of three desirable properties.
@@ -10043,6 +10046,9 @@ parent has the hash of (hash0+hash1)
 Merkle tree: a binary tree where the nodes store hashes of data rather than the data itself.
 merkle tree: node is labelled with the hash value of its contents, which include
 the hash of its children
+--
+merkle tree: every leaf node is labelled with the cryptographic hash of a data block, and every
+non-leaf node is labelled with the cryptographic hash of the labels of its child nodes
 
 pain
 P: position: where is it?
@@ -13533,8 +13539,6 @@ more efficient in terms of storage and performance.
 
 data catalog: a collection of metadata.
 
-kubernetes pod: a collection of containers co-located on a single machine. deployed as a unit.
-
 bitcoin: a protocol for value transfer by consensus that is decentralized.
 
 The second-system effect (also known as second-system syndrome) is the tendency of small, elegant,
@@ -13605,8 +13609,6 @@ instruction decode, arithmetic/logic and register fetch.
 
 JWT (JSON web token): header.payload.signature (base64url encoded)
 JOSE: JSON Object Signing and Encryption: for signing JWT.
-
-kubernetes service: take one or more pods and expose them through a single endpoint URL.
 
 Secure Access Service Edge (SASE): combines network security functions (such as SWG, CASB, FWaaS and
 ZTNA), with WAN capabilities (i.e., SDWAN) to support the dynamic secure access needs of
@@ -13740,8 +13742,6 @@ Peering is a process by which two Internet networks connect and exchange traffic
 directly hand off traffic between each other's customers, without having to pay a third party to
 carry that traffic across the Internet for them.
 
-kubernetes operator: a method of packaging, deploying, and managing a Kubernetes application.
-
 rubric: an evaluation tool/approach. a guide used to evaulate something.
 
 Enterprise resource planning (ERP) is business process management software that allows an
@@ -13788,3 +13788,147 @@ for your application.
 Stereotype threat refers to the risk of confirming negative stereotypes about an individual’s
 racial, ethnic, gender, or cultural group.  Stereotype boost: when people perform better than they
 otherwise would have, because of exposure to positive stereotypes about their social group
+
+LLVM: low-level virtual machine. a platform for buiding compiler. your compiler produces something
+called LLVM IR instead of assembly language machine code.
+
+consumer-driven contract testing
+
+time travel debugging (reverse debugging)
+
+sqlmap is an open source penetration testing tool that automates the process of detecting and
+exploiting SQL injection flaws.
+http://sqlmap.org/
+https://github.com/sqlmapproject/sqlmap
+
+ELK: Elasticsearch, Logstash, and Kibana. Elasticsearch is a search and analytics engine. Logstash
+is a server-side data processing pipeline that ingests data from multiple sources simultaneously,
+transforms it, and then sends it to a "stash" like Elasticsearch. Kibana lets users visualize data
+with charts and graphs in Elasticsearch.
+The Elastic Stack is the next evolution of the ELK Stack.
+
+The InterPlanetary File System is a protocol and peer-to-peer network for storing and sharing data
+in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a
+global namespace connecting all computing devices
+
+TLA+ is a high-level language for modeling programs and systems--especially concurrent and
+distributed ones. it is used to design, model, document, and verify programs, especially concurrent
+systems and distributed systems.
+
+in distributed computing, a conflict-free replicated data type (CRDT) is a data structure which can
+be replicated across multiple computers in a network, where the replicas can be updated
+independently and concurrently without coordination between the replicas, and where it is always
+mathematically possible to resolve inconsistencies which might result.
+CRDTs provide a way for you to merge concurrent modifications, always, in any order.
+
+in Java, System.currentTimeMillis() is based on the wall-clock, so subject to variations and even
+negative durations. In comparison, System.nanoTime() is monotonic.
+
+wall clock can jump backward when it is synchronized with NTP
+monotonic clock always moves forward. use monotonic clock when calculating elapsed time
+http://www.devcoons.com/determine-elapsed-time-using-monotonic-clocks-linux/
+
+An off-by-one error (OBOE), or OBOB (off-by-one bug), or OB1 error is a logic error involving the
+discrete equivalent of a boundary condition. It often occurs in computer programming when an
+iterative loop iterates one time too many or too few.
+
+VMs work by virtualizing the CPU, RAM, and Disk of a server. Containers work by virtualizing the
+system call interface of an operating system.
+---
+Containers are basically light-weight virtual machines that virtualize the Linux system call
+interface instead of the lower-level x86 architecture.
+--
+Chroot allows the root of the filesystem (/) for a particular process to be changed. In effect this
+allows one to isolate parts of the filesystem to separate processes.
+--
+Cgroups allow the kernel to limit the CPU and memory resources available to a particular process.
+--
+Network Namespaces allow the networking subsystem to be parceled into separate isolated namespaces
+each with their own interfaces, IP addresses, routing tables, firewall rules, etc.
+--
+a container is simply a chroot, cgroup, and network namespace that was allocated by a container
+runtime like Docker.
+
+HTTP Strict-Transport-Security response header (often abbreviated as HSTS) lets a web site tell
+browsers that it should only be accessed using HTTPS, instead of using HTTP.
+===
+Http header:
+Strict-Transport-Security
+Set-Cookie
+Cookie
+
+https://illustrated.dev/websecurity
+CSRF: possible because browsers send cookies between sites by default. attacker can't see
+responses to the forced request, so it is limited to state change action.
+cookies come with a SameSite property that prevents them from being passed between sites.
+how to prevent CSRF:
+SameSite: set it to Lax to allow get requests only. set it to Strict to block all requests.
+for older browsers, we need to add token middleware: generate a unique token for each user
+session.
+Example:
+Set-Cookie: promo_shown=1; Max-Age=2600000; Secure
+Set-Cookie: promo_shown=1; SameSite=Strict
+https://web.dev/samesite-cookies-explained/
+
+Cross site scripting: can happen if the site allows user input without validating or encoding it.
+
+BPMN: Business Process Modeling Notation. BPMN is like a DSL. it is used to describe a workflow.
+think of a workflow as a program that is executed by a workflow management system.
+
+logging: explicitly generated by programmer. it is in the source code
+tracing: goal is to follow a program's flow and data progression. a special kind of log
+
+OpenTracing: a vendor-agnostic API to help developers easily instrument tracing into their code base.
+
+https://jepsen.io/consistency/models/linearizable
+Linearizability is one of the strongest single-object consistency models, and implies that every
+operation appears to take place atomically, in some order, consistent with the real-time ordering of
+those operations: e.g., if operation A completes before operation B begins, then B should logically
+take effect after A.
+--
+This model cannot be totally or sticky available; in the event of a network partition, some or all
+nodes will be unable to make progress.
+--
+Linearizability is a single-object model, but the scope of “an object” varies. Some systems provide
+linearizability on individual keys in a key-value store; others might provide linearizable
+operations on multiple keys in a table, or multiple tables in a database—but not between different
+tables or databases, respectively.
+--
+When you need linearizability across multiple objects, try strict serializability. When real-time
+constraints are not important, but you still want every process to observe the same total order, try
+sequential consistency
+
+Linearizability: single-operation, single-object, real-time order.
+---
+Linearizability is a guarantee about single operations on single objects. It provides a real-time
+(i.e., wall-clock) guarantee on the behavior of a set of single operations (often reads and writes)
+on a single object (e.g., distributed register or data item).  Linearizability for read and write
+operations is synonymous with the term “atomic consistency” and is the “C,” or “consistency,” in
+Gilbert and Lynch’s proof of the CAP Theorem.
+
+Serializability: multi-operation, multi-object, arbitrary total order
+--
+Serializability is a guarantee about transactions, or groups of one or more operations over one or
+more objects. It guarantees that the execution of a set of transactions (usually containing read and
+write operations) over multiple items is equivalent to some serial execution (total ordering) of the
+transactions.
+--
+Serializability is the traditional “I,” or isolation, in ACID. If users’ transactions each preserve
+application correctness (“C,” or consistency, in ACID), a serializable execution also preserves
+correctness. Therefore, serializability is a mechanism for guaranteeing database correctness.
+--
+Unlike linearizability, serializability does not—by itself—impose any real-time constraints on the
+ordering of transactions. Serializability is also not composable. Serializability does not imply any
+kind of deterministic order—it simply requires that some equivalent serial execution exists.
+--
+Combining serializability and linearizability yields strict serializability: transaction behavior is
+equivalent to some serial execution, and the serial order corresponds to real time. For example, say
+I begin and commit transaction T1, which writes to item x, and you later begin and commit
+transaction T2, which reads from x. A database providing strict serializability for these
+transactions will place T1 before T2 in the serial ordering, and T2 will read T1’s write. A database
+providing serializability (but not strict serializability) could order T2 before T1
+--
+http://www.bailis.org/blog/linearizability-versus-serializability/
+
+Linearizability is a correctness condition for concurrent objects that characterizes an object's
+concurrent behavior in terms of an “equivalent” sequential behavior.

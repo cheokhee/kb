@@ -1,0 +1,35 @@
+kubectl get pods -A #-A: all namespace
+kubectl get namespace
+
+kubectl config set-context --current --namespace=<insert-namespace-name-here>
+
+kubectl config view --minify | grep namespace:
+
+kubectl api-resources --namespaced=true
+kubectl api-resources --namespaced=false
+
+kubernetes pod: a collection of containers co-located on a single machine. deployed as a unit.
+
+kubernetes service: take one or more pods and expose them through a single endpoint URL.
+
+kubernetes operator: a method of packaging, deploying, and managing a Kubernetes application.
+
+kubectl -n dhmp-int-dshrd get ServiceBinding -l microservice=dhmp_ui -o name
+kubectl -n dhxp-int-dshrd get VirtualService -l microservice=dhxp_svc -o name
+kubectl apply -f k8s-acr-secret.yml --wait=true
+
+kubectl -n e2ev-int-dshrd get Deployment -l microservice=e2ev_be -o name
+kubectl -n e2ev-int-dshrd get Deployment e2ev-be-20200423191913819-deployment -o 'jsonpath={.metadata.labels.cms-replicas}'
+kubectl -n e2ev-int-dshrd scale --replicas=1 deployment e2ev-be-20200423191913819-deployment
+kubectl -n e2ev-int-dshrd wait --for=condition=available deployments e2ev-be-20200423191913819-deployment --timeout=180s
+
+kubectl apply -f service-binding.yml --wait=true
+
+Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual
+clusters are called namespaces
+
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/
+
+kubernetes: A node pool is a group of nodes within a cluster that all have the same configuration.

@@ -542,6 +542,9 @@ systemctl mask foo  #Prevent a service from starting dynamically or even manuall
 systemctl is-enabled foo
 =============
 
+In systemd, a unit refers to any resource that the system knows how to operate on and manage.
+https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+
 A unit configuration file whose name ends in ".service" encodes information about a process
 controlled and supervised by systemd.
 
@@ -1017,6 +1020,18 @@ file.txt:
  filesystem blocksize 4096, begins at LBA 1404430336; assuming 512 byte sectors.
  byte_offset  begin_LBA    end_LBA    sectors
            0 1869805696 1869805703          8
+===
+
+sudo hdparm -t /dev/sda
+
+/dev/sda:
+ Timing buffered disk reads: 238 MB in  3.02 seconds =  78.93 MB/sec
+
+--
+sudo hdparm -T /dev/sda
+==>
+/dev/sda:
+ Timing cached reads:   4722 MB in  2.00 seconds = 2363.48 MB/sec
 
 
 badblocks : search a device for bad blocks
@@ -2731,3 +2746,41 @@ systemd-analyze dump
 Plymouth is responsible for the boot-up splash screen
 
 /var/log/boot.log
+
+swapon
+
+dtrace: dynamic tracing
+http://www.brendangregg.com/dtrace.html
+
+#list contents of initramfs image
+lsinitramfs -l /boot/initrd.img
+#update initramfs image
+sudo update-initramfs -u
+
+"kworker" is a placeholder process for kernel worker threads, which perform most of the actual
+processing for the kernel, especially in cases where there are interrupts, timers, I/O, etc. These
+typically correspond to the vast majority of any allocated "system" time to running processes.
+--
+kworker means a Linux kernel process doing "work" (processing system calls). You can have several of
+them in your process list: kworker/0:1 is the one on your first CPU core, kworker/1:1 the one on
+your second etc..
+
+CPU backtrace:
+execute "echo l > /proc/sysrq-trigger" to create a backtrace.
+then watch the backtraces at the end of dmesg
+--
+sysrq need to be enabled with sysctl -w kernel.sysrq=1
+
+top:
+P : sort by CPU
+M : sort by MEM
+o : activate filter. example: COMMAND=chrome, COMMAND=kworker
+ctrl-o : show current filter
+= : clear filter
+c : show full command
+u : show processes of a user
+i : toggle display of idle processes
+V : forest mode
+A : show in different panel, a to move through panel
+top -d 5 -b : batch mode and 5 sec delay
+https://www.binarytides.com/linux-top-command/

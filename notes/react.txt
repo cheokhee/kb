@@ -90,6 +90,9 @@ react hooks: allow functional component to have states
 --> useState(), useEffect()
 useEffect(): perform side effects after every render
 can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined
+==
+useEffect(callback-function, [an array of optional dependencies]): if any of the dependencies change,
+re-run the callback function.
 
 render prop: A component with a render prop takes a function that returns a React element and calls
 it instead of implementing its own render logic. a technique for sharing code between React

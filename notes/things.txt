@@ -293,8 +293,16 @@ RandomizedDelaySec=6h
 systemctl disable postfix.service
 
 == need regular housekeeping --
-sudo journalctl --vacuum-time=2d
+sudo journalctl --vacuum-time=1d
 journalctl --disk-usage
 
 ===
 systemctl disable NetworkManager-wait-online.service
+
+apt purge postfix
+
+change /etc/initramfs-tools/conf.d/resume:
+old:
+RESUME=UUID=6a2791c2-b75a-48be-911f-362bd9d14a5f
+new:
+RESUME=none
