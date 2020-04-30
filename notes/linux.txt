@@ -2784,3 +2784,9 @@ V : forest mode
 A : show in different panel, a to move through panel
 top -d 5 -b : batch mode and 5 sec delay
 https://www.binarytides.com/linux-top-command/
+
+#tracing in script
+set -x # enable tracing
+set +x # disable tracing
+bash -x <script>
+https://advancedweb.hu/debugging-bash-scripts/

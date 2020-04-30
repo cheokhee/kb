@@ -204,7 +204,7 @@ conntrack
 apt install uptimed: uprecords
 libblockdev-mdraid2 #for udisks2.service
 
-other command: wikit, googler, browsh, lolcat, toilet
+other command: wikit, googler, browsh, lolcat, toilet, shellcheck
 
 =========== end of packages ==============
 

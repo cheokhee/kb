@@ -7997,6 +7997,9 @@ construct, such as variables, expressions, functions or module.
 Haskell:
 type class is like Java interface?
 a type is an instance of a type class?
+--
+a data type or simply type is an attribute of data which tells the compiler how the
+programmer intends to use the data.
 
 Database normalization is the process of organizing the attributes and tables of a relational database to minimize data redundancy and dependency.
 
@@ -12694,6 +12697,8 @@ A buildpack will check what is installed inside the container and install anythi
 is needed. If the buildpack is designed to run Ruby applications under Ruby 2.0 and only Ruby 1.9.3
 is installed, then it will download the newer Ruby, compile it and install it.
 can even compile your code.
+===
+Buildpacks provide a higher-level abstraction for building apps compared to Dockerfiles
 
 bosh: used to set up cloud foundry.
 
@@ -13932,3 +13937,94 @@ http://www.bailis.org/blog/linearizability-versus-serializability/
 
 Linearizability is a correctness condition for concurrent objects that characterizes an object's
 concurrent behavior in terms of an “equivalent” sequential behavior.
+
+Hypertext Application Language (HAL) is an Internet Draft standard convention for defining
+hypermedia such as links to external resources within JSON or XML code
+--
+HAL is a set of conventions that provide a standardized way to link resources. HAL is only included
+in resources when the client includes application/hal+json in the Accept header of their HTTP
+requests.
+--
+HAL is a simple format that gives a consistent and easy way to hyperlink between resources in your API.
+--
+Adopting HAL will make your API explorable, and its documentation easily discoverable from within
+the API itself.  APIs that adopt HAL can be easily served and consumed using open source libraries
+available for most major programming languages.
+--
+example:
+{
+  "_links": {
+    "self": {
+      "href": "http://example.com/api/book/hal-cookbook"
+    }
+  },
+  "id": "hal-cookbook",
+  "name": "HAL Cookbook"
+}
+
+CURIE (or Compact URI) defines a generic, abbreviated syntax for expressing Uniform Resource Identifiers (URIs).
+
+XPath: a query-oriented language for traversing a XML document.
+JSONPath: a query language for traversing a JSON document.
+
+Nominal vs Structural Typing:
+nominal or nominative type system (or name-based type system): compatibility and equivalence of data
+types is determined by explicit declarations and/or the name of the types. Nominal systems are used
+to determine if types are equivalent, as well as if a type is a subtype of another. example: Java
+==
+nominal subtyping means that one type is a subtype of another if and only if it is explicitly
+declared to be so in its definition
+===
+Structural type (property-based type system) : comparisons are based on the structure of the types
+in question and do not require explicit declarations. type compatibility and equivalence are
+determined by the type's actual structure or definition, and not by other characteristics such as
+its name or place of declaration.
+===
+Nominal type system: two types are the same if they have the same name. e.g. Java
+Structural type system: two types are the same if they have the same structure (property): e.g. TypeScript,Go
+---
+Structural type system is enforced during static analysis
+duck typing: a runtime phenomenon
+
+SSL/TLS Inspection/HTTPS Interception, TLS middlebox
+One common HTTPS interceptor is TLS-terminating forward proxies
+
+DNS spoofing, also referred to as DNS cache poisoning, is a form of computer security hacking in
+which corrupt Domain Name System data is introduced into the DNS resolver's cache, causing the name
+server to return an incorrect result record, e.g. an IP address
+
+HMAC-based One-time Password algorithm (HOTP) is a one-time password (OTP) algorithm based on
+hash-based message authentication codes (HMAC).
+--
+HMAC is a specific type of message authentication code (MAC) involving a cryptographic hash function
+and a secret cryptographic key.
+==
+a message authentication code (MAC), sometimes known as a tag, is a short piece of information used
+to authenticate a message—in other words, to confirm that the message came from the stated sender
+(its authenticity) and has not been changed. The MAC value protects both a message's data integrity
+as well as its authenticity, by allowing verifiers (who also possess the secret key) to detect any
+changes to the message content.
+--
+A message digest algorithm takes a single input -- a message -- and produces a "message digest" (aka
+hash) which allows you to verify the integrity of the message
+--
+A MAC algorithm takes two inputs -- a message and a secret key -- and produces a MAC which allows
+you to verify the integrity and the authenticity of the message
+--
+A HMAC algorithm is simply a specific type of MAC algorithm that uses a hash algorithm internally
+(rather than, for example, an encryption algorithm) to generate the MAC.
+--
+The Time-based One-Time Password algorithm (TOTP) is an extension of the HMAC-based One-time
+Password algorithm (HOTP) generating a one-time password (OTP) by instead taking uniqueness from the
+current time.
+
+A unikernel is a specialised, single address space machine image constructed by using library
+operating systems. A developer selects, from a modular stack, the minimal set of libraries
+which correspond to the OS constructs required for their application to run. These libraries are
+then compiled with the application and configuration code to build sealed, fixed-purpose images
+(unikernels) which run directly on a hypervisor or hardware without an intervening OS such as Linux
+or Windows
+--
+Unikernels shrink the attack surface and resource footprint of cloud services. They are built by
+compiling high-level languages directly into specialised machine images that run directly on a
+hypervisor, such as Xen, or on bare metal.

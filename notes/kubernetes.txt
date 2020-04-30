@@ -1,5 +1,10 @@
 kubectl get pods -A #-A: all namespace
+kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
 kubectl get namespace
+kubectl get nodes
+
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+kubectl get deployments
 
 kubectl config set-context --current --namespace=<insert-namespace-name-here>
 
@@ -33,3 +38,40 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/
 
 kubernetes: A node pool is a group of nodes within a cluster that all have the same configuration.
+
+Kubernetes coordinates a highly available cluster of computers that are connected to work as a
+single unit. Kubernetes automates the distribution and scheduling of application containers across a
+cluster in a more efficient way.
+
+A Kubernetes cluster consists of two types of resources:
+The Master coordinates the cluster
+Nodes are the workers that run applications, Each node has a Kubelet, which is an agent for managing
+the node and communicating with the Kubernetes master.
+
+#create a proxy that will forward communications into the cluster-wide, private network
+kubectl proxy #default port: 8001
+curl http://localhost:8001/version
+
+https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/
+#1: using kubectl proxy
+kubectl proxy --port=8080 &
+curl http://localhost:8080/api/
+#2: without proxy
+# Gets the token value
+TOKEN=$(kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='default')].data.token}"|base64 --decode)
+# Explore the API with TOKEN
+e.g. curl -X GET https://172.17.0.3:8443/api --header "Authorization: Bearer $TOKEN" --insecure
+curl -X GET $APISERVER/api --header "Authorization: Bearer $TOKEN" --insecure
+
+https://kubernetes.io/docs/concepts/overview/kubernetes-api/
+#get swagger/openapi spec:
+curl -X GET https://172.17.0.3:8443/openapi/v2 --header "Authorization: Bearer $TOKEN" --insecure
+
+Once the application instances are created, a Kubernetes Deployment Controller continuously monitors
+those instances. If the Node hosting an instance goes down or is deleted, the Deployment controller
+replaces the instance with an instance on another Node in the cluster. This provides a self-healing
+mechanism to address machine failure or maintenance.
+
+The kubelet is the primary “node agent” that runs on each node. It can register the node with the
+apiserver using one of: the hostname; a flag to override the hostname; or specific logic for a cloud
+provider.
