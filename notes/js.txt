@@ -487,6 +487,9 @@ can use variables
 JS can be minified. CSS can be generated from SASS file.
 How do you debug?
 a source map maps the source of an asset to the final product.
+--
+A source map is a file that maps from the transformed source to the original source, enabling the
+browser to reconstruct the original source and present the reconstructed original in the debugger.
 
 
 var parents = document.getElementsByClassName("panel-display onecol-sidebar clearfix");
@@ -866,3 +869,14 @@ openWindowWithPost("http://localhost:8080/home/open-link", {
 JS: document.cookie
 
 JavaScript: "this" points to an object based on the execution context of where a function is called.
+
+npm run
+npm list
+npm list --depth=0
+npm home <package_name>
+npm repo <package_name>
+npm v react version
+npm v react versions
+npm outdated
+npm audit
+npm audit fix

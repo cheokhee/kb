@@ -306,3 +306,5 @@ old:
 RESUME=UUID=6a2791c2-b75a-48be-911f-362bd9d14a5f
 new:
 RESUME=none
+
+systemd-timesyncd.service

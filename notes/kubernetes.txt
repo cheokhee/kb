@@ -2,9 +2,31 @@ kubectl get pods -A #-A: all namespace
 kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
 kubectl get namespace
 kubectl get nodes
+kubectl cluster-info
+kubectl cluster-info dump
+kubectl version --client
+kubectl describe pods
+kubectl logs <pod-name>
+kubectl exec <pod_name> -- env
+kubectl exec -ti <pod_name> -- /bin/bash
+kubectl get events
+
+steps:
+1. create cluster
+2. create deployment
+3. create service
+
+#create deployment, a pod then gets created. then do kubectl get events to see what happened
+
+#expose the pod
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080 #this is the port number inside the pod
 
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
 kubectl get deployments
+
+kubectl delete service hello-node
+kubectl delete deployment hello-node
 
 kubectl config set-context --current --namespace=<insert-namespace-name-here>
 
@@ -29,6 +51,8 @@ kubectl -n e2ev-int-dshrd scale --replicas=1 deployment e2ev-be-2020042319191381
 kubectl -n e2ev-int-dshrd wait --for=condition=available deployments e2ev-be-20200423191913819-deployment --timeout=180s
 
 kubectl apply -f service-binding.yml --wait=true
+kubectl apply -f my-app.yaml #Deploy the application
+kubectl get service <app-name> --watch
 
 Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual
 clusters are called namespaces
@@ -51,6 +75,7 @@ the node and communicating with the Kubernetes master.
 #create a proxy that will forward communications into the cluster-wide, private network
 kubectl proxy #default port: 8001
 curl http://localhost:8001/version
+curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/
 
 https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/
 #1: using kubectl proxy
@@ -75,3 +100,15 @@ mechanism to address machine failure or maintenance.
 The kubelet is the primary “node agent” that runs on each node. It can register the node with the
 apiserver using one of: the hostname; a flag to override the hostname; or specific logic for a cloud
 provider.
+
+Kubernetes Master is a collection of three processes that run on a single node in your cluster,
+which is designated as the master node. Those processes are: kube-apiserver, kube-controller-manager
+and kube-scheduler.
+--
+Each individual non-master node in your cluster runs two processes: kubelet, which communicates with
+the Kubernetes Master.  kube-proxy, a network proxy which reflects Kubernetes networking services on
+each node.
+
+By default, the Pod is only accessible by its internal IP address within the Kubernetes cluster. To
+make the hello-node Container accessible from outside the Kubernetes virtual network, you have to
+expose the Pod as a Kubernetes Service.

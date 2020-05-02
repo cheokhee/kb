@@ -14028,3 +14028,7 @@ or Windows
 Unikernels shrink the attack surface and resource footprint of cloud services. They are built by
 compiling high-level languages directly into specialised machine images that run directly on a
 hypervisor, such as Xen, or on bare metal.
+
+Head-of-line blocking (HOL blocking) in computer networking is a performance-limiting phenomenon
+that occurs when a line of packets is held up by the first packet. Examples include input buffered
+network switches, out-of-order delivery and multiple requests in HTTP pipelining.

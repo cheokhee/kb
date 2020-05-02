@@ -2790,3 +2790,5 @@ set -x # enable tracing
 set +x # disable tracing
 bash -x <script>
 https://advancedweb.hu/debugging-bash-scripts/
+
+df -t squashfs #show /dev/loop
