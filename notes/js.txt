@@ -366,6 +366,44 @@ put css tag in the <head>
 node.js:
 every file gets a module.exports object it can use to expose an object to others.
 
+
+module formats:
+1. The Asynchronous Module Definition (AMD) format is used in browsers and uses a define function to
+define modules.
+2. The CommonJS (CJS) format is used in Node.js and uses require and module.exports to define
+dependencies and modules.
+3. The ES Module (ESM) format. As of ES6 (ES2015), JavaScript supports a native module format. It
+uses an export keyword to export a module’s public API and an import keyword to import it.
+4. The System.register format was designed to support ES6 modules within ES5.
+5. The Universal Module Definition (UMD) format can be used both in the browser and in Node.js. It’s
+useful when a module needs to be imported by a number of different module loaders.
+
+===
+user.js:
+const getName = () => {
+  return 'Jim';
+};
+
+exports.getName = getName;
+exports.xxx = xxx;
+---
+index.js:
+const user = require('./user');
+console.log(`User: ${user.getName()}`);
+
+also:
+const { getName, dob } = require('./user');
+---
+exporting a default value:
+module.exports = User;
+
+const User = require('./user');
+===
+every file gets a module object, which has a exports property
+exports is a reference to module.exports
+Whatever you assign module.exports to is what’s exported from your module.
+
+
 node:
 blanket: code coverage
 mocha, jasmine: testing framework
@@ -880,3 +918,9 @@ npm v react versions
 npm outdated
 npm audit
 npm audit fix
+
+NPM:
+dependencies are the packages your project depends on.
+devDependencies are the packages that are needed during the development phase. e.g testing
+peerDependencies are not automatically installed. used to specify that our package is compatible
+with a specific version of an npm package.

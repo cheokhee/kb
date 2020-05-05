@@ -14032,3 +14032,17 @@ hypervisor, such as Xen, or on bare metal.
 Head-of-line blocking (HOL blocking) in computer networking is a performance-limiting phenomenon
 that occurs when a line of packets is held up by the first packet. Examples include input buffered
 network switches, out-of-order delivery and multiple requests in HTTP pipelining.
+
+Hydration refers to the process of filling an object with data. An object which has not yet been
+hydrated has been instantiated and represents an entity that does have data, but the data has not
+yet been loaded into the object. This is something that is done for performance reasons
+
+plugin architecture is an architecture that will call external code at certain points without
+knowing all the details of that code in advance
+
+abstraction: a simplification of something much more complicated that is going on under the covers.
+
+Hanlon's razor is an aphorism "Never attribute to malice that which is adequately explained by stupidity"
+
+Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid,
+unexpected, or random data as inputs to a computer program

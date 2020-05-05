@@ -105,3 +105,12 @@ example:
 A controlled component is a react component that controls the values of input elements in a form
 using setState(). In a controlled component, form data is handled by a React component. The
 alternative is uncontrolled components, where form data is handled by the DOM itself.
+
+Hydrate is basically used in case of SSR(Server side Rendering). SSR gives you the skeleton or HTML
+markup which is being shipped from a server so that for the first time when your page loads it is
+not blank and search engine bots can index it for SEO(A use case of SSR). So hydrate adds the JS to
+your page or a node to which SSR is applied. So that your page responds to the events performed by
+the user.
+
+Passing data to the application at run time is known as “initialization”, “bootstrapping” or “state
+hydration”.
