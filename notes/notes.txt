@@ -14046,3 +14046,7 @@ Hanlon's razor is an aphorism "Never attribute to malice that which is adequatel
 
 Fuzzing or fuzz testing is an automated software testing technique that involves providing invalid,
 unexpected, or random data as inputs to a computer program
+
+Screen tearing is a visual artifact in video display where a display device shows information from
+multiple frames in a single screen draw. The artifact occurs when the video feed to the device is
+not in sync with the display's refresh rate.

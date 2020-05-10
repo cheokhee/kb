@@ -9,7 +9,7 @@ kubectl describe pods
 kubectl logs <pod-name>
 kubectl exec <pod_name> -- env
 kubectl exec -ti <pod_name> -- /bin/bash
-kubectl get events
+kubectl get events --sort-by=.metadata.creationTimestamp
 
 steps:
 1. create cluster

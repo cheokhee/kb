@@ -83,3 +83,5 @@ do "ssh-add -l" to list all the keys
 
 #verify fingerprint
 ssh-keygen -l -f ~/.ssh/id_rsa.pub
+
+if the ssh session is hung, type these two characters at the beginning of command line to quit: ~.

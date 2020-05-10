@@ -614,6 +614,7 @@ journalctl --disk-usage
 journalctl --vacuum-size=1G
 journalctl --vacuum-time=1years
 journalctl --vacuum-time=2d
+journalctl --vacuum-time=2d --rotate
 journalctl --rotate
 journalctl -u lpd.service
 journalctl -k #like dmesg
@@ -2792,3 +2793,6 @@ bash -x <script>
 https://advancedweb.hu/debugging-bash-scripts/
 
 df -t squashfs #show /dev/loop
+
+#curl with urlencoded form data
+curl -d "param1=value1&param2=value2" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/blahblah

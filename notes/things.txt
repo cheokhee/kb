@@ -308,3 +308,6 @@ new:
 RESUME=none
 
 systemd-timesyncd.service
+
+after upgrade to lubuntu 20.04:
+remove packages: blueman, ofono
