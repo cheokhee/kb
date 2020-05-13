@@ -114,3 +114,15 @@ the user.
 
 Passing data to the application at run time is known as “initialization”, “bootstrapping” or “state
 hydration”.
+
+#automatic binding, no need to do this.myMethod = this.myMethod.bind(this)
+#ES6 arrow notation has automatic binding
+===
+export default class App extends Compononent {
+  constructor(props) {
+  super(props);
+  this.state = {};
+  }
+myMethod = () => {
+    // This method is bound implicitly!
+  }

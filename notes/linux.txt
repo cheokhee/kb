@@ -623,6 +623,7 @@ journalctl -b #most recent boot
 journalctl -b -1 #with boot it
 journalctl --list-boots
 journalctl -b --unit systemd-journald
+journalctl -u run-u57.service
 timedatectl
 timedatectl status
 ====
@@ -1023,10 +1024,18 @@ file.txt:
            0 1869805696 1869805703          8
 ===
 
+https://www.ostechnix.com/how-to-find-hard-disk-data-transfer-speed-in-linux/
+
 sudo hdparm -t /dev/sda
 
 /dev/sda:
  Timing buffered disk reads: 238 MB in  3.02 seconds =  78.93 MB/sec
+
+----
+sudo hdparm -t --direct /dev/sda #do not use buffer and read the data directly from the hdd
+
+/dev/sda:
+ Timing O_DIRECT disk reads: 246 MB in  3.01 seconds =  81.79 MB/sec
 
 --
 sudo hdparm -T /dev/sda
@@ -1034,6 +1043,28 @@ sudo hdparm -T /dev/sda
 /dev/sda:
  Timing cached reads:   4722 MB in  2.00 seconds = 2363.48 MB/sec
 
+---
+sudo hdparm -I /dev/sda
+#then look for "R/W multiple sector transfer: Max = 16  Current = 0" under Capabilities
+#this means HDD reads 16 sectors at a time
+
+---
+sudo hdparm -a /dev/sda #this means hdd can read 256 sectors in advance
+
+/dev/sda:
+ readahead     = 256 (on)
+-----
+
+sudo hdparm -M /dev/sda
+
+/dev/sda:
+ acoustic      = not supported
+---
+sudo hdparm -W /dev/sda
+
+/dev/sda:
+ write-caching =  1 (on)
+---
 
 badblocks : search a device for bad blocks
 readelf: display info about ELF files
@@ -2775,6 +2806,7 @@ sysrq need to be enabled with sysctl -w kernel.sysrq=1
 top:
 P : sort by CPU
 M : sort by MEM
+T : sort by time
 o : activate filter. example: COMMAND=chrome, COMMAND=kworker
 ctrl-o : show current filter
 = : clear filter
@@ -2783,8 +2815,46 @@ u : show processes of a user
 i : toggle display of idle processes
 V : forest mode
 A : show in different panel, a to move through panel
+E to cycle through memory unit
+t to cycle cpu display
+m to cycle memory display
+H : show/hide thread
+k : kill a process
 top -d 5 -b : batch mode and 5 sec delay
 https://www.binarytides.com/linux-top-command/
+---
+https://www.howtogeek.com/668986/how-to-use-the-linux-top-command-and-understand-its-output/
+top command dashboard:
+The third line displays the following central processing unit (CPU) values:
+us: Amount of time the CPU spends executing processes for people in “user space.”
+sy: Amount of time spent running system “kernel space” processes.
+ni: Amount of time spent executing processes with a manually set nice value.
+id: Amount of CPU idle time.
+wa: Amount of time the CPU spends waiting for I/O to complete.
+hi: Amount of time spent servicing hardware interrupts.
+si: Amount of time spent servicing software interrupts.
+st: Amount of time lost due to running virtual machines (“steal time”).
+==
+The status of the process can be one of the following:
+D: Uninterruptible sleep
+R: Running
+S: Sleeping
+T: Traced (stopped)
+Z: Zombie
+--
+==
+PID: Process ID.
+USER: The owner of the process.
+PR: Process priority.
+NI: The nice value of the process.
+VIRT: Amount of virtual memory used by the process.
+RES: Amount of resident memory used by the process.
+SHR: Amount of shared memory used by the process.
+S: Status of the process. (See the list below for the values this field can take).
+%CPU: The share of CPU time used by the process since the last update.
+%MEM: The share of physical memory used.
+TIME+: Total CPU time used by the task in hundredths of a second.
+COMMAND: The command name or command line (name + options).
 
 #tracing in script
 set -x # enable tracing
@@ -2796,3 +2866,10 @@ df -t squashfs #show /dev/loop
 
 #curl with urlencoded form data
 curl -d "param1=value1&param2=value2" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/blahblah
+
+sudo systemd-run env
+sudo systemd-run -t env #connect stdin,stdout,stderr to the invoking terminal
+---
+https://www.redhat.com/sysadmin/systemd-secure-services
+
+/etc/xdg/autostart

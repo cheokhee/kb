@@ -311,3 +311,28 @@ systemd-timesyncd.service
 
 after upgrade to lubuntu 20.04:
 remove packages: blueman, ofono
+
+#password generator
+pwgen
+
+warning in journalctl (harmless):
+cheok-PC systemd-resolved[648]: Server returned error NXDOMAIN, mitigating potential DNS violation DVE-2018-0001, retrying transaction with reduced feature level UDP.
+--
+The NXDOMAIN is a DNS message type received by the DNS resolver (i.e. client) when a request to
+resolve a domain is sent to the DNS and cannot be resolved to an IP address. An NXDOMAIN error
+message means that the domain does not exist
+----
+https://askubuntu.com/questions/1058750/new-alert-keeps-showing-up-server-returned-error-nxdomain-mitigating-potential
+https://www.linode.com/community/questions/17384/what-does-this-server-returned-error-nxdomain-message-mean
+https://agaric.gitlab.io/raw-notes/notes/2019-10-22-change-what-dns-server-is-used-for-nameserver-lookups-in-ubuntu-18/
+https://archive.fosdem.org/2019/schedule/event/dns_systemd_resolved/
+--
+/run/systemd/resolve/resolv.conf
+commands:
+resolvectl
+resolvconf
+--
+resolvectl and systemd-resolve --status give the same output
+
+found out /usr/lib/lubuntu-update-notifier/lubuntu-upg-notifier.sh was running
+remove package lubuntu-update-notifier

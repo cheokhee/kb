@@ -919,6 +919,8 @@ bash array variable:
 arr=("one" "two" "three")
 echo ${#arr[@]} #show size of array
 
+files=(*) #make an array called files with all the files in the current directory
+
 blah="just a test"
 echo ${#blah} # the # provide the number of characters in the variable
 11

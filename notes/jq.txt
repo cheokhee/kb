@@ -112,3 +112,6 @@ $ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.|tojson|fromjson'
 [{"name":"cheok"},{"name":"hee"}]
 
 to_entries, from_entries
+
+#jq -s : slurp mode: read the entire input stream into a large array and run the filter just once
+jq -M '.[] | select(.resourceGroup=="MC_my-res-grp_my-k8s-cluster_westus2")' | jq -s | jq length

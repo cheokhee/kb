@@ -10553,6 +10553,11 @@ WebAssembly or wasm is a low-level programming language for in-browser client-si
 is currently in development. Its initial aim is to support compilation from C and C++
 ---
 WebAssembly: a binary compilation target for the browser.
+--
+WebAssembly is a low-level compilation target for any programming language that can be interpreted
+into WebAssembly. Alternatively, WebAssembly is a way to run languages other than JavaScript in the
+browser. Or, yet another way of describing WebAssembly is a virtual machine for executing code in a
+low level, well-defined sandbox.
 
 Configuration management tools are used to repeatably and consistently manage the configuration of
 systems and the services that they provide entirely through code.
@@ -13462,6 +13467,7 @@ the vehicle for tracking purposes. This information can be used to analyse vehic
 vehicle conditions, driver performance, and more.
 
 language runtime: any library,framework,platform that your code runs on.
+language runtime: any library code that is required for your code to run.
 
 Flutter,React Native: framework for creating apps for ANdroid and iOs using a single codebase
 
@@ -14050,3 +14056,17 @@ unexpected, or random data as inputs to a computer program
 Screen tearing is a visual artifact in video display where a display device shows information from
 multiple frames in a single screen draw. The artifact occurs when the video feed to the device is
 not in sync with the display's refresh rate.
+
+run-to-completion semantics (a function runs to completion)
+
+concurrency: 2 or more sets of operations are being performed over the same period of time.
+parallelism: a form of concurrency. at any instant, 2 or more operations are performed at the same time.
+concurrency: over a period of time. parallelism: at any instant.
+
+Extraordinary claims should require extraordinary evidence to be believed.
+
+wo-way binding just means that:
+
+Two-way binding means that any data-related changes affecting the model are immediately propagated
+to the matching view(s), and that any changes made in the view(s) (say, by the user) are immediately
+reflected in the underlying model. When app data changes, so does the UI, and conversely.

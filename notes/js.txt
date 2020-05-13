@@ -218,6 +218,10 @@ item1...: items to be added
 
 String slice(): extract parts of a string
 
+let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(array.slice(-1)); // Result: [9]
+console.log(array.slice(-2)); // Result: [8, 9]
+
 #cast to a string
 > var a = 20
 undefined
@@ -924,3 +928,20 @@ dependencies are the packages your project depends on.
 devDependencies are the packages that are needed during the development phase. e.g testing
 peerDependencies are not automatically installed. used to specify that our package is compatible
 with a specific version of an npm package.
+
+all values in JavaScript are ‘truthy’ with the exception of 0, "", null, undefined, NaN and false
+
+#convert something to string
+const val = 1 + "";
+
+#convert to number
+let int = "15";
+int = +int;
+
+console.log(JSON.stringify({ alpha: 'A', beta: 'B' }, null, '\t'));
+console.log(JSON.stringify({ alpha: 'A', beta: 'B' }, null, 2)); //2 is the number of spaces
+// Result:
+// '{
+//     "alpha": A,
+//     "beta": B
+// }'
