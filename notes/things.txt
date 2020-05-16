@@ -336,3 +336,8 @@ resolvectl and systemd-resolve --status give the same output
 
 found out /usr/lib/lubuntu-update-notifier/lubuntu-upg-notifier.sh was running
 remove package lubuntu-update-notifier
+
+setxkbmap -option ctrl:nocaps
+setxkbmap -option ctrl:swapcaps
+--
+/etc/default/keyboard

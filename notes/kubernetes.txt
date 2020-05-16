@@ -112,3 +112,16 @@ each node.
 By default, the Pod is only accessible by its internal IP address within the Kubernetes cluster. To
 make the hello-node Container accessible from outside the Kubernetes virtual network, you have to
 expose the Pod as a Kubernetes Service.
+
+kubernetes scheduler:
+You create a pod
+The scheduler notices that the new pod you created doesn’t have a node assigned to it
+The scheduler assigns a node to the pod
+It’s not responsible for actually running the pod – that’s the kubelet’s job. So it basically just
+needs to make sure every pod has a node assigned to it.
+
+Kubernetes in general has this idea of a “controller”. A controller’s job is to:
+look at the state of the system
+notice ways in which the actual state does not match the desired state (like “this pod needs to be assigned a node”)
+repeat
+The scheduler is a kind of controller. There are lots of different controllers and they all have different jobs and operate independently.

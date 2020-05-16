@@ -210,3 +210,13 @@ a lower layer and another layer needs it, it just access the file. the first tim
 needs to modify the file, the file is copied into that layer and modified.
 
 /var/lib/docker/<storage-driver> : where layers are stored
+
+==
+root      1366     /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+root      1179     /usr/bin/containerd
+--
+root       997  1366  /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 1521 -container-ip 172.17.0.2 -container-port 1521
+root     13719  1366  /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 3306 -container-ip 172.17.0.4 -container-port 3306
+root      1003  1179  containerd-shim -namespace moby -workdir /var/lib/containerd/io.containerd.runtime.v1.linux/moby/1b227f81af9b36da498daf20d9a4b89c4a91e30a7f1aa8569586d061dcc4e31c -address /run/containerd/containerd.sock -containerd-binary /usr/bin/containerd -runtime-root /var/run/docker/runtime-runc
+root     13725  1179  containerd-shim -namespace moby -workdir /var/lib/containerd/io.containerd.runtime.v1.linux/moby/e3e57bb9bb82938914a0cd4f71a043fc3451289c31e2d525109b3ee7bf5d99f7 -address /run/containerd/containerd.sock -containerd-binary /usr/bin/containerd -runtime-root /var/run/docker/runtime-runc
+==
