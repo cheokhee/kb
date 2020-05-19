@@ -14076,3 +14076,35 @@ wo-way binding just means that:
 Two-way binding means that any data-related changes affecting the model are immediately propagated
 to the matching view(s), and that any changes made in the view(s) (say, by the user) are immediately
 reflected in the underlying model. When app data changes, so does the UI, and conversely.
+
+ETL vs ELT
+===
+Extraction refers to pulling the source data from the original database or data source
+--
+Transform: Transformation refers to the process of changing the structure of the information, so it
+integrates with the target data system and the rest of the data in that system.
+--
+Load: Loading refers to the process of depositing the information into a data storage system.
+--
+ETL:
+the data goes into a temporary staging area.
+===
+ELT:
+the data goes immediately into a data lake storage system.
+--
+"Data Lakes" are special kinds of data stores that—unlike OLAP data warehouses—accept any kind of
+structured or unstructured data. Data lakes don't require you to transform your data before loading
+it. You can immediately load any kind of raw information into a data lake, no matter the format or
+lack thereof.
+--
+https://www.xplenty.com/blog/etl-vs-elt/
+
+Domain hijacking or domain theft is the act of changing the registration of a domain name without
+the permission of its original registrant.
+
+DNS amplification attack: send lots of small DNS requests from a fake IP address. these small
+requests trigger large responses to a real IP.
+
+DNS spoofing, also referred to as DNS cache poisoning, is a form of computer security hacking in
+which corrupt Domain Name System data is introduced into the DNS resolver's cache, causing the name
+server to return an incorrect result record, e.g. an IP address.

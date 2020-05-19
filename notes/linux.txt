@@ -80,6 +80,15 @@ dig: DNS lookup utility
 dig +short -x <ip addr>
 dig @8.8.8.8 networkworld.com
 dig networkworld.com +noall +answer
+dig <hostname|ip> [type]
+example: dig google.com MX
+example: dig google.com AAAA
+dig google.com ANY #get all info
+dig +multiline +noall +answer +nocmd google.com ANY
+dig +trace google.com #trace dns path
+--
+dig: By default query is for A record
+https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/
 ====
 another DNS utility: drill
 drill www.google.com
@@ -2873,3 +2882,13 @@ sudo systemd-run -t env #connect stdin,stdout,stderr to the invoking terminal
 https://www.redhat.com/sysadmin/systemd-secure-services
 
 /etc/xdg/autostart
+
+DNS record types:
+A: 	IPv4 IP address	192.168.1.5 or 75.126.153.206
+AAAA:	IPv6 IP address	2607:f0d0:1002:51::4
+CNAME:	Canonical name record (Alias)	s0.cyberciti.org is an alias for d2m4hyssawyie7.cloudfront.net
+MX:	Email server host names	smtp.cyberciti.biz or mx1.nixcraft.com
+NS:	Name (DNS) server names	ns1.cyberciti.biz or ns-243.awsdns-30.com
+PTR:	Pointer to a canonical name. Mostly used for implementing reverse DNS lookups	82.236.125.74.in-addr.arpa
+SOA:	Authoritative information about a DNS zone
+TXT:	Text record
