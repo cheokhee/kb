@@ -63,6 +63,13 @@ type is equivalent to whence -v
 get a script absolute path: ${0:A}
 get the directory where a script is located: ${0:A:h}
 Source: zshexpn man page, section HISTORY EXPANSION, subsection Modifiers
+--
+$ echo $a
+/home/cheok/tmp/a2/j.txt
+$ echo ${a:h}
+/home/cheok/tmp/a2
+$ echo ${a:t}
+j.txt
 
 $fpath: contain files that contain functioins for the completion system
 
@@ -145,3 +152,9 @@ ls *(x) # show owner executable, include directory
 ls *(.) #show regular files
 ls .*(.) #show regular . files
 ls -d *(@,/) #show directory and symbolic link
+
+ls e2ev/e2ev_fe/app/src/**/*.yml(:h) #get the directory only
+ls e2ev/e2ev_fe/app/src/**/*.java([1]:h)
+
+ls e2ev/e2ev_fe/app/src/**/*.java([1]) #list the first one
+ls e2ev/e2ev_fe/app/src/**/*.java([1,3]) #list the first three

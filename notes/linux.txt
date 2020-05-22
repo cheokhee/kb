@@ -2892,3 +2892,7 @@ NS:	Name (DNS) server names	ns1.cyberciti.biz or ns-243.awsdns-30.com
 PTR:	Pointer to a canonical name. Mostly used for implementing reverse DNS lookups	82.236.125.74.in-addr.arpa
 SOA:	Authoritative information about a DNS zone
 TXT:	Text record
+
+shuf -n1 -e /bin/* /sbin/*  #generate random permutation
+
+whatis: display a one-line manual description

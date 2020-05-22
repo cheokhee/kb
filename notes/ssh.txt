@@ -84,4 +84,10 @@ do "ssh-add -l" to list all the keys
 #verify fingerprint
 ssh-keygen -l -f ~/.ssh/id_rsa.pub
 
+SSH agent (ssh-agent): key manager for SSH. holds your keys and cert in memory. saves you from typing passphrase
+every time you connect to a server. used for signing a message.
+The public/private key pair is only used during the initial handshake.
+
 if the ssh session is hung, type these two characters at the beginning of command line to quit: ~.
+ssh escape character: ~ (must enter on a new line)
+ssh: ~? #show all the commands
