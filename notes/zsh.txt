@@ -93,6 +93,7 @@ vi *(.om[1])  # newest file o=order m=modified
 ls *(.Om[1])  # oldest file
 ls *(.oL[1])  # smallest file L=Size
 ls *(.OL[1])  # largest file
+ls -l *(.L0)   #show empty files
 ls -hlS /**/*(.OL[1,10]) # find the 10 biggest files on your system
 gvim -p *(.om[1,3]) # open 3 newest files in tabs
 --
@@ -152,9 +153,29 @@ ls *(x) # show owner executable, include directory
 ls *(.) #show regular files
 ls .*(.) #show regular . files
 ls -d *(@,/) #show directory and symbolic link
+ls -d *~*.*(.) #list all regular files that don't have a . in the name
+ls -l **/*(/^F)  #list all empty directories
+ls Downloads/(#i)*jpg #case insensitive
 
 ls e2ev/e2ev_fe/app/src/**/*.yml(:h) #get the directory only
 ls e2ev/e2ev_fe/app/src/**/*.java([1]:h)
 
 ls e2ev/e2ev_fe/app/src/**/*.java([1]) #list the first one
 ls e2ev/e2ev_fe/app/src/**/*.java([1,3]) #list the first three
+
+$ echo $f
+/tmp/test/index.html
+$ echo ${f:h}
+/tmp/test
+$ echo ${f:t}
+index.html
+$ echo ${f:e}
+html
+$ echo ${f:r}
+/tmp/test/index
+$ echo ${f:h:h}
+/tmp
+
+zshmisc: precommand modifier
+Invoking a shell with a - prepended to its name (-sh, -bash, -zsh) is an old convention for
+indicating the shell should start a login session.

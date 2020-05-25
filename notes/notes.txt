@@ -10775,6 +10775,8 @@ The Northwest Corner Method (or upper left-hand corner) is a heuristic that is a
 type of Linear Programming problem structure called the Transportation Model,
 
 viewport is the user's visible area of a web page.
+viewport: a region of the screen used to display a portion of the total image
+viewport: the visible portion of the entire document
 
 a reference to a local object can "escape" from a method:
 1. the method returns the object
@@ -14108,3 +14110,6 @@ requests trigger large responses to a real IP.
 DNS spoofing, also referred to as DNS cache poisoning, is a form of computer security hacking in
 which corrupt Domain Name System data is introduced into the DNS resolver's cache, causing the name
 server to return an incorrect result record, e.g. an IP address.
+
+yak shaving: all the little things you have to do before you work on the main thing you wanted to
+do in the first place.

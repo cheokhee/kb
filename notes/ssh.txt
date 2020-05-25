@@ -87,6 +87,12 @@ ssh-keygen -l -f ~/.ssh/id_rsa.pub
 SSH agent (ssh-agent): key manager for SSH. holds your keys and cert in memory. saves you from typing passphrase
 every time you connect to a server. used for signing a message.
 The public/private key pair is only used during the initial handshake.
+--
+The ssh-agent is a helper program that keeps track of user's identity keys and their
+passphrases. The agent can then use the keys to log into other servers without having the user type
+in a password or passphrase again. This implements a form of single sign-on (SSO).
+benefit to ssh-agent is that you only need to enter your passphrase once
+handles signing of authentication data for you.
 
 if the ssh session is hung, type these two characters at the beginning of command line to quit: ~.
 ssh escape character: ~ (must enter on a new line)

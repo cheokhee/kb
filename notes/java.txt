@@ -2009,3 +2009,9 @@ Stream.of("one", "two", "three", "four")
 
 
 (a, b) -> { return a + b; } is equivalent to (a, b) -> a + b
+
+ListMultimap<String, ExternalReference> is equivalent to Map<String, Collection<ExternalReference>>
+List<ExternalReference> externalReferences = externalReferenceByShipmentNumber.get("key");
+--
+SetMultimap<String, String> is equivalent to Map<String, Collection<String>>
+Set<String> values = watchListContainersByUserId.get("key");

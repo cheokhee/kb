@@ -220,3 +220,7 @@ root     13719  1366  /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-po
 root      1003  1179  containerd-shim -namespace moby -workdir /var/lib/containerd/io.containerd.runtime.v1.linux/moby/1b227f81af9b36da498daf20d9a4b89c4a91e30a7f1aa8569586d061dcc4e31c -address /run/containerd/containerd.sock -containerd-binary /usr/bin/containerd -runtime-root /var/run/docker/runtime-runc
 root     13725  1179  containerd-shim -namespace moby -workdir /var/lib/containerd/io.containerd.runtime.v1.linux/moby/e3e57bb9bb82938914a0cd4f71a043fc3451289c31e2d525109b3ee7bf5d99f7 -address /run/containerd/containerd.sock -containerd-binary /usr/bin/containerd -runtime-root /var/run/docker/runtime-runc
 ==
+
+docker pull <repo name>
+docker pull registry.access.redhat.com/rhel7/rhel:latest
+repo full URL: hostname/namespace/repo:tag
