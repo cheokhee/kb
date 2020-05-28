@@ -157,6 +157,14 @@ ls -d *~*.*(.) #list all regular files that don't have a . in the name
 ls -l **/*(/^F)  #list all empty directories
 ls Downloads/(#i)*jpg #case insensitive
 
+#find directories that contain pom.xml
+# / : match directory only
+# the colon after the e is a separator for the command
+# During the execution of string the filename currently being tested is available in the parameter REPLY
+# The string will be executed as shell code.  The filename will be included in the list if and only if the code returns a zero status
+# -e : true if file exists
+ls -d **/*(/e:'[[ -e $REPLY/pom.xml ]]':)
+
 ls e2ev/e2ev_fe/app/src/**/*.yml(:h) #get the directory only
 ls e2ev/e2ev_fe/app/src/**/*.java([1]:h)
 

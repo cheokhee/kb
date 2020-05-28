@@ -945,3 +945,19 @@ console.log(JSON.stringify({ alpha: 'A', beta: 'B' }, null, 2)); //2 is the numb
 //     "alpha": A,
 //     "beta": B
 // }'
+
+console.log('%c cheok','color:red;', <object>)
+console.table(anArray) #very useful if you have an array of objects
+
+console.time()
+console.timeEnd()
+console.trace()
+
+alternative to array push:
+arrayOfNames = [...arrayOfNames, 'another', 'another2']
+
+total = anArray.reduce((accumatedValue,currentValue) => accumatedValue + currentValue)
+anArray.map(aFunction)
+anArray.filter(aFunction)
+
+async/await: allow us to express asynchronous code in a synchronous format

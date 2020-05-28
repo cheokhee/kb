@@ -1,15 +1,33 @@
 kubectl get pods -A #-A: all namespace
 kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
+kubectl get pods -o wide
 kubectl get namespace
 kubectl get nodes
 kubectl cluster-info
 kubectl cluster-info dump
 kubectl version --client
 kubectl describe pods
+kubectl describe service/kubernetes-bootcamp
 kubectl logs <pod-name>
 kubectl exec <pod_name> -- env
 kubectl exec -ti <pod_name> -- /bin/bash
 kubectl get events --sort-by=.metadata.creationTimestamp
+kubectl get events --watch
+kubectl run --replicas=100 my-web-server --image=my-web-app
+kubectl scale --replicas=100 my-web-server
+kubectl scale deployments/kubernetes-bootcamp --replicas=4
+kubectl rolling-upgrade my-web-server --image=web-server:2
+kubectl rolling-upgrade my-web-server --rollback
+kubectl get service kubernetes-bootcamp --watch
+kubectl top pods
+kubectl get rs #get replicaset
+kubernetes: API server, etcd, scheduler, kubelet, controller, container runtime
+
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2 #update image to version2
+kubectl rollout status deployments/kubernetes-bootcamp
+kubectl rollout undo deployments/kubernetes-bootcamp
+
+kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}'
 
 steps:
 1. create cluster
@@ -125,3 +143,16 @@ look at the state of the system
 notice ways in which the actual state does not match the desired state (like “this pod needs to be assigned a node”)
 repeat
 The scheduler is a kind of controller. There are lots of different controllers and they all have different jobs and operate independently.
+
+expose deployment type:
+==
+ClusterIP (default) - Exposes the Service on an internal IP in the cluster. This type makes the
+   Service only reachable from within the cluster.
+NodePort - Exposes the Service on the same port of each selected Node in the cluster using
+   NAT. Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of
+   ClusterIP.
+LoadBalancer - Creates an external load balancer in the current cloud (if supported) and assigns a
+   fixed, external IP to the Service. Superset of NodePort.
+ExternalName - Exposes the Service using an arbitrary name (specified by externalName in the spec)
+   by returning a CNAME record with the name. No proxy is used. This type requires v1.7 or higher of
+   kube-dns.

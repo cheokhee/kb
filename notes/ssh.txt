@@ -95,5 +95,5 @@ benefit to ssh-agent is that you only need to enter your passphrase once
 handles signing of authentication data for you.
 
 if the ssh session is hung, type these two characters at the beginning of command line to quit: ~.
-ssh escape character: ~ (must enter on a new line)
+ssh escape character: ~ (must enter on a new line), does not echo ~ when first pressed
 ssh: ~? #show all the commands

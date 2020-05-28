@@ -14113,3 +14113,29 @@ server to return an incorrect result record, e.g. an IP address.
 
 yak shaving: all the little things you have to do before you work on the main thing you wanted to
 do in the first place.
+
+tail latency: is the small percentage of response times from a system, out of all of responses to
+the input/output (I/O) requests it serves, that take the longest in comparison to the bulk of its
+response times
+
+no rhyme or reason behind it, without any rhyme or reason
+
+OLAP databases are commonly known as data warehouses. They store a historical footprint for
+statistical analysis purposes in business intelligence operations. OLAP databases are thus focused
+on read-only workloads with ad-hoc queries for batch processing. The number of users querying the
+database is considerably low
+---
+OLTP databases correspond to the highly concurrent, transactional data processing, characterized by
+short-lived and pre-defined queries enacted by real-time users. Searches a regular user does on an
+e-commerce website and buying of items are basic examples of transactional processing. While the
+users access a smaller subset of the data when compared with OLAP users, the number of users are
+considerably higher and the queries can include both read and write operations.
+
+Our practice is to use GraphQL for server-side resource aggregation only. When using this pattern,
+the microservices continue to expose welldefined RESTful APIs, while under-the-hood aggregate
+services or BFF (Backend for Frontends) patterns use GraphQL resolvers as the implementation for
+stitching resources from other services.
+
+MQTT: A lightweight messaging protocol for small sensors and mobile devices, optimized for
+high-latency or unreliable networks. a publish-subscribe network protocol that transports messages
+between devices.

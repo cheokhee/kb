@@ -224,3 +224,7 @@ root     13725  1179  containerd-shim -namespace moby -workdir /var/lib/containe
 docker pull <repo name>
 docker pull registry.access.redhat.com/rhel7/rhel:latest
 repo full URL: hostname/namespace/repo:tag
+
+#docker remove all exited containers
+docker ps -aq -f status=exited | xargs docker rm
+docker rm $(docker ps -a -q -f status=exited)

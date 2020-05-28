@@ -205,6 +205,14 @@ apt install uptimed: uprecords
 libblockdev-mdraid2 #for udisks2.service
 
 other command: wikit, googler, browsh, lolcat, toilet, shellcheck
+sl : run a train in terminal
+cmatrix: matrix effect
+espeak
+factor
+aafire
+sysvbanner
+
+lynis: Scan your Linux security
 
 =========== end of packages ==============
 
@@ -341,3 +349,5 @@ setxkbmap -option ctrl:nocaps
 setxkbmap -option ctrl:swapcaps
 --
 /etc/default/keyboard
+
+man syscalls

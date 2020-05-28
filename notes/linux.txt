@@ -893,6 +893,7 @@ tmux: from 2 horizontal panes to 2 vertical panes (and vice versa)
 Prefix <SPC> : cycle through available layouts (bound to next-layout)
 Prefix Alt-1 : even horizontal
 Prefix Alt-2 : even vertical
+Prefix Ctrl-o : rotate window
 
 ssh X11 forwarding
 want to display on my-machine (where X server is running)
@@ -2896,3 +2897,22 @@ TXT:	Text record
 shuf -n1 -e /bin/* /sbin/*  #generate random permutation
 
 whatis: display a one-line manual description
+
+#curl: send form data
+curl --form "username=seth" --form "password=12345678" "https://example.com/api/v4/endpoint"
+#curl: send file as form data
+curl --form "profile=@me.jpg" "https://example.com/foo/bar"
+
+cat /proc/sys/fs/inotify/max_user_watches   #maximum # of files to watch for changes (inotify watchers)
+to change, edit /etc/sysctl.conf, add:
+fs.inotify.max_user_watches=524288
+then do "sudo sysctl -p" to load the change
+
+#display any line that begins with string
+look -f <string> <filename>
+
+#make a pdf of a manual page
+man -t zshexpn | ps2pdf - > zshexpn.pdf
+
+rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html'	#Mirror web site (using compression and encryption)
+rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/	#Synchronize current directory with remote one
