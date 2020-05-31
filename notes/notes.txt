@@ -14139,3 +14139,11 @@ stitching resources from other services.
 MQTT: A lightweight messaging protocol for small sensors and mobile devices, optimized for
 high-latency or unreliable networks. a publish-subscribe network protocol that transports messages
 between devices.
+
+The world ain't all sunshine and rainbows
+
+An event log is an immutable, timestamped record of discrete events that happened over time.
+Metrics are a numeric representation of data measured over intervals of time.
+--
+A trace is a representation of a series of causally related distributed events that encode the
+end-to-end request flow through a distributed system

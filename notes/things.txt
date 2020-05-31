@@ -351,3 +351,12 @@ setxkbmap -option ctrl:swapcaps
 /etc/default/keyboard
 
 man syscalls
+
+2020-05-29: sudo apt purge snapd
+following directories get deleted: /var/lib/snapd, /snap, /var/snap
+---
+old snaps:
+chromium           83.0.4103.61     1165  latest/stable  canonical✓  -
+core18             20200427         1754  latest/stable  canonical✓  base
+gtk-common-themes  0.1-36-gc75f853  1506  latest/stable  canonical✓  -
+snapd              2.44.3           7264  latest/stable  canonical✓  snapd

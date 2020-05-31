@@ -156,3 +156,55 @@ LoadBalancer - Creates an external load balancer in the current cloud (if suppor
 ExternalName - Exposes the Service using an arbitrary name (specified by externalName in the spec)
    by returning a CNAME record with the name. No proxy is used. This type requires v1.7 or higher of
    kube-dns.
+
+
+Control plane management:
+==
+etcd: is a lightweight and distributed cluster manager. It's persistent and reliably stores the
+configuration data of the cluster, providing a consistent and accurate representation of the cluster
+at any given point of time.
+==
+API server: serves the Kubernetes API using JSON over HTTP. It provides both an internal and
+external interface to Kubernetes. The server processes and validates RESTful requests and enables
+communication between and across several tools and libraries.
+--
+Scheduler: selects on which node an unscheduled pod should run. This logic is based on resource
+availability. The scheduler also tracks resource utilization of each node, ensuring that the
+assigned workload never exceeds what is available on the physical or virtual machine.
+--
+Control Manager: the process hosting the DaemonSet and Replication controllers. The controllers
+communicate with the API server to create, update or delete managed resources.  Node management:
+--
+kubelet: responsible for the running state of each node and making sure that all containers on the
+node are healthy. It handles the starting and stopping of application containers (see how this
+differs with Docker in the next section) within a pod as directed by the manager in the control
+plane.
+--
+kube-proxy: a network proxy and load balancer. It's responsible for routing traffic to the
+appropriate container.  cAdvisor: an agent that monitors and collects system resource utilization
+and performance metrics (such as CPU, memory, file and network) of each container on each node.
+--
+controller drives the state of the cluster by managing a set of pods. The Replication Controller
+handles pod replication and scaling by running a specified number of copies of a given pod across
+the entire cluster of nodes. It also can handle the creation of replacement pods in the event of a
+failing node. The DaemonSet Controller is in charge of running exactly one pod per node. The Job
+Controller runs pods to completion (that is, as part of a batch job).
+--
+In Kubernetes terms, a service consists of a set of pods working together (a one-tier or multi-tier
+application). As Kubernetes provides service discovery and request routing (by assigning the
+appropriate static networking parameters), it ensures that all service requests get to the right
+pod, regardless of where it moves across the cluster. Some of this movement may be a result of pod
+or node failure. In the end, Kubernetes' self-healing capabilities will get those ailing services
+back to a pristine state automatically.
+
+Pods
+==
+When a Kubernetes master deploys a group of one or more containers to a single node, it does so by
+creating a pod. Pods abstract the networking and storage from the container, and all of the
+containers within a pod will share the same IP address, hostname and more, allowing it to be moved
+around in the cluster without complication.
+--
+The kubelet will monitor each and every pod. If it's not in a good state, it will redeploy that pod
+to the same node. Apart from this, a heartbeat messaging mechanism will relay the node status to the
+master every few seconds. As soon as the master detects a node failure, the Replication Controller
+will launch the now affected pods onto another healthy node.

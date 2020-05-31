@@ -2916,3 +2916,7 @@ man -t zshexpn | ps2pdf - > zshexpn.pdf
 
 rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html'	#Mirror web site (using compression and encryption)
 rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/	#Synchronize current directory with remote one
+
+/etc/systemd/journald.conf
+#journalctl data:
+/var/log/journal/<machine-id>/*.journal
