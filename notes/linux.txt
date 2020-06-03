@@ -2920,3 +2920,6 @@ rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/	#Synchroniz
 /etc/systemd/journald.conf
 #journalctl data:
 /var/log/journal/<machine-id>/*.journal
+
+#calculate the number of days between 2 dates
+echo "("$(date -d "2020-06-06" +%s) - $(date -d "2020-03-17" +%s)") / 86400" | bc

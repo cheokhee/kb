@@ -157,6 +157,11 @@ ExternalName - Exposes the Service using an arbitrary name (specified by externa
    by returning a CNAME record with the name. No proxy is used. This type requires v1.7 or higher of
    kube-dns.
 
+Ingress Controller: not a service but an API object that manages external access to the services in
+a cluster. It acts as a reverse proxy and single entry-point to your cluster that routes the request
+to different services. To expose the ingress, the best production ready solution is by using a load
+balancer
+
 
 Control plane management:
 ==
@@ -208,3 +213,17 @@ The kubelet will monitor each and every pod. If it's not in a good state, it wil
 to the same node. Apart from this, a heartbeat messaging mechanism will relay the node status to the
 master every few seconds. As soon as the master detects a node failure, the Replication Controller
 will launch the now affected pods onto another healthy node.
+
+StatefulSet: is similar to Deployment, the only difference is that the Deployment creates a sets of
+pods with random pod names and the order of the pods is not important, while the StatefulSet creates
+pods with a unique naming convention and ordering. So if you want to create three replicas of a pod
+called example, the StatefulSet will create pods with the following names: example-0, example-1,
+example-2. In this case, the most important benefit is that you can rely on the name of the pods.
+
+A DaemonSet ensures that the pod runs on all the nodes of the cluster. If a node is added/removed
+from a cluster, DaemonSet automatically adds/deletes the pod. This is useful for monitoring and
+logging, because this way you can be sure, that all the time your are monitoring every node and
+don’t have to manually manage the monitoring of the cluster.
+
+a deployment is responsible for keeping a set of pods running.
+the service is responsible for enabling network access to a set of pods.

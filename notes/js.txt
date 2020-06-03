@@ -961,3 +961,8 @@ anArray.map(aFunction)
 anArray.filter(aFunction)
 
 async/await: allow us to express asynchronous code in a synchronous format
+
+check if a key exists in a JS object:
+if ('color' in car) { }  // return true even for properties inherited by parent objects
+OR:
+car.hasOwnProperty('color') // only check direct properties

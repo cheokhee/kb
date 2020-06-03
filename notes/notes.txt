@@ -8089,6 +8089,7 @@ framebuffer: memory containing a description of the current screen contents.
 Typically the frame buffer is stored in the memory chips on the video adapter. In some instances, however, the
 video chipset is integrated into the motherboard design, and the frame buffer is stored in general main memory.
 scan-out/scanout buffer: the current framebuffer displayed on screen
+The image displayed on the monitor is stored in your computer’s video RAM on the graphics card in a structure called a framebuffer
 
 depth-first search: start from a vertex and explore as far as possible along each edge before backtracking.
   --> follow a path all the way to the end
@@ -9663,6 +9664,10 @@ In computer networking, a wireless Access Point (AP) is a device that allows wir
 connect to a wired network using Wi-Fi, or related standards. The AP usually connects to a router
 (via a wired network) as a standalone device, but it can also be an integral component of the router
 itself.
+---
+An access point is a device that creates a wireless local area network, or WLAN, usually in an
+office or large building. An access point connects to a wired router, switch, or hub via an Ethernet
+cable, and projects a Wi-Fi signal to a designated area.
 
 IP passthrough is an option for your DSL modem to turn into a "Bridge" or be just a simple modem -
 whatever comes down the pipe from the internet goes right on through to your network without any
@@ -12960,8 +12965,6 @@ request to be resubmitted.
 double submission problem can still happen if the user refreshes the page before the initial
 submission has completed.
 
-point of presence: the interface point between communicating entities
-
 end point: the interface exposed by communicating entities.
 
 webhook: the end point URL provided by a client-side application to a server-side application.
@@ -14147,3 +14150,79 @@ Metrics are a numeric representation of data measured over intervals of time.
 --
 A trace is a representation of a series of causally related distributed events that encode the
 end-to-end request flow through a distributed system
+
+point of presence: the interface point between communicating entities
+POP (point of presence): a demarcation point, access point, or physical location where two or
+more networks or communications devices share a connection.
+--
+A common example is an Internet point of presence, the local access point that allows users to
+connect to the Internet with their Internet service provider (ISP). A PoP typically houses
+servers, routers, network switches, multiplexers, and other network interface equipment, and is
+typically located in a data center. ISPs typically have multiple PoPs. PoPs are often located at
+Internet exchange points and colocation centres.
+--
+An Internet exchange point (IXP) is the physical infrastructure through which Internet service
+providers (ISPs) and content delivery networks (CDNs) exchange Internet traffic between their
+networks. a place where ISPs interconnect their networks toegether
+--
+http://drpeering.net/FAQ/What-is-an-Internet-Exchange-Point.php
+https://www.colocationamerica.com/blog/point-of-presence
+https://blog.stackpath.com/point-of-presence/
+
+definition of: edge network
+(1) A network located on the periphery of a centralized network. The edge network feeds the central, or core, network.
+(2) The network provided by a content delivery service provider (CDSP) that duplicates Internet content on
+many servers around the world.
+
+The network edge, also known as the WAN edge, is where an enterprise network connects to third-party network services
+
+A Carrier Hotel is housed within a colocation center where telecommunication businesses can
+physically connect to each other and exchange data without paying local loop fees. Meet-Me-Room
+(MMR) is usually housed within a carrier hotel. Some data centers and colocation providers feature a
+Meet-Me-Room, which aid in helping telecom carriers and other ISPs to communicate with each
+other.
+
+Security information and event management (SIEM) software gives enterprise security professionals
+both insight into and a track record of the activities within their IT environment.
+
+get someone's goat: to irritate someone
+
+OS-level virtualization refers to an operating system paradigm in which the kernel allows the
+existence of multiple isolated user space instances
+
+https://www.hitechnectar.com/blogs/virtualization-implementation-levels/
+5 levels of virtualization:
+Instruction Set Architecture Level (ISA)
+Hardware Abstraction Level (HAL)
+Operating System Level
+Library Level
+Application Level
+
+Sticky session (Session affinity) refers to the feature of many commercial load balancing solutions
+for web-farms to route the requests for a particular session to the same physical machine that
+serviced the first request for that session.
+--
+sticky session: Once a session is started, the same server serves all requests for that session.
+
+it is important to model the behaviour you want to see in others
+to model his legal career after that of his mentor
+
+Routers and switches use a conceptual model called ‘planes’. Planes describe how packets travel to,
+from, and through a device. the planes refer to how a device handles traffic
+--
+The control and data planes do not describe data itself. Rather, these planes describe how the
+device handles the data. For example, does the device process a packet itself, or does it forward it
+to another device?
+--
+The control plane is generally considered to be where a router or switch makes its decisions.
+--
+The data plane (or forwarding plane) is the high speed path through the router/switch. Packets that
+pass through the device use the data plane, as opposed to packets directed to the device. For this
+reason, the data plane is also called the forwarding plane.
+---
+Control Plane traffic is sent to a device, or generated on a device
+Data Plane traffic is forwarded through a device
+
+In computing, the control plane is the part of the software that configures and shuts down the data
+plane. By contrast, the data plane (the data plane is also sometimes referred to as the forwarding
+plane) is the part of the software that processes the data requests.
