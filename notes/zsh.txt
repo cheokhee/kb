@@ -187,3 +187,9 @@ $ echo ${f:h:h}
 zshmisc: precommand modifier
 Invoking a shell with a - prepended to its name (-sh, -bash, -zsh) is an old convention for
 indicating the shell should start a login session.
+
+$ file=thisabcdes
+$ echo ${file#this}   #remove pattern from the front
+abcdes
+$ echo ${file%cdes}  #remove pattern from the end
+thisab

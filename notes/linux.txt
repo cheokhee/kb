@@ -2923,3 +2923,47 @@ rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/	#Synchroniz
 
 #calculate the number of days between 2 dates
 echo "("$(date -d "2020-06-06" +%s) - $(date -d "2020-03-17" +%s)") / 86400" | bc
+
+showing the decimal equivalent of a hexadecimal or octal number.
+echo $((0xdeadbeef)) # Outputs 3735928559
+echo $((0127)) # Outputs 87 #bash only, not zsh
+
+gunzip -t data.tar.gz #test gzipped file
+gunzip -c data.tar.gz | tar t > /dev/null #test integrity of tar file
+
+$ tree -Jhfpug
+[{"type":"directory","name": ".","contents":[
+    {"type":"file","name":"./notes-az.txt","mode":"0644","prot":"-rw-r--r--","user":"cheok","group":"cheok","size":"3.9K"},
+    {"type":"file","name":"./notes-env.txt","mode":"0644","prot":"-rw-r--r--","user":"cheok","group":"cheok","size":"8.0K"},
+    {"type":"file","name":"./notes-share.txt","mode":"0644","prot":"-rw-r--r--","user":"cheok","group":"cheok","size":"69"},
+    {"type":"file","name":"./notes-test.txt","mode":"0644","prot":"-rw-r--r--","user":"cheok","group":"cheok","size":"9.3K"}
+  ]},
+  {"type":"report","directories":0,"files":9}
+]
+
+/etc/sysctl.conf:
+Disable IP forwarding
+net.ipv4.ip_forward=0
+--
+Disable Send Packet Redirects
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+--
+Disable ICMP Redirect Acceptance
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0
+--
+Enable Bad Error Message Protection
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+--
+Enable SYN cookies to ensure a server avoids dropping connections when the SYN queue fills up
+net.ipv4.tcp_syncookies = 1
+--
+Increase the SYS backlog queue size to 2048
+net.ipv4.tcp_max_syn_backlog = 2048
+--
+close the SYN_RECV state connections earlier
+net.ipv4.tcp_synack_retries = 3
+--
+Lowers the timeout value for SYN_RECV to help in reducing the SYN flood attack
+net.ipv4.netfilter.ip_conntrack_tcp_timeout_syn_recv=45

@@ -9793,6 +9793,8 @@ macular degeneration news: www.amd.org
 
 A heat map (or heatmap) is a graphical representation of data where the individual values contained
 in a matrix are represented as colors.
+--
+heat map: a data visualization technique where magnitude of phenomenon is represented as color.
 
 === WIFI
 When an 802.11 client device hears another signal, whether it is a Wi-Fi signal or not, it will
@@ -14226,3 +14228,11 @@ Data Plane traffic is forwarded through a device
 In computing, the control plane is the part of the software that configures and shuts down the data
 plane. By contrast, the data plane (the data plane is also sometimes referred to as the forwarding
 plane) is the part of the software that processes the data requests.
+
+A date certain is the exact date by which a specified action must occur, according to a particular contract
+
+Erasure coding (EC) is a method of data protection in which data is broken into fragments, expanded
+and encoded with redundant data pieces and stored across a set of different locations or storage
+media.
+
+mechanical turk
