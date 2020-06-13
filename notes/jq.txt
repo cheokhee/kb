@@ -54,6 +54,7 @@ $ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[]'
 
 example 6, get all the names
 $ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[] | .name'
+$ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[].name'
 "cheok"
 "hee"
 
@@ -115,3 +116,18 @@ to_entries, from_entries
 
 #jq -s : slurp mode: read the entire input stream into a large array and run the filter just once
 jq -M '.[] | select(.resourceGroup=="MC_my-res-grp_my-k8s-cluster_westus2")' | jq -s | jq length
+
+#print on one line
+Option #1:
+$ echo '[{"name":"cheok","age":10},{"name":"hee","age":20}]' | jq -r '.[]| [.name,.age] | @tsv'
+cheok   10
+hee     20
+---
+Option #2:
+$ echo '[{"name":"cheok","age":10},{"name":"hee","age":20}]' | jq -j '.[]| .name, " ", .age, "\n"'
+cheok 10
+hee 20
+OR
+$ echo '[{"name":"cheok","age":10},{"name":"hee","age":20}]' | jq -j '.[]| .name, "\t", .age, "\n"'
+cheok   10
+hee     20

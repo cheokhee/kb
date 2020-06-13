@@ -862,6 +862,9 @@ example:
 wow: command not found
 # : ${HI:=wow} #no error msg
 
+#mid-command comments
+echo before && : this  && echo after
+
 ==end of colon command
 
 #set a variable for a command only

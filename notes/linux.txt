@@ -361,6 +361,8 @@ redirecting stdout and stderr:
 >&word
 the first one is preferred.
 this is equivalent to >word 2>&1
+--
+pipe both standard output and standard error into the next stage of the pipeline: |&
 
 #last reboot:
 last reboot
@@ -591,6 +593,8 @@ systemctl status
 systemctl --failed
 systemctl list-units
 systemctl list-dependencies --reverse man-db.timer
+systemctl -t service
+systemctl status "*service"
 ===
 $ systemctl list-dependencies --reverse NetworkManager.service
 NetworkManager.service
@@ -771,6 +775,8 @@ $'\t'
 #bash: create a string literal
 $'..' : create a string with backslash-escaped characters.
 example: $'\n\t'
+hexadecimal: $'\xc2\xa3'
+octal: $'\302\243'
 
 $ ls -d .*
 all files/directories that start with ., include . and ..

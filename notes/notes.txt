@@ -14236,3 +14236,8 @@ and encoded with redundant data pieces and stored across a set of different loca
 media.
 
 mechanical turk
+
+callipygian: having well-shaped buttocks
+
+Lidar is a method for measuring distances by illuminating the target with laser light and measuring
+the reflection with a sensor
