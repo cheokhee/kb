@@ -14241,3 +14241,16 @@ callipygian: having well-shaped buttocks
 
 Lidar is a method for measuring distances by illuminating the target with laser light and measuring
 the reflection with a sensor
+
+agency (sociology): the capacity of individuals to act independently and to make their own
+free choices.
+
+Reverse debuggers (or time travel debuggers) enable developers to record all program activities at
+runtime (every memory access, every computation, and every call to the operating system), and then
+rewind and replay to inspect the program state. This colossal amount of data is presented via a
+powerful metaphor: the ability to travel backwards in time (and forwards again) to inspect the
+program state.
+https://undo.io/resources/6-things-time-travel-debugging/
+
+Ground truth is a term used in various fields to refer to information provided by direct observation
+(i.e. empirical evidence) as opposed to information provided by inference.

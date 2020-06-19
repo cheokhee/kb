@@ -2973,3 +2973,12 @@ net.ipv4.tcp_synack_retries = 3
 --
 Lowers the timeout value for SYN_RECV to help in reducing the SYN flood attack
 net.ipv4.netfilter.ip_conntrack_tcp_timeout_syn_recv=45
+
+#check if a program is PAM-aware (PAM: Pluggable Authentication Modules)
+/etc/pam.d
+sudo ldd /usr/sbin/sshd | grep libpam.so
+--
+https://www.tecmint.com/configure-pam-in-centos-ubuntu-linux/
+
+curl with cookie:
+curl -b JSESSIONID=517A027B9C96F92F0818A62295B93140 <URL>

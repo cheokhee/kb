@@ -131,3 +131,44 @@ OR
 $ echo '[{"name":"cheok","age":10},{"name":"hee","age":20}]' | jq -j '.[]| .name, "\t", .age, "\n"'
 cheok   10
 hee     20
+
+$ echo '[{"name":"cheok","age":10},{"name":"hee","age":20}]' | jq  '.[]| .name + " " + (.age|tostring)'
+"cheok 10"
+"hee 20"
+
+Get two scalar values and concatenate/format them into a single string
+jq ' "replicas: " + (.spec.replicas | tostring) + " kind: " + .kind '
+
+Select an object from an array of object based on one of the names
+jq ' .status.conditions | map(select(.type == "Progressing")) '
+
+
+Select a single key value pair from a json object
+jq ' .metadata.annotations | to_entries | map(select(.key == "label1")) | from_entries '
+
+Select a single key value pair from a json object - short form
+jq ' .metadata.annotations | with_entries(select(.key == "label1")) '
+
+Select two key value pairs from a json object
+jq ' .metadata.annotations | to_entries | map(select(.key == "label1" or .key == "label2")) | from_entries '
+
+Select two key value pairs from a json object (second version)
+jq ' .metadata.annotations | to_entries | map(select(.key == ("label1", "label2"))) | from_entries '
+
+Select all key value pairs from a json object where the name contains substring "label"
+jq ' .metadata.annotations | to_entries | map(select(.key | contains("label"))) | from_entries '
+
+Select all key value pairs from a json object where the name matches the regular expression label[1-9]
+jq ' .metadata.annotations | to_entries | map(select(.key | test("label[1-9]"))) | from_entries '
+
+Select all key value pairs from a json object where the name contains substring "label" (short form)
+jq ' .metadata.annotations | with_entries(select(.key | contains("label"))) '
+
+Add another key value pair to a json object
+jq ' .metadata.annotations += { "label4" : "two" } '
+
+Set all values in a json object
+jq ' .metadata.annotations | to_entries | map_values(.value="override-value") | from_entries '
+
+Set all values of subset of keys in a json object
+jq ' .metadata.annotations | to_entries | map(if .key | contains("label") then .value="kuku" else . end) | from_entries '

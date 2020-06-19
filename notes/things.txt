@@ -360,3 +360,6 @@ chromium           83.0.4103.61     1165  latest/stable  canonical✓  -
 core18             20200427         1754  latest/stable  canonical✓  base
 gtk-common-themes  0.1-36-gc75f853  1506  latest/stable  canonical✓  -
 snapd              2.44.3           7264  latest/stable  canonical✓  snapd
+
+2020-06-16: update /etc/fstab
+add noatime to root file system
