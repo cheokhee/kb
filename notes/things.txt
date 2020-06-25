@@ -363,3 +363,21 @@ snapd              2.44.3           7264  latest/stable  canonical✓  snapd
 
 2020-06-16: update /etc/fstab
 add noatime to root file system
+
+copy /usr/share/doc/global/examples/gtags.conf.gz to ~/.globalrc
+then add node_modules to skip
+==
+1. install package universal-ctags
+---
+gtags --gtagslabel=new-ctags
+-> gtags: Universal Ctags not found. Please see ./configure --help.
+--
+edit ~/.globalrc:
+--
+universal-ctags|setting to use Universal Ctags plug-in parser:\
+	:tc=common:\
+	:ctagscom=/usr/bin/ctags-universal:\  #new
+---
+https://www.gnu.org/software/global/manual/global.html
+--
+universal ctags does not support reference tags??

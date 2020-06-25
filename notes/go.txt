@@ -88,6 +88,7 @@ init function:
 imported packages -> local variables -> init function(s) -> main
 
 goroutine: an independently executing function
+goroutine: a construct for running functions concurrently. like a lightweight thread.
 
 type T struct{}
 var _ I = T{}       // Verify that T implements I.

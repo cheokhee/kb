@@ -128,6 +128,9 @@ Runnable vs Callable
 Runnable does not return a result and cannot throw a checked exception.
 Callable returns a result and can throw a checked exception.
 
+Runnable is an interface that is to be implemented by a class whose instances are intended to be
+executed by a thread.
+
 Implementing Runnable vs Extending Thread
 by extending Thread, each of your threads has a unique object associated with it, whereas
 implementing Runnable, many threads can share the same object instance.
@@ -2015,3 +2018,13 @@ List<ExternalReference> externalReferences = externalReferenceByShipmentNumber.g
 --
 SetMultimap<String, String> is equivalent to Map<String, Collection<String>>
 Set<String> values = watchListContainersByUserId.get("key");
+
+Optional: use orElse(null) # avoid isPresent() and get()
+Don’t use orElse() for returning a computed value (it is always evaluated)
+alternative: use orElseGet(Supplier<? extends T> supplier)
+orElseThrow()
+orElseThrow(Supplier<? extends X> exceptionSupplier)
+ifPresent(Consumer<? super T> action)
+ifPresentOrElse()
+--
+https://blogs.oracle.com/javamagazine/12-recipes-for-using-the-optional-class-as-its-meant-to-be-used

@@ -297,3 +297,8 @@ http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
 
 M-x customize-face , mode-line-buffer-id
 (custom-set-faces '(mode-line-buffer-id ((t (:foreground "brightred" :weight extra-bold)))))
+
+#1. turn on projectile-mode
+#2. helm-projectile-on
+
+M-. runs the command ggtags-find-tag-dwim (found in ggtags-mode-map)

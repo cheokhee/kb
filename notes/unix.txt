@@ -453,6 +453,14 @@ LESS=-X less thoughts.txt
 strace -p <pid>
 strace -e open uptime # trace only the open system call in uptime command
 strace -f -s 4096 -p <pid>
+# trace all files accessed by a process
+strace -fe trace=creat,open,openat,unlink,unlinkat <command>
+sudo strace -fe trace=creat,open,openat,unlink,unlinkat -e 'signal=!SIGIO' -p <pid>
+sudo strace -fe trace=creat,open,openat,unlink,unlinkat -e signal=none -p <pid>
+strace -s 80 -f ./program #print 80 characters of every string
+strace -T : Print time spent in system call.
+-s [size] Print [size] characters per string displayed. This is useful if you are trying to trace what a program is writing to a file descriptor.
+-c Print a histogram of the number of system calls and the time spent at the termination of strace.
 
 BASHOPTS var: shopt setting
 SHELLOPTS var: set -o setting

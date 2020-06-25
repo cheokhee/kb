@@ -14254,3 +14254,32 @@ https://undo.io/resources/6-things-time-travel-debugging/
 
 Ground truth is a term used in various fields to refer to information provided by direct observation
 (i.e. empirical evidence) as opposed to information provided by inference.
+
+Observability is the ability to infer internal states of a system based on the system’s external
+outputs.
+Monitoring is the actual task of collecting and displaying the system's external outputs
+If you are observable, I can monitor you.
+
+Fan-out is a messaging pattern where messages are broadcast in a one-to-many arrangement.
+
+PII: Personally identifiable information
+PHI: Protected Health Information
+
+The young man knows the rules, but the old man knows the exceptions. (Oliver Wendell Holmes, Sr)
+
+An edge device is a device which provides an entry point into enterprise or service provider core
+networks. Examples include routers, routing switches, integrated access devices (IADs),
+multiplexers, and a variety of metropolitan area network (MAN) and wide area network (WAN) access
+devices. Edge devices also provide connections into carrier and service provider networks. An edge
+device that connects a local area network to a high speed switch or backbone (such as an ATM switch)
+may be called an edge concentrator.
+==
+An Integrated Access Device (or IAD) is a customer premises device that provides access to wide area
+networks and the Internet. Specifically, it aggregates multiple channels of information including
+voice and data across a single shared access link to a carrier or service provider PoP (Point of
+Presence). The access link may be a T1 line, a DSL connection, a cable (CATV) network, a broadband
+wireless link, or a metro-Ethernet connection.
+
+egress filtering is the practice of monitoring and potentially restricting the flow of information
+outbound from one network to another. Typically it is information from a private TCP/IP computer
+network to the Internet that is controlled.

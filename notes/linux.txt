@@ -2982,3 +2982,7 @@ https://www.tecmint.com/configure-pam-in-centos-ubuntu-linux/
 
 curl with cookie:
 curl -b JSESSIONID=517A027B9C96F92F0818A62295B93140 <URL>
+
+jbd2 is a kernel thread that updates the filesystem journal. Tracing filesystem or disk activity
+with the process that caused it is difficult because the activities of many processes are combined
+together.

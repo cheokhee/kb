@@ -4,3 +4,15 @@ first do: dir_no_space
 
 then do : gtags 2> /dev/null
 
+global -c #print all symbols
+
+global <pattern> #find definitions
+global -x findAllVoyages #Use standard ctags cxref (with -x) format
+global -rx <pattern> #print reference
+
+#print all tags in file
+global -f src/main/java/e2ev/voyage/VoyageDataSource.java
+
+global -P #print all paths
+
+gtags --gtagslabel=new-ctags
