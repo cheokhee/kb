@@ -302,3 +302,5 @@ M-x customize-face , mode-line-buffer-id
 #2. helm-projectile-on
 
 M-. runs the command ggtags-find-tag-dwim (found in ggtags-mode-map)
+
+variable buffer-file-name contains the full path of current buffer

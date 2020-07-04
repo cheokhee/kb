@@ -2892,6 +2892,19 @@ throughput: Output or production, as of a computer program, over a period of tim
 In communication networks, such as Ethernet or packet radio, throughput is the average rate of
 successful message delivery over a communication channel. usually in bits per second
 
+throughput is an actual measure of how much data is successfully transferred from source to
+destination, and bandwidth is a theoretical measure of how much data could be transferred from
+source to destination. Throughput measures speed while bandwidth is only indirectly related to speed
+
+Throughput can only send as much as the bandwidth will allow, and it's usually less than
+that. Factors like latency (delays), jitter (irregularities in the signal), and error rate (actual
+mistakes during transmission) can reduce the overall throughput.
+--
+bandwidth is the maximum amount of data that can be transmitted per unit time. throughput is the
+actual amount of data transmitted per unit time. bandwidth is the theoretical value, throughput is
+the actual value. throughput < bandwidth. bandwidth is the maximum throughput. throughput is the
+consumed bandwidth. measured in bits per second.
+
 SOAP performance:
     * Extracting the SOAP envelope from the SOAP packet is time-expensive.
     * Parsing the contained XML information in the SOAP envelope using a XML parser is also time-expensive.
@@ -7035,6 +7048,8 @@ proxy server: receive a request from a computer, request a page from a server on
 then forwards it to the user.
 firewall: prevent outsiders from accessing a private network and control what outside resources
 firewall: a barrier that controls what kind of data comes into and out of your network
+firewall: a network security system that monitors and controls incoming and outgoing network traffic
+based on some rules.
 users can access
 -- SOCKS
 a protocol that a proxy server can use to accept requests from client users in a company's network so that it can forward them across the Internet.
@@ -13921,6 +13936,8 @@ tables or databases, respectively.
 When you need linearizability across multiple objects, try strict serializability. When real-time
 constraints are not important, but you still want every process to observe the same total order, try
 sequential consistency
+--
+Serializability is a transactional model, is also a multi-object property
 
 Linearizability: single-operation, single-object, real-time order.
 ---
@@ -13929,6 +13946,11 @@ Linearizability is a guarantee about single operations on single objects. It pro
 on a single object (e.g., distributed register or data item).  Linearizability for read and write
 operations is synonymous with the term “atomic consistency” and is the “C,” or “consistency,” in
 Gilbert and Lynch’s proof of the CAP Theorem.
+---
+under linearizability, writes should appear to be instantaneous. Imprecisely, once a write completes,
+all later reads (where “later” is defined by wall-clock start time) should return the value of that
+write or the value of a later write. Once a read returns a particular value, all later reads should
+return that value or the value of a later write.
 
 Serializability: multi-operation, multi-object, arbitrary total order
 --
@@ -14283,3 +14305,123 @@ wireless link, or a metro-Ethernet connection.
 egress filtering is the practice of monitoring and potentially restricting the flow of information
 outbound from one network to another. Typically it is information from a private TCP/IP computer
 network to the Internet that is controlled.
+
+HSTS Preloading is a mechanism whereby a list of hosts that wish to enforce the use of SSL/TLS on
+their site is built into a browser.
+
+HTTP Strict Transport Security: is a web security policy that forces a browser to only make secure
+HTTPS connections. It uses a header to communicate the strict transport security parameter. This
+means that you’d need to download the header before your browser knows to always connect to the
+website via HTTPS in the future.
+
+The C in ACID is meant for preserving the guarantees pertaining to wholeness and integrity of
+data. For example, money cannot be created or destroyed when a transfer happens between two
+accounts. The C in CAP pertains to establishing an order on the read and write operations across the
+multiple nodes of a distributed system in light of the challenges of replication lag and the loss of
+the single memory abstraction. For example, if two writes for the same key land on two different
+nodes which one takes precedence over the other? Or if a read has seen a recent write should it be
+prevented from seeing an older one on subsequent attempts?
+
+Pipelined Random Access Memory (PRAM) which implies that all operations from a single process are
+seen by other processes in the order they were performed as if they were in a pipeline.
+
+If a distributed system is able to guarantee Monotonic reads, Monotonic writes and “Read your own
+Writes” consistency then it is said to be eventually consistent.
+--
+monotonic reads means that if you have read a more recent value for a variable then subsequent reads
+will always return the same or latter value and never an older value
+--
+Monotonic writes: means writes are applied in the order in which they arrived
+--
+Read your own writes: Writes made by a client should be visible to the client immediately for any
+subsequent reads
+
+If we combine Linearizability and Serializability we get Strict Serializability — a consistency
+model that ensure that not only transactions execute in isolation, it also ensure they execute in
+correct temporal order.
+
+Linearizability, sequential consistency, causal consistency and eventual consistency
+https://jepsen.io/consistency
+
+serializability means that transactions appear to have occurred in some total order.
+
+Linearizability is one of the strongest single-object consistency models, and implies that every
+operation appears to take place atomically, in some order, consistent with the real-time ordering of
+those operations: e.g., if operation A completes before operation B begins, then B should logically
+take effect after A.
+--
+When you need linearizability across multiple objects, try strict serializability. When real-time
+constraints are not important, but you still want every process to observe the same total order, try
+sequential consistency
+
+sticky available: Available on every non-faulty node, so long as clients only talk to the same
+servers, instead of switching to new ones.
+
+Strong Opinions weakly held
+
+Shallow men believe in luck or in circumstance. Strong men believe in cause and effect.
+
+In positive psychology, a flow state, also known colloquially as being in the zone, is the mental
+state in which a person performing an activity is fully immersed in a feeling of energized focus,
+full involvement, and enjoyment in the process of the activity
+
+ratchet effect is an instance of the restrained ability of human processes to be reversed once a
+specific thing has happened, analogous with the mechanical ratchet that holds the spring tight as a
+clock is wound up. It is related to the phenomena of featuritis and scope creep in the manufacture
+of various consumer goods, and of mission creep in military planning
+--
+ratchet effect:a Keynesian theory, states that once prices have risen in lockstep to a rise in
+aggregate demand, they do not always reverse when that demand falls.
+
+NoSQL: identify your access patterns first. then design your data model to handle your
+access patterns. pre-join the data and store the data together.
+
+switch: connects devices to form a network. allow devices to communicate with one another. Layer-2
+router: connects networks to form an even larger network. allow networks to communicate with one
+  another. Layer-3
+
+A Norman door is a poorly designed door that confuses or fails to give you an idea whether to push
+or pull.
+
+In computer networking the term Blast Radius is used to define the reach that a faulty configuration
+change or problem might cause.
+
+The Content Addressable Network (CAN) is a distributed, decentralized P2P infrastructure that
+provides hash table functionality on an Internet-like scale. CAN was one of the original four
+distributed hash table proposals, introduced concurrently with Chord, Pastry, and Tapestry.
+--
+Distributed hash table (DHT) is a decentralized storage system that provides lookup and storage
+schemes similar to a hash table, storing key-value pairs. Each node in a DHT is responsible for keys
+along with the mapped values. Any node can efficiently retrieve the value associated with a given
+key.
+--
+In computing, Chord is a protocol and algorithm for a peer-to-peer distributed hash table. A
+distributed hash table stores key-value pairs by assigning keys to different computers (known as
+"nodes"); a node will store the values for all the keys for which it is responsible. Chord specifies
+how keys are assigned to nodes, and how a node can discover the value for a given key by first
+locating the node responsible for that key.
+
+wide column store: like a two-dimensional key-value store.
+wide column store: It uses tables, rows, and columns, but unlike a relational database, the names
+and format of the columns can vary from row to row in the same table. A wide-column store can be
+interpreted as a two-dimensional key-value store.  store data in records with an ability to hold
+very large numbers of dynamic columns. the column names as well as the record keys are not
+fixed
+--
+Wide-column stores such as Bigtable and Apache Cassandra are not column stores in the original sense
+of the term, since their two-level structures do not use a columnar data layout. In genuine column
+stores, a columnar data layout is adopted such that each column is stored separately on
+disk. Wide-column stores do often support the notion of column families that are stored
+separately. However, each such column family typically contains multiple columns that are used
+together, similar to traditional relational database tables. Within a given column family, all data
+is stored in a row-by-row fashion, such that the columns for a given row are stored together, rather
+than each column being stored separately. Wide-column stores that support column families are also
+known as column family databases.
+
+The partition key is used for partitioning the data. Data with the same partition key is stored
+together, which allows you to query data with the same partition key in 1 query. The (optional) sort
+key determines the order of how data with the same partition key is stored. The partition key is
+responsible for distributing data among nodes.
+
+between Scylla and Charybdis is an idiom deriving from Greek mythology, which has been associated
+with the proverbial advice "to choose the lesser of two evils"

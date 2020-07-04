@@ -25,7 +25,13 @@ awk '{array[$0]++}END {for(i in array) print i, array[i]}'
 awk print array: for (key in array)  print key, array[key]
 
 #remove duplicate lines:
-awk '!array[$0]++' < file
+awk '!a[$0]++' < file
+--
+When a line with value “foo” comes the first time to awk, awk creates an associative array element: a[“foo”] with the default value: 0
+a[“foo”]++ returns the original value 0 and then increments its value by 1, so the expression returns 0 and then we have a[“foo”]=1
+!a[“foo”]++ will become !0, it is evaluated as true, thus, triggers the default action: print the current line
+When a line with “foo” comes again, the array element exists already, a[“foo”]++ will return 1 and hold 2
+!a[“foo”]++ this time will become !1, therefore we have false: do nothing. In this way, duplicated lines get printed only once
 
 #print last field
 awk '{print $NF}'
@@ -113,3 +119,9 @@ https://stackoverflow.com/questions/38972736/how-to-select-lines-between-two-pat
 The next statement forces awk to immediately stop processing the current record and go on to the
 next record. This means that no further rules are executed for the current record. The rest of the
 current rule's action is not executed either.
+
+awk '$NF!~/\.so/{next} {$0=$NF} !a[$0]++' /proc/<pid>/maps
+=> print /usr/lib/libpython3.8.so.1.0, etc
+$NF !~ /\.so/{next} – If the last column doesn’t contain “.so“, we ignore it
+{$0=$NF} – If the last column contains a shared library, we replace the line by the last column, which is the filename of the library
+!a[$0]++ - remove duplicate

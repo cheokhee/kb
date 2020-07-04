@@ -12,6 +12,7 @@ Useful when programming explicit algorithms is unfeasible.
 --> what ML does: find patterns in data. then use those patterns to predict the future
 --> ML -> predictive analytics
 --> ML: is defined by the problem being solved.
+--> ML: use a statistical model to make predictions
 
 features: like attributes
 labels: output
@@ -392,3 +393,7 @@ categorical features that are items from a fixed list.
 Density-based spatial clustering of applications with noise (DBSCAN) is a data clustering algorithm
 
 data munging
+
+supervised learning: the algorithm learns from labelled dataset.
+unsupervised learning: the algorithm tries to make sense out of unlabelled dataset.
+reinforcement learning: the algorithm learns from a system of reward and punishment.

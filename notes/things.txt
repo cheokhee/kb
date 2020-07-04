@@ -381,3 +381,7 @@ universal-ctags|setting to use Universal Ctags plug-in parser:\
 https://www.gnu.org/software/global/manual/global.html
 --
 universal ctags does not support reference tags??
+
+nm-online #find out if computer has network connection
+
+we are using package network-manager, /usr/sbin/NetworkManager, nmcli, nmtui

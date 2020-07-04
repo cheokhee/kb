@@ -93,6 +93,19 @@ https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/
 another DNS utility: drill
 drill www.google.com
 drill www.google.com @8.8.8.8
+----
+DNS lookup process:
+dig @198.41.0.4 github.com #198.41.0.4 is a root dns server, ask root nameserver:
+a.gtld-servers.net.     172800  IN      A       192.5.6.30
+---
+dig @192.5.6.30 github.com #ask .com nameserver about githumb.com:
+ns-421.awsdns-52.com.   172800  IN      A       205.251.193.165
+---
+dig @205.251.193.165 github.com #Ask the github.com nameservers about github.com:
+github.com.             60      IN      A       192.30.255.112
+# 60 means TTL (time to live) is 60 seconds
+---
+https://jvns.ca/blog/how-updating-dns-works/
 
 #dns resolution:
 systemd-resolve <hostname>
@@ -679,6 +692,18 @@ gdb -q <binary>
 -> info functions #show all functions
 -> disassemble <function name>
 -> disassemble /m <function name> #display source code as well (if available)
+--
+objdump -p /bin/ls
+objdump -p /bin/ls | grep NEEDED #list required shared libraries
+compare to ldd /bin/ls
+--
+the objdump command is dumping what the program itself lists as libraries. However, the ldd utility
+is listing which libraries ld.so would load. It follows the graph so that we can see what would be
+loaded by those libraries at runtime.  Therefore, compared to the objdump command, ldd gives a much
+better picture of what needs to be available at runtime.
+
+get the list of loaded shared libraries of a running process:
+cat /proc/<pid>/maps
 
 readlink: follow symbolic link
 readlink -e `which google-chrome`
@@ -1380,6 +1405,12 @@ tune2fs:  -m reserved-blocks-percentage (defaul: 5)
 tune2fs -m 2 /dev/sda1
 #sets the filesystem to have no reserved blocks,
 tune2fs -r 0 /dev/sda1
+---
+sudo tune2fs -l /dev/sda5 | grep -i reserved
+==>
+Reserved block count:     1177586
+Reserved block count x Block size = amount in Bytes
+https://www.redhat.com/sysadmin/disk-space
 
 partprobe - inform the OS of partition table changes
 
@@ -2514,6 +2545,19 @@ ls -1 | xargs
 # "{}" does not seem necessary
 find Downloads -name "DomTerm" -type d -print0 | xargs -0 /bin/rm -v -rf "{}"
 find . -name "net_stats" -type f -print0 | xargs -0 /bin/rm -v -rf "{}"
+---
+$ echo cheok hee | xargs -n 1 -t ls
+$ echo "cheok hee" | xargs -n 1 -t ls
+ls cheok
+ls hee
+===
+$ echo cheok hee | xargs -I{} -n 1 -t ls {}
+ls cheok hee
+$ echo cheok hee | xargs -I{} -t ls {}
+ls cheok hee
+
+--> don't mix -n and -I
+===================================
 
 dconf write /org/gnome/desktop/interface/cursor-size 48
 gsettings set com.ubuntu.user-interface.desktop cursor-size 48
@@ -2986,3 +3030,63 @@ curl -b JSESSIONID=517A027B9C96F92F0818A62295B93140 <URL>
 jbd2 is a kernel thread that updates the filesystem journal. Tracing filesystem or disk activity
 with the process that caused it is difficult because the activities of many processes are combined
 together.
+
+systemd-resolved:
+---
+Using the systemd DNS stub file - the systemd DNS stub file /run/systemd/resolve/stub-resolv.conf
+contains the local stub 127.0.0.53 as the only DNS server and a list of search domains. This is the
+recommended mode of operation.  The service users are advised to redirect the /etc/resolv.conf file
+to the local stub DNS resolver file /run/systemd/resolve/stub-resolv.conf managed by
+systemd-resolved.
+--
+systemd-resolved will be used automatically if /etc/resolv.conf is a symlink to
+/run/systemd/resolve/stub-resolv.conf, /run/systemd/resolve/resolv.conf or
+/usr/lib/systemd/resolv.conf
+--
+/etc/systemd/resolved.conf
+--
+/etc/resolv.conf is a symbolic link to /run/resolvconf/resolv.conf
+--
+systemd-resolve --status #same output as resolvectl
+resolvectl query github.com
+===
+/run/systemd/resolve/stub-resolv.conf:
+nameserver 127.0.0.53
+options edns0
+search attlocal.net
+===
+/run/resolvconf/resolv.conf:
+nameserver 127.0.0.53
+search attlocal.net
+
+There are 2 kinds of DNS servers: authoritative and recursive.
+authoritative DNS servers (also known as nameservers) have a database of IP addresses for each domain they’re responsible for
+--
+recursive DNS servers, by themselves, don’t know anything about who owns what IP address. They
+figure out the IP address for a domain by asking the right authoritative DNS servers, and then cache
+that IP address in case they’re asked again. 8.8.8.8 is a recursive DNS server.
+===
+https://www.iana.org/domains/root/files
+---
+Unbound is a validating, recursive, caching DNS resolver:
+https://github.com/NLnetLabs/unbound
+
+nm-online #check whether online
+
+===========
+send dhcp request from command line
+$ sudo nmap --script broadcast-dhcp-discover -e eth1
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-07-04 13:16 PDT
+Pre-scan script results:
+| broadcast-dhcp-discover:
+|   Response 1 of 1:
+|     IP Offered: 192.168.1.68
+|     DHCP Message Type: DHCPOFFER
+|     Server Identifier: 192.168.1.254
+|     IP Address Lease Time: 1d00h00m00s
+|     Renewal Time Value: 12h00m00s
+|     Rebinding Time Value: 21h00m00s
+|     Domain Name Server: 192.168.1.254
+|     Router: 192.168.1.254
+|     Subnet Mask: 255.255.255.0
+|_    Time Offset: 4294942096
