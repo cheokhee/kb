@@ -154,3 +154,6 @@ go build -x
 
 #list all the flags that can be passed to the compiler
 go tool compile -help
+
+#show available minor and patch upgrades available:
+go list -u -m all

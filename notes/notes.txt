@@ -13742,6 +13742,10 @@ Open Data Protocol (OData) is an open protocol which allows the creation and con
 queryable and interoperable RESTful APIs in a simple and standard way.
 
 A DTO is a server-side value object which stores data using the presentation layer representation.
+---
+DTOs are simple data containers with no significant logic, Value Objects are a “thing”, they
+represent a cohesive concept; they can wrap multiple attributes and the logic associated with them
+to fully encapsulate that single concept.
 
 In medicine, comorbidity is the presence of one or more additional conditions co-occurring with a
 primary condition;
@@ -14425,3 +14429,58 @@ responsible for distributing data among nodes.
 
 between Scylla and Charybdis is an idiom deriving from Greek mythology, which has been associated
 with the proverbial advice "to choose the lesser of two evils"
+
+The thermoelectric effect is the direct conversion of temperature differences to electric voltage
+and vice versa via a thermocouple. The term "thermoelectric effect" encompasses three separately
+identified effects: the Seebeck effect, Peltier effect, and Thomson effect.
+
+Clonus is a set of involuntary and rhythmic muscular contractions and relaxations.
+
+optimal stopping problem: use the 37% rule (look-then-leap)
+---
+spend the first 37% of your time or candidate on gathering data (don't make any decision),
+after that, be ready to commit if you see anything that is better than what comes before.
+--
+The 37-percent rule says that when you’re making a decision, you’ll have the highest chance of
+picking the very best option if you look at and reject the first 37 percent of your total group of
+options.
+--
+The 37-percent rule is all about spending just the right amount of time to make a decision that
+results in the best possible outcome.
+
+twin FOMO regrets: losing out on a candidate you have met (the one that got away); losing out on a
+candidate you have not yet met (the stone left unturned).
+
+a sunk cost is a cost that has already been incurred and cannot be recovered
+
+The sunk cost effect is the general tendency for people to continue an endeavor, or continue
+consuming or pursuing an option, if they’ve invested time or money or some resource in it.  That
+effect becomes a fallacy if it’s pushing you to do things that are making you unhappy or worse off.
+
+SQL WITH clause: subquery factoring: a tool for materializing subqueries
+
+hire for strength, not lack of weakness.
+
+cheek by jowl: close together
+
+copyright,trademark,patent: intellectual property rights
+--
+copyright: Artistic, literary or dramatic expressions such as songs, music, motion pictures, poetry,
+fiction and non-fiction writings, etc.  duration of the artist’s life plus 70 years. Right to
+reproduce or copy the works, distribute or broadcast the works to the public, and lend or rent the
+work.
+--
+trademark: A company or brand’s “mark” (e.g. its name, logo, motto etc.) which distinguishes it as
+the source of any services or goods.  Trademark laws last forever provided that the mark in question
+is actively in use by the source in commerce. Right to use and prevent use by other parties in a
+manner that is similar and creates confusion about the source.
+--
+patent: An invention which must be a manufactured product, an apparatus, chemical composition or a
+manufacturing process.  a maximum of 20 years. Right to use the invention and prevent others from
+using, recreating, importing or selling the patented invention.
+
+ipecac: used as an emetic
+
+In business, table stakes are the minimum entry requirement for a market or business arrangement.
+
+let a thousand flowers bloom: Encourage many ideas from many sources.

@@ -81,3 +81,6 @@ sed '/type/s/$/,/'
 sed '/type/a "required": true'
 #insert line before match
 sed '/description/i before line'
+
+#insert new line after specific string
+sed -e 's/ at/\n&/g'

@@ -172,3 +172,42 @@ jq ' .metadata.annotations | to_entries | map_values(.value="override-value") | 
 
 Set all values of subset of keys in a json object
 jq ' .metadata.annotations | to_entries | map(if .key | contains("label") then .value="kuku" else . end) | from_entries '
+
+$ echo '[{"n": "bob", "v": 100}, {"n": "jim", "v": 101}]' | jq -M 'map({name: .n, value: .v})'
+[
+  {
+    "name": "bob",
+    "value": 100
+  },
+  {
+    "name": "jim",
+    "value": 101
+  }
+]
+
+$ echo '[1, 2]' | jq 'reverse'
+[
+  2,
+  1
+]
+
+$ echo '[1, 2]' | jq 'add'
+3
+
+echo '[{"k1": "v1"}, {"k1": "v2"}]' | jq 'map(.k1)'
+[
+  "v1",
+  "v2"
+]
+
+echo '[{"k1": "v1"}, {"k1": "v2"}]' | jq 'map(select(.k1 == "v1"))'
+[{"k1":"v1"}]
+
+echo '[[1], [2]]' | jq 'flatten'
+[1,2]
+
+echo '[1, 2, 3]' | jq -c '[.[0], .[2]]'
+[1,3]
+
+echo '[1, 2, 3]' | jq -c '{k1: .[0], k2: .[2]}'
+{"k1":1,"k2":3}

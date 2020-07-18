@@ -793,6 +793,8 @@ $ pandoc -t plain README.md
 -f : specify input format
 -t : specify output format
 -o : write to a file
+---
+pandoc -s README.md #default output is html, -s: create <head>,<body>
 
 #write a tab literal in Bash command line
 $'\t'
