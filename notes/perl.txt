@@ -5,16 +5,28 @@ perldoc perlrun
 perl -i.bak -p -e 's/hee/cheok/' file1.txt
 perl -p -i.bkp -e 's/to replace/new text/g' **/*
 
+use $MATCH instead of $& ??                
+use $PREMATCH instead of $` ??
+use $POSTMATCH instead of $' ??
+
+$& is a special variable that holds the result of the latest match
+--
 #print string matched by the pattern
-perl -ne '/(.)\1/ && print "match: $&\n"'
+perl -ne '/RE/ && print "$MATCH\n"' <file> #not work
+perl -ne '/RE/ && print "$&\n"' <file> # work
 --another way:
 print matched string example
 $ echo -e "1234cheok\ncheo4566kie" | perl -n -e '/(\d+)/ && print "$1\n"'
 1234
 4566
 
+#print lines containing a regex
+perl -ne '/RE/ && print' <file>
+#print lines not containing a regex
+perl -ne '/RE/ || print' <file>
+
 #print string before the matched string
-perl -ne '/(.)\1/ && print "before match: $`\n"'
+perl -ne '/RE/ && print "before match: $`\n"'
 
 $': the string after the matched string
 

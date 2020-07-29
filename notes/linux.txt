@@ -3092,3 +3092,9 @@ Pre-scan script results:
 |     Router: 192.168.1.254
 |     Subnet Mask: 255.255.255.0
 |_    Time Offset: 4294942096
+
+if all file descriptors referring to the write end of a pipe have been closed, then an attempt to
+read from the pipe will see end-of-file (read() will return 0).  If all file descriptors referring
+to the read end of a pipe have been closed, then a write() will cause a SIGPIPE signal to be
+generated for the calling process.  If the calling process is ignoring this signal, then write()
+fails with the error EPIPE.

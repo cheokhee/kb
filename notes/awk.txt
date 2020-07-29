@@ -125,3 +125,6 @@ awk '$NF!~/\.so/{next} {$0=$NF} !a[$0]++' /proc/<pid>/maps
 $NF !~ /\.so/{next} – If the last column doesn’t contain “.so“, we ignore it
 {$0=$NF} – If the last column contains a shared library, we replace the line by the last column, which is the filename of the library
 !a[$0]++ - remove duplicate
+
+#specify : and . as field delimiter
+awk -F[:.]

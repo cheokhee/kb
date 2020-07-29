@@ -227,3 +227,32 @@ don’t have to manually manage the monitoring of the cluster.
 
 a deployment is responsible for keeping a set of pods running.
 the service is responsible for enabling network access to a set of pods.
+
+A stateless application is one which depends on no persistent storage. The only thing your cluster
+is responsible for is the code, and other static content, being hosted on it. That’s it, no changing
+databases, no writes and no left over files when the pod is deleted.
+
+A stateful application, on the other hand, has several other parameters it is supposed to look after
+in the cluster. There are dynamic databases which, even when the app is offline or deleted, persist
+on the disk.
+
+On a Kubernetes cluster, a stateless application has no persistent storage or volume associated with
+it.
+
+If a container stores data on locally mounted drives (or block device), the underlying storage would
+have to be moved to the new node alongwith the container itself - in case of a failure. This is
+important, otherwise the application running in the container can’t function properly because it
+needs to refer to the data it stored on the local mounts. Such containers are stateful.
+
+kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
+
+The Kubernetes Master is a collection of three processes that run on a single node in your cluster,
+which is designated as the master node. Those processes are: kube-apiserver, kube-controller-manager
+and kube-scheduler.
+===
+Each individual non-master node in your cluster runs two processes:
+kubelet, which communicates with the Kubernetes Master.
+kube-proxy, a network proxy which reflects Kubernetes networking services on each node.
+
+A Pod is the basic execution unit of a Kubernetes application. Each Pod represents a part of a
+workload that is running on your cluster.

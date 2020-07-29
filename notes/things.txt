@@ -212,6 +212,8 @@ factor
 aafire
 sysvbanner
 
+surfraw
+
 lynis: Scan your Linux security
 
 =========== end of packages ==============

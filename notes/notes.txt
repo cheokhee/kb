@@ -6166,6 +6166,11 @@ Can only happen if the called function is in the tail position.
 Database sharding: a shared-nothing, horizontal partitioning scheme for large databases.
 A large database is divided into multiple smaller databases. Rows of a table are distributed
 among these smaller databases.
+---
+when you distribute a table in a SQL database, you typically pick a column, which is the
+distribution column or partition column and then the data is going to get divided into shards and
+each shard contains a particular range of distribution column values or sometimes a range of hashes
+of distribution column values.
 
 Helper method: a method that can be called from many places to perform some task.
 
@@ -10972,6 +10977,12 @@ multiplexers, and a variety of metropolitan area network (MAN) and wide area net
 devices.
 --
 move computation that's currently centralized inside the cloud back to the edge in a distributed manner.
+--
+edge computing pushes most of the data processing out to the edge of the network, close to the source of the data
+--
+Edge computing is about putting processing and data near the end points. This saves the information
+from being transmitted from the point of consumption, such as a robot on a factory floor, back to
+centralized computing platforms, such as a public cloud. reduce latency.
 
 portable hotspot taps into 3G and/or 4G cellular networks, just like a smartphone does, and then
 wirelessly shares its data connection with other nearby (within 30 feet or so) Wi-Fi-enabled
@@ -14484,3 +14495,148 @@ ipecac: used as an emetic
 In business, table stakes are the minimum entry requirement for a market or business arrangement.
 
 let a thousand flowers bloom: Encourage many ideas from many sources.
+
+A clustered index defines the order in which data is physically stored in a table. Therefore table
+can have only one clustered index. The leaf nodes of a clustered index contain the data pages.  A
+non-clustered index doesn’t sort the physical data inside the table. In fact, a non-clustered index
+is stored at one place and table data is stored in another place. non-clustered index is a special
+type of index in which the logical order of the index does not match the physical stored order of
+the rows on disk. The leaf node of a non-clustered index does not consist of the data
+pages. Instead, the leaf nodes contain index rows. Data is organized according to the index. The
+idea of clustered indexes is to store a complete table in a B-tree structure. The index is the
+table. The table is the index.
+
+Heap-organized table: A table in which the data rows are stored in no particular order on
+disk. Index-organized table: has a clustered index.
+
+Two Level Scheduling:
+scheduling when the process may or may not be in memory
+requires a way for the scheduler to know whether the process has been swapped out
+---
+a lower-level scheduler which can only select among those processes in memory to run. That scheduler
+could be a Round-robin scheduler. The other scheduler is the higher-level scheduler whose only
+concern is to swap in and swap out processes from memory. It does its scheduling much less often
+than the lower-level scheduler since swapping takes so much time.
+--
+Thus, the higher-level scheduler selects among those processes in memory that have run for a long
+time and swaps them out. They are replaced with processes on disk that have not run for a long
+time.
+
+n-gram is a contiguous sequence of n items from a given sample of text or speech. The items can be
+phonemes, syllables, letters, words or base pairs according to the application. The n-grams
+typically are collected from a text or speech corpus.
+1-gram: unigram, 2-gram: bigram, 3-gram: trigram
+example:
+San Francisco (is a 2-gram)
+The Three Musketeers (is a 3-gram)
+
+Trigram search is a method of searching for text when the exact syntax or spelling of the target
+object is not precisely known. It finds objects which match the maximum number of three-character
+strings in the entered search terms, i.e., near matches
+-
+A classical tree index allows exact match queries (eg. x='qqq'), range queries (eg. x >= 10
+and x <= 100) and prefix match queries (eg. x >= 'abc’).
+-
+The idea of trigram index is rather simple. Assume that we have a string key 'qwerty'. The string is
+split into trigrams: sequences of three subsequent characters: "qwe", "wer", "ert", "rty". These
+trigrams are stored in a normal tree index. Now consider a query looking for the substring
+"wert". The query condition is also split into trigrams: "wer" and "ert". The search then is looking
+for these trigrams in the index. The result of the lookup is two lists of objects -- so called
+inverse lists. The next step is to join these lists: i.e. to find objects which are present in both
+lists.
+-
+There is no guarantee that the objects that were found through this algorithm actually contain the
+"wert" substring yet. For example, it could be "werrert". So the next step in the lookup process is
+to recheck that the object really matches the given regular expression.
+-
+The main limitation of the trigram index is clear from the description above: it cannot be used for
+substrings shorter than 3. For example the pattern '%01%' requires a sequential search even if the
+trigram index is present.
+-
+The trigram index can be used to locate objects containing a specified substring and regular
+expression matching; similar to the LIKE operator in SQL. In the case of the LIKE operator the
+runtime just extracts the longest substring from the pattern excluding wildcards and performs a
+search for this substring, and then performs a regular expression match for all selected objects. It
+is also possible to use the trigram index for an exact match lookup, especially if there are no
+other indexes declared for the data set.
+
+DAMP principle stands for "Descriptive and Meaningful Phrases"
+
+A good decision is risking little for the opportunity to gain a lot.
+a bad decision is risking a lot for the opportunity to gain little.
+
+batch processing: a computation is performed over a large, static data set.
+stream processing: a computation is performed repeatedly and continously over a data set
+that is being appended to.
+--
+a stream is often stored in a distributed queue such as Kafka, Kinesis, Pulsar, Google PubSub.
+stream processing tool: Spark, Flink, Storm, Google Cloud Dataflow.
+
+RUM (Read,Update,Memory) conjecture
+when designing a new database access method, we want to minimize (i) read times (R), ii) update cost
+(U), and iii) memory (or storage) overhead (M). The RUM conjecture says that when optimizing the
+read-update-memory overheads, optimizing in any two areas negatively impacts the third.
+
+Fan-out:
+in message-oriented middleware solutions, fan-out is a messaging pattern used to model an
+information exchange that implies the delivery (or spreading) of a message to one or multiple
+destinations possibly in parallel.
+--
+In software construction, the fan-out of a class or method is the number of other classes used by
+that class or the number of other methods called by that method.
+
+a network switch creates a network while a router connects networks.
+network switches allow different devices on a network to communicate, routers
+allow different networks to communicate.
+network switch is Layer-2 device, router is a Layer-3 device
+
+Lambda architecture is a data-processing architecture designed to handle massive quantities of data
+by taking advantage of both batch and stream-processing methods. This approach to architecture
+attempts to balance latency, throughput, and fault-tolerance by using batch processing to provide
+comprehensive and accurate views of batch data, while simultaneously using real-time stream
+processing to provide views of online data. The two view outputs may be joined before
+presentation.
+--
+Lambda architecture depends on a data model with an append-only, immutable data source that serves
+as a system of record. It is intended for ingesting and processing timestamped events that are
+appended to existing events rather than overwriting them. State is determined from the natural
+time-based ordering of the data.
+--
+Kappa architecture: alternative to lambda architecture
+
+log-structured merge-tree (or LSM tree) is a data structure with performance characteristics that
+make it attractive for providing indexed access to files with high insert volume, such as
+transactional log data.
+
+PEBKAC: problem exists between keyboard and chair (user error)
+
+A common table expression (CTE) is a named temporary result set that exists within the  scope of a
+single  statement and  that  can be  referred  to  later within  that  statement, possibly  multiple
+times.
+oracle example:
+WITH
+  cte1 AS (SELECT a, b FROM table1),
+  cte2 AS (SELECT c, d FROM table2)
+SELECT b, d FROM cte1 JOIN cte2
+WHERE cte1.a = cte2.c;
+
+progressive delivery: a modified version of continuous delivery. First: progressive delivery teams
+use feature flags to increase speed and decrease deployment risk. Second: they implement a gradual
+process for both rollout and ownership.
+
+constraints liberate, liberties constrain
+
+Anemic domain model is the use of a software domain model where the domain objects contain little or
+no business logic
+
+Word2vec is a two-layer neural net that processes text by “vectorizing” words. Its input is a text
+corpus and its output is a set of vectors: feature vectors that represent words in that
+corpus. While Word2vec is not a deep neural network, it turns text into a numerical form that deep
+neural networks can understand
+-
+Word2vec is a group of related models that are used to produce word embeddings. These models are
+shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of
+words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of
+several hundred dimensions, with each unique word in the corpus being assigned a corresponding
+vector in the space. Word vectors are positioned in the vector space such that words that share
+common contexts in the corpus are located close to one another in the space
