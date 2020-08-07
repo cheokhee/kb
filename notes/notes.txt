@@ -9302,12 +9302,6 @@ processors or hardware accelerators.
 ---
 The open standard for parallel programming of heterogeneous systems
 
-Lambda architecture is a data-processing architecture designed to handle massive quantities of data
-by taking advantage of both batch- and stream-processing methods. This approach to architecture
-attempts to balance latency, throughput, and fault-tolerance by using batch processing to provide
-comprehensive and accurate views of batch data, while simultaneously using real-time stream
-processing to provide views of online data. The two view outputs may be joined before presentation.
-
 Stream processing : refers to a method of continuous computation that happens as
 data is flowing through the system.
 
@@ -14640,3 +14634,12 @@ words. Word2vec takes as its input a large corpus of text and produces a vector 
 several hundred dimensions, with each unique word in the corpus being assigned a corresponding
 vector in the space. Word vectors are positioned in the vector space such that words that share
 common contexts in the corpus are located close to one another in the space
+
+Big O notation tells you how fast the running time grows as the input size grows.
+O(log n): binary search
+O(n): simple search
+O(n*log n): a fast sorting algorithm, quicksort
+O(n^2): a slow sorting algorithm, selection sort
+O(n!): traveling salesman
+--
+merge sort vs quicksort

@@ -15,3 +15,25 @@ developmentOnly 'org.springframework.boot:spring-boot-devtools'
 runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.5.4'
 
 https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/html/using-boot-devtools.html
+
+https://discuss.gradle.org/t/how-to-set-compiler-options/10188
+gradle java compiler options
+===
+compileJava {
+    options.warnings = false
+    options.deprecation = false
+    options.compilerArgs += ["-Xdoclint:none", "-Xlint:none", "-nowarn"]
+}
+compileJava {
+    options.compilerArgs << '-Xlint:unchecked'
+}
+
+#add JVM options to gradle: works!
+GRADLE_OPTS="-XX:+PrintCommandLineFlags" SPRING_PROFILES_ACTIVE=local,local-oracle ./gradlew bootRun
+--
+== the followings do not work
+applicationDefaultJvmArgs = ["-Xms1024m", "-Xmx2048m"]
+-
+bootRun {
+   jvmArgs = "-XX:+PrintCommandLineFlags"
+}

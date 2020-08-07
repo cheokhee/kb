@@ -215,6 +215,7 @@ sysvbanner
 surfraw
 
 lynis: Scan your Linux security
+hwloc (cmd: lstopo, lstopo-no-graphics, hwloc-info)
 
 =========== end of packages ==============
 

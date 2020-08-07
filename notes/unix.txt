@@ -1139,6 +1139,8 @@ exiftool
 #-n: don't convert IP address, -P: don't convert port number
 lsof -nPi tcp:2525
 lsof -i tcp:80 #see which process is using port 80
+lsof -i:8181 #see which process is using port 8181 (simplest way)
+lsof -nPi:8181 #see which process is using port 8181 (second simplest way)
 #list process id listening on port 7474
 lsof -i:7474 -sTCP:LISTEN -t
 #-i: show only network-related files, -P: show port numbers instead of names

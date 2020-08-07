@@ -395,5 +395,8 @@ Density-based spatial clustering of applications with noise (DBSCAN) is a data c
 data munging
 
 supervised learning: the algorithm learns from labelled dataset.
-unsupervised learning: the algorithm tries to make sense out of unlabelled dataset.
+unsupervised learning: the algorithm tries to make sense out of unlabelled dataset. two types:
+  clustering, dimensionality reduction.
+semi-supervised learning: hybrid learning between supervised and unsupervised learning.
+  combination of labelled and unlabelled dataset.
 reinforcement learning: the algorithm learns from a system of reward and punishment.
