@@ -7986,6 +7986,9 @@ DP: make a global optimization. pick the best solution from a collection of solu
 bottom-up
 globally optimal choice
 greedy algorithm: make the decision that seems most promising at any moment
+---
+NP-complete problems have no known fast solution.
+if you have an NP-complete problem, best bet is to use an approximation algorithm.
 
 hysteresis: the dependence of the output of a system not only on its current input, but also on its
 history of past inputs. The dependence arises because the history affects the value of an internal state.
@@ -10768,6 +10771,13 @@ polynomial time complexity: An algorithm is said to be solvable in polynomial ti
 steps required to complete the algorithm for a given input is O(n^k), where n is the complexity of
 the input and k is a non-negative integer. Polynomial-time algorithms are said to be "fast"
 --
+polynomial time describes any run time that does not increase faster than n^k, which includes
+constant time (n^0), logarithmic time (log n), linear time (n^1), quadratic time (n^2), and other
+higher degree polynomials (like n^3).
+--
+Superpolynomial time describes any run time that does increase faster than n^k, which includes
+exponential time (2^n), factorial time (n!)
+--
 NP (which stands for nondeterministic polynomial time) is the set of problems whose solutions can be
 verified in polynomial time. But as far as anyone can tell, many of those problems take exponential
 time to solve.
@@ -13539,6 +13549,7 @@ typically by manipulating Internet Banking Services.
 An inverted index is an index data structure storing a mapping from content, such as words or
 numbers, to its locations in a document or a set of documents. In simple words, it is a hashmap like
 data structure that directs you from a word to a document or a web page
+inverted index: map words to places where they appear.
 in contrast to a forward index, which maps from documents to content.
 
 HVM is an open-source virtual machine designed for executing programs written in Hack, a dialect of PHP.
@@ -14531,13 +14542,12 @@ strings in the entered search terms, i.e., near matches
 A classical tree index allows exact match queries (eg. x='qqq'), range queries (eg. x >= 10
 and x <= 100) and prefix match queries (eg. x >= 'abc’).
 -
-The idea of trigram index is rather simple. Assume that we have a string key 'qwerty'. The string is
-split into trigrams: sequences of three subsequent characters: "qwe", "wer", "ert", "rty". These
-trigrams are stored in a normal tree index. Now consider a query looking for the substring
-"wert". The query condition is also split into trigrams: "wer" and "ert". The search then is looking
-for these trigrams in the index. The result of the lookup is two lists of objects -- so called
-inverse lists. The next step is to join these lists: i.e. to find objects which are present in both
-lists.
+Assume that we have a string key 'qwerty'. The string is split into trigrams: sequences of three
+subsequent characters: "qwe", "wer", "ert", "rty". These trigrams are stored in a normal tree
+index. Now consider a query looking for the substring "wert". The query condition is also split into
+trigrams: "wer" and "ert". The search then is looking for these trigrams in the index. The result of
+the lookup is two lists of objects -- so called inverse lists. The next step is to join these lists:
+i.e. to find objects which are present in both lists.
 -
 There is no guarantee that the objects that were found through this algorithm actually contain the
 "wert" substring yet. For example, it could be "werrert". So the next step in the lookup process is
@@ -14643,3 +14653,75 @@ O(n^2): a slow sorting algorithm, selection sort
 O(n!): traveling salesman
 --
 merge sort vs quicksort
+
+set-covering problem:
+
+You must select a minimum number [of any size set] of these sets so that the sets you have picked
+contain all the elements that are contained in any of the sets in the input.
+Additionally, you want to minimize the cost of the sets.
+example:
+you want to reach listeners in all 50 states and you need to decide which stations to play on.
+each station can reach multiple states and there is overlap between stations.
+station1: CA,WA,OR
+station2: CA,NV,NM
+station3: NM,TX,OK
+...
+the problem is to pick the minimum number of stations to cover all 50 states
+steps:
+1. list every possible subsets of stations (power set).
+2. from the power set, pick the set with the smallest # of stations that cover all 50 states.
+
+https://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems
+
+power set: the set of all subsets of a set.
+example:
+If S is the set {x, y, z}, then the subsets of S are
+{}
+{x}
+{y}
+{z}
+{x, y}
+{x, z}
+{y, z}
+{x, y, z}
+and hence the power set of S is {{}, {x}, {y}, {z}, {x, y}, {x, z}, {y, z}, {x, y, z}}
+# of subsets: 2^n (n is the number of elements in the original set)
+
+pronated: of a hand, foot, or limb) turned or held so that the palm or sole is facing downward or inward.
+
+Fourier transform:
+What does the Fourier Transform do? Given a smoothie, it finds the recipe.
+How? Run the smoothie through filters to extract each ingredient.
+Why? Recipes are easier to analyze, compare, and modify than the smoothie itself.
+How do we get the smoothie back? Blend the ingredients.
+--
+The Fourier Transform takes a time-based pattern, measures every possible cycle, and returns the
+overall "cycle recipe" (the amplitude, offset, & rotation speed for every cycle that was found).
+
+Diffie-Hellman key exchange:  method of securely exchanging cryptographic keys over a public channel
+
+Bloom filter is a probabilistic data structure designed to tell you, rapidly and memory-efficiently,
+whether an element is present in a set. it tells us that the element either definitely is not in the
+set or may be in the set. false positives are possible. false negatives are not possible.
+--
+HyperLogLog: an algorithm for the count-distinct problem. approximates the number of unique
+elements in a set.
+
+longest common substring problem is to find the longest string (or strings) that is a substring (or
+are substrings) of two or more strings.
+--
+longest common subsequence (LCS) problem is the problem of finding the longest subsequence common to
+all sequences in a set of sequences (often just two sequences). It differs from the longest common
+substring problem: unlike substrings, subsequences are not required to occupy consecutive positions
+within the original sequences.
+
+SimHash is a technique for quickly estimating how similar two sets are. The algorithm is used by the
+Google Crawler to find near duplicate pages
+
+a word vector is a row of real valued numbers (as opposed to dummy numbers) where each point
+captures a dimension of the word’s meaning and where semantically similar words have similar
+vectors.
+Word vectors are simply vectors of numbers that represent the meaning of a word
+
+invert a binary tree: An inversion, or mirror, of a Binary Tree, is just a Binary Tree whose left
+and right children (of all non-leaf nodes) are swapped.
