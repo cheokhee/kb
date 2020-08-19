@@ -127,3 +127,8 @@ apt-cache showpkg <pkg name>
 apt-cache stats
 
 apt --fix-broken install
+
+#show reverse dependencies
+apt rdepends <pkg>
+#show reverse dependencies and dependencies
+apt-cache showpkg <pkg>

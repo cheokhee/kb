@@ -304,3 +304,30 @@ M-x customize-face , mode-line-buffer-id
 M-. runs the command ggtags-find-tag-dwim (found in ggtags-mode-map)
 
 variable buffer-file-name contains the full path of current buffer
+
+xterm-mouse-mode
+in a terminal emulator which is compatible with xterm , you can use M-x xterm-mouse-mode to enable
+simple use of the mouse--only single clicks are supported. The normal xterm mouse functionality is
+still available by holding down the SHIFT key when you press the mouse button.
+
+artist-mode:
+mouse middle click: menu
+right-click: like an eraser (go to pen mode)
+C-c C-c : exit artist mode
+C-C C-a : artist mode prefix
+After having drawn a (straight) line or a (straight) poly-line, you can set arrows on the line-ends by typing < or >.
+--
+http://www.lysator.liu.se/~tab/artist/
+https://writequit.org/denver-emacs/presentations/2016-04-19-whats-new-emacs25-ditaa-artist.html
+http://dinasis.com/oliver/Learning_GNU_Emacs/gnu3-CHP-7-SECT-6.html
+--
+ditta: convert ascii art to image
+http://ditaa.sourceforge.net/
+https://github.com/stathissideris/ditaa
+https://www.johndcook.com/blog/2016/06/14/ascii-art-diagrams/
+https://www.johndcook.com/blog/2016/06/15/ascii-art-diagrams-in-emacs-org-mode/
+
+M-x untabify: convert all tabs to spaces
+
+search for non-ascii character (if you know the unicode code point in hex)
+start search by typing C-s, which in search mode type C-x 8 <RET>, then enter hex unicode (e.g. 8a31)

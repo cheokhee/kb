@@ -2767,6 +2767,8 @@ XDG_CACHE_HOME : default:$HOME/.cache
 ===
 where runtime files should be stored:
 XDG_RUNTIME_DIR=/run/user/1000
+---
+XDG_SESSION_TYPE: wayland or x11
 
 Cgroups provide a way to limit the amount of resources like CPU and memory that each container can
 use.
@@ -3107,3 +3109,9 @@ read from the pipe will see end-of-file (read() will return 0).  If all file des
 to the read end of a pipe have been closed, then a write() will cause a SIGPIPE signal to be
 generated for the calling process.  If the calling process is ignoring this signal, then write()
 fails with the error EPIPE.
+
+ip -br a
+
+sha256sum --ignore-missing -c sha256sum.txt
+
+udisksctl info --block-device /dev/sda

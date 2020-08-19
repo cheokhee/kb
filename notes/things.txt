@@ -216,6 +216,16 @@ surfraw
 
 lynis: Scan your Linux security
 hwloc (cmd: lstopo, lstopo-no-graphics, hwloc-info)
+entr: run commands when files change (package: entr)
+https://www.cloudsavvyit.com/5736/how-to-run-a-linux-command-when-a-file-set-changes/
+
+im-config: ibus-related
+input method environment variables:
+LUTTER_IM_MODULE=ibus
+GTK_IM_MODULE=ibus
+QT4_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+======
 
 =========== end of packages ==============
 
@@ -388,3 +398,52 @@ universal ctags does not support reference tags??
 nm-online #find out if computer has network connection
 
 we are using package network-manager, /usr/sbin/NetworkManager, nmcli, nmtui
+
+2020-08-11:
+turn off from lxqt-config
+/etc/xdg/autostart/geoclue-demo-agent.desktop
+/etc/xdg/autostart/print-applet.desktop
+pam_kwallet_init.desktop
+/etc/xdg/autostart/spice-vdagent.desktop
+
+
+lxqt-config:  Warning: Icon theme "elementary" not found.
+--
+https://github.com/KittyKatt/screenFetch/issues/497
+--
+solution: do locate index.theme
+changed /usr/share/icons/ePapirus/index.theme
+from:
+Inherits=elementary,gnome,hicolor
+to:
+Inherits=gnome,hicolor
+
+2020-08-14:
+discover this process: unattended-upgr
+remove package: unattended-upgrades
+
+2020-08-15:
+remove package evolution-data-server-common
+triggered removal of:
+abiword evolution-data-server-common libabiword-3.0 libebook-contacts-1.2-3 libedataserver-1.2-24
+--
+remove package libkf5wallet-bin
+triggered removal of:
+ark bluedevil breeze drkonqi frameworkintegration k3b kaccounts-providers kactivitymanagerd
+kde-cli-tools kde-config-screenlocker kde-config-sddm kde-style-oxygen-qt5 kdeconnect keditbookmarks
+khelpcenter khotkeys kinfocenter kinit kio kio-extras kmenuedit kpackagelauncherqml kscreen
+ksshaskpass ksysguard ktexteditor-katepart kwalletmanager kwin-common kwin-x11 libcolorcorrect5
+libk3b7 libk3b7-extracodecs libkf5cddb5 libkf5declarative5 libkf5kcmutils5 libkf5kdelibs4support5
+libkf5kdelibs4support5-bin libkf5khtml-bin libkf5khtml5 libkf5newstuff5 libkf5newstuffcore5
+libkf5notifyconfig5 libkf5parts-plugins libkf5parts5 libkf5plasma5 libkf5plasmaquick5
+libkf5purpose-bin libkf5purpose5 libkf5quickaddons5 libkf5runner5 libkf5texteditor5 libkf5wallet-bin
+libkscreenlocker5 libkwin4-effect-builtins1 libkwineffects12 libnotificationmanager1 libprocessui7
+libtaskmanager6 libweather-ion7 milou muon partitionmanager plasma-browser-integration
+plasma-desktop plasma-discover plasma-discover-backend-fwupd plasma-framework plasma-integration
+plasma-pa plasma-thunderbolt plasma-workspace powerdevil qapt-deb-installer
+qml-module-org-kde-draganddrop qml-module-org-kde-kcm qml-module-org-kde-kconfig
+qml-module-org-kde-kcoreaddons qml-module-org-kde-kio qml-module-org-kde-kirigami2
+qml-module-org-kde-kquickcontrols qml-module-org-kde-kquickcontrolsaddons
+qml-module-org-kde-kwindowsystem qml-module-org-kde-newstuff qml-module-org-kde-purpose
+qml-module-org-kde-qqc2desktopstyle qml-module-org-kde-runnermodel quassel sddm-theme-breeze
+systemsettings user-manager

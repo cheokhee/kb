@@ -2359,6 +2359,9 @@ cross-domain requests: allow a web page to request data from a server in a diffe
 CORS: allowing Javascript on a web page to consume a REST API served from a different origin.
 servers can implement CORS
 --
+Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page
+to be requested from another domain outside the domain from which the first resource was served
+--
 In the simplest scenario, cross-origin communications starts with a client making a GET, POST, or
 HEAD request against a resource on the server. In this scenario, the content type of a POST request
 is limited to application/x-www-form-urlencoded, multipart/form-data, or text/plain. The request
@@ -7510,7 +7513,7 @@ O(1): order 1, constant time
 O(n): order N, linear time
 O(N^2): order N squared, quadratic time
 O(logN): order log N, logarithm time
-O(nlogN): order n log N, proportional to the size of the problem and logarithmic time.
+O(nlogN): order n log N, proportional to the size of the problem and logarithmic time. linearithmic time.
 O(N!): factorial time
 
 unit test: set up data to support the test.
@@ -9953,6 +9956,8 @@ environment (DE) or be used standalone.
 A compositing window manager is a window manager that provides applications with an off-screen
 buffer for each window. The window manager composites the window buffers into an image representing
 the screen and writes the result into the display memory.
+maintaining an off-screen buffer makes it easy to add special effects such as transparency, transition
+animation.
 
 First lightly read through the chapters, highlighting or underlining the key concepts in each
 chapter that seem the most important. then apply Feynman technique:
@@ -14725,3 +14730,52 @@ Word vectors are simply vectors of numbers that represent the meaning of a word
 
 invert a binary tree: An inversion, or mirror, of a Binary Tree, is just a Binary Tree whose left
 and right children (of all non-leaf nodes) are swapped.
+
+Head-of-line blocking (HOL blocking) in computer networking is a performance-limiting phenomenon
+that occurs when a line of packets is held up by the first packet. Examples include input buffered
+network switches, out-of-order delivery and multiple requests in HTTP pipelining. It can happen
+specially in input buffered network switches where out-of-order delivery of packets can occur. A
+switch can be composed of input buffered ports, output buffered ports and switch fabric.
+--
+https://howdoesinternetwork.com/2015/hol-head-of-line-blocking
+
+in database systems, Collation specifies how data is sorted and compared in a database. Collation
+provides the sorting rules, case, and accent sensitivity properties for the data in the database
+
+sorting algorithms comparison:
+|----------------+-------+---------+-------+---------------------------------|
+| algorithm      | best  | average | worst | concepts                        |
+|----------------+-------+---------+-------+---------------------------------|
+| bucket sort    | n     | n       | n     | hash                            |
+| heap sort      | nlogn | nlogn   | nlogn | recursion,binary heap           |
+| insertion sort | n     | n^2     | n^2   | greedy                          |
+| merge sort     | nlogn | nlogn   | nlogn | recursion,stable,divide&conquer |
+| quicksort      | nlogn | nlogn   | n^2   | recursion,divide&conquer        |
+| selection sort | n^2   | n^2     | n^2   | greedy                          |
+|----------------+-------+---------+-------+---------------------------------|
+
+searching algorithms comparison:
+|------------------------+------+---------+-------+----------------------|
+| algorithm              | best | average | worst | concepts             |
+|------------------------+------+---------+-------+----------------------|
+| AVL binary search tree |    1 | logn    | logn  | binary tree,balanced |
+| sequential search      |    1 | n       | n     | brute force          |
+| binary search          |    1 | logn    | logn  | divide&conquer       |
+| bloom filter           |    k | k       | k     | false positive       |
+| hash-based search      |    1 | 1       | n     | hash                 |
+| binary search tree     |    1 | logn    | n     | binary tree          |
+|------------------------+------+---------+-------+----------------------|
+
+Pathfinding or pathing is the plotting, by a computer application, of the shortest route between two points
+
+SR-IOV is a specification that allows a PCI Express (PCIe) device to appear to be multiple separate
+physical PCIe devices.
+
+Business intelligence software is a set of tools used by companies to retrieve, analyze, and
+transform data into useful business insights. Examples of business intelligence tools include data
+visualization, data warehousing, dashboards, and reporting.
+
+Optical coherence tomography (OCT) is a non-invasive imaging test. OCT uses light waves to take
+cross-section pictures of your retina
+
+anechoic chamber

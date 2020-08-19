@@ -32,3 +32,20 @@ use fdisk /dev/sda to add new partitions
 format command: mkfs.ext4
 make swap: mkswap
 alternatively, can format during installation.
+
+MBR last word: 55aa
+
+sudo parted -l
+-->
+#this means MBR
+Partition Table: msdos
+
+#check if MBR or GPT
+sudo gdisk -l /dev/sda
+
+other tools:
+gpart
+
+#check partition alignment
+1. sudo parted /dev/sda
+2. then do: align-check opt 5  #5 is the partition #, /dev/sda5

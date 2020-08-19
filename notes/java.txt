@@ -2028,3 +2028,19 @@ ifPresent(Consumer<? super T> action)
 ifPresentOrElse()
 --
 https://blogs.oracle.com/javamagazine/12-recipes-for-using-the-optional-class-as-its-meant-to-be-used
+
+https://www.baeldung.com/java-size-of-object
+--
+Minimum object size is 16 bytes for modern 64-bit JDK since the object has 12-byte header, padded to
+a multiple of 8 bytes.
+--
+References have a typical size of 4 bytes on 64-bits platforms with heap boundary less than 32Gb
+(-Xmx32G), and 8 bytes for this boundary above 32Gb.
+--
+Especially relevant is to note that boxed types, arrays, Strings and other containers like
+multidimensional arrays are memory costly since they add certain overhead. For example, when we
+compare int primitive (which consumes only 4 bytes) to the Integer object which takes 16 bytes, we
+see that there is 300% memory overhead.
+--
+One way to get an estimate of an object's size in Java is to use getObjectSize(Object) method of the
+Instrumentation interface introduced in Java 5.
