@@ -13,6 +13,9 @@ C-c C-f/b: move to next/prev heading (same level)
 commands: org-insert-heading, org-insert-heading-after-current, org-insert-subheading
 M-left/right : promote/demote current heading
 M-up/down: move subtree up/down
+M-S-up/down: move line up/down
+
+To learn more: M-x org-info
 
 link: [[http://google.com][google]] (edit a link: C-c C-l)
 C-c C-o: open link
@@ -43,3 +46,8 @@ C-c | : create an empty table OR convert a region to a table
 
 * TODO get up
 Use C-c C-t to change TODO state
+
+In checklist, put [/] or [%]
+* checklist [1/2],[50%]
+  - [ ] buy milk (C-c C-c to toggle)
+  - [X] buy bread

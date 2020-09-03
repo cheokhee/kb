@@ -17,6 +17,7 @@ cache: /var/cache/pacman
 paccache -r #clean up pacman cache
 
 pacman -Qe	#List explictly-installed packages
+pacman -Qd	#List dependencies (implicitly-installed packages)
 pacman -Ql <pkg>	#What files does this package have?
 pacman -Qii <pkg>	#List information on installed package
 pacman -Qo <file>	#Who owns this file?

@@ -2044,3 +2044,11 @@ see that there is 300% memory overhead.
 --
 One way to get an estimate of an object's size in Java is to use getObjectSize(Object) method of the
 Instrumentation interface introduced in Java 5.
+
+https://shipilev.net/jvm/objects-inside-out/
+https://openjdk.java.net/projects/code-tools/jol/
+wget https://repo.maven.apache.org/maven2/org/openjdk/jol/jol-cli/0.10/jol-cli-0.10-full.jar -O jol-cli.jar
+--
+sudo java -jar -Djdk.attach.allowAttachSelf jol-cli.jar internals java.lang.Object
+
+Java: Unsafe, JVMTI, and Serviceability Agent (SA)

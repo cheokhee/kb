@@ -105,6 +105,9 @@ dig @205.251.193.165 github.com #Ask the github.com nameservers about github.com
 github.com.             60      IN      A       192.30.255.112
 # 60 means TTL (time to live) is 60 seconds
 ---
+#
+dig without any argument will do "dig NS ." #show the NS record for root server
+---
 https://jvns.ca/blog/how-updating-dns-works/
 
 #dns resolution:
@@ -261,6 +264,10 @@ $ printf "%d" "'a"
 $ printf "%x" "'a"
 61
 'a -> convert a to its ascii code
+#print unicode
+printf "\u8a31\n"
+or
+printf "\U8A31\n"
 
 need cifs-utils to access windows server, then do: sudo mount -t cifs -o username=heech //snt2/isdc ~/j
 
@@ -444,6 +451,10 @@ this is /home/heech, wow
 #3: change /etc/ssh/ssh_config:
 Host *
    StrictHostKeyChecking no
+
+mcli con
+NAME                UUID                                  TYPE      DEVICE
+Wired connection 1  0208ff0b-6c6e-343f-a129-3b3148d5161b  ethernet  eth1
 
 nmcli dev
 DEVICE  TYPE      STATE        CONNECTION
@@ -894,6 +905,9 @@ nmap --top-ports 1000 -T4 -sC www.google.com
 
 #make your script more robust
 set -euo pipefail
+---
+set -o nounset #same as set -u
+set -o errexit #same as set -e
 
 #check dirty pages in page cache
 $ cat /proc/meminfo | grep Dirty
@@ -1773,6 +1787,8 @@ mkdir /ramdisk
 mount none -t tmpfs -o size=256M /ramdisk
 
 ss : display socket info
+ss -t : display tcp info
+ss -lt : display tcp listening
 arping: send ARP request to a neighbor: arping -I eth0 192.188.1.1
 ethtool
 
@@ -1978,6 +1994,11 @@ POSIX character classes
 
 os-prober
 linux-boot-prober /dev/sda8
+---
+$ sudo os-prober
+/dev/sda1:Windows 7:Windows:chain
+/dev/sda2:Windows Recovery Environment:Windows1:chain
+/dev/sda4:Windows Recovery Environment:Windows2:chain
 
 rmmod pcspkr #disable PC speaker
 
@@ -3071,6 +3092,10 @@ search attlocal.net
 /run/resolvconf/resolv.conf:
 nameserver 127.0.0.53
 search attlocal.net
+---
+/lib/systemd/systemd-resolved listens on port 53: output of lsof:
+systemd-r 412 systemd-resolve   12u  IPv4  16951      0t0  UDP 127.0.0.53:53
+systemd-r 412 systemd-resolve   13u  IPv4  16952      0t0  TCP 127.0.0.53:53 (LISTEN)
 
 There are 2 kinds of DNS servers: authoritative and recursive.
 authoritative DNS servers (also known as nameservers) have a database of IP addresses for each domain they’re responsible for
@@ -3111,7 +3136,56 @@ generated for the calling process.  If the calling process is ignoring this sign
 fails with the error EPIPE.
 
 ip -br a
+ip -s -h l show eth1 #-s: show stats , -h: human-readable
+ip a show eth1
+ip n #neighbor , show arp info
 
 sha256sum --ignore-missing -c sha256sum.txt
 
 udisksctl info --block-device /dev/sda
+
+$ sudo file -s /dev/sda
+/dev/sda: DOS/MBR boot sector
+
+GRUB stands for GRand Unified Bootloader. Its function is to take over from BIOS at boot time, load
+itself, load the Linux kernel into memory, and then turn over execution to the kernel.
+
+sound stuff:
+sinks: "places where sound stream goes away"
+--
+pactl list short sinks
+->
+0       alsa_output.pci-0000_00_1b.0.analog-stereo      module-alsa-card.c      s16le 2ch 44100Hz       RUNNING
+# show current state
+pactl list sinks |egrep -e 'Sink|State|Mute'
+-- use long name or index num
+pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle
+--
+pactl set-sink-mute 0 toggle #this works: toggle speaker
+--
+Switch mute on, that is sound off:
+pactl set-sink-mute 1 1
+--
+Switch mute off, that is sound on:
+pactl set-sink-mute 1 0
+--
+alsamixer
+amixer scontrols
+--
+set the volume on the Master control/property of the first sound card to 100%
+$ amixer -c 0 set Master 100%
+--
+set the volume on the Speaker control/property of the second sound card to 50%
+$ amixer -c 1 set Speaker 50%
+--
+to mute and unmute a property.
+$ amixer -c 0 set Mic mute
+$ amixer -c 0 set Mic unmute
+--
+amixer -q -D pulse sset Master toggle #toggle speaker??
+--
+https://vitux.com/control-audio-volume-through-the-ubuntu-command-line/
+
+A microcode is nothing but CPU firmware provided by Intel or AMD. The Linux kernel can update the
+CPU's firmware without the BIOS update at boot time. Processor microcode is stored in RAM and kernel
+update the microcode during every boot.

@@ -227,6 +227,8 @@ QT4_IM_MODULE=ibus
 QT_IM_MODULE=ibus
 ======
 
+brave-browser
+
 =========== end of packages ==============
 
 ace-window-0.9.0/               enh-ruby-mode-20150215.136/      helm-google-20160620.1149/     popup-20150315.612/

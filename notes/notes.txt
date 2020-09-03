@@ -6685,6 +6685,8 @@ buffer overflow
 a program, when writing data to a buffer, overruns the buffer's boundary and overwrites
 adjacent memory. C/C++ has no built-in protection against buffer overflow.
 they do not check that data written to a buffer is within the boundaries of that buffer.
+--
+buffer overflow: when more data is written to a buffer than it can hold.
 
 segmentation fault: means a program tries to access a memory location that it
 is not allowed to access.
@@ -8201,6 +8203,12 @@ processed.
 ----
 data buffer: a region of memory used as a temporary holding place when data is transferred between
 2 devices that are not operating at the same speed.
+--
+buffer is an intermediate temporary store for data between a fast and a slow entity. As one party
+would have to wait for the other affecting performance, the buffer alleviates this by allowing
+entire blocks of data to move at once rather then in small chunks. The data is written and read only
+once from the buffer. Furthermore, the buffers are visible to at least one party which is aware of
+it.
 
 communicating sequential processes: a program is a parallel composition of processes that have no
 shared state; the processes communicate and synchronize using channels.
@@ -13422,6 +13430,8 @@ possible. Shift Left testing means testing earlier in the software development p
 Server Name Indication (SNI) is an extension to the Transport Layer Security (TLS) computer
 networking protocol by which a client indicates which hostname it is attempting to connect to at the
 start of the handshaking process.
+--
+SNI: allows multiple TLS hosts with different certificates to run on the same IP address and port.
 
 the X-Forwarded-For header is a standard header for identifying the originating IP address of a
 client connecting to a web server through an HTTP proxy or a load balancer. When traffic is
@@ -14779,3 +14789,55 @@ Optical coherence tomography (OCT) is a non-invasive imaging test. OCT uses ligh
 cross-section pictures of your retina
 
 anechoic chamber
+
+Infrastructure as Code (IaC) refers to managing infrastructure programmatically and with code,
+rather than manually and ad hoc.
+
+long tail : a business strategy that makes money by selling low volumes of hard-to-find items
+to many customers.
+long tail marketing: targeting a large number of niche markets with a product/service.
+
+over-the-top (OTT) media service: is a streaming media service offered directly to viewers
+via the internet, bypasses cable, broadcast, satellite tv.
+
+ASLR (Address Space Layout Randomization) bypass
+ROP (return-oriented programming) exploit
+
+nostrum: a medicine, especially one that is not considered effective, prepared by an unqualified person
+
+special purpose acquisition company (SPAC): sometimes called blank-check company, is a shell company
+that has no operations but plans to go public with the intention of acquiring or merging with a
+company with the proceeds of the SPAC's initial public offering
+
+modules are self-contained units of functionality that can be shared and reused.
+
+An Insertion Order (IO) is a document that depicts the agreement between the publisher and
+advertiser to run a campaign. It is the final step of a direct deal. Once an Insertion Order is
+signed, the advertiser has to run the ads on your site(s) for the specified amount of time and ad
+impressions
+
+A welfare check, also known as a wellness check, is when police stop by a person's home to make sure
+they are okay. Requests for welfare checks are made by friends, family, and neighbors, typically
+after someone unexpectedly stops answer their phone or getting in touch with others
+
+Napier's constant, Euler's number: e : 2.718281828
+
+John Cage: 4'33"
+A prepared piano is a piano that has had its sound altered by placing objects (called preparations)
+on or between the strings. invented by John Cage
+
+Place-based policies refer to government efforts to enhance the economic performance of specific
+areas within their jurisdiction. Most commonly, place-based policies target underperforming areas,
+such as deteriorating downtown business districts
+
+board support package (BSP) is essential code for a given computer hardware device that will make
+that device work with the computer's OS (operating system). The BSP contains a small program called
+a boot loader or boot manager that places the OS and device drivers into memory.
+--
+in embedded systems, a board support package (BSP) is the layer of software containing
+hardware-specific drivers and other routines that allow a particular operating system (traditionally
+a real-time operating system, or RTOS) to function in a particular hardware environment (a computer
+or CPU card), integrated with the RTOS itself. Third-party hardware developers who wish to support a
+particular RTOS must create a BSP that allows that RTOS to run on their platform. In most cases the
+RTOS image and license, the BSP containing it, and the hardware are bundled together by the hardware
+vendor.

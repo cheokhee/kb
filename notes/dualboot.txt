@@ -49,3 +49,12 @@ gpart
 #check partition alignment
 1. sudo parted /dev/sda
 2. then do: align-check opt 5  #5 is the partition #, /dev/sda5
+
+parted:
+mklabel msdos #create a new partition table
+mkpart #create partition , start/end can use percentage: 100%
+
+MBR: first partition shoud start at sector 2048
+MBR: first partition should be fat32
+
+parted: set 1 boot on

@@ -19,3 +19,23 @@ this will add crc32c-intel.ko to /boot/initramfs-linux.img
 
 /usr/lib/xorg/modules/drivers
 /etc/X11/xinit/xinitrc
+
+/etc/locale.gen , then locale-gen
+/etc/locale.conf
+
+https://wiki.archlinux.org/index.php/installation_guide
+https://wiki.archlinux.org/index.php/GRUB
+
+pacstrap /mnt base linux linux-firmware
+
+install package: intel-ucode, grub, os-prober, man-db, networkmanager, dhcpcd,
+net-tools: route (not installed)
+--
+grub-install --target=i386-pc /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+manually change /boot/grub/grub.cfg, and changes are immediately reflected in grub menu
+
+after installing Linux Mint, booting Arch get this error:
+Kernel Panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
+the initrd line was wrong in /boot/grub/grub.cfg
