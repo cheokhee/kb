@@ -10988,6 +10988,8 @@ or a central data warehouse.
 edge computing: bring computation and data storage closer to the location where it is needed,
 to improve response time. enable analytics and data gathering to occur at the source of the data.
 --
+edge computing means bringing applications and data storage closer to where the people who use them are located
+--
 An edge device is a device which provides an entry point into enterprise or service provider core
 networks. Examples include routers, routing switches, integrated access devices (IADs),
 multiplexers, and a variety of metropolitan area network (MAN) and wide area network (WAN) access
@@ -12950,6 +12952,11 @@ domain entity contained in a bounded context could be a customer, for example. T
 responsibilities, and possible overlaps of bounded contexts are defined in a context map of the
 system.  In the model of microservices, a bounded context would typically result in a single deploy-
 able application.
+--
+bounded context: where everything related to the domain is visible internally but opaque to
+other bounded context. each entity works best within a localized context. instead of creating
+a unified Customer class for the entire organization, each problem domain can create their own
+and reconcile differences at integration points.
 
 Value objects are business domain types that do not represent identifiable types but rather spe-
 cific values. For these domain objects, it doesn’t matter which instance will be used inside the
@@ -14841,3 +14848,40 @@ or CPU card), integrated with the RTOS itself. Third-party hardware developers w
 particular RTOS must create a BSP that allows that RTOS to run on their platform. In most cases the
 RTOS image and license, the BSP containing it, and the hardware are bundled together by the hardware
 vendor.
+
+Server-Sent Events (SSE): an alternative to websocket
+Server-Sent Events (SSE) is a technology that enables a browser (client) to receive automatic
+updates like text-based event data from a server via HTTP connection.
+https://www.telerik.com/blogs/websockets-vs-server-sent-events
+
+Anycast is a network addressing and routing method in which incoming requests can be routed to a
+variety of different locations or “nodes.”
+--
+In the context of a CDN, Anycast typically routes incoming traffic to the nearest data center with
+the capacity to process the request efficiently.
+--
+When requests come into a single IP address associated with the Anycast network, the network
+distributes the data based on some prioritization methodology. The selection process behind choosing
+a particular data center will typically be optimized to reduce latency by selecting the data center
+with the shortest distance from the requester. Anycast is characterized by a 1-to-1 of many
+association, and is one of the 5 main network protocol methods used in the Internet protocol.
+--
+Under Unicast, every node on the network gets a unique IP address. Home and office networks use
+Unicast
+
+in microelectronics, a dual in-line package, or dual in-line pin package is an electronic component
+package with a rectangular housing and two parallel rows of electrical connecting pins. The package
+may be through-hole mounted to a printed circuit board or inserted in a socket
+00
+A DIP switch is a manual electric switch that is packaged with others in a group in a standard dual
+in-line package (DIP).
+
+Bit rot is the slow deterioration in the performance and integrity of data stored on storage
+media. It is also known by the names bit decay, data rot, data decay and silent corruption,
+data degradation.
+
+elevator sound: (1) once: going up (2) going down
+
+CUDA and OpenCL offer two different interfaces for programming GPUs. OpenCL is an open standard that
+can be used to program CPUs, GPUs, and other devices from different vendors, while CUDA is specific
+to NVIDIA GPUs.

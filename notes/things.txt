@@ -449,3 +449,15 @@ qml-module-org-kde-kquickcontrols qml-module-org-kde-kquickcontrolsaddons
 qml-module-org-kde-kwindowsystem qml-module-org-kde-newstuff qml-module-org-kde-purpose
 qml-module-org-kde-qqc2desktopstyle qml-module-org-kde-runnermodel quassel sddm-theme-breeze
 systemsettings user-manager
+
+2020-09-07:
+/lib/systemd/system/resolvconf.service
+
+2020-09-11:
+change /etc/sysctl.conf:
+vm.swappiness=1
+vm.vfs_cache_pressure=50
+
+2020-09-22:
+added to /etc/sudoers:
+Defaults timestamp_timeout=-1

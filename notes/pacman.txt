@@ -30,6 +30,7 @@ pacman -S <pkg> #install package
 pacman -Sw <pkg> #download package without installing
 pacman -Ss <pkg> #search sync database for keywords
 pacman -Sii <pkg>	#List information on package in sync database
+pacman -Sy --needed base-devel  #install the basic development packages
 
 pacman -Rs <pkg> #remove package and its unneeded dependencies
 

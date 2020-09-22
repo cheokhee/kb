@@ -103,6 +103,9 @@ O: descending order
 zsh:
 ls (*.txt|*.crt)
 
+ls *.txt
+ls ^*.txt #equivalent to bash: ls !(*.txt)
+
 ^x
 (Requires EXTENDED_GLOB to be set.) Matches anything except the pattern x. This has a higher
 precedence than '/', so '^foo/bar' will search directories in '.' except './foo' for a file named
@@ -156,6 +159,19 @@ ls -d *(@,/) #show directory and symbolic link
 ls -d *~*.*(.) #list all regular files that don't have a . in the name
 ls -l **/*(/^F)  #list all empty directories
 ls Downloads/(#i)*jpg #case insensitive
+ls *(.[1,3]) #show three files
+
+m[Mwhms][-|+]n
+files modified exactly n days ago.  Files modified within the last n days are selected using a
+negative value for n (-n).  Files modified more than n days ago are selected by a positive n value
+(+n).  Optional unit specifiers `M', `w', `h', `m' or `s' (e.g. `mh5') cause the check to be
+performed with months (of 30 days), weeks, hours, minutes or seconds instead of days, respectively.
+An explicit `d' for days is also allowed.
+--
+ls *(.m+2) # older than 2 days
+ls *(.m-2) # newer than 2 days
+ls *(.mw+3) # older than 3 weeks
+ls *(.mM+6) # older than 6 months
 
 #find directories that contain pom.xml
 # / : match directory only
@@ -193,3 +209,20 @@ $ echo ${file#this}   #remove pattern from the front
 abcdes
 $ echo ${file%cdes}  #remove pattern from the end
 thisab
+
+=== zsh setup steps:
+1. copy fzf
+2. install fd
+3. install zsh
+4. install oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    remove ~/.zshrc afterwards
+5. create ${HOME}/.config/zsh and ${HOME}/.config/zsh/.z
+6. add to .bashrc : export ZDOTDIR=${HOME}/.config/zsh
+7. change myterminal: lxterminal --geometry=130x40 --command zsh &
+8. change mytmux: bash -> zsh
+9. change theme:
+ZSH_THEME_GIT_PROMPT_SUFFIX="$fg_bold[green])"
+ZSH_THEME_GIT_PROMPT_DIRTY="$fg_bold[yellow]✗"
+10. copy .tmux.conf
+=== zsh setup end ===

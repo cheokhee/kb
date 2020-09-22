@@ -47,6 +47,11 @@ initctl list
 systemctl list-unit-files --state=enabled
 service --status-all
 
+The service command is a wrapper script that allows system administrators to start, stop, and check
+the status of services without worrying too much about the actual init system being used. Prior to
+systemd's introduction, it was a wrapper for /etc/init.d scripts and Upstart's initctl command, and
+now it is a wrapper for these two and systemctl as well.
+
 ==================================
 
 /etc/init/ttyN.conf : start a getty process for ttyN
@@ -211,6 +216,8 @@ lsusb
 initramfs: initial RAM-based filesystem: allow the kernel to execute programs before the root filesystem is mounted.
 initrd: initial RAM disk: serves as a temporary root file system in RAM and allows the kernel to boot without
 having to mount any physical disk.
+---
+initramfs: an archive of files (cpio format) that allows the kernel to boot before the root filesystem is mounted.
 
 GRUB config:
 make a copy of /etc/default/grub and /boot/grub/grub.cfg
@@ -619,6 +626,7 @@ systemctl list-units
 systemctl list-dependencies --reverse man-db.timer
 systemctl -t service
 systemctl status "*service"
+systemctl -n0 status systemd-resolved #-n0: do not show journal entries
 ===
 $ systemctl list-dependencies --reverse NetworkManager.service
 NetworkManager.service
@@ -661,8 +669,12 @@ journalctl -b -1 #with boot it
 journalctl --list-boots
 journalctl -b --unit systemd-journald
 journalctl -u run-u57.service
+journalctl -rb -1 #look at journals of last shutdown
+journalctl -xb
 timedatectl
 timedatectl status
+timedatectl timesync-status
+timedatectl show-timesync
 ====
 /lib/systemd/system/multi-user.target.wants/
 /lib/systemd/system/reboot.target.wants/
@@ -941,6 +953,10 @@ Prefix <SPC> : cycle through available layouts (bound to next-layout)
 Prefix Alt-1 : even horizontal
 Prefix Alt-2 : even vertical
 Prefix Ctrl-o : rotate window
+--
+tmux set-option (alias: set)
+Set a pane option with -p, a window option with -w, a server option with -s, otherwise a session
+option. If -g is given, the global session or window option is set.
 
 ssh X11 forwarding
 want to display on my-machine (where X server is running)
@@ -1000,6 +1016,8 @@ $ echo {00..8}
 00 01 02 03 04 05 06 07 08
 $ echo {D..T..4}
 D H L P T
+$ echo {1..5} {10..15}
+1 2 3 4 5 10 11 12 13 14 15
 
 single bracket vs double bracket
 single: POSIX
@@ -1415,6 +1433,8 @@ tune2fs -l /dev/sda6
 tune2fs -L <label> /dev/sda6
 #similar to
 dumpe2fs -h /dev/sda6
+#show/set filesystem volume label
+sudo e2label /dev/sda5
 =====
 tune2fs:  -m reserved-blocks-percentage (defaul: 5)
 #reduces the reserved area to 2% of the filesystem, which may be more
@@ -3083,6 +3103,7 @@ systemd-resolved will be used automatically if /etc/resolv.conf is a symlink to
 --
 systemd-resolve --status #same output as resolvectl
 resolvectl query github.com
+resolvectl statistics
 ===
 /run/systemd/resolve/stub-resolv.conf:
 nameserver 127.0.0.53
@@ -3108,6 +3129,56 @@ https://www.iana.org/domains/root/files
 ---
 Unbound is a validating, recursive, caching DNS resolver:
 https://github.com/NLnetLabs/unbound
+---
+stub resolver -> recursive resolver (or “caching DNS server”) -> authoritative name servers
+--
+The DNS stub resolver is a component of the DNS that is accessed by application programs when using
+the DNS for e.g. resolving domain names to IP addresses. The stub resolver simply serves as an
+intermediary between the application requiring DNS resolution, and a recursive DNS resolver.
+---
+All DNS servers fall into one of four categories: Recursive resolvers, root nameservers, TLD
+nameservers, and authoritative nameservers.
+--
+A recursive resolver (also known as a DNS recursor) is the first stop in a DNS query. The recursive
+resolver acts as a middleman between a client and a DNS nameserver. After receiving a DNS query from
+a web client, a recursive resolver will either respond with cached data, or send a request to a root
+nameserver, followed by another request to a TLD nameserver, and then one last request to an
+authoritative nameserver. After receiving a response from the authoritative nameserver containing
+the requested IP address, the recursive resolver then sends a response to the client.
+--
+The authoritative nameserver contains information specific to the domain name it serves
+(e.g. google.com) and it can provide a recursive resolver with the IP address of that server found
+in the DNS A record, or if the domain has a CNAME record (alias) it will provide the recursive
+resolver with an alias domain, at which point the recursive resolver will have to perform a whole
+new DNS lookup to procure a record from an authoritative nameserver (often an A record containing an
+IP address).
+---
+DNS lookup:
+1. A user types ‘example.com’ into a web browser and the query travels into the Internet and is received by a DNS recursive resolver.
+2. The resolver then queries a DNS root nameserver (.).
+3. The root server then responds to the resolver with the address of a Top Level Domain (TLD) DNS
+   server (such as .com or .net), which stores the information for its domains. When searching for
+   example.com, our request is pointed toward the .com TLD.
+4. The resolver then makes a request to the .com TLD.
+5. The TLD server then responds with the IP address of the domain’s nameserver, example.com.
+6. Lastly, the recursive resolver sends a query to the domain’s nameserver.
+7. The IP address for example.com is then returned to the resolver from the nameserver.
+8. The DNS resolver then responds to the web browser with the IP address of the domain requested initially.
+---
+The recursive resolver also has additional functionality depending on the types of records it has in its cache:
+--
+If the resolver does not have the A records, but does have the NS records for the authoritative
+nameservers, it will query those name servers directly, bypassing several steps in the DNS
+query. This shortcut prevents lookups from the root and .com nameservers (in our search for
+example.com) and helps the resolution of the DNS query occur more quickly.
+--
+If the resolver does not have the NS records, it will send a query to the TLD servers (.com in our
+case), skipping the root server.
+--
+In the unlikely event that the resolver does not have records pointing to the TLD servers, it will
+then query the root servers. This event typically occurs after a DNS cache has been purged.
+--
+https://www.internetsociety.org/resources/deploy360/dns-privacy/intro
 
 nm-online #check whether online
 
@@ -3189,3 +3260,55 @@ https://vitux.com/control-audio-volume-through-the-ubuntu-command-line/
 A microcode is nothing but CPU firmware provided by Intel or AMD. The Linux kernel can update the
 CPU's firmware without the BIOS update at boot time. Processor microcode is stored in RAM and kernel
 update the microcode during every boot.
+
+convert between base 10 and 16
+$ echo "ibase=16;8A31" | bc
+35377
+$ echo "obase=16;35377" | bc
+8A31
+
+systemd.path — Path unit configuration
+A unit configuration file whose name ends in ".path" encodes information about a path monitored by systemd, for path-based activation.
+https://www.freedesktop.org/software/systemd/man/systemd.path.html
+
+#print memory zone and node info
+cat /proc/buddyinfo
+Node 0, zone      DMA      1      1      0      0      2      1      1      0      1      1      3
+Node 0, zone    DMA32   5124   3884   3007   1314    541    182     77     42     12      3    150
+Node 0, zone   Normal     62      2      1      1      5      2      3     19     19      0      0
+--
+Direct Memory Access (DMA): This is the low 16 MB of memory
+Direct Memory Access 32: Despite its name, Direct Memory Access 32 (DMA32) is a zone only found in
+  64-bit Linux. It’s the low 4 GB of memory.
+Normal: On 64-bit computers, normal memory is all of the RAM above 4GB (roughly).
+--
+cat /proc/zoneinfo
+
+vm.dirty_background_ratio is the percentage of system memory that can be filled with “dirty” pages —
+memory pages that still need to be written to disk — before the pdflush/flush/kdmflush background
+processes kick in to write it to disk. We suggest setting it to 1%, so if your virtual server has 64
+GB of memory that’s ~2/3 GB of data that can be sitting in RAM before something is done.
+--
+vm.dirty_background_ratio=1
+
+vm.dirty_ratio is the absolute maximum amount of system memory that can be filled with dirty pages
+before everything must get committed to disk. When the system gets to this point all new I/O blocks
+until dirty pages have been written to disk. This is often the source of long I/O pauses, but is a
+safeguard against too much data being cached unsafely in memory.
+--
+vm.dirty_ratio=40
+
+when you do "systemctl enable <service", create a symbolic link in:
+/etc/systemd/system/multi-user.target.wants
+
+sudo -ll
+
+vcs, vcsa - virtual console memory. It refers to the memory of the currently displayed virtual
+  console terminal.
+--
+/dev/vcs devices: each correspond to the /dev/tty devices with the same number
+--
+sudo cat /dev/vcs1
+
+#scan port range
+nc -zv <ip> 20-90 2>&1 | grep succeeded

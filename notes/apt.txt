@@ -132,3 +132,6 @@ apt --fix-broken install
 apt rdepends <pkg>
 #show reverse dependencies and dependencies
 apt-cache showpkg <pkg>
+
+#do this if get uninstalled dependency error
+sudo apt install --fix-missing

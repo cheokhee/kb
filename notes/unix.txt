@@ -303,6 +303,7 @@ hex dump:
 od -x <file>
 hexdump -C <file> #preferred
 hexdump -x <file>
+hexdump -C -s 0x1be <file>  #dump with offset at 0x1be
 preferred: xxd // no need to worry about endianness
 
 xxd: can patch binary files
