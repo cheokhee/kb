@@ -22,6 +22,8 @@ pacman -Ql <pkg>	#What files does this package have?
 pacman -Qii <pkg>	#List information on installed package
 pacman -Qo <file>	#Who owns this file?
 pacman -Qs <query>	#Search installed packages for keywords
+pacman -Qn #list all native packages
+pacman -Qm #list all foreign packages
 
 pacman -Sy #populate sync database , like apt update
 pacman -Syu #update all packages, like apt update and upgrade
@@ -31,6 +33,9 @@ pacman -Sw <pkg> #download package without installing
 pacman -Ss <pkg> #search sync database for keywords
 pacman -Sii <pkg>	#List information on package in sync database
 pacman -Sy --needed base-devel  #install the basic development packages
+pacman -Sc remove unused stuff. Use one --clean switch to only remove
+           packages that are no longer installed; use two to remove
+           all files from the cache
 
 pacman -Rs <pkg> #remove package and its unneeded dependencies
 

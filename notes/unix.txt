@@ -456,6 +456,7 @@ strace -e open uptime # trace only the open system call in uptime command
 strace -f -s 4096 -p <pid>
 # trace all files accessed by a process
 strace -fe trace=creat,open,openat,unlink,unlinkat <command>
+strace -e open,openat -o <filename> <command>
 sudo strace -fe trace=creat,open,openat,unlink,unlinkat -e 'signal=!SIGIO' -p <pid>
 sudo strace -fe trace=creat,open,openat,unlink,unlinkat -e signal=none -p <pid>
 strace -s 80 -f ./program #print 80 characters of every string
@@ -618,6 +619,10 @@ christine 10
 $ paste -d" " -s f1 f2
 cheok christine
 20 10
+---
+#combine multiple lines into one line
+$ echo -e "file one\nfile two" | paste -s -d"|"
+file one|file two
 
 #join two files on a common field, first field is default join field. must be sorted on join field
 $ cat > f1
@@ -990,6 +995,8 @@ option #2: rename 's/ /_/g' *
 #y: transliteration (like tr); s: substitution
 
 #show encoding of file
+#0
+file -i <filename>
 #1:
 file -bi <filename> #b: brief (don't show filename)
 text/plain; charset=us-ascii
@@ -1151,6 +1158,8 @@ lsof -i -P
 lsof -nP -p <pid>
 #list open ports
 lsof -Pnli
+==
+lsof -U #show unix domain socket
 
 dstat output:
 cpu: user, sys, idle, wai, hiq, siq

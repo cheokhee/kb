@@ -8760,6 +8760,9 @@ heap: a pool of memory from which dynamically allocated objects are allocated.
 A page, memory page, or virtual page is a fixed-length contiguous block of virtual memory, described
 by a single entry in the page table. It is the smallest unit of data for memory management in a
 virtual memory operating system.
+---
+page table: a mapping of process's virtual page address to real page address in memory.
+if a memory page is not ready when a process reads it, a page fault is triggered.
 
 thread: a path of execution
 threads: execution flows that share a common address space.
@@ -8774,6 +8777,8 @@ Write-back cache is where write I/O is directed to cache and completion is immed
 Linux uses write-back cache
 
 socket is a data communications endpoint for exchanging data between processes
+socket: the interface that processes use to access the network thru the kernel. represent
+the boundary between user space and kernel space.
 
 telemetry: the transmission of data from remote sources to receiving stations for recording and analysis.
 ==
@@ -14857,6 +14862,9 @@ https://www.telerik.com/blogs/websockets-vs-server-sent-events
 Anycast is a network addressing and routing method in which incoming requests can be routed to a
 variety of different locations or “nodes.”
 --
+each of the 13 DNS root servers is actually a distributed group of DNS servers that share a
+single IP address using a technique called Anycast.
+--
 In the context of a CDN, Anycast typically routes incoming traffic to the nearest data center with
 the capacity to process the request efficiently.
 --
@@ -14885,3 +14893,37 @@ elevator sound: (1) once: going up (2) going down
 CUDA and OpenCL offer two different interfaces for programming GPUs. OpenCL is an open standard that
 can be used to program CPUs, GPUs, and other devices from different vendors, while CUDA is specific
 to NVIDIA GPUs.
+
+corecursion is a type of operation that is dual to recursion. Whereas recursion works analytically,
+starting on data further from a base case and breaking it down into smaller data and repeating until
+one reaches a base case, corecursion works synthetically, starting from a base case and building it
+up, iteratively producing data further removed from a base case.
+
+idée fixe: an idea or desire that dominates the mind; an obsession
+
+64-bit refers to the number of bits (the smallest unit of information on a machine) that can be
+processed or transmitted in parallel, or the number of bits used for single element in a data
+format. the data units, memory addresses, buses are 64-bits wide.
+
+Clonus is a type of neurological condition that creates involuntary muscle contractions. This
+results in uncontrollable, rhythmic, shaking movements.
+
+Foley is the reproduction of everyday sound effects that are added to films, videos, and other media
+in post-production to enhance audio quality.
+
+gateway regulates traffic between 2 dissimilar networks, while routers regulate traffic
+between similar networks.
+
+a host controller, host adapter, or host bus adapter (HBA) connects a computer, which acts as the
+host system, to other network and storage devices. The terms are primarily used to refer to devices
+for connecting SCSI, Fibre Channel and SATA devices. Devices for connecting to IDE, Ethernet,
+FireWire, USB and other systems may also be called host adapters.
+
+subnet mask: define the subnet that an IP address belongs to
+
+A captive portal is a Web page that the user of a public-access network is obliged to view and
+interact with before access is granted
+
+container engine: a tool that provides user interface for working with images and containers.
+docker alternative: podman
+building images: buildah, kaniko, buildkit

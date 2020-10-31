@@ -39,3 +39,38 @@ manually change /boot/grub/grub.cfg, and changes are immediately reflected in gr
 after installing Linux Mint, booting Arch get this error:
 Kernel Panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
 the initrd line was wrong in /boot/grub/grub.cfg
+
+/lib/modules/5.8.10-arch1-1/kernel ->
+arch/  crypto/  drivers/  fs/  lib/  mm/  net/  security/  sound/  virt/
+
+/etc/sysctl.d/
+
+kernel config: /proc/config.gz
+zcat /proc/config.gz
+
+/usr/share/kbd/consolefonts
+
+example:
+/etc/vconsole.conf
+FONT=lat2-16
+FONT_MAP=8859-2
+KEYMAP=de-latin1
+
+/sys/class/backlight/intel_backlight
+actual_brightness
+brightness
+max_brightness
+
+/etc/arch-release
+
+A meta package and a package group can be defined by the packager to denote a set of related
+packages. Both can allow to install or uninstall this set of packages simultaneously by using the
+meta package or the group name as a substitute for each individual package name. While a group is
+not a package, it can be installed in a similar fashion to a package.
+
+The difference between a meta package and a regular package is that a meta package is empty and
+exists purely to link related packages together via dependencies. A meta package, often (though not
+always) titled with the "-meta" suffix, provides similar functionality to a package group in that it
+enables multiple related packages to be installed or uninstalled simultaneously.
+--
+https://wiki.archlinux.org/index.php/Meta_package_and_package_group

@@ -331,3 +331,28 @@ M-x untabify: convert all tabs to spaces
 
 search for non-ascii character (if you know the unicode code point in hex)
 start search by typing C-s, which in search mode type C-x 8 <RET>, then enter hex unicode (e.g. 8a31)
+
+#show font sets
+M-x list-fontsets
+example:
+Fontset: -*-*-*-*-*-*-*-*-*-*-*-*-fontset-default
+Fontset: -*-fixed-medium-r-normal-*-16-*-*-*-*-*-fontset-standard
+Fontset: -PfEd-DejaVu Sans Mono-normal-normal-normal-*-20-*-*-*-m-0-fontset-startup
+
+#show complete list of fonts
+(dolist (font (x-list-fonts "*")) (insert (format "%s\n" font)))
+--
+example output:
+-PfEd-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1
+...
+I am using:
+-PfEd-DejaVu Sans Mono-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1
+
+(list-coding-systems) ; shows a list of coding systems with mnemonic
+
+facemenu-remove-all: remove all text properties
+
+XML pretty print
+sgml-mode; then sgml-pretty-print
+
+emacs-init-time to find out time for init at start-up

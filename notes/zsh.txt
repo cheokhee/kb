@@ -226,3 +226,14 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="$fg_bold[green])"
 ZSH_THEME_GIT_PROMPT_DIRTY="$fg_bold[yellow]✗"
 10. copy .tmux.conf
 === zsh setup end ===
+
+man zshparam:
+ WORDCHARS <S> : A list of non-alphanumeric characters considered part of a word by the line editor.
+
+${name/pattern/repl} #replace a pattern
+$ file='a/b'
+$ echo ${file/\/} #remove slash
+ab
+---
+$ echo ${file/\//|} #replace slash with |
+a|b

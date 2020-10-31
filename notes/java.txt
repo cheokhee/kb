@@ -2084,3 +2084,17 @@ the heap.
 
 java.util.UUID.randomUUID()
 ==> 1376e51c-45b4-4cc6-9642-c5d40ccd7139
+
+Json deserialization:
+1. Gson: field based, do not use getter/setter, you can specify only the fields you want
+     Gson gson = new Gson();
+     CmsDto cmsDto = gson.fromJson(aString, CmsDto.class);
+2. Jackson ObjectMapper: use setter
+   default: deserialize every field, do following to ignore fields unspecified in dto
+     ObjectMapper objectMapper   = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+     CmsDto cmsDto = objectMapper.readValue(aString, CmsDto.class);
+
+Returns the input arguments passed to the Java virtual machine which does not include the arguments
+to the main method.
+-> ManagementFactory.getRuntimeMXBean().getInputArguments()
+#from java.lang.management.RuntimeMXBean interface

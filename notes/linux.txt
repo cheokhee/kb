@@ -88,8 +88,12 @@ dig networkworld.com +noall +answer
 dig <hostname|ip> [type]
 example: dig google.com MX
 example: dig google.com AAAA
-dig google.com ANY #get all info
+--
+#get all info
+dig google.com ANY
+#get all info, easier to read
 dig +multiline +noall +answer +nocmd google.com ANY
+==
 dig +trace google.com #trace dns path
 --
 dig: By default query is for A record
@@ -229,6 +233,8 @@ GRUB_GFXMODE=640x480
 GRUB_CMDLINE_LINUX : Entries on this line are added to the end of the 'linux' command line (GRUB
 legacy's "kernel" line) for both normal and recovery modes. It is used to pass options to the
 kernel.
+GRUB_CMDLINE_LINUX_DEFAULT: Entries on this line are added to the end of the 'linux' command line (GRUB
+legacy's "kernel" line) for both normal mode only. It is used to pass options to the kernel.
 2. run update-grub , this will change /boot/grub/grub.cfg
 output of update-grub:
 Found linux image: /boot/vmlinuz-3.16.0-30-generic
@@ -330,6 +336,12 @@ rsync /path/without/slash host:/path/to/new/directory
 #4 rsync file dirname #copy file to dirname/file
 #5 rsync file dirname/filename #copy file to dirname/filename
 #6 rsync file dirname/ #copy file to dirname/file, creating dirname if necessary
+-----
+dir has a file called a
+#1: rsync dir dest_dir
+    result: dest_dir/dir/a
+#2: rsync dir/ dest_dir
+    result: dest_dir/a
 
 #cp
 #1: dest is a directory -> make a copy with the same name in directory
@@ -578,14 +590,17 @@ run with an empty environment: env -i
 
 === systemd ====
 systemctl list-unit-files --type=service #equivalent to ls /etc/systemd/system/*.service and /lib/systemd/system/*.service
-systemctl start/stop/enable/disable/restart/status virtualbox
+systemctl start/stop/enable/disable/restart/status/reload virtualbox
 #systemctl enable/disable: Enables/disable a service to be started on bootup:
 systemctl mask foo  #Prevent a service from starting dynamically or even manually unless unmasked:
 systemctl is-enabled foo
+systemctl is-active NetworkManager
 =============
 
 In systemd, a unit refers to any resource that the system knows how to operate on and manage.
 https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+--
+systemd: each type of capability is called unit type. each specific capability is called unit.
 
 A unit configuration file whose name ends in ".service" encodes information about a process
 controlled and supervised by systemd.
@@ -595,6 +610,8 @@ socket or a file system FIFO controlled and supervised by systemd, for socket-ba
 
 A unit configuration file whose name ends in ".target" encodes information about a target unit of
 systemd, which is used for grouping units and as well-known synchronization points during start-up.
+
+systemd static unit: installed as dependency. static units are those without an [Install] section.
 
 In SysVinit, functionalities (services, processes, etc.) were organized in seven run-levels. Each
 run-level was associated with a level of functionality. In systemd, target-units provide the same
@@ -646,6 +663,15 @@ systemctl list-jobs
 ==============
 /etc/systemd , /etc/systemd/system
 /lib/systemd , /lib/systemd/system
+defaults in /lib/systemd/system/
+overrides in /etc/systemd/system/
+--
+override systemd unit files:
+$ sudo systemctl edit man-db.timer
+created: /etc/systemd/system/man-db.timer.d/override.conf
+$ sudo systemctl edit --full man-db.timer
+created: /etc/systemd/system/man-db.timer from /lib/systemd/system/man-db.timer
+$ sudo systemctl revert man-db.timer #remove override
 ==============
 journalctl: query the contents of systemd journal
 example:
@@ -750,6 +776,7 @@ download a full website:
 wget --random-wait -r -p -e robots=off -U mozilla www.example.com
 
 pmap: show memory map of a process
+pmap <pid> # the last line is the total memory footprint
 /proc/[pid]/statm:
   field #1: size, mapped to VIRT
   field #2: resident, mapped to RES
@@ -775,6 +802,8 @@ ps a : show processes owned by others
 ps x : those without tty
 ps u : user-friendly format
 ps -L : show threads (LWP (lightweight process column))
+ps m : show threads
+ps m -o pid,tid,comm #show process and thread id
 ps -fHU <username> : show processes of username in hierarchical form
 ps -L -o tid,pid,ppid,state,euid,egid,sid,pgid,tpgid,command <pid>
 ps -o nlwp <pid> #show number of lightweight processes
@@ -1619,6 +1648,8 @@ date --date='2 days ago'
 date --date='2 days'
 == get time in milliseconds
 date +%s%3N
+--
+TZ=America/New_York date
 
 getconf PAGESIZE #get page size
 
@@ -1790,6 +1821,8 @@ sysctl -w net.ipv4.icmp_echoreply_rate=10
 
 #silence the beep
 setterm -blength 0
+setterm --dump #dump contents of virtual console, default file name: screen.dump
+setterm --inversescreen on|off
 
 By default, Linux uses the atime option on a disk mount, which means it writes a timestamp (e.g. a
 write to the drive) every time it reads anything. So in this case, reads cause writes – and also
@@ -2012,8 +2045,9 @@ POSIX character classes
 [:graph:]	[^ [:cntrl:]]	graphic characters (all characters which have graphic representation)
 [:print:]	[[:graph] ]	graphic characters and space
 
-os-prober
-linux-boot-prober /dev/sda8
+sudo linux-boot-prober /dev/sda4
+->
+/dev/sda4:/dev/sda4::/boot/vmlinuz-linux:/boot/initramfs-linux.img:root=/dev/sda4
 ---
 $ sudo os-prober
 /dev/sda1:Windows 7:Windows:chain
@@ -2624,6 +2658,15 @@ xargs: -p, --interactive #implies -t, print command and prompt
 xargs: -t, --verbose #print command
 
 udevadm info --query=all --name=/dev/sda
+-> P is the sysfs device path, N is the device node, S : symbolic link, E: additional info
+P: /devices/pci0000:00/0000:00:1f.2/ata1/host0/target0:0:0/0:0:0:0/block/sda
+S: disk/by-id/wwn-0x50014ee20471a970
+S: disk/by-path/pci-0000:00:1f.2-ata-1
+S: disk/by-id/ata-WDC_WD3200BEKT-60V5T1_WD-WX51A4085890
+E: ID_TYPE=disk
+E: ID_BUS=ata
+E: ID_MODEL=WDC_WD3200BEKT-60V5T1
+--
 udevadm info -a -n /dev/sda
 udevadm monitor --property
 
@@ -2841,6 +2884,10 @@ p: Permitted
 This means the capability can be used/is allowed.
 i: Inherited
 The capability is kept by child/subprocesses upon execve() for example.
+--
+capabilities: a feature that divides the privileges traditionally associated with superuser into
+distinct units, known as capabilities, which can be independently enabled and disabled.
+Capabilities are a per-thread attribute.
 
 test microphone:
 1. arecord -d 5 test-mic.wav #record something
@@ -2878,6 +2925,12 @@ iptables -A OUTPUT -p tcp --dport 80 -j DROP
 iptables -A INPUT -p tcp -s 10.0.3.1 --dport 22 -j ACCEPT
 #disallow incoming tcp traffic to port 22 (ssh) from host any other host
 iptables -A INPUT -p tcp -s 0.0.0.0/0 --dport 22 -j DROP
+---
+firewall rules are stored in a series known as a chain. list of chains make up a table
+3 chains: INPUT, OUTPUT, FORWARD (for routed packets).
+---
+iptables -A INPUT/OUTPUT/FORWARD
+iptables -D INPUT 3 # 3 refers to the third rule in the output
 
 systemd-analyze blame
 systemd-analyze time
@@ -2992,11 +3045,61 @@ DNS record types:
 A: 	IPv4 IP address	192.168.1.5 or 75.126.153.206
 AAAA:	IPv6 IP address	2607:f0d0:1002:51::4
 CNAME:	Canonical name record (Alias)	s0.cyberciti.org is an alias for d2m4hyssawyie7.cloudfront.net
-MX:	Email server host names	smtp.cyberciti.biz or mx1.nixcraft.com
+ example:
+  alias.foo.example 10 IN CNAME canonicalname.foo.example.
+MX:	Email server host names	smtp.cyberciti.biz or mx1.nixcraft.com (mail exchanger)
+ example:
+  foo.example. 1d IN MX 10 mail.isp.net.
+  10 is the preference value. if there are multiple MX records, the mail transfer agent uses the one
+  with the lowest preference value.
+  basically, if you have an email addressed to user@foo.example, send it to mail.isp.net
 NS:	Name (DNS) server names	ns1.cyberciti.biz or ns-243.awsdns-30.com
+    designate the domain name of the authoritative DNS server for the zone.
 PTR:	Pointer to a canonical name. Mostly used for implementing reverse DNS lookups	82.236.125.74.in-addr.arpa
-SOA:	Authoritative information about a DNS zone
+        maps an IP address back to a domain name
+    example:
+      1.0.0.10.in-addr.arpa 1d IN PTR host.foo.example.
+      this record reverse-map the IP address 10.0.0.1
+SOA:	Authoritative information about a DNS zone (Start of authority)
+        MNAME RNAME serial# refresh-interval retry-interval expiration-interval negative-caching-TTL
+        MNAME: domain name of the primary DNS server
+        RNAME: email address of a person responsible for the zone. the @ symbol is replaced by a "."
 TXT:	Text record
+----
+resource record: [name] [ttl] [class] type rdata
+--
+name field:
+@ : refer to the origin
+fully-qualified domain name ends in period
+relative domain name does not end in period
+. : refer to the root
+whitespace refers to the most recently specified domain name
+--
+class field: IN (internet)
+
+google.com.             45 IN SOA ns1.google.com. dns-admin.google.com. (
+                                333477116  ; serial
+                                900        ; refresh (15 minutes)
+                                900        ; retry (15 minutes)
+                                1800       ; expire (30 minutes)
+                                60         ; minimum (1 minute)
+                                )
+google.com.             238 IN A 216.58.194.142
+google.com.             236 IN AAAA 2607:f8b0:4000:80d::200e
+google.com.             171842 IN NS ns3.google.com.
+google.com.             171842 IN NS ns4.google.com.
+google.com.             171842 IN NS ns1.google.com.
+google.com.             171842 IN NS ns2.google.com.
+google.com.             210     IN      MX      10 aspmx.l.google.com.
+google.com.             210     IN      MX      30 alt2.aspmx.l.google.com.
+google.com.             210     IN      MX      40 alt3.aspmx.l.google.com.
+google.com.             210     IN      MX      20 alt1.aspmx.l.google.com.
+google.com.             210     IN      MX      50 alt4.aspmx.l.google.com.
+google.com.             300     IN      TXT     "docusign=05958488-4752-4ef2-95eb-aa7ba8a3bd0e"
+google.com.             300     IN      TXT     "globalsign-smime-dv=CDYX+XFHUw2wml6/Gb8+59BsH31KzUr6c1l2BPvqKX8="
+google.com.             300     IN      TXT     "v=spf1 include:_spf.google.com ~all"
+google.com.             300     IN      TXT     "facebook-domain-verification=22rm551cu4k0ab0bxsw536tlds4h95"
+google.com.             300     IN      TXT     "docusign=1b0a6754-49b1-4db5-8540-d2c12664b289"
 
 shuf -n1 -e /bin/* /sbin/*  #generate random permutation
 
@@ -3080,6 +3183,8 @@ https://www.tecmint.com/configure-pam-in-centos-ubuntu-linux/
 
 curl with cookie:
 curl -b JSESSIONID=517A027B9C96F92F0818A62295B93140 <URL>
+--
+curl --trace-ascii <file>
 
 jbd2 is a kernel thread that updates the filesystem journal. Tracing filesystem or disk activity
 with the process that caused it is difficult because the activities of many processes are combined
@@ -3178,6 +3283,9 @@ case), skipping the root server.
 In the unlikely event that the resolver does not have records pointing to the TLD servers, it will
 then query the root servers. This event typically occurs after a DNS cache has been purged.
 --
+DNS zone: domain minus the subdomains that have been delegated elsewhere. DNS zone data
+DNS domain name: www.foo.example
+
 https://www.internetsociety.org/resources/deploy360/dns-privacy/intro
 
 nm-online #check whether online
@@ -3210,6 +3318,14 @@ ip -br a
 ip -s -h l show eth1 #-s: show stats , -h: human-readable
 ip a show eth1
 ip n #neighbor , show arp info
+ip link show <interface>
+#spoof MAC address
+1. ip link show <interface> #check your current address
+2. ip link set dev <interface> down #bring down network interface
+3. ip link set dev <interface> address XX:XX:XX:XX:XX:XX
+   first 3 bytes identify vendor.
+   https://en.wikipedia.org/wiki/Organizationally_unique_identifier
+4. ip link set dev <interface> up #bring up network interface
 
 sha256sum --ignore-missing -c sha256sum.txt
 
@@ -3223,6 +3339,8 @@ itself, load the Linux kernel into memory, and then turn over execution to the k
 
 sound stuff:
 sinks: "places where sound stream goes away"
+--
+pacmd
 --
 pactl list short sinks
 ->
@@ -3261,11 +3379,17 @@ A microcode is nothing but CPU firmware provided by Intel or AMD. The Linux kern
 CPU's firmware without the BIOS update at boot time. Processor microcode is stored in RAM and kernel
 update the microcode during every boot.
 
-convert between base 10 and 16
+convert between base 10 and 16 (decimal <-> hexadecimal)
+-- hexadecimal to decimal
 $ echo "ibase=16;8A31" | bc
 35377
+$ printf "%d\n" 0x8A31
+35377
+-- decimal to hexadecimal
 $ echo "obase=16;35377" | bc
 8A31
+$ printf "%x\n" 35377
+8a31
 
 systemd.path — Path unit configuration
 A unit configuration file whose name ends in ".path" encodes information about a path monitored by systemd, for path-based activation.
@@ -3312,3 +3436,167 @@ sudo cat /dev/vcs1
 
 #scan port range
 nc -zv <ip> 20-90 2>&1 | grep succeeded
+
+#check run level
+who -r
+#change run level to 5
+sudo init 5
+
+grub:
+gfxpayload
+If this variable is set, it controls the video mode in which the Linux kernel starts up, replacing
+the ‘vga=’ boot option. It may be set to ‘text’ to force the Linux kernel to boot in
+normal text mode, ‘keep’ to preserve the graphics mode set using ‘gfxmode’, or any of the permitted
+values for ‘gfxmode’ to set a particular graphics mode.
+---
+gfxmode
+If this variable is set, it sets the resolution used on the ‘gfxterm’ graphical terminal. Note that
+you can only use modes which your graphics card supports via VESA BIOS Extensions (VBE), The default
+is ‘auto’, which selects a platform-specific default that should look reasonable. Supported modes
+can be listed by ‘videoinfo’ command in GRUB.
+--
+https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html
+
+$vt_handoff : The grub configuration has established a grub variable called vt_handoff and populated
+it (or not) with a value indicating which virtual console should be the primary graphic console and
+show the display manager.
+--
+vt.handoff (vt = virtualterminal) is a kernel boot parameter unique to Ubuntu, and is not an
+upstream kernel boot parameter. Its purpose is to allow the kernel to maintain the current contents
+of video memory on a virtual terminal. So, when the operating system is booting up, when it moves
+past the boot loader, vt.handoff allows showing of an aubergine background, with Plymouth displaying
+a logo and progress indicator bar on top of this. Once the display manager comes up, it smoothly
+replaces this with a login prompt.
+
+overwrite noclobber:
+echo another >| f1
+echo another >! f1
+
+Dynamic Kernel Module Support (DKMS) is a program/framework that enables generating Linux kernel
+modules whose sources generally reside outside the kernel source tree. The concept is to have DKMS
+modules automatically rebuilt when a new kernel is installed.
+
+== shell script stuff ==
+#execute some command
+
+exit_status=$?
+if [[ $exit_status -ne 0 ]]; then
+    exit 1
+fi
+if [[ $exit_status -eq 0 ]]; then
+    exit 0
+fi
+== end shell script stuff ==
+
+/etc/X11/default-display-manager
+/proc/partitions
+/proc/devices
+/sys/devices
+/sys/block
+
+/dev/snd : sound device
+
+kernel send notification (uevent) to a user space process (udevd)
+upon detecting a new device.
+/lib/udev/rules.d : default
+/etc/udev/rules.d : overrides
+
+/dev/disk/by-id
+/dev/disk/by-label
+
+tmpfs: use physical memory and swap space as temporary storage
+
+/proc/self: the current process
+
+filesystem: transform a block device into a hierarchy of files and directories
+
+systemctl show #show properties
+systemctl show lightdm
+systemctl show -p Requires lightdm
+systemctl show -p Wants lightdm
+systemctl -p UnitPath show
+--
+systemd unit dir: /lib/systemd
+systemd config dir: /etc/systemd
+--
+$ pkg-config systemd --variable=systemdsystemunitdir
+/lib/systemd/system
+$ pkg-config systemd --variable=systemdsystemconfdir
+/etc/systemd/system
+
+systemd-cgls
+
+ltrace #library call tracer
+
+/etc/login.defs # Configuration control definitions for the login package.
+
+PulseAudio: user-facing layer of Linux audio system.
+~/.config/pulse
+/etc/pulse
+--
+pulseaudio -k : kill daemon
+pulseaudio -D : restart
+
+kernel read initramfs into a temp FS, mount it at /, then hand off
+to init on initramfs. the temp init load driver modules, mount root filesystem
+and start true init.
+
+echo $0 -> zsh
+echo $0 -> -zsh #login shell
+
+dbus-daemon #there is a system instance and a session instance
+---
+dbus-monitor --session
+dbus-monitor --system
+--
+/etc/dbus-1
+---
+/var/run/dbus/system_bus_socket
+
+--file association
+when I make a change:
+~/.config/mimeapps.list
+--
+other location:
+~/.local/share/applications/mimeapps.list
+--
+file association
+/usr/share/applications/firefox.desktop
+MimeType=
+---
+/usr/share/mime/mime.cache
+/usr/share/mime/types
+
+nmcli wifi command line:
+nmcli dev wifi #show access points
+--
+nmcli --ask dev wifi connect <SSID> #ask for password
+---
+nmcli con up <id>
+nmcli con down <id>
+---
+nmcli d disconnect wlan0
+nmcli c modify id ipoh connection.autoconnect no
+--
+nmcli radio wifi on/off
+nmcli g reload
+nmcli c reload
+
+linux printing:
+1. convert document into PostScript (optional)
+2. send the document to print server
+3. print server put document on a print queue.
+4. print server send document to print filter
+5. if not in PostScript, print filter may perform conversion
+6. printer driver convert document to printer-compatible format if necessary
+7. printer driver adds optional instructions, such as paper tray, duplexing
+8. print server send document to printer
+
+flex: GNU alternative to lex
+bison: GNU alternative to yacc
+
+Autoconf: run ./configure to generate Makefile (templates: Makefile.in and config.h.in)
+
+NetworkManager config:
+man nm-settings
+man nm-settings-keyfile

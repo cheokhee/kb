@@ -461,3 +461,22 @@ vm.vfs_cache_pressure=50
 2020-09-22:
 added to /etc/sudoers:
 Defaults timestamp_timeout=-1
+
+2020-09-28:
+/etc/grub.d/30_os-prober:
+282c282
+<       linux ${LKERNEL} ${LPARAMS}
+---
+>       linux ${LKERNEL} ${LPARAMS} rw
+286c286
+<       initrd ${LINITRD}
+---
+>       initrd /boot/intel-ucode.img ${LINITRD}
+
+2020-09-29:
+/etc/default/grub:
+#GRUB_GFXMODE=1024x768
+was:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+now:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"

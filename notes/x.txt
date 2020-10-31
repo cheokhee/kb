@@ -53,8 +53,10 @@ lightdm-gtk-greeter-settings #program to change setting (need sudo)
 xwininfo #get info about window
 
 xinput #list input devices
+xinput --list-props <id>
 
 xset : user preference utility for X
+xset q
 
 xbacklight
 
@@ -83,3 +85,8 @@ _NET_WM_ALLOWED_ACTIONS(ATOM) = _NET_WM_ACTION_ABOVE, _NET_WM_ACTION_BELOW
 _NET_WM_STATE(ATOM) = _NET_WM_STATE_SKIP_TASKBAR, _NET_WM_STATE_SKIP_PAGER, _NET_WM_STATE_HIDDEN
 _NET_WM_NAME(UTF8_STRING) = "Compiz"
 _NET_SUPPORTING_WM_CHECK(WINDOW): window id # 0x1200005
+
+/usr/share/xsessions/lxqt.desktop
+exec startlxqt, which calls lxqt-session
+
+xlsclients -l
