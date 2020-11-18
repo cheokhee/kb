@@ -71,7 +71,8 @@ http://pgp.mit.edu/
 ===
 1. get the key (put in file mysql_pubkey.asc), then import into keyring: gpg --import mysql_pubkey.asc
 OR
-1. gpg --recv-keys 5072E1F5 #mysql, this is easier
+1. gpg --recv-keys 5072E1F5 #mysql, this is easier, OR
+   gpg --keyserver keyserver.ubuntu.com --recv-keys 702353E0F7E48EDB
    then gpg -k #to show
 2. get signature file, typically (make sure both files are in same directory):
    mysql-standard-8.0.20-linux-i686.tar.gz

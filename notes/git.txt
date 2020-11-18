@@ -1321,3 +1321,10 @@ The file will have its original line endings in your working directory
 git branch new-branch de1da15
 #create a new branch from a commit and then switch to that branch
 git checkout -b new-branch de1da15
+
+#create a backup of untracked files:
+git ls-files --others --exclude-standard -z | xargs -0 tar rvf ~/backup-untracked.zip
+
+#search for pattern in all commits
+git rev-list --all | xargs git grep -F 'string'
+git grep 'string' #search for pattern in tracked files

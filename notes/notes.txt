@@ -14927,3 +14927,13 @@ interact with before access is granted
 container engine: a tool that provides user interface for working with images and containers.
 docker alternative: podman
 building images: buildah, kaniko, buildkit
+
+If you can’t replicate the work and get the same outcome, then it’s not science.
+If you can replicate the work and get the same outcome, it’s not art.
+
+scala trait: a behavior that can be mixed into a class hierarchy. traits are like
+interfaces with a partial implementation.
+
+RTP: real-time payment
+
+Gynandromorph: an organism that contains both male and female characteristics.

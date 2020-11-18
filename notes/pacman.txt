@@ -24,6 +24,7 @@ pacman -Qo <file>	#Who owns this file?
 pacman -Qs <query>	#Search installed packages for keywords
 pacman -Qn #list all native packages
 pacman -Qm #list all foreign packages
+pacman -Qu #list packages that need updates
 
 pacman -Sy #populate sync database , like apt update
 pacman -Syu #update all packages, like apt update and upgrade

@@ -2089,6 +2089,7 @@ Json deserialization:
 1. Gson: field based, do not use getter/setter, you can specify only the fields you want
      Gson gson = new Gson();
      CmsDto cmsDto = gson.fromJson(aString, CmsDto.class);
+   Resttemplate uses Gson??
 2. Jackson ObjectMapper: use setter
    default: deserialize every field, do following to ignore fields unspecified in dto
      ObjectMapper objectMapper   = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -2098,3 +2099,7 @@ Returns the input arguments passed to the Java virtual machine which does not in
 to the main method.
 -> ManagementFactory.getRuntimeMXBean().getInputArguments()
 #from java.lang.management.RuntimeMXBean interface
+
+#cast a collection of interfaces to a collection of concrete classes
+#cast a collection of supertypes to a collection of subtypes
+List<Class2> cmses = (List<Class2>)(List<?>) listoftypes;
