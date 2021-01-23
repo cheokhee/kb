@@ -787,7 +787,7 @@ pmap <pid> # the last line is the total memory footprint
   field #7: dt, always 0
 /proc/[pid]/maps -> similar to output of pmap
 /proc/[pid]/smaps
-/proc/[pid]/status
+/proc/[pid]/status | grep Threads
 /proc/[pid]/task/[threadid] #tgid is process id, pid is thread id
 /proc/[pid]/comm : show program name
 /proc/meminfo
@@ -3648,3 +3648,39 @@ see man sched_setscheduler
 
 #kernel slab memory cache
 sudo cat /proc/slabinfo
+
+Polkit is used for controlling system-wide privileges. It provides an organized way for
+non-privileged processes to communicate with privileged ones.
+
+bash dictionary:
+declare -A animals=( ["moo"]="cow" ["woof"]="dog")
+OR:
+declare -A animals
+animals=( ["moo"]="cow" ["woof"]="dog")
+--
+echo "${animals[@]}" #show all values
+dog cow
+echo "${!animals[@]}" #show all keys
+woof moo
+---
+echo "${animals[moo]}" #get one key
+--iterate:
+for sound in "${!animals[@]}"; do echo "$sound - ${animals[$sound]}"; done
+
+== check exit status
+ls blah #some command
+exit_status=$?
+if [[ $exit_status -ne 0 ]]; then
+    echo "error"
+    exit 1
+fi
+== check exit status
+
+#find my DNS server
+nmcli d show | grep DNS
+
+sudo systemd-resolve --flush-caches
+
+/proc/sys/kernel/threads-max
+
+echo "HelLo" | tr '[:upper:]' '[:lower:]'

@@ -1014,6 +1014,26 @@ enca -L none newrelic.js #require enca package, which includes enconv
 iconv -l
 == encoding conversion
 iconv -f ISO_8859-1 -t UTF-8 < input.txt > output.txt
+--
+If the string //IGNORE is appended to to-encoding, characters that cannot be converted are discarded and an error is printed after conversion.
+--
+If the string //TRANSLIT is appended to to-encoding, characters that cannot be represented in the
+target character set, it can be approximated through one or several similar looking characters.
+--
+echo 'abc ß α € àḃç' | iconv -f UTF-8 -t ASCII//IGNORE
+echo 'abc ß α € àḃç' | iconv -f UTF-8 -t ASCII//TRANSLIT
+---
+*** convert between unicode and utf-8 ***
+unicode for 林: 0x6797
+U+FEFF : BYTE ORDER MARK
+echo -n '林' | iconv -f UTF-8 -t UNICODE | xxd
+-> 00000000: fffe 9767
+echo -n '林' | iconv -f UTF-8 -t UNICODEBIG | xxd # USE THIS ONE (utf-8 to unicode)
+-> 00000000: 6797
+echo -n '林' | iconv -f UTF-8 -t UNICODELITTLE | xxd
+-> 00000000: 9767
+echo -n '林' | iconv -f UTF-8 -t UTF-8 | xxd # use this one (unicode to utf-8)
+-> 00000000: e69e 97
 
 $$ : the process number of the current shell.
 $! : The process number of the last background command

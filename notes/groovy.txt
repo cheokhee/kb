@@ -37,6 +37,8 @@ safe dereference: ?.
 
 every closure has a delegate property.
 by default, delegate points to the object on which the closure was invoked.
+--
+you can change the delegate of a closure
 
 add a method to a class:
 String.metaClass.isPalindrome = { -> delegate == delegate.reverse() }
@@ -59,3 +61,27 @@ If you define a method in your script, it won't have access to the variables tha
 
 format string:
 sprintf("my name is %s, age is %03d\n", "cheok", 42)
+
+parenthesis is optional if there is at least one parameter:
+printAge "John", 24 ==> printAge( "John", 24)
+printEmptyLine()
+callClosure { println("From closure") } ==> callClosure ( { println("From closure") } )
+--
+if the last parameter is a closure, it can be written outside the parentheses:
+callWithParam("param", { println it })
+callWithParam("param") { println it }
+callWithParam "param", { println it }
+
+if you invoke Groovy method with named parameters, they are converted into a map and passed as first
+argument of the method. Other (non-named arguments) are then appended to parameters list:
+--
+def printPersonInfo(Map<String, Object> person) {
+    println("${person.name} is ${person.age} years old")
+}
+
+def printJobInfo(Map<String, Object> job, String employeeName) {
+    println("$employeeName works as ${job.title} at ${job.company}")
+}
+
+printPersonInfo name: "John", age: 24
+printJobInfo "John", title: "Android developer", company: "Tooploox"

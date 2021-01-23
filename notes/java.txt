@@ -2103,3 +2103,129 @@ to the main method.
 #cast a collection of interfaces to a collection of concrete classes
 #cast a collection of supertypes to a collection of subtypes
 List<Class2> cmses = (List<Class2>)(List<?>) listoftypes;
+
+#read file to string
+https://howtodoinjava.com/java/io/java-read-file-to-string-examples/x
+
+spring bean scope:
+singleton: Scopes a single bean definition to a single object instance per Spring IoC container.
+prototype: Scopes a single bean definition to any number of object instances.
+request: Scopes a single bean definition to the lifecycle of a single HTTP request; that is each and
+  every HTTP request will have its own instance of a bean created off the back of a single bean
+  definition. Only valid in the context of a web-aware Spring ApplicationContext.
+session: Scopes a single bean definition to the lifecycle of a HTTP Session. Only valid in the
+  context of a web-aware Spring ApplicationContext.
+global session: Scopes a single bean definition to the lifecycle of a global HTTP Session. Typically
+  only valid when used in a portlet context. Only valid in the context of a web-aware Spring
+  ApplicationContext.
+
+# read file as a string
+String read = Files.readAllLines(path).get(0);
+String contents = new String(Files.readAllBytes(Paths.get("manifest.mf")));
+
+estimating Java object size is not trivial. depends on JVM.
+1. size of reference type: 32 bits on 32-bit h/w, 32/64 bits on 64-bit h/w
+   due to compressed OOP. use left shift (3-bit shift) to support memory addressing.
+   variables are aligned to 8-byte boundary (Objects are 8 bytes aligned)
+   save space for each reference, but increases padding space and incur a time overhead
+2. object header: assume 12-byte if reference type is 32 bits (4 bytes)
+   a. reflection info: a reference to class
+   b. multi-threading support: a reference to monitor object
+   c. garbage collection: store reference count or contain a age field
+3. array overhead: 16 bytes, then 4 bytes for each element.
+
+Java treats each thread as if it runs on its own processor with its own local memory, each talking
+to and synchronizing with a shared main memory
+
+Class initialization is inherently thread-safe and if you can have an object initialized on class
+initialization the object creation too are thread-safe.
+--
+The class loader, which synchronizes on the classes' Class object, executes static initializer
+blocks at class initialization time. That means that the effect of static initializers is
+automatically visible to all threads as soon as the class loads.
+
+Double-checked locking example:
+class SomeClass {
+  private Resource resource = null;
+  public Resource getResource() {
+    if (resource == null) {
+      synchronized {
+        if (resource == null)
+          resource = new Resource();
+      }
+    }
+    return resource;
+  }
+}
+-->
+thread A (inside synchronized block): see this
+Memory for the new Resource object will be allocated;
+the constructor for Resource will be called, initializing the member fields of the new object;
+and the field resource of SomeClass will be assigned a reference to the newly created object.
+---
+thread B (outside synchronized block): may see this
+allocate memory, assign reference to resource, call constructor
+so thread B may get a partially constructed object.
+--
+avoid double-checked locking, use eager initialization
+OR use demand holder idiom:
+--
+class SomeClass {
+      public Resource getResource() {
+        return ResourceHolder.instance;
+      }
+      private static class ResourceHolder{
+             private static final Resource instance = new Resource();
+      }
+}
+--
+lazy-initialized thread-safe singleton:
+---
+public class MySingletonClass{
+   private MySingletonClass(){
+   }
+   public static MySingletonClass getInstance(){
+         return IntiailizationOnDemandClassHolder.instance;
+   }
+   private static class IntiailizationOnDemandClassHolder{
+         private static final MySingletonClass instance = new MySingletonClass();
+   }
+}
+---
+http://rpktech.com/2015/02/04/lazy-initialization-in-multi-threaded-environment/
+https://www.infoworld.com/article/2074979/double-checked-locking--clever--but-broken.html
+
+java: instanceof , isAssignableFrom
+instanceof -> if true, can be cast to the class
+class Parent {
+  String name;
+}
+
+class Child extends Parent {
+  String name2;
+}
+Child c = new Child();
+c instanceof Child -> true
+c instanceof Parent -> true
+Parent p = new Parent();
+p instanceof Parent -> true
+p instanceof Child -> false
+Parent.isAssignableFrom(Child) -> true
+Child.isAssignableFrom(Parent) -> false
+--
+String a = "";
+a instanceof String => true
+String.class.isAssignableFrom(a.getClass()) => true
+-
+instanceof can only be used with reference types, not primitive types. isAssignableFrom() can be
+used with any class objects:
+--
+a instanceof int  // syntax error
+3 instanceof Foo  // syntax error
+int.class.isAssignableFrom(int.class)  // true
+
+If two methods of a class have the same name but signatures that are not override-equivalent, then
+the method name is said to be overloaded.  If the type sequences, after type-erasure of generic type
+parameters, are the same, then the methods are override-equivalent.
+
+Java does not perform autoboxing for arrays.

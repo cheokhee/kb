@@ -5,6 +5,9 @@ perldoc perlrun
 perl -i.bak -p -e 's/hee/cheok/' file1.txt
 perl -p -i.bkp -e 's/to replace/new text/g' **/*
 
+perl -w : warning
+perl -wnl -e '/RE/ and print;'
+
 use $MATCH instead of $& ??
 use $PREMATCH instead of $` ??
 use $POSTMATCH instead of $' ??
@@ -37,10 +40,16 @@ $': the string after the matched string
 s///: can use other delimiter. e.g. s#pattern#replacement#
 
 m//{modifier}: i (ignore case), s (match any char including newline)
-x: ignore whitespace in pattern
+x: ignore whitespace in pattern, Permits whitespace and comments in the RE field. (expanded mode)
+   $data =~ / perl # comment /xi
+s: single-line mode, Allows the “. ”metacharacter to match newline
+m: multi-line mode,  Changes ^ and $ to match at the beginnings or
+   ends of lines within the target string, rather than at the absolute beginning or end of that string.
+g: global
+
 
 string =~ /pattern/
-
+string =~ m:RE:
 
 #with negative lookahead
 $ echo "https://dummy.com/api/admin/dummy" | perl -ne 'm|(^.*?//.*?/)| && print "$1\n"'
@@ -83,3 +92,132 @@ this is just a test
 #capitalize each word: perl -pe 's/(\w+)/\u\L\1/g'
 echo "tHIS IS jUsT a test" | perl -pe 's/(\w+)/\u\L\1/g'
 This Is Just A Test
+
+\U : Uppercase all :  Converts the string on the right to uppercase, stopping at \E or the string’s end.
+\u : Uppercase next :  Converts the character on the right to uppercase.
+\L and \l: see \U and \u
+\E:  End case conversion Terminates the case conversion started with \U or \L (optional).
+
+$_ : When the n or p option is used, $_ contains the most recently read input record. It’s also the
+default data source for many built-in functions, such as print. like $0 in awk
+
+$. : When the n or p option is used, or the input operator, "$. " contains the number of the current
+input record. AWK: NR
+
+-0digits: Setting of input record separator
+--
+Defines the character that marks the end of an input record, using
+octal digits. The special case of -00 enables paragraph mode, in
+which empty lines mark ends of input records; -0777 enables file
+mode, in which each file constitutes a single record
+paragraph mode: treat a paragraph as a single record
+
+find . -name '*~' -print0 | perl -0ne unlink
+# -0 makes -n and -p feed you chunks split on NULL bytes instead of newlines
+
+string escape: \n, \r, \t, \f (formfeed), \e (escape), \NNN (octal value), \xNN (hex value),
+\cX (control character, \cC means ctrl-C)
+
+the Shell doesn’t allow a single quote to be directly embedded within a single quoted string.
+use \047 or \x27 to represent single quote in the RE
+
+\Q...\E : Causes the enclosed characters (represented by ...) to be treated as literal, to obtain
+fgrep-style matching for all or part of a regex
+
+perl -wnl -e '/\Q** $9.99 Sale! **\E/ and print;' same as
+fgrep '** $9.99 Sale! **'
+
+\b: word boundary
+\d: digit char
+\D: non-digit char
+\w: word character: [a-zA-Z0-9_]
+\W: non-word character
+\s: whitespace char : [\040\t\r\n\cJ\cL]
+\S non-whitespace char
+
+display unmatched lines: perl -wnl -e '/^$/ or print;' #like grep -v
+
+display filename only: perl -wnl -e '/RE/ and print $ARGV and close ARGV;' file file2 ...
+like grep -l
+
+(X): used for grouping and capturing
+\1, \2: backreferences (used in the search field)??
+$1, $2: backreferences (used in the replacement field and elsewhere)??
+
+X{min,max}
+X{min,}
+X{count}
+X{,max}
+
+non-greedy search (shortest possible match): example: .*?
+
+perl -wnl -e '/RE/ and close ARGV;' : terminate processing after the first match
+
+.* : longest anything
+.+ : longest something
+.*? : shortest anything
+.+? : shortest something
+
+$ perl -MLWP::Simple -e'print head "http://www.example.com"'
+-> text/html; charset=UTF-8125615712967061607796031ECS (sjc/16DF)
+# -m: turn off default imports
+$ perl -mLWP::Simple -e'print head "http://www.example.com"'
+
+matching across lines:
+1. need to Change the input record separator to one that allows for multi-line records
+(using, for example, -00 or -0777)
+input file:
+===
+this is cheok hee speaking to you
+how are you doing?
+this is just a test
+so don't worry
+===
+$ perl -00 -wne '/cheok.*doing/s && print "$&\n"' test.txt
+cheok hee speaking to you
+how are you doing
+$ perl -0777 -wne '/cheok.*doing/s && print "$&\n"' test.txt
+cheok hee speaking to you
+how are you doing
+
+#show non-matching line, like grep -v
+perl -wne '!/RE/ and print' <file>
+perl -wne '/RE/ or print' <file>
+
+fuzzy matching:
+use String::Approx 'amatch';
+
+-a : autosplit mode with -n or -p (splits $_ into @F)
+perl –wnla –e 'print "$F[1], $F[0]";' <file>
+
+#URL-escape a string
+echo "blah is fine"| perl -MURI::Escape -lne 'print uri_escape($_)'
+-> blah%20is%20fine
+echo "blah%20is%20fine"| perl -MURI::Escape -lne 'print uri_unescape($_)'
+-> blah is fine
+
+#print all lines from line 17 to line 30
+perl -ne 'print if 17..30'
+
+#remove all consecutive blank lines, leaving just one
+perl -00pe0
+
+https://blogs.oracle.com/linux/the-top-10-tricks-of-perl-one-liners-v2
+
+\K: tell perl we won't want to replace the start of the match
+perl -lape 's/^From:\K.*/ Nelson Elhage <nelhage\@ksplice.com>/'
+instead of:
+perl -lape 's/(^From:).*/$1 Nelson Elhage <nelhage\@ksplice.com>/'
+
+env re="'" perl -F: -lane 'print $F[0] if $F[4] =~ /$ENV{re}/' /etc/passwd
+
+ip address | perl -MRegexp::Common -lne 'print $1 if /($RE{net}{IPv4})/'
+https://metacpan.org/pod/release/ABIGAIL/Regexp-Common-2010010201/lib/Regexp/Common.pm
+
+Print the line after a line that matches a regular expression.
+perl -ne 'if ($p) { print; $p = 0 } $p++ if /regex/'
+
+#show installed module
+cpan -l
+---
+perldoc perllocal

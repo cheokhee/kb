@@ -1432,6 +1432,9 @@ of abstract data types with preconditions, postconditions and invariants.
 preconditions: what must be true when the method is called
 postconditions: what must be true after the method completes
 class invariant: what must be true about each instance of a class
+invariant: a condition, regarding the instance variables, that's always true,
+except when the object is undergoing changes due to a method of the class.
+example: the amount field is non-negative.
 +++
 design by contract says that there are 3 concepts about any piece of code:
 preconditions, postconditions, and invariants
@@ -2126,6 +2129,10 @@ then one query for EACH child record.
 ---
 N+1 select problem: it means issuing one query for the parent record and N queries to get each of the
 child record.
+--
+This problem occurs when data access framework needs to load the children of a parent-child relationship (the
+“many” in the “one-to-many”). Most ORMs have lazy-loading enabled by default, so queries are issued
+for the parent record, and then one query for EACH child record
 
 You're falling asleep, then suddenly snap awake. There's a term for that: hypnagogic startle or hypnic jerk.
 
@@ -7315,6 +7322,48 @@ Read Committed Isolation Level :  every query executed by a transaction sees onl
 began.
 Serializable Isolation Level: a transaction sees only changes committed at the time the transaction began.
 A serializable transaction operates in an environment that makes it appear as if no other users were modifying data in the database.
+Serializable: the results of processing a set of transactions is equivalent to executing them one at
+a time in some order. Effectively, each transaction can pretend to be executing by itself.
+--
+Postgres and Oracle, do not provide serializable isolation level, they provide Snapshot Isolation
+--
+The primary difference is that snapshot isolation only checks for write/write conflicts, while
+serializability enforces read/write conflicts.
+fifth isolation level: snapshot isolation
+--
+snapshot isolation is stronger than READ COMMITTED but weaker than SERIALIZABLE. It is similar to
+REPEATABLE READ but not exactly equivalent (REPEATABLE READ permits phantom reads but prevents write
+skew, while the reverse is true of snapshot isolation??).
+-- snapshot isolation: A transaction
+executing under snapshot isolation appears to operate on a personal snapshot of the database, taken
+at the start of the transaction. When the transaction concludes, it will successfully commit only if
+the values updated by the transaction have not been changed externally since the snapshot was
+taken. Such a write–write conflict will cause the transaction to abort.
+--
+write skew:
+In a write skew anomaly, two transactions (T1 and T2) concurrently read an overlapping data set
+(e.g. values V1 and V2), concurrently make disjoint updates (e.g. T1 updates V1, T2 updates V2), and
+finally concurrently commit, neither having seen the update performed by the other. Were the system
+serializable, such an anomaly would be impossible, as either T1 or T2 would have to occur "first",
+and be visible to the other. In contrast, snapshot isolation permits write skew anomalies.
+--
+As a concrete example, imagine V1 and V2 are two balances held by a single person, Phil. The bank
+will allow either V1 or V2 to run a deficit, provided the total held in both is never negative
+(i.e. V1 + V2 ≥ 0). Both balances are currently $100. Phil initiates two transactions concurrently,
+T1 withdrawing $200 from V1, and T2 withdrawing $200 from V2.
+--
+If the database guaranteed serializable transactions, the simplest way of coding T1 is to deduct
+$200 from V1, and then verify that V1 + V2 ≥ 0 still holds, aborting if not. T2 similarly deducts
+$200 from V2 and then verifies V1 + V2 ≥ 0. Since the transactions must serialize, either T1 happens
+first, leaving V1 = −$100, V2 = $100, and preventing T2 from succeeding (since V1 + (V2 − $200) is
+now −$200), or T2 happens first and similarly prevents T1 from committing.
+--
+If the database is under snapshot isolation(MVCC), however, T1 and T2 operate on private snapshots
+of the database: each deducts $200 from an account, and then verifies that the new total is zero,
+using the other account value that held when the snapshot was taken. Since neither update conflicts,
+both commit successfully, leaving V1 = V2 = −$100, and V1 + V2 = −$200.
+--
+https://ebrary.net/64784/computer_science/write_skew_phantoms
 
 certificate authority, or certification authority (CA), is an entity that issues digital certificates.
 a root certificate is either an unsigned public key certificate or a self-signed certificate that identifies the Root Certificate Authority (CA)
@@ -7532,6 +7581,19 @@ so a memory address can refer to physical RAM or the memory of the I/O device
 
 memory-mapped file I/O: map a file to virtual memory. can access a file as if it were in main memory.
 mmap: memory-mapped file I/O
+Mmap stands for memory-mapped files. It is a way to read and write files without invoking system calls
+--
+The operating system reserves a chunk of a program virtual addresses to “map” directly to a chunk in
+a file. So if the program reads the data from that part of the address space, it will obtain the
+data that resides in the corresponding part of the file. If that part of the file happens to reside
+in the buffer cache, the virtual addresses of the mapped chunk will simply be mapped to the physical
+addresses of the corresponding buffer cache pages upon the first access, and no system calls or
+other traps will be invoked later on. If the file data is not in the buffer cache, accessing the
+mapped area will generate a page fault, prompting the kernel to go fetch the corresponding data from
+disk.
+
+A page fault is a type of exception raised by computer hardware when a program attempts to access
+data or code that is in its virtual address space, but is not currently located in the system RAM
 
 disk/page cache: the cache of disk pages kept by the operating systems, stored in unused main memory
 
@@ -7551,26 +7613,11 @@ thread: a flow of execution
 SQL injection: an attack where the attacker inserts an SQL statement into an entry field for execution.
 cross-site scripting: an attack where the attacker inserts client-side script into a web page.
 The underlying problem is that many Web pages display input that is not validated. If input is not validated, malicious script can be embedded within the input. If a server-side script then displays this non-validated input, the script runs on the browser as though the trusted site generated it.
+--
+Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected
+into otherwise benign and trusted websites
 
 demand paging:  is a type of swapping in which pages of data are not copied from disk to RAM until they are needed
-
-java: instanceof , isAssignableFrom
-instanceof -> if true, can be cast to the class
-class Parent {
-  String name;
-}
-
-class Child extends Parent {
-  String name2;
-}
-Child c = new Child();
-c instanceof Child -> true
-c instanceof Parent -> true
-Parent p = new Parent();
-p instanceof Parent -> true
-p instanceof Child -> false
-Parent.isAssignableFrom(Child) -> true
-Child.isAssignableFrom(Parent) -> false
 
 dry-heat cooking: cooking without moisture (includes deep-drying)
 moist-heat cooking: cooking with liquid
@@ -7975,6 +8022,9 @@ an optimal solution to the problem contains within it optimal solutions to sub-p
 --> (best) the optimal solution to a problem consists of optimal solutions to sub-problems.
 2. overlapping sub-problems:
 there exist some places where we solve the same sub-problems more than once.
+--
+dynamic programming: a technique for efficiently implementing a recursive algorithm by
+storing partial results.
 ----
 vs divide-and-conquer: cannot reuse solutions to sub-problems. non-overlapping sub-problems.
 ---
@@ -7991,6 +8041,7 @@ DP: make a global optimization. pick the best solution from a collection of solu
 bottom-up
 globally optimal choice
 greedy algorithm: make the decision that seems most promising at any moment
+greedy algorithm: make the locally optimal decision at every step
 ---
 NP-complete problems have no known fast solution.
 if you have an NP-complete problem, best bet is to use an approximation algorithm.
@@ -8801,6 +8852,11 @@ staging of instruction fetching is continuous. The result is an increase in the 
 instructions that can be performed during a given time period.
 ===================================
 sequence: fetch instruction, decode instruction, execute instruction, memory access, write back result
+--
+instruction pipelining is a technique for implementing instruction-level parallelism within a single
+processor. Pipelining attempts to keep every part of the processor busy with some instruction by
+dividing incoming instructions into a series of sequential steps (the eponymous "pipeline")
+performed by different processor units with different parts of instructions processed in parallel.
 
 lexical (linear) analysis: stream of characters are grouped into tokens, which are sequences of
 characters having a collective meaning.
@@ -11518,6 +11574,8 @@ load barrier inserted before a read of it.  Qualified final fields of a class ha
 inserted after their initialisation to ensure these fields are visible once the constructor
 completes when a reference to the object is available.
 ---
+memory barrier -- a forced synchronization between the thread's local memory and main memory.
+---
 a core has load/store buffers between its registers and L1 cache
 ===
 load means transmitting a value from memory (or cache) to a CPU register.
@@ -12486,6 +12544,9 @@ or graph from a finite (or possibly countably infinite) set. Problems with conti
 include constrained problems and multimodal problems.
 ==
 optimization problem is the problem of finding the best solution from all feasible solutions.
+--
+Combinatorial problems involve finding a grouping, ordering, or assignment of a discrete, finite set
+of objects that satisfies given conditions
 
 For any IP we can generate an LP (called the LP relaxation) from the IP by taking the same objective
 function and same constraints but with the requirement that variables are integer replaced by
@@ -14181,10 +14242,6 @@ the permission of its original registrant.
 DNS amplification attack: send lots of small DNS requests from a fake IP address. these small
 requests trigger large responses to a real IP.
 
-DNS spoofing, also referred to as DNS cache poisoning, is a form of computer security hacking in
-which corrupt Domain Name System data is introduced into the DNS resolver's cache, causing the name
-server to return an incorrect result record, e.g. an IP address.
-
 yak shaving: all the little things you have to do before you work on the main thing you wanted to
 do in the first place.
 
@@ -14235,6 +14292,9 @@ Internet exchange points and colocation centres.
 An Internet exchange point (IXP) is the physical infrastructure through which Internet service
 providers (ISPs) and content delivery networks (CDNs) exchange Internet traffic between their
 networks. a place where ISPs interconnect their networks toegether
+--
+internet exchange points: the physical hardware infrastructure where internet service providers and
+CDNs hand off data to each others' networks
 --
 http://drpeering.net/FAQ/What-is-an-Internet-Exchange-Point.php
 https://www.colocationamerica.com/blog/point-of-presence
@@ -14918,6 +14978,8 @@ a host controller, host adapter, or host bus adapter (HBA) connects a computer, 
 host system, to other network and storage devices. The terms are primarily used to refer to devices
 for connecting SCSI, Fibre Channel and SATA devices. Devices for connecting to IDE, Ethernet,
 FireWire, USB and other systems may also be called host adapters.
+--
+Serial ATA is a computer bus interface that connects host bus adapters to mass storage devices
 
 subnet mask: define the subnet that an IP address belongs to
 
@@ -14937,3 +14999,344 @@ interfaces with a partial implementation.
 RTP: real-time payment
 
 Gynandromorph: an organism that contains both male and female characteristics.
+
+Flynn's taxonomy:
+Single instruction stream, single data stream (SISD)
+Single instruction stream, multiple data streams (SIMD)
+Multiple instruction streams, single data stream (MISD)
+Multiple instruction streams, multiple data streams (MIMD)
+--
+A scalar processor processes only one data item at a time, with typical data items being integers or
+floating point numbers. A scalar processor is classified as a SISD processor (Single Instructions,
+Single Data) in Flynn's taxonomy.
+--
+vector processor or array processor is a CPU that implements an instruction set containing
+instructions that operate on one-dimensional arrays of data called vectors. (SIMD)
+Operating on multiple data in just one instruction is called Single Instruction Multiple Data (SIMD)
+
+Lambda lifting is used to turn a closure into a pure function. By passing extra arguments to the
+function, you reduce the number of its free variables. As you "lift" the lambda into higher and
+higher scopes, you add arguments to accommodate the local variables declared in that scope (which
+would be free variables otherwise). Once the lambda has no free variables it is a pure "top level"
+function.
+--
+Lambda lifting is a meta-process that restructures a computer program so that functions are defined
+independently of each other in a global scope. An individual "lift" transforms a local function
+into a global function. It is a two step process, consisting of: Eliminating free variables in the
+function by adding parameters.  Moving functions from a restricted scope to broader or global scope.
+--
+https://en.wikipedia.org/wiki/Lambda_lifting
+https://stackoverflow.com/questions/592584/what-is-lambda-lifting
+http://matt.might.net/articles/closure-conversion/
+
+Unicode and ISO 10646
+
+edit distance is a way of quantifying how dissimilar two strings (e.g., words) are to one another by
+counting the minimum number of operations required to transform one string into the other.
+
+a heuristic is a technique designed for solving a problem more quickly when classic methods are too
+slow, or for finding an approximate solution when classic methods fail to find any exact
+solution. This is achieved by trading optimality, completeness, accuracy, or precision for speed. In
+a way, it can be considered a shortcut.
+
+heuristic search methods: random sampling, gradient-descent search, local search, simulated
+annealing
+
+algorithm: a procedure for accomplishing a specific task.
+
+Combinatorial optimization is a topic that consists of finding an optimal object from a finite set
+of objects.
+
+#check endianness of machine (python):
+from sys import byteorder
+print(byteorder)
+--> little
+========
+perl:
+if the output starts with a 1 (least-significant byte), it's a little-endian system. If the output
+starts with a higher digit (most-significant byte), it's a big-endian system
+--
+perl -MConfig -e 'print "$Config{byteorder}\n";'
+--> 12345678
+
+Vexillology is the study of flags
+
+bollard lights
+
+geofencing is a location-based service where an app can trigger an action when a mobile
+device crosses a geofence (a virtual boundary created around a geographical location).
+
+suffix tree (also called PAT tree or, in an earlier form, position tree) is a compressed trie
+containing all the suffixes of the given text as their keys and positions in the text as their
+values. Suffix trees allow particularly fast implementations of many important string operations.
+--
+a trie, also called digital tree or prefix tree, is a kind of search tree—an ordered tree data
+structure used to store a dynamic set or associative array where the keys are usually
+strings. Unlike a binary search tree, no node in the tree stores the key associated with that node;
+instead, its position in the tree defines the key with which it is associated; i.e., the value of
+the key is distributed across the structure
+
+cloaca: a common cavity at the end of the digestive tract for the release of both excretory and
+genital products in vertebrates (except most mammals) and certain invertebrates. Specifically, the
+cloaca is present in birds, reptiles, amphibians, most fish, and monotremes
+
+side stitch: exercise-related transient abdominal pain, or ETAP.
+
+BGP (Border Gateway Protocol) is the protocol underlying the global routing system of the
+internet. It manages how packets get routed from network to network through the exchange of routing
+and reachability information among edge routers.
+--
+An Autonomous System (AS) is a set of Internet routable IP prefixes belonging to a network or a
+collection of networks that are all managed, controlled and supervised by a single entity or
+organization
+--
+An autonomous system is a collection of network prefixes within the internet. A collection of
+network prefixes are grouped into an autonomous system (AS). An AS is an individual network on the
+internet. Each network, or AS, has an autonomous system number (ASN).
+--
+An Autonomous System (AS) is a group of one or more IP prefixes (lists of IP addresses accessible on
+a network) run by one or more network operators that maintain a single, clearly-defined routing
+policy. Network operators need Autonomous System Numbers (ASNs) to control routing within their
+networks and to exchange routing information with other Internet Service Providers (ISPs)
+---
+An autonomous system (AS) is a very large network or group of networks with a single routing
+policy. Each AS is assigned a unique ASN, which is a number that identifies the AS.
+--
+An AS routing policy is a list of the IP address space that the AS controls, plus a list of the
+other ASes to which it connects. This information is necessary for routing packets to the correct
+networks. ASes announce this information to the Internet using the Border Gateway Protocol (BGP).
+--
+The range of IP addresses that a given AS has control over is called their "IP address space."
+Each AS is assigned an official number, or autonomous system number (ASN)
+--
+ASNs are only required for external communications with inter-network routers (see "What is BGP?"
+below). Internal routers and computers within an AS may not need to know that AS's number, since
+they are only communicating with devices within that AS.
+--
+ASes announce their routing policy to other ASes and routers via the Border Gateway Protocol
+(BGP). BGP is the protocol for routing data packets between ASes.
+--
+Each AS uses BGP to announce which IP addresses they are responsible for and which other ASes they
+connect to. BGP routers take all this information from ASes around the world and put it into
+databases called routing tables to determine the fastest paths from AS to AS. When packets arrive,
+BGP routers refer to their routing tables to determine which AS the packet should go to next
+--
+ASes connect with each other and exchange network traffic (data packets) through a process called
+peering. One way ASes peer with each other is by connecting at physical locations called Internet
+Exchange Points (IXPs). An IXP is a large local area network (LAN) with lots of routers, switches,
+and cable connections.
+--
+The internet is a web of networks. Each network is an autonomous system. All connected by border
+gateway protocol. An ISP can own multiple AS’s and they will use border gateway protocol (BGP) to
+communicate between them.
+Autonomous systems communicate between each other through BGP.
+---
+https://www.cloudflare.com/learning/network-layer/what-is-an-autonomous-system/
+
+liminal space: transition space
+
+chinoiserie: the imitation or evocation of Chinese motifs and techniques in Western art, furniture,
+and architecture
+
+Message brokers axre a type of datastore specialized for “buffering” messages between producer and
+consumer systems. Message brokers are used to decouple producers and consumers of data
+
+operational transformation: allow multiple users to edit the same document at the same time.
+--
+Collaboration systems utilizing Operational Transformations typically use replicated document
+storage, where each client has their own copy of the document; clients operate on their local copies
+in a lock-free, non-blocking manner, and the changes are then propagated to the rest of the clients;
+this ensures the client high responsiveness in an otherwise high-latency environment such as the
+Internet. When a client receives the changes propagated from another client, it typically transforms
+the changes before executing them; the transformation ensures that application-dependent consistency
+criteria (invariants) are maintained by all sites.
+
+Dappled light refers to that spotted light which typically comes through gaps in a tree canopy
+
+ISO 7000 / IEC 60417 Graphical symbols for use on equipment
+
+IVI system: in-vehicle infotainment
+AGL: Automotive Grade Linux
+GENIVI is an open source project for automotive that produces automotive software components,
+standard APIs, and a development platform for IVI and connected vehicle solutions
+
+endianness on intel:
+writing:
+    int i = 0xabcd1234;
+      try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename))) {
+        dos.writeInt(i);
+      }
+reading:
+    try (DataInputStream dis = new DataInputStream(new FieInputStream(filename))) {
+        return dis.readInt();
+result:
+$ xxd /home/oracle/tmp/blah.txt
+00000000: abcd 1234
+$ hexdump -C /home/oracle/tmp/blah.txt
+00000000  ab cd 12 34
+$ hexdump /home/oracle/tmp/blah.txt
+0000000 cdab 3412
+--
+in emacs hexl mode:
+00000000: abcd 1234
+
+grading on a curve: grades are adjusted to reflect the desired distribution of scores (normal distribution)
+
+In electronics and telecommunications, jitter is the deviation from true periodicity of a presumably
+periodic signal, often in relation to a reference clock signal. In clock recovery applications it is
+called timing jitter
+
+the thundering herd problem occurs when a large number of processes or threads waiting for an event
+are awoken when that event occurs, but only one process is able to handle the event. When the
+processes wake up, they will each try to handle the event, but only one will win. All processes will
+compete for resources, possibly freezing the computer, until the herd is calmed down again
+
+federated architecture: Architectures federation is a framework for enterprise architecture
+development, maintenance, and use that aligns, locates, and links separate but related architectures
+and architecture information to deliver a seamless outward appearance to users.
+
+Ambient authority: A subject, such as a computer program, is said to be using ambient authority if
+it only needs to specify the names of the involved object(s) and the operation to be performed on
+them in order for a permitted action to succeed.
+--
+a "name" is any way of referring to an object that does not itself include authorising information,
+and could potentially be used by any subject;
+--
+an action is "permitted" for a subject if there exists any request that that subject could make that
+would cause the action to be carried out.  The authority is "ambient" in the sense that it exists in
+a broadly visible environment (often, but not necessarily a global environment) where any subject
+can request it by name.
+--
+For example, suppose a C program opens a file for read access by executing the call:
+open("filename", O_RDONLY, 0)
+The desired file is designated by its name on the filesystem, which does not by itself include
+authorising information, so the program is exercising ambient authority.
+--
+When ambient authority is requested, permissions are granted or denied based on one or more global
+properties of the executing program, such as its identity or its role. In such cases, the management
+of access control is handled separately from explicit communication to the executing program or
+process, through means such as access control lists associated with objects or through Role-Based
+Access Control mechanisms.
+--
+The user model of access control as used in Unix and in Windows systems is an ambient authority
+model because programs execute with the authorities of the user that started them. This not only
+means that executing programs are inevitably given more permissions than they need for their task,
+but that they are unable to determine the source or the number and types of permission that they
+have.
+
+die on the vine: be unsuccessful at an early stage.
+
+trepanation: the process of making a hole through the skull to the surface of the brain
+
+software quality:
+correctness: adherence to stated objectives, aka requirements/specifications
+robustness: resilience to incorrect inputs or adverse/unexpected external condition
+usability: a measure of the effort needed to learn how to use the software; ease of use
+efficiency: adequate consumption of resources
+readability: clarity, understandability by fellow programmers
+reusability: ease of reusing the code
+testability: the ability to write tests and how easy it is to do so.
+maintainability: ease of finding and fixing bugs
+FURPS: functionality, usability, reliability, performance, supportability
+
+Cyclomatic complexity: a measure of the amount of branching and nesting.
+
+synesthesia: a neurological condition where one sensory experience gets
+combined with another. e.g., experience sound as color
+
+partial order: a relation between pairs of items, such that not every pair
+is comparable. The java promotion rules between primitive types induce
+a partial order among them. In that order, int is smaller than long,
+whereas int and boolean are not comparable
+there are two partial orders between pairs of classes: being a subclass
+and being an internal class.
+
+parent pointer tree: a node points to its parent
+children pointer tree: a node points to its children
+
+The Pareto Optimal Solution refers to a solution, around which there is no way of improving any
+objective without degrading at least one other objective.
+
+browser engine: rendering web pages
+Chromium uses a browser engine called Blink. In 2013, Blink was forked from WebKit, Apple’s browser engine.
+Apple, in turn, still uses a version of WebKit in the Safari browser.
+WebKit was an offshoot of yet another open-source program in the early 2000s – the KHTML and KJS
+libraries from the open-source community KDE.
+--
+There is also the Gecko engine in the Mozilla browser, which Mozilla is updating with Quantum, a
+next-generation web engine for Firefox users.
+
+Session hijacking is an attack where a user session is taken over by an attacker.
+
+YMNNALFT: You May Not Need Another Library For That
+
+Peripheral Component Interconnect (PCI) is a common connection interface for attaching computer
+peripherals to the motherboard
+--
+Industry Standard Architecture bus (ISA bus) is a computer bus that allows additional expansion
+cards to be connected to a computer's motherboard.
+
+the Law of Unintended Consequences: the solution to a problem is worse than the prolem.
+occurs when an impulsive, emotional decision is made that unintentionally creates more problems than it solves.
+
+system software: serves as the platform to run application software
+e.g., OS, language processor, utility software, device driver, middleware, shells, windowing system
+
+Simple things should be simple, complex things should be possible - Alan Kay
+
+Turing tar-pit : everything is possible but nothing of interest is easy.
+
+property: a combination of a private field and a getter/setter.
+
+Insecure Deserialization is a vulnerability which occurs when untrusted data is used to abuse the
+logic of an application, inflict a denial of service (DoS) attack, or even execute arbitrary code
+upon it being deserialized.
+
+An XML External Entity (XXE) attack is a type of attack against an application that parses XML input
+
+Threat modeling is the practice of identifying and prioritizing potential threats and security
+mitigations to protect something of value, such as confidential data or intellectual property.
+
+Dependency-Check is a Software Composition Analysis (SCA) tool that attempts to detect publicly
+disclosed vulnerabilities contained within a project’s dependencies.
+
+Static Application Security Testing (SAST) Tools, are designed to analyze source code or compiled
+versions of code to help find security flaws.
+
+A disjoint-set data structure is a data structure that keeps track of a set of elements partitioned
+into a number of disjoint (non-overlapping) subsets. A union-find algorithm is an algorithm that
+performs two useful operations on such a data structure:
+Find: Determine which subset a particular element is in. This can be used for determining if two
+elements are in the same subset.
+Union: Join two subsets into a single subset.
+
+system integration patterns:
+1. Messaging is where a producer sends a message (with an enveloper and a payload) to a reliable,
+intermediary broker. That broker acts as the delivery service for messages between the producer and
+the consumer.
+--
+2. RPC is where a consumer invokes methods (through some sort of network protocol like SOAP-RPC,
+Hessian, Burlap, Spring’s own HTTP Invoker, XML RPC, EJBs, RMI, DCOM, CORBA, etc.) on remote
+objects. The experience is meant to feel like invoking methods on a local object in the same virtual
+machine.
+--
+3. File Transfer is where a producer transmits a file to a shared, agreed-upon (network) file system,
+and the consumer consumes messages deposited there
+--
+4. Shared databases is where a producer and a consumer read data from the same table (not
+recommended)
+
+RSocket: reactive, payload-agnostic, lightning-quick, observable. RSocket is a binary protocol is
+built for scale and speed and circumvents many of the limitations of HTTP 1-2 and gRPC.
+it supports proper bidirectional communication
+it supports many different message exchange patterns beyond mere request/response
+it supports metadata to propagate out-of-band-information like tokens
+it reifies the Reactive Streams specification concepts at the network protocol level (backpressure)
+--  a message envelope-centric protocol
+https://spring.io/blog/2021/01/18/ymnnalft-easy-rpc-with-rsocket
+
+A thread is a sequence of computer instructions executed sequentially
+--
+At an operating system (OS) level, threads are independently scheduled execution units that belong
+to a process. Each thread has an execution instruction counter and a call stack but shares a heap
+with every other thread in the same process.

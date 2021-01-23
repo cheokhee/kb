@@ -37,3 +37,75 @@ applicationDefaultJvmArgs = ["-Xms1024m", "-Xmx2048m"]
 bootRun {
    jvmArgs = "-XX:+PrintCommandLineFlags"
 }
+
+https://www.bruceeckel.com/2021/01/02/the-problem-with-gradle/
+
+tell gradle where to find your source files:
+sourceSets {
+    main {
+        java {
+            srcDirs 'java11'
+        }
+    }
+}
+--
+Here, sourceSets, main and java are all functions that take a single lambda parameter, so no
+parenthesized list is necessary, just the lambda
+-- equivalent to:
+sourceSets {
+    main {
+        java {
+            srcDirs('java11')
+        }
+    }
+}
+-- equivalent to:
+sourceSets.main.java.srcDirs = ['java11']
+-- equivalent to:
+sourceSets.main.java.srcDirs('java11')
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+-- then on cli, do this to run hello task
+gradle hello
+
+tasks.forEach { println it }
+
+task a {
+    doFirst {
+        println "task a doFirst"
+    }
+    println "task a initialization" #this line is executed during config phase
+    doLast {
+        println "task a doLast"
+    }
+}
+$ gradle a
+-->
+> Configure project :
+task a initialization
+
+> Task :a
+task a doFirst
+task a doLast
+
+When you write "sourceSets { ... }" you're actually calling a method on an object
+the receiver for top-level calls is a Project instance
+-- you can prefix each top-level call with project.
+
+'sourceSets { }' calls the lambda on a `SourceSetContainer` instance, accessible via
+`Project#sourceSets` property
+
+build scripts in build.gradle files. These are executed against Project objects;
+settings scripts in settings.gradle files, executed against Settings object;
+init scripts used for global configuration (executed against Gradle instance).
+
+Gradle build consists of one or more projects, and projects consist of tasks. There is always at
+least the root project, which may contain subprojects
+
+gradle projects
+gradle tasks
+gradle tasks --console plain #can do this to all commands
