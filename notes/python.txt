@@ -721,3 +721,7 @@ python: any(elem in events for elem in milestone_names)
 java:   milestone_names.stream().anyMatch(events::contains)
 
 python: "hi" in events return a boolean
+
+repeat a string N times
+print("abc" * 3)
+-> abcabcabc

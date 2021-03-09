@@ -11,6 +11,8 @@ dependencies:
   annotationProcessor
   developmentOnly
 
+implementation: compileOnly and runtimeOnly
+
 developmentOnly 'org.springframework.boot:spring-boot-devtools'
 runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.5.4'
 
@@ -109,3 +111,56 @@ least the root project, which may contain subprojects
 gradle projects
 gradle tasks
 gradle tasks --console plain #can do this to all commands
+
+old: apply plugin: 'java'
+new syntax:
+plugins {
+  id 'java'
+}
+
+build phases: init, configuration , execution
+
+mainClassName = 'com.example.demo'
+-> ./gradlew run #to run the app
+
+./gradlew -q dependencies --configuration implementation
+./gradlew -q dependencies --configuration compileClasspath
+
+repositories {
+    mavenCentral()
+}
+repositories {
+    jcenter()
+}
+
+./gradlew --refresh-dependencies
+
+test {
+  testLogging {
+    events TestLogEvent.FAILED,
+           TestLogEvent.PASSED,
+           TestLogEvent.SKIPPED
+    }
+}
+
+--test one class/method
+gradle test --tests *LibraryTest
+gradle test --tests LibraryTest.testSomeLibraryMethod
+
+---run a java main method
+plugins {
+    id 'application'
+}
+application {
+    mainClassName = 'com.oocl.Main'
+}
+===
+then do : gradlew run
+#pass command line arguments to main method
+./gradlew run --args="one two"
+
+#pass jvm options to gradlew
+GRADLE_OPTS="-XX:+PrintCommandLineFlags" SPRING_PROFILES_ACTIVE=local,local-oracle ./gradlew bootRun
+
+https://www.baeldung.com/gradle-run-java-main
+https://www.baeldung.com/gradle-command-line-arguments

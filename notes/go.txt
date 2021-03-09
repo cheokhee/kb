@@ -33,6 +33,9 @@ s = make([]byte, 5, 5)
 A slice is a descriptor of an array segment. It consists of a pointer to the array, the length of
 the segment, and its capacity (the maximum length of the segment).
 A slice is backed by an array.
+---
+slice is an abstraction built on top of array. behaves like a dynamically-sized array and provide
+a flexible view into elements of array
 
 The length is the number of elements referred to by the slice. The capacity is the number of
 elements in the underlying array (beginning at the element referred to by the slice pointer).
@@ -54,6 +57,8 @@ a := make([]int, 1)
 // a == []int{0}
 a = append(a, 1, 2, 3)
 // a == []int{0, 1, 2, 3}
+--> original slice is not changed
+--> append work on nil slice
 
 To append one slice to another, use ... to expand the second argument to a list of arguments.
 a := []string{"John", "Paul"}
@@ -127,14 +132,16 @@ a string is a slice of bytes
 indexing a string accesses individual bytes
 ====
 fmr.Printf("% x\n", aString)  // put a space between hex numbers
+#compare character in a string: s[i] != 'S'
 
 formatting directive
 %x : hex
 % x : put a space between hex numbers
 %q : quoted, escape any non-printable byte sequences
-+%q : quoted, escape any non-printable byte sequences and non-ascii bytes
+%+q : quoted, escape any non-printable byte sequences and non-ascii bytes
 %#U : show Unicode value and its printed representation
 rune: mean code point
+rune is also defined as an alias for the type int32,
 
 raw string: `string`
 
@@ -157,3 +164,175 @@ go tool compile -help
 
 #show available minor and patch upgrades available:
 go list -u -m all
+
+delve: go debugger
+
+$GOPATH is called as the workspace directory for Go programs. Go source-code, belongs to you and to
+others lives here. So, when you import a package, Go searches that package inside this directory’s
+src directory.
+
+GOROOT is a variable that defines where your Go SDK is located
+
+go env
+
+#show installed packages
+godoc -http :6060
+then go to http://localhost:6060/pkg/
+
+short variable declaration:
+name := "blah" #cannot use for package-level variable
+
+at package level, every declaration should start with a keyword like var, const, func, type, and import.
+
+str is an array of 10 pointers to string:
+str [10]*string
+C: str is an arry of 10 pointers to char: char *str[10]
+
+var nameofvar int
+
+var (
+  nameofvar int
+  numberofthings, ageofting = 1, 40
+  name = "blah"
+)
+
+swap variables:
+foo, bar = bar, foo
+
+fmt:
+%v	the value in a default format
+	when printing structs, the plus flag (%+v) adds field names
+%#v	a Go-syntax representation of the value
+%T	a Go-syntax representation of the type of the value
+%+v : use for struct will show name:value pair
+%p: pointer
+--
+https://golang.org/pkg/fmt/
+
+#install as a library
+go get -u github.com/haya14busa/goplay
+#install as a command line tool
+go get -u github.com/haya14busa/goplay/cmd/goplay
+
+bufio:
+ReadLine is a low-level line-reading primitive. Most callers should use ReadBytes('\n') or ReadString('\n') instead or use a Scanner.
+
+Single quotes indicate byte type or rune type, corresponding to uint8 and int32 types, and the
+default is rune type. Byte is used to emphasize that the data is raw data, not a number; and rune is
+used to represent the code point of Unicode.
+--
+Double quotes are strings, which are actually character. honor escaping character: \n
+--
+A string encoded in back quotes is a raw literal string and doesn’t honor any kind of escaping.
+arrays.
+
+--read from file: use bufio.newScanner()
+--read from stdin
+#1: ReadString() return end-of-line
+	reader := bufio.NewReader(os.Stdin)
+	str, _ := reader.ReadString('\n') // str is string
+--> str contains the '\n' character
+#2: ReadLine() does not return end-of-line
+	reader := bufio.NewReader(os.Stdin)
+	str2, _, _ := reader.ReadLine() // str1 is []byte
+	fmt.Println("got more input: " + string(str2))
+--> result does not contain '\n' character
+
+Go doesn't have casting, but conversion. eg. aaa := int32(10)
+
+type example struct {
+	flag    bool
+	counter int16
+	pi      float32
+}
+struct:
+The largest field represents the padding for the entire struct.
+We need to minimize the amount of padding as possible. Always lay out the field
+from highest to smallest. This will push any padding down to the bottom. true/false?
+
+var a []int32 #get a slice of zero length and zero capacity
+
+saved := make([]int32, count)
+// a = [1,2,3,4,5]
+copy(saved, a[0:count])
+// saved == [1 2 3 4]
+
+input: [1,2,3,4,5], d = 4
+output: [5,1,2,3,4]
+func rotateLeft(a []int32, d int32) []int32 {
+  size := len(a)
+  count := int(d) % size
+  if count <=0 || size == 1 {
+     return a
+  }
+  var saved []int32
+  saved = append(saved, a[0:count]...)
+  var result []int32
+  result = append(result, a[count:]...)
+  result = append(result, saved...)
+  return result
+}
+
+a := [5]int32{1, 2, 3, 4, 5}
+b := [5]int32{1, 2, 3, 4, 5}
+a == b : true
+
+https://blog.golang.org/strings
+
+a := []int{1,2,3,4,5}
+// a: [1 2 3 4 5], len: 5, cap: 5
+b := a[:0]
+// b: [], len: 0, cap: 5
+c := b[1:4]
+// c: [2 3 4], len: 3, cap: 4
+d := b[0:5]
+// d: [1 2 3 4 5], len: 5, cap: 5
+e := b[0:6]
+// panic: runtime error: slice bounds out of range [:6] with capacity 5
+
+methods: function with receivers (value receiver or pointer receiver)
+methods with pointer receivers can modify the value to which the receive points
+methods with pointer receivers can accept a value or a pointer when they are called.
+why use pointer receiver: (1) so that the method can modify the value that the receiver
+points to (2) avoid copying the value on each method call.
+
+substring:
+1. runes := []rune(str)
+   string(runes[1:3]) #works for all
+2. str[1:3] #only works for ASCII characters
+
+var m map[string]int
+m = map[string]int{}
+m1 = make(map[int]string)
+m2 := make(map[int]string)
+delete(m, "route")
+--
+i, ok := m["route"] #test for existence
+_, ok := m["route"]
+the first value (i) is assigned the value stored under the key "route". If that key doesn't exist, i
+is the value type's zero value (0). The second value (ok) is a bool that is true if the key exists
+in the map, and false if not.
+---
+for key, value := range m {
+}
+--
+commits := map[string]int{
+    "rsc": 3711,
+    "r":   2138,
+     "adg": 912,
+}
+---
+#put all keys into a slice
+keys := make([]string, 0, len(m))
+for k := range m {
+    keys = append(keys, k)
+}
+---
+#get all keys and values
+keys := make([]keyType, 0, len(myMap))
+values := make([]valueType, 0, len(myMap))
+
+for k, v := range myMap {
+	keys = append(keys, k)
+	values = append(values, v)
+}

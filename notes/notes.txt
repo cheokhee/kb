@@ -6244,6 +6244,7 @@ It is 1-to-many NAT because it only uses one public IP address for multiple mach
 It works by changing the IP address and port number in the network packet.
 --
 NAT: rewriting the source and destination IP address of a packet while it moves through a router.
+NAT: allow a privately addressed resource to be available on the internet
 
 Port forwarding: a technique for allowing a remote computer to connect to a computer in a private network.
 When configuring port forwarding, the network administrator sets aside one port number on the gateway
@@ -6728,6 +6729,8 @@ temporal locality
 locality of reference = spatial locality and temporal locality
 --> refers to the same data or related storage locations being frequently accessed.
 --> Programs tend to reuse data and instructions they have used recently.
+Programs tend to access the same data and code several times within a short period (temporal
+locality), and memory access is often limited to small regions (spatial locality).
 
 tuple: a fixed-length set of objects
 tuple: an ordered list of elements (like an ordered collection)
@@ -7206,6 +7209,9 @@ happens-before relationship: it relates only to visibilities of an effect. does 
 The results of a write by one thread are guaranteed to be visible to a read by another thread only
 if the write operation happens-before the read operation. The synchronized and volatile constructs,
 as well as the Thread.start() and Thread.join() methods, can form happens-before relationships.
+--
+happens-before relationship exists between all synchronized/volatile write operations and all
+synchronized/volatile read operations that follow.
 ==
 https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility
 
@@ -7616,6 +7622,12 @@ The underlying problem is that many Web pages display input that is not validate
 --
 Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected
 into otherwise benign and trusted websites
+--
+Cross-Site Scripting (XSS) flaws occur whenever an application includes untrusted data in a new web
+page without proper validation or escaping, or updates an existing web page with user-supplied data
+using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in
+the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to
+malicious sites.
 
 demand paging:  is a type of swapping in which pages of data are not copied from disk to RAM until they are needed
 
@@ -8151,6 +8163,13 @@ control plane: traffic shaping, routing, policy control.
 SDN : allows you to control network devices from a centralized software platform (using
 a standard protocol, such as OpenFlow).
 network virtualization: create virtual replicas of hardware that are indistinguishable to servers.
+network virtualization: the process of combining h/w and s/w network resources and functionality
+into a single software-based administrative entity called a virtual network. abstract the network
+from the hardware
+--> switches -> network hypervisor -> virtual networks -> network services -> app workload
+SDN: abstract management and control
+Network function virtualization: virtualizes layers 4-7 functions such as firewall, IDPS (intrusion
+detection and protection system), or load balancer
 
 connected graph: we can reach any vertex from any other vertex by following edges in either direction.
 a tree is a connected graph with no cycles
@@ -8518,9 +8537,9 @@ not in many documents in the corpus. If a word appears frequently in one documen
 documents, it is likely to hightly descriptive of the contents of that document.
 
 private IP addresses:
-10.0.0.0 - 10.255.255.255
-172.16.0.0 - 172.31.255.255
-192.168.0.0 - 192.168.255.255
+10.0.0.0 - 10.255.255.255 (10.0.0.0/8)
+172.16.0.0 - 172.31.255.255 (172.16.0.0/12)
+192.168.0.0 - 192.168.255.255 (192.168.0.0/16)
 
 gear ratio: output/input
 first gear: 4/1. four revolutions of engine to produce one revolution of wheel.
@@ -8673,16 +8692,24 @@ Von Neumann model:
 divided a computer’s hardware into 5 primary groups: CPU, input, output, working storage, permanent storage
 
 PCI: a bus system used by the processor to talk to devices
+Both PCI and PCIe are buses.
 PC cards:
   PCMCIA: 16-bit
   CardBus: 32-bit
 Plug and Play: a standard that allows peripherals to be configured by software
 IDE: a connecting standard for mass storage devices.
+IDE/SATA: a standard for connecting mass storage devices to the computer
 ATA: a superset of the IDE spec
  ST506: ATA-1
  Fast-IDE: ATA-2
  EIDE: ATA-3
  UDMA/33: ATA-4
+PCIe (PCI Express) supersedes SATA as the latest high bandwidth interface.
+--
+IDE provides a parallel connection to connect the storage device to the computer bus while SATA
+provides a serial connection to connect the storage derive to the computer bus. IDE/PATA is largely obsolete
+--
+https://www.partitionwizard.com/clone-disk/pci-vs-pcie.html
 
 Reinforcement is a procedure that increases the probability that a response will occur, whereas
 punishment is a procedure that decreases the probability that a response will occur.
@@ -8861,11 +8888,16 @@ performed by different processor units with different parts of instructions proc
 lexical (linear) analysis: stream of characters are grouped into tokens, which are sequences of
 characters having a collective meaning.
 lexer: converts a string of characters to a string of words.
+The process of breaking the input string into tokens is called lexical analysis.
+Lexer(generates tokens)->Parser(generates AST)->Interpreter
 ===========
 syntax (hierarchical) analysis (parsing): tokens are grouped hierarchically into nested
 collections with a collective meaning.
 Parser determines whether or not the stream of words consists of valid sentences in the source language.
 outputs an abstract syntax tree (AST)
+-
+The parser turns a list of tokens into a tree of nodes. A tree used for storing this type of data is
+known as an Abstract Syntax Tree,
 ============
 semantic analysis: ensure that components of a program fit together meaningfully.
 Semantic Analyzer traverses the AST, determining if code sentences have valid meaning. This phase
@@ -9323,6 +9355,20 @@ When one thread finishes its work items and has nothing to do, it steals work it
 other queues.
 ===
 work-stealing: reassigning task from a busy thread to an idle thread.
+--
+work-stealing: where a task can spawn other, smaller tasks, which are added to queues of parallel
+processing threads. If one thread has finished its work and has nothing more to do, it can “steal”
+the work from the other thread’s queue.
+--
+A classical thread pool has one queue, and each thread-pool-thread locks the queue, dequeue a task
+and then unlocks the queue. If the tasks are short and there are many of them, there is a lot of
+contention on the queue.
+--
+Modern thread pools use work stealing - each thread has its own queue. When a threadpool thread
+produces a task - it enqueues it to his own queue. When a threadpool thread wants to dequeue a task
+- it first tries to dequeue a task out of his own queue and if it doesn't have any - it "steals"
+work from other thread queues. This really decreases the contention of the threadpool and improves
+performance.
 
 ignition coil: a transformer. generate high-voltage current
 distributor: distributes high-voltage current to spark plug. the current jump across the arc
@@ -10610,6 +10656,12 @@ protected by a hardware write lock that only one core can hold at a time
 CPU cache is effectively unchained hash map where each bucket is typically 64 bytes.
 These caches can be thought of as simple hardware hash tables with fixed size buckets and no chaining
 cache line: the effective unit of cache memory transfer.
+---
+false sharing: updating one memory location may cause a cache miss to its nearby states.
+false sharing: condition where two threads write to different memory addresses, but the addresses
+are in the same cache line. when thread #1 update a memory address, the cache line is invalidated
+for all CPU that contains the cache line (marked dirty). a read on a dirty cache line triggers
+a refresh on the cache line.
 
 cache is smaller, faster memory that stores recently accessed data so that future requests
 for that data can be served faster.
@@ -14178,10 +14230,6 @@ Unikernels shrink the attack surface and resource footprint of cloud services. T
 compiling high-level languages directly into specialised machine images that run directly on a
 hypervisor, such as Xen, or on bare metal.
 
-Head-of-line blocking (HOL blocking) in computer networking is a performance-limiting phenomenon
-that occurs when a line of packets is held up by the first packet. Examples include input buffered
-network switches, out-of-order delivery and multiple requests in HTTP pipelining.
-
 Hydration refers to the process of filling an object with data. An object which has not yet been
 hydrated has been instantiated and represents an entity that does have data, but the data has not
 yet been loaded into the object. This is something that is done for performance reasons
@@ -15138,7 +15186,7 @@ liminal space: transition space
 chinoiserie: the imitation or evocation of Chinese motifs and techniques in Western art, furniture,
 and architecture
 
-Message brokers axre a type of datastore specialized for “buffering” messages between producer and
+Message brokers are a type of datastore specialized for “buffering” messages between producer and
 consumer systems. Message brokers are used to decouple producers and consumers of data
 
 operational transformation: allow multiple users to edit the same document at the same time.
@@ -15290,7 +15338,7 @@ property: a combination of a private field and a getter/setter.
 
 Insecure Deserialization is a vulnerability which occurs when untrusted data is used to abuse the
 logic of an application, inflict a denial of service (DoS) attack, or even execute arbitrary code
-upon it being deserialized.
+upon it being deserialized.  Insecure deserialization often leads to remote code execution.
 
 An XML External Entity (XXE) attack is a type of attack against an application that parses XML input
 
@@ -15340,3 +15388,218 @@ A thread is a sequence of computer instructions executed sequentially
 At an operating system (OS) level, threads are independently scheduled execution units that belong
 to a process. Each thread has an execution instruction counter and a call stack but shares a heap
 with every other thread in the same process.
+
+Java Virtual Machine guarantees that every field and array element is considered distinct; updates
+to one field or element must not interact with reads or updates of any other field or element. In
+particular, two threads that update adjacent elements of a byte array separately must not interfere
+or interact and do not need synchronization to ensure sequential consistency.
+
+In finance, a spot contract, spot transaction, or simply spot, is a contract of buying or selling a
+commodity, security or currency for immediate settlement on the spot date, which is normally two
+business days after the trade date. The settlement price is called spot price.
+
+In scientific literature, an experiment with just one subject is described as “n = 1.”
+An N of 1 trial is a clinical trial in which a single patient is the entire trial, a single case study.
+
+A honeypot is a network-attached system set up as a decoy to lure cyberattackers and to detect,
+deflect or study hacking attempts in order to gain unauthorized access to information systems.
+
+CSRF only allows for state changes to occur and the attacker cannot receive the contents of the HTTP
+response. The most effective method of protecting against CSRF is by using anti-CSRF tokens
+
+Cookies that match the domain of the current site, i.e. what's displayed in the browser's address
+bar, are referred to as first-party cookies. Similarly, cookies from domains other than the current
+site are referred to as third-party cookies.
+
+A same-site cookie is a cookie that can only be sent if the request is being made from the origin
+related to the cookie (not cross-domain). The cookie and the request source are considered to have
+the same origin if the protocol, port (if applicable) and host (but not the IP address) are the same
+for both.
+
+AR: superimpose digital content on top of a user's view of the real world.
+
+web application firewall (WAF): is a specific form of application firewall that filters, monitors,
+and blocks HTTP traffic to and from a web service
+
+Symbol table is a data structure created and maintained by compilers in order to store information
+about the occurrence of various entities such as variable names, function names, objects, classes,
+interfaces, etc.
+
+The site is the combination of the domain suffix and the part of the domain just before it. For
+example, the www.web.dev domain is part of the web.dev site.
+If the user is on www.web.dev and requests an image from static.web.dev then that is a same-site
+request.
+If the user is on your-project.github.io and requests an image from my-project.github.io that's a
+cross-site request.
+-- github.io is on the public suffix list
+A public suffix is a set of DNS names or wildcards concatenated with dots. It represents the part of
+a domain name which is not under the control of the individual registrant.
+==
+https://publicsuffix.org/
+
+A tracepoint is a breakpoint with a custom action associated with it. When a tracepoint is hit, the
+debugger performs the specified tracepoint action instead of, or in addition to, breaking program
+execution.
+
+Linux: A tracepoint placed in code provides a hook to call a function (probe) that you can provide at
+runtime. A tracepoint can be “on” (a probe is connected to it) or “off” (no probe is attached). When
+a tracepoint is “off” it has no effect, except for adding a tiny time penalty (checking a condition
+for a branch) and space penalty (adding a few bytes for the function call at the end of the
+instrumented function and adds a data structure in a separate section). When a tracepoint is “on”,
+the function you provide is called each time the tracepoint is executed, in the execution context of
+the caller. When the function provided ends its execution, it returns to the caller (continuing from
+the tracepoint site).
+
+dependency injection: is about dealing with the way objects fulfill their dependent objects.
+
+Commitment is doing the thing you said you were going to do long after the mood you said it in has left you.
+
+If you learn only methods, you’ll be tied to your methods. But if you learn principles, you can
+devise your own methods
+
+storage virtualization: introduce a storage virtualization layer. there is a virtualized storage pool on top
+of physical storage devices.
+storage virtualization: storage is abstracted and pooled
+software-defined storage: inteligent policies are created and applied
+
+deadlock: two or processes are blocking and waiting on one another.
+
+cache stampede
+
+a conflict-free replicated data type (CRDT) is a data structure which can be replicated across
+multiple computers in a network, where the replicas can be updated independently and concurrently
+without coordination between the replicas, and where it is always mathematically possible to resolve
+inconsistencies that might come up
+
+scatter-gather pattern: a pattern for splitting work among several workers.
+How do you maintain the overall message flow when a message needs to be sent to multiple recipients,
+each of which may send a reply?
+--
+Use a Scatter-Gather that broadcasts a message to multiple recipients and re-aggregates the
+responses back into a single message.
+--
+The Scatter-Gather routes a request message to the a number of recipients. It then uses an
+Aggregator to collect the responses and distill them into a single response message.
+
+committed memory: total memory an application has reserved for use
+
+In queueing theory, a discipline within the mathematical theory of probability, Little's result,
+theorem, lemma, law, or formula is a theorem by John Little which states that the long-term average
+number L of customers in a stationary system is equal to the long-term average effective arrival
+rate λ multiplied by the average time W that a customer spends in the system. Expressed
+algebraically the law is L = λW
+
+A bridge is a piece of software used to unite two or more network segments. A bridge behaves like a
+virtual network switch, working transparently. Any real devices (e.g. eth0) and virtual devices
+(e.g. tap0) can be connected to it.
+--
+a bridge network is a Link Layer device which forwards traffic between network segments. A bridge
+can be a hardware device or a software device running within a host machine’s kernel.
+
+Drayage is the transport of goods over a short distance in the shipping and logistics
+industries. Drayage is often part of a longer overall move, such as from a ship to a warehouse.
+
+Spanning Tree Protocol (STP) is a network protocol that builds a loop-free logical topology for Ethernet networks
+
+Layer 2 Adjacency, in Ethernet networks, refers to the idea that a packet send out on a segment can
+directly reach its destination without traveling through a device which would change the packet.
+Layer 2 adjacency is when two or more devices need to be in the same VLAN
+Layer 2 adjacency is the ability to exist in the same Ethernet broadcast domain.
+
+You've got two computers with a wire in-between; whatever comes out of one computer is essentially
+guaranteed to be receivable by the other computer. These devices have network adjacency.
+--
+you've got two computers with a L3 switch in between, both are assigned the same vLAN. Here again
+what one computer sends the other will receive without question.
+--
+breaking adjacency:
+Two computers on the L3 switch again, but one is connected to a port assigned to a vLAN, the other
+is assigned to a trunk port. Now packets from the first computer will arrive to the second computer
+with a vLAN tag
+
+IP Address Management (IPAM) is an integrated suite of tools to enable end-to-end planning,
+deploying, managing and monitoring of your IP address infrastructure,
+--
+IPAM (IP Address Management) is the administration of DNS and DHCP, which are the network services
+that assign and resolve IP addresses to machines in a TCP/IP network
+
+Underlay Network is physical infrastructure above which overlay network is built. It is the
+underlying network responsible for delivery of packets across networks. protocols:
+Ethernet Switching, VLAN , Routing
+--
+Overlay Network is a virtual network that is built on top of underlying network infrastructure
+(Underlay Network). Actually, “Underlay” provides a “service” to the overlay. protocols:
+VXLAN , OTV , VPLS
+
+Concurrency is when multiple tasks can start, run, and complete in overlapping time periods.
+
+L1 and L2 caches are per core, L3 shared by all cores (usually)
+
+Day 0: In software development, it represents the design phase, during which project requirements
+are specified and the architecture of the solution is decided.
+
+Day 1 involves developing and deploying software that was designed in the Day 0 phase. In this phase
+we create not only the application itself, but also its infrastructure, network, external services
+and implement the initial configuration of it all.
+
+Day 2 is the time when the product is shipped or made available to the customer. Here, most of the
+effort is focused on maintaining, monitoring and optimizing the system. Analyzing the behavior of
+the system and reacting correctly are of crucial importance, as the resulting feedback loop is
+applied until the end of the application’s life.
+
+A zero-day vulnerability is a software security flaw that is known to the software vendor but
+doesn’t have a patch in place to fix the flaw. An exploit that attacks a zero-day vulnerability is
+called a zero-day exploit.
+--
+A zero-day attack is a software-related attack that exploits a weakness that a vendor or developer
+was unaware of
+
+VLAN: separate broadcast domains by adding tags to network packets. use VLAN when we want to
+separate subnets in VMS, namespaces, hosts.
+--
+VLAN: you have multiple devices connected to the same switch but you want to logically separate
+them into different networks. Use VLAN. add a VLAN tag to the frame to identify which network
+the frame belongs to.
+---
+VLAN: a technology that separate a physical network into multiple logical networks.
+
+A network tap is a system that monitors events on a local network. A tap is typically a dedicated
+hardware device, which provides a way to access the data flowing across a computer network.
+
+In computer networking, TUN and TAP are kernel virtual network devices.  Though both are for
+tunneling purposes, TUN and TAP can't be used together because they transmit and receive packets at
+different layers of the network stack. TUN, namely network TUNnel, simulates a network layer device
+and operates in layer 3 carrying IP packets. TAP, namely network TAP, simulates a link layer device
+and operates in layer 2 carrying Ethernet frames. TUN is used with routing. TAP can be used to
+create a user space network bridge.
+
+ground wire: protect against fault current. provide a path for fault current.
+
+pipe dope, thread sealant
+
+Loop unrolling, also known as loop unwinding, is a loop transformation technique that attempts to
+optimize a program's execution speed at the expense of its binary size, which is an approach known
+as space–time tradeoff. remove/reduce loop iteration
+
+modern computers use the Modified Exclusive Shared Invalid (MESI) protocol to synchronize the L1 caches
+
+subnet: a logicall grouping of devices on the same network. used to partition a large network
+into smaller ones.
+
+devops: a set of practices that automate the processes between development and operation teams to build,
+test, and release software quickly and reliably
+
+DevSecOps
+SCA: software component analysis
+SAST: static application security testing
+DAST: dynamic application security testing
+IAST: interactive application security testing
+RASP: runtime application self-protection
+
+interrobang: ‽ (U+203D)
+
+At operating system (OS) level, threads are independently scheduled execution units that belong to a
+process. Each thread has an execution instruction counter and a call stack but shares a heap with
+every other thread in the same process.
+
+SQL injection prevention: use prepared statement with parameterized query, use ORM

@@ -135,6 +135,8 @@ onblur: execute JavaScript when user leaves an input field
 html form: URL-encoded form, multipart form
 URL-encoded POST looks like query string parameters in GET
 
+curl -d "param1=value1&param2=value2" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/blahblah
+
 ====
 $ curl -i http://localhost:9090
 get:
@@ -164,3 +166,10 @@ X-Frame-Options: DENY
 Content-Type: text/html;charset=UTF-8
 Content-Language: en-US
 Content-Length: 1990
+
+http://username:password@example.com/
+
+Third-party cookies are cookies that are set by a website other than the one you are currently
+on. For example, you can have a "Like" button on your website which will store a cookie on a
+visitor's computer, that cookie can later be accessed by Facebook to identify visitors and see which
+websites he visited. They are used for cross-site tracking, retargeting and ad-serving.

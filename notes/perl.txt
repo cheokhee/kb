@@ -221,3 +221,18 @@ perl -ne 'if ($p) { print; $p = 0 } $p++ if /regex/'
 cpan -l
 ---
 perldoc perllocal
+
+for loop:
+perl -e '@a = (1..9); for $i (@a) {print("$i","\n");}'
+
+#repeat a string N times
+perl -e 'print "abc"x3; print "\n"'
+-> abcabcabc
+---
+perl -e '@a = (1..3); for $i (@a) {print("long ", "a"x$i,";\n");}'
+->
+long a;
+long aa;
+long aaa;
+---
+perl -e '$count=1; print "long ", "a" x $count, ";\n"'                                                                                                    -> long a;

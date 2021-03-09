@@ -228,3 +228,78 @@ repo full URL: hostname/namespace/repo:tag
 #docker remove all exited containers
 docker ps -aq -f status=exited | xargs docker rm
 docker rm $(docker ps -a -q -f status=exited)
+
+$ docker port cs_db #or container ID
+1521/tcp -> 0.0.0.0:1521
+
+#spawn a container with read limited to 150kb/second
+docker run -it --device-read-bps /dev/sda:150kb <image> /bin/bash
+docker run -it --device-write-bps /dev/sda:150kb <image> /bin/bash
+
+#List port mappings for the container
+docker port <CONTAINER>
+
+docker network ls
+docker network inspect <id/name>
+docker run -dt --network <bridge-name>
+docker run -p host-port:container-port
+
+single-host network:
+docker network create -d bridge --subnet 10.0.0.1/24 <name>
+
+multi-host networking: connect containers on multiple hosts
+docker swarm init #do this on node1, copy the command and go to another node and do, the node become swarm manager
+-> create an ingress overlay network and docker_gwbridge bridge automatically
+docker swarm join --token ....
+--
+docker node ls #only works on swarm manager
+docker service ls #only works on swarm manager
+docker network create -d overlay <overlay-name>
+docker service create --name <service-name> --network <overlay-name-from previous command> --replicas <number> <image-name> <command>
+docker service ps <service-name>
+
+overlay network uses ports 4789 (UDP), 7946 (TCP/UDP), 2377 (TCP)
+
+by default, containers connect to the default bridge network
+
+in terms of Docker, a bridge network uses a software bridge which allows containers connected to the
+same bridge network to communicate, while providing isolation from containers which are not
+connected to that bridge network.
+--
+Bridge networks apply to containers running on the same Docker daemon host. For communication among
+containers running on different Docker daemon hosts, you can either manage routing at the OS level,
+or you can use an overlay network.
+--
+When you start Docker, a default bridge network (also called bridge) is created automatically, and
+newly-started containers connect to it unless otherwise specified. You can also create user-defined
+custom bridge networks. User-defined bridge networks are superior to the default bridge network.
+--
+User-defined bridges provide automatic DNS resolution between containers.
+Containers on the default bridge network can only access each other by IP addresses
+--
+Containers can be attached and detached from user-defined networks on the fly. To remove a container
+from the default bridge network, you need to stop the container and recreate it with different
+network options.
+
+By default, traffic from containers connected to the default bridge network is not forwarded to the
+outside world. To enable forwarding, you need to change two settings. These are not Docker commands
+and they affect the Docker host’s kernel.
+--
+1. Configure the Linux kernel to allow IP forwarding.
+$ sysctl net.ipv4.conf.all.forwarding=1
+2. Change the policy for the iptables FORWARD policy from DROP to ACCEPT.
+$ sudo iptables -P FORWARD ACCEPT
+--
+https://docs.docker.com/network/
+
+docker network driver:
+MACVLAN: every container gets its own IP and MAC address, requires promiscuous mode
+join existing networks. allow containers to communicate with other hosts. the container is a peer in the network.
+--
+IPVLAN: every container gets its own IP.
+join existing networks. allow containers to communicate with other hosts. the container is a peer in the network.
+docker network create -d ipvlan --subnet=192.167.1.10/24 --gateway=... --ip-range=... -o ipvlan_mode=12 -o parent=eth0 <name>
+
+docker:
+Layer 4 (Transport) routing mesh (port-based), only one service on one port
+Layer 7 (Application) HTTP Routing Mesh (HRM), allow multiple services on one port

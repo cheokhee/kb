@@ -966,3 +966,31 @@ check if a key exists in a JS object:
 if ('color' in car) { }  // return true even for properties inherited by parent objects
 OR:
 car.hasOwnProperty('color') // only check direct properties
+
+document.cookie #view cookie
+
+npm prefix -g #show global prefix for installation
+sample ~/.npmrc:
+prefix=/usr
+-> /usr/lib/node_modules
+
+node.js:
+__dirname: The directory name of the current module, same as path.dirname(__filename)
+__filename: The file name of the current module
+
+path.join("one","two","three")
+-> 'one/two/three'
+path.resolve("/home/whatever", "dist")
+-> '/home/whatever/dist'
+path.resolve("home/whatever", "dist")
+-> '/home/oracle/gitroot/e2ev_fe/app/home/whatever/dist'
+----
+If no path segments are passed, path.resolve() will return the absolute path of the current working directory.
+
+ES2015 === ES6
+
+In Babel, a preset is a set of plugins used to support particular language features.
+es2015: Adds support for ES2015 (or ES6) JavaScript
+react: Adds support for JSX
+
+webpack loaders are evaluated/executed from right to left (or from bottom to top).

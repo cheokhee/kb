@@ -777,6 +777,9 @@ wget --random-wait -r -p -e robots=off -U mozilla www.example.com
 
 pmap: show memory map of a process
 pmap <pid> # the last line is the total memory footprint
+pmap -x <pid>: last line
+                     Kbytes     RSS
+--> total kB         4515736  112748   40304
 /proc/[pid]/statm:
   field #1: size, mapped to VIRT
   field #2: resident, mapped to RES
@@ -1090,6 +1093,20 @@ sudo script
 #cpu counter stats
 perf stat -a sleep 10
 perf stat -ad sleep 3 #more details
+perf stat -p <pid>
+-- output of perf stat:
+         40,126.72 msec cpu-clock                 #    3.999 CPUs utilized
+             9,668      context-switches          #    0.241 K/sec
+               890      cpu-migrations            #    0.022 K/sec
+               346      page-faults               #    0.009 K/sec
+     3,002,189,503      cycles                    #    0.075 GHz                      (83.31%)
+     4,381,985,093      stalled-cycles-frontend   #  145.96% frontend cycles idle     (83.32%)
+     3,238,160,342      stalled-cycles-backend    #  107.86% backend cycles idle      (66.69%)
+       935,035,700      instructions              #    0.31  insn per cycle
+                                                  #    4.69  stalled cycles per insn  (83.34%)
+       192,287,010      branches                  #    4.792 M/sec                    (83.35%)
+        11,734,554      branch-misses             #    6.10% of all branches          (83.33%)
+==========
 
 Ctrl-x, Ctrl-e : will bring up an $EDITOR containing whatever is currently entered into the prompt.
   "\C-x\C-e": edit-and-execute-command
@@ -1651,6 +1668,8 @@ date +%s%3N
 --
 TZ=America/New_York date
 
+date +%V #ISO week number
+
 getconf PAGESIZE #get page size
 
 pcmanfm --desktop-pref
@@ -2000,7 +2019,7 @@ ntp -p : show NTP status
 ntptime
 
 network bridge: sw/hw that combines two or more network segments. it behaves like
-a virtual netowkr switch.
+a virtual network switch.
 bridge is a way to connect two Ethernet segments in a protocol-independent way. packets are
 forwarded based on Ethernet address, rather than IP address.
 
@@ -2364,6 +2383,8 @@ put a value of zero in /proc/sys/kernel/yama/ptrace_scope
 #list files opened by a process
 #1. ls /proc/<pid>/fd
 #2. lsof -a -p <pid>
+#3. lsof -a -p <pid> / #list files that begin with / (actual files):
+#4. lsof -r1 -a -p <pid> / #-r1: repeat every 1 second
 
 Aliases are not expanded when the shell is not interactive, unless the expand_aliases shell option
 is set using shopt: shopt -s expand_aliases
@@ -2653,6 +2674,11 @@ strace -e trace=open,read ls /home
 strace -c ls /home
 #write to file
 strace -o dconf-trace.txt -e open dconf-editor
+strace options:
+strace -tt: include microsecond
+strace -T: show total time
+strace -ff: follow child process and output separately
+strace -e trace=network
 
 gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
 
@@ -2824,8 +2850,8 @@ namespace is an abstraction over resources in the OS.
 there are 7 namespaces: Cgroup, IPC, network, Mount, PID, User, UTS
 show namespaces of a process: /proc/<pid>/ns
 lsns
-unshare: run programs with difference namespaces
-nsenter - run program with namespaces of other processes
+unshare: run programs with new namespaces (creates new namespaces and then execute the program)
+nsenter - run program with namespaces of other processes (executes program in the specified namespace)
 ---
 Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of
 processes sees one set of resources while another set of processes sees a different set of
@@ -3684,3 +3710,47 @@ sudo systemd-resolve --flush-caches
 /proc/sys/kernel/threads-max
 
 echo "HelLo" | tr '[:upper:]' '[:lower:]'
+
+#running .desktop file from CLI
+gtk-launch org.kde.spectacle.desktop #assume the file is in /usr/share/applications or ~/.local/share/applications
+kioclient5 exec /usr/share/applications/org.kde.spectacle.desktop
+
+#utilities for desktop files:
+desktop-file-edit
+desktop-file-install
+desktop-file-validate
+-- desktop-file-validate ~/.local/share/applications/emacs.desktop
+
+#get stdout of a process:
+tail -f /proc/$PID/fd/1
+
+$ cat /sys/fs/cgroup/blkio/blkio.throttle.read_bps_device
+$ cat /sys/fs/cgroup/blkio/blkio.throttle.write_bps_device
+
+the child inherits a copy of the file descriptors of the parent. For example, if the parent had file
+descriptor 5 in use for a particular file when the parent creates the child, the child will also
+have file descriptor 5 in use for that same file.
+
+committed memory: how much total memory space all applications have reserved for use
+
+linux bridge is like a network switch. it forwards packets between interfaces that are connected to it.
+Linux Bridge – a technology originally intended exactly for creating virtual local area networks.
+like a L3 switch
+
+VETH: is a local ethernet tunnel. created in pairs.  The veth devices are virtual Ethernet devices.
+They can act as tunnels between network namespaces to create a bridge to a physical network device
+in another namespace, but can also be used as standalone network devices.
+command: ip link add <p1-name> type veth peer name <p2-name>
+
+When configuring a Linux bridge, use the following commands to enforce isolation:
+bridge vlan del dev br0 vid 1 self
+echo 1 > /sys/class/net/br0/bridge/vlan_filtering
+--
+https://vincent.bernat.ch/en/blog/2017-linux-bridge-isolation
+
+ethtool -S <veth-name> # Discover interface index of peer
+--> NIC statistics:
+    peer_ifindex: 16
+then do ip link | grep '^16:' to look up interface
+
+nsupdate is used to submit Dynamic DNS Update requests to a name server

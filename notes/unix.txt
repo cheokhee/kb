@@ -1028,12 +1028,20 @@ unicode for 林: 0x6797
 U+FEFF : BYTE ORDER MARK
 echo -n '林' | iconv -f UTF-8 -t UNICODE | xxd
 -> 00000000: fffe 9767
-echo -n '林' | iconv -f UTF-8 -t UNICODEBIG | xxd # USE THIS ONE (utf-8 to unicode)
+echo -n '林' | iconv -f UTF-8 -t UNICODEBIG | xxd
 -> 00000000: 6797
 echo -n '林' | iconv -f UTF-8 -t UNICODELITTLE | xxd
 -> 00000000: 9767
-echo -n '林' | iconv -f UTF-8 -t UTF-8 | xxd # use this one (unicode to utf-8)
+echo -n '林' | iconv -f UTF-8 -t UTF-8 | xxd
 -> 00000000: e69e 97
+printf "\u6797" | iconv -f UTF-8 -t UTF-8 | xxd # USE THIS ONE (unicode to utf-8) ***
+-> 00000000: e69e 97
+printf "\xe6\x9e\x97" | iconv -f UTF-8 -t UNICODEBIG | xxd  # USE THIS ONE (utf-8 to unicode) ***
+-> 00000000: 6797
+-- print unicode:
+printf "\u6797"
+-- print utf-8
+printf "\xe2\x8c\x98"
 
 $$ : the process number of the current shell.
 $! : The process number of the last background command

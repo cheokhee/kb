@@ -1,0 +1,45 @@
+tsc --init #create a tsconfig.json
+
+varName!.fieldName #assert that varName is not null
+
+#for work with webpack
+npm install ts-loader
+
+built-in types: Boolean, Number, String, Array, Enum, Void, Null, Undefined, Never, Any
+
+union type:
+let someValue: number | string;
+
+variables declared with let/const cannot be used before their declarations
+
+type annotation:
+let x: string = 'xxx'
+
+--strictNullChecks compiler option: you have to declare a variable can have null values. cover undefined too
+let nullableString: string | null
+let nullableString: string | null | undefined
+
+type assertion:
+1. (<number>someValue).callFunction()
+2. (someValue as number).callFunction()
+
+type declaration files:
+--
+Bundled - The library bundles its own declaration file.  To check if a library has bundled types,
+look for an index.d.ts file in the project. Some libraries will have it specified in their
+package.json under the typings or types field.
+--
+DefinitelyTyped is a huge repository of declarations for libraries that don’t bundle a declaration
+file.
+npm i --save-dev @types/react
+--
+https://github.com/DefinitelyTyped/DefinitelyTyped
+--
+Local Declarations : create a declarations.d.ts file in the root of your source directory.
+example:
+declare module 'querystring' {
+  export function stringify(val: object): string
+  export function parse(val: string): object
+}
+
+import * as module-name from 'modulename'

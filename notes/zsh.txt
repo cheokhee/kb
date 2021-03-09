@@ -238,3 +238,7 @@ ab
 ---
 $ echo ${file/\//|} #replace slash with |
 a|b
+
+ctrl-q: park the command you're currently typing and takes you back to the prompt, letting you start
+over and type another command. Once you run that other command, the original command is un-parked
+and refills the command line so you can continue

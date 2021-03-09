@@ -165,6 +165,7 @@ it already holds the lock.
 The set of active objects retained by the application at any point in time is known as the Live Set.
 
 jcmd: send command requests to a JVM.
+jcmd: command-line equivalent of Java Mission Control. cannot connect to remote proces
 jcmd <pid> help
 JFR.stop
 JFR.start
@@ -848,6 +849,19 @@ executorService.shutdown();
 executorService.shutdownNow();
 executorService.awaitTermination();
 Executors.newCachedThreadPool() -> create threads on demand (better performance)
+---
+how to shut down executorService:
+   pool.shutdown(); // Disable new tasks from being submitted
+   try {
+     // Wait a while for existing tasks to terminate
+     if (!pool.awaitTermination(60, TimeUnit.SECONDS)) {
+       pool.shutdownNow(); // Cancel currently executing tasks
+     }
+   } catch (InterruptedException ie) {
+     pool.shutdownNow();
+     // Preserve interrupt status
+     Thread.currentThread().interrupt();
+   }
 
 in J2EE application, modules are packaged as EAR, JAR and WAR based on their functionality
 JAR: EJB modules which contain enterprise java beans (class files) and EJB deployment descriptor are
@@ -993,8 +1007,18 @@ iso date: 2017-04-10Z
 iso datetime: 2017-04-10T13:40:57Z[UTC]
 iso local date: 2017-04-10
 iso local datetime: 2017-04-10T13:40:57
+===
+IODT: DateTimeFormatter.ofPattern("yyyyMMddHHmmss.000").format(LocalDateTime.now(ZoneId.of("UTC")));
 
-all parallel streams use the common fork-join thread pool
+all parallel streams use the common fork-join thread pool (ForkJoinPool.commonPool())
+
+ForkJoinPool#commonPool() is a static thread-pool, which is lazily initialized when is actually
+needed. Two major concepts use the commonPool inside JDK: CompletableFuture and Parallel
+Streams. There is one small difference between those two features: with CompletableFuture, you are
+able to specify your own thread-pool and don't use the threads from the commonPool, you cannot in
+case of Parallel Streams. Pitfalls: the common pool is automatically sized. avoid using common
+pool for blocking tasks because you can very easily block execution of any other part of your system
+that uses the commonPool at the same time by keeping the threads in a blocked state.
 
 == do calculation in my own for join pool
 ForkJoinPool forkJoinPool = new ForkJoinPool(2);
@@ -1610,6 +1634,9 @@ jmap -histo <pid> | grep "java.lang.String$"
 
 you must create a happens-before relationship between the write in one thread and the read
 in another thread.
+--
+happens-before link exists between all synchronized/volatile write operations and all
+synchronized/volatile read operations that follow.
 
 lambda expression stuff:
 1. If a lambda expression references a local variable, it must be final or effectively final.
@@ -2056,12 +2083,6 @@ see that there is 300% memory overhead.
 One way to get an estimate of an object's size in Java is to use getObjectSize(Object) method of the
 Instrumentation interface introduced in Java 5.
 
-https://shipilev.net/jvm/objects-inside-out/
-https://openjdk.java.net/projects/code-tools/jol/
-wget https://repo.maven.apache.org/maven2/org/openjdk/jol/jol-cli/0.10/jol-cli-0.10-full.jar -O jol-cli.jar
---
-sudo java -jar -Djdk.attach.allowAttachSelf jol-cli.jar internals java.lang.Object
-
 Java: Unsafe, JVMTI, and Serviceability Agent (SA)
 
 [PSYoungGen: 116544K->12164K(233024K)] – After the GC ran the young generation, used space came down from
@@ -2134,6 +2155,8 @@ estimating Java object size is not trivial. depends on JVM.
    c. garbage collection: store reference count or contain a age field
 3. array overhead: 16 bytes, then 4 bytes for each element.
 
+java memory alignment: 8 byte boundary
+
 Java treats each thread as if it runs on its own processor with its own local memory, each talking
 to and synchronizing with a shared main memory
 
@@ -2165,7 +2188,12 @@ and the field resource of SomeClass will be assigned a reference to the newly cr
 ---
 thread B (outside synchronized block): may see this
 allocate memory, assign reference to resource, call constructor
+assign reference vs construction: do not know which one is executed first
 so thread B may get a partially constructed object.
+--
+there is a non-synchronized read that is supposed to return the result of a synchronized write.
+we don't have the guurantee that the read will get the value set by the write because we don't
+have a happens-before relationship
 --
 avoid double-checked locking, use eager initialization
 OR use demand holder idiom:
@@ -2194,6 +2222,12 @@ public class MySingletonClass{
 ---
 http://rpktech.com/2015/02/04/lazy-initialization-in-multi-threaded-environment/
 https://www.infoworld.com/article/2074979/double-checked-locking--clever--but-broken.html
+---
+use enum to implement singleton (example:
+Comparator.naturalOrder():
+    public static <T extends Comparable<? super T>> Comparator<T> naturalOrder() {
+        return (Comparator<T>) Comparators.NaturalOrderComparator.INSTANCE;
+    }
 
 java: instanceof , isAssignableFrom
 instanceof -> if true, can be cast to the class
@@ -2229,3 +2263,392 @@ the method name is said to be overloaded.  If the type sequences, after type-era
 parameters, are the same, then the methods are override-equivalent.
 
 Java does not perform autoboxing for arrays.
+
+java object size
+https://shipilev.net/jvm/objects-inside-out/
+https://openjdk.java.net/projects/code-tools/jol/
+curl https://repo.maven.apache.org/maven2/org/openjdk/jol/jol-cli/0.14/jol-cli-0.14-full.jar -o jol-cli.jar
+--
+sudo java -jar -Djdk.attach.allowAttachSelf jol-cli.jar internals java.lang.Object
+sudo java -jar ~/Downloads/jol-cli.jar internals -cp . com.example.CheokTest
+--
+# Field sizes by type: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+# Array element sizes: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+--
+It means that Java references take 4 bytes (compressed references enabled), boolean/byte take 1
+byte, char/short take 2 bytes, int/float take 4 bytes, double/long take 8 bytes. They take the same
+space when presented as array elements.
+--
+make sure every field is allocated at its natural alignment
+
+-XX:ObjectAlignmentInBytes=16
+
+alignment shadow: 8 bytes are lost at the end of the object to maintain the alignment for the next one.
+
+system properties vs environment variables
+We can update Properties at runtime while Environment Variables are an immutable copy of the Operating System's variables.
+Properties are contained only within Java platform while Environment Variables are global at the
+   Operating System level – available to all applications running on the same machine.
+Properties must exist when packaging the application but we can create Environment Variables on the Operating System at almost any point.
+
+keytool -genkey -alias signFiles -keystore signerstore #create a file called signerstore
+keytool -list -keystore signerstore #password: password
+keytool -export -keystore signerstore -alias signFiles -file out.cer
+jarsigner -keystore signerstore -signedjar blah.jar signFiles
+
+JVM security if off by default.
+1. activate by system property: java -Djava.security.manager
+java -Djava.security.manager -cp . com.example.cheok
+2. set in code: System.setSecurityManager(new SecurityManager());
+--
+default security policy:
+java 8: $JAVA_HOME/jre/lib/security/java.policy
+        $JAVA_HOME/jre/lib/security/java.security
+java 11: $JAVA_HOME/conf/security/java.policy
+         $JAVA_HOME/lib/security/default.policy
+--
+grant permissions based on 3 things:
+where the code was loaded from (codebase)
+who created the library (signedBy)
+who the authenticated user is (principal)
+---
+java -Djava.security.manager -Djava.security.policy=my.policy myApp #augment default
+java -Djava.security.manager -Djava.security.policy==my.policy myApp #override default
+
+thread dump: kill -3 <pid>, jcmd, jstack
+thread dump: jvm threads, application threads, heap report
+thread states: RUNNABLE, WAITING, TIMED_WAITING, BLOCKED, NEW, TERMINATED
+-> in thread dump, nid means native thread id (the OS thread)
+
+sun.misc.Unsafe;
+Field field = Unsafe.class.getDeclaredField("theUnsafe");
+field.setAccessible(true);
+unsafe = (Unsafe) field.get(null);
+unsafe.arrayBaseOffet()
+unsafe.addressSize()
+unsafe.getInt(array, baseOffset)
+
+young generation: Eden space and 2 survivor space. only one survivor space is in use at a time.
+minor gc: move object from Eden to survivor, switch active survivor space
+promote object from survivor space to tenured generation.
+--
+Heap
+ PSYoungGen      total 673280K, used 424471K [0x0000000719200000, 0x0000000752200000, 0x00000007c0000000)
+  eden space 646144K, 65% used [0x0000000719200000,0x0000000733085cc8,0x0000000740900000)
+  from space 27136K, 0% used [0x0000000740900000,0x0000000740900000,0x0000000742380000)
+  to   space 25600K, 0% used [0x0000000750900000,0x0000000750900000,0x0000000752200000)
+ ParOldGen       total 405504K, used 29267K [0x00000005cb600000, 0x00000005e4200000, 0x0000000719200000)
+  object space 405504K, 7% used [0x00000005cb600000,0x00000005cd294c50,0x00000005e4200000)
+ Metaspace       used 66135K, capacity 70574K, committed 70784K, reserved 1110016K
+  class space    used 9532K, capacity 10283K, committed 10368K, reserved 1048576K
+
+-XX:PretenureSizeThreshold=<n> #objects larger than n bytes will be allocated directly in old space
+
+TLAB: thread local allocation buffer
+TLAB is a region inside Eden, which is exclusively assigned to a thread. In other words, only a single
+thread can allocate new objects in this area. Each thread has own TLAB in Eden space. as long as
+objects are allocated in TLABs, there is no need for any type of synchronization.
+--
+https://dzone.com/articles/thread-local-allocation-buffers
+
+java gc tools:
+List<GarbageCollectorMXBean> list = ManagementFactory.getGarbageCollectorMXBeans();
+each bean has: getName(), getCollectionCount(), getCollectionTime(), getMemoryPoolNames()
+--
+jstat -option <pid> <interval> <count>
+jstat -options
+jstat -gccapacity
+jstat -gcutil
+jstat -gc
+jstat -gccause
+--
+https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html
+--
+jvisualVM, add visual GC plugin
+
+reference: strong > soft > weak > phantom
+soft reference will be collected if there is memory pressure
+weak reference will be collected immediately
+class: WeakReference
+WeakHashMap: used to associate meta data with another type (key is a weak reference to an object), value is the object's meta data
+SoftReference: used for caching
+PhantomReference : interaction with garbage collector
+ReferenceQueue : can be used to attach clean-up code. when there is no more strong reference, the week reference
+  will be added to ReferenceQueue
+
+load test tool: Apache JMeter, Gatling
+
+java profiler:
+Flight Recorder
+JProfiler (commercial)
+YourKit profiler (commercial)
+jvisualvm
+NetBeans profiler
+
+cpu profiling modes: sampling and instrumentation
+
+JIT compilation mode:
+C1: for client app
+C2: for server app
+tiered: combine the best of both
+java 8: -XX:TieredStopAtLevel=1 // C1 mode (client mode)
+java 8: -XX:-TieredCompilation // C2 (server mode)
+-XX:ReservedCodeCacheSize=<N> // set code cache size for JIT compilation, java 8
+
+garbage collectors: serial, parallel, concurrent mark sweep (CMS), garbage first
+serial collector: use one thread, -XX:+UseSerialGC
+parallel collector: use multiple threads, -XX:+UseParallelGC, default in java 8
+CMS collector: can trace reachable objects and mark unreachable
+  objects while app threads are running, -XX:+UseConcMarkSweepGC (to be replaced by G1GC)
+G1 collector: default in java 9 and up, try to achieve the best balance btw thruput and latency
+  concurrent collector, mark unreachable objects while app threads are running, -XX:+UseG1GC
+  Stop-the-world pause is shorter, but throughput is lower.
+--
+concurrent collector failure: concurrent mode failure, promotion failure, evacuation failure.
+--> the app may produce garbage faster than the GC threads can clean them.
+-XX:InitiatingHeapOccupancyPercent=<N> // reduce the threshold at which G1 cycle is triggered
+-XX:ConcGCThreads=<N> // set the number of background threads
+
+-XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:<filepath> // java 8
+-X:log:gc // java 9 and up
+jcmd <pid> VM.log what=gc output=<file-path> // dynamically in java 9 and up
+-- analyze GC logs:
+gceasy.io
+gcviewer
+
+adaptive sizing of jvm heap: to turn off: -XX:-UseAdaptiveSizePolicy
+
+max heap sizing: should not exceed machine physical memory. should be 30%
+occupied after a full GC.
+
+-XX:MaxGCPauseMillis=<N>
+
+Objects.hash(...field) // used to generate hash code
+implement Comparable interface in the key class to optimize HashMap performance
+
+interning: storing only one copy of a distinct object
+interner library: guava, triava
+
+#view the size of the String intern table
+java -XX:+PrintFlagsFinal -version | grep StringTableSize
+-XX:StringTableSize=<N>
+-XX:+UseStringDeduplication
+-XX:+PrintStringDeduplicationStatistics
+-Xlog:stringdedup*=debug
+
+java 9: compact string
+
+number of threads = numberOfCpu * desiredCpuUtil (0<X<=1)* (1+W/C)
+W/C: ratio of wait time to compute time
+
+java.util.concurrent.ThreadPoolExecutor
+
+ReadWriteLock: good for infrequent write and frequent read
+
+lock striping: reduce the granularity at which the lock is applied
+instead of having one lock for the entire collection, partition the collection
+into groups and having a lock for each group
+
+ConcurrentLinkedQueue
+
+String.split() : use a Pattern matcher under the hood
+
+Apache Commons pool library
+
+profiling: cpu, memory thread
+
+Instead of using AtomicLong to increment values, can use LongAdder instead.
+LongAdder is faster under heavy contention, but uses more space
+LongAccumulator
+
+Striped64 class: Instead of using just one value to maintain the current state, this class uses an
+array of states to distribute the contention to different memory locations (dynamic striping)
+
+java feature list:
+https://www.journaldev.com/
+https://www.journaldev.com/24601/java-11-features
+
+Java 9:
+JPMS
+Interface Private Methods
+compact string
+
+Java 10:
+Application Data-Class Sharing
+local variable type inference
+
+java.util.concurrent.ThreadPoolExecutor
+
+jpackage: allows you to create a native installer from a JAR.
+jpackage --input target --main-jar renamer-swing-1.0.jar
+--
+jlink: allows you to create a custom runtime with a dedicated launcher script for your applications
+--
+https://blog.frankel.ch/state-jvm-desktop-frameworks/6/
+
+JSON libraries: Jackson, Gson, JSON-B, JSON-P
+JEE 8: there is a standardized API (JSR 367: Java API for JSON Binding (JSON-B))
+For now, its main implementations are Eclipse Yasson (RI) and Apache Johnzon.
+
+CachedThreadPool: LW tasks, automatically created if none is available, idle threads will terminate after 60 sec of inactivity
+FixedThreadPool: for heavy long-running tasks, a fixed # of threads is maintained, need explicit shutdown
+
+committed memory: The amount of memory that is guaranteed to be available for use by the Java virtual machine
+
+java -XX:+UnlockDiagnosticVMOptions -XX:NativeMemoryTracking=summary -XX:+PrintNMTStatistics -version
+---
+We can see two types of memory:
+Reserved — the size which is guaranteed to be available by a host's OS (but still not allocated and cannot be accessed by JVM) — it's just a promise
+Committed — already taken, accessible, and allocated by JVM
+--
+https://dzone.com/articles/how-much-memory-does-a-java-thread-take
+--
+java -XX:+AlwaysPreTouch
+
+Executors.newWorkStealingPool():
+    public static ExecutorService newWorkStealingPool() {
+        return new ForkJoinPool
+            (Runtime.getRuntime().availableProcessors(),
+             ForkJoinPool.defaultForkJoinWorkerThreadFactory,
+             null, true);
+    }
+Conclusion: Executors.newWorkStealingPool() uses ForkJoinPool
+
+ForkJoinPool.commonPool uses a last-in, first-out (LIFO) queue configuration, whereas
+Executors.newWorkStealingPool uses first-in, first-out approach (FIFO) one.
+--
+https://www.baeldung.com/java-work-stealing
+
+CompletableFuture: can pass a thread pool to CompletableFuture
+example:
+#1: run async task
+    CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(
+        () -> {
+          try {
+            TimeUnit.SECONDS.sleep(1);
+          } catch (InterruptedException e) {
+          }
+          System.out.println("hi cheok from thread");
+        }
+    );
+    System.out.println("result: " + completableFuture.get());
+  }
+output:
+hi cheok from thread
+result: null
+---
+#2: run async task that return result
+    CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(
+        () -> {
+          try {
+            TimeUnit.SECONDS.sleep(1);
+          } catch (InterruptedException e) {
+          }
+          return "hi cheok from thread";
+        }
+    );
+    System.out.println("result: " + completableFuture.get());
+  }
+output:
+result: hi cheok from thread
+1. manual completion
+    CompletableFuture<String> completableFuture = new CompletableFuture<String>();
+    completableFuture.complete("hi cheok from future");
+    System.out.println("result: " + completableFuture.get());
+--
+2. attach callback
+    CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(
+        () -> {
+          try {
+            TimeUnit.SECONDS.sleep(1);
+          } catch (InterruptedException e) {
+          }
+          return "hi cheok from thread";
+        }
+    ).thenApply(msg -> msg + " extra").thenApply(msg2 -> msg2 + " more last");
+    System.out.println("result: " + completableFuture.get());
+  }
+output:
+result: hi cheok from thread extra more last
+others:
+thenApply() -> return something, has access to the result of the CompletableFuture on which it is attached
+thenAccept() -> does not return anything, has access to the result of the CompletableFuture on which it is attached
+thenRun() -> just perform some task
+All the callback methods provided by CompletableFuture have two async variants. allow executing the callback tasks in a separate thread.
+3. chaining multiple tasks. use thenCompose() if your callback function returns a CompletableFuture
+thenCompose() is used to combine two Futures where one future is dependent on the other,
+4. combine multiple tasks (run multiple tasks in parallel and then do something after those tasks complete)
+alternative to CountDownLatch
+use thenCombine() : combine two futures
+allOf() : when you have a List of independent futures that you want to run in parallel and do something after all of them are complete.
+anyOf() : when you have a List of independent futures that you want to run in parallel and do something after any of them are complete.
+CompletableFuture.allOf().thenRunAsync().exceptionally()
+CompletableFuture.allOf().thenRun().exceptionally()
+5. exception handling
+exceptionally() : takes an exception and return something
+handle((res,ex) -> ..) : if exception, then res is null, if no exception, ex is null. called whether or not there is exception
+--
+The join() method is similar to get(). The only difference is that it throws an unchecked exception
+if the underlying CompletableFuture completes exceptionally.
+--
+https://www.callicoder.com/java-8-completablefuture-tutorial/
+
+#backpressure?
+ThreadPoolExecutor​(int corePoolSize,
+ int maximumPoolSize,long keepAliveTime, TimeUnit unit,
+ BlockingQueue<Runnable> workQueue, RejectedExecutionHandler handler)
+
+java.util.concurrent.Semaphore (can be used to implement throttling)
+throttling: CyclicBarrier, Phaser, Semaphore
+
+By an interruptible method, we mean a blocking method that may throwInterruptedException, for
+example, Thread.sleep(), BlockingQueue.take(), BlockingQueue.poll(long timeout, TimeUnit unit), and
+so on. A blocking thread is usually in a BLOCKED, WAITING, or TIMED_WAITING state, and if it is
+interrupted, then the method tries to throw InterruptedException as soon as possible.
+
+try {
+   queue.poll(3000, TimeUnit.MILLISECONDS);
+} catch (InterruptedException ex) {
+   Thread.currentThread().interrupt(); // restore interrupt, preserve interrupt status
+}
+---
+This is done to keep state.
+When you catch the InterruptException and swallow it, you essentially prevent any higher level
+methods/thread groups from noticing the interrupt. Which may cause problems.
+By calling Thread.currentThread().interrupt(), you set the interrupt flag of the thread, so higher
+level interrupt handlers will notice it and can handle it appropriately.
+
+visibility: a read should return the value set by the last write
+
+Fibers are lightweight, user-mode threads, scheduled by the Java virtual machine, not the operating
+system. Fibers are low footprint and have negligible task-switching overhead.
+
+to break the rulfes: reflection, class loading (including associated bytecode transformation), and Unsafe.
+Unsafe allows developers to
+Directly access CPU and other hardware features
+Create an object but not run its constructor
+Create a truly anonymous class without the usual verification
+Manually manage off-heap memory
+--> virtually all modern frameworks already use Unsafe behind the scene
+By Java 11, many of these methods have been migrated into two separate classes:
+jdk.internal.misc.Unsafe (in java.base) and sun.misc.Unsafe (in jdk.unsupported).
+
+#troubleshoot jvm crash, hs_err file
+https://inside.java/2021/02/12/deciphering-the-stacktrace/
+https://docs.oracle.com/en/java/javase/15/troubleshoot/troubleshoot-system-crashes.html
+
+working directory: System.getProperty("user.dir")
+
+https://reflectoring.io/create-analyze-heapdump/
+
+#write a string to file
+BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+writer.write()
+writer.append()
+
+parsing command line options:
+https://commons.apache.org/proper/commons-cli/
+http://www.martiansoftware.com/jsap/
+https://picocli.info/
+http://jcommander.org/
+https://stackoverflow.com/questions/367706/how-do-i-parse-command-line-arguments-in-java
