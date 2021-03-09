@@ -7213,6 +7213,12 @@ as well as the Thread.start() and Thread.join() methods, can form happens-before
 happens-before relationship exists between all synchronized/volatile write operations and all
 synchronized/volatile read operations that follow.
 ==
+happens-before relation is a relation between the result of two events, such that if one event
+should happen before another event, the result must reflect that, even if those events are in
+reality executed out of order (usually to optimize program flow). This involves ordering events
+based on the potential causal relationship of pairs of events in a concurrent system, especially
+asynchronous distributed systems.
+==
 https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility
 
 In concurrent programming, a monitor is a synchronization construct that allows threads to have both mutual exclusion and the ability to wait (block) for a certain condition to become true. Monitors also have a mechanism for signalling other threads that their condition has been met.
@@ -15603,3 +15609,12 @@ process. Each thread has an execution instruction counter and a call stack but s
 every other thread in the same process.
 
 SQL injection prevention: use prepared statement with parameterized query, use ORM
+
+A logical clock is a mechanism for capturing chronological and causal relationships in a distributed
+system. Distributed systems may have no physically synchronous global clock, so a logical clock
+allows global ordering on events from different processes in such systems.
+--
+In logical clock systems each process has two data structures: logical local time and logical global
+time. Logical local time is used by the process to mark its own events, and logical global time is
+the local information about global time. A special protocol is used to update logical local time
+after each local event, and logical global time when processes exchange data
