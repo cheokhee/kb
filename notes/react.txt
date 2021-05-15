@@ -50,7 +50,13 @@ minimum: the action must have a type
 
 then you change the global state by writing reducer functions.
 reducer: functions used to create a new state based on an action.
-
+--
+export default function reducer(state = initialState, action) {
+  switch (action.type) {
+    case types.SET_SELECTED_MARKER: {
+      return {...state, selectedMarker: action.payload}
+    }
+===
 example:
 getGlobalStore().dispatch({type: types.LOADING_STARTED})
 
@@ -86,6 +92,7 @@ React Fragments let you group a list of children without adding extra nodes to t
 React Portals provide a first-class way to render children into a DOM node that exists outside the
 DOM hierarchy of the parent component.
 
+Hooks are functions that let you “hook into” React state and lifecycle features from function components
 react hooks: allow functional component to have states
 --> useState(), useEffect()
 useEffect(): perform side effects after every render
@@ -93,6 +100,36 @@ can think of useEffect Hook as componentDidMount, componentDidUpdate, and compon
 ==
 useEffect(callback-function, [an array of optional dependencies]): if any of the dependencies change,
 re-run the callback function.
+---
+const [count, setCount] = useState(0);
+useState() returns an array. the first is the current state value and the second is a function for changing the value
+react re-renders after every state change
+--
+Code inside componentDidMount run once when the component is mounted. useEffect hook equivalent for this behaviour is
+useEffect(() => {
+  // Your code here
+}, []);
+Without the second parameter the useEffect hook will be called on every render of the component.
+--
+componentDidMount() {
+  window.addEventListener('mousemove', () => {})
+}
+componentWillUnmount() {
+  window.removeEventListener('mousemove', () => {})
+}
+Hook equivalent of above code will be as follows:
+useEffect(() => {
+  window.addEventListener('mousemove', () => {});
+
+  // returned function will be called on component unmount
+  return () => {
+    window.removeEventListener('mousemove', () => {})
+  }
+}, [])
+---
+If your effect returns a function, React will run it when it is time to clean up
+---
+https://stackoverflow.com/questions/53464595/how-to-use-componentwillmount-in-react-hooks
 
 render prop: A component with a render prop takes a function that returns a React element and calls
 it instead of implementing its own render logic. a technique for sharing code between React
@@ -126,3 +163,48 @@ export default class App extends Compononent {
 myMethod = () => {
     // This method is bound implicitly!
   }
+
+#TypeScript React functional component
+type AppProps = { message: string }; /* could also use interface */
+const App = ({ message }: AppProps) => <div>{message}</div>;
+
+https://github.com/typescript-cheatsheets/react
+
+export const OverviewContext = React.createContext<IContext>(defaultValue)
+All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes
+Whenever the parent component re-renders and passes in a new reference to the context provider as
+the value, any component that reads from that context will be forced to re-render.
+Providers can be nested to override values deeper within the tree.
+the createContext() method returns an object with a Provider and Consumer component
+The React Context API is React’s way of managing state in multiple components that are not directly connected.
+---
+return (
+  <OverviewContext.Provider value={...}>
+    <div> ... </div>
+  </OverviewContext.Provider>
+)
+---
+<OverviewContext.Consumer>
+  {(context) => (
+  )
+  }
+</OverviewContext.Consumer>
+-- can also use useContext()
+
+const [state, dispatch] = useReducer(reducer, initialState)
+--
+const initialState = {count: 0}
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1};
+....  }}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (...); }
+
+<React.StrictMode>: double-invoking certain functions
+https://reactjs.org/docs/strict-mode.html
+
+Refs provide a way to access DOM nodes or React elements created in the render method.

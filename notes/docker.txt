@@ -303,3 +303,13 @@ docker network create -d ipvlan --subnet=192.167.1.10/24 --gateway=... --ip-rang
 docker:
 Layer 4 (Transport) routing mesh (port-based), only one service on one port
 Layer 7 (Application) HTTP Routing Mesh (HRM), allow multiple services on one port
+
+sample ~/.docker/config.json:
+== start ==
+{
+  "psFormat": "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"
+}
+== end ==
+
+#use multi stage build to minimize image size
+https://docs.docker.com/develop/develop-images/multistage-build/

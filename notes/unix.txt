@@ -1188,6 +1188,10 @@ lsof -nP -p <pid>
 lsof -Pnli
 ==
 lsof -U #show unix domain socket
+----
+#see what ports are being used by a process
+lsof -i -Pn | grep <pid>
+netstat -anpt | grep <pid>
 
 dstat output:
 cpu: user, sys, idle, wai, hiq, siq
@@ -1264,5 +1268,6 @@ curl inet-ip.info/json/indent
 curl inet-ip.info/json
 curl inet-ip.info/yaml
 curl inet-ip.info/toml
+curl ipinfo.io
 
 find . ! -readable -prune -o ...

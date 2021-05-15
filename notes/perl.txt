@@ -236,3 +236,6 @@ long aa;
 long aaa;
 ---
 perl -e '$count=1; print "long ", "a" x $count, ";\n"'                                                                                                    -> long a;
+
+#search for pattern and reformat it
+perl -ne '/\w+/ && print "\x27$&\x27,\n"'

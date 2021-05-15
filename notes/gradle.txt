@@ -152,7 +152,7 @@ plugins {
     id 'application'
 }
 application {
-    mainClassName = 'com.oocl.Main'
+    mainClassName = 'com.Main'
 }
 ===
 then do : gradlew run

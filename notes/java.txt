@@ -900,6 +900,8 @@ incoming request is routed. Typically a URL in a Java servlet server is of the f
 http://hostname.com/contextPath/servletPath/pathInfo, where each of the path elements may be zero or
 more / separated elements. If there is no context path, the context is referred to as the root
 context.
+--
+The context path is the name of the URL at which we access the application. The default context path is empty.
 
 Sessions are a concept within the Servlet api which allow requests to store and retrieve information
 across the time a user spends in an application.
@@ -916,7 +918,7 @@ A web session is a sequence of network HTTP request and response transactions as
 user.
 
 getClass().getResource() vs getClass().getClassLoader().getResource()
-getClass().getClassLoader().getResourceAsStream(file);
+getClass().getClassLoader().getResourceAsStream(file); #find file in classpath, no need for classpath prefix?
 file: src/test/resources/test1.txt
 InputStream stream = this.getClass().getResourceAsStream("/test1.txt");
 import org.apache.commons.io.IOUtils;
@@ -1973,6 +1975,11 @@ Map<Boolean, Long> map3 = Stream.of("Fred", "Jim", "Sheila", "Chris",
         "Steve", "Hermann", "Andy", "Sophie")
         .collect(Collectors.partitioningBy(a -> a.length() == 4, Collectors.counting()));
 map3: {false=6, true=2}
+==
+Map<String, List<String>> opzoneServiceLookups = oslRepository.findAllByOpzoneCodeIn(opzoneCodes).stream()
+  .collect(Collectors.groupingBy(
+    OpzoneServiceLookup::getOpzoneCode,
+    Collectors.mapping(OpzoneServiceLookup::getServiceLoop, Collectors.toList())));
 
 A Predicate takes one object argument and returns a Boolean value where as a Function takes an
 object argument and returns an object. Predicate contains a method test() for testing if the object
@@ -2652,3 +2659,37 @@ http://www.martiansoftware.com/jsap/
 https://picocli.info/
 http://jcommander.org/
 https://stackoverflow.com/questions/367706/how-do-i-parse-command-line-arguments-in-java
+
+Quarkus is a full-stack, Kubernetes-native Java framework
+
+#JPA map integer to boolean
+@Column(name = "is_active", nullable = false)
+@Type(type = "org.hibernate.type.NumericBooleanType")
+OR
+@Type(type="numeric_boolean")
+private boolean isActive;
+
+The Vector API is about making the vector calculation capabilities of the x64 and AArch64 CPU
+architectures usable for Java developers (Java 16)
+
+Records are immutable data classes that require only the type and name of fields.
+Java Record is a data type for defining immutable data-only classes.
+
+@MultipartConfig Annotation: file upload
+@MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024,
+    maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
+
+System.arraycopy()
+Arrays.copyOf()
+
+#if localdate is not monday, get current week's monday's date
+aLocalDate.with( java.time.temporal.TemporalAdjusters.previous( java.time.DayOfWeek.MONDAY ) );
+--
+#if localdate is not sunday, get current week's sunday's date
+aLocalDate.with( java.time.temporal.TemporalAdjusters.next( java.time.DayOfWeek.SUNDAY ) );
+--
+date.getDayOfWeek() == java.time.DayOfWeek.SUNDAY;
+--
+date.getDayOfWeek() == java.time.DayOfWeek.MONDAY;
+--
+java.time.LocalDate.parse("2021-04-30");

@@ -45,6 +45,7 @@ echo 'Sample123string54with908numbers' | awk -F'[0-9]+' '{print $2}'
 
 #use -v to set variable
 awk -v FS=":"
+awk -v week="202110" -F, '/Imbalance/{printf("insert into table(year_week) values (\x27%s\x27);\n",week)}'
 
 # changing a field will re-build contents of $0
 # $1=$1 is an idiomatic way to re-build when there is nothing else to change

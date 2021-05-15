@@ -43,3 +43,65 @@ declare module 'querystring' {
 }
 
 import * as module-name from 'modulename'
+
+! -> non-null assertion: variable!.substring()
+
+var?: string -> var can be null
+
+type declaration file: TS wrapper for JS library
+
+interface: restricted to object type, can do extend and implement
+type alias: can be anything
+
+there is currently no way to place type annotations within destructuring patterns. This is
+because the following syntax already means something different in JavaScript.
+--
+In an object destructuring pattern, shape: Shape means “grab the property shape and redefine it
+locally as a variable named Shape. Likewise xPos: number creates a variable named number whose value
+is based on the parameter’s xPos.
+
+let fruits: string[] = ['Apple', 'Orange', 'Banana'];
+let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];
+
+Dynamic Property Keys:
+---
+interface Dic {
+    [key: string]: any
+}
+const data: Dic = { 'Chicago': [{}...] }
+key='Chicago'
+data[key]
+
+tuple: array where types for first few elements are specified.
+let tuple: [number,string] = [25,'blah']
+
+function type: combination of parameter type and return type
+let func: (count: number) => string // a function that takes a number and return a string
+
+// rest parameters (vararg)
+function blah(name: string, ...ids: number[]) {}
+call it like this: blah('1',2,4), blah('2',3,4,5,6)
+
+interface for function type:
+interface blah {
+(chars: string, nums: number): string
+}
+
+class ClassName {
+  constructor(name: string) { }}
+
+import * as blah from '...'
+
+ambient module: created with the declare keyword
+
+/// <reference path="blah.d.ts" />
+
+compiler option:
+--module: which module format to output
+
+string literal type: let category: 'manager'|'non-manager'
+type category = 'east'|'west'
+an alternative to enum
+print enum: get a number
+
+symbol: unique and immutable . Symbol()

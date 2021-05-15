@@ -1328,3 +1328,26 @@ git ls-files --others --exclude-standard -z | xargs -0 tar rvf ~/backup-untracke
 #search for pattern in all commits
 git rev-list --all | xargs git grep -F 'string'
 git grep 'string' #search for pattern in tracked files
+
+Turn on the credential helper so that Git will save your password in memory for some time. By
+default, Git will cache your password for 15 minutes.
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600' #3600 seconds=1hr
+
+#A Git worktree is a linked copy of your Git repository
+let's say you are doing refactoring and you need to do an emergency fix:
+$ git worktree add -b emergency-fix ../temp master #this will create another worktree where .git is a file,
+# also create .git/worktrees
+$ pushd ../temp
+# ... hack hack hack ...
+$ git commit -a -m 'emergency fix for boss'
+$ popd
+$ git worktree remove ../temp
+---
+git worktree list
+git worktree remove hotfix
+git worktree prune
+---
+/path/to/repo/.git/worktrees/hotfix/gitdir
+
+git archive --format tar --output hotfix.tar master

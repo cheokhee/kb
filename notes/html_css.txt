@@ -61,6 +61,7 @@ used with left: push an element to the right
 ===
 position: absolute -> relative to the closest relatively positioned parent.
 if not exist, relative to the body element
+position: fixed -> The element is positioned relative to the browser window
 
 CSS animation: transforms, transitions, keyframes
 
@@ -173,3 +174,8 @@ Third-party cookies are cookies that are set by a website other than the one you
 on. For example, you can have a "Like" button on your website which will store a cookie on a
 visitor's computer, that cookie can later be accessed by Facebook to identify visitors and see which
 websites he visited. They are used for cross-site tracking, retargeting and ad-serving.
+
+new window: window.open("https://www.google.com", "_blank", "width=1100,height=800")
+new tab: window.open("https://www.google.com", "_blank")
+
+margins don't have color. they take on the color of the container.

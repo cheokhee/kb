@@ -51,6 +51,16 @@ $ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[]'
 {
   "name": "hee"
 }
+exampleb 5, return all the elements in an array
+$ echo '{"blah": [{"name":"cheok"},{"name":"hee"}]}' | jq '.blah'
+[
+  {
+    "name": "cheok"
+  },
+  {
+    "name": "hee"
+  }
+]
 
 example 6, get all the names
 $ echo '[{"name":"cheok"},{"name":"hee"}]' | jq '.[] | .name'

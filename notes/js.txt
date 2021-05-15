@@ -855,6 +855,9 @@ e.g.
 console.log(rest);
 // expected output: [30,40,50]
 { a, b } = { a: 10, b: 20 }
+---
+destructuring: assigning the elements of an array or the properties of an object to
+individual variables.
 
 Spread syntax allows an iterable such as an array expression or string to be expanded in places
 where zero or more arguments (for function calls) or elements (for array literals) are expected, or
@@ -994,3 +997,73 @@ es2015: Adds support for ES2015 (or ES6) JavaScript
 react: Adds support for JSX
 
 webpack loaders are evaluated/executed from right to left (or from bottom to top).
+
+npm-shrinkwrap.json vs package-lock.json
+package-lock.json is never published to npm, whereas npm-shrinkwrap is by default
+
+ES6 Dynamic Property Keys:
+let cake = 'wow'
+let pan = {
+  id: 1,
+  [cake]: 'blah',
+};
+pan[cake]
+
+iterate over properties of an object:
+a={"name":"cheok","age":3}
+for (var m in a) { console.log(m)}
+name
+age
+-----
+iterate over array:
+b=["one","two","three"]
+for (var i of b) { console.log(i) }
+one
+two
+three
+
+optional chaining operator: ?.
+
+Object.is()
+
+for (const [key, values] of Object.entries({key: value,...})) { }
+
+#remove duplicates from an array:
+const filteredArray = [...new Set(array)]
+
+console.info()
+console.debug()
+console.warn()
+console.error()
+--
+console.log("%s %d %o %f"): %s: string, %d: integer, %o: object, %f: float
+console.assert(<condition>,object)
+e.g. console.assert(true,"msg") -> nothing will show
+     console.assert(false,"msg") -> show msg
+---
+console.clear()
+console.count()
+console.dir(anObject)
+--
+console.group(), console.groupEnd()
+console.log(document.body)
+---
+console.memory
+
+#return true if at least one element meets the condition
+Array.prototype.some(<a function that returns a boolean>):
+#return true if all elements meet the condition
+Array.prototype.every(<a function that returns a boolean>):
+#return the first element that meets the condition
+Array.prototype.find(<a function that returns a boolean>):
+
+'Hello\n'.repeat(5);
+
+#deep clone an object
+const cloneObj = JSON.parse(JSON.stringify(obj));
+---
+doesn’t work if your object property contains function, undefined or NaN as value. Because when you
+JSON.stringify the object, the property containing function, undefined or NaN as value gets removed
+from the object.
+
+JavaScript can only handle integer values up to 53 bits.

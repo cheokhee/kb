@@ -36,6 +36,8 @@ A slice is backed by an array.
 ---
 slice is an abstraction built on top of array. behaves like a dynamically-sized array and provide
 a flexible view into elements of array
+---
+slice is a wrapper around array
 
 The length is the number of elements referred to by the slice. The capacity is the number of
 elements in the underlying array (beginning at the element referred to by the slice pointer).
@@ -65,6 +67,9 @@ a := []string{"John", "Paul"}
 b := []string{"George", "Ringo", "Pete"}
 a = append(a, b...) // equivalent to "append(a, b[0], b[1], b[2])"
 // a == []string{"John", "Paul", "George", "Ringo", "Pete"}
+
+#to remove an item at index i
+list = append(list[:i], list[i+1:]...)
 
 zero value of slice is nil
 zero value of int : 0
@@ -198,6 +203,7 @@ var (
 
 swap variables:
 foo, bar = bar, foo
+a[0], a[1] = a[1], a[0]
 
 fmt:
 %v	the value in a default format
@@ -237,6 +243,9 @@ arrays.
 	str2, _, _ := reader.ReadLine() // str1 is []byte
 	fmt.Println("got more input: " + string(str2))
 --> result does not contain '\n' character
+===
+writer := bufio.NewWriterSize(stdout, 16 * 1024 * 1024)
+lTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 
 Go doesn't have casting, but conversion. eg. aaa := int32(10)
 
@@ -336,3 +345,98 @@ for k, v := range myMap {
 	keys = append(keys, k)
 	values = append(values, v)
 }
+
+fmt.Printf("%T\n",string[4]) -> uint8
+for _, char := range string {
+    fmt.Printf("%T\n",char) -> int32 (rune)
+}
+
+byte is an alias for uint8 and is equivalent to uint8 in all ways. It is used, by convention, to
+distinguish byte values from 8-bit unsigned integer values.
+
+https://github.com/golang/go/wiki/SliceTricks
+
+strconv.Atoi() equivalent to strconv.ParseInt(s, 10, 0)
+strconv.Itoa()
+strconv.ParseInt()
+
+type I interface {
+	M()
+}
+var i I # value and type: (<nil>, <nil>)
+type T struct {
+	S string
+}
+var t *T # value and type: (<nil>, *main.T)
+i = t #assign t to i: valid because
+i = &T{"hello"}
+func (t *T) M() { }
+
+#string concatenation
+var sb strings.Builder
+sb.WriteString()
+
+#create go.mod file
+go mod init
+
+var name *string = new(string)
+
+--constant expression
+const (
+  first =iota
+  second = iota )
+first = 0
+second = 1
+
+A defer statement pushes a function call onto a list. The list of saved calls is executed after the
+surrounding function returns. Defer is commonly used to simplify functions that perform various
+clean-up actions.
+
+Panic is a built-in function that stops the ordinary flow of control and begins panicking. When the
+function F calls panic, execution of F stops, any deferred functions in F are executed normally, and
+then F returns to its caller. To the caller, F then behaves like a call to panic. The process
+continues up the stack until all functions in the current goroutine have returned, at which point
+the program crashes. Panics can be initiated by invoking panic directly. They can also be caused by
+runtime errors, such as out-of-bounds array accesses.
+
+Recover is a built-in function that regains control of a panicking goroutine. Recover is only useful
+inside deferred functions. During normal execution, a call to recover will return nil and have no
+other effect. If the current goroutine is panicking, a call to recover will capture the value given
+to panic and resume normal execution.
+
+switch statement: implicit break, if you want fallthru, add fallthru statement
+
+coordinate goroutines: sync package
+WaitGroup : wait for a collection of goroutines to finish
+wg := &sync.WaitGroup{}
+#then pass wg into the function executed by goroutine, that function need to call wg.Done(0
+wg.Add(aNumber)
+wg.Wait()
+--
+m := &sync.RWMutex{}
+
+channel
+ch := make(chan <type>), i.e., make(chan string)
+make(chan string, 5): buffered chanell, internal capacity of 5, can store 5 messages inside the channel
+without having any receiver
+receive a msg from channel: <-ch
+send a msg into channel: ch <- "msg"
+---
+msg, ok <- ch #if ok is false, it is closed
+---
+for msg := range ch {}
+---
+select {
+  case i := <-ch1:
+  ...
+  case ch2 <- "hello":
+  ...
+  default: // this create a non-blocking select
+---
+close channel: cannot check for closed channel: close(ch), cannot send after close
+can receive msg from closed channel
+
+channel types: bidirectional (default at creation), send-only, receive-only
+func myfunc(ch chan int) {} // bidirectional channel
+func myfunc(ch chan<- int) {} // send-only channel
+func myfunc(ch <-chan int) {} // receive-only channel

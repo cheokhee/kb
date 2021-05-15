@@ -88,3 +88,10 @@ sed -e 's/ at/\n&/g'
 #remove the line matching pattern and the following line
 sed '/bar/,+1 d'
 https://unix.stackexchange.com/questions/56123/remove-line-containing-certain-string-and-the-following-line
+
+Match single pattern and replace the entire line:
+sed -i '/pattern/c replacement' file
+--
+echo -e "cheok\nhee" | sed -e '/eo/c wow'
+wow
+hee

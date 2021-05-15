@@ -1380,7 +1380,8 @@ smartctl -i /dev/sda #info
 smartctl -a /dev/sda #all info
 smartctl -x /dev/sda #even more info
 smartctl -H /dev/sda #health info
-smartctl -l selftest /dev/sda
+smartctl -l selftest /dev/sda #print selftest log
+smartctl -c /dev/sda #show capabilities
 
 #available test: offline, short, long, conveyance
 smartctl -a:
@@ -1389,6 +1390,8 @@ Pre-fail: if the VALUE column is below the THRESH column, be concerned
 #run test
 smartctl -t short /dev/sda
 smartctl -t long /dev/sda
+#after running test, do following, the most recent test is listed at #1
+smartctl -l selftest /dev/sda
 
 #abort test
 smartctl -X
@@ -1788,6 +1791,8 @@ convert -background white -fill black -font Courier -pointsize 12 label:@message
 ifconfig | convert label:@- myipaddress.png
 == save command output to an existing image and create a new image
 convert -font -misc-fixed-*-*-*-*-*-*-*-*-*-*-*-* -fill black -draw "text 270,260 \" `ip addr` \"" Linux.jpg myipaddress.jpg
+----
+https://stackoverflow.com/questions/9992174/imagemagick-command-to-convert-and-save-with-same-name
 
 record your desktop session (video)
 # -s : resolution, alternative: -s 1024x768
@@ -1861,6 +1866,7 @@ mount none -t tmpfs -o size=256M /ramdisk
 ss : display socket info
 ss -t : display tcp info
 ss -lt : display tcp listening
+ss -p: show process using socket
 arping: send ARP request to a neighbor: arping -I eth0 192.188.1.1
 ethtool
 
@@ -1879,6 +1885,7 @@ determine the order in which various name resolution services will be tried
 --
 getent : get entries from the name service switch library
 getent hosts
+getent hosts google.com
 
 GConf: store configuration settings. similar to Windows registry. deprecated.
 GConf: to be replaced by GSettings and dconf
@@ -3097,6 +3104,7 @@ SOA:	Authoritative information about a DNS zone (Start of authority)
         MNAME: domain name of the primary DNS server
         RNAME: email address of a person responsible for the zone. the @ symbol is replaced by a "."
 TXT:	Text record
+SRV: service locator record
 ----
 resource record: [name] [ttl] [class] type rdata
 --
@@ -3162,6 +3170,8 @@ rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/	#Synchroniz
 
 #calculate the number of days between 2 dates
 echo "("$(date -d "2020-06-06" +%s) - $(date -d "2020-03-17" +%s)") / 86400" | bc
+#if dates are in same year:
+echo $(($(date -d "2020-06-06" +%j) - $(date -d "2020-03-17" +%j)))
 
 showing the decimal equivalent of a hexadecimal or octal number.
 echo $((0xdeadbeef)) # Outputs 3735928559
@@ -3752,5 +3762,47 @@ ethtool -S <veth-name> # Discover interface index of peer
 --> NIC statistics:
     peer_ifindex: 16
 then do ip link | grep '^16:' to look up interface
+---
+ethtool -i enp3s0 #driver info
+ethtool -k enp3s0 #show features
 
 nsupdate is used to submit Dynamic DNS Update requests to a name server
+
+Quagga is a network routing software suite providing implementations of Open Shortest Path First
+(OSPF), Routing Information Protocol (RIP), Border Gateway Protocol (BGP) and IS-IS.
+--
+Intermediate System to Intermediate System (IS-IS, also written ISIS) is a routing protocol designed
+to move information efficiently within a computer network, a group of physically connected computers
+or similar devices.
+
+diff --side-by-side --suppress-common-lines <file1> <file2>
+
+#get the root hint (IP address of root name servers)
+dig . ns
+
+#get the NS record
+host -t ns google.com
+
+#host <name to be looked up> [nameserver]
+host maps.google.com 8.8.8.8
+
+curl -L -i -H 'Expect:' -H "Content-Type: application/xml" -d "@upm-sample-req.xml" <URL>
+https://gms.tf/when-curl-sends-100-continue.html
+
+#send binary file
+curl -i -H 'Expect:'--data-binary '@path/to/file' <URL>
+
+#see request header:
+curl -v .....
+#see more trace: --trace-ascii <filename>, --trace-ascii - #stdout
+curl --trace-ascii - --data-binary '@path/to/file' <URL>
+
+#discover linux distro
+/etc/lsb-release
+/etc/issue
+/etc/os-release
+
+extra/clamav 0.103.2-1 : Anti-virus toolkit for Unix
+sudo freshclam #update virus signature
+#Scan all files and print out infected files, ringing a bell when one is found:
+sudo clamscan -r --bell -i /

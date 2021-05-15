@@ -4995,7 +4995,7 @@ DI container: know what to instantiate and inject into components
 3 types: (1) interface injection (2) setter injection (3) constructor injection
 --> instead of an object initializing other objects internally, it accepts those objects
 as parameters that are supplied by an external entity (usually an app container).
---> an object gets its dependencies given to it, as opposed to having to construct them itself.
+--> dependency injection: an object gets its dependencies given to it, as opposed to having to construct them itself.
 --> DI is a form of IoC
 --
 Inversion of Control (IoC) : the Hollywood principle: don't call us, we'll call you
@@ -6473,6 +6473,7 @@ Interface segregation: a client should not be forced to implement interfaces it 
 Dependency inversion: high-level classes should not depend on low-level classes. both should
 depend on abstractions. For example: Manager class has an inst var of class Worker (bad).
 Should have an inst var of interface IWorker. The Worker class implements IWorker.
+Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
 --> BEST: don't ask, let framework give it to you
 --> another best: don't depend on concrete implementation, depend on interface
 
@@ -7625,6 +7626,7 @@ thread: a flow of execution
 SQL injection: an attack where the attacker inserts an SQL statement into an entry field for execution.
 cross-site scripting: an attack where the attacker inserts client-side script into a web page.
 The underlying problem is that many Web pages display input that is not validated. If input is not validated, malicious script can be embedded within the input. If a server-side script then displays this non-validated input, the script runs on the browser as though the trusted site generated it.
+SQL injection: untrusted data is used in the construction of a SQL query
 --
 Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected
 into otherwise benign and trusted websites
@@ -7634,6 +7636,9 @@ page without proper validation or escaping, or updates an existing web page with
 using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in
 the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to
 malicious sites.
+---
+Cross-Site Scripting (XSS): a vulnerability where untrusted data is sent back as part of an HTTP response,
+resulting in the execution of arbitrary JavaScript.
 
 demand paging:  is a type of swapping in which pages of data are not copied from disk to RAM until they are needed
 
@@ -7790,6 +7795,8 @@ nested loop:
 NESTED LOOPS
   outer_loop
   inner_loop
+---
+nested loops join: fetch the result from one table and query the other table for each row from the first.
 
 hash join: A method for joining large data sets. The database uses the smaller of two data sets to build a hash table on the join key in memory. It then scans the larger data set, probing the hash table to find the joined rows.
 The indexing strategy for a hash join is very different because there is no need to index the join columns. Only indexes for independent where predicates improve hash join performance.
@@ -8871,6 +8878,7 @@ application components, e.g. how often certain features are used, measurements o
 processing time, hardware, application crashes, and general usage statistics and/or user behavior
 --
 Telemetry in software refers to the transparent collection of user and usage data from software
+telemetry is the data that is collected about your application
 
 pipelining (computer architecture):
 a pipeline is the continuous and somewhat overlapped movement of instruction to the processor or in
@@ -9390,6 +9398,7 @@ handles the exhaust valves.
 MVCC: Multiversion concurrency control, is a concurrency control method commonly used by database
 management systems to provide concurrent access to the database and in programming languages to
 implement transactional memory.
+MVCC: a db mechanism that enables non-blocking concurrent data access and a consistent txn view.
 
 An affordance is the possibility of an action on an object or environment.
 --
@@ -12976,6 +12985,9 @@ listener on the victim machine and waits for an incoming connection. The attacke
 the victim machine’s listener which then leads to code or command execution on the server. attacker
 connects victim on listening port.
 ==
+web shell is a malicious web-based shell-like interface that enables remote access and control to a
+web server by allowing execution of arbitrary commands.
+==
 Reverse TCP Meterpreter, C99 PHP web shell, JSP web shell, Netcat
 
 buffering: reading ahead and storing the data in a buffer so that the user can have
@@ -13027,6 +13039,11 @@ Smart contracts are computer programs stored in a blockchain.
 Smart contracts are contracts written as software, rather than written as legal text. Because you
 can encode them directly on the blockchain, they can involve the transfer of value based directly on
 the cryptographic consent of the parties involved — in other words, they are self-executing.
+---
+smart contracts contains the terms of a blockchain transaction between a buyer and a seller as
+well as the capabilities to execute those terms. In order for smart contracts to include outside
+data from the world, such as stock market data, weather, sports data, etc…, the contract needs a
+third party service called an oracle. The industry standard blockchain oracle is Chainlink.
 
 cloud: virtualized data center
 cloud attributes: (1) on-demand self-service (2) ubiquitous network access
@@ -13634,6 +13651,10 @@ SSO allows a single authentication credential to access different systems within
 ===
 federated identity management system provides single access to multiple systems across different enterprises.
 users provide credentials directly to the FIM system itself.
+---
+Single sign-on allows users to access multiple services with a single login. Federated identity
+refers to stored credentials (identity provider) that are used to connect identity management
+systems together
 
 Generative adversarial networks (GANs) are algorithmic architectures that use two neural networks,
 pitting one against the other (thus the “adversarial”) in order to generate new, synthetic instances
@@ -13935,6 +13956,16 @@ https://microservices.io/patterns/data/transactional-outbox.html
 Change data capture refers to the process of identifying and capturing changes made to a
 database. Those changes can then be applied to another data repository or made available in a format
 consumable by ETL, EAI, or other types of data integration tools.
+--
+CDC use cases: replicating data to other databases, feeding analytics systems, extracting
+microservices from monoliths and invalidating caches
+---
+Event interception: an alternative to Change Data Capture. it involves forking requests on ingress
+to a system so that it’s possible to gradually build a replacement. Often this is done by copying
+events or messages but forking HTTP requests is equally valid. Examples include forking events from
+point-of-sale systems before they’re written to a mainframe and forking payment transactions before
+they’re written to a core banking system. obtaining state changes from the source, rather than
+trying to recreate them postprocessing using CDC,
 
 message delivery semantics: at-most-once delivery, at-least-once delivery, exactly-once delivery
 
@@ -14084,6 +14115,17 @@ logging: explicitly generated by programmer. it is in the source code
 tracing: goal is to follow a program's flow and data progression. a special kind of log
 
 OpenTracing: a vendor-agnostic API to help developers easily instrument tracing into their code base.
+
+
+Linearizability (BEST): multiple replicas behaving as if there is only one copy (distributed system)
+all operations behave as if executed on a single copy of the data (even if there are multiple
+copies).  Every read operation returns the most recently written value. make a distributed system
+behave as if it were non-distributed.  each operation appears to take effect atomically at some
+point between its invocation and completion.  A linearizable system guarantees a strict time
+ordering of read and writes operations matching the wall-clock time flow.
+--
+Serializability (BEST): a form of isolation between transactions. concurrent transactions have the
+same effect as if executed in some serial order.
 
 https://jepsen.io/consistency/models/linearizable
 Linearizability is one of the strongest single-object consistency models, and implies that every
@@ -14653,7 +14695,7 @@ idea of clustered indexes is to store a complete table in a B-tree structure. Th
 table. The table is the index.
 
 Heap-organized table: A table in which the data rows are stored in no particular order on
-disk. Index-organized table: has a clustered index.
+disk (heap table). Index-organized table: has a clustered index.
 
 Two Level Scheduling:
 scheduling when the process may or may not be in memory
@@ -15568,6 +15610,8 @@ them into different networks. Use VLAN. add a VLAN tag to the frame to identify 
 the frame belongs to.
 ---
 VLAN: a technology that separate a physical network into multiple logical networks.
+VLAN: used to partition a layer 2 segment into separate logical LANs.
+tagged VLAN : 802.1q
 
 A network tap is a system that monitors events on a local network. A tap is typically a dedicated
 hardware device, which provides a way to access the data flowing across a computer network.
@@ -15604,10 +15648,6 @@ RASP: runtime application self-protection
 
 interrobang: ‽ (U+203D)
 
-At operating system (OS) level, threads are independently scheduled execution units that belong to a
-process. Each thread has an execution instruction counter and a call stack but shares a heap with
-every other thread in the same process.
-
 SQL injection prevention: use prepared statement with parameterized query, use ORM
 
 A logical clock is a mechanism for capturing chronological and causal relationships in a distributed
@@ -15618,3 +15658,183 @@ In logical clock systems each process has two data structures: logical local tim
 time. Logical local time is used by the process to mark its own events, and logical global time is
 the local information about global time. A special protocol is used to update logical local time
 after each local event, and logical global time when processes exchange data
+
+a subsequence is a sequence that can be derived from another sequence by deleting some or no
+elements without changing the order of the remaining elements
+
+NAT64 is an IPv6 transition mechanism that facilitates communication between IPv6 and IPv4 hosts by
+using a form of network address translation (NAT).
+
+Ethernet unit: frame
+IP unit: packet
+TCP unit: segment
+
+Self-certifying File System (SFS) is a global and decentralized, distributed file system for
+Unix-like operating systems, while also providing transparent encryption of communications as well
+as authentication. It aims to be the universal distributed file system by providing uniform access
+to any available server.
+
+graphql resolver: data fetcher
+
+Vectorization allows a CPU to apply the same operation to multiple input values at once (single
+instruction, multiple data—SIMD)
+
+SPIFFE, the Secure Production Identity Framework For Everyone, provides a secure identity, in the
+form of a specially crafted X.509 certificate, to every workload in a modern production
+environment. SPIFFE removes the need for application-level authentication and complex network-level
+ACL configuration
+
+An ampere hour or amp hour is a unit of electric charge, having dimensions of electric current
+multiplied by time, equal to the charge transferred by a steady current of one ampere flowing for
+one hour
+
+concurrency: two or more actions are in progress at the same time
+parallelism: two or more actions are executing simultaneously
+
+database execution plan:
+access predicate: show the conditions for index lookup.
+filter predicate:
+  index filter predicate: applied during leaf node traversal
+  table level filter predicate: must load the rows from the table before applying the filter.
+access predicate is done first, followed by filter predicate.
+
+The law of general average is a principle of maritime law whereby all stakeholders in a sea venture
+proportionally share any losses resulting from a voluntary sacrifice of part of the ship or cargo to
+save the whole in an emergency.
+--
+General Average is a principle of maritime law born out of the idea that the shipper and the vessel
+owner are entering into a joint business venture, and that if it weren't for the shipper's cargo,
+the vessel would not be sailing on its (at times dangerous) voyage.
+
+DNS root hint: contain the IP address of root name server
+
+an authoritative DNS response is when the DNS server hosting the primary copy of the DNS record
+responds to your lookup
+
+A DNS zone is a portion of the DNS namespace that is managed by a specific organization or
+administrator. a DNS zone can contain multiple subdomains and multiple zones can exist on the same
+server. A DNS zone is used to host the DNS records for a particular domain.
+--
+A zone file is a plain text file stored in a DNS server that contains an actual representation of
+the zone and contains all the records for every domain within the zone. Zone files must always start
+with a Start of Authority (SOA) record, which contains important information including contact
+information for the zone administrator.
+--
+DNS zones:
+forward lookup zone (name to IP resolution)
+reverse lookup zone (IP to name resolution)
+--
+primary DNS zone: authoritative zone info, containers read/write copy of zone data, accept dynamic
+  update from client (DDNS)
+secondary DNS zone: get a copy of data from a master DNS zone (by way of zone transfer). AXFR, IXFR,
+  read-only
+stub DNS zone:
+--
+DNS forwarding
+--
+load balancing techniques: netmask ordering, round robin
+
+Low-cardinality refers to columns with few unique values. Low-cardinality column values are
+typically status flags, Boolean values, or major classifications such as gender.
+
+A bitmap index is a special kind of database index that uses bitmaps. Bitmap indexes have
+traditionally been considered to work well for low-cardinality columns, which have a modest number
+of distinct values, either absolutely, or relative to the number of records that contain the data.
+In a bitmap index, a bitmap for each key value is used instead of a list of rowids. Each bit in the
+bitmap corresponds to a possible rowid, and if the bit is set, it means that the row with the
+corresponding rowid contains the key value.
+
+in clinical trials, the term reactogenicity refers to the property of a vaccine of being able to
+produce common, "expected" adverse reactions, especially excessive immunological responses and
+associated signs and symptoms, including fever and sore arm at the injection site
+
+rootkit is malicious software designed to enable unauthorized access to a computer
+
+throttling device: a device that dissipates pressure energy by converting it into thermal energy
+restrict the flow of refrigerant between condenser and evaporator.
+expansion valve: a type of throttling device
+
+consistency models are used in distributed systems like distributed shared memory systems or
+distributed data stores. data consistency model specifies a contract between programmer and system,
+wherein the system guarantees that if the programmer follows the rules, memory will be consistent
+and the results of reading, writing, or updating memory will be predictable.
+
+maintaining strict consistency in a distributed system requires a synchronous coordination of all
+write operations between all nodes.
+
+Wifi router: has firewall, dhcp services, WAN port
+switches create networks, routers connect networks.
+modem: connect home network to internet
+home router: allow multiple devices to connect to internet at the same time.
+router: forward data from one network to another based on IP address
+
+response time = latency + processing time. the time btw making a request and receiving a response
+latency: the time btw msg send and msg recv. the time spent on the wire. delay in communicating a msg
+
+masterly inactivity (politics, public policy) A policy of deliberate inactivity,
+carried out with diplomatic skill, so as to preserve a predominant influence without risking
+anything. doing nothing with a deal of skill.
+
+CORS problem: When your frontend sends an HTTP request to a different domain or subdomain, the
+browser will send an additional HTTP called preflight request, to see whether the server accepts
+messages from the sender’s domain.  So for each HTTP request trigged by the frontend, the browser
+needs to send two HTTP requests, increasing the overall response time.
+---
+https://blog.bitsrc.io/how-and-why-you-should-avoid-cors-in-single-page-apps-db25452ad2f8
+
+data clustering: storing consecutively accessed data close together in order to minimize I/O operations.
+
+index clustering factor: the correlation between index order and table order.
+
+Individual agency is when a person acts on his/her own behalf, whereas proxy agency is when an
+individual acts on behalf of someone else (such as an employer). Collective agency occurs when
+people act together, such as a social movement.
+
+Network Address Translation (NAT) is designed for IP address conservation. NAT operates on a
+router, usually connecting two networks together, and translates the private (not globally unique)
+addresses in the internal network into legal addresses, before packets are forwarded to another
+network. NAT translates the IP addresses of computers in a local network to a single IP address.
+
+SQL row value expression is a list of value expressions that you enclose in parentheses and separate
+by commas. example: insert statement
+
+pagination: require a deterministic sort order
+1. offset method: numbers the rows from the beginning and use a filter on the row number to discard the
+rows before the requested page. db must count all the rows before reaching the requested page.
+disadvantages: (a) pages drift when new rows are inserted (b) response time increases when browsing
+further back.
+2. seek method: search the last entry of the previous page and fetch only the following rows.
+
+VM network connection modes:
+1. bridged connection: the VM has direct access to external network. the VM has its own IP address
+on the network. other computers can connect to the VM directly.
+2. NAT: VM and host share the same IP. VM can talk to internet. other computers cannot talk to VM.
+3. host-only: VM can talk to host and other VMs on the host. cannot connect to outside world.
+
+rent-seeking means seeking to increase one's share of existing wealth without creating new wealth.
+
+look-aside cache: client will query cache first before querying the data store. If it's a HIT, it
+will return the value in cache. If it's a MISS, it will return the value from data store.  It says
+nothing about how the cache should be filled. It just specifies how it would be queried. But
+usually, it's demand-fill. Demand-fill means in the case of MISS, client will not only uses the
+value from data store, but also puts that value into cache. Usually if you see a look-aside cache,
+it's also a demand-fill cache.  Application writes new data or updates to existing data in both the
+cache and the backing store -or- all writes are done to the backing store and the cache copy is
+invalidated
+--
+in-line cache: Application requests data from cache. Cache delivers data if available.  Key
+Difference: If data not available, cache retrieves data from backing store, caches it, then returns
+the value to the requesting application Application writes new data or updates existing data in
+cache.  Cache will synchronously (write through) or asynchronously (write behind) write data to the
+backing store
+
+thundering herd: when multiple requests having the same cache miss. all such requests will try to
+query the DB simultaneously.  The solution is a lease. The first cache miss will grant the app
+server a lease token. Only the app server having the token for a key can query DB and fill the
+cache. After a token is issued, all subsequent requests to the cache will be asked to retry after a
+period. The lease expires after a while to avoid deadlock.
+
+Forbearance, in the context of a mortgage process, is a special agreement between the lender and the
+borrower to delay a foreclosure
+
+covering index: an index that covers all the columns in a query
