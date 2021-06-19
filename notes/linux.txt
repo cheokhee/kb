@@ -3806,3 +3806,8 @@ extra/clamav 0.103.2-1 : Anti-virus toolkit for Unix
 sudo freshclam #update virus signature
 #Scan all files and print out infected files, ringing a bell when one is found:
 sudo clamscan -r --bell -i /
+
+#get metadata of image
+identify -verbose image.png
+
+xdg-mime query filetype <filename>

@@ -388,6 +388,11 @@ const (
 first = 0
 second = 1
 
+iota represents successive integer constants
+--
+iota is an algorithm that generates a sequence of numbers that increased by one. So, if you go iota
+zero to 10, you get 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. And the name iota comes from APL.
+
 A defer statement pushes a function call onto a list. The list of saved calls is executed after the
 surrounding function returns. Defer is commonly used to simplify functions that perform various
 clean-up actions.

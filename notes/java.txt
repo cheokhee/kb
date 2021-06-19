@@ -2693,3 +2693,33 @@ date.getDayOfWeek() == java.time.DayOfWeek.SUNDAY;
 date.getDayOfWeek() == java.time.DayOfWeek.MONDAY;
 --
 java.time.LocalDate.parse("2021-04-30");
+
+Map<String, List<String>> opzoneServiceLookups = lookups.stream()
+  .collect(Collectors.groupingBy(OpzoneServiceLookup::getOpzoneCode,
+    Collectors.mapping(OpzoneServiceLookup::getServiceLoop, Collectors.toList())));
+
+=== JPA native query ==
+@Query(value = "delete from blah \n"
+  + "where cust_id = :custId and scac = :scac and shipment_num in :shipmentNumbers", nativeQuery = true)
+void deleteAll(@Param("custId") String custId, @Param("scac") String scac,
+  @Param("shipmentNumbers") List<String> shipmentNumbers);
+
+@Query(value = "update ccse_ccp_teu_ave set eff_end_dt_utc = ?1 where service_loop = ?2 and loop_qualifier = ?3", nativeQuery = true)
+void expireCcpTeu(String effEndDtUtc, String serviceLoop, String qualifier);
+=== JPA native query ==
+
+Spring security:
+Web client->servlet controller->DelegatingFilterProxy (FilterChainProxy/SecurityFilterChain)->DispatcherServlet->Controller
+---
+CommonOAuth2Provider.java (an enum)
+CustomUserTypesOAuth2UserService
+@AuthenticationPrincipal annotation equivalent to SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+--
+role: coarse-grained authorizations, common permission
+authority: fine-grained, special permission
+--
+getPrincipal():
+Form Login: UserDetails
+OAuth2: DefaultOAuth2User
+OIDC: DefaultOidcUser
+--- end spring security

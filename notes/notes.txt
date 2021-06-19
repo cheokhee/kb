@@ -13632,7 +13632,7 @@ http://localhost:8080/login/oauth2/code/github?code=8419b9146c703ccc0396&state=8
 redirect to: localhost:8080
 -----
 Oauth2 flow:
-1. direct user to authorization server page, with parameters: response_type=code, client_id, redirect_uri
+1. direct user to authorization server page, with parameters: response_type=code, client_id, redirect_uri, scope
    client_id and redirect_uri requires previous registration.
 2. after user authenticates, authorization server generates a short-lived authorization code, call the redirect_uri with this code.
 3. client application exchanges this short-lived authorization code for a long-lived access token (cannot be seen in browser)
@@ -13643,6 +13643,10 @@ OAuth: back-channel communication: direct http connections between components, b
 front-channel communication: indirect connections, browser is involved
 --
 OAuth token introspection endpoint
+---
+OAuth flow types: Authorization code, implicit, client credentials
+Oauth client credentials: for authorization between microservices
+Oauth implicit: grant access token directly
 
 federation: a relationship maintained between organizations.
 
@@ -13867,6 +13871,7 @@ address, age). These are called "claims" rather than "attributes," as is commonl
 enterprise directories, because of the delivery method. In this model, your application does not
 look up user attributes in a directory. Instead, the user delivers claims to your application, and
 your application examines them. Each claim is made by an issuer.
+token contains claims, info about a user
 ==
 Claims are not what the subject can and cannot do. They are what the subject is or is not.
 --
@@ -15838,3 +15843,41 @@ Forbearance, in the context of a mortgage process, is a special agreement betwee
 borrower to delay a foreclosure
 
 covering index: an index that covers all the columns in a query
+
+OAuth scopes let you specify exactly what type of access you need. Scopes limit access for OAuth
+tokens. They do not grant any additional permission beyond that which the user already has.
+
+An authorization realm is where the resource owner will authenticate and authorize the OAuth2 client
+to access resources on his behalf. Authorization realms can function as both authentication
+providers and OAuth2 authorization servers.
+
+browser localStorage and sessionStorage are almost identical and have the same API. The difference
+is that with sessionStorage, the data is persisted only until the window or tab is closed. With
+localStorage, the data is persisted until the user manually clears the browser cache or until your
+web app clears the data.
+
+Time series data, also referred to as time-stamped data, is a sequence of data points indexed in
+time order. Time-stamped is data collected at different points in time. These data points typically
+consist of successive measurements made from the same source over a time interval and are used to
+track change over time
+
+A network TAP (test access point or terminal access point) is a hardware tool that allows you to
+access and monitor your network traffic. TAPs transmit both the send and receive data streams
+simultaneously on separate dedicated channels, ensuring all data arrives at the monitoring device in
+real time.
+
+Clickjacking, also known as a “UI redress attack”, is when an attacker uses multiple transparent or
+opaque layers to trick a user into clicking on a button or link on another page when they were
+intending to click on the top level page
+
+CSRF: the victim has to be logged in a legitimate site and visit a malicious site in a separate tab.
+CSRF mitigation: CSRF Synchronizer Token Pattern
+
+Automatic Certificate Management Environment (ACME) protocol is a communications protocol for
+automating interactions between certificate authorities and their users' web servers, allowing the
+automated deployment of public key infrastructure at very low cost.
+
+an alief is an automatic or habitual belief-like attitude, particularly one that is in tension with
+a person's explicit beliefs. For example, a person standing on a transparent balcony may believe
+that they are safe, but alieve that they are in danger. When you act in opposition to your true
+belief.

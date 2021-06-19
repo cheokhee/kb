@@ -173,6 +173,7 @@ ls *(.m-2) # newer than 2 days
 ls *(.mw+3) # older than 3 weeks
 ls *(.mM+6) # older than 6 months
 ls *(.m-1) # within the last one day
+ls *(.m0)  # within the last one day
 
 #find directories that contain pom.xml
 # / : match directory only

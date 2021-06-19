@@ -208,3 +208,6 @@ function Counter() {
 https://reactjs.org/docs/strict-mode.html
 
 Refs provide a way to access DOM nodes or React elements created in the render method.
+
+Only call Hooks at the top level. Don’t call Hooks inside loops, conditions, or nested functions.
+Only call Hooks from React function components.
