@@ -135,3 +135,6 @@ apt-cache showpkg <pkg>
 
 #do this if get uninstalled dependency error
 sudo apt install --fix-missing
+
+/var/lib/apt/lists: the newest timestamp indicate when "sudo apt update" was last run
+/var/log/apt/history.log  #show apt upgrade/install,remove activity

@@ -1,0 +1,505 @@
+spring: @ResponseStatus annotation
+
+loadUserByUsername() is called first, then AuthenticationEvent is called
+
+https://blog.scottlogic.com/2020/02/25/spring-autowiring-its-a-kind-of-magic.html
+https://blog.scottlogic.com/2020/04/16/spring-autowiring-its-a-kind-of-magic-2.html
+https://www.baeldung.com/spring-security-custom-oauth-requests
+
+implementation 'io.springfox:springfox-swagger2:2.9.2'
+implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+https://github.com/spring-tips/
+https://github.com/spring-tips/koroutines
+https://spring.io/guides
+https://www.slideshare.net/poutsma/reactive-programming-in-spring-5
+https://spring.io/team/jlong
+
+https://medium.com/@filia.aleks/microservice-performance-battle-spring-mvc-vs-webflux-80d39fd81bf0
+
+Spring DeferredResult
+
+https://blog.scottlogic.com/2020/02/25/spring-autowiring-its-a-kind-of-magic.html
+https://blog.scottlogic.com/2020/04/16/spring-autowiring-its-a-kind-of-magic-2.html
+
+    authentication.inMemoryAuthentication()
+      .withUser("User")
+      .password(passwordEncoder().encode("Password"))
+      .authorities("ROLE_USER");
+
+JdbcUserDetailsManager.java
+
+Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+@CurrentSecurityContext
+@AuthenticationPrincipal : resolve Authentication.getPrincipal() to a method argument.
+
+JwtAuthenticationToken.java
+
+SecurityMockMvcRequestPostProcessors.java
+MappedJwtClaimSetConverter.java
+JwtAuthenticationConverter.java
+JwtGrantedAuthoritiesConverter.java
+JwtDecoder
+
+opaque token
+
+CORS: preflight request is unauthenticated, need to tell spring so that it allow preflight request (http.cors())
+
+WebMvcConfigurer
+
+WebSocket: need @Component in order to get the /websocket endpoint
+
+https://www.baeldung.com/spring-security-custom-oauth-requests
+
+https://spring.io/blog/2020/04/23/spring-tips-configuration
+
+example:
+o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request,
+[org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46320c9a,
+ org.springframework.security.web.context.SecurityContextPersistenceFilter@4d98e41b,
+ org.springframework.security.web.header.HeaderWriterFilter@52bd9a27,
+ org.springframework.security.web.csrf.CsrfFilter@51c65a43,
+ org.springframework.security.web.authentication.logout.LogoutFilter@124d26ba,
+ org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@61e86192,
+ org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@10980560,
+ org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@32256e68,
+ org.springframework.security.web.authentication.www.BasicAuthenticationFilter@52d0f583,
+ org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5696c927,
+ org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f025000,
+ org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e7abaf7,
+ org.springframework.security.web.session.SessionManagementFilter@681c0ae6,
+ org.springframework.security.web.access.ExceptionTranslationFilter@15639d09,
+ org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f7be6c8]
+
+== BE ==
+o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1,
+[org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7feda9ef,
+ org.springframework.security.web.context.SecurityContextPersistenceFilter@2d73198d,
+ org.springframework.security.web.header.HeaderWriterFilter@5579481d,
+ org.springframework.security.web.authentication.logout.LogoutFilter@3c596100,
+ e2ev.user.PreAuthenticationFilter@7242bce,
+ org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@12a02219,
+ org.springframework.security.web.session.ConcurrentSessionFilter@22a2bd85,
+ org.springframework.security.web.authentication.www.BasicAuthenticationFilter@760c649d,
+ org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22187ed,
+ org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ea056c9,
+ org.springframework.security.web.authentication.AnonymousAuthenticationFilter@355466b8,
+ org.springframework.security.web.session.SessionManagementFilter@53ea27cc,
+ org.springframework.security.web.access.ExceptionTranslationFilter@b0907f3,
+ org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6050c564]
+
+== FE ==
+o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request
+ [org.springframework.security.web.access.channel.ChannelProcessingFilter@2daf3fb3
+ org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c7986b6
+ org.springframework.security.web.context.SecurityContextPersistenceFilter@3d02666e
+ org.springframework.security.web.header.HeaderWriterFilter@746d8977
+ org.springframework.web.filter.CorsFilter@950b709
+ org.springframework.security.web.authentication.logout.LogoutFilter@41402741
+ org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@792286c1
+ org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@424ce818
+ com.iqax.frm.keycloak.security.KeycloakFilter@4a683d8c
+ org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5b50e4aa
+ org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@11aaded8
+ org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a5c6f51
+ org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52e2715c
+ org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59a2d087
+ org.springframework.security.web.session.SessionManagementFilter@779fc49e
+ org.springframework.security.web.access.ExceptionTranslationFilter@5014e7b8
+ org.springframework.security.web.access.intercept.FilterSecurityInterceptor@285978ed]
+
+@Configuration
+@EnableAuthorizationServer
+public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdapter {
+
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+        oauthServer.allowFormAuthenticationForClients().addTokenEndpointAuthenticationFilter(new AligenieFilter());
+    }
+
+    //....
+}
+
+https://www.javatips.net/api/spring-security-oauth-master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/client/filter/OAuth2ClientAuthenticationProcessingFilter.java
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/client/OAuth2RestTemplate.html
+
+Spring transaction: only unchecked exceptions will cause rollback.
+https://java.christmas/2019/24
+
+#An OAuth2 client filter that can be used to acquire an OAuth2 access token from an authorization server, and load an authentication object into the SecurityContext
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/client/filter/OAuth2ClientAuthenticationProcessingFilter.html
+
+https://docs.spring.io/spring-security/site/docs/3.0.x/apidocs/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.html
+https://docs.spring.io/spring-security/site/docs/3.0.x/apidocs/org/springframework/security/core/Authentication.html
+
+AbstractAuthenticationProcessingFilter.attemptAuthentication():
+
+UsernamePasswordAuthenticationFilter.doFilter() ->
+  attemptAuthentication() #create a UsernamePasswordAuthenticationToken containing username and pw
+                           UsernamePasswordAuthenticationToken.principal = "username"
+                           UsernamePasswordAuthenticationToken.credentials = "pw"
+                           and call  ProviderManager.authenticate(aUsernamePasswordAuthenticationToken)
+                             then call LimitLoginAuthenticationProvider.authenticate()
+
+LimitLoginAuthenticationProvider.authenticate()->
+  AbstractUserDetailsAuthenticationProvider.authenticate()->
+    DaoAuthenticationProvider.retrieveUser() ->
+      UserService.loadUserByUsername()
+  after getting a UserDetails, call:
+  AbstractUserDetailsAuthenticationProvider.createSuccessAuthentication(): create UsernamePasswordAuthenticationToken:
+                           UsernamePasswordAuthenticationToken.principal = aUserDetails
+                           UsernamePasswordAuthenticationToken.credentials = "pw"
+                           UsernamePasswordAuthenticationToken.authorities = empty list
+                           UsernamePasswordAuthenticationToken.details = WebAuthenticationDetails (fields: remoteAddress and sessionId)
+                           UsernamePasswordAuthenticationToken.authenticated = true
+
+
+interface: org.springframework.security.authentication.AuthenticationManager
+All Known Implementing Classes:
+AbstractAuthenticationManager, ProviderManager
+
+public class OAuth2ClientAuthenticationProcessingFilter extends AbstractAuthenticationProcessingFilter {
+	public OAuth2RestOperations restTemplate;
+	private ResourceServerTokenServices tokenServices;
+	private AuthenticationDetailsSource<HttpServletRequest, ?> authenticationDetailsSource = new OAuth2AuthenticationDetailsSource();
+	private ApplicationEventPublisher eventPublisher;
+}
+
+=== keycloak , oauth2 login ===
+
+OAuth2LoginAuthenticationFilter returns:
+authentication object: org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken
+OAuth2AuthenticationToken fields:
+principal: org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser (extends DefaultOAuth2User implements OidcUser)
+authorizedClientRegistrationId: keycloak
+authorities:
+details: org.springframework.security.web.authentication.WebAuthenticationDetails
+authenticated: true
+
+this.getAuthenticationManager() -> org.springframework.security.authentication.ProviderManager
+The ProviderManager iterate over a collection of AuthenticationProvider
+-->
+org.springframework.security.authentication.AnonymousAuthenticationProvider
+org.springframework.security.oauth2.client.authentication.OAuth2LoginAuthenticationProvider
+org.springframework.security.oauth2.client.oidc.authentication.OidcAuthorizationCodeAuthenticationProvider
+  userService: KeycloakUserService
+  OidcUser oidcUser = this.userService.loadUser(new OidcUserRequest(
+				clientRegistration, accessTokenResponse.getAccessToken(), idToken, additionalParameters));
+  KeycloakUserService.loadUser() : return a DefaultOidcUser (interface: OidcUser)
+
+=== keycloak , oauth2 login ===
+
+https://stackoverflow.com/questions/60742617/why-is-enableoauth2sso-deprecated
+https://docs.spring.io/spring-security-oauth2-boot/docs/current/api/org/springframework/boot/autoconfigure/security/oauth2/client/EnableOAuth2Sso.html
+https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Migration-Guide
+https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html/boot-features-security-oauth2-single-sign-on.html
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/config/annotation/web/configuration/EnableOAuth2Client.html
+https://www.marcobehler.com/guides/spring-security
+
+https://www.marcobehler.com/guides/spring-security-oauth2
+
+https://www.marcobehler.com/guides
+
+spring-security-oauth-5-2-migrate:
+o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request,
+[org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c0f79f0,
+ org.springframework.security.web.context.SecurityContextPersistenceFilter@4dafba3e,
+ org.springframework.security.web.header.HeaderWriterFilter@546621c4,
+ org.springframework.security.web.csrf.CsrfFilter@6136998b,
+ org.springframework.security.web.authentication.logout.LogoutFilter@159a48a6,
+ org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7ad54c55,
+ org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5fad41be,
+ org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40368a46,
+ org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7159139f,
+ org.springframework.security.web.authentication.AnonymousAuthenticationFilter@21fdfefc,
+ org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@365553de,
+ org.springframework.security.web.session.SessionManagementFilter@f339eae,
+ org.springframework.security.web.access.ExceptionTranslationFilter@60d1b21f,
+ org.springframework.security.web.access.intercept.FilterSecurityInterceptor@253b380a]
+
+Spring security:
+browser -> chain of security filter -> DispatcherServlet (redirect HTTP requests to your @RestControllers)
+
+when you specify a UserDetailsService, it means you are securing your application with Spring
+Security and HTTP Basic Authentication.
+
+@Autowired
+@Qualifier("springSecurityFilterChain")
+private Filter springSecurityFilterChain;
+
+public void getFilters() {
+    FilterChainProxy filterChainProxy = (FilterChainProxy) springSecurityFilterChain;
+    List<SecurityFilterChain> list = filterChainProxy.getFilterChains();
+    list.stream()
+      .flatMap(chain -> chain.getFilters().stream())
+      .forEach(filter -> System.out.println(filter.getClass()));
+}
+
+oauth2Login() will authenticate the user with OAuth2 (or OIDC), populating Spring's Principal with
+the information from either the JWT or the userInfo endpoint. oauth2Client() won't authenticate the
+user but will seek permission from the OAuth2 authorization server for the resources (scopes) it
+needs to access. With oauth2Client() you'll still need to authenticate the user, for example via
+formLogin().
+--
+https://stackoverflow.com/questions/59044876/whats-the-different-between-oauth2login-and-oauth2client-what-are-the-use-case
+
+https://reflectoring.io/spring-boot-profiles/
+
+@EnableWebSecurity(debug = true)
+logging.level.org.springframework.security.web.FilterChainProxy=DEBUG
+
+https://www.baeldung.com/spring-redirect-and-forward
+
+=== redirect ===
+#1:
+
+@Controller
+@RequestMapping("/")
+public class RedirectController {
+
+    @GetMapping("/redirectWithRedirectView")
+    public RedirectView redirectWithUsingRedirectView(
+      RedirectAttributes attributes) {
+        attributes.addFlashAttribute("flashAttribute", "redirectWithRedirectView");
+        attributes.addAttribute("attribute", "redirectWithRedirectView");
+        return new RedirectView("redirectedUrl");
+    }
+}
+
+RedirectView will trigger a HttpServletResponse.sendRedirect() – which will perform the actual redirect.
+
+curl -i http://localhost:8080/spring-rest/redirectWithRedirectView
+
+HTTP/1.1 302 Found
+Server: Apache-Coyote/1.1
+Location:
+  http://localhost:8080/spring-rest/redirectedUrl?attribute=redirectWithRedirectView
+
+#2:
+@Controller
+@RequestMapping("/")
+public class RedirectController {
+
+    @GetMapping("/redirectWithRedirectPrefix")
+    public ModelAndView redirectWithUsingRedirectPrefix(ModelMap model) {
+        model.addAttribute("attribute", "redirectWithRedirectPrefix");
+        return new ModelAndView("redirect:/redirectedUrl", model);
+    }
+}
+
+curl -i http://localhost:8080/spring-rest/redirectWithRedirectPrefix
+
+HTTP/1.1 302 Found
+Server: Apache-Coyote/1.1
+Location:
+  http://localhost:8080/spring-rest/redirectedUrl?attribute=redirectWithRedirectPrefix
+
+When a view name is returned with the prefix redirect: – the UrlBasedViewResolver (and all its
+subclasses) will recognize this as a special indication that a redirect needs to happen. The rest of
+the view name will be used as the redirect URL.
+
+A quick but important note here is that – when we use this logical view name here –
+redirect:/redirectedUrl – we're doing a redirect relative to the current Servlet context.
+
+We can use a name such as a redirect: http://localhost:8080/spring-redirect-and-forward/redirectedUrl if we need to redirect to an absolute URL.
+
+redirect will respond with a 302 and the new URL in the Location header; the browser/client will
+then make another request to the new URL forward happens entirely on a server side; the Servlet
+container forwards the same request to the target URL; the URL won't change in the browser
+
+new ModelAndView(new RedirectView("../abc/list.vm"))
+vs
+new ModelAndView("redirect:DummyRedirectPage.htm")
+
+https://stackoverflow.com/questions/30705718/redirectview-vs-redirect-in-spring-mvc
+https://stackoverflow.com/questions/19516719/difference-between-redirect-and-redirect-inside-modelandview
+
+=== redirect ===
+
+https://stackoverflow.com/questions/56188883/auto-redirect-root-path-to-spring-boot-context-path
+
+spring boot: auto configuration
+@EnableAutoConfiguration
+
+Spring key areas:
+core, web, aop, data access, integration, testing
+spring web mvc vs spring webflux (reactvie programming)
+--
+https://docs.spring.io/spring-security/site/docs/current/guides/helloworld-boot.html
+
+Spring WebFlux: reactive streams, async, non-blocking: Reactor: default reactive library
+  can do server-side events, real-time data
+Spring Reactive programming: every component needs to be reactive (down to db)
+Spring MVC: sync, blocking
+reactive stream: publisher, subscriber, subscription, processor
+Mono: return single object
+Flux: return list of objects
+@GetMapping("/products")
+public Flux<Product> getProducts() {...}
+--
+Spring MVC is a web framework based on the Servlet API; such apps can be deployed on Servlet containers (like Jetty, Tomcat, Undertow).
+Spring WebFlux is a reactive web framework based on a reactive HTTP layer; such apps can be deployed
+on Netty or Undertow (with native adapters) or Jetty/Tomcat/any Servlet 3.1 container
+--
+WebClient (reactive client) vs RestTemplate
+--
+https://github.com/reactive-streams/reactive-streams-jvm
+
+start spring boot app maven command line: ./mvnw spring-boot:run
+
+@ComponentScan tell the Spring framework where to look for Spring-managed components.
+--
+@EnableAutoConfiguration enables Spring Boot to auto-configure the application context. Therefore,
+it automatically creates and registers beans based on both the included jar files in the classpath
+and the beans defined by us.
+---
+@EnableGlobalMethodSecurity(prePostEnabled = true) annotation enables the
+@PreAuthorize/@PostAuthorize annotations
+---
+spring authorities: ROLE_ADMIN, SCOPE_ADMIN
+       hasAuthority("ROLE_ADMIN") same as hasRole("ADMIN")
+---
+SecurityAutoConfiguration
+UserDetailsServiceAutoConfiguration
+
+spring:
+mvcMatchers vs antMatchers
+---
+Generally mvcMatcher is more secure than an antMatcher. As an example:
+antMatchers("/secured") matches only the exact /secured URL
+mvcMatchers("/secured") matches /secured as well as /secured/, /secured.html, /secured.xyz
+---
+@Qualifier
+---
+OidcAuthorizationCodeAuthenticationProvider vs OAuth2LoginAuthenticationProvider
+OAuth2LoginAuthenticationFilter
+OAuth2LoginAuthenticationToken
+OAuth2AuthorizedClientRepository
+OAuth2AuthorizedClientService
+OAuth2AuthorizedClient
+--
+token audience
+--
+oauth:
+scope: to ensure the client has received consent from the resource owner
+role: to ensure the resource owner is entitled to give the consent
+---
+role: represent what privileges the user has
+scope: what the client can do on behalf of the user
+---
+keycloak scope: assigned to client app
+keycloak role: assigned to user
+--
+roles and authorities are for users
+scopes are for clients
+---
+scope: granted by the user to the client
+role: granted by the app to the user
+
+spring security:
+DelegatingFilterProxy->FilterChainProxy->multiple filter chains, which contain Authentication Filters
+*AuthenticationFilter creates Authentication object, ask AuthenticationManager to authenticate
+AuthenticationManager then delegate to an Authentication Provider, which return a Authenticated Principal,
+which is stored in Security Context
+---
+WebSecurityConfigurerAdapter (WSCA)
+http.authorizeRequests().anyRequest().authenticated()
+@ConditionalOnMissingBean
+SpringBootWebSecurityConfiguration.java
+--
+http.authorizeRequests().antMatchers("/login*").permitAll()
+still intercepted by security filters
+===
+web.ignoring().antMatchers("/resources/**")
+filter chain has no security filters. bypass spring security
+---
+configure(AuthenticationManagerBuilder) : define in-memory user
+auth.inMemoryAuthentication().withUser("blah").password("{noop}password").roles("ADMIN")
+auth.inMemoryAuthentication().withUser("blah").password(passwordEncoder().encode("password")).roles("ADMIN")
+noop: is the name of an encoding algorithm, meaning no encoding (plain text)
+--
+PasswordEncoderFactories
+AuthenticationSuccessHandler interface
+---
+you can change the behavior of spring security by manipulating the filter chains and the filters within them.
+you do this by using WebSecurity, HttpSecurity, authorization manager builder via WebSecurityConfigurerAdapter
+
+@EnableGlobalMethodSecurity(prePostEnabled = true) annotation enables the
+@PreAuthorize/@PostAuthorize annotations
+--
+Spring Boot does @EnableJpaRepositories automatically if it finds Spring Data JPA on the classpath.
+
+spring boot:
+1. login.html has a XSRF-TOKEN value, let'say XXX
+2. when login, send a cookie (XSRF-TOKEN=XXX) along with userid and password to get back a JSESSIONID
+3. all subsequent requests must have cookies "JSESSIONID=YYY;XSRF-TOKEN=XXX" and header "X-XSRF-TOKEN: XXX"
+   example:
+    Cookie: JSESSIONID=C2FF0C9B4C97E0C9B9421E6DFE5EF475; XSRF-TOKEN=fdbd0c51-9c2a-4130-9cc3-abc685035b1b
+    X-XSRF-TOKEN: fdbd0c51-9c2a-4130-9cc3-abc685035b1b
+----
+if using spring boot with SPA (react), do this to enable csrf in react app
+http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+---
+if you get logout confirmation page, do this:
+http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+---
+https://stackoverflow.com/questions/58195990/how-to-disable-logout-confirmation-in-spring-security-using-xml
+---
+to handle specific http error in spring boot, create: src/main/resources/static/error/401.html
+---
+FilterSecurityInterceptor
+ExceptionTranslationFilter
+AuthenticationEntryPoint
+
+spring:
+UserDetailsContextMapper
+.formLogin().loginPage("/login").failureUrl("/login?error=true").loginProcessingUrl("/perform_login").permitAll()
+.rememberMe()
+.antMatchers("/anonymous*").anonymous()
+.logout().logoutSuccessUrl("xxx").logoutRequestMatcher(new AntPathRequestMatcher("yyy").invalidateHttpSession(true).deleteCookies("JSESSIONID")
+----
+@PostMapping public String process(..., Authentication auth):
+  you can ask spring to inject the Authentication object into any method called by spring
+
+spring:
+CommonOAuth2Provider.java
+OAuth2ClientAutoConfiguration.java
+@ConditionalOnClass
+@ConditionalOnWebApplication
+@GrantedAuthorityMapper
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: ${keycloak.client-id}
+            client-secret: ${keycloak.password}
+            authorization-grant-type: authorization_code
+            redirectUri: ${dhxp.homePage}/login/oauth2/code/{registrationId}
+            scope: openid, profile, email
+        provider:
+          keycloak:
+            authorization-uri: ${keycloak.baseurl}/auth/realms/${keycloak.realm}/protocol/openid-connect/auth?kc_idp_hint=aad-saml
+            token-uri: ${keycloak.baseurl}/auth/realms/${keycloak.realm}/protocol/openid-connect/token
+            user-info-uri: ${keycloak.baseurl}/auth/realms/${keycloak.realm}/protocol/openid-connect/userinfo
+            jwk-set-uri: ${keycloak.baseurl}/auth/realms/${keycloak.realm}/protocol/openid-connect/certs
+            issuer-uri: ${keycloak.baseurl}/auth/realms/${keycloak.realm}
+
+spring map values in the scope claims into granted authorities
+
+DefaultOidcUser:
+    idToken:
+        claims:
+        tokenValue: JWT token value
+
+auth is OAuth2AuthenticationToken
+auth.getPrincipal() -> DefaultOidcUser
+auth.authorities -> ROLE_USER,SCOPE_application_scope, SCOPE_email, SCOPE_fullAccess, SCOPE_openid, SCOPE_profile
+
+spring:
+role: group of authorities
+authority: fine-grained
+role: coarse-grained
