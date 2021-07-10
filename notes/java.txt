@@ -734,6 +734,7 @@ You can add an instance of a subclass of Integer because an instance of a subcla
 allowed in any of the above lists.
 
 variance: refers to how subtyping between more complex types relates to subtyping between their components.
+variance: describe how parameterized types behave in relation to subtyping.
 covariance: means that if S is a subtype of T, the C<S> is a subtype of C<T>, where C is a generic type
   implications: u can use a more specific type than originally specified, u can pass C<S> to a method
                 that accepts C<T>,

@@ -481,6 +481,15 @@ $-: The current set of options in your current shell.
 output of $- : himBHs
 which means that the -h, -m, -B and -H options are enabled, that the shell is interactive (-i) and
 reading from standard input (-s).
+--
+The $- constant expands to the current option flags specified upon invocation
+-meanings:
+h - Remember the location of commands as they are looked up
+i - It means shell is interactive
+m - Job control is enabled
+B - The shell will perform brace expansion
+H - Enable ! style history substitution. This flag is on by default when the shell is interactive.
+s - Commands are read from the standard input device such as keyboard. This option allows the positional parameters to be set when invoking an interactive shell or when reading input through a pipe.
 
 #enable timestamp in bash history
 export HISTTIMEFORMAT="%F %T "
