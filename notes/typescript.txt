@@ -105,3 +105,14 @@ an alternative to enum
 print enum: get a number
 
 symbol: unique and immutable . Symbol()
+
+interface Post {
+title: string;
+content: string}
+type keytype = keyof Post
+const blah: keytype = "title"
+
+Partial will return a new type with all of the props set to optional
+Pick :create a new type by specifying which properties you would like to copy
+Omit (opposite of Pick): Rather than picking the set of props that you want to copy, you
+provide a set of properties you want to omit from the type.

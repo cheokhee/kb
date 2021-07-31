@@ -2724,3 +2724,71 @@ Form Login: UserDetails
 OAuth2: DefaultOAuth2User
 OIDC: DefaultOidcUser
 --- end spring security
+
+Collector interface:
+supplier: a function that creates an instance of an empty accumulator used during the collection phase.
+accumulator: a function that performs the reduction operation.
+combiner: a function that defines how the accumulators are combined when subparts are processed in parallel.
+process:
+  A accumulator = collector.supplier().get()
+  T next = fetch next item
+  collector.accumulator().accept(accumulator, next)
+  R r1 = collector.combiner().apply(acc1, acc2)
+  R result = collector.finisher().apply(accumulator)
+  return result
+===
+List<T> zz = stream.collect(
+               ArrayList::new,  // supplier
+               List::add, // accumulator
+               List::addAll); // combiner
+
+Java Modules: to modularize the JDK, both to make maintenance easier and to provide better isolation
+between parts of the JDK and between the JDK and applications
+
+Sealed types: provide the author of a class with control over its subclasses.
+
+Docker container support in JVM:
+-XX:+UseContainerSupport (on by default)
+-XX:InitialRAMPercentage
+-XX:MinRAMPercentage
+-XX:MaxRAMPercentage=<XX.X>
+    <XX.X> : With a value between 0.0 and 100.0
+-XX:+TieredCompilation
+-XX:TieredStopAtLevel=1
+-XX:ActiveProcessorCount=<number of core>
+    <number of core> : Depends on the value of cpu limit in manifest.yml.vpp (ceiling)
+
+--
+java tiered compilation
+http://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/2b2511bd3cc8/src/share/vm/runtime/advancedThresholdPolicy.hpp#l34
+https://www.beyondjava.net/show-assembly-code-generated-jvm
+https://stackoverflow.com/questions/38721235/what-exactly-does-xx-tieredcompilation-do
+http://blog.joda.org/2011/08/printcompilation-jvm-flag.html
+http://alexandrastech.blogspot.de/2016/06/jit-fun-part-3-xxprintcompilation.html
+#compiler-related
+https://scala-lang.org/blog/2016/07/08/trait-method-performance.html
+http://www.oracle.com/technetwork/articles/java/architect-evans-pt1-2266278.html
+--
+java -Xbatch -XX:-TieredCompilation -XX:+PrintCompilation
+-Xbatch forces the JIT compiler in the main thread of the JVM. By default, both compiler and
+ optimizer run in parallel to you application, so they can do their magic without slowing your
+ program down. That's great, but multithreading also means that sometimes the console messages are
+ printed in parallel. In other words: sometimes the Assembly code and the other diagnostic messages
+ get mixed up, making it hard to read. -Xbatch fixes that. turn off parallel compilation
+-XX:-TieredCompilation is another flag you shouldn't use in production. The JVM has an interpreter
+ and several compilers. Each compiler works slower than it's predecessor, yielding faster code at
+ the end. Usually, the JVM starts with the interpreter because it doesn't require any start-up
+ time. The compilers are only activated when a method runs hot. We don't want to see every
+ intermediate optimization step. -XX:-TieredCompilation forces the JVM to skip the intermediate
+ steps, so all we see is the final, most optimized Assembly code.
+-XX:+PrintCompilation prints a summary which methods have been compiled. It doesn't print the
+ Assembly code itself. That's ideal for gaining a quick overview which methods run "hot". These are
+ precisely the methods that benefit from optimizing.
+
+java -Xbatch
+     -XX:-TieredCompilation
+     -XX:+UnlockDiagnosticVMOptions
+     -XX:+PrintAssembly
+     -XX:+PrintInlining
+     -XX:+PrintCompilation
+=====

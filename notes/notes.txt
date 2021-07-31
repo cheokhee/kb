@@ -14610,6 +14610,7 @@ how keys are assigned to nodes, and how a node can discover the value for a give
 locating the node responsible for that key.
 
 wide column store: like a two-dimensional key-value store.
+wide column store: each row doesn’t have to have the same number of columns.
 wide column store: It uses tables, rows, and columns, but unlike a relational database, the names
 and format of the columns can vary from row to row in the same table. A wide-column store can be
 interpreted as a two-dimensional key-value store.  store data in records with an ability to hold
@@ -15883,3 +15884,26 @@ that they are safe, but alieve that they are in danger. When you act in oppositi
 belief.
 
 pay-on-death account
+
+Federation (or functional partitioning) splits up databases by function.
+
+API versioning strategies:
+1. additive structure
+2. version number in URL (api/v1/blah)
+3. content types:
+   Accept: application/venue.v1+json
+   Content-Type: application/venue.v2+json
+4. query string parameter: /api/blah?v=v1
+5. no version: GraphQL
+-> idempotence, immutability, location independence, versioning
+insert-only database:
+to simulate update: snapshots
+to simulate delete: tombstone. tombstone: use a table to indicate a record is deleted.
+auto-incremented ID is not location independent
+content-address storage: location independent
+
+Ben Franklin effect is a known psychological effect to change the perception that others have of us
+by allowing them to do us a favor.
+--
+Gain-of-function research is medical research that alters an organism or disease in a way that
+increases pathogenesis, transmissibility, or host range

@@ -1023,6 +1023,7 @@ two
 three
 
 optional chaining operator: ?.
+optional chaining with function: persone.doesNotExist?.()
 
 Object.is()
 
@@ -1067,3 +1068,70 @@ JSON.stringify the object, the property containing function, undefined or NaN as
 from the object.
 
 JavaScript can only handle integer values up to 53 bits.
+
+#conditionally add property to an object
+const condition = true;
+const person = {
+  id: 1,
+  name: 'John Doe',
+  ...(condition && { age: 16 }),
+};
+
+#check if a property exists in object
+const person = { name: 'John Doe', salary: 1000 };
+console.log('salary' in person); // returns true
+
+#rename variables while destructuring:
+const person = { id: 1, name: 'John Doe' };
+const { name: personName } = person;
+console.log(personName); // returns 'John Doe'
+
+#destructure with dynamic key
+const templates = {
+  'hello': 'Hello there',
+  'bye': 'Good bye'
+};
+const templateName = 'bye';
+const { [templateName]: template } = templates;
+console.log(template) // returns 'Good bye'
+
+Nullish Coalescing: ?? Operator: check whether a variable is null or undefined
+It returns the right-hand side operand when its left-hand side operand is null or undefined, and
+otherwise returns its left-hand side operand.
+const foo = null ?? 'Hello';
+console.log(foo); // returns 'Hello'
+
+#convert a string to number:
++'123'
+#convert number to string:
+25 + ''
+
+> Boolean(1)
+true
+> Boolean(0)
+false
+> Boolean('')
+false
+
+const myArray = [null, false, 'Hello', undefined, 0];
+// filter falsy values
+const filtered = myArray.filter(Boolean);
+console.log(filtered); // returns ['Hello']
+
+#flatten array of arrays: anArray.flat(), anArray.flat(depthLevel)
+
+#get internet speed in JS or console of dev tool
+navigator.connection.downlink
+
+#prevent pasting
+<input type="text"></input>
+<script>
+//selecting the input.
+  const input = document.querySelector('input');
+
+//prevent the user to paste text by using the paste eventListener.
+  input.addEventListener("paste", function(e){
+    e.preventDefault()
+  })
+
+</script>
