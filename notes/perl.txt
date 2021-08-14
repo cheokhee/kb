@@ -141,8 +141,14 @@ display filename only: perl -wnl -e '/RE/ and print $ARGV and close ARGV;' file 
 like grep -l
 
 (X): used for grouping and capturing
-\1, \2: backreferences (used in the search field)??
-$1, $2: backreferences (used in the replacement field and elsewhere)??
+\1, \2: backreferences (used in the search field)
+$1, $2: backreferences (used in the replacement field and elsewhere)
+----
+1. The grouping metacharacters () allow the extraction of the parts of a string that matched.  For each
+grouping, the part that matched inside goes into the special variables $1, $2, etc.
+2. backreferences: \g1, \g2, Backreferences are matching variables that can be used inside a regexp.
+   example: /\b(\w\w\w)\s\g1\b/
+   \1 is a regular expression pattern that means "match what the first capture matched" which makes no sense in a replacement expression
 
 X{min,max}
 X{min,}

@@ -1316,6 +1316,12 @@ git show-ref
 output:
 warning: CRLF will be replaced by LF in windows.txt.
 The file will have its original line endings in your working directory
+===
+https://git-scm.com/docs/gitattributes
+.gitattributes:
+* text=auto
+*.java text eol=lf
+*.png binary
 
 #create a new branch from a commit
 git branch new-branch de1da15

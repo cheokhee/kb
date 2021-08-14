@@ -2493,6 +2493,8 @@ jpackage --input target --main-jar renamer-swing-1.0.jar
 jlink: allows you to create a custom runtime with a dedicated launcher script for your applications
 --
 https://blog.frankel.ch/state-jvm-desktop-frameworks/6/
+---
+jdeprscan: Discover deprecated dependencies
 
 JSON libraries: Jackson, Gson, JSON-B, JSON-P
 JEE 8: there is a standardized API (JSR 367: Java API for JSON Binding (JSON-B))
@@ -2765,6 +2767,8 @@ https://www.beyondjava.net/show-assembly-code-generated-jvm
 https://stackoverflow.com/questions/38721235/what-exactly-does-xx-tieredcompilation-do
 http://blog.joda.org/2011/08/printcompilation-jvm-flag.html
 http://alexandrastech.blogspot.de/2016/06/jit-fun-part-3-xxprintcompilation.html
+https://www.baeldung.com/jvm-tiered-compilation
+https://www.slideshare.net/maddocig/tiered
 #compiler-related
 https://scala-lang.org/blog/2016/07/08/trait-method-performance.html
 http://www.oracle.com/technetwork/articles/java/architect-evans-pt1-2266278.html
@@ -2792,3 +2796,20 @@ java -Xbatch
      -XX:+PrintInlining
      -XX:+PrintCompilation
 =====
+
+Disable JIT:
+1. java -Djava.compiler=NONE
+2. java -Xint
+
+--tiered compilation
+C1: client compiler (optimized for fast startup)
+C2: server compiler (optimized for overall performance)
+Compilation level:
+0: interpreter
+1: C1 with full optimization (no profiling)
+2: C1 with light profiling
+3: C1 with full profiling
+4: C2
+
+#JVM options (complete reference)
+http://jvm-options.tech.xebia.fr/

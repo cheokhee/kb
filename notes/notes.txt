@@ -14326,16 +14326,26 @@ Load: Loading refers to the process of depositing the information into a data st
 --
 ETL:
 the data goes into a temporary staging area.
+transformation takes place before data is loaded into the warehouse,
 ===
 ELT:
 the data goes immediately into a data lake storage system.
+transformation takes place after data is loaded into the warehouse.
 --
+In ETL, data flow from the data source to staging to the data destination.
+ELT lets the data destination do the transformation, eliminating the need for data staging.
+--
+ETL is the process of copying data from a system of record into the data warehouse.
+Reverse ETL is the process of copying data from a data warehouse to operational systems of record,
+---
 "Data Lakes" are special kinds of data stores that—unlike OLAP data warehouses—accept any kind of
 structured or unstructured data. Data lakes don't require you to transform your data before loading
 it. You can immediately load any kind of raw information into a data lake, no matter the format or
 lack thereof.
 --
 https://www.xplenty.com/blog/etl-vs-elt/
+
+
 
 Domain hijacking or domain theft is the act of changing the registration of a domain name without
 the permission of its original registrant.
@@ -15907,3 +15917,23 @@ by allowing them to do us a favor.
 --
 Gain-of-function research is medical research that alters an organism or disease in a way that
 increases pathogenesis, transmissibility, or host range
+
+Data integration:
+1. iPaaS or Integration Platform as a Service: data moves between cloud apps directly with little to no
+transformation taking place in the iPaaS
+2. CDP or Customer Data Platform: data moves between cloud apps via a central hub which enables moderate transformation capabilities
+3. ETL: data moves from cloud apps to a data warehouse via a transformation layer built into the ETL tool
+4. ELT: data moves from cloud apps to a data warehouse with transformation and data modelling taking
+place in the warehouse via SQL. The main difference here is that with ETL, transformation takes
+place before data is loaded into the warehouse, whereas with ELT, transformation takes place
+afterwards
+5. Reverse ETL: data moves from a data warehouse to cloud apps.
+
+system of record: an authoritative data source for a data element.
+
+The Luhn algorithm: a simple checksum formula used to validate a variety of identification numbers,
+such as credit card numbers
+
+message handler: should be idempotent and commutative
+idempotent: can safely process duplicate messages
+commutative: can safely process out-of-order messages
