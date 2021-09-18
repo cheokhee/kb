@@ -15937,3 +15937,40 @@ such as credit card numbers
 message handler: should be idempotent and commutative
 idempotent: can safely process duplicate messages
 commutative: can safely process out-of-order messages
+
+dead-letter queue (or undelivered-message queue) is the queue to which messages are sent if they
+cannot be routed to their correct destination.
+
+message categories: query (no side-effect, return result), command (side-effect, no result),
+event (expose data after side-effect)
+
+bill of exchange: a promissory note
+
+A negotiable instrument is a signed document that promises a sum of payment to a specified person or
+the assignee. example: personal checks, traveler's checks, promissory notes, certificates of
+deposit, and money orders.
+
+An allonge is a sheet of paper that is attached to a negotiable instrument, such as a bill of
+exchange. Its purpose is to provide space for additional endorsements when there is no longer
+sufficient space on the original instrument
+
+Cohesion Principles:
+Release Reuse Equivalency Principle (RREP) — only together releaseable components should be bundled together.
+Common Closure Principle (CCP) — classes that change together should be bundled together.
+Common Reuse Principle (CRP) — classes that are used together should be bundled together.
+
+Coupling Principles:
+Acyclic Dependencies Principle (ADP) — no dependency cycles.
+Stable Dependencies Principle (SDP) — depend on direction of stability.
+Stable Abstractions Principle (SAP) — the more abstract, the more stable.
+
+invariants: statements of truth
+
+consistency: different parts of the system agree on a given state.
+consistent: invariants are restored
+
+physical clock: count number of elapsed seconds
+logical clock: count number of events occurred
+physical timestamps may be inconsistent with causality
+logical clock: capture causality
+logical clock: lamport clock, vector clock algorithm

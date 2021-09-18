@@ -3828,3 +3828,8 @@ identify -verbose image.png
 xdg-mime query filetype <filename>
 
 detect UEFI: /sys/firmware/efi
+
+sha256sum --check alpine-standard-3.14.2-x86_64.iso.sha256.txt
+---
+$ cat alpine-standard-3.14.2-x86_64.iso.sha256.txt
+d9ef1da16c40c47629bc9c828493dbb3c2a98899f29b2a1235d8014788ef9cb9  alpine-standard-3.14.2-x86_64.iso

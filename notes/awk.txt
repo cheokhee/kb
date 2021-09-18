@@ -129,3 +129,51 @@ $NF !~ /\.so/{next} – If the last column doesn’t contain “.so“, we ignor
 
 #specify : and . as field delimiter
 awk -F[:.]
+
+#awk next statement:
+At the highest level, awk program execution is a loop that reads an input record and then tests each
+rule’s pattern against it. If you think of this loop as a for statement whose body contains the
+rules, then the next statement is analogous to a continue statement. It skips to the end of the body
+of this implicit loop and executes the increment (which reads another record).
+
+Use awk to handle csv file:
+==== input file:
+"Account ID","Account Name"
+"0015e00000LTF3K","Troy Container Line, Ltd."
+====
+=== output: ===
+"0015e00000LTF3K","3146539001"
+===
+#!/bin/bash
+
+awk '
+BEGIN {
+    FPAT = "([^,]+)|(\"[^\"]+\")"
+    count=0
+}
+{
+    if (count == 0) {
+        /* skip header */
+        count=1
+        next
+    }
+
+    cmd = "grep -c " $2 " /home/oracle/tmp/crm/account-0915-v2.csv"
+    cmd | getline count
+    close(cmd)
+    if (count == 0) {
+        printf("NO MATCH: %s\n",$2)
+    } else if (count == 1) {
+        cmd2 ="grep " $2 " /home/oracle/tmp/crm/account-0915-v2.csv | cut -f1 -d,"
+        cmd2 | getline cpfid
+        close(cmd2)
+        printf("%s,%s\n",$1,cpfid)
+    } else {
+        printf("MULTIPLE:%s|%s\n",$1,$2)
+    }
+}
+'
+
+#awk‘s system(cmd) function can call an external command and get the exit status
+#"an external command" | getline variable (close(cmd))
+==============

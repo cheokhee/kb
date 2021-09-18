@@ -179,3 +179,11 @@ new window: window.open("https://www.google.com", "_blank", "width=1100,height=8
 new tab: window.open("https://www.google.com", "_blank")
 
 margins don't have color. they take on the color of the container.
+
+.cookieNotice {
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  padding-bottom calc( env(safe-area-inset-bottom) + 20px )
+}
