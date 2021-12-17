@@ -13555,6 +13555,9 @@ traffic to internal resources (4) expose API or edge services to service a speci
 service mesh: (1) handle east-west traffic (2) manage and control service inside your network
 (3) focus on brokering internal resources (4) sits between the network and application, no real
 business notion
+==
+service mesh: take the networking concerns out of an application and put them in a sidecar.
+service mesh: provide traffice management, policy enforcement, and telemetry collection.
 
 Rate limiting is used to control the amount of incoming and outgoing traffic to or from a
 network. and is used to prevent DoS attacks.
@@ -13682,6 +13685,8 @@ vehicle conditions, driver performance, and more.
 
 language runtime: any library,framework,platform that your code runs on.
 language runtime: any library code that is required for your code to run.
+language runtime: any code that is executed while your program is running, especially the code
+that you didn't explicitly write, but are necessary for the proper execution of your program.
 
 Flutter,React Native: framework for creating apps for ANdroid and iOs using a single codebase
 
@@ -13915,6 +13920,9 @@ SHAKEN for non-VOIP: SHAKEN includes systems to pass STIR information through th
 A service worker (Web API): is a script that your browser runs in the background, separate from a
 web page, opening the door to features that don't need a web page or user interaction. Today, they
 already include features like push notifications and background sync.
+---
+Web Workers makes it possible to run a script operation in a background thread separate from the
+main execution thread of a web application
 
 Polymer project (from google): introduce web components, new HTML tag
 --
@@ -15974,3 +15982,21 @@ logical clock: count number of events occurred
 physical timestamps may be inconsistent with causality
 logical clock: capture causality
 logical clock: lamport clock, vector clock algorithm
+
+key person risk
+
+time-of-day clock: time since a fixed date, may move backwards/forwards due to NTP
+synchronization, subject to leap second adjustment. timestamps can be compared
+across nodes (if synced). Java: System.currentTimeMillis(). Linux: clock_gettime(CLOCK_REALTIME)
+monotonic clock: time since arbitrary point, always move forward at near-constant rate.
+good for measuring elapsed time. Java: System.nanoTime(). Linux: clock_gettime(CLOCK_MONOTONIC)
+
+Clock drift: a clock does not run at exactly the same rate as a reference clock
+Clock skew: the difference between two clocks.
+
+SPF (Sender Policy Framework): allow sender to define which IP addresses are allowed to
+send mail for a particular domain. this info is listed a DNS record.
+DKIM (Domain Keys Identified Mail): provides an encryption key and digital signature
+that verifies that an email message was not forged or altered.
+
+mail user agent -> mail submission agent -> mail transfer agent -> mail delivery agent -> mail user agent

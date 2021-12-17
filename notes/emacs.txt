@@ -349,6 +349,9 @@ I am using:
 -PfEd-DejaVu Sans Mono-normal-normal-normal-*-20-*-*-*-m-0-iso10646-1
 
 (list-coding-systems) ; shows a list of coding systems with mnemonic
+M-x describe-current-coding-system
+M-x describe-current-coding-system-briefly
+M-x describe-current-system
 
 facemenu-remove-all: remove all text properties
 

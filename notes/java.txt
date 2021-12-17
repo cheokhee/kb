@@ -778,6 +778,11 @@ given a key, get its hash value, which is an index into an array (get the bucket
 this array entry points to a linked list of key-value pair (Entry objects)
 --
 if key is null, map to bucket zero.
+---
+The initial capacity of the HashMap is the number of buckets in the hash table.
+The load factor is how many items are in the HashMap as a ratio of the size of the underlying data structure.
+The maps have the default load factor of 0.75, so up to 12 keys can be inserted into a map with
+capacity 16 before a resize. load factor = # of items divided by # of buckets
 --
 In Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is
 reached while storing values. This improves the worst case performance from O(n) to O(log n).
@@ -2813,3 +2818,19 @@ Compilation level:
 
 #JVM options (complete reference)
 http://jvm-options.tech.xebia.fr/
+
+sealed class:
+you can restrict which classes can extend a given class or interface.
+===
+public sealed interface Fruit permits Apple, Pear {
+    String getName();
+}
+
+public final class Apple implements Fruit {
+    public String getName() { return "Apple"; }
+}
+
+public final class Pear implements Fruit {
+    public String getName() { return "Pear"; }
+}
+===

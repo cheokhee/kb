@@ -313,3 +313,14 @@ sample ~/.docker/config.json:
 
 #use multi stage build to minimize image size
 https://docs.docker.com/develop/develop-images/multistage-build/
+
+https://docs.docker.com/storage/bind-mounts/
+bind mount can be accessed and modified by processes outside Docker.
+volume: managed by and accessed through Docker
+---
+Bind Mount: a file or directory on the host machine is mounted into a
+container. The file or directory is referenced by its full or relative
+path on the host machine.
+---
+Volume: a new directory is created within Docker's storage directory
+on the host machine, and Docker manages that directory's content.

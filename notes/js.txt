@@ -1135,3 +1135,10 @@ navigator.connection.downlink
   })
 
 </script>
+
+trick:
+add a function to window, now you can play with the function in the console
+window.moment = moment // moment is a function
+
+--won't crash
+const booking = state?.bookings?.[id]

@@ -211,3 +211,10 @@ Refs provide a way to access DOM nodes or React elements created in the render m
 
 Only call Hooks at the top level. Don’t call Hooks inside loops, conditions, or nested functions.
 Only call Hooks from React function components.
+
+If you’ve no idea where a function’s being called from, log an Error object in it and you’ll get a
+stack trace in the console:
+-> console.log(Error('calling app'))
+
+Force re-renders using the key prop??
+https://sean-warman.medium.com/best-react-hacks-for-lazy-devs-b44b533fa923
