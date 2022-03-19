@@ -34,6 +34,10 @@ become lightdm.
 
 find out which display manager is used:
 cat /etc/X11/default-display-manager
+OR
+cat /etc/systemd/system/display-manager.service
+OR
+systemctl status display-manager
 
 #use xev to display key code and keysym
 key code: corresponds to a physical key. depends on the X server implementation and the physical keyboard.
@@ -76,6 +80,9 @@ Class: N/A
 PID: N/A
 Window manager's "showing the desktop" mode: OFF
 #3.
+xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{print $5}' | xargs -I{} xprop -id {} -notype |grep  _NET_WM_NAME
+==
+details:
 xprop -root -notype | grep _NET_SUPPORTING_WM_CHECK
 --> _NET_SUPPORTING_WM_CHECK: window id # 0x1200005
 then take the window id:
@@ -90,3 +97,5 @@ _NET_SUPPORTING_WM_CHECK(WINDOW): window id # 0x1200005
 exec startlxqt, which calls lxqt-session
 
 xlsclients -l
+
+ls /usr/bin/*-session

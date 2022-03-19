@@ -16000,3 +16000,33 @@ DKIM (Domain Keys Identified Mail): provides an encryption key and digital signa
 that verifies that an email message was not forged or altered.
 
 mail user agent -> mail submission agent -> mail transfer agent -> mail delivery agent -> mail user agent
+
+-- read, write, space amplification in database
+https://smalldatum.blogspot.com/2015/11/read-write-space-amplification-pick-2_23.html
+https://tikv.org/deep-dive/key-value-engine/b-tree-vs-lsm/
+
+An algorithm/data structure can optimize for at most two from read, write and space amplification
+
+there are three critical metrics to measure the performance of a data structure: write
+amplification, read amplification, and space amplification.
+
+Read amplification is the number of disk reads per query. For example, if you need to read 5 pages
+to answer a query, read amplification is 5.
+---
+Write amplification is the ratio of the amount of data written to the storage device versus the
+amount of data written to the database. For example, if you are writing 10 MB to the database and
+you observe 30 MB disk write rate, your write amplification is 3.
+----
+Write amplification measures how much more data is written than the application thought it was
+writing, whereas read amplification counts the number of disk reads to perform a query.
+---
+Read amplification is defined separately for point query and range queries. For range queries the
+range length matters (the number of rows to be fetched).
+--
+Space amplification is the ratio of the amount of data on the storage device versus the amount of
+data in the database. For example, if you put 10MB in the database and this database uses 100MB on
+the disk, then the space amplification is 10.
+
+a B-Tree has less read amplification than an LSM while an LSM has less write amplification than a
+B-Tree.
+-- read, write, space amplification (end)
